@@ -2,6 +2,7 @@
 
 [![NPM Version][npm-badge]][npm]
 [![Build Status][travis-badge]][travis]
+[![Test Coverage][coveralls-badge]][coveralls]
 
 International relative date/time formatter along with a React component.
 
@@ -198,3 +199,5 @@ npm install [module name with version].tar.gz
 [travis-badge]: https://img.shields.io/travis/halt-hammerzeit/react-time-ago/master.svg?style=flat-square
 [CLDR]: http://cldr.unicode.org/
 [Intl]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
+[coveralls]: https://coveralls.io/r/halt-hammerzeit/react-time-ago?branch=master
+[coveralls-badge]: https://img.shields.io/coveralls/halt-hammerzeit/react-time-ago/master.svg?style=flat-square
