@@ -1,7 +1,7 @@
-import chai from 'chai'
-chai.should()
+// import chai from 'chai'
+// chai.should()
 
-import react_time_ago from '../source/time ago'
+// import react_time_ago from '../source/time ago'
 
 // Load locale specific relative date/time messages
 import { short as english_short, long as english_long } from '../source/locales/en'
