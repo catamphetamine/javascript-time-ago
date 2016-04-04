@@ -11,9 +11,12 @@ import { short as russian_short, long as russian_long }  from '../source/locales
 // (the ones that decide if a number is gonna be 
 //  "zero", "one", "two", "few", "many" or "other")
 // http://cldr.unicode.org/index/cldr-spec/plural-rules
+// https://github.com/eemeli/make-plural.js
+//
 global.IntlMessageFormat = require('intl-messageformat')
 require('intl-messageformat/dist/locale-data/en')
 require('intl-messageformat/dist/locale-data/ru')
+delete global.IntlMessageFormat
 
 describe(`time ago`, function()
 {

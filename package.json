@@ -25,8 +25,7 @@
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.4.5",
     "npm-run-all": "^1.4.0",
-    "rimraf": "^2.5.0",
-    "webpack": "^1.12.14"
+    "rimraf": "^2.5.0"
   },
   "peerDependencies": {},
   "scripts": {

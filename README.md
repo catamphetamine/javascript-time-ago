@@ -56,6 +56,7 @@ import { long as russian }  from 'react-time-ago/locales/ru'
 // (the ones that decide if a number is gonna be 
 //  "zero", "one", "two", "few", "many" or "other")
 // http://cldr.unicode.org/index/cldr-spec/plural-rules
+// https://github.com/eemeli/make-plural.js
 //
 // If you are already using `react-intl` in your project
 // and have already `require()`d `react-intl` locale data
@@ -63,6 +64,7 @@ import { long as russian }  from 'react-time-ago/locales/ru'
 global.IntlMessageFormat = require('intl-messageformat')
 require('intl-messageformat/dist/locale-data/en')
 require('intl-messageformat/dist/locale-data/ru')
+delete global.IntlMessageFormat
 
 // Add locale specific relative date/time messages
 react_time_ago.locale('en', english)
