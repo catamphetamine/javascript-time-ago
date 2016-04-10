@@ -175,6 +175,15 @@ const text = time_ago.format(new Date())
 
 Localization data described in the above section can be further customized, for example, supporting "long" and "short" formats. Refer to `source/locales/en.js` for an example.
 
+Built-in localization data is presented in many variants. Example:
+
+```js
+import { english } from 'react-time-ago/locales/en'
+
+english.short // '1 sec. ago', '2 min. ago', …
+english.long  // '1 second ago', '2 minutes ago', …
+```
+
 One can also pass options as a second parameter to the `.format(date, options)` function. The options are:
 
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
@@ -208,6 +217,15 @@ A `gradation` is a list of time interval measurement steps. A simple example:
   * (some more `threshold` customization is possible, see the link below)
 
 For more gradation examples see [`source/classify elapsed.js`](https://github.com/halt-hammerzeit/react-time-ago/blob/master/source/classify%20elapsed.js)
+
+Available gradations:
+
+```js
+import { gradation } from 'react-time-ago'
+
+gradation.canonical()  // '1 second ago', '2 minutes ago', …
+gradation.convenient() // 'just now', '5 minutes ago', …
+```
 
 ## Contributing
 

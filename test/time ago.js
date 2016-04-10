@@ -7,8 +7,8 @@ import react_time_ago, { a_day, days_in_a_month, days_in_a_year, from_CLDR, grad
 
 // Load locale specific relative date/time messages
 import { short as english_short_cldr, long as english_long_cldr } from './locales/en-cldr'
-import { short as english_short, long as english_long } from '../source/locales/en'
-import { short as russian_short, long as russian_long }  from '../source/locales/ru'
+import { short as english_short, long as english_long } from '../locales/en'
+import { short as russian_short, long as russian_long }  from '../locales/ru'
 
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
@@ -41,25 +41,25 @@ describe(`time ago`, function()
 		from_CLDR(english_long_cldr).should.deep.equal(english_long)
 	})
 
-	it(`should omit just now`, function()
-	{
-		react_time_ago.locale('en', english_short)
-
-		const time_ago = new react_time_ago('en')
-
-		const custom_gradation = gradation.convenient()
-		while (custom_gradation[0].unit !== 'minute')
-		{
-			custom_gradation.shift()
-		}
-
-		const now = Date.now()
-		const elapsed = time => time_ago.format(now + time * 1000, { now, gradation: custom_gradation })
-
-		elapsed(0        ).should.equal('')
-		elapsed(2.49 * 60).should.equal('')
-		elapsed(2.51 * 60).should.equal('5 min. ago')
-	})
+	// it(`should omit just now`, function()
+	// {
+	// 	react_time_ago.locale('en', english_short)
+	//
+	// 	const time_ago = new react_time_ago('en')
+	//
+	// 	const custom_gradation = gradation.convenient()
+	// 	while (custom_gradation[0].unit !== 'minute')
+	// 	{
+	// 		custom_gradation.shift()
+	// 	}
+	//
+	// 	const now = Date.now()
+	// 	const elapsed = time => time_ago.format(now + time * 1000, { now, gradation: custom_gradation })
+	//
+	// 	elapsed(0        ).should.equal('')
+	// 	elapsed(2.49 * 60).should.equal('')
+	// 	elapsed(2.51 * 60).should.equal('5 min. ago')
+	// })
 
 	it(`should format time correctly for English language (short)`, function()
 	{
@@ -193,29 +193,128 @@ describe(`time ago`, function()
 	{
 		react_time_ago.locale('ru', russian_short)
 
-		const time_ago = new react_time_ago('ru')
-
-		const now = Date.now()
-		const elapsed = time => time_ago.format(now + time * 1000, { now })
-
-		elapsed(0     ).should.equal('1 сек. назад')
+		convenient_gradation_test
+		([
+			'только что',
+			'5 мин. назад',
+			'10 мин. назад',
+			'15 мин. назад',
+			'20 мин. назад',
+			'25 мин. назад',
+			'30 мин. назад',
+			'35 мин. назад',
+			'40 мин. назад',
+			'45 мин. назад',
+			'50 мин. назад',
+			'1 ч. назад',
+			'2 ч. назад',
+			'3 ч. назад',
+			'4 ч. назад',
+			'5 ч. назад',
+			'6 ч. назад',
+			'7 ч. назад',
+			'8 ч. назад',
+			'9 ч. назад',
+			'10 ч. назад',
+			'11 ч. назад',
+			'12 ч. назад',
+			'13 ч. назад',
+			'14 ч. назад',
+			'15 ч. назад',
+			'16 ч. назад',
+			'17 ч. назад',
+			'18 ч. назад',
+			'19 ч. назад',
+			'20 ч. назад',
+			'вчера',
+			'2 д. назад',
+			'3 д. назад',
+			'4 д. назад',
+			'5 д. назад',
+			'1 нед. назад',
+			'2 нед. назад',
+			'3 нед. назад',
+			'1 мес. назад',
+			'2 мес. назад',
+			'3 мес. назад',
+			'4 мес. назад',
+			'5 мес. назад',
+			'6 мес. назад',
+			'7 мес. назад',
+			'8 мес. назад',
+			'9 мес. назад',
+			'9 мес. назад',
+			'10 мес. назад',
+			'1 г. назад',
+			'2 г. назад',
+			'3 г. назад',
+			'100 л. назад'
+		],
+		new react_time_ago('ru'))
 	})
 
 	it(`should format time correctly for Russian language (long)`, function()
 	{
 		react_time_ago.locale('ru', russian_long)
 
-		const time_ago = new react_time_ago('ru')
-		
-		const now = Date.now()
-		const elapsed = time => time_ago.format(now + time * 1000, { now })
-
-		elapsed(0     ).should.equal('1 секунду назад')
-	})
-
-	it(`should throw an error when an appropriate locale data hasn't been found`, function()
-	{
-		// ...
+		convenient_gradation_test
+		([
+			'только что',
+			'5 минут назад',
+			'10 минут назад',
+			'15 минут назад',
+			'20 минут назад',
+			'полчаса назад',
+			'полчаса назад',
+			'полчаса назад',
+			'полчаса назад',
+			'час назад',
+			'час назад',
+			'час назад',
+			'2 часа назад',
+			'3 часа назад',
+			'4 часа назад',
+			'5 часов назад',
+			'6 часов назад',
+			'7 часов назад',
+			'8 часов назад',
+			'9 часов назад',
+			'10 часов назад',
+			'11 часов назад',
+			'12 часов назад',
+			'13 часов назад',
+			'14 часов назад',
+			'15 часов назад',
+			'16 часов назад',
+			'17 часов назад',
+			'18 часов назад',
+			'19 часов назад',
+			'20 часов назад',
+			'вчера',
+			'2 дня назад',
+			'3 дня назад',
+			'4 дня назад',
+			'5 дней назад',
+			'неделю назад',
+			'2 недели назад',
+			'3 недели назад',
+			'месяц назад',
+			'2 месяца назад',
+			'3 месяца назад',
+			'4 месяца назад',
+			'полгода назад',
+			'полгода назад',
+			'полгода назад',
+			'полгода назад',
+			'полгода назад',
+			'год назад',
+			'год назад',
+			'год назад',
+			'2 года назад',
+			'3 года назад',
+			'100 лет назад'
+		],
+		new react_time_ago('ru'))
 	})
 })
 

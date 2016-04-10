@@ -67,6 +67,7 @@ export const long = {
   "hour": {
     "displayName": "hour",
     "relative-type--1": "an hour ago",
+    "relative-type-0": "this hour",
     "relative-type-1": "in an hour",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} hour",
@@ -89,6 +90,7 @@ export const long = {
   "minute": {
     "displayName": "minute",
     "relative-type--1": "a minute ago",
+    "relative-type-0": "this minute",
     "relative-type-1": "in a minute",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} minute",

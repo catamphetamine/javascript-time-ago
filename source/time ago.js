@@ -85,6 +85,12 @@ export default class React_time_ago
 		// default formatter: "X units"
 		let formatter = formatters.default
 
+		// in case of "0 units"
+		if (amount === 0 && formatters.current)
+		{
+			formatter = formatters.current
+		}
+
 		// in case of "previous unit" or "next unit"
 		if ((amount === -1 || amount === 1) && formatters.previous_next)
 		{
@@ -172,7 +178,16 @@ export default class React_time_ago
 			default: default_formatter
 		}
 
-		// "previous unit" and "next unit" formatters
+		// "0 units" formatter
+		if (formatter_messages.current)
+		{
+			formatters.current =
+			{
+				format: () => formatter_messages.current
+			}
+		}
+
+		// "previous unit" and "next unit" formatter
 		if (formatter_messages.previous && formatter_messages.next)
 		{
 			const previous_next_message = `{ when, select, past   {${formatter_messages.previous}}
@@ -259,6 +274,11 @@ export function from_CLDR(data)
 			converted_entry.previous = entry.previous
 		}
 		
+		if (entry.current)
+		{
+			converted_entry.current = entry.current
+		}
+		
 		if (entry.next)
 		{
 			converted_entry.next = entry.next
@@ -279,6 +299,11 @@ export function from_CLDR(data)
 		if (entry['relative-type--1'])
 		{
 			converted_entry.previous = entry['relative-type--1']
+		}
+
+		if (entry['relative-type-0'])
+		{
+			converted_entry.current = entry['relative-type-0']
 		}
 
 		if (entry['relative-type-1'])

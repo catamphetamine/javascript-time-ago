@@ -1,7 +1,7 @@
 export const long = {
   "year": {
-    "previous": "в прошлом году",
-    "next": "в следующем году",
+    "previous": "год назад",
+    "next": "через год",
     "future": {
       "one": "через {0} год",
       "few": "через {0} года",
@@ -15,9 +15,17 @@ export const long = {
       "other": "{0} года назад"
     }
   },
+  "half-year": {
+    "future": {
+      "other": "через полгода"
+    },
+    "past": {
+      "other": "полгода назад"
+    }
+  },
   "month": {
-    "previous": "в прошлом месяце",
-    "next": "в следующем месяце",
+    "previous": "месяц назад",
+    "next": "через месяц",
     "future": {
       "one": "через {0} месяц",
       "few": "через {0} месяца",
@@ -32,8 +40,8 @@ export const long = {
     }
   },
   "week": {
-    "previous": "на прошлой неделе",
-    "next": "на следующей неделе",
+    "previous": "неделю назад",
+    "next": "через неделю",
     "future": {
       "one": "через {0} неделю",
       "few": "через {0} недели",
@@ -64,6 +72,8 @@ export const long = {
     }
   },
   "hour": {
+    "previous": "час назад",
+    "next": "через час",
     "future": {
       "one": "через {0} час",
       "few": "через {0} часа",
@@ -75,6 +85,14 @@ export const long = {
       "few": "{0} часа назад",
       "many": "{0} часов назад",
       "other": "{0} часа назад"
+    }
+  },
+  "half-hour": {
+    "future": {
+      "other": "через полчаса"
+    },
+    "past": {
+      "other": "полчаса назад"
     }
   },
   "minute": {
@@ -92,6 +110,7 @@ export const long = {
     }
   },
   "second": {
+    "current": "сейчас",
     "future": {
       "one": "через {0} секунду",
       "few": "через {0} секунды",
@@ -104,13 +123,19 @@ export const long = {
       "many": "{0} секунд назад",
       "other": "{0} секунды назад"
     }
+  },
+  "just-now": {
+    "past": {
+      "other": "только что"
+    },
+    "future": {
+      "other": "сейчас"
+    }
   }
 }
 
 export const short = {
   "year": {
-    "previous": "в прошлом году",
-    "next": "в следующем году",
     "future": {
       "one": "через {0} г.",
       "few": "через {0} г.",
@@ -125,8 +150,6 @@ export const short = {
     }
   },
   "month": {
-    "previous": "в прошлом месяце",
-    "next": "в следующем месяце",
     "future": {
       "one": "через {0} мес.",
       "few": "через {0} мес.",
@@ -141,8 +164,6 @@ export const short = {
     }
   },
   "week": {
-    "previous": "на прошлой неделе",
-    "next": "на следующей неделе",
     "future": {
       "one": "через {0} нед.",
       "few": "через {0} нед.",
@@ -201,6 +222,7 @@ export const short = {
     }
   },
   "second": {
+    "current": "сейчас",
     "future": {
       "one": "через {0} сек.",
       "few": "через {0} сек.",
@@ -212,6 +234,14 @@ export const short = {
       "few": "{0} сек. назад",
       "many": "{0} сек. назад",
       "other": "{0} сек. назад"
+    }
+  },
+  "just-now": {
+    "past": {
+      "other": "только что"
+    },
+    "future": {
+      "other": "сейчас"
     }
   }
 }

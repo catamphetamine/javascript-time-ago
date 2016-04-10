@@ -1,6 +1,7 @@
 export const long = {
   "year": {
     "previous": "a year ago",
+    "current": "this year",
     "next": "in a year",
     "future": {
       "one": "in {0} year",
@@ -21,6 +22,7 @@ export const long = {
   },
   "month": {
     "previous": "a month ago",
+    "current": "this month",
     "next": "in a month",
     "future": {
       "one": "in {0} month",
@@ -33,6 +35,7 @@ export const long = {
   },
   "week": {
     "previous": "a week ago",
+    "current": "this week",
     "next": "in a week",
     "future": {
       "one": "in {0} week",
@@ -45,6 +48,7 @@ export const long = {
   },
   "day": {
     "previous": "yesterday",
+    "current": "today",
     "next": "tomorrow",
     "future": {
       "one": "in {0} day",
@@ -57,6 +61,7 @@ export const long = {
   },
   "hour": {
     "previous": "an hour ago",
+    "current": "this hour",
     "next": "in an hour",
     "future": {
       "one": "in {0} hour",
@@ -77,6 +82,7 @@ export const long = {
   },
   "minute": {
     "previous": "a minute ago",
+    "current": "this minute",
     "next": "in a minute",
     "future": {
       "one": "in {0} minute",
@@ -88,6 +94,7 @@ export const long = {
     }
   },
   "second": {
+    "current": "now",
     "future": {
       "one": "in {0} second",
       "other": "in {0} seconds"
@@ -140,6 +147,7 @@ export const short = {
   },
   "day": {
     "previous": "yesterday",
+    "current": "today",
     "next": "tomorrow",
     "future": {
       "one": "in {0} day",
@@ -171,6 +179,7 @@ export const short = {
     }
   },
   "second": {
+    "current": "now",
     "past": {
       "one": "{0} sec. ago",
       "other": "{0} sec. ago"
