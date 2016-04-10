@@ -18,8 +18,6 @@ else
 	global.Intl = require('intl')
 }
 
-global.react_time_ago = require('../source').default
-
 import chai from 'chai'
 chai.should()
 

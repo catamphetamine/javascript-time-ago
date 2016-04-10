@@ -1,9 +1,9 @@
 export const long = {
   "year": {
     "displayName": "year",
-    "relative-type--1": "last year",
+    "relative-type--1": "a year ago",
     "relative-type-0": "this year",
-    "relative-type-1": "next year",
+    "relative-type-1": "in a year",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} year",
       "relativeTimePattern-count-other": "in {0} years"
@@ -13,11 +13,20 @@ export const long = {
       "relativeTimePattern-count-other": "{0} years ago"
     }
   },
+  "half-year": {
+    "displayName": "half a year",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-other": "in half a year"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-other": "half a year ago"
+    }
+  },
   "month": {
     "displayName": "month",
-    "relative-type--1": "last month",
+    "relative-type--1": "a month ago",
     "relative-type-0": "this month",
-    "relative-type-1": "next month",
+    "relative-type-1": "in a month",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} month",
       "relativeTimePattern-count-other": "in {0} months"
@@ -29,9 +38,9 @@ export const long = {
   },
   "week": {
     "displayName": "week",
-    "relative-type--1": "last week",
+    "relative-type--1": "a week ago",
     "relative-type-0": "this week",
-    "relative-type-1": "next week",
+    "relative-type-1": "in a week",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} week",
       "relativeTimePattern-count-other": "in {0} weeks"
@@ -57,6 +66,8 @@ export const long = {
   },
   "hour": {
     "displayName": "hour",
+    "relative-type--1": "an hour ago",
+    "relative-type-1": "in an hour",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} hour",
       "relativeTimePattern-count-other": "in {0} hours"
@@ -66,8 +77,19 @@ export const long = {
       "relativeTimePattern-count-other": "{0} hours ago"
     }
   },
+  "half-hour": {
+    "displayName": "half an hour",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-other": "in half an hour"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-other": "half an hour ago"
+    }
+  },
   "minute": {
     "displayName": "minute",
+    "relative-type--1": "a minute ago",
+    "relative-type-1": "in a minute",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} minute",
       "relativeTimePattern-count-other": "in {0} minutes"
@@ -87,6 +109,17 @@ export const long = {
     "relativeTime-type-past": {
       "relativeTimePattern-count-one": "{0} second ago",
       "relativeTimePattern-count-other": "{0} seconds ago"
+    }
+  },
+  "just-now": {
+    "displayName": "just now",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "in a moment",
+      "relativeTimePattern-count-other": "in a moment"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "just now",
+      "relativeTimePattern-count-other": "just now"
     }
   }
 }

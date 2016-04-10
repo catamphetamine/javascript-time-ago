@@ -61,9 +61,9 @@ import { long as russian }  from 'react-time-ago/locales/ru'
 // If you are already using `react-intl` in your project
 // and have already `require()`d `react-intl` locale data
 // for these locales then this step is unnecessary
-global.IntlMessageFormat = require('intl-messageformat')
-require('intl-messageformat/dist/locale-data/en')
-require('intl-messageformat/dist/locale-data/ru')
+global.IntlMessageFormat = require('react-time-ago/node_modules/intl-messageformat')
+require('react-time-ago/node_modules/intl-messageformat/dist/locale-data/en')
+require('react-time-ago/node_modules/intl-messageformat/dist/locale-data/ru')
 delete global.IntlMessageFormat
 
 // Add locale specific relative date/time messages

@@ -59,7 +59,7 @@ export default class React_time_ago
 			throw new Error(`Unsupported fuzzy time input: ${input}`)
 		}
 
-		const elapsed = (now - time) / 1000
+		const elapsed = (now - time) / 1000 // in seconds
 
 		// choose the appropriate time measurement unit 
 		// and get the corresponding rounded time amount
@@ -67,21 +67,34 @@ export default class React_time_ago
 
 		// format the message for the chosen time measurement unit
 		// (second, minute, hour, day, etc)
-		return this.get_formatter(unit).format
+
+		const formatters = this.get_formatters(unit)
+
+		// default formatter: "X units"
+		let formatter = formatters.default
+
+		// in case of "previous unit" or "next unit"
+		if ((amount === -1 || amount === 1) && formatters.previous_next)
+		{
+			formatter = formatters.previous_next
+		}
+
+		// return formatted time amount
+		return formatter.format
 		({
 			'0'  : amount,
-			when : elapsed >= 0 ? 'past' : 'future'
+			when : elapsed <= 0 ? 'past' : 'future'
 		})
 	}
 
 	// lazy creation of a formatter for a given time measurement unit
 	// (second, minute, hour, day, etc)
-	get_formatter(unit)
+	get_formatters(unit)
 	{
 		// Create a new synthetic message based on the locale data from CLDR.
 		if (!this.formatters[unit])
 		{
-			this.formatters[unit] = this.compile_formatter(unit)
+			this.formatters[unit] = this.compile_formatters(unit)
 		}
 
 		return this.formatters[unit]
@@ -89,7 +102,7 @@ export default class React_time_ago
 
 	// compiles formatter for the specified time measurement unit 
 	// (second, minute, hour, day, etc)
-	compile_formatter(unit)
+	compile_formatters(unit)
 	{
 		// Locale specific time interval formatter messages
 		// for the given time interval measurement unit
@@ -98,6 +111,13 @@ export default class React_time_ago
 		// Locale specific time interval formatter messages
 		// for the given time interval measurement unit
 		// for "past" and "future"
+		//
+		// (e.g.
+		//  {
+		//   "relativeTimePattern-count-one": "{0} second ago",
+		//   "relativeTimePattern-count-other": "{0} seconds ago"
+		//  })
+		//
 		const past_formatter_messages   = formatter_messages['relativeTime-type-past']
 		const future_formatter_messages = formatter_messages['relativeTime-type-future']
 
@@ -129,11 +149,29 @@ export default class React_time_ago
 		// ("0" will be replaced with the first argument
 		//  when the message will be formatted)
 		const message = `{ when, select, past   {{0, plural, ${past_formatter}}}
-		                                future {{0, plural, ${future_formatter}}} }`
+		                                 future {{0, plural, ${future_formatter}}} }`
 
 		// Create the synthetic IntlMessageFormat instance 
 		// using the original locales specified by the user
-		return new IntlMessageFormat(message, this.locales)
+		const default_formatter = new IntlMessageFormat(message, this.locales)
+
+		const formatters = 
+		{
+			default: default_formatter
+		}
+
+		// "previous unit" and "next unit" formatters
+		if (formatter_messages['relative-type--1'] && formatter_messages['relative-type-1'])
+		{
+			const previous_next_message = `{ when, select, past   {${formatter_messages['relative-type--1']}}
+			                                               future {${formatter_messages['relative-type-1']}} }`
+		
+			// Create the synthetic IntlMessageFormat instance 
+			// using the original locales specified by the user
+			formatters.previous_next = new IntlMessageFormat(previous_next_message, this.locales)
+		}
+
+		return formatters
 	}
 
 	// Chooses the most appropriate locale 

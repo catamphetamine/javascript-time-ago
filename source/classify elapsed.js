@@ -1,59 +1,72 @@
 // https://www.quora.com/What-is-the-average-number-of-days-in-a-month
-const days_in_a_month = 30.44
+export const days_in_a_month = 30.44
 
 // "400 years have 146097 days (taking into account leap year rules)"
-const days_in_a_year = 146097 / 400
+export const days_in_a_year = 146097 / 400
 
-const a_day = 24 * 60 * 60 // in seconds
+export const a_day = 24 * 60 * 60 // in seconds
 
-const default_gradation =
-[
+export const gradation =
+{
+	canonical: () =>
 	{
-		unit: 'second',
-		factor: 1
-	},
-	{
-		unit: 'minute',
-		factor: 60,
-		threshold: 45,
-		granularity: 5
-	},
-	{
-		unit: 'half-hour',
-		factor: 30 * 60,
-		threshold: 27.5 * 60
-	},
-	{
-		unit: 'hour',
-		factor: 60 * 60,
-		threshold: 45 * 60
-	},
-	{
-		unit: 'day',
-		factor: a_day,
-		threshold: (23.5 / 24) * a_day
-	},
-	{
-		unit: 'week',
-		factor: 7 * a_day,
-		threshold: 6.5 * a_day
-	},
-	{
-		unit: 'month',
-		factor: days_in_a_month * a_day,
-		threshold: 3.5 * 7 * a_day
-	},
-	{
-		unit: 'half-year',
-		factor: 0.5 * days_in_a_year * a_day,
-		threshold: 3 * days_in_a_month * a_day
-	},
-	{
-		unit: 'year',
-		factor: days_in_a_year * a_day,
-		threshold: 9 * days_in_a_month * a_day
+		const result =
+		[
+			{
+				unit: 'just-now',
+				factor: 1
+			},
+			{
+				unit: 'second',
+				factor: 1,
+				threshold: 0
+			},
+			{
+				unit: 'minute',
+				factor: 60,
+				threshold: 45,
+				granularity: 5
+			},
+			{
+				unit: 'half-hour',
+				factor: 30 * 60,
+				threshold: 22.5 * 60
+			},
+			{
+				unit: 'hour',
+				factor: 60 * 60,
+				threshold: 45 * 60
+			},
+			{
+				unit: 'day',
+				factor: a_day,
+				threshold: (20.5 / 24) * a_day
+			},
+			{
+				unit: 'week',
+				factor: 7 * a_day,
+				threshold: 5.5 * a_day
+			},
+			{
+				unit: 'month',
+				factor: days_in_a_month * a_day,
+				threshold: 3.5 * 7 * a_day
+			},
+			{
+				unit: 'half-year',
+				factor: 0.5 * days_in_a_year * a_day,
+				threshold: 4.5 * days_in_a_month * a_day
+			},
+			{
+				unit: 'year',
+				factor: days_in_a_year * a_day,
+				threshold: 9 * days_in_a_month * a_day
+			}
+		]
+
+		return result
 	}
-]
+}
 
 // Chooses the appropriate time measurement unit 
 // and also returns the corresponding rounded time amount.
@@ -64,7 +77,7 @@ const default_gradation =
 // Parameters:
 //
 //    elapsed - time interval in seconds
-//    units   - a list of available units
+//    units   - a list of supported time units
 //
 //    options - (optional) 
 //
@@ -76,20 +89,52 @@ const default_gradation =
 export default function classify_elapsed(elapsed, units, options = {})
 {
 	// time interval measurement unit rounding gradation
-	const full_gradation = options.gradation || default_gradation
+	const full_gradation = options.gradation || gradation.canonical()
 
 	// Leave only supported gradation steps
-	const gradation = full_gradation.filter(step => units.indexOf(step.unit) >= 0)
+	const gradation_steps = full_gradation.filter(step => units.indexOf(step.unit) >= 0)
 
 	let i = 0
-	while (i < gradation.length)
+	while (i < gradation_steps.length)
 	{
-		const step = gradation[i]
-		const next_step = i + 1 < gradation.length ? gradation[i + 1] : undefined
+		const step = gradation_steps[i]
+		const next_step = i + 1 < gradation_steps.length ? gradation_steps[i + 1] : undefined
 
 		if (!next_step || elapsed < next_step.threshold)
 		{
-			return { unit: step.unit, amount: Math.floor(elapsed / step.factor) }
+			const exact_amount = elapsed / step.factor
+			let amount = Math.round(exact_amount)
+
+			if (amount === 0)
+			{
+				amount = elapsed >= 0 ? 1 : -1
+			}
+
+			// apply granularity to the amount
+			// (and fallback to the previous step
+			//  if the first level of granularity
+			//  isn't met by this amount)
+			if (step.granularity)
+			{
+				const remainder = exact_amount % step.granularity
+				amount = exact_amount - remainder
+				amount += Math.round(remainder / step.granularity) * step.granularity
+
+				if (amount === 0)
+				{
+					const previous_step = gradation_steps[i - 1]
+
+					const previous_step_result =
+					{
+						unit   : previous_step.unit, 
+						amount : Math.floor(elapsed / previous_step.factor)
+					}
+
+					return previous_step_result
+				}
+			}
+
+			return { unit: step.unit, amount }
 		}
 
 		i++
