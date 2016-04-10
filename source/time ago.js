@@ -124,8 +124,8 @@ export default class React_time_ago
 		//   "relativeTimePattern-count-other": "{0} seconds ago"
 		//  })
 		//
-		const past_formatter_messages   = formatter_messages['relativeTime-type-past']
-		const future_formatter_messages = formatter_messages['relativeTime-type-future']
+		const past_formatter_messages   = formatter_messages.past
+		const future_formatter_messages = formatter_messages.future
 
 		// `format.js` number formatter messages
 		// e.g. "one {# second ago} other {# seconds ago}"
@@ -137,7 +137,7 @@ export default class React_time_ago
 		//  with format.js number placeholder "#")
 		for (let key of Object.keys(past_formatter_messages))
 		{
-			past_formatter += ` ${key.replace(/^relativeTimePattern-count-/, '')} 
+			past_formatter += ` ${key} 
 					{${past_formatter_messages[key].replace('{0}', '#')}}`
 		}
 
@@ -147,7 +147,7 @@ export default class React_time_ago
 		for (let key of Object.keys(future_formatter_messages))
 		{
 			// e.g. += " one {# sec. ago}"
-			future_formatter += ` ${key.replace(/^relativeTimePattern-count-/, '')} 
+			future_formatter += ` ${key} 
 					{${future_formatter_messages[key].replace('{0}', '#')}}`
 		}
 
@@ -167,10 +167,10 @@ export default class React_time_ago
 		}
 
 		// "previous unit" and "next unit" formatters
-		if (formatter_messages['relative-type--1'] && formatter_messages['relative-type-1'])
+		if (formatter_messages.previous && formatter_messages.next)
 		{
-			const previous_next_message = `{ when, select, past   {${formatter_messages['relative-type--1']}}
-			                                               future {${formatter_messages['relative-type-1']}} }`
+			const previous_next_message = `{ when, select, past   {${formatter_messages.previous}}
+			                                               future {${formatter_messages.next}} }`
 		
 			// Create the synthetic IntlMessageFormat instance 
 			// using the original locales specified by the user
@@ -225,6 +225,9 @@ export default class React_time_ago
 // Adds locale data
 React_time_ago.locale = function(locale, locale_data)
 {
+	// Convert from CLDR format (if needed)
+	locale_data = from_CLDR(locale_data)
+
 	// Store locale specific messages in the static variable
 	React_time_ago.locale_data[locale.toLowerCase()] = locale_data
 
@@ -232,4 +235,65 @@ React_time_ago.locale = function(locale, locale_data)
 	// // Add locale data to IntlMessageFormat
 	// // (to be more specific: the `pluralRuleFunction`)
 	// require('intl-messageformat/locale-data/ru')
+}
+
+// Converts locale data from CLDR format (if needed)
+function from_CLDR(data)
+{
+	const converted = {}
+
+	for (let key of Object.keys(data))
+	{
+		const entry = data[key]
+
+		const converted_entry = 
+		{
+			previous : entry.previous,
+			next     : entry.next,
+			past     : entry.past,
+			future   : entry.future
+		}
+
+		converted[key] = converted_entry
+
+		if (entry['relative-type--1'])
+		{
+			converted_entry.previous = entry['relative-type--1']
+		}
+
+		if (entry['relative-type-1'])
+		{
+			converted_entry.next = entry['relative-type-1']
+		}
+
+		if (entry['relativeTime-type-past'])
+		{
+			const past = entry['relativeTime-type-past']
+			converted_entry.past = {}
+
+			for (let subkey of Object.keys(past))
+			{
+				const prefix = 'relativeTimePattern-count-'
+				const converted_subkey = subkey.replace(prefix, '')
+
+				converted_entry.past[converted_subkey] = past[subkey]
+			}
+		}
+
+		if (entry['relativeTime-type-future'])
+		{
+			const future = entry['relativeTime-type-future']
+			converted_entry.future = {}
+
+			for (let subkey of Object.keys(future))
+			{
+				const prefix = 'relativeTimePattern-count-'
+				const converted_subkey = subkey.replace(prefix, '')
+
+				converted_entry.future[converted_subkey] = future[subkey]
+			}
+		}
+	}
+
+	return converted
 }

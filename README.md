@@ -29,6 +29,33 @@ Formats a date to something like:
   * 5 years ago
   * … or whatever else
 
+
+
+
+
+
+
+сделать преобразование CLDR в нормальный формат (intl-messageformat), и в документации это описать тоже
+
+locales/* прееделать в нормальный вид после этого
+
+
+
+сделать twitter-style (и задокументировать)
+
+57 сек.
+1 min
+5 min
+13 min
+29 min
+59 min
+1 ч.
+2 ч.
+23 ч.
+5 апр.
+13 марта
+24 дек. 2015 г.
+
 ## Installation
 
 **This package hasn't been released to npm yet. It will be released this week.**

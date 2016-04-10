@@ -6,7 +6,7 @@
 import react_time_ago, { a_day, days_in_a_month, days_in_a_year } from '../source'
 
 // Load locale specific relative date/time messages
-import { short as english_short, long as english_long } from '../source/locales/en'
+import { short as english_short, long as english_long } from './locales/en-cldr'
 import { short as russian_short, long as russian_long }  from '../source/locales/ru'
 
 // Load number pluralization functions for the locales.
