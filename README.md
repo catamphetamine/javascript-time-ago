@@ -210,7 +210,7 @@ One can also pass `options` as a second parameter to the `.format(date, options)
 
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
   * `gradation` – custom time interval measurement units gradation
-  * `override` - a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise it has no effect.
+  * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise it has no effect.
 
 ## Gradation
 
