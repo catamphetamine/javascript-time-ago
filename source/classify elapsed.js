@@ -171,13 +171,13 @@ export const gradation =
 // Returns an object of `unit` and `amount`
 // (e.g. { unit: 'day', amount: 3 })
 //
-export default function classify_elapsed(elapsed, units, options = {})
+export default function classify_elapsed(elapsed, units, gradation_steps)
 {
 	// Time interval measurement unit rounding gradation
-	const full_gradation = options.gradation || gradation.convenient()
+	gradation_steps = gradation_steps || gradation.convenient()
 
 	// Leave only supported gradation steps
-	const gradation_steps = full_gradation.filter(step => units.indexOf(step.unit) >= 0)
+	gradation_steps = gradation_steps.filter(step => units.indexOf(step.unit) >= 0)
 
 	// Find the most appropriate time scale gradation step
 	let i = 0

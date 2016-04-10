@@ -40,10 +40,6 @@ export default class React_time_ago
 	// formats the relative date
 	format(input, options = {})
 	{
-		let { type, now } = options
-
-		now = now || Date.now()
-
 		let time
 		
 		if (typeof input === 'number')
@@ -59,6 +55,9 @@ export default class React_time_ago
 			throw new Error(`Unsupported fuzzy time input: ${input}`)
 		}
 
+		// can pass a custom `now` for testing purpose
+		const now = options.now || Date.now()
+
 		const elapsed = (now - time) / 1000 // in seconds
 
 		// Available time interval measurement units
@@ -70,7 +69,7 @@ export default class React_time_ago
 
 		// choose the appropriate time measurement unit 
 		// and get the corresponding rounded time amount
-		const { unit, amount } = classify_elapsed(Math.abs(elapsed), units, this.fields)
+		const { unit, amount } = classify_elapsed(Math.abs(elapsed), units, options.gradation)
 
 		// format the message for the chosen time measurement unit
 		// (second, minute, hour, day, etc)

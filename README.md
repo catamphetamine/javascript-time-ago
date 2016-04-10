@@ -94,15 +94,43 @@ Then configure the Intl polyfill:
   * [Webpack](https://github.com/andyearnshaw/Intl.js#intljs-and-browserifywebpack)
   * [Bower](https://github.com/andyearnshaw/Intl.js#intljs-and-bower)
 
-## CLDR
+## Localization
 
-This library currently comes with English and Russian localization.
+This library currently comes with English and Russian localization built-in, but any other locale can be added at runtime.
 
-This library is compatible with [Unicode CLDR][CLDR] (Common Locale Data Repository) which is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
+The built-in localization resides in the [`source/locales`](https://github.com/halt-hammerzeit/react-time-ago/tree/master/source/locales) folder.
+
+The format of the localization is:
+
+```json
+{
+  …
+  "day": 
+  {
+    "previous": "yesterday",
+    "next": "tomorrow",
+    "past":
+    {
+      "one": "{0} day ago",
+      "other": "{0} days ago"
+    },
+    "future":
+    {
+      "one": "in {0} day",
+      "other": "in {0} days"
+    }
+  },
+  …
+}
+```
+
+The `past` and `future` keys can be one of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info of which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR][CLDR] (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
+
+One can also use raw Unicode CLDR locale rules which will be automatically converted to the format described above.
 
 [Example for en-US-POSIX locale](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/en-US-POSIX/dateFields.json)
 
-```js
+```json
 {
   "main": {
     "en-US-POSIX": {
@@ -112,7 +140,7 @@ This library is compatible with [Unicode CLDR][CLDR] (Common Locale Data Reposit
           "day": {
             "displayName": "day", // `displayName` field is not used
             "relative-type--1": "yesterday", // is optional
-            "relative-type-0": "today", // is optional
+            "relative-type-0": "today", // this field is not used
             "relative-type-1": "tomorrow", // is optional
             "relativeTime-type-future": {
               "relativeTimePattern-count-one": "in {0} day",
@@ -131,7 +159,7 @@ This library is compatible with [Unicode CLDR][CLDR] (Common Locale Data Reposit
 }
 ```
 
-To add support for a specific language one should download the corresponding JSON file from [CLDR dates repository](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main) and add the data from that file to the library:
+To add support for a specific language one can download the corresponding JSON file from [CLDR dates repository](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main) and add the data from that file to the library:
 
 ```js
 import react_time_ago from 'react-time-ago'
@@ -145,7 +173,35 @@ const text = time_ago.format(new Date())
 
 ## Customization
 
-One is free to customize the output by supplying his own locale data to the library. If that's not enough then create an issue and maybe an appropriate solution can be implemented.
+Localization data described in the above section can be further customized, for example, supporting "long" and "short" formats. Refer to `source/locales/en.js` for an example.
+
+One can also pass options as a second parameter to the `.format(date, options)` function. The options are:
+
+  * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
+  * `gradation` – time interval measurement units gradation
+
+Gradation example:
+
+```
+[
+  {
+    unit: 'second',
+  },
+  {
+    unit: 'minute',
+    factor: 60,
+    threshold: 60
+  },
+  {
+    unit: 'hour',
+    factor: 60 * 60,
+    threshold: 60 * 60
+  },
+  …
+]
+```
+
+For more gradation examples see [`source/classify elapsed.js`](https://github.com/halt-hammerzeit/react-time-ago/blob/master/source/classify%20elapsed.js)
 
 ## Contributing
 
