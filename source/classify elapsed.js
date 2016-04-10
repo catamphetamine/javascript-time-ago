@@ -8,11 +8,27 @@ export const a_day = 24 * 60 * 60 // in seconds
 
 export const gradation =
 {
-	// 0 seconds ago
+	// just now
 	// 1 second ago
 	// …
 	// 59 seconds ago
-	// a minute ago
+	// 1 minute ago
+	// …
+	// 59 minutes ago
+	// 1 hour ago
+	// …
+	// 24 hours ago
+	// 1 day ago
+	// …
+	// 7 days ago
+	// 1 week ago
+	// …
+	// 3 weeks ago
+	// 1 month ago
+	// …
+	// 11 months ago
+	// 1 year ago
+	// …
 	canonical: () =>
 	{
 		const result =
@@ -29,32 +45,32 @@ export const gradation =
 			{
 				unit: 'minute',
 				factor: 60,
-				threshold: 60
+				threshold: 59.5
 			},
 			{
 				unit: 'hour',
 				factor: 60 * 60,
-				threshold: 60 * 60
+				threshold: 59.5 * 60
 			},
 			{
 				unit: 'day',
 				factor: a_day,
-				threshold: a_day
+				threshold: 23.5 * 60 * 60
 			},
 			{
 				unit: 'week',
 				factor: 7 * a_day,
-				threshold: 7 * a_day
+				threshold: 6.5 * a_day
 			},
 			{
 				unit: 'month',
 				factor: days_in_a_month * a_day,
-				threshold: days_in_a_month * a_day
+				threshold: 3.5 * 7 * a_day * a_day
 			},
 			{
 				unit: 'year',
 				factor: days_in_a_year * a_day,
-				threshold: days_in_a_year * a_day
+				threshold: 11.5 * days_in_a_month * a_day
 			}
 		]
 
@@ -156,18 +172,16 @@ export const gradation =
 //
 //    elapsed - time interval (in seconds)
 //
-//    units   - a list of supported time units
+//    units   - a list of allowed time units
 //              (e.g. ['second', 'minute', 'hour', …])
 //
-//    options - (optional) 
-//
-//       gradation - (optional) time scale gradation steps.
-//                   (e.g.
-//                   [
-//                      { unit: 'second', factor: 1 }, 
-//                      { unit: 'minute', factor: 60, threshold: 60 },
-//                      …
-//                   ])
+//    gradation - (optional) time scale gradation steps.
+//                (e.g.
+//                [
+//                   { unit: 'second', factor: 1 }, 
+//                   { unit: 'minute', factor: 60, threshold: 60 },
+//                   …
+//                ])
 //
 // Returns an object of `unit` and `amount`
 // (e.g. { unit: 'day', amount: 3 })

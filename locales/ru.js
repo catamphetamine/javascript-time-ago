@@ -246,4 +246,75 @@ export const short = {
   }
 }
 
+export const tiny = {
+  "year": {
+    "future": {
+      "other": "{0}г"
+    },
+    "past": {
+      "other": "{0}г"
+    }
+  },
+  "month": {
+    "future": {
+      "other": "{0}мес"
+    },
+    "past": {
+      "other": "{0}мес"
+    }
+  },
+  "week": {
+    "future": {
+      "other": "{0}нед"
+    },
+    "past": {
+      "other": "{0}нед"
+    }
+  },
+  "day": {
+    "previous": "yesterday",
+    "current": "today",
+    "next": "tomorrow",
+    "future": {
+      "other": "{0}д"
+    },
+    "past": {
+      "other": "{0}д"
+    }
+  },
+  "hour": {
+    "future": {
+      "other": "{0}ч"
+    },
+    "past": {
+      "other": "{0}ч"
+    }
+  },
+  "minute": {
+    "future": {
+      "other": "{0}м"
+    },
+    "past": {
+      "other": "{0}м"
+    }
+  },
+  "second": {
+    "current": "now",
+    "past": {
+      "other": "{0}с"
+    },
+    "future": {
+      "other": "{0}с"
+    }
+  },
+  "just-now": {
+    "past": {
+      "other": ""
+    },
+    "future": {
+      "other": ""
+    }
+  }
+}
+
 export default long

@@ -27,7 +27,7 @@ export default class React_time_ago
 		}
 
 		// Choose the most appropriate locale
-		this.locale = this.resolve_locale(locales)
+		this.locale = resolve_locale(locales)
 		// Get relative time formatter messages for this locale
 		this.fields = React_time_ago.locale_data[this.locale]
 		// Available time measurement units
@@ -37,28 +37,69 @@ export default class React_time_ago
 		this.locales = locales
 	}
 
-	// formats the relative date
+	// Formats the relative date.
+	//
+	// Returns: a string
+	//
+	// Parameters:
+	//
+	//    options - (optional)
+	//
+	//       units     - a list of allowed time units
+	//                   (e.g. ['second', 'minute', 'hour', …])
+	//
+	//       gradation - time scale gradation steps.
+	//                   (e.g.
+	//                   [
+	//                      { unit: 'second', factor: 1 }, 
+	//                      { unit: 'minute', factor: 60, threshold: 60 },
+	//                      …
+	//                   ])
+	//
+	//       override - function ({ elapsed, time, date, now })
+	//
+	//                  If the `override` function returns a value,
+	//                  then the `.format()` call will return the value.
+	//                  Otherwise it has no effect.
+	//
 	format(input, options = {})
 	{
+		let date
 		let time
 		
 		if (typeof input === 'number')
 		{
 			time = input
+			date = new Date(input)
 		}
 		else if (input.constructor === Date)
 		{
+			date = input
 			time = input.getTime()
 		}
 		else
 		{
-			throw new Error(`Unsupported fuzzy time input: ${input}`)
+			throw new Error(`Unsupported fuzzy time input: ${typeof input}, ${input}`)
 		}
 
 		// can pass a custom `now` for testing purpose
 		const now = options.now || Date.now()
 
+		// how much time elapsed (in seconds)
 		const elapsed = (now - time) / 1000 // in seconds
+
+		// Allows output customization.
+		// For example, seconds, minutes and hours can be shown relatively,
+		// and other intervals can be shown using full date format.
+		// (see Twitter style)
+		if (options.override)
+		{
+			const override = options.override({ elapsed, time, date, now })
+			if (override !== undefined)
+			{
+				return override
+			}
+		}
 
 		// Available time interval measurement units
 		let units = this.units
@@ -200,47 +241,47 @@ export default class React_time_ago
 
 		return formatters
 	}
+}
 
-	// Chooses the most appropriate locale 
-	// based on the list of preferred locales supplied by the user
-	resolve_locale(locales)
+// Chooses the most appropriate locale 
+// based on the list of preferred locales supplied by the user
+export function resolve_locale(locales)
+{
+	// Suppose it's an array
+	if (typeof locales === 'string')
 	{
-		// Suppose it's an array
-		if (typeof locales === 'string')
-		{
-			locales = [locales]
-		}
-
-		// Create a copy of the array so we can push on the default locale.
-		locales = (locales || []).concat(React_time_ago.default_locale)
-
-		// Using the set of locales + the default locale, we look for the first one
-		// which that has been registered. When data does not exist for a locale, we
-		// traverse its ancestors to find something that's been registered within
-		// its hierarchy of locales. Since we lack the proper `parentLocale` data
-		// here, we must take a naive approach to traversal.
-		for (let locale of locales)
-		{
-			const locale_parts = locale.toLowerCase().split('-')
-
-			while (locale_parts.length)
-			{
-				const locale_try = locale_parts.join('-')
-
-				if (React_time_ago.locale_data[locale_try])
-				{
-					// Return the normalized locale string; 
-					// e.g., we return "en-US",
-					// instead of "en-us".
-					return locale_try
-				}
-
-				locale_parts.pop()
-			}
-		}
-
-		throw new Error(`No locale data has been added for any of the locales: ${locales.join(', ')}`)
+		locales = [locales]
 	}
+
+	// Create a copy of the array so we can push on the default locale.
+	locales = (locales || []).concat(React_time_ago.default_locale)
+
+	// Using the set of locales + the default locale, we look for the first one
+	// which that has been registered. When data does not exist for a locale, we
+	// traverse its ancestors to find something that's been registered within
+	// its hierarchy of locales. Since we lack the proper `parentLocale` data
+	// here, we must take a naive approach to traversal.
+	for (let locale of locales)
+	{
+		const locale_parts = locale.toLowerCase().split('-')
+
+		while (locale_parts.length)
+		{
+			const locale_try = locale_parts.join('-')
+
+			if (React_time_ago.locale_data[locale_try])
+			{
+				// Return the normalized locale string; 
+				// e.g., we return "en-US",
+				// instead of "en-us".
+				return locale_try
+			}
+
+			locale_parts.pop()
+		}
+	}
+
+	throw new Error(`No locale data has been added for any of the locales: ${locales.join(', ')}`)
 }
 
 // Adds locale data

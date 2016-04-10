@@ -31,7 +31,7 @@ Formats a date to something like:
 
 ## Installation
 
-**This package hasn't been released to npm yet. It will be released this week.**
+**This package hasn't been released to npm yet. It will be released in a couple of days.**
 
 ```bash
 npm install react-time-ago --save
@@ -78,6 +78,26 @@ console.log(time_ago_english.format(new Date()))
 
 const time_ago_russian = new react_time_ago('ru-RU')
 console.log(time_ago_russian.format(new Date()))
+```
+
+## Twitter style
+
+Mimics Twitter style time ago (1m, 2h, Mar 3, Apr 4, 2012)
+
+```js
+…
+import react_time_ago, { preset } from 'react-time-ago'
+
+// Load locale specific relative date/time messages
+import { tiny as english_tiny } from 'react-time-ago/locales/en'
+
+// Add locale specific relative date/time messages
+react_time_ago.locale('en', english_tiny)
+
+const time_ago = new react_time_ago('en-US')
+const twitter = preset.twitter('en-US')
+
+time_ago.format(new Date(Date.now() + 60), twitter)
 ```
 
 ## Intl polyfill installation

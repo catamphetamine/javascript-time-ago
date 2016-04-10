@@ -3,12 +3,12 @@
 
 // import react_time_ago from '../source/time ago'
 
-import react_time_ago, { a_day, days_in_a_month, days_in_a_year, from_CLDR, gradation } from '../source'
+import react_time_ago, { a_day, days_in_a_month, days_in_a_year, from_CLDR, gradation, preset } from '../source'
 
 // Load locale specific relative date/time messages
 import { short as english_short_cldr, long as english_long_cldr } from './locales/en-cldr'
-import { short as english_short, long as english_long } from '../locales/en'
-import { short as russian_short, long as russian_long }  from '../locales/ru'
+import { short as english_short, long as english_long, tiny as english_tiny } from '../locales/en'
+import { short as russian_short, long as russian_long, tiny as russian_tiny }  from '../locales/ru'
 
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
@@ -60,6 +60,89 @@ describe(`time ago`, function()
 	// 	elapsed(2.49 * 60).should.equal('')
 	// 	elapsed(2.51 * 60).should.equal('5 min. ago')
 	// })
+
+	it(`should format Twitter style relative time (English)`, function()
+	{
+		react_time_ago.locale('en', english_tiny)
+	
+		const time_ago = new react_time_ago('en')
+	
+		const twitter_preset = preset.twitter('en-US')
+	
+		const now = new Date(2016, 3, 10, 22, 59).getTime()
+		const elapsed = time => time_ago.format(now + time * 1000, { now, ...twitter_preset })
+	
+		elapsed(0).should.equal('')
+		elapsed(44.9).should.equal('')
+		elapsed(45.1).should.equal('1m')
+		elapsed(1.49 * 60).should.equal('1m')
+		elapsed(1.51 * 60).should.equal('2m')
+		elapsed(2.49 * 60).should.equal('2m')
+		elapsed(2.51 * 60).should.equal('3m')
+		// …
+		elapsed(59.49 * 60).should.equal('59m')
+		elapsed(59.51 * 60).should.equal('1h')
+		elapsed(1.49 * 60 * 60).should.equal('1h')
+		elapsed(1.51 * 60 * 60).should.equal('2h')
+		elapsed(2.49 * 60 * 60).should.equal('2h')
+		elapsed(2.51 * 60 * 60).should.equal('3h')
+		// …
+		elapsed(23.49 * 60 * 60).should.equal('23h')
+		elapsed(23.51 * 60 * 60).should.equal('Apr 11')
+		elapsed(a_day + 60 * 60).should.equal('Apr 11')
+		elapsed(a_day + 62 * 60).should.equal('Apr 12')
+		// …
+		elapsed(days_in_a_year * a_day).should.equal('Apr 11, 2017')
+	})
+
+	it(`should format Twitter style relative time (Russian)`, function()
+	{
+		react_time_ago.locale('ru', russian_tiny)
+	
+		const time_ago = new react_time_ago('ru')
+	
+		const twitter_preset = preset.twitter('ru')
+	
+		const now = new Date(2016, 3, 10, 22, 59).getTime()
+		const elapsed = time => time_ago.format(now + time * 1000, { now, ...twitter_preset })
+	
+		elapsed(0).should.equal('')
+		elapsed(44.9).should.equal('')
+		elapsed(45.1).should.equal('1м')
+		elapsed(1.49 * 60).should.equal('1м')
+		elapsed(1.51 * 60).should.equal('2м')
+		elapsed(2.49 * 60).should.equal('2м')
+		elapsed(2.51 * 60).should.equal('3м')
+		// …
+		elapsed(59.49 * 60).should.equal('59м')
+		elapsed(59.51 * 60).should.equal('1ч')
+		elapsed(1.49 * 60 * 60).should.equal('1ч')
+		elapsed(1.51 * 60 * 60).should.equal('2ч')
+		elapsed(2.49 * 60 * 60).should.equal('2ч')
+		elapsed(2.51 * 60 * 60).should.equal('3ч')
+		// …
+		elapsed(23.49 * 60 * 60).should.equal('23ч')
+		elapsed(23.51 * 60 * 60).should.equal('11 апр.')
+		elapsed(a_day + 60 * 60).should.equal('11 апр.')
+		elapsed(a_day + 62 * 60).should.equal('12 апр.')
+		// …
+		elapsed(days_in_a_year * a_day).should.equal('11 апр. 2017 г.')
+	})
+
+	it(`should reduce locale to language code`, function()
+	{
+		react_time_ago.locale('ru', russian_tiny)
+	
+		const time_ago = new react_time_ago('ru')
+	
+		const twitter_preset = preset.twitter('ru-RU')
+	
+		const now = Date.now()
+		const elapsed = time => time_ago.format(now + time * 1000, { now })
+	
+		elapsed(45.1).should.equal('45с')
+		elapsed(45.1 * 60).should.equal('45м')
+	})
 
 	it(`should format time correctly for English language (short)`, function()
 	{
