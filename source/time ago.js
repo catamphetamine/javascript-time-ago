@@ -61,9 +61,16 @@ export default class React_time_ago
 
 		const elapsed = (now - time) / 1000 // in seconds
 
+		// Available time interval measurement units
+		let units = this.units
+		if (options.units)
+		{
+			units = options.units.filter(unit => Object.keys(this.fields).indexOf(unit) >= 0)
+		}
+
 		// choose the appropriate time measurement unit 
 		// and get the corresponding rounded time amount
-		const { unit, amount } = classify_elapsed(Math.abs(elapsed), this.units, this.fields)
+		const { unit, amount } = classify_elapsed(Math.abs(elapsed), units, this.fields)
 
 		// format the message for the chosen time measurement unit
 		// (second, minute, hour, day, etc)

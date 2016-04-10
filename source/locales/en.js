@@ -127,9 +127,6 @@ export const long = {
 export const short = {
   "year": {
     "displayName": "yr.",
-    "relative-type--1": "last yr.",
-    "relative-type-0": "this yr.",
-    "relative-type-1": "next yr.",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} yr.",
       "relativeTimePattern-count-other": "in {0} yr."
@@ -141,9 +138,6 @@ export const short = {
   },
   "month": {
     "displayName": "mo.",
-    "relative-type--1": "last mo.",
-    "relative-type-0": "this mo.",
-    "relative-type-1": "next mo.",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} mo.",
       "relativeTimePattern-count-other": "in {0} mo."
@@ -155,9 +149,6 @@ export const short = {
   },
   "week": {
     "displayName": "wk.",
-    "relative-type--1": "last wk.",
-    "relative-type-0": "this wk.",
-    "relative-type-1": "next wk.",
     "relativeTime-type-future": {
       "relativeTimePattern-count-one": "in {0} wk.",
       "relativeTimePattern-count-other": "in {0} wk."
@@ -213,6 +204,17 @@ export const short = {
     "relativeTime-type-past": {
       "relativeTimePattern-count-one": "{0} sec. ago",
       "relativeTimePattern-count-other": "{0} sec. ago"
+    }
+  },
+  "just-now": {
+    "displayName": "just now",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "now",
+      "relativeTimePattern-count-other": "now"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "now",
+      "relativeTimePattern-count-other": "now"
     }
   }
 }
