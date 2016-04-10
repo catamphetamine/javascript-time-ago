@@ -1,245 +1,217 @@
 export const long = {
   "year": {
-    "displayName": "год",
-    "relative-type--1": "в прошлом году",
-    "relative-type-0": "в этом году",
-    "relative-type-1": "в следующем году",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} год",
-      "relativeTimePattern-count-few": "через {0} года",
-      "relativeTimePattern-count-many": "через {0} лет",
-      "relativeTimePattern-count-other": "через {0} года"
+    "previous": "в прошлом году",
+    "next": "в следующем году",
+    "future": {
+      "one": "через {0} год",
+      "few": "через {0} года",
+      "many": "через {0} лет",
+      "other": "через {0} года"
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} год назад",
-      "relativeTimePattern-count-few": "{0} года назад",
-      "relativeTimePattern-count-many": "{0} лет назад",
-      "relativeTimePattern-count-other": "{0} года назад"
+    "past": {
+      "one": "{0} год назад",
+      "few": "{0} года назад",
+      "many": "{0} лет назад",
+      "other": "{0} года назад"
     }
   },
   "month": {
-    "displayName": "месяц",
-    "relative-type--1": "в прошлом месяце",
-    "relative-type-0": "в этом месяце",
-    "relative-type-1": "в следующем месяце",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} месяц",
-      "relativeTimePattern-count-few": "через {0} месяца",
-      "relativeTimePattern-count-many": "через {0} месяцев",
-      "relativeTimePattern-count-other": "через {0} месяца"
+    "previous": "в прошлом месяце",
+    "next": "в следующем месяце",
+    "future": {
+      "one": "через {0} месяц",
+      "few": "через {0} месяца",
+      "many": "через {0} месяцев",
+      "other": "через {0} месяца"
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} месяц назад",
-      "relativeTimePattern-count-few": "{0} месяца назад",
-      "relativeTimePattern-count-many": "{0} месяцев назад",
-      "relativeTimePattern-count-other": "{0} месяца назад"
+    "past": {
+      "one": "{0} месяц назад",
+      "few": "{0} месяца назад",
+      "many": "{0} месяцев назад",
+      "other": "{0} месяца назад"
     }
   },
   "week": {
-    "displayName": "неделя",
-    "relative-type--1": "на прошлой неделе",
-    "relative-type-0": "на этой неделе",
-    "relative-type-1": "на следующей неделе",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} неделю",
-      "relativeTimePattern-count-few": "через {0} недели",
-      "relativeTimePattern-count-many": "через {0} недель",
-      "relativeTimePattern-count-other": "через {0} недели"
+    "previous": "на прошлой неделе",
+    "next": "на следующей неделе",
+    "future": {
+      "one": "через {0} неделю",
+      "few": "через {0} недели",
+      "many": "через {0} недель",
+      "other": "через {0} недели"
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} неделю назад",
-      "relativeTimePattern-count-few": "{0} недели назад",
-      "relativeTimePattern-count-many": "{0} недель назад",
-      "relativeTimePattern-count-other": "{0} недели назад"
+    "past": {
+      "one": "{0} неделю назад",
+      "few": "{0} недели назад",
+      "many": "{0} недель назад",
+      "other": "{0} недели назад"
     }
   },
   "day": {
-    "displayName": "день",
-    "relative-type--2": "позавчера",
-    "relative-type--1": "вчера",
-    "relative-type-0": "сегодня",
-    "relative-type-1": "завтра",
-    "relative-type-2": "послезавтра",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} день",
-      "relativeTimePattern-count-few": "через {0} дня",
-      "relativeTimePattern-count-many": "через {0} дней",
-      "relativeTimePattern-count-other": "через {0} дней"
+    "previous": "вчера",
+    "next": "завтра",
+    "future": {
+      "one": "через {0} день",
+      "few": "через {0} дня",
+      "many": "через {0} дней",
+      "other": "через {0} дней"
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} день назад",
-      "relativeTimePattern-count-few": "{0} дня назад",
-      "relativeTimePattern-count-many": "{0} дней назад",
-      "relativeTimePattern-count-other": "{0} дня назад"
+    "past": {
+      "one": "{0} день назад",
+      "few": "{0} дня назад",
+      "many": "{0} дней назад",
+      "other": "{0} дня назад"
     }
   },
   "hour": {
-    "displayName": "час",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} час",
-      "relativeTimePattern-count-few": "через {0} часа",
-      "relativeTimePattern-count-many": "через {0} часов",
-      "relativeTimePattern-count-other": "через {0} часа"
+    "future": {
+      "one": "через {0} час",
+      "few": "через {0} часа",
+      "many": "через {0} часов",
+      "other": "через {0} часа"
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} час назад",
-      "relativeTimePattern-count-few": "{0} часа назад",
-      "relativeTimePattern-count-many": "{0} часов назад",
-      "relativeTimePattern-count-other": "{0} часа назад"
+    "past": {
+      "one": "{0} час назад",
+      "few": "{0} часа назад",
+      "many": "{0} часов назад",
+      "other": "{0} часа назад"
     }
   },
   "minute": {
-    "displayName": "минута",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} минуту",
-      "relativeTimePattern-count-few": "через {0} минуты",
-      "relativeTimePattern-count-many": "через {0} минут",
-      "relativeTimePattern-count-other": "через {0} минуты"
+    "future": {
+      "one": "через {0} минуту",
+      "few": "через {0} минуты",
+      "many": "через {0} минут",
+      "other": "через {0} минуты"
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} минуту назад",
-      "relativeTimePattern-count-few": "{0} минуты назад",
-      "relativeTimePattern-count-many": "{0} минут назад",
-      "relativeTimePattern-count-other": "{0} минуты назад"
+    "past": {
+      "one": "{0} минуту назад",
+      "few": "{0} минуты назад",
+      "many": "{0} минут назад",
+      "other": "{0} минуты назад"
     }
   },
   "second": {
-    "displayName": "секунда",
-    "relative-type-0": "сейчас",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} секунду",
-      "relativeTimePattern-count-few": "через {0} секунды",
-      "relativeTimePattern-count-many": "через {0} секунд",
-      "relativeTimePattern-count-other": "через {0} секунды"
+    "future": {
+      "one": "через {0} секунду",
+      "few": "через {0} секунды",
+      "many": "через {0} секунд",
+      "other": "через {0} секунды"
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} секунду назад",
-      "relativeTimePattern-count-few": "{0} секунды назад",
-      "relativeTimePattern-count-many": "{0} секунд назад",
-      "relativeTimePattern-count-other": "{0} секунды назад"
+    "past": {
+      "one": "{0} секунду назад",
+      "few": "{0} секунды назад",
+      "many": "{0} секунд назад",
+      "other": "{0} секунды назад"
     }
   }
 }
 
 export const short = {
   "year": {
-    "displayName": "г.",
-    "relative-type--1": "в прошлом году",
-    "relative-type-0": "в этом году",
-    "relative-type-1": "в следующем году",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} г.",
-      "relativeTimePattern-count-few": "через {0} г.",
-      "relativeTimePattern-count-many": "через {0} л.",
-      "relativeTimePattern-count-other": "через {0} г."
+    "previous": "в прошлом году",
+    "next": "в следующем году",
+    "future": {
+      "one": "через {0} г.",
+      "few": "через {0} г.",
+      "many": "через {0} л.",
+      "other": "через {0} г."
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} г. назад",
-      "relativeTimePattern-count-few": "{0} г. назад",
-      "relativeTimePattern-count-many": "{0} л. назад",
-      "relativeTimePattern-count-other": "{0} г. назад"
+    "past": {
+      "one": "{0} г. назад",
+      "few": "{0} г. назад",
+      "many": "{0} л. назад",
+      "other": "{0} г. назад"
     }
   },
   "month": {
-    "displayName": "мес.",
-    "relative-type--1": "в прошлом месяце",
-    "relative-type-0": "в этом месяце",
-    "relative-type-1": "в следующем месяце",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} мес.",
-      "relativeTimePattern-count-few": "через {0} мес.",
-      "relativeTimePattern-count-many": "через {0} мес.",
-      "relativeTimePattern-count-other": "через {0} мес."
+    "previous": "в прошлом месяце",
+    "next": "в следующем месяце",
+    "future": {
+      "one": "через {0} мес.",
+      "few": "через {0} мес.",
+      "many": "через {0} мес.",
+      "other": "через {0} мес."
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} мес. назад",
-      "relativeTimePattern-count-few": "{0} мес. назад",
-      "relativeTimePattern-count-many": "{0} мес. назад",
-      "relativeTimePattern-count-other": "{0} мес. назад"
+    "past": {
+      "one": "{0} мес. назад",
+      "few": "{0} мес. назад",
+      "many": "{0} мес. назад",
+      "other": "{0} мес. назад"
     }
   },
   "week": {
-    "displayName": "нед.",
-    "relative-type--1": "на прошлой неделе",
-    "relative-type-0": "на этой неделе",
-    "relative-type-1": "на следующей неделе",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} нед.",
-      "relativeTimePattern-count-few": "через {0} нед.",
-      "relativeTimePattern-count-many": "через {0} нед.",
-      "relativeTimePattern-count-other": "через {0} нед."
+    "previous": "на прошлой неделе",
+    "next": "на следующей неделе",
+    "future": {
+      "one": "через {0} нед.",
+      "few": "через {0} нед.",
+      "many": "через {0} нед.",
+      "other": "через {0} нед."
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} нед. назад",
-      "relativeTimePattern-count-few": "{0} нед. назад",
-      "relativeTimePattern-count-many": "{0} нед. назад",
-      "relativeTimePattern-count-other": "{0} нед. назад"
+    "past": {
+      "one": "{0} нед. назад",
+      "few": "{0} нед. назад",
+      "many": "{0} нед. назад",
+      "other": "{0} нед. назад"
     }
   },
   "day": {
-    "displayName": "дн.",
-    "relative-type--2": "позавчера",
-    "relative-type--1": "вчера",
-    "relative-type-0": "сегодня",
-    "relative-type-1": "завтра",
-    "relative-type-2": "послезавтра",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} д.",
-      "relativeTimePattern-count-few": "через {0} д.",
-      "relativeTimePattern-count-many": "через {0} д.",
-      "relativeTimePattern-count-other": "через {0} д."
+    "previous": "вчера",
+    "next": "завтра",
+    "future": {
+      "one": "через {0} д.",
+      "few": "через {0} д.",
+      "many": "через {0} д.",
+      "other": "через {0} д."
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} д. назад",
-      "relativeTimePattern-count-few": "{0} д. назад",
-      "relativeTimePattern-count-many": "{0} д. назад",
-      "relativeTimePattern-count-other": "{0} д. назад"
+    "past": {
+      "one": "{0} д. назад",
+      "few": "{0} д. назад",
+      "many": "{0} д. назад",
+      "other": "{0} д. назад"
     }
   },
   "hour": {
-    "displayName": "ч.",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} ч.",
-      "relativeTimePattern-count-few": "через {0} ч.",
-      "relativeTimePattern-count-many": "через {0} ч.",
-      "relativeTimePattern-count-other": "через {0} ч."
+    "future": {
+      "one": "через {0} ч.",
+      "few": "через {0} ч.",
+      "many": "через {0} ч.",
+      "other": "через {0} ч."
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} ч. назад",
-      "relativeTimePattern-count-few": "{0} ч. назад",
-      "relativeTimePattern-count-many": "{0} ч. назад",
-      "relativeTimePattern-count-other": "{0} ч. назад"
+    "past": {
+      "one": "{0} ч. назад",
+      "few": "{0} ч. назад",
+      "many": "{0} ч. назад",
+      "other": "{0} ч. назад"
     }
   },
   "minute": {
-    "displayName": "мин.",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} мин.",
-      "relativeTimePattern-count-few": "через {0} мин.",
-      "relativeTimePattern-count-many": "через {0} мин.",
-      "relativeTimePattern-count-other": "через {0} мин."
+    "future": {
+      "one": "через {0} мин.",
+      "few": "через {0} мин.",
+      "many": "через {0} мин.",
+      "other": "через {0} мин."
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} мин. назад",
-      "relativeTimePattern-count-few": "{0} мин. назад",
-      "relativeTimePattern-count-many": "{0} мин. назад",
-      "relativeTimePattern-count-other": "{0} мин. назад"
+    "past": {
+      "one": "{0} мин. назад",
+      "few": "{0} мин. назад",
+      "many": "{0} мин. назад",
+      "other": "{0} мин. назад"
     }
   },
   "second": {
-    "displayName": "сек.",
-    "relative-type-0": "сейчас",
-    "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "через {0} сек.",
-      "relativeTimePattern-count-few": "через {0} сек.",
-      "relativeTimePattern-count-many": "через {0} сек.",
-      "relativeTimePattern-count-other": "через {0} сек."
+    "future": {
+      "one": "через {0} сек.",
+      "few": "через {0} сек.",
+      "many": "через {0} сек.",
+      "other": "через {0} сек."
     },
-    "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "{0} сек. назад",
-      "relativeTimePattern-count-few": "{0} сек. назад",
-      "relativeTimePattern-count-many": "{0} сек. назад",
-      "relativeTimePattern-count-other": "{0} сек. назад"
+    "past": {
+      "one": "{0} сек. назад",
+      "few": "{0} сек. назад",
+      "many": "{0} сек. назад",
+      "other": "{0} сек. назад"
     }
   }
 }

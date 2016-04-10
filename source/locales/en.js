@@ -99,11 +99,9 @@ export const long = {
   },
   "just-now": {
     "future": {
-      "one": "in a moment",
       "other": "in a moment"
     },
     "past": {
-      "one": "just now",
       "other": "just now"
     }
   }
@@ -184,11 +182,9 @@ export const short = {
   },
   "just-now": {
     "past": {
-      "one": "now",
       "other": "now"
     },
     "future": {
-      "one": "now",
       "other": "now"
     }
   }

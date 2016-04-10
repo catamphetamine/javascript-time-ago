@@ -60,6 +60,7 @@ export const gradation =
 
 		return result
 	},
+
 	// just now
 	// 5 minutes ago
 	// 10 minutes ago
@@ -239,16 +240,18 @@ export default function classify_elapsed(elapsed, units, gradation_steps)
 			{
 				const previous_step = gradation_steps[i - 1]
 
-				if (previous_step)
+				if (!previous_step)
 				{
-					const previous_step_result =
-					{
-						unit   : previous_step.unit, 
-						amount : Math.round(elapsed / previous_step.factor)
-					}
-
-					return previous_step_result
+					return {}
 				}
+			
+				const previous_step_result =
+				{
+					unit   : previous_step.unit, 
+					amount : Math.round(elapsed / previous_step.factor)
+				}
+
+				return previous_step_result
 			}
 		}
 

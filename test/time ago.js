@@ -3,10 +3,11 @@
 
 // import react_time_ago from '../source/time ago'
 
-import react_time_ago, { a_day, days_in_a_month, days_in_a_year } from '../source'
+import react_time_ago, { a_day, days_in_a_month, days_in_a_year, from_CLDR, gradation } from '../source'
 
 // Load locale specific relative date/time messages
-import { short as english_short, long as english_long } from './locales/en-cldr'
+import { short as english_short_cldr, long as english_long_cldr } from './locales/en-cldr'
+import { short as english_short, long as english_long } from '../source/locales/en'
 import { short as russian_short, long as russian_long }  from '../source/locales/ru'
 
 // Load number pluralization functions for the locales.
@@ -32,6 +33,32 @@ describe(`time ago`, function()
 	afterEach(function()
 	{
 		//
+	})
+
+	it(`should convert from Unicode CLDR`, function()
+	{
+		from_CLDR(english_short_cldr).should.deep.equal(english_short)
+		from_CLDR(english_long_cldr).should.deep.equal(english_long)
+	})
+
+	it(`should omit just now`, function()
+	{
+		react_time_ago.locale('en', english_short)
+
+		const time_ago = new react_time_ago('en')
+
+		const custom_gradation = gradation.convenient()
+		while (custom_gradation[0].unit !== 'minute')
+		{
+			custom_gradation.shift()
+		}
+
+		const now = Date.now()
+		const elapsed = time => time_ago.format(now + time * 1000, { now, gradation: custom_gradation })
+
+		elapsed(0        ).should.equal('')
+		elapsed(2.49 * 60).should.equal('')
+		elapsed(2.51 * 60).should.equal('5 min. ago')
 	})
 
 	it(`should format time correctly for English language (short)`, function()

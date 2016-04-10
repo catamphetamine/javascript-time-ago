@@ -67,9 +67,15 @@ export default class React_time_ago
 			units = options.units.filter(unit => Object.keys(this.fields).indexOf(unit) >= 0)
 		}
 
-		// choose the appropriate time measurement unit 
+		// Choose the appropriate time measurement unit 
 		// and get the corresponding rounded time amount
 		const { unit, amount } = classify_elapsed(Math.abs(elapsed), units, options.gradation)
+
+		// If no time unit is suitable, just output empty string
+		if (!unit)
+		{
+			return ''
+		}
 
 		// format the message for the chosen time measurement unit
 		// (second, minute, hour, day, etc)
@@ -238,7 +244,7 @@ React_time_ago.locale = function(locale, locale_data)
 }
 
 // Converts locale data from CLDR format (if needed)
-function from_CLDR(data)
+export function from_CLDR(data)
 {
 	const converted = {}
 
@@ -246,12 +252,26 @@ function from_CLDR(data)
 	{
 		const entry = data[key]
 
-		const converted_entry = 
+		const converted_entry = {}
+		
+		if (entry.previous)
 		{
-			previous : entry.previous,
-			next     : entry.next,
-			past     : entry.past,
-			future   : entry.future
+			converted_entry.previous = entry.previous
+		}
+		
+		if (entry.next)
+		{
+			converted_entry.next = entry.next
+		}
+		
+		if (entry.past)
+		{
+			converted_entry.past = entry.past
+		}
+		
+		if (entry.future)
+		{
+			converted_entry.future = entry.future
 		}
 
 		converted[key] = converted_entry

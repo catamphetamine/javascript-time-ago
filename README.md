@@ -29,33 +29,6 @@ Formats a date to something like:
   * 5 years ago
   * … or whatever else
 
-
-
-
-
-
-
-сделать преобразование CLDR в нормальный формат (intl-messageformat), и в документации это описать тоже
-
-locales/* прееделать в нормальный вид после этого
-
-
-
-сделать twitter-style (и задокументировать)
-
-57 сек.
-1 min
-5 min
-13 min
-29 min
-59 min
-1 ч.
-2 ч.
-23 ч.
-5 апр.
-13 марта
-24 дек. 2015 г.
-
 ## Installation
 
 **This package hasn't been released to npm yet. It will be released this week.**
@@ -129,7 +102,7 @@ The built-in localization resides in the [`source/locales`](https://github.com/h
 
 The format of the localization is:
 
-```json
+```js
 {
   …
   "day": 
@@ -157,7 +130,7 @@ One can also use raw Unicode CLDR locale rules which will be automatically conve
 
 [Example for en-US-POSIX locale](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/en-US-POSIX/dateFields.json)
 
-```json
+```js
 {
   "main": {
     "en-US-POSIX": {
@@ -205,11 +178,13 @@ Localization data described in the above section can be further customized, for 
 One can also pass options as a second parameter to the `.format(date, options)` function. The options are:
 
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
-  * `gradation` – time interval measurement units gradation
+  * `gradation` – custom time interval measurement units gradation
 
-Gradation example:
+## Gradation
 
-```
+A `gradation` is a list of time interval measurement steps. A simple example:
+
+```js
 [
   {
     unit: 'second',
@@ -227,6 +202,10 @@ Gradation example:
   …
 ]
 ```
+
+  * `factor` is a divider for the supplied time interval (in seconds)
+  * `threshold` is a minimum time interval value (in seconds) required for this gradation step
+  * (some more `threshold` customization is possible, see the link below)
 
 For more gradation examples see [`source/classify elapsed.js`](https://github.com/halt-hammerzeit/react-time-ago/blob/master/source/classify%20elapsed.js)
 

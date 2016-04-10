@@ -114,11 +114,9 @@ export const long = {
   "just-now": {
     "displayName": "just now",
     "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "in a moment",
       "relativeTimePattern-count-other": "in a moment"
     },
     "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "just now",
       "relativeTimePattern-count-other": "just now"
     }
   }
@@ -209,11 +207,9 @@ export const short = {
   "just-now": {
     "displayName": "just now",
     "relativeTime-type-future": {
-      "relativeTimePattern-count-one": "now",
       "relativeTimePattern-count-other": "now"
     },
     "relativeTime-type-past": {
-      "relativeTimePattern-count-one": "now",
       "relativeTimePattern-count-other": "now"
     }
   }
