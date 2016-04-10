@@ -59,7 +59,7 @@ export default class React_time_ago
 	//       override - function ({ elapsed, time, date, now })
 	//
 	//                  If the `override` function returns a value,
-	//                  then the `.format()` call will return the value.
+	//                  then the `.format()` call will return that value.
 	//                  Otherwise it has no effect.
 	//
 	format(input, options = {})

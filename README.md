@@ -33,7 +33,7 @@ Formats a date to something like:
 
 **This package hasn't been released to npm yet. It will be released in a couple of days.**
 
-```bash
+```
 npm install react-time-ago --save
 ```
 
@@ -116,9 +116,9 @@ Then configure the Intl polyfill:
 
 ## Localization
 
-This library currently comes with English and Russian localization built-in, but any other locale can be added at runtime.
+This library currently comes with English and Russian localization built-in, but any other locale can be added easily at runtime (Pull Requests adding new locales are accepted too).
 
-The built-in localization resides in the [`source/locales`](https://github.com/halt-hammerzeit/react-time-ago/tree/master/source/locales) folder.
+The built-in localization resides in the [`locales`](https://github.com/halt-hammerzeit/react-time-ago/tree/master/locales) folder.
 
 The format of the localization is:
 
@@ -128,6 +128,7 @@ The format of the localization is:
   "day": 
   {
     "previous": "yesterday",
+    "now": "today",
     "next": "tomorrow",
     "past":
     {
@@ -160,7 +161,7 @@ One can also use raw Unicode CLDR locale rules which will be automatically conve
           "day": {
             "displayName": "day", // `displayName` field is not used
             "relative-type--1": "yesterday", // is optional
-            "relative-type-0": "today", // this field is not used
+            "relative-type-0": "today", // is optional
             "relative-type-1": "tomorrow", // is optional
             "relativeTime-type-future": {
               "relativeTimePattern-count-one": "in {0} day",
@@ -193,21 +194,23 @@ const text = time_ago.format(new Date())
 
 ## Customization
 
-Localization data described in the above section can be further customized, for example, supporting "long" and "short" formats. Refer to `source/locales/en.js` for an example.
+Localization data described in the above section can be further customized, for example, supporting "long" and "short" formats. Refer to [`locales/en.js`](https://github.com/halt-hammerzeit/react-time-ago/blob/master/locales/en.js) for an example.
 
-Built-in localization data is presented in many variants. Example:
+Built-in localization data is presented in different variants. Example:
 
 ```js
 import { english } from 'react-time-ago/locales/en'
 
+english.tiny  // '1s', '2m', '3h', '4d', …
 english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-One can also pass options as a second parameter to the `.format(date, options)` function. The options are:
+One can also pass `options` as a second parameter to the `.format(date, options)` function. The options are:
 
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
   * `gradation` – custom time interval measurement units gradation
+  * `override` - a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise it has no effect.
 
 ## Gradation
 
