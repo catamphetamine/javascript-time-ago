@@ -224,12 +224,12 @@ A `gradation` is a list of time interval measurement steps. A simple example:
   {
     unit: 'minute',
     factor: 60,
-    threshold: 60
+    threshold: 59.5
   },
   {
     unit: 'hour',
     factor: 60 * 60,
-    threshold: 60 * 60
+    threshold: 59.5 * 60
   },
   …
 ]
