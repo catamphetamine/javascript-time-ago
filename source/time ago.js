@@ -2,7 +2,8 @@
 // https://github.com/yahoo/intl-relativeformat/
 
 import IntlMessageFormat from 'intl-messageformat'
-import classify_elapsed from './classify elapsed'
+import classify_elapsed  from './classify elapsed'
+import preset            from './preset'
 
 export default class React_time_ago
 {
@@ -28,13 +29,12 @@ export default class React_time_ago
 
 		// Choose the most appropriate locale
 		this.locale = resolve_locale(locales)
-		// Get relative time formatter messages for this locale
-		this.fields = React_time_ago.locale_data[this.locale]
-		// Available time measurement units
-		this.units = Object.keys(this.fields)
 
 		// Is passed later on to `IntlMessageFormat`
 		this.locales = locales
+
+		// Presets
+		this.preset = preset(locales)
 	}
 
 	// Formats the relative date.
@@ -64,6 +64,9 @@ export default class React_time_ago
 	//
 	format(input, options = {})
 	{
+		// Get locale messages for this formatting style
+		const { style, locale_data } = this.locale_data(options.style)
+
 		let date
 		let time
 		
@@ -102,10 +105,12 @@ export default class React_time_ago
 		}
 
 		// Available time interval measurement units
-		let units = this.units
+		let units = Object.keys(locale_data)
+
 		if (options.units)
 		{
-			units = options.units.filter(unit => Object.keys(this.fields).indexOf(unit) >= 0)
+			// Find available time interval measurement units
+			units = options.units.filter(unit => units.indexOf(unit) >= 0)
 		}
 
 		// Choose the appropriate time measurement unit 
@@ -121,7 +126,7 @@ export default class React_time_ago
 		// format the message for the chosen time measurement unit
 		// (second, minute, hour, day, etc)
 
-		const formatters = this.get_formatters(unit)
+		const formatters = this.get_formatters(unit, style)
 
 		// default formatter: "X units"
 		let formatter = formatters.default
@@ -146,26 +151,48 @@ export default class React_time_ago
 		})
 	}
 
-	// lazy creation of a formatter for a given time measurement unit
-	// (second, minute, hour, day, etc)
-	get_formatters(unit)
+	// Gets locale messages for this formatting 'style'
+	locale_data(style)
 	{
-		// Create a new synthetic message based on the locale data from CLDR.
-		if (!this.formatters[unit])
+		// Get relative time formatter messages for this locale
+		const locale_data = React_time_ago.locale_data[this.locale]
+
+		// Fallback to "default" style if the given style isn't available
+		if (!style || !locale_data[style])
 		{
-			this.formatters[unit] = this.compile_formatters(unit)
+			style = 'default'
 		}
 
-		return this.formatters[unit]
+		return { style, locale_data: locale_data[style] }
+	}
+
+	// lazy creation of a formatter for a given time measurement unit
+	// (second, minute, hour, day, etc)
+	get_formatters(unit, style)
+	{
+		if (!this.formatters[style])
+		{
+			this.formatters[style] = {}
+		}
+
+		const formatters = this.formatters[style]
+
+		// Create a new synthetic message based on the locale data from CLDR.
+		if (!formatters[unit])
+		{
+			formatters[unit] = this.compile_formatters(unit, style)
+		}
+
+		return formatters[unit]
 	}
 
 	// compiles formatter for the specified time measurement unit 
 	// (second, minute, hour, day, etc)
-	compile_formatters(unit)
+	compile_formatters(unit, style)
 	{
 		// Locale specific time interval formatter messages
 		// for the given time interval measurement unit
-		const formatter_messages = this.fields[unit]
+		const formatter_messages = React_time_ago.locale_data[this.locale][style][unit]
 
 		// Locale specific time interval formatter messages
 		// for the given time interval measurement unit
@@ -287,11 +314,26 @@ export function resolve_locale(locales)
 // Adds locale data
 React_time_ago.locale = function(locale, locale_data)
 {
-	// Convert from CLDR format (if needed)
-	locale_data = from_CLDR(locale_data)
+	const locale_data_map = {}
+
+	// Supports multiple locale variations
+	// (e.g. "default", "short", "normal", "long", etc)
+	if (!locale_data.default)
+	{
+		// Convert from CLDR format (if needed)
+		locale_data_map.default = from_CLDR(locale_data)
+	}
+	else
+	{
+		for (let key of Object.keys(locale_data))
+		{
+			// Convert from CLDR format (if needed)
+			locale_data_map[key] = from_CLDR(locale_data[key])
+		}
+	}
 
 	// Store locale specific messages in the static variable
-	React_time_ago.locale_data[locale.toLowerCase()] = locale_data
+	React_time_ago.locale_data[locale.toLowerCase()] = locale_data_map
 
 	// (will be added manually by this library user)
 	// // Add locale data to IntlMessageFormat

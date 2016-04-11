@@ -134,6 +134,142 @@ export const long = {
   }
 }
 
+export const long_concise = {
+  "year": {
+    "previous": "год",
+    "next": "год",
+    "future": {
+      "one": "{0} год",
+      "few": "{0} года",
+      "many": "{0} лет",
+      "other": "{0} года"
+    },
+    "past": {
+      "one": "{0} год",
+      "few": "{0} года",
+      "many": "{0} лет",
+      "other": "{0} года"
+    }
+  },
+  "half-year": {
+    "future": {
+      "other": "полгода"
+    },
+    "past": {
+      "other": "полгода"
+    }
+  },
+  "month": {
+    "previous": "месяц",
+    "next": "месяц",
+    "future": {
+      "one": "{0} месяц",
+      "few": "{0} месяца",
+      "many": "{0} месяцев",
+      "other": "{0} месяца"
+    },
+    "past": {
+      "one": "{0} месяц",
+      "few": "{0} месяца",
+      "many": "{0} месяцев",
+      "other": "{0} месяца"
+    }
+  },
+  "week": {
+    "previous": "неделю",
+    "next": "неделю",
+    "future": {
+      "one": "{0} неделю",
+      "few": "{0} недели",
+      "many": "{0} недель",
+      "other": "{0} недели"
+    },
+    "past": {
+      "one": "{0} неделю",
+      "few": "{0} недели",
+      "many": "{0} недель",
+      "other": "{0} недели"
+    }
+  },
+  "day": {
+    "previous": "вчера",
+    "next": "завтра",
+    "future": {
+      "one": "{0} день",
+      "few": "{0} дня",
+      "many": "{0} дней",
+      "other": "{0} дней"
+    },
+    "past": {
+      "one": "{0} день",
+      "few": "{0} дня",
+      "many": "{0} дней",
+      "other": "{0} дня"
+    }
+  },
+  "hour": {
+    "previous": "час",
+    "next": "час",
+    "future": {
+      "one": "{0} час",
+      "few": "{0} часа",
+      "many": "{0} часов",
+      "other": "{0} часа"
+    },
+    "past": {
+      "one": "{0} час",
+      "few": "{0} часа",
+      "many": "{0} часов",
+      "other": "{0} часа"
+    }
+  },
+  "half-hour": {
+    "future": {
+      "other": "полчаса"
+    },
+    "past": {
+      "other": "полчаса"
+    }
+  },
+  "minute": {
+    "future": {
+      "one": "{0} минуту",
+      "few": "{0} минуты",
+      "many": "{0} минут",
+      "other": "{0} минуты"
+    },
+    "past": {
+      "one": "{0} минуту",
+      "few": "{0} минуты",
+      "many": "{0} минут",
+      "other": "{0} минуты"
+    }
+  },
+  "second": {
+    "current": "сейчас",
+    "future": {
+      "one": "{0} секунду",
+      "few": "{0} секунды",
+      "many": "{0} секунд",
+      "other": "{0} секунды"
+    },
+    "past": {
+      "one": "{0} секунду",
+      "few": "{0} секунды",
+      "many": "{0} секунд",
+      "other": "{0} секунды"
+    }
+  },
+  "just-now": {
+    "past": {
+      "other": "только что"
+    },
+    "future": {
+      "other": "сейчас"
+    }
+  }
+}
+
 export const short = {
   "year": {
     "future": {
@@ -246,6 +382,118 @@ export const short = {
   }
 }
 
+export const short_concise = {
+  "year": {
+    "future": {
+      "one": "{0} г.",
+      "few": "{0} г.",
+      "many": "{0} л.",
+      "other": "{0} г."
+    },
+    "past": {
+      "one": "{0} г.",
+      "few": "{0} г.",
+      "many": "{0} л.",
+      "other": "{0} г."
+    }
+  },
+  "month": {
+    "future": {
+      "one": "{0} мес.",
+      "few": "{0} мес.",
+      "many": "{0} мес.",
+      "other": "{0} мес."
+    },
+    "past": {
+      "one": "{0} мес.",
+      "few": "{0} мес.",
+      "many": "{0} мес.",
+      "other": "{0} мес."
+    }
+  },
+  "week": {
+    "future": {
+      "one": "{0} нед.",
+      "few": "{0} нед.",
+      "many": "{0} нед.",
+      "other": "{0} нед."
+    },
+    "past": {
+      "one": "{0} нед.",
+      "few": "{0} нед.",
+      "many": "{0} нед.",
+      "other": "{0} нед."
+    }
+  },
+  "day": {
+    "previous": "вчера",
+    "next": "завтра",
+    "future": {
+      "one": "{0} д.",
+      "few": "{0} д.",
+      "many": "{0} д.",
+      "other": "{0} д."
+    },
+    "past": {
+      "one": "{0} д.",
+      "few": "{0} д.",
+      "many": "{0} д.",
+      "other": "{0} д."
+    }
+  },
+  "hour": {
+    "future": {
+      "one": "{0} ч.",
+      "few": "{0} ч.",
+      "many": "{0} ч.",
+      "other": "{0} ч."
+    },
+    "past": {
+      "one": "{0} ч.",
+      "few": "{0} ч.",
+      "many": "{0} ч.",
+      "other": "{0} ч."
+    }
+  },
+  "minute": {
+    "future": {
+      "one": "{0} мин.",
+      "few": "{0} мин.",
+      "many": "{0} мин.",
+      "other": "{0} мин."
+    },
+    "past": {
+      "one": "{0} мин.",
+      "few": "{0} мин.",
+      "many": "{0} мин.",
+      "other": "{0} мин."
+    }
+  },
+  "second": {
+    "current": "сейчас",
+    "future": {
+      "one": "{0} сек.",
+      "few": "{0} сек.",
+      "many": "{0} сек.",
+      "other": "{0} сек."
+    },
+    "past": {
+      "one": "{0} сек.",
+      "few": "{0} сек.",
+      "many": "{0} сек.",
+      "other": "{0} сек."
+    }
+  },
+  "just-now": {
+    "past": {
+      "other": "только что"
+    },
+    "future": {
+      "other": "сейчас"
+    }
+  }
+}
+
 export const tiny = {
   "year": {
     "future": {
@@ -317,4 +565,10 @@ export const tiny = {
   }
 }
 
-export default long
+export default
+{
+  tiny,
+  short,
+  long,
+  default: long
+}

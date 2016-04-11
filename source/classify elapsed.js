@@ -272,5 +272,5 @@ export default function classify_elapsed(elapsed, units, gradation_steps)
 	}
 
 	throw new Error(`Not a single time unit of "${units.join(', ')}" was specified `
-		+ `in the gradation \n ${JSON.stringify({ gradation: full_gradation }, null, 3)}`)
+		+ `in the gradation \n ${JSON.stringify({ gradation: gradation_steps }, null, 3)}`)
 }

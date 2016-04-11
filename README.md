@@ -1,10 +1,10 @@
-# react-time-ago
+# javascript-time-ago
 
 [![NPM Version][npm-badge]][npm]
 [![Build Status][travis-badge]][travis]
 [![Test Coverage][coveralls-badge]][coveralls]
 
-International relative date/time formatter along with a React component.
+International higly customizable relative date/time formatter (both for past and future dates).
 
 Formats a date to something like:
 
@@ -21,20 +21,18 @@ Formats a date to something like:
   * 2 weeks ago
   * 3 weeks
   * half a month ago
-  * 1mo
+  * 1 mo. ago
   * 2 months
   * half a year
-  * 1 year
+  * a year
   * 2yr
   * 5 years ago
   * … or whatever else
 
 ## Installation
 
-**This package hasn't been released to npm yet. It will be released in a couple of days.**
-
 ```
-npm install react-time-ago --save
+npm install javascript-time-ago --save
 ```
 
 This package assumes that the [`Intl`][Intl] global object exists in the runtime. `Intl` is present in all modern browsers _except_ Safari (which can be solved with the Intl polyfill).
@@ -46,11 +44,11 @@ If you decide you need the Intl polyfill then [here are some basic installation 
 ## Usage
 
 ```js
-import react_time_ago from 'react-time-ago'
+import javascript_time_ago from 'javascript-time-ago'
 
-// Load locale specific relative date/time messages
-import { short as english } from 'react-time-ago/locales/en'
-import { long as russian }  from 'react-time-ago/locales/ru'
+// Import locale specific relative date/time messages
+import english from 'javascript-time-ago/locales/en'
+import russian from 'javascript-time-ago/locales/ru'
 
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
@@ -58,46 +56,75 @@ import { long as russian }  from 'react-time-ago/locales/ru'
 // http://cldr.unicode.org/index/cldr-spec/plural-rules
 // https://github.com/eemeli/make-plural.js
 //
-// If you are already using `react-intl` in your project
-// and have already `require()`d `react-intl` locale data
-// for these locales then this step is unnecessary
-global.IntlMessageFormat = require('react-time-ago/node_modules/intl-messageformat')
-require('react-time-ago/node_modules/intl-messageformat/dist/locale-data/en')
-require('react-time-ago/node_modules/intl-messageformat/dist/locale-data/ru')
+global.IntlMessageFormat = require('javascript-time-ago/node_modules/intl-messageformat')
+require('javascript-time-ago/node_modules/intl-messageformat/dist/locale-data/en')
+require('javascript-time-ago/node_modules/intl-messageformat/dist/locale-data/ru')
 delete global.IntlMessageFormat
 
-// Add locale specific relative date/time messages
-react_time_ago.locale('en', english)
-react_time_ago.locale('ru', russian)
+// Add the imported locale specific relative date/time messages
+javascript_time_ago.locale('en', english)
+javascript_time_ago.locale('ru', russian)
 
 // Initialization complete.
 // Ready to format relative dates and times.
 
-const time_ago_english = new react_time_ago('en-US')
-console.log(time_ago_english.format(new Date()))
+const time_ago_english = new javascript_time_ago('en-US')
 
-const time_ago_russian = new react_time_ago('ru-RU')
-console.log(time_ago_russian.format(new Date()))
+time_ago_english.format(new Date())
+// "just now"
+
+time_ago_english.format(new Date(Date.now() + 60 * 1000))
+// "a minute ago"
+
+time_ago_english.format(new Date(Date.now() + 2 * 60 * 60 * 1000))
+// "2 hours ago"
+
+time_ago_english.format(new Date(Date.now() + 24 * 60 * 60 * 1000))
+// "yesterday"
+
+const time_ago_russian = new javascript_time_ago('ru-RU')
+
+time_ago_russian.format(new Date())
+// "только что"
+
+time_ago_russian.format(new Date(Date.now() + 60 * 1000)))
+// "минуту назад"
+
+time_ago_russian.format(new Date(Date.now() + 2 * 60 * 60 * 1000)))
+// "2 часа назад"
+
+time_ago_russian.format(new Date(Date.now() + 24 * 60 * 60 * 1000))
+// "вчера"
 ```
 
 ## Twitter style
 
-Mimics Twitter style time ago (1m, 2h, Mar 3, Apr 4, 2012)
+Mimics Twitter style time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
 
 ```js
 …
-import react_time_ago, { preset } from 'react-time-ago'
+import javascript_time_ago from 'javascript-time-ago'
 
-// Load locale specific relative date/time messages
-import { tiny as english_tiny } from 'react-time-ago/locales/en'
+// Import locale specific relative date/time messages
+import english from 'javascript-time-ago/locales/en'
 
-// Add locale specific relative date/time messages
-react_time_ago.locale('en', english_tiny)
+// Add the imported locale specific relative date/time messages
+javascript_time_ago.locale('en', english)
 
-const time_ago = new react_time_ago('en-US')
-const twitter = preset.twitter('en-US')
+const time_ago = new javascript_time_ago('en-US')
 
-time_ago.format(new Date(Date.now() + 60), twitter)
+// A `preset` is simply an `options` object 
+// passed to the `.format()` function as a second parameter.
+const twitter = time_ago.preset.twitter()
+
+time_ago.format(new Date(), twitter)
+// ""
+
+time_ago.format(new Date(Date.now() + 60 * 1000), twitter)
+// "1m"
+
+time_ago.format(new Date(Date.now() + 2 * 60 * 60 * 1000), twitter)
+// "2h"
 ```
 
 ## Intl polyfill installation
@@ -118,7 +145,7 @@ Then configure the Intl polyfill:
 
 This library currently comes with English and Russian localization built-in, but any other locale can be added easily at runtime (Pull Requests adding new locales are accepted too).
 
-The built-in localization resides in the [`locales`](https://github.com/halt-hammerzeit/react-time-ago/tree/master/locales) folder.
+The built-in localization resides in the [`locales`](https://github.com/halt-hammerzeit/javascript-time-ago/tree/master/locales) folder.
 
 The format of the localization is:
 
@@ -183,31 +210,33 @@ One can also use raw Unicode CLDR locale rules which will be automatically conve
 To add support for a specific language one can download the corresponding JSON file from [CLDR dates repository](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main) and add the data from that file to the library:
 
 ```js
-import react_time_ago from 'react-time-ago'
+import javascript_time_ago from 'javascript-time-ago'
 import russian from './CLDR/cldr-dates-full/main/ru/dateFields.json'
 
-react_time_ago.locale('ru', russian.main.ru.dates.fields)
+javascript_time_ago.locale('ru', russian.main.ru.dates.fields)
 
-const time_ago = new react_time_ago('ru')
-const text = time_ago.format(new Date())
+const time_ago = new javascript_time_ago('ru')
+time_ago.format(new Date(Date.now() + 60 * 1000))
+// "1 минуту назад"
 ```
 
 ## Customization
 
-Localization data described in the above section can be further customized, for example, supporting "long" and "short" formats. Refer to [`locales/en.js`](https://github.com/halt-hammerzeit/react-time-ago/blob/master/locales/en.js) for an example.
+Localization data described in the above section can be further customized, for example, supporting "long" and "short" formats. Refer to [`locales/en.js`](https://github.com/halt-hammerzeit/javascript-time-ago/blob/master/locales/en.js) for an example.
 
 Built-in localization data is presented in different variants. Example:
 
 ```js
-import { english } from 'react-time-ago/locales/en'
+import english from 'javascript-time-ago/locales/en'
 
 english.tiny  // '1s', '2m', '3h', '4d', …
 english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-One can also pass `options` as a second parameter to the `.format(date, options)` function. The options are:
+One can pass `options` as a second parameter to the `.format(date, options)` function. It's called a `preset` (see "twitter" preset for example). The `options` object can specify:
 
+  * `style` – a preferred formatting style (e.g. `tiny`, `short`, `long`)
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
   * `gradation` – custom time interval measurement units gradation
   * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise it has no effect.
@@ -239,12 +268,12 @@ A `gradation` is a list of time interval measurement steps. A simple example:
   * `threshold` is a minimum time interval value (in seconds) required for this gradation step
   * (some more `threshold` customization is possible, see the link below)
 
-For more gradation examples see [`source/classify elapsed.js`](https://github.com/halt-hammerzeit/react-time-ago/blob/master/source/classify%20elapsed.js)
+For more gradation examples see [`source/classify elapsed.js`](https://github.com/halt-hammerzeit/javascript-time-ago/blob/master/source/classify%20elapsed.js)
 
 Available gradations:
 
 ```js
-import { gradation } from 'react-time-ago'
+import { gradation } from 'javascript-time-ago'
 
 gradation.canonical()  // '1 second ago', '2 minutes ago', …
 gradation.convenient() // 'just now', '5 minutes ago', …
@@ -298,11 +327,11 @@ npm install [module name with version].tar.gz
 ## License
 
 [MIT](LICENSE)
-[npm]: https://img.shields.io/npm/v/react-time-ago.svg?style=flat-square
-[npm-badge]: https://www.npmjs.org/package/react-time-ago
-[travis]: https://travis-ci.org/halt-hammerzeit/react-time-ago
-[travis-badge]: https://img.shields.io/travis/halt-hammerzeit/react-time-ago/master.svg?style=flat-square
+[npm]: https://img.shields.io/npm/v/javascript-time-ago.svg?style=flat-square
+[npm-badge]: https://www.npmjs.org/package/javascript-time-ago
+[travis]: https://travis-ci.org/halt-hammerzeit/javascript-time-ago
+[travis-badge]: https://img.shields.io/travis/halt-hammerzeit/javascript-time-ago/master.svg?style=flat-square
 [CLDR]: http://cldr.unicode.org/
 [Intl]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
-[coveralls]: https://coveralls.io/r/halt-hammerzeit/react-time-ago?branch=master
-[coveralls-badge]: https://img.shields.io/coveralls/halt-hammerzeit/react-time-ago/master.svg?style=flat-square
+[coveralls]: https://coveralls.io/r/halt-hammerzeit/javascript-time-ago?branch=master
+[coveralls-badge]: https://img.shields.io/coveralls/halt-hammerzeit/javascript-time-ago/master.svg?style=flat-square

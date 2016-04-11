@@ -114,6 +114,122 @@ export const long = {
   }
 }
 
+export const long_concise = {
+  "year": {
+    "previous": "a year",
+    "current": "this year",
+    "next": "a year",
+    "future": {
+      "one": "{0} year",
+      "other": "{0} years"
+    },
+    "past": {
+      "one": "{0} year",
+      "other": "{0} years"
+    }
+  },
+  "half-year": {
+    "future": {
+      "other": "half a year"
+    },
+    "past": {
+      "other": "half a year"
+    }
+  },
+  "month": {
+    "previous": "a month",
+    "current": "this month",
+    "next": "a month",
+    "future": {
+      "one": "{0} month",
+      "other": "{0} months"
+    },
+    "past": {
+      "one": "{0} month",
+      "other": "{0} months"
+    }
+  },
+  "week": {
+    "previous": "a week",
+    "current": "this week",
+    "next": "a week",
+    "future": {
+      "one": "{0} week",
+      "other": "{0} weeks"
+    },
+    "past": {
+      "one": "{0} week",
+      "other": "{0} weeks"
+    }
+  },
+  "day": {
+    "previous": "yesterday",
+    "current": "today",
+    "next": "tomorrow",
+    "future": {
+      "one": "{0} day",
+      "other": "{0} days"
+    },
+    "past": {
+      "one": "{0} day",
+      "other": "{0} days"
+    }
+  },
+  "hour": {
+    "previous": "an hour",
+    "current": "this hour",
+    "next": "an hour",
+    "future": {
+      "one": "{0} hour",
+      "other": "{0} hours"
+    },
+    "past": {
+      "one": "{0} hour",
+      "other": "{0} hours"
+    }
+  },
+  "half-hour": {
+    "future": {
+      "other": "half an hour"
+    },
+    "past": {
+      "other": "half an hour"
+    }
+  },
+  "minute": {
+    "previous": "a minute",
+    "current": "this minute",
+    "next": "a minute",
+    "future": {
+      "one": "{0} minute",
+      "other": "{0} minutes"
+    },
+    "past": {
+      "one": "{0} minute",
+      "other": "{0} minutes"
+    }
+  },
+  "second": {
+    "current": "now",
+    "future": {
+      "one": "{0} second",
+      "other": "{0} seconds"
+    },
+    "past": {
+      "one": "{0} second",
+      "other": "{0} seconds"
+    }
+  },
+  "just-now": {
+    "future": {
+      "other": "a moment"
+    },
+    "past": {
+      "other": "just now"
+    }
+  }
+}
+
 export const short = {
   "year": {
     "future": {
@@ -199,6 +315,91 @@ export const short = {
   }
 }
 
+export const short_concise = {
+  "year": {
+    "future": {
+      "one": "{0} yr.",
+      "other": "{0} yr."
+    },
+    "past": {
+      "one": "{0} yr.",
+      "other": "{0} yr."
+    }
+  },
+  "month": {
+    "future": {
+      "one": "{0} mo.",
+      "other": "{0} mo."
+    },
+    "past": {
+      "one": "{0} mo.",
+      "other": "{0} mo."
+    }
+  },
+  "week": {
+    "future": {
+      "one": "{0} wk.",
+      "other": "{0} wk."
+    },
+    "past": {
+      "one": "{0} wk.",
+      "other": "{0} wk."
+    }
+  },
+  "day": {
+    "previous": "yesterday",
+    "current": "today",
+    "next": "tomorrow",
+    "future": {
+      "one": "{0} day",
+      "other": "{0} days"
+    },
+    "past": {
+      "one": "{0} day",
+      "other": "{0} days"
+    }
+  },
+  "hour": {
+    "future": {
+      "one": "{0} hr.",
+      "other": "{0} hr."
+    },
+    "past": {
+      "one": "{0} hr.",
+      "other": "{0} hr."
+    }
+  },
+  "minute": {
+    "future": {
+      "one": "{0} min.",
+      "other": "{0} min."
+    },
+    "past": {
+      "one": "{0} min.",
+      "other": "{0} min."
+    }
+  },
+  "second": {
+    "current": "now",
+    "past": {
+      "one": "{0} sec.",
+      "other": "{0} sec."
+    },
+    "future": {
+      "one": "{0} sec.",
+      "other": "{0} sec."
+    }
+  },
+  "just-now": {
+    "past": {
+      "other": "now"
+    },
+    "future": {
+      "other": "now"
+    }
+  }
+}
+
 export const tiny = {
   "year": {
     "future": {
@@ -270,4 +471,10 @@ export const tiny = {
   }
 }
 
-export default long
+export default
+{
+  tiny,
+  short,
+  long,
+  default: long
+}

@@ -1,5 +1,5 @@
 {
-  "name": "react-time-ago",
+  "name": "javascript-time-ago",
   "version": "0.1.0",
   "description": "Relative time formatting for React",
   "main": "build/index.js",
@@ -44,7 +44,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/halt-hammerzeit/react-time-ago.git"
+    "url": "git+https://github.com/halt-hammerzeit/javascript-time-ago.git"
   },
   "keywords": [
     "react",
@@ -56,7 +56,7 @@
   "author": "Halt Hammerzeit <halt.hammerzeit.at@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/halt-hammerzeit/react-time-ago/issues"
+    "url": "https://github.com/halt-hammerzeit/javascript-time-ago/issues"
   },
-  "homepage": "https://github.com/halt-hammerzeit/react-time-ago#readme"
+  "homepage": "https://github.com/halt-hammerzeit/javascript-time-ago#readme"
 }

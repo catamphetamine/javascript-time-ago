@@ -1,14 +1,14 @@
 // import chai from 'chai'
 // chai.should()
 
-// import react_time_ago from '../source/time ago'
+// import javascript_time_ago from '../source/time ago'
 
-import react_time_ago, { a_day, days_in_a_month, days_in_a_year, from_CLDR, gradation, preset } from '../source'
+import javascript_time_ago, { a_day, days_in_a_month, days_in_a_year, from_CLDR, gradation, preset } from '../source'
 
 // Load locale specific relative date/time messages
 import { short as english_short_cldr, long as english_long_cldr } from './locales/en-cldr'
-import { short as english_short, long as english_long, tiny as english_tiny } from '../locales/en'
-import { short as russian_short, long as russian_long, tiny as russian_tiny }  from '../locales/ru'
+import english, { short as english_short, long as english_long, tiny as english_tiny } from '../locales/en'
+import russian, { short as russian_short, long as russian_long, tiny as russian_tiny }  from '../locales/ru'
 
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
@@ -26,8 +26,8 @@ describe(`time ago`, function()
 	beforeEach(function()
 	{
 		// Set locale specific relative date/time messages
-		react_time_ago.locale('en', english_long)
-		react_time_ago.locale('ru', russian_long)
+		javascript_time_ago.locale('en', english_long)
+		javascript_time_ago.locale('ru', russian_long)
 	})
 
 	afterEach(function()
@@ -43,9 +43,9 @@ describe(`time ago`, function()
 
 	// it(`should omit just now`, function()
 	// {
-	// 	react_time_ago.locale('en', english_short)
+	// 	javascript_time_ago.locale('en', english_short)
 	//
-	// 	const time_ago = new react_time_ago('en')
+	// 	const time_ago = new javascript_time_ago('en')
 	//
 	// 	const custom_gradation = gradation.convenient()
 	// 	while (custom_gradation[0].unit !== 'minute')
@@ -63,11 +63,10 @@ describe(`time ago`, function()
 
 	it(`should format Twitter style relative time (English)`, function()
 	{
-		react_time_ago.locale('en', english_tiny)
+		javascript_time_ago.locale('en', english_tiny)
 	
-		const time_ago = new react_time_ago('en')
-	
-		const twitter_preset = preset.twitter('en-US')
+		const time_ago = new javascript_time_ago('en')
+		const twitter_preset = time_ago.preset.twitter()
 	
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const elapsed = time => time_ago.format(now + time * 1000, { now, ...twitter_preset })
@@ -97,11 +96,10 @@ describe(`time ago`, function()
 
 	it(`should format Twitter style relative time (Russian)`, function()
 	{
-		react_time_ago.locale('ru', russian_tiny)
+		javascript_time_ago.locale('ru', russian)
 	
-		const time_ago = new react_time_ago('ru')
-	
-		const twitter_preset = preset.twitter('ru')
+		const time_ago = new javascript_time_ago(['ru'])
+		const twitter_preset = time_ago.preset.twitter()
 	
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const elapsed = time => time_ago.format(now + time * 1000, { now, ...twitter_preset })
@@ -131,11 +129,11 @@ describe(`time ago`, function()
 
 	it(`should reduce locale to language code`, function()
 	{
-		react_time_ago.locale('ru', russian_tiny)
+		javascript_time_ago.locale('ru', russian_tiny)
 	
-		const time_ago = new react_time_ago('ru')
+		const time_ago = new javascript_time_ago(['ru-RU'])
 	
-		const twitter_preset = preset.twitter('ru-RU')
+		const twitter_preset = time_ago.preset.twitter()
 	
 		const now = Date.now()
 		const elapsed = time => time_ago.format(now + time * 1000, { now })
@@ -146,7 +144,7 @@ describe(`time ago`, function()
 
 	it(`should format time correctly for English language (short)`, function()
 	{
-		react_time_ago.locale('en', english_short)
+		javascript_time_ago.locale('en', english_short)
 
 		convenient_gradation_test
 		([
@@ -205,12 +203,12 @@ describe(`time ago`, function()
 			'3 yr. ago',
 			'100 yr. ago'
 		],
-		new react_time_ago('en'))
+		new javascript_time_ago('en'))
 	})
 
 	it(`should format time correctly for English language (long)`, function()
 	{
-		react_time_ago.locale('en', english_long)
+		javascript_time_ago.locale('en', english_long)
 
 		convenient_gradation_test
 		([
@@ -269,12 +267,12 @@ describe(`time ago`, function()
 			'3 years ago',
 			'100 years ago'
 		],
-		new react_time_ago('en'))
+		new javascript_time_ago('en'))
 	})
 
 	it(`should format time correctly for Russian language (short)`, function()
 	{
-		react_time_ago.locale('ru', russian_short)
+		javascript_time_ago.locale('ru', russian_short)
 
 		convenient_gradation_test
 		([
@@ -333,12 +331,12 @@ describe(`time ago`, function()
 			'3 г. назад',
 			'100 л. назад'
 		],
-		new react_time_ago('ru'))
+		new javascript_time_ago('ru'))
 	})
 
 	it(`should format time correctly for Russian language (long)`, function()
 	{
-		react_time_ago.locale('ru', russian_long)
+		javascript_time_ago.locale('ru', russian_long)
 
 		convenient_gradation_test
 		([
@@ -397,7 +395,7 @@ describe(`time ago`, function()
 			'3 года назад',
 			'100 лет назад'
 		],
-		new react_time_ago('ru'))
+		new javascript_time_ago('ru'))
 	})
 })
 
