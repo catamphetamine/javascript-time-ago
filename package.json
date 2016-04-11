@@ -1,7 +1,7 @@
 {
   "name": "javascript-time-ago",
   "version": "0.1.0",
-  "description": "Relative time formatting for React",
+  "description": "International highly customizable relative time formatting",
   "main": "build/index.js",
   "jsnext:main": "source/index.js",
   "dependencies": {

@@ -327,8 +327,8 @@ npm install [module name with version].tar.gz
 ## License
 
 [MIT](LICENSE)
-[npm]: https://img.shields.io/npm/v/javascript-time-ago.svg?style=flat-square
-[npm-badge]: https://www.npmjs.org/package/javascript-time-ago
+[npm]: https://www.npmjs.org/package/javascript-time-ago
+[npm-badge]: https://img.shields.io/npm/v/javascript-time-ago.svg?style=flat-square
 [travis]: https://travis-ci.org/halt-hammerzeit/javascript-time-ago
 [travis-badge]: https://img.shields.io/travis/halt-hammerzeit/javascript-time-ago/master.svg?style=flat-square
 [CLDR]: http://cldr.unicode.org/
