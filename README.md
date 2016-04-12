@@ -309,6 +309,7 @@ A `gradation` is a list of time interval measurement steps. A simple example:
   * `factor` is a divider for the supplied time interval (in seconds)
   * `threshold` is a minimum time interval value (in seconds) required for this gradation step
   * (some more `threshold` customization is possible, see the link below)
+  * `granularity` can also be specified (for example, `5` for `minute` to allow only 5-minute intervals)
 
 For more gradation examples see [`source/classify elapsed.js`](https://github.com/halt-hammerzeit/javascript-time-ago/blob/master/source/classify%20elapsed.js)
 
