@@ -3,7 +3,7 @@
 
 import IntlMessageFormat from 'intl-messageformat'
 import classify_elapsed  from './classify elapsed'
-import preset            from './preset'
+import style             from './style'
 
 export default class React_time_ago
 {
@@ -34,7 +34,7 @@ export default class React_time_ago
 		this.locales = locales
 
 		// Presets
-		this.preset = preset(locales)
+		this.style = style(locales)
 	}
 
 	// Formats the relative date.
@@ -64,8 +64,8 @@ export default class React_time_ago
 	//
 	format(input, options = {})
 	{
-		// Get locale messages for this formatting style
-		const { style, locale_data } = this.locale_data(options.style)
+		// Get locale messages for this formatting flavour
+		const { flavour, locale_data } = this.locale_data(options.flavour)
 
 		let date
 		let time
@@ -126,7 +126,7 @@ export default class React_time_ago
 		// format the message for the chosen time measurement unit
 		// (second, minute, hour, day, etc)
 
-		const formatters = this.get_formatters(unit, style)
+		const formatters = this.get_formatters(unit, flavour)
 
 		// default formatter: "X units"
 		let formatter = formatters.default
@@ -151,36 +151,36 @@ export default class React_time_ago
 		})
 	}
 
-	// Gets locale messages for this formatting 'style'
-	locale_data(style)
+	// Gets locale messages for this formatting flavour
+	locale_data(flavour)
 	{
 		// Get relative time formatter messages for this locale
 		const locale_data = React_time_ago.locale_data[this.locale]
 
-		// Fallback to "default" style if the given style isn't available
-		if (!style || !locale_data[style])
+		// Fallback to "default" flavour if the given flavour isn't available
+		if (!flavour || !locale_data[flavour])
 		{
-			style = 'default'
+			flavour = 'default'
 		}
 
-		return { style, locale_data: locale_data[style] }
+		return { flavour, locale_data: locale_data[flavour] }
 	}
 
 	// lazy creation of a formatter for a given time measurement unit
 	// (second, minute, hour, day, etc)
-	get_formatters(unit, style)
+	get_formatters(unit, flavour)
 	{
-		if (!this.formatters[style])
+		if (!this.formatters[flavour])
 		{
-			this.formatters[style] = {}
+			this.formatters[flavour] = {}
 		}
 
-		const formatters = this.formatters[style]
+		const formatters = this.formatters[flavour]
 
 		// Create a new synthetic message based on the locale data from CLDR.
 		if (!formatters[unit])
 		{
-			formatters[unit] = this.compile_formatters(unit, style)
+			formatters[unit] = this.compile_formatters(unit, flavour)
 		}
 
 		return formatters[unit]
@@ -188,11 +188,11 @@ export default class React_time_ago
 
 	// compiles formatter for the specified time measurement unit 
 	// (second, minute, hour, day, etc)
-	compile_formatters(unit, style)
+	compile_formatters(unit, flavour)
 	{
 		// Locale specific time interval formatter messages
 		// for the given time interval measurement unit
-		const formatter_messages = React_time_ago.locale_data[this.locale][style][unit]
+		const formatter_messages = React_time_ago.locale_data[this.locale][flavour][unit]
 
 		// Locale specific time interval formatter messages
 		// for the given time interval measurement unit

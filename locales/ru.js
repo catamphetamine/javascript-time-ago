@@ -569,6 +569,8 @@ export default
 {
   tiny,
   short,
+  short_concise,
   long,
+  long_concise,
   default: long
 }

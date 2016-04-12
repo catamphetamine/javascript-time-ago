@@ -113,9 +113,9 @@ javascript_time_ago.locale('en', english)
 
 const time_ago = new javascript_time_ago('en-US')
 
-// A `preset` is simply an `options` object 
+// A `style` is simply an `options` object 
 // passed to the `.format()` function as a second parameter.
-const twitter = time_ago.preset.twitter()
+const twitter = time_ago.style.twitter()
 
 time_ago.format(new Date(), twitter)
 // ""
@@ -126,6 +126,42 @@ time_ago.format(new Date(Date.now() + 60 * 1000), twitter)
 time_ago.format(new Date(Date.now() + 2 * 60 * 60 * 1000), twitter)
 // "2h"
 ```
+
+## Fuzzy style
+
+```js
+time_ago.style.fuzzy()
+```
+
+Same as the default style but with "ago" omitted:
+
+  * just now
+  * 5 minutes
+  * 10 minutes
+  * 15 minutes
+  * 20 minutes
+  * half an hour
+  * an hour
+  * 2 hours
+  * …
+  * 20 hours
+  * yesterday
+  * 2 days
+  * 3 days
+  * 4 days
+  * 5 days
+  * a week
+  * 2 weeks
+  * 3 weeks
+  * a month
+  * 2 months
+  * 3 months
+  * 4 months
+  * half a year
+  * a year
+  * 2 years
+  * 3 years
+  * …
 
 ## Intl polyfill installation
 
@@ -234,7 +270,7 @@ english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-One can pass `options` as a second parameter to the `.format(date, options)` function. It's called a `preset` (see "twitter" preset for example). The `options` object can specify:
+One can pass `options` as a second parameter to the `.format(date, options)` function. It's called a `style` (see "twitter" style for example). The `options` object can specify:
 
   * `style` – a preferred formatting style (e.g. `tiny`, `short`, `long`)
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)

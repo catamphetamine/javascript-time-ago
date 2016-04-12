@@ -5,7 +5,7 @@ const twitter_formatters = {}
 
 export default function(locales)
 {
-	const preset = 
+	const styles = 
 	{
 		// Twitter style relative time.
 		// Seconds, minutes and hours are shown relatively,
@@ -69,12 +69,49 @@ export default function(locales)
 
 				gradation: twitter_gradation,
 
-				style: 'tiny'
+				flavour: 'tiny'
+			}
+
+			return options
+		},
+
+		// I prefer this one.
+		//
+		// just now
+		// 5 minutes
+		// 10 minutes
+		// 15 minutes
+		// 20 minutes
+		// half an hour
+		// an hour
+		// 2 hours
+		// …
+		// 20 hours
+		// yesterday
+		// 2 days
+		// a week
+		// 2 weeks
+		// 3 weeks
+		// a month
+		// 2 months
+		// 3 months
+		// 4 months
+		// half a year
+		// a year
+		// 2 years
+		//
+		fuzzy()
+		{
+			const options = 
+			{
+				gradation: gradation.convenient(),
+				flavour: 'long_concise',
+				units: ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
 			}
 
 			return options
 		}
 	}
 
-	return preset
+	return styles
 }
