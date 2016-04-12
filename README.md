@@ -133,7 +133,7 @@ time_ago.format(new Date(Date.now() + 2 * 60 * 60 * 1000), twitter)
 time_ago.style.fuzzy()
 ```
 
-Same as the default style but with "ago" omitted:
+The time scale is (actually same as the default style but with "ago" omitted):
 
   * just now
   * 5 minutes
@@ -243,11 +243,17 @@ One can also use raw Unicode CLDR locale rules which will be automatically conve
 }
 ```
 
-To add support for a specific language one can download the corresponding JSON file from [CLDR dates repository](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main) and add the data from that file to the library:
+To add support for a specific language one can download the [CLDR dates package](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main):
+
+```
+npm install cldr-dates-modern --save
+```
+
+And then add the neccessary locales from it:
 
 ```js
 import javascript_time_ago from 'javascript-time-ago'
-import russian from './CLDR/cldr-dates-full/main/ru/dateFields.json'
+import russian from 'cldr-dates-modern/main/ru/dateFields.json'
 
 javascript_time_ago.locale('ru', russian.main.ru.dates.fields)
 
