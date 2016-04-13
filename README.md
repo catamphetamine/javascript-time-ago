@@ -47,9 +47,14 @@ If you decide you need the Intl polyfill then [here are some basic installation 
 ```js
 import javascript_time_ago from 'javascript-time-ago'
 
-// Import locale specific relative date/time messages
-import english from 'javascript-time-ago/locales/en'
-import russian from 'javascript-time-ago/locales/ru'
+// Load locale specific relative date/time messages
+//
+// (this is only needed in client-side code;
+//  server-side instance will load all 
+//  supported locales automatically at startup)
+//
+javascript_time_ago.locale('en', require('javascript-time-ago/locales/en'))
+javascript_time_ago.locale('ru', require('javascript-time-ago/locales/ru'))
 
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
@@ -65,16 +70,8 @@ global.IntlMessageFormat = require('intl-messageformat')
 require('intl-messageformat/dist/locale-data/en')
 require('intl-messageformat/dist/locale-data/ru')
 
-// Add the imported locale specific relative date/time messages
-//
-// (this is only needed in client-side code;
-//  server-side instance will load all 
-//  supported locales automatically at startup)
-//
-javascript_time_ago.locale('en', english)
-javascript_time_ago.locale('ru', russian)
-
-// Initialization complete.
+// Client-side initialization complete.
+// (no server-side initialization is required)
 // Ready to format relative dates and times.
 
 const time_ago_english = new javascript_time_ago('en-US')
