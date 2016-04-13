@@ -57,11 +57,20 @@ import russian from 'javascript-time-ago/locales/ru'
 // http://cldr.unicode.org/index/cldr-spec/plural-rules
 // https://github.com/eemeli/make-plural.js
 //
+// (this is only needed in client-side code;
+//  server-side instance will load all 
+//  supported locales automatically at startup)
+//
 global.IntlMessageFormat = require('intl-messageformat')
 require('intl-messageformat/dist/locale-data/en')
 require('intl-messageformat/dist/locale-data/ru')
 
 // Add the imported locale specific relative date/time messages
+//
+// (this is only needed in client-side code;
+//  server-side instance will load all 
+//  supported locales automatically at startup)
+//
 javascript_time_ago.locale('en', english)
 javascript_time_ago.locale('ru', russian)
 
@@ -103,14 +112,6 @@ Mimics Twitter style time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
 
 ```js
 …
-import javascript_time_ago from 'javascript-time-ago'
-
-// Import locale specific relative date/time messages
-import english from 'javascript-time-ago/locales/en'
-
-// Add the imported locale specific relative date/time messages
-javascript_time_ago.locale('en', english)
-
 const time_ago = new javascript_time_ago('en-US')
 
 // A `style` is simply an `options` object 

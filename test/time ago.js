@@ -9,17 +9,6 @@ import { short as english_short_cldr, long as english_long_cldr } from './locale
 import english, { short as english_short, long as english_long, tiny as english_tiny } from '../locales/en'
 import russian, { short as russian_short, long as russian_long, tiny as russian_tiny }  from '../locales/ru'
 
-// Load number pluralization functions for the locales.
-// (the ones that decide if a number is gonna be 
-//  "zero", "one", "two", "few", "many" or "other")
-// http://cldr.unicode.org/index/cldr-spec/plural-rules
-// https://github.com/eemeli/make-plural.js
-//
-global.IntlMessageFormat = require('intl-messageformat')
-require('intl-messageformat/dist/locale-data/en')
-require('intl-messageformat/dist/locale-data/ru')
-delete global.IntlMessageFormat
-
 describe(`time ago`, function()
 {
 	beforeEach(function()
