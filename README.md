@@ -325,6 +325,10 @@ gradation.canonical()  // '1 second ago', '2 minutes ago', …
 gradation.convenient() // 'just now', '5 minutes ago', …
 ```
 
+## React
+
+There is also a [React component](https://github.com/halt-hammerzeit/react-time-ago).
+
 ## Contributing
 
 After cloning this repo, ensure dependencies are installed by running:
