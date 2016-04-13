@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "International highly customizable relative time formatting",
   "main": "index.umd.js",
   "jsnext:main": "index.es6.js",
