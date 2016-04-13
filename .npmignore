@@ -2,7 +2,7 @@
 .gitignore
 
 # testing package
-/react-isomorphic-render-*.tgz
+/javascript-isomorphic-render-*.tgz
 
 # Travis CI
 .travis.yml

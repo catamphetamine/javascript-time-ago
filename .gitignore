@@ -1,5 +1,5 @@
 # testing package
-/react-isomorphic-render-*.tgz
+/javascript-isomorphic-render-*.tgz
 
 # test coverage folder
 /coverage/
