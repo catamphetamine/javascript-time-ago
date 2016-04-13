@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "International highly customizable relative time formatting",
   "main": "build/index.js",
   "jsnext:main": "source/index.js",
