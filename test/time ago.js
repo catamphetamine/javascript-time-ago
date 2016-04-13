@@ -1,9 +1,8 @@
-// import chai from 'chai'
-// chai.should()
+import javascript_time_ago, { a_day, days_in_a_month, days_in_a_year, gradation } from '../index.es6'
+import { from_CLDR } from '../source/time ago'
 
-// import javascript_time_ago from '../source/time ago'
-
-import javascript_time_ago, { a_day, days_in_a_month, days_in_a_year, from_CLDR, gradation } from '../source'
+// import javascript_time_ago, { from_CLDR } from '../source/time ago'
+// import { a_day, days_in_a_month, days_in_a_year, gradation } from '../source/classify elapsed'
 
 // Load locale specific relative date/time messages
 import { short as english_short_cldr, long as english_long_cldr } from './locales/en-cldr'
@@ -25,9 +24,9 @@ describe(`time ago`, function()
 {
 	beforeEach(function()
 	{
-		// Set locale specific relative date/time messages
-		javascript_time_ago.locale('en', english_long)
-		javascript_time_ago.locale('ru', russian_long)
+		// // Set locale specific relative date/time messages
+		// javascript_time_ago.locale('en', english_long)
+		// javascript_time_ago.locale('ru', russian_long)
 	})
 
 	afterEach(function()
@@ -63,7 +62,7 @@ describe(`time ago`, function()
 
 	it(`should format Twitter style relative time (English)`, function()
 	{
-		javascript_time_ago.locale('en', english_tiny)
+		// javascript_time_ago.locale('en', english_tiny)
 	
 		const time_ago = new javascript_time_ago('en')
 		const twitter_style = time_ago.style.twitter()
@@ -94,7 +93,7 @@ describe(`time ago`, function()
 
 	it(`should format Twitter style relative time (Russian)`, function()
 	{
-		javascript_time_ago.locale('ru', russian)
+		// javascript_time_ago.locale('ru', russian)
 	
 		const time_ago = new javascript_time_ago(['ru'])
 		const twitter_style = time_ago.style.twitter()
@@ -125,7 +124,7 @@ describe(`time ago`, function()
 
 	it(`should format fuzzy style relative time (English)`, function()
 	{
-		javascript_time_ago.locale('en', english)
+		// javascript_time_ago.locale('en', english)
 
 		const time_ago = new javascript_time_ago('en-US')
 
@@ -192,7 +191,7 @@ describe(`time ago`, function()
 
 	it(`should format fuzzy style relative time (Russian)`, function()
 	{
-		javascript_time_ago.locale('ru', russian)
+		// javascript_time_ago.locale('ru', russian)
 
 		const time_ago = new javascript_time_ago('ru-RU')
 
@@ -259,14 +258,14 @@ describe(`time ago`, function()
 
 	it(`should reduce locale to language code`, function()
 	{
-		javascript_time_ago.locale('ru', russian_tiny)
+		// javascript_time_ago.locale('ru', russian_tiny)
 	
 		const time_ago = new javascript_time_ago(['ru-RU'])
 	
 		const twitter_style = time_ago.style.twitter()
 	
 		const now = Date.now()
-		const elapsed = time => time_ago.format(now - time * 1000, { now })
+		const elapsed = time => time_ago.format(now - time * 1000, { now, flavour: 'tiny' })
 	
 		elapsed(45.1).should.equal('45с')
 		elapsed(45.1 * 60).should.equal('45м')
@@ -276,7 +275,7 @@ describe(`time ago`, function()
 	{
 		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
 
-		javascript_time_ago.locale('en', english_short)
+		// javascript_time_ago.locale('en', english_short)
 
 		convenient_gradation_test
 		([
@@ -336,14 +335,14 @@ describe(`time ago`, function()
 			'100 yr. ago'
 		],
 		new javascript_time_ago('en'),
-		{ units })
+		{ units, flavour: 'short' })
 	})
 
 	it(`should format time correctly for English language (long)`, function()
 	{
 		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
 
-		javascript_time_ago.locale('en', english_long)
+		// javascript_time_ago.locale('en', english_long)
 
 		convenient_gradation_test
 		([
@@ -410,7 +409,7 @@ describe(`time ago`, function()
 	{
 		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
 
-		javascript_time_ago.locale('ru', russian_short)
+		// javascript_time_ago.locale('ru', russian_short)
 
 		convenient_gradation_test
 		([
@@ -470,14 +469,14 @@ describe(`time ago`, function()
 			'100 л. назад'
 		],
 		new javascript_time_ago('ru'),
-		{ units })
+		{ units, flavour: 'short' })
 	})
 
 	it(`should format time correctly for Russian language (long)`, function()
 	{
 		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
 
-		javascript_time_ago.locale('ru', russian_long)
+		// javascript_time_ago.locale('ru', russian_long)
 
 		convenient_gradation_test
 		([
