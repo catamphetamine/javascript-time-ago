@@ -78,6 +78,8 @@ export const gradation =
 	},
 
 	// just now
+	// a minute ago
+	// 2 minutes ago
 	// 5 minutes ago
 	// 10 minutes ago
 	// 15 minutes ago
