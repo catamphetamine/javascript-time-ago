@@ -73,13 +73,13 @@ const time_ago_english = new javascript_time_ago('en-US')
 time_ago_english.format(new Date())
 // "just now"
 
-time_ago_english.format(new Date(Date.now() + 60 * 1000))
+time_ago_english.format(new Date(Date.now() - 60 * 1000))
 // "a minute ago"
 
-time_ago_english.format(new Date(Date.now() + 2 * 60 * 60 * 1000))
+time_ago_english.format(new Date(Date.now() - 2 * 60 * 60 * 1000))
 // "2 hours ago"
 
-time_ago_english.format(new Date(Date.now() + 24 * 60 * 60 * 1000))
+time_ago_english.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
 // "yesterday"
 
 const time_ago_russian = new javascript_time_ago('ru-RU')
@@ -87,13 +87,13 @@ const time_ago_russian = new javascript_time_ago('ru-RU')
 time_ago_russian.format(new Date())
 // "только что"
 
-time_ago_russian.format(new Date(Date.now() + 60 * 1000)))
+time_ago_russian.format(new Date(Date.now() - 60 * 1000)))
 // "минуту назад"
 
-time_ago_russian.format(new Date(Date.now() + 2 * 60 * 60 * 1000)))
+time_ago_russian.format(new Date(Date.now() - 2 * 60 * 60 * 1000)))
 // "2 часа назад"
 
-time_ago_russian.format(new Date(Date.now() + 24 * 60 * 60 * 1000))
+time_ago_russian.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
 // "вчера"
 ```
 
@@ -120,10 +120,10 @@ const twitter = time_ago.style.twitter()
 time_ago.format(new Date(), twitter)
 // ""
 
-time_ago.format(new Date(Date.now() + 60 * 1000), twitter)
+time_ago.format(new Date(Date.now() - 60 * 1000), twitter)
 // "1m"
 
-time_ago.format(new Date(Date.now() + 2 * 60 * 60 * 1000), twitter)
+time_ago.format(new Date(Date.now() - 2 * 60 * 60 * 1000), twitter)
 // "2h"
 ```
 
@@ -258,7 +258,7 @@ import russian from 'cldr-dates-modern/main/ru/dateFields.json'
 javascript_time_ago.locale('ru', russian.main.ru.dates.fields)
 
 const time_ago = new javascript_time_ago('ru')
-time_ago.format(new Date(Date.now() + 60 * 1000))
+time_ago.format(new Date(Date.now() - 60 * 1000))
 // "1 минуту назад"
 ```
 
