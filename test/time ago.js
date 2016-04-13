@@ -54,7 +54,7 @@ describe(`time ago`, function()
 	// 	}
 	//
 	// 	const now = Date.now()
-	// 	const elapsed = time => time_ago.format(now + time * 1000, { now, gradation: custom_gradation })
+	// 	const elapsed = time => time_ago.format(now - time * 1000, { now, gradation: custom_gradation })
 	//
 	// 	elapsed(0        ).should.equal('')
 	// 	elapsed(2.49 * 60).should.equal('')
@@ -69,7 +69,7 @@ describe(`time ago`, function()
 		const twitter_style = time_ago.style.twitter()
 	
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = time => time_ago.format(now + time * 1000, { now, ...twitter_style })
+		const elapsed = time => time_ago.format(now - time * 1000, { now, ...twitter_style })
 	
 		elapsed(0).should.equal('')
 		elapsed(44.9).should.equal('')
@@ -87,11 +87,9 @@ describe(`time ago`, function()
 		elapsed(2.51 * 60 * 60).should.equal('3h')
 		// …
 		elapsed(23.49 * 60 * 60).should.equal('23h')
-		elapsed(23.51 * 60 * 60).should.equal('Apr 11')
-		elapsed(a_day + 60 * 60).should.equal('Apr 11')
-		elapsed(a_day + 62 * 60).should.equal('Apr 12')
+		elapsed(a_day + 62 * 60).should.equal('Apr 9')
 		// …
-		elapsed(days_in_a_year * a_day).should.equal('Apr 11, 2017')
+		elapsed(days_in_a_year * a_day).should.equal('Apr 11, 2015')
 	})
 
 	it(`should format Twitter style relative time (Russian)`, function()
@@ -102,7 +100,7 @@ describe(`time ago`, function()
 		const twitter_style = time_ago.style.twitter()
 	
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = time => time_ago.format(now + time * 1000, { now, ...twitter_style })
+		const elapsed = time => time_ago.format(now - time * 1000, { now, ...twitter_style })
 	
 		elapsed(0).should.equal('')
 		elapsed(44.9).should.equal('')
@@ -120,11 +118,9 @@ describe(`time ago`, function()
 		elapsed(2.51 * 60 * 60).should.equal('3ч')
 		// …
 		elapsed(23.49 * 60 * 60).should.equal('23ч')
-		elapsed(23.51 * 60 * 60).should.equal('11 апр.')
-		elapsed(a_day + 60 * 60).should.equal('11 апр.')
-		elapsed(a_day + 62 * 60).should.equal('12 апр.')
+		elapsed(a_day + 62 * 60).should.equal('9 апр.')
 		// …
-		elapsed(days_in_a_year * a_day).should.equal('11 апр. 2017 г.')
+		elapsed(days_in_a_year * a_day).should.equal('11 апр. 2015 г.')
 	})
 
 	it(`should format fuzzy style relative time (English)`, function()
@@ -270,7 +266,7 @@ describe(`time ago`, function()
 		const twitter_style = time_ago.style.twitter()
 	
 		const now = Date.now()
-		const elapsed = time => time_ago.format(now + time * 1000, { now })
+		const elapsed = time => time_ago.format(now - time * 1000, { now })
 	
 		elapsed(45.1).should.equal('45с')
 		elapsed(45.1 * 60).should.equal('45м')
@@ -548,7 +544,7 @@ describe(`time ago`, function()
 function convenient_gradation_test(convenient_gradation_labels, time_ago, options = {})
 {
 	const now = Date.now()
-	const elapsed = time => time_ago.format(now + time * 1000, { now, ...options })
+	const elapsed = time => time_ago.format(now - time * 1000, { now, ...options })
 
 	if (convenient_gradation.length !== convenient_gradation_labels.length)
 	{

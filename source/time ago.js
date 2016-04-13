@@ -147,7 +147,7 @@ export default class React_time_ago
 		return formatter.format
 		({
 			'0'  : amount,
-			when : elapsed <= 0 ? 'past' : 'future'
+			when : elapsed >= 0 ? 'past' : 'future'
 		})
 	}
 
