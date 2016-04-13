@@ -278,7 +278,7 @@ english.long  // '1 second ago', '2 minutes ago', …
 
 One can pass `options` as a second parameter to the `.format(date, options)` function. It's called a `style` (see "twitter" style for example). The `options` object can specify:
 
-  * `style` – a preferred formatting style (e.g. `tiny`, `short`, `long`)
+  * `flavour` – preferred labels style (e.g. `tiny`, `short`, `long`)
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
   * `gradation` – custom time interval measurement units gradation
   * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise it has no effect.

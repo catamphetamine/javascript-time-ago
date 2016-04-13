@@ -5,7 +5,7 @@ import IntlMessageFormat from 'intl-messageformat'
 import classify_elapsed  from './classify elapsed'
 import style             from './style'
 
-export default class React_time_ago
+export default class Javascript_time_ago
 {
 	// Fallback locale
 	// (when not a single supplied preferred locale is available)
@@ -70,19 +70,19 @@ export default class React_time_ago
 		let date
 		let time
 		
-		if (typeof input === 'number')
-		{
-			time = input
-			date = new Date(input)
-		}
-		else if (input.constructor === Date)
+		if (input.constructor === Date)
 		{
 			date = input
 			time = input.getTime()
 		}
+		else if (typeof input === 'number')
+		{
+			time = input
+			date = new Date(input)
+		}
 		else
 		{
-			throw new Error(`Unsupported fuzzy time input: ${typeof input}, ${input}`)
+			throw new Error(`Unsupported relative time formatter input: ${typeof input}, ${input}`)
 		}
 
 		// can pass a custom `now` for testing purpose
@@ -155,7 +155,7 @@ export default class React_time_ago
 	locale_data(flavour)
 	{
 		// Get relative time formatter messages for this locale
-		const locale_data = React_time_ago.locale_data[this.locale]
+		const locale_data = Javascript_time_ago.locale_data[this.locale]
 
 		// Fallback to "default" flavour if the given flavour isn't available
 		if (!flavour || !locale_data[flavour])
@@ -192,7 +192,7 @@ export default class React_time_ago
 	{
 		// Locale specific time interval formatter messages
 		// for the given time interval measurement unit
-		const formatter_messages = React_time_ago.locale_data[this.locale][flavour][unit]
+		const formatter_messages = Javascript_time_ago.locale_data[this.locale][flavour][unit]
 
 		// Locale specific time interval formatter messages
 		// for the given time interval measurement unit
@@ -281,7 +281,7 @@ export function resolve_locale(locales)
 	}
 
 	// Create a copy of the array so we can push on the default locale.
-	locales = (locales || []).concat(React_time_ago.default_locale)
+	locales = (locales || []).concat(Javascript_time_ago.default_locale)
 
 	// Using the set of locales + the default locale, we look for the first one
 	// which that has been registered. When data does not exist for a locale, we
@@ -296,7 +296,7 @@ export function resolve_locale(locales)
 		{
 			const locale_try = locale_parts.join('-')
 
-			if (React_time_ago.locale_data[locale_try])
+			if (Javascript_time_ago.locale_data[locale_try])
 			{
 				// Return the normalized locale string; 
 				// e.g., we return "en-US",
@@ -312,7 +312,7 @@ export function resolve_locale(locales)
 }
 
 // Adds locale data
-React_time_ago.locale = function(locale, locale_data)
+Javascript_time_ago.locale = function(locale, locale_data)
 {
 	const locale_data_map = {}
 
@@ -333,7 +333,7 @@ React_time_ago.locale = function(locale, locale_data)
 	}
 
 	// Store locale specific messages in the static variable
-	React_time_ago.locale_data[locale.toLowerCase()] = locale_data_map
+	Javascript_time_ago.locale_data[locale.toLowerCase()] = locale_data_map
 
 	// (will be added manually by this library user)
 	// // Add locale data to IntlMessageFormat
