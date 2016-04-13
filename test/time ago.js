@@ -262,8 +262,6 @@ describe(`time ago`, function()
 
 	it(`should format time correctly for English language (short)`, function()
 	{
-		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
-
 		// javascript_time_ago.locale('en', english_short)
 
 		convenient_gradation_test
@@ -326,13 +324,11 @@ describe(`time ago`, function()
 			'100 yr. ago'
 		],
 		new javascript_time_ago('en'),
-		{ units, flavour: 'short' })
+		{ flavour: 'short' })
 	})
 
 	it(`should format time correctly for English language (long)`, function()
 	{
-		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
-
 		// javascript_time_ago.locale('en', english_long)
 
 		convenient_gradation_test
@@ -394,14 +390,11 @@ describe(`time ago`, function()
 			'3 years ago',
 			'100 years ago'
 		],
-		new javascript_time_ago('en'),
-		{ units })
+		new javascript_time_ago('en'))
 	})
 
 	it(`should format time correctly for Russian language (short)`, function()
 	{
-		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
-
 		// javascript_time_ago.locale('ru', russian_short)
 
 		convenient_gradation_test
@@ -464,13 +457,11 @@ describe(`time ago`, function()
 			'100 л. назад'
 		],
 		new javascript_time_ago('ru'),
-		{ units, flavour: 'short' })
+		{ flavour: 'short' })
 	})
 
 	it(`should format time correctly for Russian language (long)`, function()
 	{
-		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
-
 		// javascript_time_ago.locale('ru', russian_long)
 
 		convenient_gradation_test
@@ -532,8 +523,7 @@ describe(`time ago`, function()
 			'3 года назад',
 			'100 лет назад'
 		],
-		new javascript_time_ago('ru'),
-		{ units })
+		new javascript_time_ago('ru'))
 	})
 })
 

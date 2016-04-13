@@ -111,7 +111,8 @@ export const gradation =
 			{
 				unit: 'second',
 				factor: 1,
-				threshold: 1
+				threshold: 1,
+				'threshold_for_just-now': 45
 			},
 			{
 				unit: 'minute',
