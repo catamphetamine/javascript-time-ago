@@ -131,6 +131,8 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'just now',
+			'a minute',
+			'2 minutes',
 			'5 minutes',
 			'10 minutes',
 			'15 minutes',
@@ -198,6 +200,8 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'только что',
+			'минуту',
+			'2 минуты',
 			'5 минут',
 			'10 минут',
 			'15 минут',
@@ -256,21 +260,6 @@ describe(`time ago`, function()
 		time_ago.style.fuzzy())
 	})
 
-	it(`should reduce locale to language code`, function()
-	{
-		// javascript_time_ago.locale('ru', russian_tiny)
-	
-		const time_ago = new javascript_time_ago(['ru-RU'])
-	
-		const twitter_style = time_ago.style.twitter()
-	
-		const now = Date.now()
-		const elapsed = time => time_ago.format(now - time * 1000, { now, flavour: 'tiny' })
-	
-		elapsed(45.1).should.equal('45с')
-		elapsed(45.1 * 60).should.equal('45м')
-	})
-
 	it(`should format time correctly for English language (short)`, function()
 	{
 		const units = ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
@@ -280,6 +269,8 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'now',
+			'1 min. ago',
+			'2 min. ago',
 			'5 min. ago',
 			'10 min. ago',
 			'15 min. ago',
@@ -347,6 +338,8 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'just now',
+			'a minute ago',
+			'2 minutes ago',
 			'5 minutes ago',
 			'10 minutes ago',
 			'15 minutes ago',
@@ -414,6 +407,8 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'только что',
+			'1 мин. назад',
+			'2 мин. назад',
 			'5 мин. назад',
 			'10 мин. назад',
 			'15 мин. назад',
@@ -481,6 +476,8 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'только что',
+			'минуту назад',
+			'2 минуты назад',
 			'5 минут назад',
 			'10 минут назад',
 			'15 минут назад',
@@ -567,6 +564,16 @@ const convenient_gradation =
 	// 'just now':
 	[
 		0,
+		44.9
+	],
+	// 'a minute ago':
+	[
+		45.1,
+		1.49 * 60
+	],
+	// '2 minutes ago':
+	[
+		1.51 * 60,
 		2.49 * 60
 	],
 	// '5 minutes ago':

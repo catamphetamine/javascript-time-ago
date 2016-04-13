@@ -116,7 +116,12 @@ export const gradation =
 			{
 				unit: 'minute',
 				factor: 60,
-				threshold: 45,
+				threshold: 45
+			},
+			{
+				unit: 'minute',
+				factor: 60,
+				threshold: 2.5 * 60,
 				granularity: 5
 			},
 			{

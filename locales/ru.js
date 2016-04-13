@@ -96,6 +96,8 @@ var long = {
     }
   },
   "minute": {
+    "previous": "минуту назад",
+    "next": "через минуту",
     "future": {
       "one": "через {0} минуту",
       "few": "через {0} минуты",
@@ -110,6 +112,8 @@ var long = {
     }
   },
   "second": {
+    "previous": "секунду назад",
+    "next": "через секунду",
     "current": "сейчас",
     "future": {
       "one": "через {0} секунду",
@@ -232,6 +236,8 @@ var long_concise = {
     }
   },
   "minute": {
+    "previous": "минуту",
+    "next": "минуту",
     "future": {
       "one": "{0} минуту",
       "few": "{0} минуты",
@@ -246,6 +252,8 @@ var long_concise = {
     }
   },
   "second": {
+    "previous": "секунду",
+    "next": "секунду",
     "current": "сейчас",
     "future": {
       "one": "{0} секунду",
