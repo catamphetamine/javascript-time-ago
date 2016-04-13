@@ -32,6 +32,7 @@ Formats a date to something like:
 ## Installation
 
 ```
+npm install intl-messageformat --save
 npm install javascript-time-ago --save
 ```
 
@@ -56,9 +57,9 @@ import russian from 'javascript-time-ago/locales/ru'
 // http://cldr.unicode.org/index/cldr-spec/plural-rules
 // https://github.com/eemeli/make-plural.js
 //
-global.IntlMessageFormat = require('javascript-time-ago/node_modules/intl-messageformat')
-require('javascript-time-ago/node_modules/intl-messageformat/dist/locale-data/en')
-require('javascript-time-ago/node_modules/intl-messageformat/dist/locale-data/ru')
+global.IntlMessageFormat = require('intl-messageformat')
+require('intl-messageformat/dist/locale-data/en')
+require('intl-messageformat/dist/locale-data/ru')
 delete global.IntlMessageFormat
 
 // Add the imported locale specific relative date/time messages

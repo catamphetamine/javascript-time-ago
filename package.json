@@ -4,7 +4,7 @@
   "description": "International highly customizable relative time formatting",
   "main": "build/index.js",
   "jsnext:main": "source/index.js",
-  "dependencies": {
+  "peerDependencies": {
     "intl-messageformat": "^1.3.0"
   },
   "devDependencies": {

@@ -16,9 +16,9 @@ import russian, { short as russian_short, long as russian_long, tiny as russian_
 // http://cldr.unicode.org/index/cldr-spec/plural-rules
 // https://github.com/eemeli/make-plural.js
 //
-global.IntlMessageFormat = require('../node_modules/intl-messageformat')
-require('../node_modules/intl-messageformat/dist/locale-data/en')
-require('../node_modules/intl-messageformat/dist/locale-data/ru')
+global.IntlMessageFormat = require('intl-messageformat')
+require('intl-messageformat/dist/locale-data/en')
+require('intl-messageformat/dist/locale-data/ru')
 delete global.IntlMessageFormat
 
 describe(`time ago`, function()
