@@ -60,7 +60,6 @@ import russian from 'javascript-time-ago/locales/ru'
 global.IntlMessageFormat = require('intl-messageformat')
 require('intl-messageformat/dist/locale-data/en')
 require('intl-messageformat/dist/locale-data/ru')
-delete global.IntlMessageFormat
 
 // Add the imported locale specific relative date/time messages
 javascript_time_ago.locale('en', english)
