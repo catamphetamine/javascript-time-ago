@@ -1,4 +1,4 @@
-export const long = {
+var long = {
   "year": {
     "previous": "год назад",
     "next": "через год",
@@ -134,7 +134,7 @@ export const long = {
   }
 }
 
-export const long_concise = {
+var long_concise = {
   "year": {
     "previous": "год",
     "next": "год",
@@ -270,7 +270,7 @@ export const long_concise = {
   }
 }
 
-export const short = {
+var short = {
   "year": {
     "future": {
       "one": "через {0} г.",
@@ -382,7 +382,7 @@ export const short = {
   }
 }
 
-export const short_concise = {
+var short_concise = {
   "year": {
     "future": {
       "one": "{0} г.",
@@ -494,7 +494,7 @@ export const short_concise = {
   }
 }
 
-export const tiny = {
+var tiny = {
   "year": {
     "future": {
       "other": "{0}г"
@@ -565,7 +565,7 @@ export const tiny = {
   }
 }
 
-export default
+module.exports =
 {
   tiny,
   short,

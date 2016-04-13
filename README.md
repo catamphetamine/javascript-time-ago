@@ -32,7 +32,7 @@ Formats a date to something like:
 ## Installation
 
 ```
-npm install intl-messageformat --save
+npm install intl-messageformat@^1.3.0 --save
 npm install javascript-time-ago --save
 ```
 
