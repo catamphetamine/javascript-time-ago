@@ -120,7 +120,7 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'just now',
-			'a minute',
+			'1 minute',
 			'2 minutes',
 			'5 minutes',
 			'10 minutes',
@@ -189,7 +189,7 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'только что',
-			'минуту',
+			'1 минута',
 			'2 минуты',
 			'5 минут',
 			'10 минут',

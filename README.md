@@ -134,7 +134,7 @@ time_ago.style.fuzzy()
 The time scale is (actually same as the default style but with "ago" omitted):
 
   * just now
-  * a minute
+  * 1 minute
   * 2 minutes
   * 5 minutes
   * 10 minutes

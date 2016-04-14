@@ -197,9 +197,7 @@ var long_concise = {
     }
   },
   "minute": {
-    "previous": "a minute",
     "current": "this minute",
-    "next": "a minute",
     "future": {
       "one": "{0} minute",
       "other": "{0} minutes"

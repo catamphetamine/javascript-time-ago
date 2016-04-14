@@ -236,33 +236,29 @@ var long_concise = {
     }
   },
   "minute": {
-    "previous": "минуту",
-    "next": "минуту",
     "future": {
-      "one": "{0} минуту",
+      "one": "{0} минута",
       "few": "{0} минуты",
       "many": "{0} минут",
       "other": "{0} минуты"
     },
     "past": {
-      "one": "{0} минуту",
+      "one": "{0} минута",
       "few": "{0} минуты",
       "many": "{0} минут",
       "other": "{0} минуты"
     }
   },
   "second": {
-    "previous": "секунду",
-    "next": "секунду",
     "current": "сейчас",
     "future": {
-      "one": "{0} секунду",
+      "one": "{0} секунда",
       "few": "{0} секунды",
       "many": "{0} секунд",
       "other": "{0} секунды"
     },
     "past": {
-      "one": "{0} секунду",
+      "one": "{0} секунда",
       "few": "{0} секунды",
       "many": "{0} секунд",
       "other": "{0} секунды"
@@ -575,7 +571,7 @@ var tiny = {
 
 module.exports =
 {
-  default : long,
+  default       : long,
 
   tiny          : tiny,
   short         : short,

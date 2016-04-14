@@ -78,7 +78,7 @@ export const gradation =
 	},
 
 	// just now
-	// a minute ago
+	// 1 minute ago
 	// 2 minutes ago
 	// 5 minutes ago
 	// 10 minutes ago
