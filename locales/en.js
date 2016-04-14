@@ -473,10 +473,11 @@ var tiny = {
 
 module.exports =
 {
-  tiny,
-  short,
-  short_concise,
-  long,
-  long_concise,
-  default: long
+  default       : long,
+
+  tiny          : tiny,
+  short         : short,
+  short_concise : short_concise,
+  long          : long,
+  long_concise  : long_concise
 }
