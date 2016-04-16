@@ -5,54 +5,66 @@ import { from_CLDR } from '../source/time ago'
 // import { a_day, days_in_a_month, days_in_a_year, gradation } from '../source/classify elapsed'
 
 // Load locale specific relative date/time messages
-import { short as english_short_cldr, long as english_long_cldr } from './locales/en-cldr'
+import english_cldr from './locales/en-cldr'
 import english, { short as english_short, long as english_long, tiny as english_tiny } from '../locales/en'
 import russian, { short as russian_short, long as russian_long, tiny as russian_tiny }  from '../locales/ru'
 
 describe(`time ago`, function()
 {
-	beforeEach(function()
-	{
-		// // Set locale specific relative date/time messages
-		// javascript_time_ago.locale('en', english_long)
-		// javascript_time_ago.locale('ru', russian_long)
-	})
-
-	afterEach(function()
-	{
-		//
-	})
-
 	it(`should convert from Unicode CLDR`, function()
 	{
-		from_CLDR(english_short_cldr).should.deep.equal(english_short)
-		from_CLDR(english_long_cldr).should.deep.equal(english_long)
-	})
+		const converted = from_CLDR(english_cldr)
 
-	// it(`should omit just now`, function()
-	// {
-	// 	javascript_time_ago.locale('en', english_short)
-	//
-	// 	const time_ago = new javascript_time_ago('en')
-	//
-	// 	const custom_gradation = gradation.convenient()
-	// 	while (custom_gradation[0].unit !== 'minute')
-	// 	{
-	// 		custom_gradation.shift()
-	// 	}
-	//
-	// 	const now = Date.now()
-	// 	const elapsed = time => time_ago.format(now - time * 1000, { now, gradation: custom_gradation })
-	//
-	// 	elapsed(0        ).should.equal('')
-	// 	elapsed(2.49 * 60).should.equal('')
-	// 	elapsed(2.51 * 60).should.equal('5 min. ago')
-	// })
+		converted.short['just-now'] =
+		{
+			"past"   : { "other": "now" },
+			"future" : { "other": "now" }
+		}
+
+		converted.long['just-now'] =
+		{
+			"past"   : { "other": "just now" },
+			"future" : { "other": "in a moment" }
+		}
+
+		converted.long['half-hour'] =
+		{
+			"future" : { "other": "in half an hour" },
+			"past"   : { "other": "half an hour ago" }
+		}
+
+		converted.long['half-year'] =
+		{
+			"future" : { "other": "in half a year" },
+			"past"   : { "other": "half a year ago" }
+		}
+
+		converted.short.second.current = converted.long.second.current = 'now'
+		
+		converted.long.minute.previous   = 'a minute ago'
+		converted.long.minute.next       = 'in a minute'
+
+		converted.long.hour.previous   = 'an hour ago'
+		converted.long.hour.next       = 'in an hour'
+		
+		converted.short.day.previous   = converted.long.day.previous   = 'a day ago'
+		converted.short.day.next       = converted.long.day.next       = 'in a day'
+		
+		converted.long.week.previous   = 'a week ago'
+		converted.long.week.next       = 'in a week'
+		
+		converted.long.month.previous   = 'a month ago'
+		converted.long.month.next       = 'in a month'
+
+		converted.long.year.previous   = 'a year ago'
+		converted.long.year.next       = 'in a year'
+
+		converted.short.should.deep.equal(english_short)
+		converted.long.should.deep.equal(english_long)
+	})
 
 	it(`should format Twitter style relative time (English)`, function()
 	{
-		// javascript_time_ago.locale('en', english_tiny)
-	
 		const time_ago = new javascript_time_ago('en')
 		const twitter_style = time_ago.style.twitter()
 	
@@ -82,8 +94,6 @@ describe(`time ago`, function()
 
 	it(`should format Twitter style relative time (Russian)`, function()
 	{
-		// javascript_time_ago.locale('ru', russian)
-	
 		const time_ago = new javascript_time_ago(['ru'])
 		const twitter_style = time_ago.style.twitter()
 	
@@ -113,8 +123,6 @@ describe(`time ago`, function()
 
 	it(`should format fuzzy style relative time (English)`, function()
 	{
-		// javascript_time_ago.locale('en', english)
-
 		const time_ago = new javascript_time_ago('en-US')
 
 		convenient_gradation_test
@@ -152,7 +160,7 @@ describe(`time ago`, function()
 			'18 hours',
 			'19 hours',
 			'20 hours',
-			'yesterday',
+			'a day ago',
 			'2 days',
 			'3 days',
 			'4 days',
@@ -182,8 +190,6 @@ describe(`time ago`, function()
 
 	it(`should format fuzzy style relative time (Russian)`, function()
 	{
-		// javascript_time_ago.locale('ru', russian)
-
 		const time_ago = new javascript_time_ago('ru-RU')
 
 		convenient_gradation_test
@@ -251,8 +257,6 @@ describe(`time ago`, function()
 
 	it(`should format time correctly for English language (short)`, function()
 	{
-		// javascript_time_ago.locale('en', english_short)
-
 		convenient_gradation_test
 		([
 			'now',
@@ -288,7 +292,7 @@ describe(`time ago`, function()
 			'18 hr. ago',
 			'19 hr. ago',
 			'20 hr. ago',
-			'yesterday',
+			'a day ago',
 			'2 days ago',
 			'3 days ago',
 			'4 days ago',
@@ -318,8 +322,6 @@ describe(`time ago`, function()
 
 	it(`should format time correctly for English language (long)`, function()
 	{
-		// javascript_time_ago.locale('en', english_long)
-
 		convenient_gradation_test
 		([
 			'just now',
@@ -355,7 +357,7 @@ describe(`time ago`, function()
 			'18 hours ago',
 			'19 hours ago',
 			'20 hours ago',
-			'yesterday',
+			'a day ago',
 			'2 days ago',
 			'3 days ago',
 			'4 days ago',
@@ -384,8 +386,6 @@ describe(`time ago`, function()
 
 	it(`should format time correctly for Russian language (short)`, function()
 	{
-		// javascript_time_ago.locale('ru', russian_short)
-
 		convenient_gradation_test
 		([
 			'только что',
@@ -451,8 +451,6 @@ describe(`time ago`, function()
 
 	it(`should format time correctly for Russian language (long)`, function()
 	{
-		// javascript_time_ago.locale('ru', russian_long)
-
 		convenient_gradation_test
 		([
 			'только что',
@@ -705,7 +703,7 @@ const convenient_gradation =
 		19.51 * 60 * 60,
 		20.49 * 60 * 60
 	],
-	// 'yesterday':
+	// 'a day ago':
 	[
 		20.51 * 60 * 60,
 		1.49  * a_day

@@ -524,9 +524,6 @@ var tiny = {
     }
   },
   "day": {
-    "previous": "yesterday",
-    "current": "today",
-    "next": "tomorrow",
     "future": {
       "other": "{0}д"
     },
@@ -571,6 +568,7 @@ var tiny = {
 
 module.exports =
 {
+  locale        : 'ru',
   default       : long,
 
   tiny          : tiny,

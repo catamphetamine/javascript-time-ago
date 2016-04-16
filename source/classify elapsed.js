@@ -89,7 +89,7 @@ export const gradation =
 	// 2 hours ago
 	// …
 	// 20 hours ago
-	// yesterday
+	// a day ago
 	// 2 days ago
 	// 5 days ago
 	// a week ago

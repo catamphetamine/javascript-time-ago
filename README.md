@@ -49,8 +49,8 @@ import javascript_time_ago from 'javascript-time-ago'
 
 // Load locale specific relative date/time messages
 //
-javascript_time_ago.locale('en', require('javascript-time-ago/locales/en'))
-javascript_time_ago.locale('ru', require('javascript-time-ago/locales/ru'))
+javascript_time_ago.locale(require('javascript-time-ago/locales/en'))
+javascript_time_ago.locale(require('javascript-time-ago/locales/ru'))
 
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
@@ -78,7 +78,7 @@ time_ago_english.format(new Date(Date.now() - 2 * 60 * 60 * 1000))
 // "2 hours ago"
 
 time_ago_english.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
-// "yesterday"
+// "a day ago"
 
 const time_ago_russian = new javascript_time_ago('ru-RU')
 
@@ -137,7 +137,7 @@ The time scale is (actually same as the default style but with "ago" omitted):
   * 2 hours
   * …
   * 20 hours
-  * yesterday
+  * a day ago
   * 2 days
   * 3 days
   * 4 days
@@ -182,9 +182,9 @@ The format of the localization is:
   …
   "day": 
   {
-    "previous": "yesterday",
+    "previous": "a day ago",
     "now": "today",
-    "next": "tomorrow",
+    "next": "in a day",
     "past":
     {
       "one": "{0} day ago",
@@ -214,17 +214,17 @@ One can also use raw Unicode CLDR locale rules which will be automatically conve
         "fields": {
           …
           "day": {
-            "displayName": "day", // `displayName` field is not used
-            "relative-type--1": "yesterday", // is optional
-            "relative-type-0": "today", // is optional
-            "relative-type-1": "tomorrow", // is optional
+            "displayName": "day",            // ignored
+            "relative-type--1": "yesterday", // ignored
+            "relative-type-0": "today",      // ignored
+            "relative-type-1": "tomorrow",   // ignored
             "relativeTime-type-future": {
-              "relativeTimePattern-count-one": "in {0} day",
-              "relativeTimePattern-count-other": "in {0} days"
+              "relativeTimePattern-count-one"   : "in {0} day",
+              "relativeTimePattern-count-other" : "in {0} days"
             },
             "relativeTime-type-past": {
-              "relativeTimePattern-count-one": "{0} day ago",
-              "relativeTimePattern-count-other": "{0} days ago"
+              "relativeTimePattern-count-one"   : "{0} day ago",
+              "relativeTimePattern-count-other" : "{0} days ago"
             }
           },
           …

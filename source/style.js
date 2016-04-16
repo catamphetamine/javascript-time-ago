@@ -87,7 +87,7 @@ export default function(locales)
 		// 2 hours
 		// …
 		// 20 hours
-		// yesterday
+		// a day ago
 		// 2 days
 		// a week
 		// 2 weeks

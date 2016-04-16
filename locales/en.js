@@ -1,7 +1,6 @@
 var long = {
   "year": {
     "previous": "a year ago",
-    "current": "this year",
     "next": "in a year",
     "future": {
       "one": "in {0} year",
@@ -22,7 +21,6 @@ var long = {
   },
   "month": {
     "previous": "a month ago",
-    "current": "this month",
     "next": "in a month",
     "future": {
       "one": "in {0} month",
@@ -35,7 +33,6 @@ var long = {
   },
   "week": {
     "previous": "a week ago",
-    "current": "this week",
     "next": "in a week",
     "future": {
       "one": "in {0} week",
@@ -47,9 +44,8 @@ var long = {
     }
   },
   "day": {
-    "previous": "yesterday",
-    "current": "today",
-    "next": "tomorrow",
+    "previous": "a day ago",
+    "next": "in a day",
     "future": {
       "one": "in {0} day",
       "other": "in {0} days"
@@ -61,7 +57,6 @@ var long = {
   },
   "hour": {
     "previous": "an hour ago",
-    "current": "this hour",
     "next": "in an hour",
     "future": {
       "one": "in {0} hour",
@@ -82,7 +77,6 @@ var long = {
   },
   "minute": {
     "previous": "a minute ago",
-    "current": "this minute",
     "next": "in a minute",
     "future": {
       "one": "in {0} minute",
@@ -117,7 +111,6 @@ var long = {
 var long_concise = {
   "year": {
     "previous": "a year",
-    "current": "this year",
     "next": "a year",
     "future": {
       "one": "{0} year",
@@ -138,7 +131,6 @@ var long_concise = {
   },
   "month": {
     "previous": "a month",
-    "current": "this month",
     "next": "a month",
     "future": {
       "one": "{0} month",
@@ -151,7 +143,6 @@ var long_concise = {
   },
   "week": {
     "previous": "a week",
-    "current": "this week",
     "next": "a week",
     "future": {
       "one": "{0} week",
@@ -163,9 +154,8 @@ var long_concise = {
     }
   },
   "day": {
-    "previous": "yesterday",
-    "current": "today",
-    "next": "tomorrow",
+    "previous": "a day ago",
+    "next": "in a day",
     "future": {
       "one": "{0} day",
       "other": "{0} days"
@@ -177,7 +167,6 @@ var long_concise = {
   },
   "hour": {
     "previous": "an hour",
-    "current": "this hour",
     "next": "an hour",
     "future": {
       "one": "{0} hour",
@@ -197,7 +186,6 @@ var long_concise = {
     }
   },
   "minute": {
-    "current": "this minute",
     "future": {
       "one": "{0} minute",
       "other": "{0} minutes"
@@ -260,9 +248,8 @@ var short = {
     }
   },
   "day": {
-    "previous": "yesterday",
-    "current": "today",
-    "next": "tomorrow",
+    "previous": "a day ago",
+    "next": "in a day",
     "future": {
       "one": "in {0} day",
       "other": "in {0} days"
@@ -345,9 +332,8 @@ var short_concise = {
     }
   },
   "day": {
-    "previous": "yesterday",
-    "current": "today",
-    "next": "tomorrow",
+    "previous": "a day ago",
+    "next": "in a day",
     "future": {
       "one": "{0} day",
       "other": "{0} days"
@@ -424,9 +410,8 @@ var tiny = {
     }
   },
   "day": {
-    "previous": "yesterday",
-    "current": "today",
-    "next": "tomorrow",
+    "previous": "a day ago",
+    "next": "in a day",
     "future": {
       "other": "{0}d"
     },
@@ -471,6 +456,7 @@ var tiny = {
 
 module.exports =
 {
+  locale        : 'en',
   default       : long,
 
   tiny          : tiny,

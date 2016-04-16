@@ -290,7 +290,7 @@ export function resolve_locale(locales)
 	// here, we must take a naive approach to traversal.
 	for (let locale of locales)
 	{
-		const locale_parts = locale.toLowerCase().split('-')
+		const locale_parts = locale.split('-')
 
 		while (locale_parts.length)
 		{
@@ -312,28 +312,49 @@ export function resolve_locale(locales)
 }
 
 // Adds locale data
-Javascript_time_ago.locale = function(locale, locale_data)
+Javascript_time_ago.locale = function(locale_data)
 {
-	const locale_data_map = {}
+	let locale
+	let locale_data_map
 
-	// Supports multiple locale variations
-	// (e.g. "default", "short", "normal", "long", etc)
-	if (!locale_data.default)
+	if (locale_data.main)
 	{
-		// Convert from CLDR format (if needed)
-		locale_data_map.default = from_CLDR(locale_data)
+		locale = Object.keys(locale_data.main)[0]
+
+		// Convert from CLDR format
+		locale_data_map = from_CLDR(locale_data)
 	}
 	else
 	{
+		locale = locale_data.locale
+
+		locale_data_map = {}
+
+		// Supports multiple locale variations
+		// (e.g. "default", "short", "normal", "long", etc)
 		for (let key of Object.keys(locale_data))
 		{
-			// Convert from CLDR format (if needed)
-			locale_data_map[key] = from_CLDR(locale_data[key])
+			if (key !== 'locale')
+			{
+				locale_data_map[key] = locale_data[key]
+			}
 		}
 	}
 
+	// Guard against malformed input
+	if (!locale)
+	{
+		throw new Error(`Couldn't determine locale for this locale data. Make sure the "locale" property is present.`)
+	}
+
+	// Ensure default formatting flavour is set
+	if (!locale_data_map.default)
+	{
+		locale_data_map.default = locale_data_map.long || locale_data_map[Object.keys(locale_data_map)[0]]
+	}
+
 	// Store locale specific messages in the static variable
-	Javascript_time_ago.locale_data[locale.toLowerCase()] = locale_data_map
+	Javascript_time_ago.locale_data[locale] = locale_data_map
 
 	// (will be added manually by this library user)
 	// // Add locale data to IntlMessageFormat
@@ -344,55 +365,61 @@ Javascript_time_ago.locale = function(locale, locale_data)
 // Converts locale data from CLDR format (if needed)
 export function from_CLDR(data)
 {
-	const converted = {}
+	// the usual time measurement units
+	const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'year']
+
+	// result
+	const converted = { long: {} }
+
+	// detects the short flavour of labels (yr., mo., etc)
+	const short = /-short$/
+
+	const locale = Object.keys(data.main)[0]
+	data = data.main[locale].dates.fields
 
 	for (let key of Object.keys(data))
 	{
+		// take only the usual time measurement units
+		if (units.indexOf(key) < 0 && units.indexOf(key.replace(short, '')) < 0)
+		{
+			continue
+		}
+
 		const entry = data[key]
-
 		const converted_entry = {}
-		
-		if (entry.previous)
+
+		// if a key ends with `-short`, then it's a "short" flavour
+		if (short.test(key))
 		{
-			converted_entry.previous = entry.previous
+			if (!converted.short)
+			{
+				converted.short = {}
+			}
+
+			converted.short[key.replace(short, '')] = converted_entry
 		}
-		
-		if (entry.current)
+		else
 		{
-			converted_entry.current = entry.current
-		}
-		
-		if (entry.next)
-		{
-			converted_entry.next = entry.next
-		}
-		
-		if (entry.past)
-		{
-			converted_entry.past = entry.past
-		}
-		
-		if (entry.future)
-		{
-			converted_entry.future = entry.future
+			converted.long[key] = converted_entry
 		}
 
-		converted[key] = converted_entry
+		// the "relative" values aren't suitable for "ago" or "in a" cases,
+		// because "1 year ago" != "last year"
 
-		if (entry['relative-type--1'])
-		{
-			converted_entry.previous = entry['relative-type--1']
-		}
+		// if (entry['relative-type--1'])
+		// {
+		// 	converted_entry.previous = entry['relative-type--1']
+		// }
 
-		if (entry['relative-type-0'])
-		{
-			converted_entry.current = entry['relative-type-0']
-		}
+		// if (entry['relative-type-0'])
+		// {
+		// 	converted_entry.current = entry['relative-type-0']
+		// }
 
-		if (entry['relative-type-1'])
-		{
-			converted_entry.next = entry['relative-type-1']
-		}
+		// if (entry['relative-type-1'])
+		// {
+		// 	converted_entry.next = entry['relative-type-1']
+		// }
 
 		if (entry['relativeTime-type-past'])
 		{

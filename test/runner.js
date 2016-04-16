@@ -24,7 +24,7 @@ else
 // A faster way to load all the localization data for Node.js
 // (`intl-messageformat` will load everything automatically when run in Node.js)
 global.javascript_time_ago = javascript_time_ago
-require('../locales')
+require('../load-all-locales')
 
 import chai from 'chai'
 chai.should()
