@@ -49,10 +49,6 @@ import javascript_time_ago from 'javascript-time-ago'
 
 // Load locale specific relative date/time messages
 //
-// (this is only needed in client-side code;
-//  server-side instance will load all 
-//  supported locales automatically at startup)
-//
 javascript_time_ago.locale('en', require('javascript-time-ago/locales/en'))
 javascript_time_ago.locale('ru', require('javascript-time-ago/locales/ru'))
 
@@ -61,10 +57,6 @@ javascript_time_ago.locale('ru', require('javascript-time-ago/locales/ru'))
 //  "zero", "one", "two", "few", "many" or "other")
 // http://cldr.unicode.org/index/cldr-spec/plural-rules
 // https://github.com/eemeli/make-plural.js
-//
-// (this is only needed in client-side code;
-//  server-side instance will load all 
-//  supported locales automatically at startup)
 //
 global.IntlMessageFormat = require('intl-messageformat')
 require('intl-messageformat/dist/locale-data/en')
