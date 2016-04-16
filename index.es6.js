@@ -1,7 +1,5 @@
-import javascript_time_ago from './source/time ago'
-
+export { default } from './source/time ago'
 export { a_day, days_in_a_month, days_in_a_year, gradation } from './source/classify elapsed'
-export default javascript_time_ago
 
 // Doesn't work with Rollup, so commented that out
 // https://github.com/halt-hammerzeit/javascript-time-ago/issues/1
