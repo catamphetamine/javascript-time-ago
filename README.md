@@ -254,6 +254,21 @@ time_ago.format(new Date(Date.now() - 60 * 1000))
 // "1 минуту назад"
 ```
 
+## Loading locales
+
+No locales are loaded by default. This is done to allow tools like Webpack take advantage of code splitting to reduce the resulting javascript bundle size.
+
+But server side doesn't need code splitting, so to load all available locales in Node.js you can use this shortcut:
+
+```js
+import javascript_time_ago from 'javascript-time-ago'
+
+// A faster way to load all the localization data for Node.js
+// (`intl-messageformat` will load everything automatically when run in Node.js)
+global.javascript_time_ago = javascript_time_ago
+require('javascript-time-ago/load-all-locales')
+```
+
 ## Customization
 
 Localization data described in the above section can be further customized, for example, supporting "long" and "short" formats. Refer to [`locales/en.js`](https://github.com/halt-hammerzeit/javascript-time-ago/blob/master/locales/en.js) for an example.
