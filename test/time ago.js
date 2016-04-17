@@ -6,8 +6,7 @@ import { from_CLDR } from '../source/time ago'
 
 // Load locale specific relative date/time messages
 import english_cldr from './locales/en-cldr'
-import english, { short as english_short, long as english_long, tiny as english_tiny } from '../locales/en'
-import russian, { short as russian_short, long as russian_long, tiny as russian_tiny }  from '../locales/ru'
+import english, { short as english_short, long as english_long } from '../locales/en'
 
 describe(`time ago`, function()
 {

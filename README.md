@@ -57,8 +57,9 @@ javascript_time_ago.locale(require('javascript-time-ago/locales/ru'))
 //  "zero", "one", "two", "few", "many" or "other")
 // http://cldr.unicode.org/index/cldr-spec/plural-rules
 // https://github.com/eemeli/make-plural.js
+// http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
 //
-global.IntlMessageFormat = require('intl-messageformat')
+require('javascript-time-ago/intl-messageformat-global')
 require('intl-messageformat/dist/locale-data/en')
 require('intl-messageformat/dist/locale-data/ru')
 
@@ -260,11 +261,8 @@ No locales are loaded by default. This is done to allow tools like Webpack take 
 But server side doesn't need code splitting, so to load all available locales in Node.js you can use this shortcut:
 
 ```js
-import javascript_time_ago from 'javascript-time-ago'
-
 // A faster way to load all the localization data for Node.js
 // (`intl-messageformat` will load everything automatically when run in Node.js)
-global.javascript_time_ago = javascript_time_ago
 require('javascript-time-ago/load-all-locales')
 ```
 

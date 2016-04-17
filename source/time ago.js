@@ -317,6 +317,11 @@ Javascript_time_ago.locale = function(locale_data)
 	let locale
 	let locale_data_map
 
+	if (!locale_data)
+	{
+		throw new Error(`The passed in locale data is undefined`)
+	}
+
 	if (locale_data.main)
 	{
 		locale = Object.keys(locale_data.main)[0]

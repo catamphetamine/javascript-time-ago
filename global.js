@@ -1,0 +1,1 @@
+exports = module.exports = global.javascript_time_ago = require('javascript-time-ago')

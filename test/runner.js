@@ -21,10 +21,11 @@ else
 	global.Intl = require('intl')
 }
 
-// A faster way to load all the localization data for Node.js
+// Load all the localization data for Node.js
 // (`intl-messageformat` will load everything automatically when run in Node.js)
-global.javascript_time_ago = javascript_time_ago
-require('../load-all-locales')
+import { en, ru } from '../locales'
+javascript_time_ago.locale(en)
+javascript_time_ago.locale(ru)
 
 import chai from 'chai'
 chai.should()

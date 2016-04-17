@@ -2,6 +2,7 @@
 
 var path = require('path')
 var fs = require('fs')
+var javascript_time_ago = require('javascript-time-ago')
 
 fs.readdirSync(path.resolve(__dirname, 'locales')).forEach(function(file)
 {
