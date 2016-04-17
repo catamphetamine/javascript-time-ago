@@ -258,17 +258,17 @@ time_ago.format(new Date(Date.now() - 60 * 1000))
 
 No locales are loaded by default. This is done to allow tools like Webpack take advantage of code splitting to reduce the resulting javascript bundle size.
 
-But server side doesn't need code splitting, so to load all available locales in Node.js you can use this shortcut:
+But server side doesn't need code splitting, so to load all available locales in Node.js one can use this shortcut:
 
 ```js
-// A faster way to load all the localization data for Node.js
+// A faster way to load all localization data for Node.js
 // (`intl-messageformat` will load everything automatically when run in Node.js)
 require('javascript-time-ago/load-all-locales')
 ```
 
 ## Customization
 
-Localization data described in the above section can be further customized, for example, supporting "long" and "short" formats. Refer to [`locales/en.js`](https://github.com/halt-hammerzeit/javascript-time-ago/blob/master/locales/en.js) for an example.
+Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locales/en.js`](https://github.com/halt-hammerzeit/javascript-time-ago/blob/master/locales/en.js) for an example.
 
 Built-in localization data is presented in different variants. Example:
 
@@ -280,11 +280,11 @@ english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-One can pass `options` as a second parameter to the `.format(date, options)` function. It's called a `style` (see "twitter" style for example). The `options` object can specify:
+One can pass `options` as a second parameter to the `.format(date, options)` function. It's called a `style` (see `twitter` style for example). The `options` object can specify:
 
   * `flavour` – preferred labels style (e.g. `tiny`, `short`, `long`)
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
-  * `gradation` – custom time interval measurement units gradation
+  * `gradation` – custom time interval measurement units scale
   * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise it has no effect.
 
 ## Gradation
