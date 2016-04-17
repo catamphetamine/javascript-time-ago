@@ -123,7 +123,7 @@ time_ago.format(new Date(Date.now() - 2 * 60 * 60 * 1000), twitter)
 time_ago.style.fuzzy()
 ```
 
-The time scale is (actually same as the default style but with "ago" omitted):
+The time scale is (actually the same as the default style but with "ago" omitted):
 
   * just now
   * 1 minute
@@ -200,7 +200,7 @@ The format of the localization is:
 }
 ```
 
-The `past` and `future` keys can be one of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info of which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR][CLDR] (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
+The `past` and `future` keys can be one of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR][CLDR] (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
 
 One can also use raw Unicode CLDR locale rules which will be automatically converted to the format described above.
 
@@ -247,7 +247,7 @@ And then add the neccessary locales from it:
 import javascript_time_ago from 'javascript-time-ago'
 import russian from 'cldr-dates-modern/main/ru/dateFields.json'
 
-javascript_time_ago.locale('ru', russian.main.ru.dates.fields)
+javascript_time_ago.locale(russian)
 
 const time_ago = new javascript_time_ago('ru')
 time_ago.format(new Date(Date.now() - 60 * 1000))
