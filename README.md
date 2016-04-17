@@ -137,7 +137,7 @@ The time scale is (actually same as the default style but with "ago" omitted):
   * 2 hours
   * …
   * 20 hours
-  * a day ago
+  * 1 day
   * 2 days
   * 3 days
   * 4 days

@@ -154,8 +154,6 @@ var long_concise = {
     }
   },
   "day": {
-    "previous": "a day ago",
-    "next": "in a day",
     "future": {
       "one": "{0} day",
       "other": "{0} days"
@@ -332,8 +330,6 @@ var short_concise = {
     }
   },
   "day": {
-    "previous": "a day ago",
-    "next": "in a day",
     "future": {
       "one": "{0} day",
       "other": "{0} days"
@@ -410,8 +406,6 @@ var tiny = {
     }
   },
   "day": {
-    "previous": "a day ago",
-    "next": "in a day",
     "future": {
       "other": "{0}d"
     },

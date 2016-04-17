@@ -46,8 +46,8 @@ describe(`time ago`, function()
 		converted.long.hour.previous   = 'an hour ago'
 		converted.long.hour.next       = 'in an hour'
 		
-		converted.short.day.previous   = converted.long.day.previous   = 'a day ago'
-		converted.short.day.next       = converted.long.day.next       = 'in a day'
+		converted.short.day.previous = converted.long.day.previous = 'a day ago'
+		converted.short.day.next     = converted.long.day.next     = 'in a day'
 		
 		converted.long.week.previous   = 'a week ago'
 		converted.long.week.next       = 'in a week'
@@ -159,7 +159,7 @@ describe(`time ago`, function()
 			'18 hours',
 			'19 hours',
 			'20 hours',
-			'a day ago',
+			'1 day',
 			'2 days',
 			'3 days',
 			'4 days',
