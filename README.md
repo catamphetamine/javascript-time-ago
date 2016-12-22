@@ -92,7 +92,7 @@ time_ago_russian.format(new Date(Date.now() - 2 * 60 * 60 * 1000)))
 // "2 часа назад"
 
 time_ago_russian.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
-// "вчера"
+// "днём ранее"
 ```
 
 ## Twitter style

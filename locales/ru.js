@@ -56,8 +56,8 @@ var long = {
     }
   },
   "day": {
-    "previous": "вчера",
-    "next": "завтра",
+    "previous": "днём ранее",
+    "next": "через день",
     "future": {
       "one": "через {0} день",
       "few": "через {0} дня",
@@ -196,8 +196,6 @@ var long_concise = {
     }
   },
   "day": {
-    "previous": "вчера",
-    "next": "завтра",
     "future": {
       "one": "{0} день",
       "few": "{0} дня",
@@ -318,8 +316,8 @@ var short = {
     }
   },
   "day": {
-    "previous": "вчера",
-    "next": "завтра",
+    "previous": "днём ранее",
+    "next": "через день",
     "future": {
       "one": "через {0} д.",
       "few": "через {0} д.",
@@ -430,8 +428,6 @@ var short_concise = {
     }
   },
   "day": {
-    "previous": "вчера",
-    "next": "завтра",
     "future": {
       "one": "{0} д.",
       "few": "{0} д.",

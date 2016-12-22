@@ -1,3 +1,8 @@
+0.4.4 / 22.12.2016
+===================
+
+  * Changed `yesterday` and `tomorrow` labels for Russian localization
+
 0.2.0 / 13.04.2016
 ===================
 
