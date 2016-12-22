@@ -30,3 +30,6 @@ npm-debug.log
 
 # NUL
 NUL
+
+# browser builds
+/bundle/

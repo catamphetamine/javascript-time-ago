@@ -30,4 +30,5 @@ javascript_time_ago.locale(ru)
 import chai from 'chai'
 chai.should()
 
+require('./exports')
 require('./time ago')
