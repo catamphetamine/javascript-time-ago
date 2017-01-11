@@ -1,0 +1,105 @@
+{
+  "year": {
+    "previous": "a year",
+    "next": "a year",
+    "future": {
+      "one": "{0} year",
+      "other": "{0} years"
+    },
+    "past": {
+      "one": "{0} year",
+      "other": "{0} years"
+    }
+  },
+  "half-year": {
+    "future": {
+      "other": "half a year"
+    },
+    "past": {
+      "other": "half a year"
+    }
+  },
+  "month": {
+    "previous": "a month",
+    "next": "a month",
+    "future": {
+      "one": "{0} month",
+      "other": "{0} months"
+    },
+    "past": {
+      "one": "{0} month",
+      "other": "{0} months"
+    }
+  },
+  "week": {
+    "previous": "a week",
+    "next": "a week",
+    "future": {
+      "one": "{0} week",
+      "other": "{0} weeks"
+    },
+    "past": {
+      "one": "{0} week",
+      "other": "{0} weeks"
+    }
+  },
+  "day": {
+    "future": {
+      "one": "{0} day",
+      "other": "{0} days"
+    },
+    "past": {
+      "one": "{0} day",
+      "other": "{0} days"
+    }
+  },
+  "hour": {
+    "previous": "an hour",
+    "next": "an hour",
+    "future": {
+      "one": "{0} hour",
+      "other": "{0} hours"
+    },
+    "past": {
+      "one": "{0} hour",
+      "other": "{0} hours"
+    }
+  },
+  "half-hour": {
+    "future": {
+      "other": "half an hour"
+    },
+    "past": {
+      "other": "half an hour"
+    }
+  },
+  "minute": {
+    "future": {
+      "one": "{0} minute",
+      "other": "{0} minutes"
+    },
+    "past": {
+      "one": "{0} minute",
+      "other": "{0} minutes"
+    }
+  },
+  "second": {
+    "current": "now",
+    "future": {
+      "one": "{0} second",
+      "other": "{0} seconds"
+    },
+    "past": {
+      "one": "{0} second",
+      "other": "{0} seconds"
+    }
+  },
+  "just-now": {
+    "future": {
+      "other": "a moment"
+    },
+    "past": {
+      "other": "just now"
+    }
+  }
+}

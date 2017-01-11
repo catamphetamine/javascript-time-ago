@@ -1,0 +1,83 @@
+{
+  "year": {
+    "future": {
+      "one": "in {0} yr.",
+      "other": "in {0} yr."
+    },
+    "past": {
+      "one": "{0} yr. ago",
+      "other": "{0} yr. ago"
+    }
+  },
+  "month": {
+    "future": {
+      "one": "in {0} mo.",
+      "other": "in {0} mo."
+    },
+    "past": {
+      "one": "{0} mo. ago",
+      "other": "{0} mo. ago"
+    }
+  },
+  "week": {
+    "future": {
+      "one": "in {0} wk.",
+      "other": "in {0} wk."
+    },
+    "past": {
+      "one": "{0} wk. ago",
+      "other": "{0} wk. ago"
+    }
+  },
+  "day": {
+    "previous": "a day ago",
+    "next": "in a day",
+    "future": {
+      "one": "in {0} day",
+      "other": "in {0} days"
+    },
+    "past": {
+      "one": "{0} day ago",
+      "other": "{0} days ago"
+    }
+  },
+  "hour": {
+    "future": {
+      "one": "in {0} hr.",
+      "other": "in {0} hr."
+    },
+    "past": {
+      "one": "{0} hr. ago",
+      "other": "{0} hr. ago"
+    }
+  },
+  "minute": {
+    "future": {
+      "one": "in {0} min.",
+      "other": "in {0} min."
+    },
+    "past": {
+      "one": "{0} min. ago",
+      "other": "{0} min. ago"
+    }
+  },
+  "second": {
+    "current": "now",
+    "past": {
+      "one": "{0} sec. ago",
+      "other": "{0} sec. ago"
+    },
+    "future": {
+      "one": "in {0} sec.",
+      "other": "in {0} sec."
+    }
+  },
+  "just-now": {
+    "past": {
+      "other": "now"
+    },
+    "future": {
+      "other": "now"
+    }
+  }
+}

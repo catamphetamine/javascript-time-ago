@@ -23,7 +23,8 @@ else
 
 // Load all the localization data for Node.js
 // (`intl-messageformat` will load everything automatically when run in Node.js)
-import { en, ru } from '../locales'
+import * as en from '../locales/en/index.es6'
+import * as ru from '../locales/ru/index.es6'
 javascript_time_ago.locale(en)
 javascript_time_ago.locale(ru)
 

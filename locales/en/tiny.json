@@ -1,0 +1,67 @@
+{
+  "year": {
+    "future": {
+      "other": "{0}yr"
+    },
+    "past": {
+      "other": "{0}yr"
+    }
+  },
+  "month": {
+    "future": {
+      "other": "{0}mo"
+    },
+    "past": {
+      "other": "{0}mo"
+    }
+  },
+  "week": {
+    "future": {
+      "other": "{0}wk"
+    },
+    "past": {
+      "other": "{0}wk"
+    }
+  },
+  "day": {
+    "future": {
+      "other": "{0}d"
+    },
+    "past": {
+      "other": "{0}d"
+    }
+  },
+  "hour": {
+    "future": {
+      "other": "{0}h"
+    },
+    "past": {
+      "other": "{0}h"
+    }
+  },
+  "minute": {
+    "future": {
+      "other": "{0}m"
+    },
+    "past": {
+      "other": "{0}m"
+    }
+  },
+  "second": {
+    "current": "now",
+    "past": {
+      "other": "{0}s"
+    },
+    "future": {
+      "other": "{0}s"
+    }
+  },
+  "just-now": {
+    "past": {
+      "other": ""
+    },
+    "future": {
+      "other": ""
+    }
+  }
+}

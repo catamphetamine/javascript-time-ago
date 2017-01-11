@@ -1,6 +1,6 @@
 'use strict'
 
-exports = module.exports = require('./build/time ago')['default']
+exports = module.exports = require('./build/time ago').default
 exports['default'] = exports
 
 var classify_elapsed = require('./build/classify elapsed')
