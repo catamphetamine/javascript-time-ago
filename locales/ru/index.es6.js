@@ -4,4 +4,5 @@ export { default as short } from './short'
 export { default as short_concise } from './short concise'
 export { default as tiny } from './tiny'
 
-export const locale = 'ru'
+// `const` is not supported in Internet Explorer 10
+export var locale = 'ru'
