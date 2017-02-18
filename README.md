@@ -326,6 +326,10 @@ gradation.canonical()  // '1 second ago', '2 minutes ago', …
 gradation.convenient() // 'just now', '5 minutes ago', …
 ```
 
+## Future
+
+When given negative time intervals this library outputs future dates, like "in 5 minutes", "in a year", etc.
+
 ## React
 
 There is also a [React component](https://github.com/halt-hammerzeit/react-time-ago).
