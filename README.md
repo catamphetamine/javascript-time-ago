@@ -1,8 +1,8 @@
 # javascript-time-ago
 
-[![NPM Version][npm-badge]][npm]
-[![Build Status][travis-badge]][travis]
-[![Test Coverage][coveralls-badge]][coveralls]
+[![npm version](https://img.shields.io/npm/v/javascript-time-ago.svg?style=flat-square)](https://www.npmjs.com/package/javascript-time-ago)
+[![npm downloads](https://img.shields.io/npm/dm/javascript-time-ago.svg?style=flat-square)](https://www.npmjs.com/package/javascript-time-ago)
+[![coverage](https://img.shields.io/coveralls/halt-hammerzeit/javascript-time-ago/master.svg?style=flat-square)](https://coveralls.io/r/halt-hammerzeit/javascript-time-ago?branch=master)
 
 International higly customizable relative date/time formatter (both for past and future dates).
 
@@ -373,11 +373,5 @@ npm install [module name with version].tar.gz
 ## License
 
 [MIT](LICENSE)
-[npm]: https://www.npmjs.org/package/javascript-time-ago
-[npm-badge]: https://img.shields.io/npm/v/javascript-time-ago.svg?style=flat-square
-[travis]: https://travis-ci.org/halt-hammerzeit/javascript-time-ago
-[travis-badge]: https://img.shields.io/travis/halt-hammerzeit/javascript-time-ago/master.svg?style=flat-square
 [CLDR]: http://cldr.unicode.org/
 [Intl]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
-[coveralls]: https://coveralls.io/r/halt-hammerzeit/javascript-time-ago?branch=master
-[coveralls-badge]: https://img.shields.io/coveralls/halt-hammerzeit/javascript-time-ago/master.svg?style=flat-square
