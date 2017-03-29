@@ -36,7 +36,7 @@ npm install intl-messageformat@^1.3.0 --save
 npm install javascript-time-ago --save
 ```
 
-This package assumes that the [`Intl`][Intl] global object exists in the runtime. `Intl` is present in all modern browsers [_except_ Internet Explorer 10 and Safari 9](http://caniuse.com/#search=intl) (which can be solved with the Intl polyfill).
+This package assumes that the [`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object exists in the runtime. `Intl` is present in all modern browsers [_except_ Internet Explorer 10 and Safari 9](http://caniuse.com/#search=intl) (which can be solved with the Intl polyfill).
 
 Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes the English locale data by default. If your app needs to support more locales than English, you'll need to [get Node to load the extra locale data](https://github.com/nodejs/node/wiki/Intl), or (a much simpler approach) just install the Intl polyfill.
 
@@ -200,7 +200,7 @@ The format of the localization is:
 }
 ```
 
-The `past` and `future` keys can be one of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR][CLDR] (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
+The `past` and `future` keys can be one of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
 
 One can also use raw Unicode CLDR locale rules which will be automatically converted to the format described above.
 
@@ -373,5 +373,3 @@ npm install [module name with version].tar.gz
 ## License
 
 [MIT](LICENSE)
-[CLDR]: http://cldr.unicode.org/
-[Intl]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
