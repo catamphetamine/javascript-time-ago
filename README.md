@@ -45,12 +45,12 @@ If you decide you need the Intl polyfill then [here are some basic installation 
 ## Usage
 
 ```js
-import javascript_time_ago from 'javascript-time-ago'
+import javascriptTimeAgo from 'javascript-time-ago'
 
 // Load locale specific relative date/time messages
 //
-javascript_time_ago.locale(require('javascript-time-ago/locales/en'))
-javascript_time_ago.locale(require('javascript-time-ago/locales/ru'))
+javascriptTimeAgo.locale(require('javascript-time-ago/locales/en'))
+javascriptTimeAgo.locale(require('javascript-time-ago/locales/ru'))
 
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
@@ -66,32 +66,32 @@ require('intl-messageformat/dist/locale-data/ru')
 // Initialization complete.
 // Ready to format relative dates and times.
 
-const time_ago_english = new javascript_time_ago('en-US')
+const timeAgoEnglish = new javascriptTimeAgo('en-US')
 
-time_ago_english.format(new Date())
+timeAgoEnglish.format(new Date())
 // "just now"
 
-time_ago_english.format(new Date(Date.now() - 60 * 1000))
+timeAgoEnglish.format(new Date(Date.now() - 60 * 1000))
 // "a minute ago"
 
-time_ago_english.format(new Date(Date.now() - 2 * 60 * 60 * 1000))
+timeAgoEnglish.format(new Date(Date.now() - 2 * 60 * 60 * 1000))
 // "2 hours ago"
 
-time_ago_english.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
+timeAgoEnglish.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
 // "a day ago"
 
-const time_ago_russian = new javascript_time_ago('ru-RU')
+const timeAgoRussian = new javascriptTimeAgo('ru-RU')
 
-time_ago_russian.format(new Date())
+timeAgoRussian.format(new Date())
 // "только что"
 
-time_ago_russian.format(new Date(Date.now() - 60 * 1000)))
+timeAgoRussian.format(new Date(Date.now() - 60 * 1000)))
 // "минуту назад"
 
-time_ago_russian.format(new Date(Date.now() - 2 * 60 * 60 * 1000)))
+timeAgoRussian.format(new Date(Date.now() - 2 * 60 * 60 * 1000)))
 // "2 часа назад"
 
-time_ago_russian.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
+timeAgoRussian.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
 // "днём ранее"
 ```
 
@@ -101,26 +101,26 @@ Mimics Twitter style time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
 
 ```js
 …
-const time_ago = new javascript_time_ago('en-US')
+const timeAgo = new javascriptTimeAgo('en-US')
 
 // A `style` is simply an `options` object 
 // passed to the `.format()` function as a second parameter.
-const twitter = time_ago.style.twitter()
+const twitter = timeAgo.style.twitter()
 
-time_ago.format(new Date(), twitter)
+timeAgo.format(new Date(), twitter)
 // ""
 
-time_ago.format(new Date(Date.now() - 60 * 1000), twitter)
+timeAgo.format(new Date(Date.now() - 60 * 1000), twitter)
 // "1m"
 
-time_ago.format(new Date(Date.now() - 2 * 60 * 60 * 1000), twitter)
+timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000), twitter)
 // "2h"
 ```
 
 ## Fuzzy style
 
 ```js
-time_ago.style.fuzzy()
+timeAgo.style.fuzzy()
 ```
 
 The time scale is (actually the same as the default style but with "ago" omitted):
@@ -244,13 +244,13 @@ npm install cldr-dates-modern --save
 And then add the neccessary locales from it:
 
 ```js
-import javascript_time_ago from 'javascript-time-ago'
+import javascriptTimeAgo from 'javascript-time-ago'
 import russian from 'cldr-dates-modern/main/ru/dateFields.json'
 
-javascript_time_ago.locale(russian)
+javascriptTimeAgo.locale(russian)
 
-const time_ago = new javascript_time_ago('ru')
-time_ago.format(new Date(Date.now() - 60 * 1000))
+const timeAgo = new javascriptTimeAgo('ru')
+timeAgo.format(new Date(Date.now() - 60 * 1000))
 // "1 минуту назад"
 ```
 
