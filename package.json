@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/halt-hammerzeit/javascript-time-ago.git"
+    "url": "git+https://github.com/catamphetamine/javascript-time-ago.git"
   },
   "keywords": [
     "react",
@@ -68,7 +68,7 @@
   "author": "Halt Hammerzeit <halt.hammerzeit.at@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/halt-hammerzeit/javascript-time-ago/issues"
+    "url": "https://github.com/catamphetamine/javascript-time-ago/issues"
   },
-  "homepage": "https://github.com/halt-hammerzeit/javascript-time-ago#readme"
+  "homepage": "https://github.com/catamphetamine/javascript-time-ago#readme"
 }

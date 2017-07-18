@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/javascript-time-ago.svg?style=flat-square)](https://www.npmjs.com/package/javascript-time-ago)
 [![npm downloads](https://img.shields.io/npm/dm/javascript-time-ago.svg?style=flat-square)](https://www.npmjs.com/package/javascript-time-ago)
-[![coverage](https://img.shields.io/coveralls/halt-hammerzeit/javascript-time-ago/master.svg?style=flat-square)](https://coveralls.io/r/halt-hammerzeit/javascript-time-ago?branch=master)
+[![coverage](https://img.shields.io/coveralls/catamphetamine/javascript-time-ago/master.svg?style=flat-square)](https://coveralls.io/r/catamphetamine/javascript-time-ago?branch=master)
 
 International higly customizable relative date/time formatter (both for past and future dates).
 
@@ -173,7 +173,7 @@ Then configure the Intl polyfill:
 
 This library currently comes with English and Russian localization built-in, but any other locale can be added easily at runtime (Pull Requests adding new locales are accepted too).
 
-The built-in localization resides in the [`locales`](https://github.com/halt-hammerzeit/javascript-time-ago/tree/master/locales) folder.
+The built-in localization resides in the [`locales`](https://github.com/catamphetamine/javascript-time-ago/tree/master/locales) folder.
 
 The format of the localization is:
 
@@ -268,7 +268,7 @@ require('javascript-time-ago/load-all-locales')
 
 ## Customization
 
-Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locales/en.js`](https://github.com/halt-hammerzeit/javascript-time-ago/blob/master/locales/en.js) for an example.
+Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locales/en.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locales/en.js) for an example.
 
 Built-in localization data is presented in different variants. Example:
 
@@ -315,7 +315,7 @@ A `gradation` is a list of time interval measurement steps. A simple example:
   * (some more `threshold` customization is possible, see the link below)
   * `granularity` can also be specified (for example, `5` for `minute` to allow only 5-minute intervals)
 
-For more gradation examples see [`source/classify elapsed.js`](https://github.com/halt-hammerzeit/javascript-time-ago/blob/master/source/classify%20elapsed.js)
+For more gradation examples see [`source/classify elapsed.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/classify%20elapsed.js)
 
 Available gradations:
 
@@ -332,7 +332,7 @@ When given negative time intervals this library outputs future dates, like "in 5
 
 ## React
 
-There is also a [React component](https://github.com/halt-hammerzeit/react-time-ago).
+There is also a [React component](https://github.com/catamphetamine/react-time-ago).
 
 ## Contributing
 
