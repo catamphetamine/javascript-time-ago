@@ -79,6 +79,11 @@ export default class JavascriptTimeAgo
 	//
 	format(input, style = {})
 	{
+		if (typeof style === 'string')
+		{
+			style = this.style[style]()
+		}
+
 		const { date, time } = get_date_and_time_being_formatted(input)
 
 		// Get locale messages for this formatting flavour
@@ -185,19 +190,6 @@ JavascriptTimeAgo.locale = function(locale_data_input)
 	// and later used when calling `.format(time)`.
 	JavascriptTimeAgo.locale_data[locale] = locale_data
 }
-
-// // @param {string[]} locales
-// JavascriptTimeAgo.choose_locale = function(locales)
-// {
-// 	// Choose the most appropriate locale
-// 	// (one of the previously added ones)
-// 	// based on the list of preferred `locales` supplied by the user.
-// 	return choose_locale
-// 	(
-// 		locales.concat(JavascriptTimeAgo.default_locale),
-// 		Object.keys(JavascriptTimeAgo.locale_data)
-// 	)
-// }
 
 // Normalizes `.format()` `time` argument.
 function get_date_and_time_being_formatted(input)

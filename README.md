@@ -131,11 +131,7 @@ Mimics Twitter style of time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
 …
 const timeAgo = new javascriptTimeAgo('en-US')
 
-// A `style` is simply an `options` object 
-// passed to the `.format()` function as a second parameter.
-const twitter = timeAgo.style.twitter()
-
-timeAgo.format(new Date(), twitter)
+timeAgo.format(new Date(), 'twitter')
 // ""
 
 timeAgo.format(new Date(Date.now() - 60 * 1000), twitter)
@@ -148,7 +144,7 @@ timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000), twitter)
 ## Fuzzy style
 
 ```js
-timeAgo.style.fuzzy()
+timeAgo.format(new Date(), 'fuzzy')
 ```
 
 Similar to the default style but with "ago" omitted:
@@ -183,27 +179,79 @@ Similar to the default style but with "ago" omitted:
   * 3 years
   * …
 
-## Thread safety
+## Loading locales
 
-Since thread safety is hard most likely `intl-messageformat` isn't thread safe. Same goes for `Intl.DateTimeFormat` (both native and polyfill): most likely they aren't thread safe either. Therefore `javascript-time-ago` should be considered non-thread-safe.
+No locales are loaded by default. This is done to allow tools like Webpack take advantage of code splitting to reduce the resulting javascript bundle size.
 
-But it doesn't really matter because javascript is inherently single-threaded: both in a web browser and in Node.js.
+On the other hand, server side doesn't need code splitting, so to load all available locales in Node.js one can use this shortcut:
 
-`javascript-time-ago` caches formatters in a global variable (both in a web browser and in Node.js). Since javascript is single-threaded both in a web browser and in Node.js, it is still safe and delivers about 20x performance boost.
-
-## Intl polyfill installation
-
-To install the Intl polyfill (supporting 200+ languages):
-
-```bash
-npm install intl --save
+```js
+// A faster way to load all localization data for Node.js
+// (`intl-messageformat` will load everything automatically when run in Node.js)
+require('javascript-time-ago/load-all-locales')
 ```
 
-Then configure the Intl polyfill:
+## Customization
 
-  * [Node.js](https://github.com/andyearnshaw/Intl.js#intljs-and-node)
-  * [Webpack](https://github.com/andyearnshaw/Intl.js#intljs-and-browserifywebpack)
-  * [Bower](https://github.com/andyearnshaw/Intl.js#intljs-and-bower)
+Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locales/en.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locales/en.js) for an example.
+
+Built-in localization data is presented in different variants:
+
+```js
+import english from 'javascript-time-ago/locales/en'
+
+english.tiny  // '1s', '2m', '3h', '4d', …
+english.short // '1 sec. ago', '2 min. ago', …
+english.long  // '1 second ago', '2 minutes ago', …
+```
+
+One can pass `style` as a second parameter to the `.format(date, style)` function. The `style` object can specify:
+
+  * `flavour` – preferred labels variant (e.g. `tiny`, `short`, `long`)
+  * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
+  * `gradation` – custom time interval measurement units scale
+  * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise the date/time is formatter as usual.
+
+(see `twitter` style for an example)
+
+## Gradation
+
+A `gradation` is a list of time interval measurement steps. A simple example:
+
+```js
+[
+  {
+    unit: 'second',
+  },
+  {
+    unit: 'minute',
+    factor: 60,
+    threshold: 59.5
+  },
+  {
+    unit: 'hour',
+    factor: 60 * 60,
+    threshold: 59.5 * 60
+  },
+  …
+]
+```
+
+  * `factor` is a divider for the supplied time interval (in seconds)
+  * `threshold` is a minimum time interval value (in seconds) required for this gradation step
+  * (some advanced `threshold` customization is possible, see `./source/gradation.js` for more info)
+  * `granularity` can also be specified (for example, `5` for `minute` to allow only 5-minute intervals)
+
+For more gradation examples see [`source/gradation.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation.js)
+
+Built-in gradations:
+
+```js
+import { gradation } from 'javascript-time-ago'
+
+gradation.canonical()  // '1 second ago', '2 minutes ago', …
+gradation.convenient() // 'just now', '5 minutes ago', …
+```
 
 ## Localization
 
@@ -287,80 +335,6 @@ timeAgo.format(new Date(Date.now() - 60 * 1000))
 // "1 минуту назад"
 ```
 
-## Loading locales
-
-No locales are loaded by default. This is done to allow tools like Webpack take advantage of code splitting to reduce the resulting javascript bundle size.
-
-On the other hand, server side doesn't need code splitting, so to load all available locales in Node.js one can use this shortcut:
-
-```js
-// A faster way to load all localization data for Node.js
-// (`intl-messageformat` will load everything automatically when run in Node.js)
-require('javascript-time-ago/load-all-locales')
-```
-
-## Customization
-
-Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locales/en.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locales/en.js) for an example.
-
-Built-in localization data is presented in different variants:
-
-```js
-import english from 'javascript-time-ago/locales/en'
-
-english.tiny  // '1s', '2m', '3h', '4d', …
-english.short // '1 sec. ago', '2 min. ago', …
-english.long  // '1 second ago', '2 minutes ago', …
-```
-
-One can pass `style` as a second parameter to the `.format(date, style)` function. The `style` object can specify:
-
-  * `flavour` – preferred labels variant (e.g. `tiny`, `short`, `long`)
-  * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
-  * `gradation` – custom time interval measurement units scale
-  * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise the date/time is formatter as usual.
-
-(see `twitter` style for an example)
-
-## Gradation
-
-A `gradation` is a list of time interval measurement steps. A simple example:
-
-```js
-[
-  {
-    unit: 'second',
-  },
-  {
-    unit: 'minute',
-    factor: 60,
-    threshold: 59.5
-  },
-  {
-    unit: 'hour',
-    factor: 60 * 60,
-    threshold: 59.5 * 60
-  },
-  …
-]
-```
-
-  * `factor` is a divider for the supplied time interval (in seconds)
-  * `threshold` is a minimum time interval value (in seconds) required for this gradation step
-  * (some advanced `threshold` customization is possible, see `./source/gradation.js` for more info)
-  * `granularity` can also be specified (for example, `5` for `minute` to allow only 5-minute intervals)
-
-For more gradation examples see [`source/gradation.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation.js)
-
-Built-in gradations:
-
-```js
-import { gradation } from 'javascript-time-ago'
-
-gradation.canonical()  // '1 second ago', '2 minutes ago', …
-gradation.convenient() // 'just now', '5 minutes ago', …
-```
-
 ## Future
 
 When given future dates `.format()` produces the corresponding output, e.g. "in 5 minutes", "in a year", etc.
@@ -368,6 +342,28 @@ When given future dates `.format()` produces the corresponding output, e.g. "in 
 ## React
 
 There is also a [React component](https://github.com/catamphetamine/react-time-ago) built upon this library which autorefreshes itself.
+
+## Intl polyfill installation
+
+To install the Intl polyfill (supporting 200+ languages):
+
+```bash
+npm install intl --save
+```
+
+Then configure the Intl polyfill:
+
+  * [Node.js](https://github.com/andyearnshaw/Intl.js#intljs-and-node)
+  * [Webpack](https://github.com/andyearnshaw/Intl.js#intljs-and-browserifywebpack)
+  * [Bower](https://github.com/andyearnshaw/Intl.js#intljs-and-bower)
+
+## Thread safety
+
+Since thread safety is hard most likely `intl-messageformat` isn't thread safe. Same goes for `Intl.DateTimeFormat` (both native and polyfill): most likely they aren't thread safe either. Therefore `javascript-time-ago` should be considered non-thread-safe.
+
+But it doesn't really matter because javascript is inherently single-threaded: both in a web browser and in Node.js.
+
+`javascript-time-ago` caches formatters in a global variable (both in a web browser and in Node.js). Since javascript is single-threaded both in a web browser and in Node.js, it is still safe and delivers about 20x performance boost.
 
 ## Contributing
 
