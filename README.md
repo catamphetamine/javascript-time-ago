@@ -183,6 +183,12 @@ Similar to the default style but with "ago" omitted:
   * 3 years
   * …
 
+## Thread safety
+
+Since thread safety is hard most likely `intl-messageformat` isn't thread safe. Same goes for `Intl.DateTimeFormat` (both native and polyfill): most likely they aren't thread safe either. Therefore `javascript-time-ago` should be considered non-thread-safe.
+
+But it doesn't really matter because javascript is inherently single-threaded: both in a web browser and in Node.js.
+
 ## Intl polyfill installation
 
 To install the Intl polyfill (supporting 200+ languages):

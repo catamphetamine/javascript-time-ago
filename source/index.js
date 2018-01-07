@@ -4,7 +4,7 @@ import choose_locale     from './locale'
 import parse_locale_data from './locale data'
 import create_formatter  from './formatter'
 
-export default class Javascript_time_ago
+export default class JavascriptTimeAgo
 {
 	// Fallback locale
 	// (when not a single supplied preferred locale is available)
@@ -27,7 +27,7 @@ export default class Javascript_time_ago
 		// The preferred locales are saved
 		// to be later passed to `IntlMessageFormat`
 		// when creating formatters lazily.
-		this.locales = locales.concat(Javascript_time_ago.default_locale)
+		this.locales = locales.concat(JavascriptTimeAgo.default_locale)
 
 		// Choose the most appropriate locale
 		// (one of the previously added ones)
@@ -35,7 +35,7 @@ export default class Javascript_time_ago
 		this.locale = choose_locale
 		(
 			this.locales,
-			Object.keys(Javascript_time_ago.locale_data)
+			Object.keys(JavascriptTimeAgo.locale_data)
 		)
 
 		// Relative time formatting presets.
@@ -132,7 +132,7 @@ export default class Javascript_time_ago
 	get_locale_data(flavour)
 	{
 		// Get relative time formatter messages for this locale
-		const locale_data = Javascript_time_ago.locale_data[this.locale]
+		const locale_data = JavascriptTimeAgo.locale_data[this.locale]
 
 		// Fallback to "default" flavour if the given flavour isn't available
 		if (!flavour || !locale_data[flavour])
@@ -168,7 +168,7 @@ export default class Javascript_time_ago
 				unit,
 				flavour,
 				this.locales,
-				Javascript_time_ago.locale_data[this.locale]
+				JavascriptTimeAgo.locale_data[this.locale]
 			)
 		}
 
@@ -183,20 +183,13 @@ export default class Javascript_time_ago
 // Locale data being input can either be
 // in CLDR format or in this library's format.
 //
-Javascript_time_ago.locale = function(locale_data_input)
+JavascriptTimeAgo.locale = function(locale_data_input)
 {
 	const { locale, locale_data } = parse_locale_data(locale_data_input)
 
 	// This locale data is stored in a global variable
 	// and later used when calling `.format(time)`.
-	Javascript_time_ago.locale_data[locale] = locale_data
-
-	// The corresponding `intl-messageformat` data for the locale
-	// must be added manually by a developer:
-	//
-	// // Add locale data to IntlMessageFormat
-	// // (to be more specific: the `pluralRuleFunction`)
-	// require('intl-messageformat/locale-data/ru')
+	JavascriptTimeAgo.locale_data[locale] = locale_data
 }
 
 // Normalizes `.format()` `time` argument.
