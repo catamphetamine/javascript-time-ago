@@ -17,7 +17,7 @@ export default class Javascript_time_ago
 	// Relative time interval message formatters cache
 	formatters = {}
 
-	constructor(locales, options)
+	constructor(locales = [], options)
 	{
 		if (typeof locales === 'string')
 		{

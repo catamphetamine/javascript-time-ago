@@ -6,6 +6,12 @@ import english from '../locales/en'
 
 describe(`time ago`, function()
 {
+	it(`should accept empty constructor parameters`, function()
+	{
+		const time_ago = new javascript_time_ago()
+		time_ago.format(new Date()).should.equal('just now')
+	})
+
 	it(`should accept Dates`, function()
 	{
 		const time_ago = new javascript_time_ago('en')
