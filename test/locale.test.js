@@ -1,8 +1,8 @@
-import resolve_locale from '../source/locale'
+import choose_locale from '../source/locale'
 
 describe('locale', function()
 {
-	it(`should resolve locale`, function()
+	it(`should choose the most appropriate locale`, function()
 	{
 		// function array_to_object(array)
 		// {
@@ -14,7 +14,7 @@ describe('locale', function()
 		// 	{})
 		// }
 
-		function resolve(locale, locales, default_locale = 'en')
+		function choose(locale, locales, default_locale = 'en')
 		{
 			if (typeof locale === 'string')
 			{
@@ -23,20 +23,20 @@ describe('locale', function()
 
 			locale = locale.concat(default_locale)
 
-			return resolve_locale(locale, locales) // array_to_object(locales))
+			return choose_locale(locale, locales) // array_to_object(locales))
 		}
 
-		resolve('ru-RU', ['en', 'ru']).should.equal('ru')
-		resolve('en-GB', ['en', 'ru']).should.equal('en')
-		resolve('fr-FR', ['en', 'ru']).should.equal('en')
-		resolve(['fr-FR', 'de-DE'], ['en', 'ru']).should.equal('en')
-		resolve(['fr-FR', 'de-DE'], ['en', 'de']).should.equal('de')
-		resolve(['fr-FR', 'de-DE'], ['en', 'de', 'fr']).should.equal('fr')
-		resolve('fr-FR', ['en', 'fr-FR']).should.equal('fr-FR')
-		resolve('en-US', ['en-US-POSIX']).should.equal('en-US')
-		resolve('en', ['en-US-POSIX']).should.equal('en')
+		choose('ru-RU', ['en', 'ru']).should.equal('ru')
+		choose('en-GB', ['en', 'ru']).should.equal('en')
+		choose('fr-FR', ['en', 'ru']).should.equal('en')
+		choose(['fr-FR', 'de-DE'], ['en', 'ru']).should.equal('en')
+		choose(['fr-FR', 'de-DE'], ['en', 'de']).should.equal('de')
+		choose(['fr-FR', 'de-DE'], ['en', 'de', 'fr']).should.equal('fr')
+		choose('fr-FR', ['en', 'fr-FR']).should.equal('fr-FR')
+		choose('en-US', ['en-US-POSIX']).should.equal('en-US')
+		choose('en', ['en-US-POSIX']).should.equal('en')
 		
-		const thrower = () => resolve('fr-FR', ['de', 'ru'])
+		const thrower = () => choose('fr-FR', ['de', 'ru'])
 		thrower.should.throw('No locale data has been registered for any of the locales: fr-FR')
 	})
 })

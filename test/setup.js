@@ -2,7 +2,7 @@ import are_intl_locales_supported from 'intl-locales-supported'
 import Intl_polyfill from 'intl'
 import chai from 'chai'
 
-import javascript_time_ago from '../source/time ago'
+import javascript_time_ago from '../source/index'
 
 // (`intl-messageformat` will load everything automatically when run in Node.js)
 import * as en from '../locales/en/index.es6'

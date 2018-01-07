@@ -49,10 +49,6 @@ First, the library must be initialized with a set of desired locales.
 #### ./javascript-time-ago.js
 
 ```js
-// International pluralization formatter
-// ("1 second", "2 seconds", etc).
-import IntlMessageFormat from 'intl-messageformat'
-
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
 //  "zero", "one", "two", "few", "many" or "other")
@@ -96,7 +92,7 @@ plugins: [
 After the initialization step is complete it is ready to format relative dates.
 
 ```js
-import javascriptTimeAgo from './javascript-time-ago'
+import javascriptTimeAgo from 'javascript-time-ago'
 
 const timeAgoEnglish = new javascriptTimeAgo('en-US')
 

@@ -1,6 +1,6 @@
 import elapsed           from './elapsed'
 import style             from './style'
-import resolve_locale    from './locale'
+import choose_locale     from './locale'
 import parse_locale_data from './locale data'
 import create_formatter  from './formatter'
 
@@ -32,7 +32,7 @@ export default class Javascript_time_ago
 		// Choose the most appropriate locale
 		// (one of the previously added ones)
 		// based on the list of preferred `locales` supplied by the user.
-		this.locale = resolve_locale
+		this.locale = choose_locale
 		(
 			this.locales,
 			Object.keys(Javascript_time_ago.locale_data)

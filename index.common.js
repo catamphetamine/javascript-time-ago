@@ -1,6 +1,6 @@
 'use strict'
 
-exports = module.exports = require('./build/time ago').default
+exports = module.exports = require('./build/index').default
 exports['default'] = exports
 
 var gradation = require('./build/gradation')

@@ -9,9 +9,9 @@
 //
 // @example
 // // Returns 'en'
-// resolve_locale(['en-US'], undefined, ['ru', 'en'])
+// choose_locale(['en-US'], undefined, ['ru', 'en'])
 //
-export default function resolve_locale(locales, registered_locales)
+export default function choose_locale(locales, registered_locales)
 {
 	// Using "the set of locales + the default locale", we look for the first one
 	// which that has been registered. When data does not exist for a locale, we

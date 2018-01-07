@@ -1,4 +1,4 @@
-import javascript_time_ago from '../source/time ago'
+import javascript_time_ago from '../source/index'
 import gradation, { a_day, days_in_a_month, days_in_a_year } from '../source/gradation'
 
 // Load locale specific relative date/time messages
