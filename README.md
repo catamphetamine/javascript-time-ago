@@ -44,13 +44,22 @@ If you decide you need the Intl polyfill then [here are some basic installation 
 
 ## Usage
 
+First, the library must be initialized with a set of desired locales.
+
+#### ./javascript-time-ago.js
+
 ```js
+// Time ago formatter
 import javascriptTimeAgo from 'javascript-time-ago'
 
-// Load locale specific relative date/time messages
+// Load locale-specific relative date/time formatting rules
 //
-javascriptTimeAgo.locale(require('javascript-time-ago/locales/en'))
-javascriptTimeAgo.locale(require('javascript-time-ago/locales/ru'))
+import enTimeAgoRules from 'javascript-time-ago/locales/en'
+import ruTimeAgoRules from 'javascript-time-ago/locales/ru'
+
+// International pluralization formatter
+// ("1 second", "2 seconds", etc)
+import IntlMessageFormat from 'intl-messageformat'
 
 // Load number pluralization functions for the locales.
 // (the ones that decide if a number is gonna be 
@@ -59,12 +68,40 @@ javascriptTimeAgo.locale(require('javascript-time-ago/locales/ru'))
 // https://github.com/eemeli/make-plural.js
 // http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
 //
-require('javascript-time-ago/intl-messageformat-global')
-require('intl-messageformat/dist/locale-data/en')
-require('intl-messageformat/dist/locale-data/ru')
+// `IntlMessageFormat` global variable must exist
+// in order for this to work:
+// https://github.com/yahoo/intl-messageformat/issues/159
+// For Webpack this is done via `ProvidePlugin` (see below).
+//
+import 'intl-messageformat/dist/locale-data/en'
+import 'intl-messageformat/dist/locale-data/ru'
 
-// Initialization complete.
-// Ready to format relative dates and times.
+// Add locale-specific relative date/time formatting rules
+//
+javascriptTimeAgo.locale(enTimeAgoRules)
+javascriptTimeAgo.locale(ruTimeAgoRules)
+```
+
+`javascript-time-ago` uses `intl-messageformat` internally. [`IntlMessageFormat`](https://github.com/yahoo/intl-messageformat) is a helper library made by Yahoo which formats plurals internationally (e.g. "1 second", "2 seconds", etc).
+
+Both these libraries must be initialized with a set of desired locales first. For that, `IntlMessageFormat` [needs to be accessible as a global variable](https://github.com/yahoo/intl-messageformat/issues/159) (though I don't agree with such a design choice). For Webpack that would be:
+
+```js
+export default {
+  ...,
+  plugins: [
+    new webpack.ProvidePlugin({
+      IntlMessageFormat: ['intl-messageformat', 'default'],
+    }),
+  // ...
+  ]
+}
+```
+
+After the initialization step is complete it's ready to format relative dates
+
+```js
+import javascriptTimeAgo from './javascript-time-ago'
 
 const timeAgoEnglish = new javascriptTimeAgo('en-US')
 
