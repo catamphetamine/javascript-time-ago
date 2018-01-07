@@ -40,7 +40,7 @@ This package assumes that the [`Intl`](https://developer.mozilla.org/en-US/docs/
 
 Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to [get Node to load the extra locale data](https://github.com/nodejs/node/wiki/Intl), or (a much simpler approach) just use the Intl polyfill.
 
-If you decide you need the Intl polyfill then [here are some basic installation and configuration instructions](#intl-polyfill-installation)
+If you decide you need the Intl polyfill then [here are some basic installation and configuration instructions](#intl-polyfill-installation).
 
 ## Usage
 
@@ -54,8 +54,8 @@ import javascriptTimeAgo from 'javascript-time-ago'
 
 // Load locale-specific relative date/time formatting rules
 //
-import enTimeAgoRules from 'javascript-time-ago/locales/en'
-import ruTimeAgoRules from 'javascript-time-ago/locales/ru'
+import en from 'javascript-time-ago/locales/en'
+import ru from 'javascript-time-ago/locales/ru'
 
 // International pluralization formatter
 // ("1 second", "2 seconds", etc)
@@ -78,8 +78,8 @@ import 'intl-messageformat/dist/locale-data/ru'
 
 // Add locale-specific relative date/time formatting rules
 //
-javascriptTimeAgo.locale(enTimeAgoRules)
-javascriptTimeAgo.locale(ruTimeAgoRules)
+javascriptTimeAgo.locale(en)
+javascriptTimeAgo.locale(ru)
 ```
 
 `javascript-time-ago` uses `intl-messageformat` internally. [`IntlMessageFormat`](https://github.com/yahoo/intl-messageformat) is a helper library made by Yahoo which formats plurals internationally (e.g. "1 second", "2 seconds", etc).
