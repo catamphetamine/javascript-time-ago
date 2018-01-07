@@ -189,6 +189,10 @@ Since thread safety is hard most likely `intl-messageformat` isn't thread safe. 
 
 But it doesn't really matter because javascript is inherently single-threaded: both in a web browser and in Node.js.
 
+## Caching
+
+A `javascript-time-ago` instance caches formatters once it has used them therefore there can be a single `javascript-time-ago` instance for the whole application (including server side) which is supposed to be a bit (perhaps negligibly) faster while staying safe.
+
 ## Intl polyfill installation
 
 To install the Intl polyfill (supporting 200+ languages):
