@@ -192,6 +192,18 @@ JavascriptTimeAgo.locale = function(locale_data_input)
 	JavascriptTimeAgo.locale_data[locale] = locale_data
 }
 
+JavascriptTimeAgo.choose_locale = function(locales)
+{
+	// Choose the most appropriate locale
+	// (one of the previously added ones)
+	// based on the list of preferred `locales` supplied by the user.
+	return choose_locale
+	(
+		locales.concat(JavascriptTimeAgo.default_locale),
+		Object.keys(JavascriptTimeAgo.locale_data)
+	)
+}
+
 // Normalizes `.format()` `time` argument.
 function get_date_and_time_being_formatted(input)
 {
