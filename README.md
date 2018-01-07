@@ -49,16 +49,8 @@ First, the library must be initialized with a set of desired locales.
 #### ./javascript-time-ago.js
 
 ```js
-// Time ago formatter
-import javascriptTimeAgo from 'javascript-time-ago'
-
-// Load locale-specific relative date/time formatting rules
-//
-import en from 'javascript-time-ago/locales/en'
-import ru from 'javascript-time-ago/locales/ru'
-
 // International pluralization formatter
-// ("1 second", "2 seconds", etc)
+// ("1 second", "2 seconds", etc).
 import IntlMessageFormat from 'intl-messageformat'
 
 // Load number pluralization functions for the locales.
@@ -76,8 +68,14 @@ import IntlMessageFormat from 'intl-messageformat'
 import 'intl-messageformat/dist/locale-data/en'
 import 'intl-messageformat/dist/locale-data/ru'
 
-// Add locale-specific relative date/time formatting rules
-//
+// Time ago formatter.
+import javascriptTimeAgo from 'javascript-time-ago'
+
+// Load locale-specific relative date/time formatting rules.
+import en from 'javascript-time-ago/locales/en'
+import ru from 'javascript-time-ago/locales/ru'
+
+// Add locale-specific relative date/time formatting rules.
 javascriptTimeAgo.locale(en)
 javascriptTimeAgo.locale(ru)
 ```
