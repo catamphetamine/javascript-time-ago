@@ -67,7 +67,7 @@ export default function(locale)
 				// Twitter style relative time formatting:
 				// Seconds, minutes and hours are shown relatively,
 				// and other intervals can be shown using full date format.
-				override({ elapsed, time, date, now })
+				override({ elapsed, date, now })
 				{
 					// If less than 24 hours elapsed,
 					// then format it relatively
