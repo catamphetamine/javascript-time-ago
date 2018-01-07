@@ -3,6 +3,7 @@ import style             from './style'
 import choose_locale     from './locale'
 import parse_locale_data from './locale data'
 import create_formatter  from './formatter'
+import cache             from './cache'
 
 export default class JavascriptTimeAgo
 {
@@ -13,9 +14,6 @@ export default class JavascriptTimeAgo
 	// For all configured locales
 	// their relative time formatter messages will be stored here
 	static locale_data = {}
-
-	// Relative time interval message formatters cache
-	formatters = {}
 
 	constructor(locales = [], options)
 	{
@@ -148,31 +146,14 @@ export default class JavascriptTimeAgo
 	// ("second", "minute", "hour", "day", etc).
 	get_formatter(unit, flavour)
 	{
-		// Check if any time unit formatters of this `flavour`
-		// have already been created.
-		if (!this.formatters[flavour])
-		{
-			this.formatters[flavour] = {}
-		}
-
-		// Get time unit formatters of this `flavour`.
-		const time_unit_formatters = this.formatters[flavour]
-
-		// If no time unit formatter of this `flavour`
-		// has been previously created for this time `unit`
-		// then create and cache it.
-		if (!time_unit_formatters[unit])
-		{
-			time_unit_formatters[unit] = create_formatter
+		return cache.get(this.locale, flavour, unit) ||
+			cache.put(this.locale, flavour, unit, create_formatter
 			(
 				unit,
 				flavour,
 				this.locales,
 				JavascriptTimeAgo.locale_data[this.locale]
-			)
-		}
-
-		return time_unit_formatters[unit]
+			))
 	}
 }
 

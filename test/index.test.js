@@ -6,6 +6,27 @@ import english from '../locales/en'
 
 describe(`time ago`, function()
 {
+	it(`should benchmark the cache`, function()
+	{
+		const time_ago = new javascript_time_ago('en')
+		const started_at = Date.now()
+
+		let i = 0
+		while (i < 10000)
+		{
+			time_ago.format(Date.now() + Math.random() * 365 * 24 * 60 * 60 * 1000)
+			i++
+		}
+
+		console.log('Took', (Date.now() - started_at) / 1000, 'seconds')
+	})
+	
+	it(`should provide a static ".choose_locale()" function`, function()
+	{
+		javascript_time_ago.choose_locale('fr').should.equal('en')
+		javascript_time_ago.choose_locale('ru').should.equal('ru')
+	})
+
 	it(`should accept empty constructor parameters`, function()
 	{
 		const time_ago = new javascript_time_ago()
