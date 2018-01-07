@@ -97,7 +97,7 @@ export default function(locale)
 			}
 		},
 
-		// The default ("fuzzy") relative time formatting style.
+		// Similar to the default style but with "ago" omitted.
 		//
 		// just now
 		// 5 minutes

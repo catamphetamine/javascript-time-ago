@@ -93,7 +93,7 @@ plugins: [
 ]
 ```
 
-After the initialization step is complete it's ready to format relative dates
+After the initialization step is complete it is ready to format relative dates.
 
 ```js
 import javascriptTimeAgo from './javascript-time-ago'
@@ -129,7 +129,7 @@ timeAgoRussian.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
 
 ## Twitter style
 
-Mimics Twitter style time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
+Mimics Twitter style of time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
 
 ```js
 …
@@ -155,7 +155,7 @@ timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000), twitter)
 timeAgo.style.fuzzy()
 ```
 
-The time scale is (actually the same as the default style but with "ago" omitted):
+Similar to the default style but with "ago" omitted:
 
   * just now
   * 1 minute
@@ -165,7 +165,7 @@ The time scale is (actually the same as the default style but with "ago" omitted
   * 15 minutes
   * 20 minutes
   * half an hour
-  * an hour
+  * 1 hour
   * 2 hours
   * …
   * 20 hours
@@ -174,15 +174,15 @@ The time scale is (actually the same as the default style but with "ago" omitted
   * 3 days
   * 4 days
   * 5 days
-  * a week
+  * 1 week
   * 2 weeks
   * 3 weeks
-  * a month
+  * 1 month
   * 2 months
   * 3 months
   * 4 months
   * half a year
-  * a year
+  * 1 year
   * 2 years
   * 3 years
   * …
@@ -231,7 +231,7 @@ The format of the localization is:
 
 The `past` and `future` can be defined by any of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
 
-One can also pass raw Unicode CLDR locale data `.json` files (found in [the CLDR repository](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/)) which will be automatically converted to the format described above by this library.
+One can also pass raw Unicode CLDR locale data `.json` files (found in [CLDR repository](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/)) which will be automatically converted by this library to the format described above.
 
 [Example CLDR data for en-US-POSIX locale](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/en-US-POSIX/dateFields.json)
 
@@ -264,7 +264,7 @@ One can also pass raw Unicode CLDR locale data `.json` files (found in [the CLDR
 }
 ```
 
-So, to add support for a specific language one can install the [CLDR dates package](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main):
+So, to add support for a specific language one can install [CLDR dates package](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main):
 
 ```
 npm install cldr-dates-modern --save
@@ -274,9 +274,9 @@ And then add the neccessary locales from it:
 
 ```js
 import javascriptTimeAgo from 'javascript-time-ago'
-import russian from 'cldr-dates-modern/main/ru/dateFields.json'
+import ru from 'cldr-dates-modern/main/ru/dateFields.json'
 
-javascriptTimeAgo.locale(russian)
+javascriptTimeAgo.locale(ru)
 
 const timeAgo = new javascriptTimeAgo('ru')
 timeAgo.format(new Date(Date.now() - 60 * 1000))
@@ -287,7 +287,7 @@ timeAgo.format(new Date(Date.now() - 60 * 1000))
 
 No locales are loaded by default. This is done to allow tools like Webpack take advantage of code splitting to reduce the resulting javascript bundle size.
 
-But server side doesn't need code splitting, so to load all available locales in Node.js one can use this shortcut:
+On the other hand, server side doesn't need code splitting, so to load all available locales in Node.js one can use this shortcut:
 
 ```js
 // A faster way to load all localization data for Node.js
@@ -299,7 +299,7 @@ require('javascript-time-ago/load-all-locales')
 
 Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locales/en.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locales/en.js) for an example.
 
-Built-in localization data is presented in different variants. Example:
+Built-in localization data is presented in different variants:
 
 ```js
 import english from 'javascript-time-ago/locales/en'
@@ -309,12 +309,14 @@ english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-One can pass `options` as a second parameter to the `.format(date, options)` function. It's called a `style` (see `twitter` style for example). The `options` object can specify:
+One can pass `style` as a second parameter to the `.format(date, style)` function. The `style` object can specify:
 
-  * `flavour` – preferred labels style (e.g. `tiny`, `short`, `long`)
+  * `flavour` – preferred labels variant (e.g. `tiny`, `short`, `long`)
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
   * `gradation` – custom time interval measurement units scale
-  * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise it has no effect.
+  * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise the date/time is formatter as usual.
+
+(see `twitter` style for an example)
 
 ## Gradation
 
@@ -341,12 +343,12 @@ A `gradation` is a list of time interval measurement steps. A simple example:
 
   * `factor` is a divider for the supplied time interval (in seconds)
   * `threshold` is a minimum time interval value (in seconds) required for this gradation step
-  * (some more `threshold` customization is possible, see the link below)
+  * (some advanced `threshold` customization is possible, see `./source/gradation.js` for more info)
   * `granularity` can also be specified (for example, `5` for `minute` to allow only 5-minute intervals)
 
-For more gradation examples see [`source/elapsed.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/elapsed.js)
+For more gradation examples see [`source/gradation.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation.js)
 
-Available gradations:
+Built-in gradations:
 
 ```js
 import { gradation } from 'javascript-time-ago'
@@ -357,11 +359,11 @@ gradation.convenient() // 'just now', '5 minutes ago', …
 
 ## Future
 
-When given negative time intervals this library outputs future dates, like "in 5 minutes", "in a year", etc.
+When given future dates `.format()` produces the corresponding output, e.g. "in 5 minutes", "in a year", etc.
 
 ## React
 
-There is also a [React component](https://github.com/catamphetamine/react-time-ago).
+There is also a [React component](https://github.com/catamphetamine/react-time-ago) built upon this library which autorefreshes itself.
 
 ## Contributing
 

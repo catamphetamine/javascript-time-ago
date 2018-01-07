@@ -4,8 +4,12 @@ var path = require('path')
 var fs = require('fs')
 var javascript_time_ago = require('javascript-time-ago')
 
-fs.readdirSync(path.resolve(__dirname, 'locales')).forEach(function(file)
+fs.readdirSync(path.resolve(__dirname, 'locales')).forEach(function(filename)
 {
-	var locale = file.replace(/\.js$/, '')
-	javascript_time_ago.locale(require(path.resolve(__dirname, 'locales', locale)))
+	var path = path.resolve(__dirname, 'locales', filename)
+	var stats = fs.statSync(path)
+	if (stat.isDirectory())
+	{
+		javascript_time_ago.locale(require(path)))
+	}
 })
