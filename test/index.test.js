@@ -21,11 +21,11 @@ describe(`time ago`, function()
 		console.log('Took', (Date.now() - started_at) / 1000, 'seconds')
 	})
 	
-	it(`should provide a static ".choose_locale()" function`, function()
-	{
-		javascript_time_ago.choose_locale(['fr']).should.equal('en')
-		javascript_time_ago.choose_locale(['fr', 'ru']).should.equal('ru')
-	})
+	// it(`should provide a static ".choose_locale()" function`, function()
+	// {
+	// 	javascript_time_ago.choose_locale(['fr']).should.equal('en')
+	// 	javascript_time_ago.choose_locale(['fr', 'ru']).should.equal('ru')
+	// })
 
 	it(`should accept empty constructor parameters`, function()
 	{
