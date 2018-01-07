@@ -12,6 +12,8 @@ describe(`exports`, function()
 {
 	it(`should export ES6`, function()
 	{
+		// Load locale specific relative date/time messages
+		Time_ago.locale(require('../locales/en'))
 		new Time_ago()
 		a_day.should.be.a('number')
 		days_in_a_month.should.be.a('number')

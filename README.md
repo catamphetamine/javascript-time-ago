@@ -182,9 +182,6 @@ The format of the localization is:
   …
   "day": 
   {
-    "previous": "a day ago",
-    "now": "today",
-    "next": "in a day",
     "past":
     {
       "one": "{0} day ago",
@@ -200,11 +197,11 @@ The format of the localization is:
 }
 ```
 
-The `past` and `future` keys can be one of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
+The `past` and `future` can be defined by any of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
 
-One can also use raw Unicode CLDR locale rules which will be automatically converted to the format described above.
+One can also pass raw Unicode CLDR locale data `.json` files (found in [the CLDR repository](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/)) which will be automatically converted to the format described above by this library.
 
-[Example for en-US-POSIX locale](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/en-US-POSIX/dateFields.json)
+[Example CLDR data for en-US-POSIX locale](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/en-US-POSIX/dateFields.json)
 
 ```js
 {
@@ -235,7 +232,7 @@ One can also use raw Unicode CLDR locale rules which will be automatically conve
 }
 ```
 
-To add support for a specific language one can download the [CLDR dates package](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main):
+So, to add support for a specific language one can install the [CLDR dates package](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main):
 
 ```
 npm install cldr-dates-modern --save
@@ -315,7 +312,7 @@ A `gradation` is a list of time interval measurement steps. A simple example:
   * (some more `threshold` customization is possible, see the link below)
   * `granularity` can also be specified (for example, `5` for `minute` to allow only 5-minute intervals)
 
-For more gradation examples see [`source/classify elapsed.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/classify%20elapsed.js)
+For more gradation examples see [`source/elapsed.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/elapsed.js)
 
 Available gradations:
 

@@ -1,5 +1,12 @@
-import javascript_time_ago from '../index.es6'
 import are_intl_locales_supported from 'intl-locales-supported'
+import Intl_polyfill from 'intl'
+import chai from 'chai'
+
+import javascript_time_ago from '../source/time ago'
+
+// (`intl-messageformat` will load everything automatically when run in Node.js)
+import * as en from '../locales/en/index.es6'
+import * as ru from '../locales/ru/index.es6'
 
 const locales = ['en', 'ru']
 
@@ -10,7 +17,6 @@ if (global.Intl)
 	{
 		// `Intl` exists, but it doesn't have the data we need, so load the
 		// polyfill and patch the constructors we need with the polyfill's
-		const Intl_polyfill = require('intl')
 		Intl.NumberFormat   = Intl_polyfill.NumberFormat
 		Intl.DateTimeFormat = Intl_polyfill.DateTimeFormat
 	}
@@ -18,18 +24,12 @@ if (global.Intl)
 else
 {
 	// No `Intl`, so use and load the polyfill
-	global.Intl = require('intl')
+	global.Intl = Intl_polyfill
 }
 
-// Load all the localization data for Node.js
+// Load localization data for Node.js
 // (`intl-messageformat` will load everything automatically when run in Node.js)
-import * as en from '../locales/en/index.es6'
-import * as ru from '../locales/ru/index.es6'
 javascript_time_ago.locale(en)
 javascript_time_ago.locale(ru)
 
-import chai from 'chai'
 chai.should()
-
-require('./exports')
-require('./time ago')

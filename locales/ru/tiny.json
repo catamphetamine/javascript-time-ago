@@ -48,7 +48,6 @@
     }
   },
   "second": {
-    "current": "now",
     "past": {
       "other": "{0}с"
     },

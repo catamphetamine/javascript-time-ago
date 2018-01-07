@@ -1,19 +1,37 @@
-import { resolve_locale }   from './time ago'
-import { gradation, a_day } from './classify elapsed'
+import gradation, { a_day } from './gradation'
 
+// A cache for `Intl.DateTimeFormat` twitter formatters
+// for various locales (is a global variable).
 const twitter_formatters = {}
 
-export default function(locales)
+// A cached twitter gradation (if used)
+let twitter_gradation
+
+// @param {string} locale - the most suitable locale for formatting relative time.
+//
+// @return {Function} Returns a factory for creating relative time formatting presets.
+//
+// The factory returned is later being used like:
+//
+// ```js
+// const timeAgo = new javascriptTimeAgo('en-US')
+// const twitter = timeAgo.style.twitter()
+// timeAgo.format(new Date(), twitter)
+// ```
+//
+// A preset is an object having shape
+// `{ units, gradation, flavour, override({ elapsed, time, date, now }) }`.
+//
+export default function(locale)
 {
-	const styles = 
-	{
-		// Twitter style relative time.
+	return {
+		// Twitter style relative time formatting.
 		// Seconds, minutes and hours are shown relatively,
 		// and other intervals can be shown using full date format.
 		twitter()
 		{
-			const locale = resolve_locale(locales)
-			
+			// Initialize relative time formatters for non-recent dates.
+			/* istanbul ignore else */
 			if (!twitter_formatters[locale])
 			{
 				twitter_formatters[locale] = 
@@ -29,39 +47,45 @@ export default function(locales)
 			const twitter_same_year_date_formatter    = twitter_formatters[locale].same_year
 			const twitter_another_year_date_formatter = twitter_formatters[locale].another_year
 
-			const twitter_gradation = gradation.canonical()
-			for (let step of twitter_gradation)
+			// Create twitter gradation (if not previously created).
+			// Twitter gradation is derived from "canonical" gradation
+			// adjusting its "minute" `threshold` to be 45.
+			if (!twitter_gradation)
 			{
-				if (step.unit === 'minute')
+				twitter_gradation = gradation.canonical()
+				for (const step of twitter_gradation)
 				{
-					step.threshold = 45
-					break
+					if (step.unit === 'minute')
+					{
+						step.threshold = 45
+						break
+					}
 				}
 			}
 
-			const options = 
-			{
-				// Twitter style relative time.
+			return {
+				// Twitter style relative time formatting:
 				// Seconds, minutes and hours are shown relatively,
 				// and other intervals can be shown using full date format.
-				override({ elapsed, date, now })
+				override({ elapsed, time, date, now })
 				{
 					// If less than 24 hours elapsed,
-					// then format it relatively.
+					// then format it relatively
+					// (don't override the default behaviour).
 					if (Math.abs(elapsed) < a_day - 30 * 60)
 					{
 						return
 					}
 
 					// If `date` and `now` happened the same year,
-					// then show month and day
+					// then only output month and day.
 					if (new Date(now).getFullYear() === date.getFullYear())
 					{
 						return twitter_same_year_date_formatter.format(date, 'MMMd')
 					}
 
 					// If `date` and `now` happened in defferent years,
-					// then show full date
+					// then output day, month and year.
 					return twitter_another_year_date_formatter.format(date, 'yMMMd')
 				},
 
@@ -71,11 +95,9 @@ export default function(locales)
 
 				flavour: 'tiny'
 			}
-
-			return options
 		},
 
-		// I prefer this one.
+		// The default ("fuzzy") relative time formatting style.
 		//
 		// just now
 		// 5 minutes
@@ -102,16 +124,22 @@ export default function(locales)
 		//
 		fuzzy()
 		{
-			const options = 
-			{
+			return {
 				gradation: gradation.convenient(),
 				flavour: 'long_concise',
-				units: ['just-now', 'minute', 'half-hour', 'hour', 'day', 'week', 'month', 'half-year', 'year']
+				units:
+				[
+					'just-now',
+					'minute',
+					'half-hour',
+					'hour',
+					'day',
+					'week',
+					'month',
+					'half-year',
+					'year'
+				]
 			}
-
-			return options
 		}
 	}
-
-	return styles
 }

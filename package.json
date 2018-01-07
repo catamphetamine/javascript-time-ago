@@ -29,10 +29,10 @@
     "webpack": "^1.14.0"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --colors --bail --reporter spec test/runner.js --recursive",
-    "test-coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot test/runner.js --recursive",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-core/register --colors --reporter spec test/runner.js --recursive",
-    "browser-build": "npm run build-es6-modules && WEBPACK_ENV=build webpack",
+    "test": "mocha --compilers js:babel-core/register --colors --bail --reporter spec --require ./test/setup.js \"./{,!(node_modules)/**/}*.test.js\"  --recursive",
+    "test-coverage": "istanbul cover -x \"build/**\" -x \"es6/**\" node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot --require ./test/setup.js \"./{,!(node_modules)/**/}*.test.js\" --recursive",
+    "test-travis": "istanbul cover -x \"build/**\" -x \"es6/**\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-core/register --colors --reporter spec --require ./test/setup.js \"./{,!(node_modules)/**/}*.test.js\" --recursive",
+    "browser-build": "better-npm-run browser-build",
     "browser-build-dev": "npm run build-es6-modules && WEBPACK_ENV=dev webpack --progress --colors --watch",
     "clean-for-build": "rimraf ./build/**/* ./es6/**/*",
     "build-commonjs-modules": "better-npm-run build-commonjs-modules",
@@ -41,6 +41,12 @@
     "prepublish": "npm-run-all build test browser-build"
   },
   "betterScripts": {
+    "browser-build": {
+      "command": "npm run build-es6-modules && webpack --progress --colors",
+      "env": {
+        "WEBPACK_ENV": "build"
+      }
+    },
     "build-commonjs-modules": {
       "command": "babel ./source --out-dir ./build --source-maps",
       "env": {

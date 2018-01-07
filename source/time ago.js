@@ -1,9 +1,8 @@
-// a part of this code is adopted from
-// https://github.com/yahoo/intl-relativeformat/
-
-import IntlMessageFormat from 'intl-messageformat'
-import classify_elapsed  from './classify elapsed'
+import elapsed           from './elapsed'
 import style             from './style'
+import resolve_locale    from './locale'
+import parse_locale_data from './locale data'
+import create_formatter  from './formatter'
 
 export default class Javascript_time_ago
 {
@@ -20,21 +19,29 @@ export default class Javascript_time_ago
 
 	constructor(locales, options)
 	{
-		// Make a copy of `locales` if it's an array, so that it doesn't change
-		// since it's used lazily.
-		if (Array.isArray(locales))
+		if (typeof locales === 'string')
 		{
-			locales = locales.concat()
+			locales = [locales]
 		}
 
+		// The preferred locales are saved
+		// to be later passed to `IntlMessageFormat`
+		// when creating formatters lazily.
+		this.locales = locales.concat(Javascript_time_ago.default_locale)
+
 		// Choose the most appropriate locale
-		this.locale = resolve_locale(locales)
+		// (one of the previously added ones)
+		// based on the list of preferred `locales` supplied by the user.
+		this.locale = resolve_locale
+		(
+			this.locales,
+			Object.keys(Javascript_time_ago.locale_data)
+		)
 
-		// Is passed later on to `IntlMessageFormat`
-		this.locales = locales
-
-		// Presets
-		this.style = style(locales)
+		// Relative time formatting presets.
+		// A preset is an object having shape
+		// `{ units, gradation, flavour, override() }`.
+		this.style = style(this.locale)
 	}
 
 	// Formats the relative date.
@@ -64,95 +71,65 @@ export default class Javascript_time_ago
 	//
 	format(input, options = {})
 	{
-		// Get locale messages for this formatting flavour
-		const { flavour, locale_data } = this.locale_data(options.flavour)
+		const { date, time } = get_date_and_time_being_formatted(input)
 
-		let date
-		let time
-		
-		if (input.constructor === Date)
-		{
-			date = input
-			time = input.getTime()
-		}
-		else if (typeof input === 'number')
-		{
-			time = input
-			date = new Date(input)
-		}
-		else
-		{
-			throw new Error(`Unsupported relative time formatter input: ${typeof input}, ${input}`)
-		}
+		// Get locale messages for this formatting flavour
+		const { flavour, locale_data } = this.get_locale_data(options.flavour)
 
 		// can pass a custom `now` for testing purpose
 		const now = options.now || Date.now()
 
 		// how much time elapsed (in seconds)
-		const elapsed = (now - time) / 1000 // in seconds
+		const seconds_elapsed = (now - time) / 1000 // in seconds
 
-		// Allows output customization.
+		// Allows returning any custom value for any `elapsed` interval.
+		// If `options.override()` returns a value (`string`)
+		// then this value is returned from this `.format()` call.
 		// For example, seconds, minutes and hours can be shown relatively,
 		// and other intervals can be shown using full date format.
-		// (see Twitter style)
+		// (that's what Twitter style does with its `override()`)
 		if (options.override)
 		{
-			const override = options.override({ elapsed, time, date, now })
+			const override = options.override({ elapsed: seconds_elapsed, time, date, now })
 			if (override !== undefined)
 			{
 				return override
 			}
 		}
 
-		// Available time interval measurement units
-		let units = Object.keys(locale_data)
+		// Available time interval measurement units.
+		const units = get_time_interval_measurement_units(locale_data, options.units)
 
-		if (options.units)
+		// If no available time unit is suitable, just output an empty string.
+		if (units.length === 0)
 		{
-			// Find available time interval measurement units
-			units = options.units.filter(unit => units.indexOf(unit) >= 0)
+			console.error(`Units "${units.join(', ')}" were not found in locale data for "${this.locale}".`)
+			return ''
 		}
 
 		// Choose the appropriate time measurement unit 
-		// and get the corresponding rounded time amount
-		const { unit, amount } = classify_elapsed(Math.abs(elapsed), units, options.gradation)
+		// and get the corresponding rounded time amount.
+		const { unit, amount } = elapsed(Math.abs(seconds_elapsed), units, options.gradation)
 
-		// If no time unit is suitable, just output empty string
+		// If no time unit is suitable, just output an empty string.
+		// E.g. when "just-now" is not available
+		// and "second" has a threshold of `0.5`
+		// (e.g. the "canonical" grading scale).
 		if (!unit)
 		{
 			return ''
 		}
 
-		// format the message for the chosen time measurement unit
-		// (second, minute, hour, day, etc)
-
-		const formatters = this.get_formatters(unit, flavour)
-
-		// default formatter: "X units"
-		let formatter = formatters.default
-
-		// in case of "0 units"
-		if (amount === 0 && formatters.current)
-		{
-			formatter = formatters.current
-		}
-
-		// in case of "previous unit" or "next unit"
-		if ((amount === -1 || amount === 1) && formatters.previous_next)
-		{
-			formatter = formatters.previous_next
-		}
-
-		// return formatted time amount
-		return formatter.format
+		// Format the time elapsed.
+		return this.get_formatter(unit, flavour).format
 		({
 			'0'  : amount,
-			when : elapsed >= 0 ? 'past' : 'future'
+			when : seconds_elapsed >= 0 ? 'past' : 'future'
 		})
 	}
 
 	// Gets locale messages for this formatting flavour
-	locale_data(flavour)
+	get_locale_data(flavour)
 	{
 		// Get relative time formatter messages for this locale
 		const locale_data = Javascript_time_ago.locale_data[this.locale]
@@ -166,294 +143,100 @@ export default class Javascript_time_ago
 		return { flavour, locale_data: locale_data[flavour] }
 	}
 
-	// lazy creation of a formatter for a given time measurement unit
-	// (second, minute, hour, day, etc)
-	get_formatters(unit, flavour)
+	// Lazy creation of a formatter of a given `flavour`
+	// for a given time measurement `unit`
+	// ("second", "minute", "hour", "day", etc).
+	get_formatter(unit, flavour)
 	{
+		// Check if any time unit formatters of this `flavour`
+		// have already been created.
 		if (!this.formatters[flavour])
 		{
 			this.formatters[flavour] = {}
 		}
 
-		const formatters = this.formatters[flavour]
+		// Get time unit formatters of this `flavour`.
+		const time_unit_formatters = this.formatters[flavour]
 
-		// Create a new synthetic message based on the locale data from CLDR.
-		if (!formatters[unit])
+		// If no time unit formatter of this `flavour`
+		// has been previously created for this time `unit`
+		// then create and cache it.
+		if (!time_unit_formatters[unit])
 		{
-			formatters[unit] = this.compile_formatters(unit, flavour)
+			time_unit_formatters[unit] = create_formatter
+			(
+				unit,
+				flavour,
+				this.locales,
+				Javascript_time_ago.locale_data[this.locale]
+			)
 		}
 
-		return formatters[unit]
-	}
-
-	// compiles formatter for the specified time measurement unit 
-	// (second, minute, hour, day, etc)
-	compile_formatters(unit, flavour)
-	{
-		// Locale specific time interval formatter messages
-		// for the given time interval measurement unit
-		const formatter_messages = Javascript_time_ago.locale_data[this.locale][flavour][unit]
-
-		// Locale specific time interval formatter messages
-		// for the given time interval measurement unit
-		// for "past" and "future"
-		//
-		// (e.g.
-		//  {
-		//   "relativeTimePattern-count-one": "{0} second ago",
-		//   "relativeTimePattern-count-other": "{0} seconds ago"
-		//  })
-		//
-		const past_formatter_messages   = formatter_messages.past
-		const future_formatter_messages = formatter_messages.future
-
-		// `format.js` number formatter messages
-		// e.g. "one {# second ago} other {# seconds ago}"
-		let past_formatter   = ''
-		let future_formatter = ''
-
-		// Compose "past" formatter specification
-		// (replacing CLDR number placeholder "{0}" 
-		//  with format.js number placeholder "#")
-		for (let key of Object.keys(past_formatter_messages))
-		{
-			past_formatter += ` ${key} 
-					{${past_formatter_messages[key].replace('{0}', '#')}}`
-		}
-
-		// Compose "future" formatter specification
-		// (replacing CLDR number placeholder "{0}" 
-		//  with format.js number placeholder "#")
-		for (let key of Object.keys(future_formatter_messages))
-		{
-			// e.g. += " one {# sec. ago}"
-			future_formatter += ` ${key} 
-					{${future_formatter_messages[key].replace('{0}', '#')}}`
-		}
-
-		// The ultimate time interval `format.js` specification
-		// ("0" will be replaced with the first argument
-		//  when the message will be formatted)
-		const message = `{ when, select, past   {{0, plural, ${past_formatter}}}
-		                                 future {{0, plural, ${future_formatter}}} }`
-
-		// Create the synthetic IntlMessageFormat instance 
-		// using the original locales specified by the user
-		const default_formatter = new IntlMessageFormat(message, this.locales)
-
-		const formatters = 
-		{
-			default: default_formatter
-		}
-
-		// "0 units" formatter
-		if (formatter_messages.current)
-		{
-			formatters.current =
-			{
-				format: () => formatter_messages.current
-			}
-		}
-
-		// "previous unit" and "next unit" formatter
-		if (formatter_messages.previous && formatter_messages.next)
-		{
-			const previous_next_message = `{ when, select, past   {${formatter_messages.previous}}
-			                                               future {${formatter_messages.next}} }`
-		
-			// Create the synthetic IntlMessageFormat instance 
-			// using the original locales specified by the user
-			formatters.previous_next = new IntlMessageFormat(previous_next_message, this.locales)
-		}
-
-		return formatters
+		return time_unit_formatters[unit]
 	}
 }
 
-// Chooses the most appropriate locale 
-// based on the list of preferred locales supplied by the user
-export function resolve_locale(locales)
+// Adds locale data for a specific locale.
+//
+// @param {Object} locale_data_input - Locale data.
+//
+// Locale data being input can either be
+// in CLDR format or in this library's format.
+//
+Javascript_time_ago.locale = function(locale_data_input)
 {
-	// Suppose it's an array
-	if (typeof locales === 'string')
-	{
-		locales = [locales]
-	}
+	const { locale, locale_data } = parse_locale_data(locale_data_input)
 
-	// Create a copy of the array so we can push on the default locale.
-	locales = (locales || []).concat(Javascript_time_ago.default_locale)
+	// This locale data is stored in a global variable
+	// and later used when calling `.format(time)`.
+	Javascript_time_ago.locale_data[locale] = locale_data
 
-	// Using the set of locales + the default locale, we look for the first one
-	// which that has been registered. When data does not exist for a locale, we
-	// traverse its ancestors to find something that's been registered within
-	// its hierarchy of locales. Since we lack the proper `parentLocale` data
-	// here, we must take a naive approach to traversal.
-	for (let locale of locales)
-	{
-		const locale_parts = locale.split('-')
-
-		while (locale_parts.length)
-		{
-			const locale_try = locale_parts.join('-')
-
-			if (Javascript_time_ago.locale_data[locale_try])
-			{
-				// Return the normalized locale string; 
-				// e.g., we return "en-US",
-				// instead of "en-us".
-				return locale_try
-			}
-
-			locale_parts.pop()
-		}
-	}
-
-	throw new Error(`No locale data has been added for any of the locales: ${locales.join(', ')}`)
-}
-
-// Adds locale data
-Javascript_time_ago.locale = function(locale_data)
-{
-	let locale
-	let locale_data_map
-
-	if (!locale_data)
-	{
-		throw new Error(`The passed in locale data is undefined`)
-	}
-
-	if (locale_data.main)
-	{
-		locale = Object.keys(locale_data.main)[0]
-
-		// Convert from CLDR format
-		locale_data_map = from_CLDR(locale_data)
-	}
-	else
-	{
-		locale = locale_data.locale
-
-		locale_data_map = {}
-
-		// Supports multiple locale variations
-		// (e.g. "default", "short", "normal", "long", etc)
-		for (let key of Object.keys(locale_data))
-		{
-			if (key !== 'locale')
-			{
-				locale_data_map[key] = locale_data[key]
-			}
-		}
-	}
-
-	// Guard against malformed input
-	if (!locale)
-	{
-		throw new Error(`Couldn't determine locale for this locale data. Make sure the "locale" property is present.`)
-	}
-
-	// Ensure default formatting flavour is set
-	if (!locale_data_map.default)
-	{
-		locale_data_map.default = locale_data_map.long || locale_data_map[Object.keys(locale_data_map)[0]]
-	}
-
-	// Store locale specific messages in the static variable
-	Javascript_time_ago.locale_data[locale] = locale_data_map
-
-	// (will be added manually by this library user)
+	// The corresponding `intl-messageformat` data for the locale
+	// must be added manually by a developer:
+	//
 	// // Add locale data to IntlMessageFormat
 	// // (to be more specific: the `pluralRuleFunction`)
 	// require('intl-messageformat/locale-data/ru')
 }
 
-// Converts locale data from CLDR format (if needed)
-export function from_CLDR(data)
+// Normalizes `.format()` `time` argument.
+function get_date_and_time_being_formatted(input)
 {
-	// the usual time measurement units
-	const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'year']
-
-	// result
-	const converted = { long: {} }
-
-	// detects the short flavour of labels (yr., mo., etc)
-	const short = /-short$/
-
-	const locale = Object.keys(data.main)[0]
-	data = data.main[locale].dates.fields
-
-	for (let key of Object.keys(data))
+	if (input.constructor === Date)
 	{
-		// take only the usual time measurement units
-		if (units.indexOf(key) < 0 && units.indexOf(key.replace(short, '')) < 0)
-		{
-			continue
-		}
-
-		const entry = data[key]
-		const converted_entry = {}
-
-		// if a key ends with `-short`, then it's a "short" flavour
-		if (short.test(key))
-		{
-			if (!converted.short)
-			{
-				converted.short = {}
-			}
-
-			converted.short[key.replace(short, '')] = converted_entry
-		}
-		else
-		{
-			converted.long[key] = converted_entry
-		}
-
-		// the "relative" values aren't suitable for "ago" or "in a" cases,
-		// because "1 year ago" != "last year"
-
-		// if (entry['relative-type--1'])
-		// {
-		// 	converted_entry.previous = entry['relative-type--1']
-		// }
-
-		// if (entry['relative-type-0'])
-		// {
-		// 	converted_entry.current = entry['relative-type-0']
-		// }
-
-		// if (entry['relative-type-1'])
-		// {
-		// 	converted_entry.next = entry['relative-type-1']
-		// }
-
-		if (entry['relativeTime-type-past'])
-		{
-			const past = entry['relativeTime-type-past']
-			converted_entry.past = {}
-
-			for (let subkey of Object.keys(past))
-			{
-				const prefix = 'relativeTimePattern-count-'
-				const converted_subkey = subkey.replace(prefix, '')
-
-				converted_entry.past[converted_subkey] = past[subkey]
-			}
-		}
-
-		if (entry['relativeTime-type-future'])
-		{
-			const future = entry['relativeTime-type-future']
-			converted_entry.future = {}
-
-			for (let subkey of Object.keys(future))
-			{
-				const prefix = 'relativeTimePattern-count-'
-				const converted_subkey = subkey.replace(prefix, '')
-
-				converted_entry.future[converted_subkey] = future[subkey]
-			}
+		return {
+			date : input,
+			time : input.getTime()
 		}
 	}
 
-	return converted
+	if (typeof input === 'number')
+	{
+		return {
+			time : input,
+			date : new Date(input)
+		}
+	}
+
+	// For some weird reason istanbul doesn't see this `throw` covered.
+	/* istanbul ignore next */
+	throw new Error(`Unsupported relative time formatter input: ${typeof input}, ${input}`)
+}
+
+// Get available time interval measurement units.
+function get_time_interval_measurement_units(locale_data, restricted_set_of_units)
+{
+	// All available time interval measurement units.
+	const units = Object.keys(locale_data)
+
+	// If only a specific set of available
+	// time measurement units can be used.
+	if (restricted_set_of_units)
+	{
+		// Reduce available time interval measurement units
+		// based on user's preferences.
+		return restricted_set_of_units.filter(_ => units.indexOf(_) >= 0)
+	}
+
+	return units
 }

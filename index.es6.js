@@ -1,2 +1,2 @@
 export { default } from './es6/time ago'
-export { a_day, days_in_a_month, days_in_a_year, gradation } from './es6/classify elapsed'
+export { default as gradation, a_day, days_in_a_month, days_in_a_year } from './es6/gradation'

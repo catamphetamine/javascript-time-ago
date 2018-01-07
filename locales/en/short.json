@@ -62,7 +62,6 @@
     }
   },
   "second": {
-    "current": "now",
     "past": {
       "one": "{0} sec. ago",
       "other": "{0} sec. ago"

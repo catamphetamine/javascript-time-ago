@@ -1,7 +1,5 @@
 {
   "year": {
-    "previous": "a year",
-    "next": "a year",
     "future": {
       "one": "{0} year",
       "other": "{0} years"
@@ -20,8 +18,6 @@
     }
   },
   "month": {
-    "previous": "a month",
-    "next": "a month",
     "future": {
       "one": "{0} month",
       "other": "{0} months"
@@ -32,8 +28,6 @@
     }
   },
   "week": {
-    "previous": "a week",
-    "next": "a week",
     "future": {
       "one": "{0} week",
       "other": "{0} weeks"
@@ -54,8 +48,6 @@
     }
   },
   "hour": {
-    "previous": "an hour",
-    "next": "an hour",
     "future": {
       "one": "{0} hour",
       "other": "{0} hours"
@@ -84,7 +76,6 @@
     }
   },
   "second": {
-    "current": "now",
     "future": {
       "one": "{0} second",
       "other": "{0} seconds"

@@ -1,74 +1,52 @@
-import javascript_time_ago, { a_day, days_in_a_month, days_in_a_year, gradation } from '../index.es6'
-import { from_CLDR } from '../source/time ago'
-
-// import javascript_time_ago, { from_CLDR } from '../source/time ago'
-// import { a_day, days_in_a_month, days_in_a_year, gradation } from '../source/classify elapsed'
+import javascript_time_ago from '../source/time ago'
+import gradation, { a_day, days_in_a_month, days_in_a_year } from '../source/gradation'
 
 // Load locale specific relative date/time messages
-import english_cldr from './locales/en-cldr'
-import english, { short as english_short, long as english_long } from '../locales/en'
+import english from '../locales/en'
 
 describe(`time ago`, function()
 {
-	it(`should convert from Unicode CLDR`, function()
+	it(`should accept Dates`, function()
 	{
-		const converted = from_CLDR(english_cldr)
+		const time_ago = new javascript_time_ago('en')
+		time_ago.format(new Date()).should.equal('just now')
+	})
 
-		converted.short['just-now'] =
-		{
-			"past"   : { "other": "now" },
-			"future" : { "other": "now" }
-		}
+	it(`should not accept anything but Dates and timestamps`, function()
+	{
+		const time_ago = new javascript_time_ago('en')
+		const thrower = () => time_ago.format('Jan 14, 2017')
+		thrower.should.throw('Unsupported relative time formatter input: string, Jan 14, 2017')
+	})
 
-		converted.long['just-now'] =
-		{
-			"past"   : { "other": "just now" },
-			"future" : { "other": "in a moment" }
-		}
+	it(`should return an empty string if the passed units are not available in locale data`, function()
+	{
+		const time_ago = new javascript_time_ago('en')
+		time_ago.format(Date.now(), { units: ['femtosecond'] }).should.equal('')
+	})
 
-		converted.long['half-hour'] =
-		{
-			"future" : { "other": "in half an hour" },
-			"past"   : { "other": "half an hour ago" }
-		}
+	it(`should return an empty string if no unit is suitable`, function()
+	{
+		const time_ago = new javascript_time_ago('en')
+		const now = Date.now()
 
-		converted.long['half-year'] =
-		{
-			"future" : { "other": "in half a year" },
-			"past"   : { "other": "half a year ago" }
-		}
+		// Remove 'just-now' formatter temporarily
+		const just_now_formatter = javascript_time_ago.locale_data.en.default['just-now']
+		delete javascript_time_ago.locale_data.en.default['just-now']
 
-		converted.short.second.current = converted.long.second.current = 'now'
-		
-		converted.long.minute.previous   = 'a minute ago'
-		converted.long.minute.next       = 'in a minute'
+		time_ago.format(now, { now }).should.equal('')
 
-		converted.long.hour.previous   = 'an hour ago'
-		converted.long.hour.next       = 'in an hour'
-		
-		converted.short.day.previous = converted.long.day.previous = 'a day ago'
-		converted.short.day.next     = converted.long.day.next     = 'in a day'
-		
-		converted.long.week.previous   = 'a week ago'
-		converted.long.week.next       = 'in a week'
-		
-		converted.long.month.previous   = 'a month ago'
-		converted.long.month.next       = 'in a month'
-
-		converted.long.year.previous   = 'a year ago'
-		converted.long.year.next       = 'in a year'
-
-		converted.short.should.deep.equal(english_short)
-		converted.long.should.deep.equal(english_long)
+		// Restore 'just-now' formatter
+		javascript_time_ago.locale_data.en.default['just-now'] = just_now_formatter
 	})
 
 	it(`should format Twitter style relative time (English)`, function()
 	{
 		const time_ago = new javascript_time_ago('en')
 		const twitter_style = time_ago.style.twitter()
-	
+
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = time => time_ago.format(now - time * 1000, { now, ...twitter_style })
+		const elapsed = (time) => time_ago.format(now - time * 1000, { now, ...twitter_style })
 	
 		elapsed(0).should.equal('')
 		elapsed(44.9).should.equal('')
@@ -137,9 +115,9 @@ describe(`time ago`, function()
 			'half an hour',
 			'half an hour',
 			'half an hour',
-			'an hour',
-			'an hour',
-			'an hour',
+			'1 hour',
+			'1 hour',
+			'1 hour',
 			'2 hours',
 			'3 hours',
 			'4 hours',
@@ -164,10 +142,10 @@ describe(`time ago`, function()
 			'3 days',
 			'4 days',
 			'5 days',
-			'a week',
+			'1 week',
 			'2 weeks',
 			'3 weeks',
-			'a month',
+			'1 month',
 			'2 months',
 			'3 months',
 			'4 months',
@@ -176,9 +154,9 @@ describe(`time ago`, function()
 			'half a year',
 			'half a year',
 			'half a year',
-			'a year',
-			'a year',
-			'a year',
+			'1 year',
+			'1 year',
+			'1 year',
 			'2 years',
 			'3 years',
 			'100 years'
@@ -204,9 +182,9 @@ describe(`time ago`, function()
 			'полчаса',
 			'полчаса',
 			'полчаса',
-			'час',
-			'час',
-			'час',
+			'1 час',
+			'1 час',
+			'1 час',
 			'2 часа',
 			'3 часа',
 			'4 часа',
@@ -231,10 +209,10 @@ describe(`time ago`, function()
 			'3 дня',
 			'4 дня',
 			'5 дней',
-			'неделю',
+			'1 неделю',
 			'2 недели',
 			'3 недели',
-			'месяц',
+			'1 месяц',
 			'2 месяца',
 			'3 месяца',
 			'4 месяца',
@@ -243,9 +221,9 @@ describe(`time ago`, function()
 			'полгода',
 			'полгода',
 			'полгода',
-			'год',
-			'год',
-			'год',
+			'1 год',
+			'1 год',
+			'1 год',
 			'2 года',
 			'3 года',
 			'100 лет'
@@ -291,7 +269,7 @@ describe(`time ago`, function()
 			'18 hr. ago',
 			'19 hr. ago',
 			'20 hr. ago',
-			'a day ago',
+			'1 day ago',
 			'2 days ago',
 			'3 days ago',
 			'4 days ago',
@@ -420,7 +398,7 @@ describe(`time ago`, function()
 			'18 ч. назад',
 			'19 ч. назад',
 			'20 ч. назад',
-			'днём ранее',
+			'1 д. назад',
 			'2 д. назад',
 			'3 д. назад',
 			'4 д. назад',
@@ -485,7 +463,7 @@ describe(`time ago`, function()
 			'18 часов назад',
 			'19 часов назад',
 			'20 часов назад',
-			'днём ранее',
+			'день назад',
 			'2 дня назад',
 			'3 дня назад',
 			'4 дня назад',
@@ -510,6 +488,12 @@ describe(`time ago`, function()
 			'100 лет назад'
 		],
 		new javascript_time_ago('ru'))
+	})
+
+	it(`should format future dates`, function()
+	{
+		new javascript_time_ago('en').format(Date.now() + 60 * 60 * 1000).should.equal('in an hour')
+		new javascript_time_ago('ru').format(Date.now() + 45 * 1000).should.equal('через минуту')
 	})
 })
 
