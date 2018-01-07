@@ -85,15 +85,12 @@ javascriptTimeAgo.locale(ru)
 Both these libraries must be initialized with a set of desired locales first. For that, `IntlMessageFormat` [needs to be accessible as a global variable](https://github.com/yahoo/intl-messageformat/issues/159) (though I don't agree with such a design choice). For Webpack that would be:
 
 ```js
-export default {
-  ...,
-  plugins: [
-    new webpack.ProvidePlugin({
-      IntlMessageFormat: ['intl-messageformat', 'default'],
-    }),
+plugins: [
+  new webpack.ProvidePlugin({
+    IntlMessageFormat: ['intl-messageformat', 'default'],
+  }),
   // ...
-  ]
-}
+]
 ```
 
 After the initialization step is complete it's ready to format relative dates
