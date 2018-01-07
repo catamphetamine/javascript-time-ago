@@ -1,5 +1,5 @@
 import elapsed           from './elapsed'
-import style             from './style'
+import styles            from './style'
 import choose_locale     from './locale'
 import parse_locale_data from './locale data'
 import create_formatter  from './formatter'
@@ -15,7 +15,7 @@ export default class JavascriptTimeAgo
 	// their relative time formatter messages will be stored here
 	static locale_data = {}
 
-	constructor(locales = [], options)
+	constructor(locales = [])
 	{
 		if (typeof locales === 'string')
 		{
@@ -39,56 +39,69 @@ export default class JavascriptTimeAgo
 		// Relative time formatting presets.
 		// A preset is an object having shape
 		// `{ units, gradation, flavour, override() }`.
-		this.style = style(this.locale)
+		// This property is not used internally
+		// but can be accessed externally:
+		// `const twitterStyle = javascriptTimeAgo.style.twitter()`
+		this.style = styles(this.locale)
 	}
 
 	// Formats the relative date.
 	//
-	// Returns: a string
+	// @return {string} Returns the formatted relative date/time.
 	//
-	// Parameters:
+	// @param {Object} [style] - Relative date/time formatting style.
 	//
-	//    options - (optional)
+	// @param {string[]} [style.units] - A list of allowed time units
+	//                                  (e.g. ['second', 'minute', 'hour', …])
 	//
-	//       units     - a list of allowed time units
-	//                   (e.g. ['second', 'minute', 'hour', …])
+	// @param {Function} [style.override] - `function ({ elapsed, time, date, now })`.
+	//                                      If the `override` function returns a value,
+	//                                      then the `.format()` call will return that value.
+	//                                      Otherwise it has no effect.
 	//
-	//       gradation - time scale gradation steps.
-	//                   (e.g.
-	//                   [
-	//                      { unit: 'second', factor: 1 }, 
-	//                      { unit: 'minute', factor: 60, threshold: 60 },
-	//                      …
-	//                   ])
+	// @param {string} [style.flavour] - e.g. "long", "short", "tiny", etc.
 	//
-	//       override - function ({ elapsed, time, date, now })
+	// @param {Object[]} [style.gradation] - Time scale gradation steps.
 	//
-	//                  If the `override` function returns a value,
-	//                  then the `.format()` call will return that value.
-	//                  Otherwise it has no effect.
+	// @param {string} style.gradation[].unit - Time interval measurement unit.
+	//                                          (e.g. ['second', 'minute', 'hour', …])
 	//
-	format(input, options = {})
+	// @param {Number} style.gradation[].factor - Time interval measurement unit factor.
+	//                                            (e.g. `60` for 'minute')
+	//
+	// @param {Number} [style.gradation[].granularity] - A step for the unit's "amount" value.
+	//                                                   (e.g. `5` for '0 minutes', '5 minutes', etc)
+	//
+	// @param {Number} [style.gradation[].threshold] - Time interval measurement unit threshold.
+	//                                                 (e.g. `45` seconds for 'minute').
+	//                                                 There can also be specific `threshold_[unit]`
+	//                                                 thresholds for fine-tuning.
+	//
+	format(input, style = {})
 	{
 		const { date, time } = get_date_and_time_being_formatted(input)
 
 		// Get locale messages for this formatting flavour
-		const { flavour, locale_data } = this.get_locale_data(options.flavour)
+		const { flavour, locale_data } = this.get_locale_data(style.flavour)
 
-		// can pass a custom `now` for testing purpose
-		const now = options.now || Date.now()
+		// Can pass a custom `now`, e.g. for testing purposes.
+		// Technically it doesn't belong to `style`
+		// but since this is an undocumented internal feature,
+		// taking it from the `style` argument will do (for now).
+		const now = style.now || Date.now()
 
 		// how much time elapsed (in seconds)
 		const seconds_elapsed = (now - time) / 1000 // in seconds
 
 		// Allows returning any custom value for any `elapsed` interval.
-		// If `options.override()` returns a value (`string`)
+		// If `style.override()` returns a value (`string`)
 		// then this value is returned from this `.format()` call.
 		// For example, seconds, minutes and hours can be shown relatively,
 		// and other intervals can be shown using full date format.
 		// (that's what Twitter style does with its `override()`)
-		if (options.override)
+		if (style.override)
 		{
-			const override = options.override({ elapsed: seconds_elapsed, time, date, now })
+			const override = style.override({ elapsed: seconds_elapsed, time, date, now })
 			if (override !== undefined)
 			{
 				return override
@@ -96,7 +109,7 @@ export default class JavascriptTimeAgo
 		}
 
 		// Available time interval measurement units.
-		const units = get_time_interval_measurement_units(locale_data, options.units)
+		const units = get_time_interval_measurement_units(locale_data, style.units)
 
 		// If no available time unit is suitable, just output an empty string.
 		if (units.length === 0)
@@ -107,7 +120,7 @@ export default class JavascriptTimeAgo
 
 		// Choose the appropriate time measurement unit 
 		// and get the corresponding rounded time amount.
-		const { unit, amount } = elapsed(Math.abs(seconds_elapsed), units, options.gradation)
+		const { unit, amount } = elapsed(Math.abs(seconds_elapsed), units, style.gradation)
 
 		// If no time unit is suitable, just output an empty string.
 		// E.g. when "just-now" is not available

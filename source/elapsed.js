@@ -1,34 +1,37 @@
 import gradation from './gradation'
 
+/**
+ * `elapsed()` function result.
+ * 
+ * @typedef {Object} ElapsedResult
+ * @property {number} unit - The most appropriate time interval measurement unit for the time elapsed.
+ * @property {number} amount - The rounded amount of time measurement `unit`s elapsed.
+ * 
+ * @example
+ * // Returns { unit: 'day', amount: 3 }
+ * elapsed(2.7 * 24 * 60 * 60)
+ */
+
 // Chooses the appropriate time measurement unit 
 // and also returns the corresponding rounded time amount.
 // In other words, rounds the `elapsed` time interval 
 // to the most appropriate time measurement unit.
 //
-// @param {number} elapsed - time interval (in seconds)
+// @param {Number} elapsed - Time interval (in seconds)
 //
-// @param {string[]} units - a list of allowed time units
+// @param {string[]} units - A list of allowed time units
 //                           (e.g. ['second', 'minute', 'hour', …])
 //
-// @param {Object} gradation - (optional) time scale gradation steps.
+// @param {Object} [gradation] - Time scale gradation steps.
 //
-//                             E.g.:
-//                             [
-//                               { unit: 'second', factor: 1 }, 
-//                               { unit: 'minute', factor: 60, threshold: 60 },
-//                               …
-//                             ]
+//                               E.g.:
+//                               [
+//                                 { unit: 'second', factor: 1 }, 
+//                                 { unit: 'minute', factor: 60, threshold: 60 },
+//                                 …
+//                               ]
 //
-// @returns {Object} result - an object of `unit` and `amount`
-//
-// @returns {string} result.unit - the most appropriate time interval measurement unit
-//                                 for the time elapsed.
-//
-// @returns {Number} result.amount - the rounded amount of time measurement `unit`s elapsed.
-//
-// @example
-// // Returns { unit: 'day', amount: 3 }
-// elapsed(2.7 * 24 * 60 * 60)
+// @returns {ElapsedResult} Returns an object holding `unit` and `amount`.
 //
 export default function elapsed(elapsed, units, gradation_steps)
 {

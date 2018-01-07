@@ -20,15 +20,15 @@ export const a_day = 24 * 60 * 60 // in seconds
 //
 // Each gradation unit can have:
 //
-// * unit - (required) the name of the time interval measurement unit.
+// * unit - (required) The name of the time interval measurement unit.
 //
-// * factor - (required) the amount of seconds will be divided by this number for this unit.
+// * factor - (required) The amount of seconds will be divided by this number for this unit.
 //
-// * granularity - a step for the unit's resulting "amount" value.
+// * granularity - A step for the unit's resulting "amount" value.
 //
-// * threshold - min value (in seconds) for this unit.
+// * threshold - Min value (in seconds) for this unit. Is required for non-first unit.
 //
-// * threshold_for_[unit] - a specific threshold required for moving from `[unit]` to this unit.
+// * threshold_for_[unit] - A specific threshold required for moving from `[unit]` to this unit.
 //                          E.g. if "just-now" unit is present in time units gradation
 //                          then `threshold_for_just-now` can be set to `45` seconds.
 //                          Otherwise, if "just-now" unit is omitted from time units gradation,
