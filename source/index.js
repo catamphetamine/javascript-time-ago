@@ -173,6 +173,7 @@ JavascriptTimeAgo.locale = function(locale_data_input)
 	JavascriptTimeAgo.locale_data[locale] = locale_data
 }
 
+// @param {string[]} locales
 JavascriptTimeAgo.choose_locale = function(locales)
 {
 	// Choose the most appropriate locale

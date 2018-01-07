@@ -23,8 +23,8 @@ describe(`time ago`, function()
 	
 	it(`should provide a static ".choose_locale()" function`, function()
 	{
-		javascript_time_ago.choose_locale('fr').should.equal('en')
-		javascript_time_ago.choose_locale('ru').should.equal('ru')
+		javascript_time_ago.choose_locale(['fr']).should.equal('en')
+		javascript_time_ago.choose_locale(['fr', 'ru']).should.equal('ru')
 	})
 
 	it(`should accept empty constructor parameters`, function()
