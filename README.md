@@ -265,9 +265,11 @@ There is also a [React component](https://catamphetamine.github.io/react-time-ag
 
 [`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object is not required for this library, but it may be required if you choose to use the built-in `twitter` style.
 
-`Intl` is present in all modern browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using the `Intl` polyfill).
+`Intl` is present in all modern browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using `Intl` polyfill).
 
-Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to use the `Intl` polyfill.
+Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to use `Intl` polyfill.
+
+Applying `Intl` polyfill:
 
 ```
 npm install intl@1.2.4 --save
