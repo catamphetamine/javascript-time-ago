@@ -273,21 +273,27 @@ Applying `Intl` polyfill:
 
 ```
 npm install intl@1.2.4 --save
+npm install intl-locales-supported --save
 ```
 
 Node.js
 
 ```js
-import Intl from 'intl'
-global.Intl = Intl
+import IntlPolyfill from 'intl'
+import intlLocalesSupported from 'intl-locales-supported'
+
+if (typeof Intl === 'object') {
+  if (!intlLocalesSupported(['ru', 'fr', ...])) {
+    Intl.NumberFormat   = IntlPolyfill.NumberFormat
+    Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat
+  }
+}
+else {
+  global.Intl = IntlPolyfill
+}
 ```
 
-Web browser
-
-```js
-import Intl from 'intl'
-window.Intl = Intl
-```
+Web browser: same as for Node.js with `global` replaced with `window`.
 
 ## Contributing
 

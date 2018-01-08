@@ -1,5 +1,6 @@
-import are_intl_locales_supported from 'intl-locales-supported'
-import Intl from 'intl'
+import IntlPolyfill from 'intl'
+import intlLocalesSupported from 'intl-locales-supported'
+
 import chai from 'chai'
 
 import javascript_time_ago from '../source/index'
@@ -9,26 +10,23 @@ import * as ru from '../locale/ru'
 
 const locales = ['en', 'ru']
 
-if (global.Intl)
+if (typeof Intl === 'object')
 {
-	// Has a bug: "SyntaxError: Invalid regular expression: ...".
-	// https://github.com/andyearnshaw/Intl.js/issues/256#issuecomment-349335699
-	// Determine if the built-in `Intl` has the locale data we need
-	if (!are_intl_locales_supported(locales))
+	if (!intlLocalesSupported(locales))
 	{
 		// `Intl` exists, but it doesn't have the data we need, so load the
 		// polyfill and patch the constructors we need with the polyfill's
-		global.Intl.NumberFormat   = Intl_polyfill.NumberFormat
-		global.Intl.DateTimeFormat = Intl_polyfill.DateTimeFormat
+		Intl.NumberFormat   = IntlPolyfill.NumberFormat
+		Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat
 	}
 
 	// `Intl` property is read-only
-	// global.Intl = Intl
+	// global.Intl = IntlPolyfill
 }
 else
 {
 	// No `Intl`, so use and load the polyfill
-	global.Intl = Intl
+	global.Intl = IntlPolyfill
 }
 
 // // Fixes "SyntaxError: Invalid regular expression: ...".
