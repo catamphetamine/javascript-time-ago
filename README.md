@@ -179,11 +179,15 @@ On the other hand, server side doesn't need code splitting, so to load all built
 require('javascript-time-ago/load-all-locales')
 ```
 
+# Advanced
+
+The above sections explained all the basics required for using this library in a project.
+
+This part of the documentation contains some advanced topics for those willing to have a better understanding how this library works internally.
+
 ## Customization
 
 Localization can be further customized by selecting one of the "flavours": `long`, `short`, or mabe some others (like `tiny` defined for `en`). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
-
-Built-in localization data is presented in different variants:
 
 ```js
 import english from 'javascript-time-ago/locale/en'
@@ -193,14 +197,14 @@ english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-One can pass `style` as a second parameter to the `.format(date, style)` function. The `style` object can specify:
+One can pass `style` (`string` or `object`) as a second parameter to the `.format(date, style)` function. The `style` object can specify (all are optional):
 
-  * `flavour` – preferred labels variant (e.g. `tiny`, `short`, `long`)
+  * `flavour` – preferred labels variant (e.g. `short`, `long`)
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
   * `gradation` – custom time interval measurement units scale
   * `override` – is a function of `{ elapsed, time, date, now }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise the date/time is formatter as usual.
 
-(see `twitter` style for an example)
+(see [`twitter`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style.js) style for an example)
 
 ## Gradation
 
@@ -243,9 +247,9 @@ gradation.convenient() // 'just now', '5 minutes ago', …
 
 ## Localization internals
 
-The built-in localization resides in the [`locales`](https://github.com/catamphetamine/javascript-time-ago/tree/master/locales) folder.
+The localization resides in the [`locale`](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale) folder.
 
-The format of the localization is:
+The format a localization is:
 
 ```js
 {
@@ -269,7 +273,7 @@ The format of the localization is:
 
 The `past` and `future` can be defined by any of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
 
-To determine whether a certain amount of a time interval measurement unit is "one", "few", or something else, `javascript-time-ago` uses Unicode CLDR rules for formatting plurals. These rules are number pluralization classifier functions (for each locale) which can tell if a number should be treated as "zero", "one", "two", "few", "many" or "other". Knowing how these pluralization rules work is not required but anyway here are some links for curious advanced readers: [rules explanation](http://cldr.unicode.org/index/cldr-spec/plural-rules), [list of rules for all locales](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html), [converting those rules to javascript functions](https://github.com/eemeli/make-plural.js). These pluralization functions can be found as `plural` properties of a locale data.
+To determine whether a certain amount of time (number) is `one`, `few`, or something else, `javascript-time-ago` uses Unicode CLDR rules for formatting plurals. These rules are number pluralization classifier functions (one for each locale) which can tell if a number should be treated as `zero`, `one`, `two`, `few`, `many` or `other`. Knowing how these pluralization rules work is not required but anyway here are some links for curious advanced readers: [rules explanation](http://cldr.unicode.org/index/cldr-spec/plural-rules), [list of rules for all locales](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html), [converting those rules to javascript functions](https://github.com/eemeli/make-plural.js). These pluralization functions can be found as `plural` properties of a locale data.
 
 ## Future
 
@@ -277,27 +281,11 @@ When given future dates `.format()` produces the corresponding output, e.g. "in 
 
 ## React
 
-There is also a [React component](https://github.com/catamphetamine/react-time-ago) built upon this library which autorefreshes itself.
-
-## Intl polyfill
-
-To install the Intl polyfill (supporting 200+ languages):
-
-```bash
-npm install intl --save
-```
-
-Then configure the Intl polyfill:
-
-  * [Node.js](https://github.com/andyearnshaw/Intl.js#intljs-and-node)
-  * [Webpack](https://github.com/andyearnshaw/Intl.js#intljs-and-browserifywebpack)
-  * [Bower](https://github.com/andyearnshaw/Intl.js#intljs-and-bower)
+There is also a [React component](https://catamphetamine.github.io/react-time-ago/) built upon this library which autorefreshes itself.
 
 ## Thread safety
 
-Since thread safety is hard most likely `Intl.DateTimeFormat` (both native and polyfill) isn't thread-safe. Therefore `javascript-time-ago` should be considered non-thread-safe.
-
-But it doesn't really matter because javascript is inherently single-threaded: both in a web browser and in Node.js.
+Since thread safety is hard most likely `Intl.DateTimeFormat` (both native and polyfill) isn't thread-safe. Therefore `javascript-time-ago` should be considered non-thread-safe. But it doesn't really matter because javascript is inherently single-threaded: both in a web browser and in Node.js.
 
 ## Contributing
 
