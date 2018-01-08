@@ -76,7 +76,7 @@ export default class JavascriptTimeAgo
 		const { date, time } = get_date_and_time_being_formatted(input)
 
 		// Get locale messages for this formatting flavour
-		const { flavour, locale_data } = this.get_locale_data(style.flavour)
+		const { locale_data } = this.get_locale_data(style.flavour)
 
 		// Can pass a custom `now`, e.g. for testing purposes.
 		// Technically it doesn't belong to `style`
