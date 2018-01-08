@@ -183,7 +183,7 @@ require('javascript-time-ago/load-all-locales')
 
 The above sections explained all the basics required for using this library in a project.
 
-This part of the documentation contains some advanced topics for those willing to have a better understanding how this library works internally.
+This part of the documentation contains some advanced topics for those willing to have a better understanding of how this library works internally.
 
 ## Customization
 
