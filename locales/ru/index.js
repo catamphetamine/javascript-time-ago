@@ -8,13 +8,12 @@ var plural        = require('./plural').default
 
 module.exports =
 {
-	locale        : 'ru',
+	locale : 'ru',
 
-	tiny          : tiny,
-	short         : short,
-	short_concise : short_concise,
-	long          : long,
-	long_concise  : long_concise,
+	short           : short,
+	'short-concise' : short_concise,
+	long            : long,
+	'long-concise'  : long_concise,
 
 	plural : plural
 }
