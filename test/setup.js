@@ -39,9 +39,7 @@ else
 // }
 
 // Load localization data for Node.js
-// javascript_time_ago.locale(en)
-// javascript_time_ago.locale(ru)
-
-require('../load-all-locales')
+javascript_time_ago.locale(en)
+javascript_time_ago.locale(ru)
 
 chai.should()
