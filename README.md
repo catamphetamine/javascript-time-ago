@@ -58,6 +58,7 @@ First, the library must be initialized with a set of desired locales.
 //
 // `IntlMessageFormat` global variable must exist
 // in order for this to work:
+// `global.IntlMessageFormat = require('intl-messageformat').default`.
 // https://github.com/yahoo/intl-messageformat/issues/159
 // For Webpack this is done via `ProvidePlugin` (see below).
 //
