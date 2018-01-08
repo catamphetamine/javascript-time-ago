@@ -1,8 +1,6 @@
 import elapsed from '../source/elapsed'
 import gradation from '../source/gradation'
 
-import english_cldr from './locales/en-cldr'
-
 describe('elapsed time formatter', function()
 {
 	it('should return an empty object if no time units are applicable', function()

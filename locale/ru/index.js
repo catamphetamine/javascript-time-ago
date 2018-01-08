@@ -14,6 +14,7 @@ module.exports =
 	'short-concise' : short_concise,
 	long            : long,
 	'long-concise'  : long_concise,
+	tiny            : tiny,
 
 	plural : plural
 }

@@ -191,8 +191,9 @@ export default class JavascriptTimeAgo
 				}
 			}
 		}
-		
-		throw new Error(`None of the flavours - ${flavour.join(', ')} - was found for locale "${this.locale}".`)
+
+		// Can't happen - "long" flavour is always present.
+		// throw new Error(`None of the flavours - ${flavour.join(', ')} - was found for locale "${this.locale}".`)
 	}
 }
 

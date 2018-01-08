@@ -29,7 +29,7 @@ for (const locale of Object.keys(plurals))
 	}
 
 	const cldrJsonPath = `cldr-dates-full/main/${language}/dateFields.json`
-	const locale_folder = path.join(__dirname, '../locales', language)
+	const locale_folder = path.join(__dirname, '../locale', language)
 
 	// If no such language exists in `cldr-dates-full`
 	// then delete its folder along with the pluralization function.

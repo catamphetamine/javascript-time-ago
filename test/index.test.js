@@ -3,7 +3,7 @@ import style from '../source/style'
 import gradation, { a_day, days_in_a_month, days_in_a_year } from '../source/gradation'
 
 // Load locale specific relative date/time messages
-import english from '../locales/en'
+import english from '../locale/en'
 
 describe(`time ago`, function()
 {
@@ -21,7 +21,13 @@ describe(`time ago`, function()
 	//
 	// 	console.log('Took', (Date.now() - started_at) / 1000, 'seconds')
 	// })
-	
+
+	it(`should try various flavours if some are not found`, function()
+	{
+		const time_ago = new javascript_time_ago('en')
+		time_ago.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('now')
+	})
+
 	it(`should accept a string style argument`, function()
 	{
 		const time_ago = new javascript_time_ago('en')

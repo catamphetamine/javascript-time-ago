@@ -4,8 +4,8 @@ import chai from 'chai'
 
 import javascript_time_ago from '../source/index'
 
-import * as en from '../locales/en'
-import * as ru from '../locales/ru'
+import * as en from '../locale/en'
+import * as ru from '../locale/ru'
 
 const locales = ['en', 'ru']
 

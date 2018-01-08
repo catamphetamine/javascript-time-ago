@@ -68,8 +68,8 @@ First, the library must be initialized with a set of desired locales.
 import TimeAgo from 'javascript-time-ago'
 
 // Load locale-specific relative date/time formatting rules.
-import en from 'javascript-time-ago/locales/en'
-import ru from 'javascript-time-ago/locales/ru'
+import en from 'javascript-time-ago/locale/en'
+import ru from 'javascript-time-ago/locale/ru'
 
 // Add locale-specific relative date/time formatting rules.
 TimeAgo.locale(en)
@@ -183,12 +183,12 @@ require('javascript-time-ago/load-all-locales')
 
 ## Customization
 
-Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locales/en.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locales/en.js) for an example.
+Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
 Built-in localization data is presented in different variants:
 
 ```js
-import english from 'javascript-time-ago/locales/en'
+import english from 'javascript-time-ago/locale/en'
 
 english.tiny  // '1s', '2m', '3h', '4d', …
 english.short // '1 sec. ago', '2 min. ago', …

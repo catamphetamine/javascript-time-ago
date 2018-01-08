@@ -49,7 +49,7 @@ for (const locale of Object.keys(plurals))
 	// Write pluralization function to a file
 	fs.outputFileSync
 	(
-		path.join(__dirname, '../locales', language, 'plural.js'),
+		path.join(__dirname, '../locale', language, 'plural.js'),
 		`exports["default"]=${code}`
 	)
 }

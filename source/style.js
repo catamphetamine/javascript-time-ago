@@ -118,7 +118,7 @@ export default
 	{
 		return {
 			gradation: gradation.convenient(),
-			flavour: 'long_concise',
+			flavour: 'long-concise',
 			units:
 			[
 				'just-now',
