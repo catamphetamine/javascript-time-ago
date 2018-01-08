@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "for {0} år sidan",
+			"other": "for {0} år sidan"
+		},
+		"future": {
+			"one": "om {0} år",
+			"other": "om {0} år"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "for {0} månad sidan",
+			"other": "for {0} månadar sidan"
+		},
+		"future": {
+			"one": "om {0} månad",
+			"other": "om {0} månadar"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "for {0} veke sidan",
+			"other": "for {0} veker sidan"
+		},
+		"future": {
+			"one": "om {0} veke",
+			"other": "om {0} veker"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "for {0} døgn sidan",
+			"other": "for {0} døgn sidan"
+		},
+		"future": {
+			"one": "om {0} døgn",
+			"other": "om {0} døgn"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "for {0} time sidan",
+			"other": "for {0} timar sidan"
+		},
+		"future": {
+			"one": "om {0} time",
+			"other": "om {0} timar"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "for {0} minutt sidan",
+			"other": "for {0} minutt sidan"
+		},
+		"future": {
+			"one": "om {0} minutt",
+			"other": "om {0} minutt"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "for {0} sekund sidan",
+			"other": "for {0} sekund sidan"
+		},
+		"future": {
+			"one": "om {0} sekund",
+			"other": "om {0} sekund"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "no"
+		},
+		"future": {
+			"other": "no"
+		}
+	}
+}

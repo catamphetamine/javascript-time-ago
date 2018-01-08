@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "för {0} år sen",
+			"other": "för {0} år sen"
+		},
+		"future": {
+			"one": "om {0} år",
+			"other": "om {0} år"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "för {0} mån. sen",
+			"other": "för {0} mån. sen"
+		},
+		"future": {
+			"one": "om {0} mån.",
+			"other": "om {0} mån."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "för {0} v. sedan",
+			"other": "för {0} v. sedan"
+		},
+		"future": {
+			"one": "om {0} v.",
+			"other": "om {0} v."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "för {0} d sedan",
+			"other": "för {0} d sedan"
+		},
+		"future": {
+			"one": "om {0} d",
+			"other": "om {0} d"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "för {0} tim sedan",
+			"other": "för {0} tim sedan"
+		},
+		"future": {
+			"one": "om {0} tim",
+			"other": "om {0} tim"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "för {0} min sen",
+			"other": "för {0} min sen"
+		},
+		"future": {
+			"one": "om {0} min",
+			"other": "om {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "för {0} s sen",
+			"other": "för {0} s sen"
+		},
+		"future": {
+			"one": "om {0} sek",
+			"other": "om {0} sek"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "nu"
+		},
+		"future": {
+			"other": "nu"
+		}
+	}
+}

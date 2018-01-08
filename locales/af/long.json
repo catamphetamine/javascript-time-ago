@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} jaar gelede",
+			"other": "{0} jaar gelede"
+		},
+		"future": {
+			"one": "oor {0} jaar",
+			"other": "oor {0} jaar"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} maand gelede",
+			"other": "{0} maande gelede"
+		},
+		"future": {
+			"one": "oor {0} minuut",
+			"other": "oor {0} minuut"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} week gelede",
+			"other": "{0} weke gelede"
+		},
+		"future": {
+			"one": "oor {0} week",
+			"other": "oor {0} weke"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} dag gelede",
+			"other": "{0} dae gelede"
+		},
+		"future": {
+			"one": "oor {0} dag",
+			"other": "oor {0} dae"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} uur gelede",
+			"other": "{0} uur gelede"
+		},
+		"future": {
+			"one": "oor {0} uur",
+			"other": "oor {0} uur"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} minuut gelede",
+			"other": "{0} minute gelede"
+		},
+		"future": {
+			"one": "oor {0} minuut",
+			"other": "oor {0} minuut"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} sekonde gelede",
+			"other": "{0} sekondes gelede"
+		},
+		"future": {
+			"one": "oor {0} sekonde",
+			"other": "oor {0} sekondes"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "nou"
+		},
+		"future": {
+			"other": "nou"
+		}
+	}
+}

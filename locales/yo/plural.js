@@ -1,0 +1,1 @@
+exports["default"]=function(n){return"other"}

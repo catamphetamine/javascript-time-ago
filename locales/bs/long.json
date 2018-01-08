@@ -1,0 +1,94 @@
+{
+	"year": {
+		"past": {
+			"one": "prije {0} godinu",
+			"few": "prije {0} godine",
+			"other": "prije {0} godina"
+		},
+		"future": {
+			"one": "za {0} godinu",
+			"few": "za {0} godine",
+			"other": "za {0} godina"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "prije {0} mjesec",
+			"few": "prije {0} mjeseca",
+			"other": "prije {0} mjeseci"
+		},
+		"future": {
+			"one": "za {0} mjesec",
+			"few": "za {0} mjeseca",
+			"other": "za {0} mjeseci"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "prije {0} sedmicu",
+			"few": "prije {0} sedmice",
+			"other": "prije {0} sedmica"
+		},
+		"future": {
+			"one": "za {0} sedmicu",
+			"few": "za {0} sedmice",
+			"other": "za {0} sedmica"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "prije {0} dan",
+			"few": "prije {0} dana",
+			"other": "prije {0} dana"
+		},
+		"future": {
+			"one": "za {0} dan",
+			"few": "za {0} dana",
+			"other": "za {0} dana"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "prije {0} sat",
+			"few": "prije {0} sata",
+			"other": "prije {0} sati"
+		},
+		"future": {
+			"one": "za {0} sat",
+			"few": "za {0} sata",
+			"other": "za {0} sati"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "prije {0} minutu",
+			"few": "prije {0} minute",
+			"other": "prije {0} minuta"
+		},
+		"future": {
+			"one": "za {0} minutu",
+			"few": "za {0} minute",
+			"other": "za {0} minuta"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "prije {0} sekundu",
+			"few": "prije {0} sekunde",
+			"other": "prije {0} sekundi"
+		},
+		"future": {
+			"one": "za {0} sekundu",
+			"few": "za {0} sekunde",
+			"other": "za {0} sekundi"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "sada"
+		},
+		"future": {
+			"other": "sada"
+		}
+	}
+}

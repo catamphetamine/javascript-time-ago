@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} ár síðan",
+			"other": "{0} ár síðan"
+		},
+		"future": {
+			"one": "um {0} ár",
+			"other": "um {0} ár"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} mánað síðan",
+			"other": "{0} mánaðir síðan"
+		},
+		"future": {
+			"one": "um {0} mánað",
+			"other": "um {0} mánaðir"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} vika síðan",
+			"other": "{0} vikur síðan"
+		},
+		"future": {
+			"one": "um {0} viku",
+			"other": "um {0} vikur"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} dagur síðan",
+			"other": "{0} dagar síðan"
+		},
+		"future": {
+			"one": "um {0} dag",
+			"other": "um {0} dagar"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} tími síðan",
+			"other": "{0} tímar síðan"
+		},
+		"future": {
+			"one": "um {0} tíma",
+			"other": "um {0} tímar"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} minutt síðan",
+			"other": "{0} minuttir síðan"
+		},
+		"future": {
+			"one": "um {0} minutt",
+			"other": "um {0} minuttir"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} sekund síðan",
+			"other": "{0} sekund síðan"
+		},
+		"future": {
+			"one": "um {0} sekund",
+			"other": "um {0} sekund"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "nú"
+		},
+		"future": {
+			"other": "nú"
+		}
+	}
+}

@@ -1,96 +1,96 @@
 {
-  "year": {
-    "future": {
-      "one": "in a year",
-      "other": "in {0} years"
-    },
-    "past": {
-      "one": "a year ago",
-      "other": "{0} years ago"
-    }
-  },
-  "half-year": {
-    "future": {
-      "other": "in half a year"
-    },
-    "past": {
-      "other": "half a year ago"
-    }
-  },
-  "month": {
-    "future": {
-      "one": "in a month",
-      "other": "in {0} months"
-    },
-    "past": {
-      "one": "a month ago",
-      "other": "{0} months ago"
-    }
-  },
-  "week": {
-    "future": {
-      "one": "in a week",
-      "other": "in {0} weeks"
-    },
-    "past": {
-      "one": "a week ago",
-      "other": "{0} weeks ago"
-    }
-  },
-  "day": {
-    "future": {
-      "one": "in a day",
-      "other": "in {0} days"
-    },
-    "past": {
-      "one": "a day ago",
-      "other": "{0} days ago"
-    }
-  },
-  "hour": {
-    "future": {
-      "one": "in an hour",
-      "other": "in {0} hours"
-    },
-    "past": {
-      "one": "an hour ago",
-      "other": "{0} hours ago"
-    }
-  },
-  "half-hour": {
-    "future": {
-      "other": "in half an hour"
-    },
-    "past": {
-      "other": "half an hour ago"
-    }
-  },
-  "minute": {
-    "future": {
-      "one": "in a minute",
-      "other": "in {0} minutes"
-    },
-    "past": {
-      "one": "a minute ago",
-      "other": "{0} minutes ago"
-    }
-  },
-  "second": {
-    "future": {
-      "one": "in a second",
-      "other": "in {0} seconds"
-    },
-    "past": {
-      "one": "a second ago",
-      "other": "{0} seconds ago"
-    }
-  },
-  "just-now": {
-    "future": {
-      "other": "in a moment"
-    },
-    "past": {
-      "other": "just now"
-    }
-  }
+	"year": {
+		"future": {
+			"one": "in a year",
+			"other": "in {0} years"
+		},
+		"past": {
+			"one": "a year ago",
+			"other": "{0} years ago"
+		}
+	},
+	"half-year": {
+		"future": {
+			"other": "in half a year"
+		},
+		"past": {
+			"other": "half a year ago"
+		}
+	},
+	"month": {
+		"future": {
+			"one": "in a month",
+			"other": "in {0} months"
+		},
+		"past": {
+			"one": "a month ago",
+			"other": "{0} months ago"
+		}
+	},
+	"week": {
+		"future": {
+			"one": "in a week",
+			"other": "in {0} weeks"
+		},
+		"past": {
+			"one": "a week ago",
+			"other": "{0} weeks ago"
+		}
+	},
+	"day": {
+		"future": {
+			"one": "in a day",
+			"other": "in {0} days"
+		},
+		"past": {
+			"one": "a day ago",
+			"other": "{0} days ago"
+		}
+	},
+	"hour": {
+		"future": {
+			"one": "in an hour",
+			"other": "in {0} hours"
+		},
+		"past": {
+			"one": "an hour ago",
+			"other": "{0} hours ago"
+		}
+	},
+	"half-hour": {
+		"future": {
+			"other": "in half an hour"
+		},
+		"past": {
+			"other": "half an hour ago"
+		}
+	},
+	"minute": {
+		"future": {
+			"one": "in a minute",
+			"other": "in {0} minutes"
+		},
+		"past": {
+			"one": "a minute ago",
+			"other": "{0} minutes ago"
+		}
+	},
+	"second": {
+		"future": {
+			"one": "in a second",
+			"other": "in {0} seconds"
+		},
+		"past": {
+			"one": "a second ago",
+			"other": "{0} seconds ago"
+		}
+	},
+	"just-now": {
+		"future": {
+			"other": "in a moment"
+		},
+		"past": {
+			"other": "just now"
+		}
+	}
 }

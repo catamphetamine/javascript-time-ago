@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "il y a {0} a",
+			"other": "il y a {0} a"
+		},
+		"future": {
+			"one": "dans {0} a",
+			"other": "dans {0} a"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "il y a {0} m.",
+			"other": "il y a {0} m."
+		},
+		"future": {
+			"one": "dans {0} m.",
+			"other": "dans {0} m."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "il y a {0} sem.",
+			"other": "il y a {0} sem."
+		},
+		"future": {
+			"one": "dans {0} sem.",
+			"other": "dans {0} sem."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "il y a {0} j",
+			"other": "il y a {0} j"
+		},
+		"future": {
+			"one": "dans {0} j",
+			"other": "dans {0} j"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "il y a {0} h",
+			"other": "il y a {0} h"
+		},
+		"future": {
+			"one": "dans {0} h",
+			"other": "dans {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "il y a {0} min",
+			"other": "il y a {0} min"
+		},
+		"future": {
+			"one": "dans {0} min",
+			"other": "dans {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "il y a {0} s",
+			"other": "il y a {0} s"
+		},
+		"future": {
+			"one": "dans {0} s",
+			"other": "dans {0} s"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "maintenant"
+		},
+		"future": {
+			"other": "maintenant"
+		}
+	}
+}

@@ -1,0 +1,108 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} rok temu",
+			"few": "{0} lata temu",
+			"many": "{0} lat temu",
+			"other": "{0} roku temu"
+		},
+		"future": {
+			"one": "za {0} rok",
+			"few": "za {0} lata",
+			"many": "za {0} lat",
+			"other": "za {0} roku"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} mies. temu",
+			"few": "{0} mies. temu",
+			"many": "{0} mies. temu",
+			"other": "{0} mies. temu"
+		},
+		"future": {
+			"one": "za {0} mies.",
+			"few": "za {0} mies.",
+			"many": "za {0} mies.",
+			"other": "za {0} mies."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} tydz. temu",
+			"few": "{0} tyg. temu",
+			"many": "{0} tyg. temu",
+			"other": "{0} tyg. temu"
+		},
+		"future": {
+			"one": "za {0} tydz.",
+			"few": "za {0} tyg.",
+			"many": "za {0} tyg.",
+			"other": "za {0} tyg."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} dzień temu",
+			"few": "{0} dni temu",
+			"many": "{0} dni temu",
+			"other": "{0} dnia temu"
+		},
+		"future": {
+			"one": "za {0} dzień",
+			"few": "za {0} dni",
+			"many": "za {0} dni",
+			"other": "za {0} dnia"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} godz. temu",
+			"few": "{0} godz. temu",
+			"many": "{0} godz. temu",
+			"other": "{0} godz. temu"
+		},
+		"future": {
+			"one": "za {0} godz.",
+			"few": "za {0} godz.",
+			"many": "za {0} godz.",
+			"other": "za {0} godz."
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} min temu",
+			"few": "{0} min temu",
+			"many": "{0} min temu",
+			"other": "{0} min temu"
+		},
+		"future": {
+			"one": "za {0} min",
+			"few": "za {0} min",
+			"many": "za {0} min",
+			"other": "za {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} sek. temu",
+			"few": "{0} sek. temu",
+			"many": "{0} sek. temu",
+			"other": "{0} sek. temu"
+		},
+		"future": {
+			"one": "za {0} sek.",
+			"few": "za {0} sek.",
+			"many": "za {0} sek.",
+			"other": "za {0} sek."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "teraz"
+		},
+		"future": {
+			"other": "teraz"
+		}
+	}
+}

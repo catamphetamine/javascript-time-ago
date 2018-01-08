@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} jaar geleden",
+			"other": "{0} jaar geleden"
+		},
+		"future": {
+			"one": "over {0} jaar",
+			"other": "over {0} jaar"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} maand geleden",
+			"other": "{0} maanden geleden"
+		},
+		"future": {
+			"one": "over {0} maand",
+			"other": "over {0} maanden"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} week geleden",
+			"other": "{0} weken geleden"
+		},
+		"future": {
+			"one": "over {0} week",
+			"other": "over {0} weken"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} dag geleden",
+			"other": "{0} dgn geleden"
+		},
+		"future": {
+			"one": "over {0} dag",
+			"other": "over {0} dgn"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} uur geleden",
+			"other": "{0} uur geleden"
+		},
+		"future": {
+			"one": "over {0} uur",
+			"other": "over {0} uur"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} min. geleden",
+			"other": "{0} min. geleden"
+		},
+		"future": {
+			"one": "over {0} min.",
+			"other": "over {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} sec. geleden",
+			"other": "{0} sec. geleden"
+		},
+		"future": {
+			"one": "over {0} sec.",
+			"other": "over {0} sec."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "nu"
+		},
+		"future": {
+			"other": "nu"
+		}
+	}
+}

@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} anno fa",
+			"other": "{0} anni fa"
+		},
+		"future": {
+			"one": "tra {0} anno",
+			"other": "tra {0} anni"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} mese fa",
+			"other": "{0} mesi fa"
+		},
+		"future": {
+			"one": "tra {0} mese",
+			"other": "tra {0} mesi"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} sett. fa",
+			"other": "{0} sett. fa"
+		},
+		"future": {
+			"one": "tra {0} sett.",
+			"other": "tra {0} sett."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} g fa",
+			"other": "{0} gg fa"
+		},
+		"future": {
+			"one": "tra {0} g",
+			"other": "tra {0} gg"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} h fa",
+			"other": "{0} h fa"
+		},
+		"future": {
+			"one": "tra {0} h",
+			"other": "tra {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} min fa",
+			"other": "{0} min fa"
+		},
+		"future": {
+			"one": "tra {0} min",
+			"other": "tra {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} s fa",
+			"other": "{0} sec. fa"
+		},
+		"future": {
+			"one": "tra {0} s",
+			"other": "tra {0} sec."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "ora"
+		},
+		"future": {
+			"other": "ora"
+		}
+	}
+}

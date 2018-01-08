@@ -51,9 +51,7 @@ const config =
   {
     // Use external version of React
     "react"     : "React",
-    "react-dom" : "ReactDOM",
-
-    'intl-messageformat' : 'IntlMessageFormat'
+    "react-dom" : "ReactDOM"
   },
   plugins
 }

@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "virun {0} Joer",
+			"other": "viru(n) {0} Joer"
+		},
+		"future": {
+			"one": "an {0} Joer",
+			"other": "a(n) {0} Joer"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "virun {0} Mount",
+			"other": "viru(n) {0} Méint"
+		},
+		"future": {
+			"one": "an {0} Mount",
+			"other": "a(n) {0} Méint"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "virun {0} Woch",
+			"other": "viru(n) {0} Wochen"
+		},
+		"future": {
+			"one": "an {0} Woch",
+			"other": "a(n) {0} Wochen"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "virun {0} Dag",
+			"other": "viru(n) {0} Deeg"
+		},
+		"future": {
+			"one": "an {0} Dag",
+			"other": "a(n) {0} Deeg"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "virun {0} Stonn",
+			"other": "viru(n) {0} Stonnen"
+		},
+		"future": {
+			"one": "an {0} Stonn",
+			"other": "a(n) {0} Stonnen"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "virun {0} Minutt",
+			"other": "viru(n) {0} Minutten"
+		},
+		"future": {
+			"one": "an {0} Minutt",
+			"other": "a(n) {0} Minutten"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "virun {0} Sekonn",
+			"other": "viru(n) {0} Sekonnen"
+		},
+		"future": {
+			"one": "an {0} Sekonn",
+			"other": "a(n) {0} Sekonnen"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "now"
+		},
+		"future": {
+			"other": "now"
+		}
+	}
+}

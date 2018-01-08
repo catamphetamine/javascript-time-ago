@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} vit më parë",
+			"other": "{0} vjet më parë"
+		},
+		"future": {
+			"one": "pas {0} viti",
+			"other": "pas {0} vjetësh"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} muaj më parë",
+			"other": "{0} muaj më parë"
+		},
+		"future": {
+			"one": "pas {0} muaji",
+			"other": "pas {0} muajsh"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} javë më parë",
+			"other": "{0} javë më parë"
+		},
+		"future": {
+			"one": "pas {0} jave",
+			"other": "pas {0} javësh"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} ditë më parë",
+			"other": "{0} ditë më parë"
+		},
+		"future": {
+			"one": "pas {0} dite",
+			"other": "pas {0} ditësh"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} orë më parë",
+			"other": "{0} orë më parë"
+		},
+		"future": {
+			"one": "pas {0} ore",
+			"other": "pas {0} orësh"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} min. më parë",
+			"other": "{0} min. më parë"
+		},
+		"future": {
+			"one": "pas {0} min.",
+			"other": "pas {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} sek. më parë",
+			"other": "{0} sek. më parë"
+		},
+		"future": {
+			"one": "pas {0} sek.",
+			"other": "pas {0} sek."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "tani"
+		},
+		"future": {
+			"other": "tani"
+		}
+	}
+}

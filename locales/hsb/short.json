@@ -1,0 +1,108 @@
+{
+	"year": {
+		"past": {
+			"one": "před {0} l.",
+			"two": "před {0} l.",
+			"few": "před {0} l.",
+			"other": "před {0} l."
+		},
+		"future": {
+			"one": "za {0} l.",
+			"two": "za {0} l.",
+			"few": "za {0} l.",
+			"other": "za {0} l."
+		}
+	},
+	"month": {
+		"past": {
+			"one": "před {0} měs.",
+			"two": "před {0} měs.",
+			"few": "před {0} měs.",
+			"other": "před {0} měs."
+		},
+		"future": {
+			"one": "za {0} měs.",
+			"two": "za {0} měs.",
+			"few": "za {0} měs.",
+			"other": "za {0} měs."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "před {0} tydź.",
+			"two": "před {0} tydź.",
+			"few": "před {0} tydź.",
+			"other": "před {0} tydź."
+		},
+		"future": {
+			"one": "za {0} tydź.",
+			"two": "za {0} tydź.",
+			"few": "za {0} tydź.",
+			"other": "za {0} tydź."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "před {0} dnj.",
+			"two": "před {0} dnj.",
+			"few": "před {0} dnj.",
+			"other": "před {0} dnj."
+		},
+		"future": {
+			"one": "za {0} dźeń",
+			"two": "za {0} dnj.",
+			"few": "za {0} dny",
+			"other": "za {0} dnj."
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "před {0} hodź.",
+			"two": "před {0} hodź.",
+			"few": "před {0} hodź.",
+			"other": "před {0} hodź."
+		},
+		"future": {
+			"one": "za {0} hodź.",
+			"two": "za {0} hodź.",
+			"few": "za {0} hodź.",
+			"other": "za {0} hodź."
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "před {0} min.",
+			"two": "před {0} min.",
+			"few": "před {0} min.",
+			"other": "před {0} min."
+		},
+		"future": {
+			"one": "za {0} min.",
+			"two": "za {0} min.",
+			"few": "za {0} min.",
+			"other": "za {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"one": "před {0} sek.",
+			"two": "před {0} sek.",
+			"few": "před {0} sek.",
+			"other": "před {0} sek."
+		},
+		"future": {
+			"one": "za {0} sek.",
+			"two": "za {0} sek.",
+			"few": "za {0} sek.",
+			"other": "za {0} sek."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "now"
+		},
+		"future": {
+			"other": "now"
+		}
+	}
+}

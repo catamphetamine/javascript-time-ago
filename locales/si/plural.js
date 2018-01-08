@@ -1,0 +1,1 @@
+exports["default"]=function(n){var r=String(n).split("."),t=r[0],i=r[1]||"";return 0==n||1==n||0==t&&1==i?"one":"other"}

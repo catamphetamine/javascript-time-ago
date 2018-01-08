@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "vor {0} Jahr",
+			"other": "vor {0} Jahren"
+		},
+		"future": {
+			"one": "in {0} Jahr",
+			"other": "in {0} Jahren"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "vor {0} Monat",
+			"other": "vor {0} Monaten"
+		},
+		"future": {
+			"one": "in {0} Monat",
+			"other": "in {0} Monaten"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "vor {0} Woche",
+			"other": "vor {0} Wochen"
+		},
+		"future": {
+			"one": "in {0} Woche",
+			"other": "in {0} Wochen"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "vor {0} Tag",
+			"other": "vor {0} Tagen"
+		},
+		"future": {
+			"one": "in {0} Tag",
+			"other": "in {0} Tagen"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "vor {0} Std.",
+			"other": "vor {0} Std."
+		},
+		"future": {
+			"one": "in {0} Std.",
+			"other": "in {0} Std."
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "vor {0} Min.",
+			"other": "vor {0} Min."
+		},
+		"future": {
+			"one": "in {0} Min.",
+			"other": "in {0} Min."
+		}
+	},
+	"second": {
+		"past": {
+			"one": "vor {0} Sek.",
+			"other": "vor {0} Sek."
+		},
+		"future": {
+			"one": "in {0} Sek.",
+			"other": "in {0} Sek."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "jetzt"
+		},
+		"future": {
+			"other": "jetzt"
+		}
+	}
+}

@@ -1,0 +1,122 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} bl. zo",
+			"two": "{0} bl. zo",
+			"few": "{0} bl. zo",
+			"many": "{0} bl. zo",
+			"other": "{0} bl. zo"
+		},
+		"future": {
+			"one": "a-benn {0} bl.",
+			"two": "a-benn {0} bl.",
+			"few": "a-benn {0} bl.",
+			"many": "a-benn {0} bl.",
+			"other": "a-benn {0} bl."
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} miz zo",
+			"two": "{0} viz zo",
+			"few": "{0} miz zo",
+			"many": "{0} a vizioù zo",
+			"other": "{0} miz zo"
+		},
+		"future": {
+			"one": "a-benn {0} miz",
+			"two": "a-benn {0} viz",
+			"few": "a-benn {0} miz",
+			"many": "a-benn {0} a vizioù",
+			"other": "a-benn {0} miz"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} sizhun zo",
+			"two": "{0} sizhun zo",
+			"few": "{0} sizhun zo",
+			"many": "{0} a sizhunioù zo",
+			"other": "{0} sizhun zo"
+		},
+		"future": {
+			"one": "a-benn {0} sizhun",
+			"two": "a-benn {0} sizhun",
+			"few": "a-benn {0} sizhun",
+			"many": "a-benn {0} a sizhunioù",
+			"other": "a-benn {0} sizhun"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} d zo",
+			"two": "{0} d zo",
+			"few": "{0} d zo",
+			"many": "{0} d zo",
+			"other": "{0} d zo"
+		},
+		"future": {
+			"one": "a-benn {0} d",
+			"two": "a-benn {0} d",
+			"few": "a-benn {0} d",
+			"many": "a-benn {0} d",
+			"other": "a-benn {0} d"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} e zo",
+			"two": "{0} e zo",
+			"few": "{0} e zo",
+			"many": "{0} e zo",
+			"other": "{0} e zo"
+		},
+		"future": {
+			"one": "a-benn {0} e",
+			"two": "a-benn {0} e",
+			"few": "a-benn {0} e",
+			"many": "a-benn {0} e",
+			"other": "a-benn {0} e"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} min zo",
+			"two": "{0} min zo",
+			"few": "{0} min zo",
+			"many": "{0} min zo",
+			"other": "{0} min zo"
+		},
+		"future": {
+			"one": "a-benn {0} min",
+			"two": "a-benn {0} min",
+			"few": "a-benn {0} min",
+			"many": "a-benn {0} min",
+			"other": "a-benn {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} s zo",
+			"two": "{0} s zo",
+			"few": "{0} s zo",
+			"many": "{0} s zo",
+			"other": "{0} s zo"
+		},
+		"future": {
+			"one": "a-benn {0} s",
+			"two": "a-benn {0} s",
+			"few": "a-benn {0} s",
+			"many": "a-benn {0} s",
+			"other": "a-benn {0} s"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "brem."
+		},
+		"future": {
+			"other": "brem."
+		}
+	}
+}

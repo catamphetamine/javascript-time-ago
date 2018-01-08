@@ -1,0 +1,71 @@
+{
+	"year": {
+		"past": {
+			"one": "פֿאַר {0} יאָר",
+			"other": "פֿאַר {0} יאָר"
+		},
+		"future": {
+			"one": "איבער א יאָר",
+			"other": "איבער {0} יאָר"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "פֿאַר {0} חודש",
+			"other": "פֿאַר {0} חדשים"
+		},
+		"future": {
+			"one": "איבער {0} חודש",
+			"other": "איבער {0} חדשים"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "-{0} w"
+		},
+		"future": {
+			"other": "+{0} w"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "-{0} d"
+		},
+		"future": {
+			"one": "אין {0} טאָג אַרום",
+			"other": "אין {0} טעג אַרום"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "-{0} h"
+		},
+		"future": {
+			"other": "+{0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "-{0} min"
+		},
+		"future": {
+			"other": "+{0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "now"
+		},
+		"future": {
+			"other": "now"
+		}
+	}
+}

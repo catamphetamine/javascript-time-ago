@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} yil oldin",
+			"other": "{0} yil oldin"
+		},
+		"future": {
+			"one": "{0} yildan keyin",
+			"other": "{0} yildan keyin"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} oy oldin",
+			"other": "{0} oy oldin"
+		},
+		"future": {
+			"one": "{0} oydan keyin",
+			"other": "{0} oydan keyin"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} hafta oldin",
+			"other": "{0} hafta oldin"
+		},
+		"future": {
+			"one": "{0} haftadan keyin",
+			"other": "{0} haftadan keyin"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} kun oldin",
+			"other": "{0} kun oldin"
+		},
+		"future": {
+			"one": "{0} kundan keyin",
+			"other": "{0} kundan keyin"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} soat oldin",
+			"other": "{0} soat oldin"
+		},
+		"future": {
+			"one": "{0} soatdan keyin",
+			"other": "{0} soatdan keyin"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} daqiqa oldin",
+			"other": "{0} daqiqa oldin"
+		},
+		"future": {
+			"one": "{0} daqiqadan keyin",
+			"other": "{0} daqiqadan keyin"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} soniya oldin",
+			"other": "{0} soniya oldin"
+		},
+		"future": {
+			"one": "{0} soniyadan keyin",
+			"other": "{0} soniyadan keyin"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "hozir"
+		},
+		"future": {
+			"other": "hozir"
+		}
+	}
+}

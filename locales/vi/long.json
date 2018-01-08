@@ -1,0 +1,66 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} năm trước"
+		},
+		"future": {
+			"other": "sau {0} năm nữa"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} tháng trước"
+		},
+		"future": {
+			"other": "sau {0} tháng nữa"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} tuần trước"
+		},
+		"future": {
+			"other": "sau {0} tuần nữa"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} ngày trước"
+		},
+		"future": {
+			"other": "sau {0} ngày nữa"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} giờ trước"
+		},
+		"future": {
+			"other": "sau {0} giờ nữa"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} phút trước"
+		},
+		"future": {
+			"other": "sau {0} phút nữa"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} giây trước"
+		},
+		"future": {
+			"other": "sau {0} giây nữa"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "bây giờ"
+		},
+		"future": {
+			"other": "bây giờ"
+		}
+	}
+}

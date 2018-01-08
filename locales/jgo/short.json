@@ -1,0 +1,78 @@
+{
+	"year": {
+		"past": {
+			"one": "Ɛ́gɛ́ mɔ́ ŋguꞋ {0}",
+			"other": "Ɛ́gɛ́ mɔ́ ŋguꞋ {0}"
+		},
+		"future": {
+			"one": "Nǔu ŋguꞋ {0}",
+			"other": "Nǔu ŋguꞋ {0}"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "ɛ́ gɛ́ mɔ́ pɛsaŋ {0}",
+			"other": "ɛ́ gɛ́ mɔ́ pɛsaŋ {0}"
+		},
+		"future": {
+			"one": "Nǔu {0} saŋ",
+			"other": "Nǔu {0} saŋ"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "Ɛ́ gɛ́ mɔ {0} ŋgap-mbi",
+			"other": "Ɛ́ gɛ́ mɔ {0} ŋgap-mbi"
+		},
+		"future": {
+			"one": "Nǔu ŋgap-mbi {0}",
+			"other": "Nǔu ŋgap-mbi {0}"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}",
+			"other": "Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}"
+		},
+		"future": {
+			"one": "Nǔu lɛ́Ꞌ {0}",
+			"other": "Nǔu lɛ́Ꞌ {0}"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "ɛ́ gɛ mɔ́ {0} háwa",
+			"other": "ɛ́ gɛ mɔ́ {0} háwa"
+		},
+		"future": {
+			"one": "nǔu háwa {0}",
+			"other": "nǔu háwa {0}"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "ɛ́ gɛ́ mɔ́ minút {0}",
+			"other": "ɛ́ gɛ́ mɔ́ minút {0}"
+		},
+		"future": {
+			"one": "nǔu {0} minút",
+			"other": "nǔu {0} minút"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "now"
+		},
+		"future": {
+			"other": "now"
+		}
+	}
+}

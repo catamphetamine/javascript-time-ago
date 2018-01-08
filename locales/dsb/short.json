@@ -1,0 +1,108 @@
+{
+	"year": {
+		"past": {
+			"one": "pśed {0} l.",
+			"two": "pśed {0} l.",
+			"few": "pśed {0} l.",
+			"other": "pśed {0} l."
+		},
+		"future": {
+			"one": "za {0} l.",
+			"two": "za {0} l.",
+			"few": "za {0} l.",
+			"other": "za {0} l."
+		}
+	},
+	"month": {
+		"past": {
+			"one": "pśed {0} mjas.",
+			"two": "pśed {0} mjas.",
+			"few": "pśed {0} mjas.",
+			"other": "pśed {0} mjas."
+		},
+		"future": {
+			"one": "za {0} mjas.",
+			"two": "za {0} mjas.",
+			"few": "za {0} mjas.",
+			"other": "za {0} mjas."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "pśed {0} tyź.",
+			"two": "pśed {0} tyź.",
+			"few": "pśed {0} tyź.",
+			"other": "pśed {0} tyź."
+		},
+		"future": {
+			"one": "za {0} tyź.",
+			"two": "za {0} tyź.",
+			"few": "za {0} tyź.",
+			"other": "za {0} tyź."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "pśed {0} dnj.",
+			"two": "pśed {0} dnj.",
+			"few": "pśed {0} dnj.",
+			"other": "pśed {0} dnj."
+		},
+		"future": {
+			"one": "za {0} źeń",
+			"two": "za {0} dnj.",
+			"few": "za {0} dny",
+			"other": "za {0} dnj."
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "pśed {0} góź.",
+			"two": "pśed {0} góź.",
+			"few": "pśed {0} góź.",
+			"other": "pśed {0} góź."
+		},
+		"future": {
+			"one": "za {0} góź.",
+			"two": "za {0} góź.",
+			"few": "za {0} góź.",
+			"other": "za {0} góź."
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "pśed {0} min.",
+			"two": "pśed {0} min.",
+			"few": "pśed {0} min.",
+			"other": "pśed {0} min."
+		},
+		"future": {
+			"one": "za {0} min.",
+			"two": "za {0} min.",
+			"few": "za {0} min.",
+			"other": "za {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"one": "pśed {0} sek.",
+			"two": "pśed {0} sek.",
+			"few": "pśed {0} sek.",
+			"other": "pśed {0} sek."
+		},
+		"future": {
+			"one": "za {0} sek.",
+			"two": "za {0} sek.",
+			"few": "za {0} sek.",
+			"other": "za {0} sek."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "now"
+		},
+		"future": {
+			"other": "now"
+		}
+	}
+}

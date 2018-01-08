@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "Duela {0} urte",
+			"other": "Duela {0} urte"
+		},
+		"future": {
+			"one": "{0} urte barru",
+			"other": "{0} urte barru"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "Duela {0} hilabete",
+			"other": "Duela {0} hilabete"
+		},
+		"future": {
+			"one": "{0} hilabete barru",
+			"other": "{0} hilabete barru"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "Duela {0} aste",
+			"other": "Duela {0} aste"
+		},
+		"future": {
+			"one": "{0} aste barru",
+			"other": "{0} aste barru"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "Duela {0} egun",
+			"other": "Duela {0} egun"
+		},
+		"future": {
+			"one": "{0} egun barru",
+			"other": "{0} egun barru"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "Duela {0} ordu",
+			"other": "Duela {0} ordu"
+		},
+		"future": {
+			"one": "{0} ordu barru",
+			"other": "{0} ordu barru"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "Duela {0} minutu",
+			"other": "Duela {0} minutu"
+		},
+		"future": {
+			"one": "{0} minutu barru",
+			"other": "{0} minutu barru"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "Duela {0} segundo",
+			"other": "Duela {0} segundo"
+		},
+		"future": {
+			"one": "{0} segundo barru",
+			"other": "{0} segundo barru"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "orain"
+		},
+		"future": {
+			"other": "orain"
+		}
+	}
+}

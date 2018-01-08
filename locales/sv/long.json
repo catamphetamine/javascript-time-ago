@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "för {0} år sedan",
+			"other": "för {0} år sedan"
+		},
+		"future": {
+			"one": "om {0} år",
+			"other": "om {0} år"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "för {0} månad sedan",
+			"other": "för {0} månader sedan"
+		},
+		"future": {
+			"one": "om {0} månad",
+			"other": "om {0} månader"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "för {0} vecka sedan",
+			"other": "för {0} veckor sedan"
+		},
+		"future": {
+			"one": "om {0} vecka",
+			"other": "om {0} veckor"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "för {0} dag sedan",
+			"other": "för {0} dagar sedan"
+		},
+		"future": {
+			"one": "om {0} dag",
+			"other": "om {0} dagar"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "för {0} timme sedan",
+			"other": "för {0} timmar sedan"
+		},
+		"future": {
+			"one": "om {0} timme",
+			"other": "om {0} timmar"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "för {0} minut sedan",
+			"other": "för {0} minuter sedan"
+		},
+		"future": {
+			"one": "om {0} minut",
+			"other": "om {0} minuter"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "för {0} sekund sedan",
+			"other": "för {0} sekunder sedan"
+		},
+		"future": {
+			"one": "om {0} sekund",
+			"other": "om {0} sekunder"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "nu"
+		},
+		"future": {
+			"other": "nu"
+		}
+	}
+}

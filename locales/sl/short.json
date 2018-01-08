@@ -1,0 +1,108 @@
+{
+	"year": {
+		"past": {
+			"one": "pred {0} letom",
+			"two": "pred {0} letoma",
+			"few": "pred {0} leti",
+			"other": "pred {0} leti"
+		},
+		"future": {
+			"one": "čez {0} leto",
+			"two": "čez {0} leti",
+			"few": "čez {0} leta",
+			"other": "čez {0} let"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "pred {0} mes.",
+			"two": "pred {0} mes.",
+			"few": "pred {0} mes.",
+			"other": "pred {0} mes."
+		},
+		"future": {
+			"one": "čez {0} mes.",
+			"two": "čez {0} mes.",
+			"few": "čez {0} mes.",
+			"other": "čez {0} mes."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "pred {0} ted.",
+			"two": "pred {0} ted.",
+			"few": "pred {0} ted.",
+			"other": "pred {0} ted."
+		},
+		"future": {
+			"one": "čez {0} ted.",
+			"two": "čez {0} ted.",
+			"few": "čez {0} ted.",
+			"other": "čez {0} ted."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "pred {0} dnevom",
+			"two": "pred {0} dnevoma",
+			"few": "pred {0} dnevi",
+			"other": "pred {0} dnevi"
+		},
+		"future": {
+			"one": "čez {0} dan",
+			"two": "čez {0} dneva",
+			"few": "čez {0} dni",
+			"other": "čez {0} dni"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "pred {0} uro",
+			"two": "pred {0} urama",
+			"few": "pred {0} urami",
+			"other": "pred {0} urami"
+		},
+		"future": {
+			"one": "čez {0} uro",
+			"two": "čez {0} uri",
+			"few": "čez {0} ure",
+			"other": "čez {0} ur"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "pred {0} min.",
+			"two": "pred {0} min.",
+			"few": "pred {0} min.",
+			"other": "pred {0} min."
+		},
+		"future": {
+			"one": "čez {0} min.",
+			"two": "čez {0} min.",
+			"few": "čez {0} min.",
+			"other": "čez {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"one": "pred {0} s",
+			"two": "pred {0} s",
+			"few": "pred {0} s",
+			"other": "pred {0} s"
+		},
+		"future": {
+			"one": "čez {0} s",
+			"two": "čez {0} s",
+			"few": "čez {0} s",
+			"other": "čez {0} s"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "zdaj"
+		},
+		"future": {
+			"other": "zdaj"
+		}
+	}
+}

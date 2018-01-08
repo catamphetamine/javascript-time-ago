@@ -1,0 +1,108 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} bhliadhna air ais",
+			"two": "{0} bhliadhna air ais",
+			"few": "{0} bhliadhnaichean air ais",
+			"other": "{0} bliadhna air ais"
+		},
+		"future": {
+			"one": "an ceann {0} bhliadhna",
+			"two": "an ceann {0} bhliadhna",
+			"few": "an ceann {0} bliadhnaichean",
+			"other": "an ceann {0} bliadhna"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} mhìos air ais",
+			"two": "{0} mhìos air ais",
+			"few": "{0} mìosan air ais",
+			"other": "{0} mìos air ais"
+		},
+		"future": {
+			"one": "an ceann {0} mhìosa",
+			"two": "an ceann {0} mhìosa",
+			"few": "an ceann {0} mìosan",
+			"other": "an ceann {0} mìosa"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} seachdain air ais",
+			"two": "{0} sheachdain air ais",
+			"few": "{0} seachdainean air ais",
+			"other": "{0} seachdain air ais"
+		},
+		"future": {
+			"one": "an ceann {0} seachdain",
+			"two": "an ceann {0} sheachdain",
+			"few": "an ceann {0} seachdainean",
+			"other": "an ceann {0} seachdain"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} latha air ais",
+			"two": "{0} latha air ais",
+			"few": "{0} làithean air ais",
+			"other": "{0} latha air ais"
+		},
+		"future": {
+			"one": "an ceann {0} latha",
+			"two": "an ceann {0} latha",
+			"few": "an ceann {0} làithean",
+			"other": "an ceann {0} latha"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} uair a thìde air ais",
+			"two": "{0} uair a thìde air ais",
+			"few": "{0} uairean a thìde air ais",
+			"other": "{0} uair a thìde air ais"
+		},
+		"future": {
+			"one": "an ceann {0} uair a thìde",
+			"two": "an ceann {0} uair a thìde",
+			"few": "an ceann {0} uairean a thìde",
+			"other": "an ceann {0} uair a thìde"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} mhionaid air ais",
+			"two": "{0} mhionaid air ais",
+			"few": "{0} mionaidean air ais",
+			"other": "{0} mionaid air ais"
+		},
+		"future": {
+			"one": "an ceann {0} mhionaid",
+			"two": "an ceann {0} mhionaid",
+			"few": "an ceann {0} mionaidean",
+			"other": "an ceann {0} mionaid"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} diog air ais",
+			"two": "{0} dhiog air ais",
+			"few": "{0} diogan air ais",
+			"other": "{0} diog air ais"
+		},
+		"future": {
+			"one": "an ceann {0} diog",
+			"two": "an ceann {0} dhiog",
+			"few": "an ceann {0} diogan",
+			"other": "an ceann {0} diog"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "an-dràsta"
+		},
+		"future": {
+			"other": "an-dràsta"
+		}
+	}
+}

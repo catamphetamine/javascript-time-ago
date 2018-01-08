@@ -1,0 +1,66 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} tahun yang lalu"
+		},
+		"future": {
+			"other": "dalam {0} tahun"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} bulan yang lalu"
+		},
+		"future": {
+			"other": "dalam {0} bulan"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} minggu yang lalu"
+		},
+		"future": {
+			"other": "dalam {0} minggu"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} hari yang lalu"
+		},
+		"future": {
+			"other": "dalam {0} hari"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} jam yang lalu"
+		},
+		"future": {
+			"other": "dalam {0} jam"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} menit yang lalu"
+		},
+		"future": {
+			"other": "dalam {0} menit"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} detik yang lalu"
+		},
+		"future": {
+			"other": "dalam {0} detik"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "sekarang"
+		},
+		"future": {
+			"other": "sekarang"
+		}
+	}
+}

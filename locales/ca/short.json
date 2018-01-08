@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "fa {0} any",
+			"other": "fa {0} anys"
+		},
+		"future": {
+			"one": "d’aquí a {0} any",
+			"other": "d’aquí a {0} anys"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "fa {0} mes",
+			"other": "fa {0} mesos"
+		},
+		"future": {
+			"one": "d’aquí a {0} mes",
+			"other": "d’aquí a {0} mesos"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "fa {0} setm.",
+			"other": "fa {0} setm."
+		},
+		"future": {
+			"one": "d’aquí a {0} setm.",
+			"other": "d’aquí a {0} setm."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "fa {0} dia",
+			"other": "fa {0} dies"
+		},
+		"future": {
+			"one": "d’aquí a {0} dia",
+			"other": "d’aquí a {0} dies"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "fa {0} h",
+			"other": "fa {0} h"
+		},
+		"future": {
+			"one": "d’aquí a {0} h",
+			"other": "d’aquí a {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "fa {0} min",
+			"other": "fa {0} min"
+		},
+		"future": {
+			"one": "d’aquí a {0} min",
+			"other": "d’aquí a {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "fa {0} s",
+			"other": "fa {0} s"
+		},
+		"future": {
+			"one": "d’aquí a {0} s",
+			"other": "d’aquí a {0} s"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "ara"
+		},
+		"future": {
+			"other": "ara"
+		}
+	}
+}

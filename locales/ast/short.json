@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "hai {0} añu",
+			"other": "hai {0} años"
+		},
+		"future": {
+			"one": "en {0} añu",
+			"other": "en {0} años"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "hai {0} mes",
+			"other": "hai {0} meses"
+		},
+		"future": {
+			"one": "en {0} mes",
+			"other": "en {0} meses"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "hai {0} selm.",
+			"other": "hai {0} selm."
+		},
+		"future": {
+			"one": "en {0} selm.",
+			"other": "en {0} selm."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "hai {0} día",
+			"other": "hai {0} díes"
+		},
+		"future": {
+			"one": "en {0} día",
+			"other": "en {0} díes"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "hai {0} h.",
+			"other": "hai {0} h."
+		},
+		"future": {
+			"one": "en {0} h.",
+			"other": "en {0} h."
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "hai {0} min.",
+			"other": "hai {0} min."
+		},
+		"future": {
+			"one": "en {0} min.",
+			"other": "en {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"one": "hai {0} seg.",
+			"other": "hai {0} seg."
+		},
+		"future": {
+			"one": "en {0} seg.",
+			"other": "en {0} seg."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "agora"
+		},
+		"future": {
+			"other": "agora"
+		}
+	}
+}

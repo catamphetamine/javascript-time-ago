@@ -1,0 +1,66 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} thn lalu"
+		},
+		"future": {
+			"other": "dlm {0} thn"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} bln lalu"
+		},
+		"future": {
+			"other": "dlm {0} bln"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} mgg lalu"
+		},
+		"future": {
+			"other": "dlm {0} mgg"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} h lalu"
+		},
+		"future": {
+			"other": "dalam {0} h"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} jam lalu"
+		},
+		"future": {
+			"other": "dalam {0} jam"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} mnt lalu"
+		},
+		"future": {
+			"other": "dlm {0} mnt"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} dtk lalu"
+		},
+		"future": {
+			"other": "dlm {0} dtk"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "sekarang"
+		},
+		"future": {
+			"other": "sekarang"
+		}
+	}
+}

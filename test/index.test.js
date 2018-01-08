@@ -1,4 +1,5 @@
 import javascript_time_ago from '../source/index'
+import style from '../source/style'
 import gradation, { a_day, days_in_a_month, days_in_a_year } from '../source/gradation'
 
 // Load locale specific relative date/time messages
@@ -6,20 +7,20 @@ import english from '../locales/en'
 
 describe(`time ago`, function()
 {
-	it(`should benchmark the cache`, function()
-	{
-		const time_ago = new javascript_time_ago('en')
-		const started_at = Date.now()
-
-		let i = 0
-		while (i < 10000)
-		{
-			time_ago.format(Date.now() + Math.random() * 365 * 24 * 60 * 60 * 1000)
-			i++
-		}
-
-		console.log('Took', (Date.now() - started_at) / 1000, 'seconds')
-	})
+	// it(`should benchmark the cache`, function()
+	// {
+	// 	const time_ago = new javascript_time_ago('en')
+	// 	const started_at = Date.now()
+	//
+	// 	let i = 0
+	// 	while (i < 10000)
+	// 	{
+	// 		time_ago.format(Date.now() + Math.random() * 365 * 24 * 60 * 60 * 1000)
+	// 		i++
+	// 	}
+	//
+	// 	console.log('Took', (Date.now() - started_at) / 1000, 'seconds')
+	// })
 	
 	it(`should accept a string style argument`, function()
 	{
@@ -58,19 +59,19 @@ describe(`time ago`, function()
 		const now = Date.now()
 
 		// Remove 'just-now' formatter temporarily
-		const just_now_formatter = javascript_time_ago.locale_data.en.default['just-now']
-		delete javascript_time_ago.locale_data.en.default['just-now']
+		const just_now_formatter = javascript_time_ago.locale_data.en.long['just-now']
+		delete javascript_time_ago.locale_data.en.long['just-now']
 
 		time_ago.format(now, { now }).should.equal('')
 
 		// Restore 'just-now' formatter
-		javascript_time_ago.locale_data.en.default['just-now'] = just_now_formatter
+		javascript_time_ago.locale_data.en.long['just-now'] = just_now_formatter
 	})
 
 	it(`should format Twitter style relative time (English)`, function()
 	{
 		const time_ago = new javascript_time_ago('en')
-		const twitter_style = time_ago.style.twitter()
+		const twitter_style = style.twitter(time_ago.locale)
 
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const elapsed = (time) => time_ago.format(now - time * 1000, { now, ...twitter_style })
@@ -99,7 +100,7 @@ describe(`time ago`, function()
 	it(`should format Twitter style relative time (Russian)`, function()
 	{
 		const time_ago = new javascript_time_ago(['ru'])
-		const twitter_style = time_ago.style.twitter()
+		const twitter_style = style.twitter(time_ago.locale)
 	
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const elapsed = time => time_ago.format(now - time * 1000, { now, ...twitter_style })
@@ -189,7 +190,7 @@ describe(`time ago`, function()
 			'100 years'
 		],
 		time_ago,
-		time_ago.style.fuzzy())
+		style.fuzzy())
 	})
 
 	it(`should format fuzzy style relative time (Russian)`, function()
@@ -256,7 +257,7 @@ describe(`time ago`, function()
 			'100 лет'
 		],
 		time_ago,
-		time_ago.style.fuzzy())
+		style.fuzzy())
 	})
 
 	it(`should format time correctly for English language (short)`, function()

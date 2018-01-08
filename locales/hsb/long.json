@@ -1,0 +1,108 @@
+{
+	"year": {
+		"past": {
+			"one": "před {0} lětom",
+			"two": "před {0} lětomaj",
+			"few": "před {0} lětami",
+			"other": "před {0} lětami"
+		},
+		"future": {
+			"one": "za {0} lěto",
+			"two": "za {0} lěće",
+			"few": "za {0} lěta",
+			"other": "za {0} lět"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "před {0} měsacom",
+			"two": "před {0} měsacomaj",
+			"few": "před {0} měsacami",
+			"other": "před {0} měsacami"
+		},
+		"future": {
+			"one": "za {0} měsac",
+			"two": "za {0} měsacaj",
+			"few": "za {0} měsacy",
+			"other": "za {0} měsacow"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "před {0} tydźenjom",
+			"two": "před {0} tydźenjomaj",
+			"few": "před {0} tydźenjemi",
+			"other": "před {0} tydźenjemi"
+		},
+		"future": {
+			"one": "za {0} tydźeń",
+			"two": "za {0} tydźenjej",
+			"few": "za {0} tydźenje",
+			"other": "za {0} tydźenjow"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "před {0} dnjom",
+			"two": "před {0} dnjomaj",
+			"few": "před {0} dnjemi",
+			"other": "před {0} dnjemi"
+		},
+		"future": {
+			"one": "za {0} dźeń",
+			"two": "za {0} dnjej",
+			"few": "za {0} dny",
+			"other": "za {0} dnjow"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "před {0} hodźinu",
+			"two": "před {0} hodźinomaj",
+			"few": "před {0} hodźinami",
+			"other": "před {0} hodźinami"
+		},
+		"future": {
+			"one": "za {0} hodźinu",
+			"two": "za {0} hodźinje",
+			"few": "za {0} hodźiny",
+			"other": "za {0} hodźin"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "před {0} minutu",
+			"two": "před {0} minutomaj",
+			"few": "před {0} minutami",
+			"other": "před {0} minutami"
+		},
+		"future": {
+			"one": "za {0} minutu",
+			"two": "za {0} minuće",
+			"few": "za {0} minuty",
+			"other": "za {0} minutow"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "před {0} sekundu",
+			"two": "před {0} sekundomaj",
+			"few": "před {0} sekundami",
+			"other": "před {0} sekundami"
+		},
+		"future": {
+			"one": "za {0} sekundu",
+			"two": "za {0} sekundźe",
+			"few": "za {0} sekundy",
+			"other": "za {0} sekundow"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "now"
+		},
+		"future": {
+			"other": "now"
+		}
+	}
+}

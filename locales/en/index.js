@@ -4,15 +4,17 @@ var short         = require('./short.json')
 var short_concise = require('./short-concise.json')
 var tiny          = require('./tiny.json')
 
+var plural        = require('./plural').default
+
 module.exports =
 {
 	locale        : 'en',
-	// `default` may conflict with ES6
-	// default       : long,
 
 	tiny          : tiny,
 	short         : short,
 	short_concise : short_concise,
 	long          : long,
-	long_concise  : long_concise
+	long_concise  : long_concise,
+
+	plural : plural
 }

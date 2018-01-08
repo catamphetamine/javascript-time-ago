@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} a eest",
+			"other": "{0} a eest"
+		},
+		"future": {
+			"one": "{0} a pärast",
+			"other": "{0} a pärast"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} kuu eest",
+			"other": "{0} kuu eest"
+		},
+		"future": {
+			"one": "{0} kuu pärast",
+			"other": "{0} kuu pärast"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} näd eest",
+			"other": "{0} näd eest"
+		},
+		"future": {
+			"one": "{0} näd pärast",
+			"other": "{0} näd pärast"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} p eest",
+			"other": "{0} p eest"
+		},
+		"future": {
+			"one": "{0} p pärast",
+			"other": "{0} p pärast"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} t eest",
+			"other": "{0} t eest"
+		},
+		"future": {
+			"one": "{0} t pärast",
+			"other": "{0} t pärast"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} min eest",
+			"other": "{0} min eest"
+		},
+		"future": {
+			"one": "{0} min pärast",
+			"other": "{0} min pärast"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} sek eest",
+			"other": "{0} sek eest"
+		},
+		"future": {
+			"one": "{0} sek pärast",
+			"other": "{0} sek pärast"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "nüüd"
+		},
+		"future": {
+			"other": "nüüd"
+		}
+	}
+}

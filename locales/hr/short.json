@@ -1,0 +1,94 @@
+{
+	"year": {
+		"past": {
+			"one": "prije {0} g.",
+			"few": "prije {0} g.",
+			"other": "prije {0} g."
+		},
+		"future": {
+			"one": "za {0} g.",
+			"few": "za {0} g.",
+			"other": "za {0} g."
+		}
+	},
+	"month": {
+		"past": {
+			"one": "prije {0} mj.",
+			"few": "prije {0} mj.",
+			"other": "prije {0} mj."
+		},
+		"future": {
+			"one": "za {0} mj.",
+			"few": "za {0} mj.",
+			"other": "za {0} mj."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "prije {0} tj.",
+			"few": "prije {0} tj.",
+			"other": "prije {0} tj."
+		},
+		"future": {
+			"one": "za {0} tj.",
+			"few": "za {0} tj.",
+			"other": "za {0} tj."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "prije {0} dan",
+			"few": "prije {0} dana",
+			"other": "prije {0} dana"
+		},
+		"future": {
+			"one": "za {0} dan",
+			"few": "za {0} dana",
+			"other": "za {0} dana"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "prije {0} h",
+			"few": "prije {0} h",
+			"other": "prije {0} h"
+		},
+		"future": {
+			"one": "za {0} h",
+			"few": "za {0} h",
+			"other": "za {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "prije {0} min",
+			"few": "prije {0} min",
+			"other": "prije {0} min"
+		},
+		"future": {
+			"one": "za {0} min",
+			"few": "za {0} min",
+			"other": "za {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "prije {0} s",
+			"few": "prije {0} s",
+			"other": "prije {0} s"
+		},
+		"future": {
+			"one": "za {0} s",
+			"few": "za {0} s",
+			"other": "za {0} s"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "sad"
+		},
+		"future": {
+			"other": "sad"
+		}
+	}
+}

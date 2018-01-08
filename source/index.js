@@ -1,9 +1,6 @@
-import elapsed           from './elapsed'
-import styles            from './style'
-import choose_locale     from './locale'
-import parse_locale_data from './locale data'
-import create_formatter  from './formatter'
-import cache             from './cache'
+import elapsed       from './elapsed'
+import styles        from './style'
+import choose_locale from './locale'
 
 export default class JavascriptTimeAgo
 {
@@ -35,17 +32,9 @@ export default class JavascriptTimeAgo
 			this.locales,
 			Object.keys(JavascriptTimeAgo.locale_data)
 		)
-
-		// Relative time formatting presets.
-		// A preset is an object having shape
-		// `{ units, gradation, flavour, override() }`.
-		// This property is not used internally
-		// but can be accessed externally:
-		// `const twitterStyle = javascriptTimeAgo.style.twitter()`
-		this.style = styles(this.locale)
 	}
 
-	// Formats the relative date.
+	// Formats the relative date/time.
 	//
 	// @return {string} Returns the formatted relative date/time.
 	//
@@ -81,7 +70,7 @@ export default class JavascriptTimeAgo
 	{
 		if (typeof style === 'string')
 		{
-			style = this.style[style]()
+			style = styles[style](this.locale)
 		}
 
 		const { date, time } = get_date_and_time_being_formatted(input)
@@ -136,59 +125,86 @@ export default class JavascriptTimeAgo
 			return ''
 		}
 
+		// Get locale-specific time interval formatting rules
+		// of a given `flavour`
+		// for the given time interval measurement `unit`.
+		//
+		// E.g.:
+		//
+		// ```json
+		// {
+		// 	"past": {
+		// 		"one": "a second ago",
+		// 		"other": "{0} seconds ago"
+		// 	},
+		// 	"future": {
+		// 		"one": "in a second",
+		// 		"other": "in {0} seconds"
+		// 	}
+		// }
+		// ```
+		//
+		// Then choose either "past" or "future" based on time elapsed sign.
+		//
+		const rules = locale_data[unit][seconds_elapsed >= 0 ? 'past' : 'future']
+
 		// Format the time elapsed.
-		return this.get_formatter(unit, flavour).format
-		({
-			'0'  : amount,
-			when : seconds_elapsed >= 0 ? 'past' : 'future'
-		})
+		// Get pluralization classifier function.
+		const plurals_classifier = JavascriptTimeAgo.locale_data[this.locale].plural
+		// "other" rule is supposed to always be present
+		const rule = rules[plurals_classifier(amount)] || rules.other
+		// Inject the amount
+		return rule.replace('{0}', amount)
 	}
 
-	// Gets locale messages for this formatting flavour
-	get_locale_data(flavour)
+	/**
+	 * Gets locale messages for this formatting flavour
+	 *
+	 * @param {(string|string[])} flavour - Relative date/time formatting flavour.
+	 *                                      If it's an array then all flavours are tried in order.
+	 *
+	 * @returns {Object} Returns an object of shape { flavour, locale_data }
+	 */
+	get_locale_data(flavour = [])
 	{
-		// Get relative time formatter messages for this locale
+		// Get relative time formatting rules for this locale
 		const locale_data = JavascriptTimeAgo.locale_data[this.locale]
 
-		// Fallback to "default" flavour if the given flavour isn't available
-		if (!flavour || !locale_data[flavour])
+		// Convert `flavour` to an array.
+		if (typeof flavour === 'string')
 		{
-			flavour = 'default'
+			flavour = [flavour]
 		}
 
-		return { flavour, locale_data: locale_data[flavour] }
-	}
+		// "long" flavour is the default one.
+		// (it's always present)
+		flavour = flavour.concat('long')
 
-	// Lazy creation of a formatter of a given `flavour`
-	// for a given time measurement `unit`
-	// ("second", "minute", "hour", "day", etc).
-	get_formatter(unit, flavour)
-	{
-		return cache.get(this.locale, flavour, unit) ||
-			cache.put(this.locale, flavour, unit, create_formatter
-			(
-				unit,
-				flavour,
-				this.locales,
-				JavascriptTimeAgo.locale_data[this.locale]
-			))
+		// Find a suitable flavour.
+		for (const _ of flavour)
+		{
+			if (locale_data[_])
+			{
+				return {
+					flavour     : _,
+					locale_data : locale_data[_]
+				}
+			}
+		}
+		
+		throw new Error(`None of the flavours - ${flavour.join(', ')} - was found for locale "${this.locale}".`)
 	}
 }
 
 // Adds locale data for a specific locale.
 //
-// @param {Object} locale_data_input - Locale data.
+// @param {Object} locale_data - Locale data.
 //
-// Locale data being input can either be
-// in CLDR format or in this library's format.
-//
-JavascriptTimeAgo.locale = function(locale_data_input)
+JavascriptTimeAgo.locale = function(locale_data)
 {
-	const { locale, locale_data } = parse_locale_data(locale_data_input)
-
 	// This locale data is stored in a global variable
 	// and later used when calling `.format(time)`.
-	JavascriptTimeAgo.locale_data[locale] = locale_data
+	JavascriptTimeAgo.locale_data[locale_data.locale] = locale_data
 }
 
 // Normalizes `.format()` `time` argument.

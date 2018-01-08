@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "vor {0} jár",
+			"other": "cor {0} jár"
+		},
+		"future": {
+			"one": "I {0} jár",
+			"other": "I {0} jár"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "vor {0} mánet",
+			"other": "vor {0} mánet"
+		},
+		"future": {
+			"one": "I {0} mánet",
+			"other": "I {0} mánet"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "vor {0} wuča",
+			"other": "cor {0} wučä"
+		},
+		"future": {
+			"one": "i {0} wuča",
+			"other": "i {0} wučä"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "vor {0} tag",
+			"other": "vor {0} täg"
+		},
+		"future": {
+			"one": "i {0} tag",
+			"other": "i {0} täg"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "vor {0} stund",
+			"other": "vor {0} stunde"
+		},
+		"future": {
+			"one": "i {0} stund",
+			"other": "i {0} stunde"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "vor {0} minüta",
+			"other": "vor {0} minüte"
+		},
+		"future": {
+			"one": "i {0} minüta",
+			"other": "i {0} minüte"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "vor {0} sekund",
+			"other": "vor {0} sekunde"
+		},
+		"future": {
+			"one": "i {0} sekund",
+			"other": "i {0} sekunde"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "now"
+		},
+		"future": {
+			"other": "now"
+		}
+	}
+}

@@ -1,1 +1,0 @@
-exports = module.exports = global.IntlMessageFormat = require('intl-messageformat')

@@ -1,0 +1,66 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} ປີກ່ອນ"
+		},
+		"future": {
+			"other": "ໃນອີກ {0} ປີ"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} ດ. ກ່ອນ"
+		},
+		"future": {
+			"other": "ໃນອີກ {0} ດ."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} ອທ. ກ່ອນ"
+		},
+		"future": {
+			"other": "ໃນອີກ {0} ອທ."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} ມື້ກ່ອນ"
+		},
+		"future": {
+			"other": "ໃນອີກ {0} ມື້"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} ຊມ. ກ່ອນ"
+		},
+		"future": {
+			"other": "ໃນອີກ {0} ຊມ."
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} ນທ. ກ່ອນ"
+		},
+		"future": {
+			"other": "ໃນ {0} ນທ."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} ວິ. ກ່ອນ"
+		},
+		"future": {
+			"other": "ໃນ {0} ວິ."
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "ຕອນນີ້"
+		},
+		"future": {
+			"other": "ຕອນນີ້"
+		}
+	}
+}

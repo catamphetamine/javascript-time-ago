@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "hai {0} ano",
+			"other": "hai {0} anos"
+		},
+		"future": {
+			"one": "dentro de {0} ano",
+			"other": "dentro de {0} anos"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "hai {0} mes",
+			"other": "hai {0} mes."
+		},
+		"future": {
+			"one": "dentro de {0} mes",
+			"other": "dentro de {0} mes."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "hai {0} sem.",
+			"other": "hai {0} sem."
+		},
+		"future": {
+			"one": "dentro de {0} sem.",
+			"other": "dentro de {0} sem."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "hai {0} día",
+			"other": "hai {0} días"
+		},
+		"future": {
+			"one": "dentro de {0} día",
+			"other": "dentro de {0} días"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "hai {0} h",
+			"other": "hai {0} h"
+		},
+		"future": {
+			"one": "dentro de {0} h",
+			"other": "dentro de {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "hai {0} min",
+			"other": "hai {0} min"
+		},
+		"future": {
+			"one": "dentro de {0} min",
+			"other": "dentro de {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "hai {0} s",
+			"other": "hai {0} s"
+		},
+		"future": {
+			"one": "dentro de {0} s",
+			"other": "dentro de {0} s"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "agora"
+		},
+		"future": {
+			"other": "agora"
+		}
+	}
+}

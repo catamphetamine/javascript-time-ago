@@ -1,0 +1,80 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} an indaûr",
+			"other": "{0} agns indaûr"
+		},
+		"future": {
+			"one": "ca di {0} an",
+			"other": "ca di {0} agns"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "{0} mês indaûr",
+			"other": "{0} mês indaûr"
+		},
+		"future": {
+			"one": "ca di {0} mês",
+			"other": "ca di {0} mês"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} setemane indaûr",
+			"other": "{0} setemanis indaûr"
+		},
+		"future": {
+			"one": "ca di {0} setemane",
+			"other": "ca di {0} setemanis"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} zornade indaûr",
+			"other": "{0} zornadis indaûr"
+		},
+		"future": {
+			"one": "ca di {0} zornade",
+			"other": "ca di {0} zornadis"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "{0} ore indaûr",
+			"other": "{0} oris indaûr"
+		},
+		"future": {
+			"one": "ca di {0} ore",
+			"other": "ca di {0} oris"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "{0} minût indaûr",
+			"other": "{0} minûts indaûr"
+		},
+		"future": {
+			"one": "ca di {0} minût",
+			"other": "ca di {0} minûts"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "{0} secont indaûr",
+			"other": "{0} seconts indaûr"
+		},
+		"future": {
+			"one": "ca di {0} secont",
+			"other": "ca di {0} seconts"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "now"
+		},
+		"future": {
+			"other": "now"
+		}
+	}
+}

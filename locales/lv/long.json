@@ -1,0 +1,94 @@
+{
+	"year": {
+		"past": {
+			"zero": "pirms {0} gadiem",
+			"one": "pirms {0} gada",
+			"other": "pirms {0} gadiem"
+		},
+		"future": {
+			"zero": "pēc {0} gadiem",
+			"one": "pēc {0} gada",
+			"other": "pēc {0} gadiem"
+		}
+	},
+	"month": {
+		"past": {
+			"zero": "pirms {0} mēnešiem",
+			"one": "pirms {0} mēneša",
+			"other": "pirms {0} mēnešiem"
+		},
+		"future": {
+			"zero": "pēc {0} mēnešiem",
+			"one": "pēc {0} mēneša",
+			"other": "pēc {0} mēnešiem"
+		}
+	},
+	"week": {
+		"past": {
+			"zero": "pirms {0} nedēļām",
+			"one": "pirms {0} nedēļas",
+			"other": "pirms {0} nedēļām"
+		},
+		"future": {
+			"zero": "pēc {0} nedēļām",
+			"one": "pēc {0} nedēļas",
+			"other": "pēc {0} nedēļām"
+		}
+	},
+	"day": {
+		"past": {
+			"zero": "pirms {0} dienām",
+			"one": "pirms {0} dienas",
+			"other": "pirms {0} dienām"
+		},
+		"future": {
+			"zero": "pēc {0} dienām",
+			"one": "pēc {0} dienas",
+			"other": "pēc {0} dienām"
+		}
+	},
+	"hour": {
+		"past": {
+			"zero": "pirms {0} stundām",
+			"one": "pirms {0} stundas",
+			"other": "pirms {0} stundām"
+		},
+		"future": {
+			"zero": "pēc {0} stundām",
+			"one": "pēc {0} stundas",
+			"other": "pēc {0} stundām"
+		}
+	},
+	"minute": {
+		"past": {
+			"zero": "pirms {0} minūtēm",
+			"one": "pirms {0} minūtes",
+			"other": "pirms {0} minūtēm"
+		},
+		"future": {
+			"zero": "pēc {0} minūtēm",
+			"one": "pēc {0} minūtes",
+			"other": "pēc {0} minūtēm"
+		}
+	},
+	"second": {
+		"past": {
+			"zero": "pirms {0} sekundēm",
+			"one": "pirms {0} sekundes",
+			"other": "pirms {0} sekundēm"
+		},
+		"future": {
+			"zero": "pēc {0} sekundēm",
+			"one": "pēc {0} sekundes",
+			"other": "pēc {0} sekundēm"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "tagad"
+		},
+		"future": {
+			"other": "tagad"
+		}
+	}
+}

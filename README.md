@@ -29,98 +29,89 @@ Formats a date to something like:
   * 5 years ago
   * … or whatever else
 
-## Installation
+## Intl
+
+This package assumes that the [`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object exists in the runtime. `Intl` is present in all modern browsers [_except_ Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using the `Intl` polyfill).
+
+Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to use the `Intl` polyfill.
 
 ```
-npm install intl-messageformat --save
-npm install javascript-time-ago --save
+npm install intl@1.2.4 --save
 ```
 
-This package assumes that the [`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object exists in the runtime. `Intl` is present in all modern browsers [_except_ Internet Explorer 10 and Safari 9](http://caniuse.com/#search=intl) (which can be solved with the Intl polyfill).
+Node.js
 
-Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to [get Node to load the extra locale data](https://github.com/nodejs/node/wiki/Intl), or (a much simpler approach) just use the Intl polyfill.
+```js
+import Intl from 'intl'
+global.Intl = Intl
+```
 
-If you decide you need the Intl polyfill then [here are some basic installation and configuration instructions](#intl-polyfill-installation).
+Web browser
+
+```js
+import Intl from 'intl'
+window.Intl = Intl
+```
 
 ## Usage
+
+```
+npm install javascript-time-ago --save
+```
 
 First, the library must be initialized with a set of desired locales.
 
 #### ./javascript-time-ago.js
 
 ```js
-// Load number pluralization functions for the locales.
-// (the ones that decide if a number is gonna be 
-//  "zero", "one", "two", "few", "many" or "other")
-// http://cldr.unicode.org/index/cldr-spec/plural-rules
-// https://github.com/eemeli/make-plural.js
-// http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
-//
-// `IntlMessageFormat` global variable must exist
-// in order for this to work:
-// `global.IntlMessageFormat = require('intl-messageformat').default`.
-// https://github.com/yahoo/intl-messageformat/issues/159
-// For Webpack this is done via `ProvidePlugin` (see below).
-//
-import 'intl-messageformat/dist/locale-data/en'
-import 'intl-messageformat/dist/locale-data/ru'
-
 // Time ago formatter.
-import javascriptTimeAgo from 'javascript-time-ago'
+import TimeAgo from 'javascript-time-ago'
 
 // Load locale-specific relative date/time formatting rules.
 import en from 'javascript-time-ago/locales/en'
 import ru from 'javascript-time-ago/locales/ru'
 
 // Add locale-specific relative date/time formatting rules.
-javascriptTimeAgo.locale(en)
-javascriptTimeAgo.locale(ru)
-```
-
-`javascript-time-ago` uses `intl-messageformat` internally. [`IntlMessageFormat`](https://github.com/yahoo/intl-messageformat) is a helper library made by Yahoo which formats plurals internationally (e.g. "1 second", "2 seconds", etc).
-
-Both these libraries must be initialized with a set of desired locales first. For that, `IntlMessageFormat` [needs to be accessible as a global variable](https://github.com/yahoo/intl-messageformat/issues/159) (though I don't agree with such a design choice). For Webpack that would be:
-
-```js
-plugins: [
-  new webpack.ProvidePlugin({
-    IntlMessageFormat: ['intl-messageformat', 'default'],
-  }),
-  // ...
-]
+TimeAgo.locale(en)
+TimeAgo.locale(ru)
 ```
 
 After the initialization step is complete it is ready to format relative dates.
 
 ```js
-import javascriptTimeAgo from 'javascript-time-ago'
+import TimeAgo from 'javascript-time-ago'
 
-const timeAgoEnglish = new javascriptTimeAgo('en-US')
+const timeAgo = new TimeAgo('en-US')
 
-timeAgoEnglish.format(new Date())
+timeAgo.format(new Date())
 // "just now"
 
-timeAgoEnglish.format(new Date(Date.now() - 60 * 1000))
+timeAgo.format(new Date(Date.now() - 60 * 1000))
 // "a minute ago"
 
-timeAgoEnglish.format(new Date(Date.now() - 2 * 60 * 60 * 1000))
+timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000))
 // "2 hours ago"
 
-timeAgoEnglish.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
+timeAgo.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
 // "a day ago"
+```
 
-const timeAgoRussian = new javascriptTimeAgo('ru-RU')
+```js
+import TimeAgo from 'javascript-time-ago'
 
-timeAgoRussian.format(new Date())
+// cyka blyat idi nahui
+const timeAgo = new TimeAgo('ru-RU')
+
+timeAgo.format(new Date())
 // "только что"
 
-timeAgoRussian.format(new Date(Date.now() - 60 * 1000)))
+timeAgo.format(new Date(Date.now() - 60 * 1000)))
 // "минуту назад"
 
-timeAgoRussian.format(new Date(Date.now() - 2 * 60 * 60 * 1000)))
+timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000)))
 // "2 часа назад"
 
-timeAgoRussian.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
+timeAgo.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
 // "днём ранее"
 ```
 
@@ -130,7 +121,7 @@ Mimics Twitter style of time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
 
 ```js
 …
-const timeAgo = new javascriptTimeAgo('en-US')
+const timeAgo = new TimeAgo('en-US')
 
 timeAgo.format(new Date(), 'twitter')
 // ""
@@ -182,13 +173,11 @@ Similar to the default style but with "ago" omitted:
 
 ## Loading locales
 
-No locales are loaded by default. This is done to allow tools like Webpack take advantage of code splitting to reduce the resulting javascript bundle size.
+No locale data is loaded by default. This is done to allow tools like Webpack take advantage of code splitting to reduce the resulting javascript bundle size.
 
-On the other hand, server side doesn't need code splitting, so to load all available locales in Node.js one can use this shortcut:
+On the other hand, server side doesn't need code splitting, so to load all built-in locales on Node.js one can use this shortcut:
 
 ```js
-// A faster way to load all localization data for Node.js
-// (`intl-messageformat` will load everything automatically when run in Node.js)
 require('javascript-time-ago/load-all-locales')
 ```
 
@@ -254,9 +243,7 @@ gradation.canonical()  // '1 second ago', '2 minutes ago', …
 gradation.convenient() // 'just now', '5 minutes ago', …
 ```
 
-## Localization
-
-This library currently comes with English and Russian localization built-in, but any other locale can be added easily at runtime (Pull Requests adding new locales are accepted too).
+## Localization internals
 
 The built-in localization resides in the [`locales`](https://github.com/catamphetamine/javascript-time-ago/tree/master/locales) folder.
 
@@ -284,57 +271,7 @@ The format of the localization is:
 
 The `past` and `future` can be defined by any of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
 
-One can also pass raw Unicode CLDR locale data `.json` files (found in [CLDR repository](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/)) which will be automatically converted by this library to the format described above.
-
-[Example CLDR data for en-US-POSIX locale](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main/en-US-POSIX/dateFields.json)
-
-```js
-{
-  "main": {
-    "en-US-POSIX": {
-      "dates": {
-        "fields": {
-          …
-          "day": {
-            "displayName": "day",            // ignored
-            "relative-type--1": "yesterday", // ignored
-            "relative-type-0": "today",      // ignored
-            "relative-type-1": "tomorrow",   // ignored
-            "relativeTime-type-future": {
-              "relativeTimePattern-count-one"   : "in {0} day",
-              "relativeTimePattern-count-other" : "in {0} days"
-            },
-            "relativeTime-type-past": {
-              "relativeTimePattern-count-one"   : "{0} day ago",
-              "relativeTimePattern-count-other" : "{0} days ago"
-            }
-          },
-          …
-        }
-      }
-    }
-  }
-}
-```
-
-So, to add support for a specific language one can install [CLDR dates package](https://github.com/unicode-cldr/cldr-dates-full/blob/master/main):
-
-```
-npm install cldr-dates-modern --save
-```
-
-And then add the neccessary locales from it:
-
-```js
-import javascriptTimeAgo from 'javascript-time-ago'
-import ru from 'cldr-dates-modern/main/ru/dateFields.json'
-
-javascriptTimeAgo.locale(ru)
-
-const timeAgo = new javascriptTimeAgo('ru')
-timeAgo.format(new Date(Date.now() - 60 * 1000))
-// "1 минуту назад"
-```
+To determine whether a certain amount of a time interval measurement unit is "one", "few", or something else, `javascript-time-ago` uses Unicode CLDR rules for formatting plurals. These rules are number pluralization classifier functions (for each locale) which can tell if a number should be treated as "zero", "one", "two", "few", "many" or "other". Knowing how these pluralization rules work is not required but anyway here are some links for curious advanced readers: [rules explanation](http://cldr.unicode.org/index/cldr-spec/plural-rules), [list of rules for all locales](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html), [converting those rules to javascript functions](https://github.com/eemeli/make-plural.js). These pluralization functions can be found as `plural` properties of a locale data.
 
 ## Future
 
@@ -344,7 +281,7 @@ When given future dates `.format()` produces the corresponding output, e.g. "in 
 
 There is also a [React component](https://github.com/catamphetamine/react-time-ago) built upon this library which autorefreshes itself.
 
-## Intl polyfill installation
+## Intl polyfill
 
 To install the Intl polyfill (supporting 200+ languages):
 
@@ -360,11 +297,9 @@ Then configure the Intl polyfill:
 
 ## Thread safety
 
-Since thread safety is hard most likely `intl-messageformat` isn't thread safe. Same goes for `Intl.DateTimeFormat` (both native and polyfill): most likely they aren't thread safe either. Therefore `javascript-time-ago` should be considered non-thread-safe.
+Since thread safety is hard most likely `Intl.DateTimeFormat` (both native and polyfill) isn't thread-safe. Therefore `javascript-time-ago` should be considered non-thread-safe.
 
 But it doesn't really matter because javascript is inherently single-threaded: both in a web browser and in Node.js.
-
-`javascript-time-ago` caches formatters in a global variable (both in a web browser and in Node.js). Since javascript is single-threaded both in a web browser and in Node.js, it is still safe and delivers about 20x performance boost.
 
 ## Contributing
 

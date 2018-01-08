@@ -1,0 +1,66 @@
+{
+	"year": {
+		"past": {
+			"other": "taʻu ʻe {0} kuoʻosi"
+		},
+		"future": {
+			"other": "ʻi he taʻu ʻe {0}"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "māhina ʻe {0} kuoʻosi"
+		},
+		"future": {
+			"other": "ʻi he māhina ʻe {0}"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "uike ʻe {0} kuoʻosi"
+		},
+		"future": {
+			"other": "ʻi he uike ʻe {0}"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "ʻaho ʻe {0} kuoʻosi"
+		},
+		"future": {
+			"other": "ʻi he ʻaho ʻe {0}"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "houa ʻe {0} kuoʻosi"
+		},
+		"future": {
+			"other": "ʻi he houa ʻe {0}"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "miniti ʻe {0} kuoʻosi"
+		},
+		"future": {
+			"other": "ʻi he miniti ʻe {0}"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "sekoni ʻe {0} kuoʻosi"
+		},
+		"future": {
+			"other": "ʻi he sekoni ʻe {0}"
+		}
+	},
+	"just-now": {
+		"past": {
+			"other": "taimí ni"
+		},
+		"future": {
+			"other": "taimí ni"
+		}
+	}
+}
