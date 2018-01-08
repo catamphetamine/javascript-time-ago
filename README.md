@@ -61,8 +61,6 @@ npm install javascript-time-ago --save
 
 First, the library must be initialized with a set of desired locales.
 
-#### ./javascript-time-ago.js
-
 ```js
 // Time ago formatter.
 import TimeAgo from 'javascript-time-ago'
@@ -126,10 +124,10 @@ const timeAgo = new TimeAgo('en-US')
 timeAgo.format(new Date(), 'twitter')
 // ""
 
-timeAgo.format(new Date(Date.now() - 60 * 1000), twitter)
+timeAgo.format(new Date(Date.now() - 60 * 1000), 'twitter')
 // "1m"
 
-timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000), twitter)
+timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000), 'twitter')
 // "2h"
 ```
 
