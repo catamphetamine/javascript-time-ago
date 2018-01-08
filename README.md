@@ -257,6 +257,10 @@ To determine whether a certain amount of time (number) is `one`, `few`, or somet
 
 When given future dates `.format()` produces the corresponding output, e.g. "in 5 minutes", "in a year", etc.
 
+## Default
+
+The default locale is `en` and can be changed: `TimeAgo.defaultLocale = 'ru'`.
+
 ## React
 
 There is also a [React component](https://catamphetamine.github.io/react-time-ago/) built upon this library which autorefreshes itself.

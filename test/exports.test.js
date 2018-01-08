@@ -1,9 +1,9 @@
 import
 Time_ago,
 {
-	a_day,
-	days_in_a_month,
-	days_in_a_year,
+	day,
+	month,
+	year,
 	gradation
 }
 from '../index.es6'
@@ -15,9 +15,9 @@ describe(`exports`, function()
 		// Load locale specific relative date/time messages
 		Time_ago.locale(require('../locale/en'))
 		new Time_ago()
-		a_day.should.be.a('number')
-		days_in_a_month.should.be.a('number')
-		days_in_a_year.should.be.a('number')
+		day.should.be.a('number')
+		month.should.be.a('number')
+		year.should.be.a('number')
 		gradation.should.be.an('object')
 	})
 
@@ -30,9 +30,9 @@ describe(`exports`, function()
 
 		new Library()
 		new Library.default()
-		Library.a_day.should.be.a('number')
-		Library.days_in_a_month.should.be.a('number')
-		Library.days_in_a_year.should.be.a('number')
+		Library.day.should.be.a('number')
+		Library.month.should.be.a('number')
+		Library.year.should.be.a('number')
 		Library.gradation.should.be.an('object')
 	})
 })

@@ -1,10 +1,10 @@
+export const day = 24 * 60 * 60 // in seconds
+
 // https://www.quora.com/What-is-the-average-number-of-days-in-a-month
-export const days_in_a_month = 30.44
+export const month = 30.44 * day
 
 // "400 years have 146097 days (taking into account leap year rules)"
-export const days_in_a_year = 146097 / 400
-
-export const a_day = 24 * 60 * 60 // in seconds
+export const year = (146097 / 400) * day
 
 // A gradation is a mapping from a time interval (in seconds)
 // to the most appropriate time interval measurement unit
@@ -81,23 +81,23 @@ export default
 		},
 		{
 			unit: 'day',
-			factor: a_day,
+			factor: day,
 			threshold: 23.5 * 60 * 60
 		},
 		{
 			unit: 'week',
-			factor: 7 * a_day,
-			threshold: 6.5 * a_day
+			factor: 7 * day,
+			threshold: 6.5 * day
 		},
 		{
 			unit: 'month',
-			factor: days_in_a_month * a_day,
-			threshold: 3.5 * 7 * a_day * a_day
+			factor: month,
+			threshold: 3.5 * 7 * day
 		},
 		{
 			unit: 'year',
-			factor: days_in_a_year * a_day,
-			threshold: 11.5 * days_in_a_month * a_day
+			factor: year,
+			threshold: 11.5 * month
 		}
 	],
 
@@ -161,29 +161,29 @@ export default
 		},
 		{
 			unit: 'day',
-			factor: a_day,
-			threshold: (20.5 / 24) * a_day
+			factor: day,
+			threshold: (20.5 / 24) * day
 		},
 		{
 			unit: 'week',
-			factor: 7 * a_day,
-			threshold: 5.5 * a_day
+			factor: 7 * day,
+			threshold: 5.5 * day
 		},
 		{
 			unit: 'month',
-			factor: days_in_a_month * a_day,
-			threshold: 3.5 * 7 * a_day
+			factor: month,
+			threshold: 3.5 * 7 * day
 		},
 		{
 			unit: 'half-year',
-			factor: 0.5 * days_in_a_year * a_day,
-			threshold: 4.5 * days_in_a_month * a_day
+			factor: 0.5 * year,
+			threshold: 4.5 * month
 		},
 		{
 			unit: 'year',
-			factor: days_in_a_year * a_day,
-			threshold: 9 * days_in_a_month * a_day,
-			threshold_for_month: 10.5 * days_in_a_month * a_day
+			factor: year,
+			threshold: 9 * month,
+			threshold_for_month: 10.5 * month
 		}
 	]
 }

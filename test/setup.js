@@ -8,6 +8,9 @@ import javascript_time_ago from '../source/index'
 import * as en from '../locale/en'
 import * as ru from '../locale/ru'
 
+// Just so this function code is covered.
+javascript_time_ago.setDefaultLocale('en')
+
 const locales = ['en', 'ru']
 
 if (typeof Intl === 'object')

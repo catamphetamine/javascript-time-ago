@@ -1,6 +1,6 @@
 import javascript_time_ago from '../source/index'
 import style from '../source/style'
-import gradation, { a_day, days_in_a_month, days_in_a_year } from '../source/gradation'
+import gradation, { day, month, year } from '../source/gradation'
 
 // Load locale specific relative date/time messages
 import english from '../locale/en'
@@ -98,9 +98,9 @@ describe(`time ago`, function()
 		elapsed(2.51 * 60 * 60).should.equal('3h')
 		// …
 		elapsed(23.49 * 60 * 60).should.equal('23h')
-		elapsed(a_day + 62 * 60).should.equal('Apr 9')
+		elapsed(day + 62 * 60).should.equal('Apr 9')
 		// …
-		elapsed(days_in_a_year * a_day).should.equal('Apr 11, 2015')
+		elapsed(year).should.equal('Apr 11, 2015')
 	})
 
 	it(`should format Twitter style relative time (Russian)`, function()
@@ -127,9 +127,9 @@ describe(`time ago`, function()
 		elapsed(2.51 * 60 * 60).should.equal('3ч')
 		// …
 		elapsed(23.49 * 60 * 60).should.equal('23ч')
-		elapsed(a_day + 62 * 60).should.equal('9 апр.')
+		elapsed(day + 62 * 60).should.equal('9 апр.')
 		// …
-		elapsed(days_in_a_year * a_day).should.equal('11 апр. 2015 г.')
+		elapsed(year).should.equal('11 апр. 2015 г.')
 	})
 
 	it(`should format fuzzy style relative time (English)`, function()
@@ -723,116 +723,116 @@ const convenient_gradation =
 	// 'a day ago':
 	[
 		20.51 * 60 * 60,
-		1.49  * a_day
+		1.49  * day
 	],
 	// '2 days ago':
 	[
-		1.51  * a_day,
-		2.49  * a_day
+		1.51  * day,
+		2.49  * day
 	],
 	// '3 days ago':
 	[
-		2.51  * a_day,
-		3.49  * a_day
+		2.51  * day,
+		3.49  * day
 	],
 	// '4 days ago':
 	[
-		3.51  * a_day,
-		4.49  * a_day
+		3.51  * day,
+		4.49  * day
 	],
 	// '5 days ago':
 	[
-		4.51  * a_day,
-		5.49  * a_day
+		4.51  * day,
+		5.49  * day
 	],
 	// 'a week ago':
 	[
-		5.51  * a_day,
-		1.49  * 7 * a_day
+		5.51  * day,
+		1.49  * 7 * day
 	],
 	// '2 weeks ago':
 	[
-		1.51  * 7 * a_day,
-		2.49  * 7 * a_day
+		1.51  * 7 * day,
+		2.49  * 7 * day
 	],
 	// '3 weeks ago':
 	[
-		2.51  * 7 * a_day,
-		3.49  * 7 * a_day
+		2.51  * 7 * day,
+		3.49  * 7 * day
 	],
 	// 'a month ago':
 	[
-		3.51  * 7 * a_day,
-		1.49  * days_in_a_month * a_day
+		3.51  * 7 * day,
+		1.49  * month
 	],
 	// '2 months ago':
 	[
-		1.51  * days_in_a_month * a_day,
-		2.49  * days_in_a_month * a_day
+		1.51  * month,
+		2.49  * month
 	],
 	// '3 months ago':
 	[
-		2.51  * days_in_a_month * a_day,
-		3.49  * days_in_a_month * a_day
+		2.51  * month,
+		3.49  * month
 	],
 	// '4 months ago':
 	[
-		3.51  * days_in_a_month * a_day,
-		4.49  * days_in_a_month * a_day
+		3.51  * month,
+		4.49  * month
 	],
 	// '5 months ago':
 	[
-		4.51  * days_in_a_month * a_day,
-		5.49  * days_in_a_month * a_day
+		4.51  * month,
+		5.49  * month
 	],
 	// '6 months ago':
 	[
-		5.51  * days_in_a_month * a_day,
-		6.49  * days_in_a_month * a_day
+		5.51  * month,
+		6.49  * month
 	],
 	// '7 months ago':
 	[
-		6.51  * days_in_a_month * a_day,
-		7.49  * days_in_a_month * a_day
+		6.51  * month,
+		7.49  * month
 	],
 	// '8 months ago':
 	[
-		7.51  * days_in_a_month * a_day,
-		8.49  * days_in_a_month * a_day
+		7.51  * month,
+		8.49  * month
 	],
 	// '9 months ago':
 	[
-		8.51  * days_in_a_month * a_day,
-		8.99  * days_in_a_month * a_day
+		8.51  * month,
+		8.99  * month
 	],
 	// '9 months ago':
 	[
-		9.01  * days_in_a_month * a_day,
-		9.49  * days_in_a_month * a_day
+		9.01  * month,
+		9.49  * month
 	],
 	// '10 months ago':
 	[
-		9.51  * days_in_a_month * a_day,
-		10.49  * days_in_a_month * a_day
+		9.51  * month,
+		10.49  * month
 	],
 	// 'a year ago':
 	[
-		10.51 * days_in_a_month * a_day,
-		1.49  * days_in_a_year * a_day
+		10.51 * month,
+		1.49  * year
 	],
 	// '2 years ago':
 	[
-		1.51  * days_in_a_year * a_day,
-		2.49  * days_in_a_year * a_day
+		1.51  * year,
+		2.49  * year
 	],
 	// '3 years ago':
 	[
-		2.51  * days_in_a_year * a_day,
-		3.49  * days_in_a_year * a_day
+		2.51  * year,
+		3.49  * year
 	],
 	// '100 years ago':
 	[
-		99.51  * days_in_a_year * a_day,
-		100.49 * days_in_a_year * a_day
+		99.51  * year,
+		100.49 * year
 	]
 ]

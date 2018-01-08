@@ -1,4 +1,4 @@
-import gradation, { a_day } from './gradation'
+import gradation, { day } from './gradation'
 
 // A cache for `Intl.DateTimeFormat` twitter formatters
 // for various locales (is a global variable).
@@ -64,7 +64,7 @@ export default
 				// If less than 24 hours elapsed,
 				// then format it relatively
 				// (don't override the default behaviour).
-				if (Math.abs(elapsed) < a_day - 30 * 60)
+				if (Math.abs(elapsed) < day - 30 * 60)
 				{
 					return
 				}

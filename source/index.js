@@ -14,22 +14,18 @@ export default class JavascriptTimeAgo
 
 	constructor(locales = [])
 	{
+		// Convert `locales` to an array.
 		if (typeof locales === 'string')
 		{
 			locales = [locales]
 		}
-
-		// The preferred locales are saved
-		// to be later passed to `IntlMessageFormat`
-		// when creating formatters lazily.
-		this.locales = locales.concat(JavascriptTimeAgo.default_locale)
 
 		// Choose the most appropriate locale
 		// (one of the previously added ones)
 		// based on the list of preferred `locales` supplied by the user.
 		this.locale = choose_locale
 		(
-			this.locales,
+			locales.concat(JavascriptTimeAgo.default_locale),
 			Object.keys(JavascriptTimeAgo.locale_data)
 		)
 	}
@@ -195,6 +191,14 @@ export default class JavascriptTimeAgo
 		// Can't happen - "long" flavour is always present.
 		// throw new Error(`None of the flavours - ${flavour.join(', ')} - was found for locale "${this.locale}".`)
 	}
+}
+/**
+ * Sets default locale.
+ * @param  {string} locale
+ */
+JavascriptTimeAgo.setDefaultLocale = function(locale)
+{
+	JavascriptTimeAgo.default_locale = locale
 }
 
 // Adds locale data for a specific locale.
