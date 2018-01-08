@@ -181,7 +181,7 @@ require('javascript-time-ago/load-all-locales')
 
 ## Customization
 
-Localization data described in the above section can be further customized, for example, supporting `long` and `short` formats. Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
+Localization can be further customized by selecting one of the "flavours": `long`, `short`, or mabe some others (like `tiny` defined for `en`). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
 Built-in localization data is presented in different variants:
 
