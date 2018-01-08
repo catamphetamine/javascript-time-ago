@@ -149,9 +149,9 @@ Similar to the default style but with "ago" omitted:
 
 ## Loading locales
 
-No locale data is loaded by default. This is done to allow tools like Webpack take advantage of code splitting to reduce the resulting javascript bundle size.
+No locale data is loaded by default: a developer must manually choose which locales must be loaded. This is to reduce the resulting javascript bundle size.
 
-On the other hand, server side doesn't need code splitting, so to load all built-in locales on Node.js one can use this shortcut:
+If the resulting bundle size is of no concern (e.g. a big enterprise application), or if the code is being run on server side, then use this helper to load all available locales:
 
 ```js
 require('javascript-time-ago/load-all-locales')

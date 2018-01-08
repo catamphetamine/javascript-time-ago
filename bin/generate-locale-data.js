@@ -9,6 +9,7 @@ import parseCLDR from '../source/cldr'
 // ```
 // npm run generate-plurals
 // npm run generate-locale-data
+// npm run generate-load-all-locales
 // ````
 for (const locale of Object.keys(plurals))
 {

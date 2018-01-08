@@ -41,7 +41,8 @@
     "build": "npm-run-all clean-for-build build-commonjs-modules build-es6-modules",
     "prepublish": "npm-run-all build test browser-build",
     "generate-locale-data": "babel-node bin/generate-locale-data",
-    "generate-plurals": "babel-node bin/generate-pluralization-rules"
+    "generate-plurals": "babel-node bin/generate-pluralization-rules",
+    "generate-load-all-locales": "babel-node bin/generate-load-all-locales"
   },
   "betterScripts": {
     "browser-build": {
