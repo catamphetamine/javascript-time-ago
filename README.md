@@ -267,7 +267,7 @@ There is also a [React component](https://catamphetamine.github.io/react-time-ag
 
 `Intl` is present in all modern browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using `Intl` polyfill).
 
-Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to use `Intl` polyfill.
+Node.js starting from `0.12` has `Intl` built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to use `Intl` polyfill.
 
 Applying `Intl` polyfill:
 
