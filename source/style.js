@@ -12,6 +12,8 @@ let twitter_gradation
 // A preset is an object having shape
 // `{ units, gradation, flavour, override({ elapsed, time, date, now }) }`.
 //
+// `date` parameter of `override()` is not guaranteed to be set (can be inferred from `time`).
+//
 // A preset factory takes a single argument:
 // @param {string} locale - the most suitable locale for formatting relative time.
 //
@@ -59,7 +61,7 @@ export default
 			// Twitter style relative time formatting:
 			// Seconds, minutes and hours are shown relatively,
 			// and other intervals can be shown using full date format.
-			override({ elapsed, date, now })
+			override({ elapsed, date, time, now })
 			{
 				// If less than 24 hours elapsed,
 				// then format it relatively
@@ -68,6 +70,9 @@ export default
 				{
 					return
 				}
+
+				// Ensure `date` is set.
+				date = date || new Date(time)
 
 				// If `date` and `now` happened the same year,
 				// then only output month and day.

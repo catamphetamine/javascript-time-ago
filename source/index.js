@@ -94,7 +94,7 @@ export default class JavascriptTimeAgo
 		// (that's what Twitter style does with its `override()`)
 		if (style.override)
 		{
-			const override = style.override({ elapsed: seconds_elapsed, time, date, now })
+			const override = style.override({ elapsed: seconds_elapsed, date, time, now })
 			if (override !== undefined)
 			{
 				return override
@@ -230,7 +230,9 @@ function get_date_and_time_being_formatted(input)
 	{
 		return {
 			time : input,
-			date : new Date(input)
+			// `date` is not required for formatting
+			// relative times unless "twitter" preset is used.
+			// date : new Date(input)
 		}
 	}
 

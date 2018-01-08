@@ -1,3 +1,8 @@
+1.0.8 / 09.01.2018
+===================
+
+  * (breaking change) When defining a custom `style` its `override()` function takes `date` and `time` parameters: now `date` parameter of `override()` is not guaranteed to be set (can be inferred from `time`).
+
 1.0.2 / 08.01.2018
 ===================
 
