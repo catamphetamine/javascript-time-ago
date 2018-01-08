@@ -10,8 +10,11 @@ export default class JavascriptTimeAgo
 
 	// For all configured locales
 	// their relative time formatter messages will be stored here
-	static locale_data = {}
+	static locales = {}
 
+	/**
+	 * @param {(string|string[])} locales=[] - Preferred locales (or locale).
+	 */
 	constructor(locales = [])
 	{
 		// Convert `locales` to an array.
@@ -26,7 +29,7 @@ export default class JavascriptTimeAgo
 		this.locale = choose_locale
 		(
 			locales.concat(JavascriptTimeAgo.default_locale),
-			Object.keys(JavascriptTimeAgo.locale_data)
+			Object.keys(JavascriptTimeAgo.locales)
 		)
 	}
 
@@ -146,7 +149,7 @@ export default class JavascriptTimeAgo
 
 		// Format the time elapsed.
 		// Get pluralization classifier function.
-		const plurals_classifier = JavascriptTimeAgo.locale_data[this.locale].plural
+		const plurals_classifier = JavascriptTimeAgo.locales[this.locale].plural
 		// "other" rule is supposed to always be present
 		const rule = rules[plurals_classifier(amount)] || rules.other
 		// Inject the amount
@@ -164,7 +167,7 @@ export default class JavascriptTimeAgo
 	get_locale_data(flavour = [])
 	{
 		// Get relative time formatting rules for this locale
-		const locale_data = JavascriptTimeAgo.locale_data[this.locale]
+		const locale_data = JavascriptTimeAgo.locales[this.locale]
 
 		// Convert `flavour` to an array.
 		if (typeof flavour === 'string')
@@ -209,7 +212,7 @@ JavascriptTimeAgo.locale = function(locale_data)
 {
 	// This locale data is stored in a global variable
 	// and later used when calling `.format(time)`.
-	JavascriptTimeAgo.locale_data[locale_data.locale] = locale_data
+	JavascriptTimeAgo.locales[locale_data.locale] = locale_data
 }
 
 // Normalizes `.format()` `time` argument.

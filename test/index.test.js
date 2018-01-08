@@ -65,13 +65,13 @@ describe(`time ago`, function()
 		const now = Date.now()
 
 		// Remove 'just-now' formatter temporarily
-		const just_now_formatter = javascript_time_ago.locale_data.en.long['just-now']
-		delete javascript_time_ago.locale_data.en.long['just-now']
+		const just_now_formatter = javascript_time_ago.locales.en.long['just-now']
+		delete javascript_time_ago.locales.en.long['just-now']
 
 		time_ago.format(now, { now }).should.equal('')
 
 		// Restore 'just-now' formatter
-		javascript_time_ago.locale_data.en.long['just-now'] = just_now_formatter
+		javascript_time_ago.locales.en.long['just-now'] = just_now_formatter
 	})
 
 	it(`should format Twitter style relative time (English)`, function()
