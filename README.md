@@ -29,30 +29,6 @@ Formats a date to something like:
   * 5 years ago
   * … or whatever else
 
-## Intl
-
-This package assumes that the [`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object exists in the runtime. `Intl` is present in all modern browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using the `Intl` polyfill).
-
-Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to use the `Intl` polyfill.
-
-```
-npm install intl@1.2.4 --save
-```
-
-Node.js
-
-```js
-import Intl from 'intl'
-global.Intl = Intl
-```
-
-Web browser
-
-```js
-import Intl from 'intl'
-window.Intl = Intl
-```
-
 ## Usage
 
 ```
@@ -130,6 +106,8 @@ timeAgo.format(new Date(Date.now() - 60 * 1000), 'twitter')
 timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000), 'twitter')
 // "2h"
 ```
+
+The built-in Twitter style uses `Intl` internally for formatting `day/month/year` labels. This is not an issue for modern web browsers but requies `Intl` polyfill for a couple of older browsers and for Node.js (if you're running this code on server side). See the [`Intl`](https://github.com/catamphetamine/javascript-time-ago#intl) section of this document for `Intl` polyfill instructions.
 
 ## Fuzzy style
 
@@ -283,9 +261,31 @@ When given future dates `.format()` produces the corresponding output, e.g. "in 
 
 There is also a [React component](https://catamphetamine.github.io/react-time-ago/) built upon this library which autorefreshes itself.
 
-## Thread safety
+## Intl
 
-Since thread safety is hard most likely `Intl.DateTimeFormat` (both native and polyfill) isn't thread-safe. Therefore `javascript-time-ago` should be considered non-thread-safe. But it doesn't really matter because javascript is inherently single-threaded: both in a web browser and in Node.js.
+[`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object is not required for this library, but it may be required if you chose to use `twitter` style.
+
+`Intl` is present in all modern browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using the `Intl` polyfill).
+
+Node.js starting from `0.12` has the `Intl` APIs built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to use the `Intl` polyfill.
+
+```
+npm install intl@1.2.4 --save
+```
+
+Node.js
+
+```js
+import Intl from 'intl'
+global.Intl = Intl
+```
+
+Web browser
+
+```js
+import Intl from 'intl'
+window.Intl = Intl
+```
 
 ## Contributing
 
