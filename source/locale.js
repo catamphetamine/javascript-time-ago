@@ -2,7 +2,7 @@
 // (one of the registered ones)
 // based on the list of preferred `locales` supplied by the user.
 //
-// @param {string[]} locales - the list of preferable locales.
+// @param {string[]} locales - the list of preferable locales (in [IETF format](https://en.wikipedia.org/wiki/IETF_language_tag)).
 // @param {string[]} registered_locales - an array of available locales.
 //
 // @returns {string} Returns the most suitable locale
@@ -13,42 +13,45 @@
 //
 export default function choose_locale(locales, registered_locales)
 {
-	// Using "the set of locales + the default locale", we look for the first one
-	// which that has been registered. When data does not exist for a locale, we
-	// traverse its ancestors to find something that's been registered within
-	// its hierarchy of locales. Since we lack the proper `parentLocale` data
-	// here, we must take a naive approach to traversal.
+	// This is not an intelligent algorythm,
+	// but it will do for this library's case.
 	for (const locale of locales)
 	{
-		// Split locale into parts.
-		// E.g. "en-US" -> ["en", "US"].
-		const locale_parts = locale.split('-')
-
-		// Try all possible variants:
-		// from the longest one to the shortest one.
-		while (locale_parts.length > 0)
+		if (registered_locales.indexOf(locale) >= 0)
 		{
-			// Convert locale parts back to a string.
-			// E.g. ["en", "US"] -> "en-US".
-			const locale_try = locale_parts.join('-')
+			return locale
+		}
 
-			// If this locale is registered then return it.
-			// Locales registered may be specific ones
-			// e.g. "en-US" or "en-US-POSIX".
-			// Therefore match using a substring
-			// so that "en" is still found in the aforementioned case.
-			for (const registered_locale of registered_locales)
+		const language = get_language_from_locale(locale)
+
+		if (language !== locale)
+		{
+			if (registered_locales.indexOf(language) >= 0)
 			{
-				if (registered_locale.indexOf(locale_try) === 0)
-				{
-					return locale_try
-				}
+				return language
 			}
-
-			// Try a shorter one.
-			locale_parts.pop()
 		}
 	}
 
 	throw new Error(`No locale data has been registered for any of the locales: ${locales.join(', ')}`)
+}
+
+/**
+ * Extracts language from locale (in IETF format).
+ * @param {string} locale
+ * @return {string} language
+ */
+function get_language_from_locale(locale)
+{
+	// `locale` can be, for example,
+	// "he-IL-u-ca-hebrew-tz-jeruslm" or "ar-u-nu-latn".
+
+	const hyphen_index = locale.indexOf('-')
+
+	if (hyphen_index > 0)
+	{
+		return locale.slice(0, hyphen_index)
+	}
+
+	return locale
 }

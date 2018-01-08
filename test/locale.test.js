@@ -33,8 +33,6 @@ describe('locale', function()
 		choose(['fr-FR', 'de-DE'], ['en', 'de']).should.equal('de')
 		choose(['fr-FR', 'de-DE'], ['en', 'de', 'fr']).should.equal('fr')
 		choose('fr-FR', ['en', 'fr-FR']).should.equal('fr-FR')
-		choose('en-US', ['en-US-POSIX']).should.equal('en-US')
-		choose('en', ['en-US-POSIX']).should.equal('en')
 		
 		const thrower = () => choose('fr-FR', ['de', 'ru'])
 		thrower.should.throw('No locale data has been registered for any of the locales: fr-FR')
