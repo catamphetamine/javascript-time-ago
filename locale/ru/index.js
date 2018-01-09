@@ -9,5 +9,5 @@ module.exports =
 	long       : require('./long.json'),
 	long_time  : require('./long-time.json'),
 
-	plural : require('./plural')
+	quantify : require('./quantify')
 }

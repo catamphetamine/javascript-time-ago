@@ -1,3 +1,10 @@
+1.0.11 / 10.01.2018
+===================
+
+  * Renamed `plural` to `quantify` inside locale data.
+
+  * Implemented `Intl.RelativeTimeFormat` proposal polyfill which is now being exported.
+
 1.0.10 / 09.01.2018
 ===================
 

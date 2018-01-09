@@ -161,6 +161,15 @@ require('javascript-time-ago/load-all-locales')
 
 There's a spec proposal called [`Intl.RelativeTimeFormat`](https://github.com/tc39/proposal-intl-relative-time). It's still a draft, and not officially accepted yet, but I guess some time it will be accepted, in which case this library could serve as a polyfill for older browsers (iOS, Android).
 
+```js
+import JavascriptTimeAgo, { RelativeTimeFormat } from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
+
+JavascriptTimeAgo.locale(en)
+// Returns "2 days ago"
+new RelativeTimeFormat('en').format(-2, 'day')
+```
+
 # Advanced
 
 The above sections explained all the basics required for using this library in a project.
@@ -255,7 +264,7 @@ The format a localization is:
 
 The `past` and `future` can be defined by any of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
 
-To determine whether a certain amount of time (number) is `one`, `few`, or something else, `javascript-time-ago` uses Unicode CLDR rules for formatting plurals. These rules are number pluralization classifier functions (one for each locale) which can tell if a number should be treated as `zero`, `one`, `two`, `few`, `many` or `other`. Knowing how these pluralization rules work is not required but anyway here are some links for curious advanced readers: [rules explanation](http://cldr.unicode.org/index/cldr-spec/plural-rules), [list of rules for all locales](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html), [converting those rules to javascript functions](https://github.com/eemeli/make-plural.js). These pluralization functions can be found as `plural` properties of a locale data.
+To determine whether a certain amount of time (number) is `one`, `few`, or something else, `javascript-time-ago` uses Unicode CLDR rules for formatting plurals. These rules are number quantifying functions (one for each locale) which can tell if a number should be treated as `zero`, `one`, `two`, `few`, `many` or `other`. Knowing how these pluralization rules work is not required but anyway here are some links for curious advanced readers: [rules explanation](http://cldr.unicode.org/index/cldr-spec/plural-rules), [list of rules for all locales](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html), [converting those rules to javascript functions](https://github.com/eemeli/make-plural.js). These quantifying functions can be found as `quantify` properties of a locale data.
 
 ## Future
 

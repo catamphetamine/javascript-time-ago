@@ -22,7 +22,10 @@ export default class RelativeTimeFormat {
 
     // Choose the most appropriate locale.
     // This could implement some kind of a "best-fit" algorythm.
-    this.locale = locales[0]
+    this.locale = chooseLocale(
+      locales,
+      getLocales()
+    )
   }
 
   /**
@@ -55,9 +58,9 @@ export default class RelativeTimeFormat {
     // ```
     //
     // Then choose either "past" or "future" based on time `value` sign.
-    const rules = getLocaleData(this.locale)[this.style][unit][value <= 0 ? 'past' : 'future']
+    const rules = getLocales()[this.locale][this.style][unit][value <= 0 ? 'past' : 'future']
     // Quantify `value`.
-    const quantifier = getLocaleData(this.locale).plural(Math.abs(value))
+    const quantifier = getLocales()[this.locale].quantify(Math.abs(value))
     // "other" rule is supposed to always be present
     const rule = rules[quantifier] || rules.other
     // Format the `value`
@@ -85,6 +88,6 @@ export function loadLocale(locale) {
   JavascriptTimeAgo.locale(locale)
 }
 
-function getLocaleData(locale) {
-  return JavascriptTimeAgo.locales[locale]
+function getLocales() {
+  return JavascriptTimeAgo.locales
 }

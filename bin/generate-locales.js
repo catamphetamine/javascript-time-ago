@@ -42,7 +42,7 @@ for (const locale of Object.keys(plurals))
 
 	// If there's no pluralization classifier function
 	// for this language then don't add it.
-	if (!fs.existsSync(path.join(locale_folder, 'plural.js')))
+	if (!fs.existsSync(path.join(locale_folder, 'quantify.js')))
 	{
 		fs.removeSync(locale_folder)
 		continue
@@ -104,7 +104,7 @@ module.exports =
 	long: require('./long.json'),
 	${data.short ? "short: require('./short.json')," : ""}
 	${data.narrow ? "narrow: require('./narrow.json')," : ""}
-	plural: require('./plural')
+	quantify: require('./quantify')
 }
 		`
 		.trim()
@@ -120,7 +120,7 @@ module.exports =
 // export { default as long } from './long.json'
 // ${data.short ? "export { default as short } from './short.json'": ""}
 // ${data.narrow ? "export { default as narrow } from './narrow.json'": ""}
-// export { default as plural } from './plural'
+// export { default as quantify } from './quantify'
 // 		`
 // 		.trim()
 // 	)
