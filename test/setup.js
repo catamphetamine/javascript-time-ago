@@ -7,11 +7,12 @@ import javascript_time_ago from '../source/index'
 
 import * as en from '../locale/en'
 import * as ru from '../locale/ru'
+import * as fr from '../locale/fr'
 
 // Just so this function code is covered.
 javascript_time_ago.setDefaultLocale('en')
 
-const locales = ['en', 'ru']
+const locales = ['en', 'ru', 'fr']
 
 if (typeof Intl === 'object')
 {
@@ -42,5 +43,6 @@ else
 // Load localization data for Node.js
 javascript_time_ago.locale(en)
 javascript_time_ago.locale(ru)
+javascript_time_ago.locale(fr)
 
 chai.should()
