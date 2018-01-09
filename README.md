@@ -60,13 +60,13 @@ const timeAgo = new TimeAgo('en-US')
 timeAgo.format(new Date())
 // "just now"
 
-timeAgo.format(new Date(Date.now() - 60 * 1000))
+timeAgo.format(Date.now() - 60 * 1000)
 // "a minute ago"
 
-timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000))
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000)
 // "2 hours ago"
 
-timeAgo.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
+timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 // "a day ago"
 ```
 
@@ -79,13 +79,13 @@ const timeAgo = new TimeAgo('ru-RU')
 timeAgo.format(new Date())
 // "только что"
 
-timeAgo.format(new Date(Date.now() - 60 * 1000)))
+timeAgo.format(Date.now() - 60 * 1000)
 // "минуту назад"
 
-timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000)))
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000)
 // "2 часа назад"
 
-timeAgo.format(new Date(Date.now() - 24 * 60 * 60 * 1000))
+timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 // "днём ранее"
 ```
 
@@ -100,10 +100,10 @@ const timeAgo = new TimeAgo('en-US')
 timeAgo.format(new Date(), 'twitter')
 // ""
 
-timeAgo.format(new Date(Date.now() - 60 * 1000), 'twitter')
+timeAgo.format(Date.now() - 60 * 1000, 'twitter')
 // "1m"
 
-timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000), 'twitter')
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'twitter')
 // "2h"
 ```
 
@@ -156,6 +156,10 @@ If the resulting bundle size is of no concern (e.g. a big enterprise application
 ```js
 require('javascript-time-ago/load-all-locales')
 ```
+
+## Native
+
+There's a spec proposal called [`Intl.RelativeTime`](https://github.com/tc39/proposal-intl-relative-time). It's still a draft, and not officially accepted yet, but I guess some time it will be accepted, in which case this library could serve as a polyfill for older browsers (iOS, Android).
 
 # Advanced
 
