@@ -60,7 +60,7 @@ function get_language_from_locale(locale)
  * Whether can use `Intl.DateTimeFormat` for these `locales`.
  * Returns the first suitable one.
  * @param  {(string|string[])} locales
- * @return {string} The first locale that can be used.
+ * @return {?string} The first locale that can be used.
  */
 export function intl_supported_locale(locales)
 {
