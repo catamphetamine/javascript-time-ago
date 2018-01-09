@@ -157,9 +157,9 @@ If the resulting bundle size is of no concern (e.g. a big enterprise application
 require('javascript-time-ago/load-all-locales')
 ```
 
-## Native
+## RelativeTimeFormat
 
-There's a spec proposal called [`Intl.RelativeTimeFormat`](https://github.com/tc39/proposal-intl-relative-time). It's still a draft, and not officially accepted yet, but I guess some time it will be accepted, in which case this library could serve as a polyfill for older browsers (iOS, Android).
+There's a spec proposal called [`Intl.RelativeTimeFormat`](https://github.com/tc39/proposal-intl-relative-time) suggesting web browsers implement "time ago" formatting natively like they already do for dates and numbers. It's still a draft, and not officially accepted yet, but I guess at some point in time it will be accepted, in which case this library could serve as a polyfill for older browsers (iOS, Android).
 
 ```js
 import JavascriptTimeAgo, { RelativeTimeFormat } from 'javascript-time-ago'
