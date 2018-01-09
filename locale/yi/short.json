@@ -59,7 +59,7 @@
 			"other": "+{0} s"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "now"
 		},

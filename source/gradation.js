@@ -12,7 +12,7 @@ export const year = (146097 / 400) * day
 //
 // E.g. for "canonical" gradation:
 //
-// 0 -> 1 'just-now'
+// 0 -> 1 'now'
 // 0.5 -> 1 'second'
 // 60 -> 1 'minute'
 // 91 -> 2 'minute's
@@ -29,9 +29,9 @@ export const year = (146097 / 400) * day
 // * threshold - Min value (in seconds) for this unit. Is required for non-first unit.
 //
 // * threshold_for_[unit] - A specific threshold required for moving from `[unit]` to this unit.
-//                          E.g. if "just-now" unit is present in time units gradation
-//                          then `threshold_for_just-now` can be set to `45` seconds.
-//                          Otherwise, if "just-now" unit is omitted from time units gradation,
+//                          E.g. if "now" unit is present in time units gradation
+//                          then `threshold_for_now` can be set to `45` seconds.
+//                          Otherwise, if "now" unit is omitted from time units gradation,
 //                          then `elapsed(0)` will output "0 seconds" because there's no `threshold`.
 //
 // A user can supply his own gradation.
@@ -61,7 +61,7 @@ export default
 	// …
 	canonical: () => [
 		{
-			unit: 'just-now',
+			unit: 'now',
 			factor: 1
 		},
 		{
@@ -128,14 +128,14 @@ export default
 	// …
 	convenient: () => [
 		{
-			unit: 'just-now',
+			unit: 'now',
 			factor: 1
 		},
 		{
 			unit: 'second',
 			factor: 1,
 			threshold: 1,
-			'threshold_for_just-now': 45
+			threshold_for_now: 45
 		},
 		{
 			unit: 'minute',

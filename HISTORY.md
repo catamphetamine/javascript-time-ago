@@ -1,3 +1,8 @@
+1.0.10 / 09.01.2018
+===================
+
+  * (can be a breaking change for custom styles) Renamed `just-now` unit to `now` and `xxx-concise` flavour to `xxx_time` (+ flavour `.json` files got renamed accordingly).
+
 1.0.8 / 09.01.2018
 ===================
 

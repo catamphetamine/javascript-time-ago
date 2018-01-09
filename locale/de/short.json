@@ -63,7 +63,7 @@
 			"other": "in {0} Sek."
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "jetzt"
 		},

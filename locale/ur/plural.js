@@ -1,1 +1,1 @@
-exports["default"]=function(n){var r=!String(n).split(".")[1];return 1==n&&r?"one":"other"}
+module.exports=function(n){var r=!String(n).split(".")[1];return 1==n&&r?"one":"other"}

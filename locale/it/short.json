@@ -63,7 +63,7 @@
 			"other": "tra {0} sec."
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "ora"
 		},

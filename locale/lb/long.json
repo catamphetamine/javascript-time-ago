@@ -69,7 +69,7 @@
 			"other": "a(n) {0} Sekonnen"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "now"
 		},

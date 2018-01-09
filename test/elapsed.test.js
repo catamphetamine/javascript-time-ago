@@ -15,9 +15,9 @@ describe('elapsed time formatter', function()
 		_gradation[1].unit.should.equal('second')
 		_gradation[1].granularity = 3
 
-		elapsed(1.49, ['just-now', 'second'], _gradation).should.deep.equal
+		elapsed(1.49, ['now', 'second'], _gradation).should.deep.equal
 		({
-			unit: 'just-now',
+			unit: 'now',
 			amount: 1
 		})
 
@@ -25,7 +25,7 @@ describe('elapsed time formatter', function()
 		
 		_gradation.splice(0, 1)
 
-		elapsed(1.49, ['just-now', 'second'], _gradation).should.deep.equal
+		elapsed(1.49, ['now', 'second'], _gradation).should.deep.equal
 		({
 			unit: 'second',
 			amount: 0

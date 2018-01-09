@@ -69,7 +69,7 @@
 			"other": "d’aquí a {0} segons"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "ara"
 		},

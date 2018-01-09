@@ -65,7 +65,7 @@
 			"other": "om {0} sekunder"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "nå"
 		},

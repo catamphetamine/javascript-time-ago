@@ -100,11 +100,11 @@ export default
 				return twitter_another_year_date_formatter.format(date, 'yMMMd')
 			},
 
-			units: ['just-now', 'minute', 'hour'],
+			units: ['now', 'minute', 'hour'],
 
 			gradation: twitter_gradation,
 
-			flavour: ['tiny', 'short-concise', 'short']
+			flavour: ['tiny', 'short_time', 'short']
 		}
 	},
 
@@ -137,10 +137,10 @@ export default
 	{
 		return {
 			gradation: gradation.convenient(),
-			flavour: 'long-concise',
+			flavour: 'long_time',
 			units:
 			[
-				'just-now',
+				'now',
 				'minute',
 				'half-hour',
 				'hour',

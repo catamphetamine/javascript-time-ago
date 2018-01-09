@@ -55,7 +55,7 @@
 			"other": "{0} 秒後"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "今"
 		},

@@ -1,1 +1,1 @@
-exports["default"]=function(e){var i=String(e).split("."),n=i[0],t=!i[1],r=n.slice(-1),s=n.slice(-2);return t&&1==r?"one":t&&2==r?"two":!t||0!=s&&20!=s&&40!=s&&60!=s&&80!=s?t?"other":"many":"few"}
+module.exports=function(e){var i=String(e).split("."),n=i[0],t=!i[1],r=n.slice(-1),s=n.slice(-2);return t&&1==r?"one":t&&2==r?"two":!t||0!=s&&20!=s&&40!=s&&60!=s&&80!=s?t?"other":"many":"few"}

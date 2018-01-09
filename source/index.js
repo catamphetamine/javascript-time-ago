@@ -116,7 +116,7 @@ export default class JavascriptTimeAgo
 		const { unit, amount } = elapsed(Math.abs(seconds_elapsed), units, style.gradation)
 
 		// If no time unit is suitable, just output an empty string.
-		// E.g. when "just-now" is not available
+		// E.g. when "now" unit is not available
 		// and "second" has a threshold of `0.5`
 		// (e.g. the "canonical" grading scale).
 		if (!unit)

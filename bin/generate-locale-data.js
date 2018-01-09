@@ -85,16 +85,12 @@ for (const locale of Object.keys(plurals))
 	(
 		path.join(locale_folder, 'index.js'),
 		`
-var long = require('./long.json')
-${data.short ? "var short = require('./short.json')" : ''}
-var plural = require('./plural').default
-
 module.exports =
 {
 	locale: '${language}',
-	long: long,
-	${data.short ? "short: short," : ""}
-	plural: plural
+	long: require('./long.json'),
+	${data.short ? "short: require('./short.json')," : ""}
+	plural: require('./plural')
 }
 		`
 		.trim()

@@ -69,7 +69,7 @@
 			"other": "čez {0} s"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "zdaj"
 		},

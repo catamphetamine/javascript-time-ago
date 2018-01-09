@@ -65,7 +65,7 @@
 			"other": "over {0} seconden"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "nu"
 		},

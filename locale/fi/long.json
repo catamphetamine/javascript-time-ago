@@ -62,7 +62,7 @@
 			"other": "{0} sekunnin päästä"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "nyt"
 		},

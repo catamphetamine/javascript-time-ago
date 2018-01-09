@@ -57,7 +57,7 @@
 			"other": "dentro de {0} s"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "ahora"
 		},

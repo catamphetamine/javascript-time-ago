@@ -1,1 +1,1 @@
-exports["default"]=function(n){return"other"}
+module.exports=function(n){return"other"}

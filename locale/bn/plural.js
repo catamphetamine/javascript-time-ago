@@ -1,1 +1,1 @@
-exports["default"]=function(n){return n>=0&&n<=1?"one":"other"}
+module.exports=function(n){return n>=0&&n<=1?"one":"other"}

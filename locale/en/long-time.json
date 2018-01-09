@@ -85,7 +85,7 @@
 			"other": "{0} seconds"
 		}
 	},
-	"just-now": {
+	"now": {
 		"future": {
 			"other": "a moment"
 		},

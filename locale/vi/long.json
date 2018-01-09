@@ -55,7 +55,7 @@
 			"other": "sau {0} giây nữa"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "bây giờ"
 		},

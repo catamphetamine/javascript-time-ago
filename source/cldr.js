@@ -120,7 +120,7 @@ export default function parse_CLDR(data)
 		// 	parsed_time_unit_formatting_rules.next = entry['relative-type-1']
 		// }
 
-		// Use "now" for "second"s from CLDR as "just-now" formatting rule.
+		// Use "now" for "second"s from CLDR as "now" formatting rule.
 		if (unit === 'second' || unit === 'second-short')
 		{
 			const now = time_unit_formatting_rules['relative-type-0']
@@ -128,7 +128,7 @@ export default function parse_CLDR(data)
 			/* istanbul ignore else */
 			if (now)
 			{
-				locale_data[short.test(unit) ? 'short' : 'long']['just-now'] =
+				locale_data[short.test(unit) ? 'short' : 'long'].now =
 				{
 					past   : { other : now },
 					future : { other : now }

@@ -67,7 +67,7 @@
 			"other": "dans {0} secondes"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "maintenant"
 		},

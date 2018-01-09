@@ -83,7 +83,7 @@
 			"other": "peste {0} de secunde"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "acum"
 		},

@@ -61,7 +61,7 @@
 			"other": "over {0} sec."
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "nu"
 		},

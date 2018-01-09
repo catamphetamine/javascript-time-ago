@@ -1,1 +1,1 @@
-exports["default"]=function(e){return 0==e?"zero":1==e?"one":"other"}
+module.exports=function(e){return 0==e?"zero":1==e?"one":"other"}

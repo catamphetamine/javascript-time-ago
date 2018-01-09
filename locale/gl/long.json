@@ -69,7 +69,7 @@
 			"other": "dentro de {0} segundos"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "agora"
 		},

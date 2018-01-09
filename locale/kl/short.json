@@ -55,7 +55,7 @@
 			"other": "om {0} sekundi"
 		}
 	},
-	"just-now": {
+	"now": {
 		"past": {
 			"other": "now"
 		},

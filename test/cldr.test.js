@@ -83,7 +83,7 @@ const converted_CLDR =
         "other": "in {0} seconds"
       }
     },
-    "just-now": {
+    "now": {
       "past": {
         "other": "now"
       },
@@ -163,7 +163,7 @@ const converted_CLDR =
         "other": "in {0} sec."
       }
     },
-    "just-now": {
+    "now": {
       "past": {
         "other": "now"
       },

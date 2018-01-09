@@ -50,8 +50,6 @@ for (const locale of Object.keys(plurals))
 	fs.outputFileSync
 	(
 		path.join(__dirname, '../locale', language, 'plural.js'),
-		`exports["default"]=${code}`
+		`module.exports=${code}`
 	)
 }
-
-// module.exports=exports["default"]
