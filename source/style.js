@@ -1,4 +1,5 @@
 import gradation, { day } from './gradation'
+import { intl_supported_locale } from './locale'
 
 // A cache for `Intl.DateTimeFormat` twitter formatters
 // for various locales (is a global variable).
@@ -57,12 +58,23 @@ export default
 			}
 		}
 
+		// Whether can use `Intl.DateTimeFormat`.
+		const can_use_intl = intl_supported_locale(locale)
+
 		return {
 			// Twitter style relative time formatting:
 			// Seconds, minutes and hours are shown relatively,
 			// and other intervals can be shown using full date format.
 			override({ elapsed, date, time, now })
 			{
+				// If `Intl` is not available,
+				// or the locale is not supported,
+				// then don't override the default labels.
+				if (!can_use_intl)
+				{
+					return
+				}
+
 				// If less than 24 hours elapsed,
 				// then format it relatively
 				// (don't override the default behaviour).

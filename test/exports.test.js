@@ -4,7 +4,8 @@ Time_ago,
 	day,
 	month,
 	year,
-	gradation
+	gradation,
+	intlSupportedLocale
 }
 from '../index.es6'
 
@@ -19,6 +20,7 @@ describe(`exports`, function()
 		month.should.be.a('number')
 		year.should.be.a('number')
 		gradation.should.be.an('object')
+		intlSupportedLocale('en')
 	})
 
 	it(`should export CommonJS`, function()
@@ -34,5 +36,6 @@ describe(`exports`, function()
 		Library.month.should.be.a('number')
 		Library.year.should.be.a('number')
 		Library.gradation.should.be.an('object')
+		Library.intlSupportedLocale('en')
 	})
 })

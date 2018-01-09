@@ -1,7 +1,13 @@
-import choose_locale from '../source/locale'
+import choose_locale, { intl_supported_locale } from '../source/locale'
 
 describe('locale', function()
 {
+	it(`should tell if can use Intl for date formatting`, function()
+	{
+		intl_supported_locale('en').should.equal('en')
+		intl_supported_locale(['en', 'ru']).should.equal('en')
+	})
+
 	it(`should choose the most appropriate locale`, function()
 	{
 		// function array_to_object(array)

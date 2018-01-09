@@ -9,3 +9,7 @@ exports.day       = gradation.day
 exports.month     = gradation.month
 exports.year      = gradation.year
 exports.gradation = gradation.default
+
+var locale = require('./build/locale')
+
+exports.intlSupportedLocale = locale.intl_supported_locale

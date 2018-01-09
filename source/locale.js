@@ -55,3 +55,17 @@ function get_language_from_locale(locale)
 
 	return locale
 }
+
+/**
+ * Whether can use `Intl.DateTimeFormat` for these `locales`.
+ * Returns the first suitable one.
+ * @param  {(string|string[])} locales
+ * @return {string} The first locale that can be used.
+ */
+export function intl_supported_locale(locales)
+{
+	if (typeof Intl === 'object' && Intl.DateTimeFormat)
+	{
+		return Intl.DateTimeFormat.supportedLocalesOf(locales)[0]
+	}
+}
