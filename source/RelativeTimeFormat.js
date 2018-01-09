@@ -30,7 +30,6 @@ export default class RelativeTimeFormat {
 
   /**
    * Formats time `value` in `units` (either in past or in future).
-   * @param {(string|string[])} locales - Preferred locales (or locale).
    * @param {number} value - Time interval value.
    * @param {string} unit - Time interval measurement unit.
    * @return {string}
@@ -41,6 +40,57 @@ export default class RelativeTimeFormat {
    * rtf.format(5, "minute")
    */
   format(value, unit) {
+    return this.getRule(value, unit).replace('{0}', Math.abs(value))
+  }
+
+  /**
+   * Formats time `value` in `units` (either in past or in future).
+   * @param {number} value - Time interval value.
+   * @param {string} unit - Time interval measurement unit.
+   * @return {Object[]} The parts (`{ type, value }`).
+   * @example
+   * // Returns [
+   * //   { type: "literal", value: "in "},
+   * //   { type: "day", value: "100"},
+   * //   { type: "literal", value: " days"}
+   * // ]
+   * rtf.formatToParts(100, "day")
+   */
+  formatToParts(value, unit) {
+    const rule = this.getRule(value, unit)
+    const valueIndex = rule.indexOf("{0}")
+    const parts = []
+    let pre
+    let post
+    if (valueIndex > 0) {
+      parts.push({
+        type: "literal",
+        value: rule.slice(0, valueIndex)
+      })
+    }
+    parts.push({
+      type: unit,
+      value: String(Math.abs(value))
+    })
+    if (valueIndex + "{0}".length < rule.length - 1) {
+      parts.push({
+        type: "literal",
+        value: rule.slice(valueIndex + "{0}".length)
+      })
+    }
+    return parts
+  }
+
+  /**
+   * Returns formatting rule for `value` in `units` (either in past or in future).
+   * @param {number} value - Time interval value.
+   * @param {string} unit - Time interval measurement unit.
+   * @return {string}
+   * @example
+   * // Returns "{0} days ago"
+   * getRule(-2, "day")
+   */
+  getRule(value, unit) {
     // Get locale-specific time interval formatting rules
     // of a given `style` for the given value of measurement `unit`.
     //
@@ -60,32 +110,12 @@ export default class RelativeTimeFormat {
     // ```
     //
     // Then choose either "past" or "future" based on time `value` sign.
-    const rules = getLocales()[this.locale][this.style][unit][value <= 0 ? 'past' : 'future']
+    const rules = getLocales()[this.locale][this.style][unit][value <= 0 ? "past" : "future"]
     // Quantify `value`.
     const quantifier = getLocales()[this.locale].quantify(Math.abs(value))
     // "other" rule is supposed to always be present
-    const rule = rules[quantifier] || rules.other
-    // Format the `value`
-    return rule.replace('{0}', Math.abs(value))
+    return rules[quantifier] || rules.other
   }
-
-  /**
-   * Formats time `value` in `units` (either in past or in future).
-   * @param {(string|string[])} locales - Preferred locales (or locale).
-   * @param {number} value - Time interval value.
-   * @param {string} unit - Time interval measurement unit.
-   * @return {Object[]} The parts (`{ type, value }`).
-   * @example
-   * // Returns [
-   * //   { type: "literal", value: "in "},
-   * //   { type: "day", value: "100"},
-   * //   { type: "literal", value: " days"}
-   * // ]
-   * rtf.format(100, "day")
-   */
-  // formatToParts(value, unit) {
-  //   ...		
-  // }
 }
 
 export function loadLocale(locale) {

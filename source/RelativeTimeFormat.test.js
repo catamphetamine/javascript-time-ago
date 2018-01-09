@@ -1,10 +1,12 @@
 import en from '../locale/en'
 import ru from '../locale/ru'
+import to from '../locale/to'
 
 import RelativeTimeFormat, { loadLocale } from './RelativeTimeFormat'
 
 loadLocale(en)
 loadLocale(ru)
+loadLocale(to)
 
 describe('Intl.RelativeTimeFormat', () => {
   it('should format relative time', () => {
@@ -22,21 +24,29 @@ describe('Intl.RelativeTimeFormat', () => {
 
   it('should accept an array of locales', () => {
     const rtf = new RelativeTimeFormat(["en"]);
-    
+
     expect(rtf.format(-2, "day")).to.equal("2 days ago");
   })
 
   it('should format to parts', () => {
-    const rtf = new RelativeTimeFormat("en");
+    let rtf = new RelativeTimeFormat("en");
 
-    // expect(rtf.formatToParts(-1, "day")).to.deep.equal([
-    //   { type: "literal", value: "yesterday"}
-    // ]);
+    expect(rtf.formatToParts(100, "day")).to.deep.equal([
+      { type: "literal", value: "in "},
+      { type: "day", value: "100"},
+      { type: "literal", value: " days"}
+    ]);
 
-    // expect(rtf.format(100, "day")).to.deep.equal([
-    //   { type: "literal", value: "in "},
-    //   { type: "day", value: "100"},
-    //   { type: "literal", value: " days"}
-    // ]);
+    expect(rtf.formatToParts(-100, "day")).to.deep.equal([
+      { type: "day", value: "100"},
+      { type: "literal", value: " days ago"}
+    ]);
+
+    rtf = new RelativeTimeFormat("to");
+
+    expect(rtf.formatToParts(100, "day")).to.deep.equal([
+      { type: "literal", value: "ʻi he ʻaho ʻe "},
+      { type: "day", value: "100"}
+    ]);
   })
 })
