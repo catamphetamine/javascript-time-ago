@@ -21,6 +21,7 @@ let twitter_gradation
 export default
 {
 	// Twitter style relative time formatting.
+	// ("1m", "2h", "Mar 3", "Apr 4, 2012").
 	// Seconds, minutes and hours are shown relatively,
 	// and other intervals can be shown using full date format.
 	twitter(locale)

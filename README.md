@@ -107,7 +107,7 @@ timeAgo.format(new Date(Date.now() - 2 * 60 * 60 * 1000), 'twitter')
 // "2h"
 ```
 
-The built-in Twitter style uses `Intl` internally for formatting `day/month/year` labels. This is not an issue for modern web browsers but requies `Intl` polyfill for a couple of older browsers and for Node.js (if you're running this code on server side). See the [`Intl`](https://github.com/catamphetamine/javascript-time-ago#intl) section of this document for `Intl` polyfill instructions.
+The built-in Twitter style uses `Intl` internally for formatting `day/month/year` labels. This is not an issue for modern web browsers but requies `Intl` polyfill for a couple of older browsers and for Node.js (if you're running this code on server side). See the [`Intl`](https://github.com/catamphetamine/javascript-time-ago#intl) section of this document for `Intl` polyfill instructions. When `Intl` is not available Twitter style falls back to the default one.
 
 ## Fuzzy style
 
@@ -267,7 +267,7 @@ There is also a [React component](https://catamphetamine.github.io/react-time-ag
 
 ## Intl
 
-[`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object is not required for this library, but it may be required if you choose to use the built-in `twitter` style.
+[`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object is not required for this library, but it may be required if you choose to use the built-in `twitter` style (though it will fall back to the default style if `Intl` is not available).
 
 `Intl` is present in all modern web browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using `Intl` polyfill).
 
