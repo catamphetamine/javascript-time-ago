@@ -2,6 +2,8 @@ import elapsed       from './elapsed'
 import styles        from './style'
 import choose_locale from './locale'
 
+import RelativeTimeFormat from './RelativeTimeFormat'
+
 export default class JavascriptTimeAgo
 {
 	// Fallback locale
@@ -75,7 +77,7 @@ export default class JavascriptTimeAgo
 		const { date, time } = get_date_and_time_being_formatted(input)
 
 		// Get locale messages for this formatting flavour
-		const { locale_data } = this.get_locale_data(style.flavour)
+		const { flavour, locale_data } = this.get_locale_data(style.flavour)
 
 		// Can pass a custom `now`, e.g. for testing purposes.
 		// Technically it doesn't belong to `style`
@@ -124,36 +126,13 @@ export default class JavascriptTimeAgo
 			return ''
 		}
 
-		// Get locale-specific time interval formatting rules
-		// of a given `flavour`
-		// for the given time interval measurement `unit`.
-		//
-		// E.g.:
-		//
-		// ```json
-		// {
-		// 	"past": {
-		// 		"one": "a second ago",
-		// 		"other": "{0} seconds ago"
-		// 	},
-		// 	"future": {
-		// 		"one": "in a second",
-		// 		"other": "in {0} seconds"
-		// 	}
-		// }
-		// ```
-		//
-		// Then choose either "past" or "future" based on time elapsed sign.
-		//
-		const rules = locale_data[unit][seconds_elapsed >= 0 ? 'past' : 'future']
-
 		// Format the time elapsed.
-		// Get pluralization classifier function.
-		const plurals_classifier = JavascriptTimeAgo.locales[this.locale].plural
-		// "other" rule is supposed to always be present
-		const rule = rules[plurals_classifier(amount)] || rules.other
-		// Inject the amount
-		return rule.replace('{0}', amount)
+		// Using `Intl.RelativeTimeFormat` proposal polyfill.
+		return new RelativeTimeFormat(this.locale, { style: flavour }).format
+		(
+			-1 * Math.sign(seconds_elapsed) * amount,
+			unit
+		)
 	}
 
 	/**

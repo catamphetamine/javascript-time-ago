@@ -5,7 +5,8 @@ Time_ago,
 	month,
 	year,
 	gradation,
-	intlSupportedLocale
+	intlSupportedLocale,
+	RelativeTimeFormat
 }
 from '../index.es6'
 
@@ -21,6 +22,7 @@ describe(`exports`, function()
 		year.should.be.a('number')
 		gradation.should.be.an('object')
 		intlSupportedLocale('en')
+		new RelativeTimeFormat('en').format.should.be.a('function')
 	})
 
 	it(`should export CommonJS`, function()
@@ -37,5 +39,6 @@ describe(`exports`, function()
 		Library.year.should.be.a('number')
 		Library.gradation.should.be.an('object')
 		Library.intlSupportedLocale('en')
+		new Library.RelativeTimeFormat('en').format.should.be.a('function')
 	})
 })
