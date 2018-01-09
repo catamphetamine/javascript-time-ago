@@ -29,9 +29,11 @@ export default class RelativeTimeFormat {
   }
 
   /**
+   * Formats time `value` in `units` (either in past or in future).
    * @param {(string|string[])} locales - Preferred locales (or locale).
    * @param {number} value - Time interval value.
    * @param {string} unit - Time interval measurement unit.
+   * @return {string}
    * @example
    * // Returns "2 days ago"
    * rtf.format(-2, "day")
@@ -68,9 +70,11 @@ export default class RelativeTimeFormat {
   }
 
   /**
+   * Formats time `value` in `units` (either in past or in future).
    * @param {(string|string[])} locales - Preferred locales (or locale).
    * @param {number} value - Time interval value.
    * @param {string} unit - Time interval measurement unit.
+   * @return {Object[]} The parts (`{ type, value }`).
    * @example
    * // Returns [
    * //   { type: "literal", value: "in "},
