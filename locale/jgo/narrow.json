@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "Ɛ́gɛ́ mɔ́ ŋguꞋ {0}"
+		},
+		"future": {
+			"other": "Nǔu ŋguꞋ {0}"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "ɛ́ gɛ́ mɔ́ pɛsaŋ {0}"
+		},
+		"future": {
+			"other": "Nǔu {0} saŋ"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "Ɛ́ gɛ́ mɔ {0} ŋgap-mbi"
+		},
+		"future": {
+			"other": "Nǔu ŋgap-mbi {0}"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}"
+		},
+		"future": {
+			"other": "Nǔu lɛ́Ꞌ {0}"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "ɛ́ gɛ mɔ́ {0} háwa"
+		},
+		"future": {
+			"other": "nǔu háwa {0}"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "ɛ́ gɛ́ mɔ́ minút {0}"
+		},
+		"future": {
+			"other": "nǔu {0} minút"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	}
+}

@@ -54,13 +54,5 @@
 		"future": {
 			"other": "{0}s"
 		}
-	},
-	"now": {
-		"past": {
-			"other": ""
-		},
-		"future": {
-			"other": ""
-		}
 	}
 }

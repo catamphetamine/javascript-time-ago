@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "for {0} ukioq siden"
+		},
+		"future": {
+			"other": "om {0} ukioq"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "for {0} qaammat siden"
+		},
+		"future": {
+			"other": "om {0} qaammat"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "for {0} sapaatip-akunnera siden"
+		},
+		"future": {
+			"other": "om {0} sapaatip-akunnera"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "for {0} ulloq unnuarlu siden"
+		},
+		"future": {
+			"other": "om {0} ulloq unnuarlu"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "for {0} nalunaaquttap-akunnera siden"
+		},
+		"future": {
+			"other": "om {0} nalunaaquttap-akunnera"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "for {0} minutsi siden"
+		},
+		"future": {
+			"other": "om {0} minutsi"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "for {0} sekundi siden"
+		},
+		"future": {
+			"other": "om {0} sekundi"
+		}
+	}
+}

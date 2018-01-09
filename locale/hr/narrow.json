@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "prije {0} g."
+		},
+		"future": {
+			"other": "za {0} g."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "prije {0} mj."
+		},
+		"future": {
+			"other": "za {0} mj."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "prije {0} tj."
+		},
+		"future": {
+			"other": "za {0} tj."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "prije {0} d"
+		},
+		"future": {
+			"other": "za {0} d"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "prije {0} h"
+		},
+		"future": {
+			"other": "za {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "prije {0} min"
+		},
+		"future": {
+			"other": "za {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "prije {0} s"
+		},
+		"future": {
+			"other": "za {0} s"
+		}
+	}
+}

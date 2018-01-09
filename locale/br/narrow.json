@@ -1,0 +1,60 @@
+{
+	"year": {
+		"past": {
+			"other": "-{0} bl."
+		},
+		"future": {
+			"other": "+{0} bl."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "-{0} miz"
+		},
+		"future": {
+			"other": "+{0} miz"
+		}
+	},
+	"week": {
+		"past": {
+			"many": "{0} a sizhunioù zo",
+			"other": "{0} sizhun zo"
+		},
+		"future": {
+			"many": "a-benn {0} a sizhunioù",
+			"other": "a-benn {0} sizhun"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "-{0} d"
+		},
+		"future": {
+			"other": "+{0} d"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "-{0} h"
+		},
+		"future": {
+			"other": "+{0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "-{0} min"
+		},
+		"future": {
+			"other": "+{0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	}
+}

@@ -1,0 +1,62 @@
+{
+	"year": {
+		"past": {
+			"other": "pirms {0} g."
+		},
+		"future": {
+			"other": "pēc {0} g."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "pirms {0} mēn."
+		},
+		"future": {
+			"other": "pēc {0} mēn."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "pirms {0} ned."
+		},
+		"future": {
+			"other": "pēc {0} ned."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "pirms {0} d.",
+			"other": "pirms {0} d."
+		},
+		"future": {
+			"one": "pēc {0} d.",
+			"other": "pēc {0} d."
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "pirms {0} h"
+		},
+		"future": {
+			"other": "pēc {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "pirms {0} min"
+		},
+		"future": {
+			"one": "pēc {0} min",
+			"other": "pēc {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "pirms {0} s",
+			"other": "pirms {0} s"
+		},
+		"future": {
+			"other": "pēc {0} s"
+		}
+	}
+}

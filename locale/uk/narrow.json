@@ -1,0 +1,59 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} р. тому"
+		},
+		"future": {
+			"other": "за {0} р."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} міс. тому"
+		},
+		"future": {
+			"other": "за {0} міс."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} тиж. тому"
+		},
+		"future": {
+			"other": "за {0} тиж."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} д. тому",
+			"other": "-{0} дн."
+		},
+		"future": {
+			"other": "за {0} д."
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} год тому"
+		},
+		"future": {
+			"other": "за {0} год"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} хв тому"
+		},
+		"future": {
+			"other": "за {0} хв"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} с тому"
+		},
+		"future": {
+			"other": "за {0} с"
+		}
+	}
+}

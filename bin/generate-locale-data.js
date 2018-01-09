@@ -80,6 +80,19 @@ for (const locale of Object.keys(plurals))
 		)
 	}
 
+	// Write the "narrow" flavour (if present)
+	//http://cldr.unicode.org/translation/plurals#TOC-Narrow-and-Short-Forms
+	if (data.narrow)
+	{
+		reduce_quantifiers(data.narrow)
+
+		fs.outputFileSync
+		(
+			path.join(locale_folder, 'narrow.json'),
+			JSON.stringify(data.narrow, null, '\t')
+		)
+	}
+
 	// `index.js`
 	fs.outputFileSync
 	(
@@ -90,6 +103,7 @@ module.exports =
 	locale: '${language}',
 	long: require('./long.json'),
 	${data.short ? "short: require('./short.json')," : ""}
+	${data.narrow ? "narrow: require('./narrow.json')," : ""}
 	plural: require('./plural')
 }
 		`
@@ -105,13 +119,12 @@ module.exports =
 // export var locale = '${language}'
 // export { default as long } from './long.json'
 // ${data.short ? "export { default as short } from './short.json'": ""}
+// ${data.narrow ? "export { default as narrow } from './narrow.json'": ""}
 // export { default as plural } from './plural'
 // 		`
 // 		.trim()
 // 	)
 }
-
-// module.exports=exports["default"]
 
 function reduce_quantifiers(flavour)
 {

@@ -1,0 +1,70 @@
+{
+	"year": {
+		"past": {
+			"other": "ƒe {0} si va yi me"
+		},
+		"future": {
+			"other": "le ƒe {0} si gbɔna me"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "ɣleti {0} si va yi",
+			"other": "ɣleti {0} si wo va yi"
+		},
+		"future": {
+			"one": "le ɣleti {0} me",
+			"other": "le ɣleti {0} wo me"
+		}
+	},
+	"week": {
+		"past": {
+			"one": "kɔsiɖa {0} si va yi",
+			"other": "kɔsiɖa {0} si wo va yi"
+		},
+		"future": {
+			"one": "le kɔsiɖa {0} me",
+			"other": "le kɔsiɖa {0} wo me"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "ŋkeke {0} si va yi",
+			"other": "ŋkeke {0} si wo va yi"
+		},
+		"future": {
+			"one": "le ŋkeke {0} me",
+			"other": "le ŋkeke {0} wo me"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "gaƒoƒo {0} si va yi",
+			"other": "gaƒoƒo {0} si wo va yi"
+		},
+		"future": {
+			"one": "le gaƒoƒo {0} me",
+			"other": "le gaƒoƒo {0} wo me"
+		}
+	},
+	"minute": {
+		"past": {
+			"one": "aɖabaƒoƒo {0} si va yi",
+			"other": "aɖabaƒoƒo {0} si wo va yi"
+		},
+		"future": {
+			"one": "le aɖabaƒoƒo {0} me",
+			"other": "le aɖabaƒoƒo {0} wo me"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "sekend {0} si va yi",
+			"other": "sekend {0} si wo va yi"
+		},
+		"future": {
+			"one": "le sekend {0} me",
+			"other": "le sekend {0} wo me"
+		}
+	}
+}

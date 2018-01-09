@@ -1,0 +1,71 @@
+{
+	"year": {
+		"past": {
+			"one": "blwyddyn yn ôl",
+			"two": "{0} flynedd yn ôl",
+			"few": "{0} blynedd yn ôl",
+			"many": "{0} blynedd yn ôl",
+			"other": "{0} o flynyddoedd yn ôl"
+		},
+		"future": {
+			"one": "ymhen blwyddyn",
+			"two": "ymhen {0} flynedd",
+			"few": "ymhen {0} blynedd",
+			"many": "ymhen {0} blynedd",
+			"other": "ymhen {0} mlynedd"
+		}
+	},
+	"month": {
+		"past": {
+			"two": "{0} fis yn ôl",
+			"other": "{0} mis yn ôl"
+		},
+		"future": {
+			"one": "ymhen mis",
+			"two": "ymhen deufis",
+			"other": "ymhen {0} mis"
+		}
+	},
+	"week": {
+		"past": {
+			"two": "pythefnos yn ôl",
+			"other": "{0} wythnos yn ôl"
+		},
+		"future": {
+			"other": "ymhen {0} wythnos"
+		}
+	},
+	"day": {
+		"past": {
+			"two": "{0} ddiwrnod yn ôl",
+			"other": "{0} diwrnod yn ôl"
+		},
+		"future": {
+			"other": "ymhen {0} diwrnod"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} awr yn ôl"
+		},
+		"future": {
+			"other": "ymhen {0} awr"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} mun. yn ôl"
+		},
+		"future": {
+			"other": "ymhen {0} mun."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} eiliad yn ôl"
+		},
+		"future": {
+			"other": "ymhen {0} eiliad"
+		}
+	}
+}

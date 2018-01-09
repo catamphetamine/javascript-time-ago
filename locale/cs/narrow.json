@@ -1,0 +1,69 @@
+{
+	"year": {
+		"past": {
+			"one": "před {0} r.",
+			"few": "před {0} r.",
+			"many": "před {0} r.",
+			"other": "před {0} l."
+		},
+		"future": {
+			"one": "za {0} r.",
+			"few": "za {0} r.",
+			"many": "za {0} r.",
+			"other": "za {0} l."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "před {0} měs."
+		},
+		"future": {
+			"other": "za {0} měs."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "před {0} týd."
+		},
+		"future": {
+			"other": "za {0} týd."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "před {0} dnem",
+			"many": "před {0} dne",
+			"other": "před {0} dny"
+		},
+		"future": {
+			"one": "za {0} den",
+			"few": "za {0} dny",
+			"many": "za {0} dne",
+			"other": "za {0} dní"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "před {0} h"
+		},
+		"future": {
+			"other": "za {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "před {0} min"
+		},
+		"future": {
+			"other": "za {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "před {0} s"
+		},
+		"future": {
+			"other": "za {0} s"
+		}
+	}
+}

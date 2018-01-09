@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "-{0} J."
+		},
+		"future": {
+			"other": "+{0} J."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "-{0} M."
+		},
+		"future": {
+			"other": "+{0} M."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "-{0} W."
+		},
+		"future": {
+			"other": "+{0} W."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "-{0} D."
+		},
+		"future": {
+			"other": "+{0} D."
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "-{0} St."
+		},
+		"future": {
+			"other": "+{0} St."
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "-{0} Min."
+		},
+		"future": {
+			"other": "+{0} Min."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} Sek."
+		},
+		"future": {
+			"other": "+{0} Sek."
+		}
+	}
+}

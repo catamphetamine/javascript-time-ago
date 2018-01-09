@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} տ առաջ"
+		},
+		"future": {
+			"other": "{0} տարուց"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} ամիս առաջ"
+		},
+		"future": {
+			"other": "{0} ամսից"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} շաբ առաջ"
+		},
+		"future": {
+			"other": "{0} շաբ անց"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} օր առաջ"
+		},
+		"future": {
+			"other": "{0} օրից"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} ժ առաջ"
+		},
+		"future": {
+			"other": "{0} ժ-ից"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} ր առաջ"
+		},
+		"future": {
+			"other": "{0} ր-ից"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} վ առաջ"
+		},
+		"future": {
+			"other": "{0} վ-ից"
+		}
+	}
+}

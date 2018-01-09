@@ -1,0 +1,60 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} کال مخکې",
+			"other": "{0} کاله مخکې"
+		},
+		"future": {
+			"one": "په {0} کال کې",
+			"other": "په {0} کالونو کې"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "-{0} m"
+		},
+		"future": {
+			"other": "+{0} m"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "-{0} w"
+		},
+		"future": {
+			"other": "+{0} w"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "-{0} d"
+		},
+		"future": {
+			"other": "+{0} d"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "-{0} h"
+		},
+		"future": {
+			"other": "+{0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "-{0} min"
+		},
+		"future": {
+			"other": "+{0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	}
+}

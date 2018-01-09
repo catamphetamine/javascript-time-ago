@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "prieš {0} m."
+		},
+		"future": {
+			"other": "po {0} m."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "prieš {0} mėn."
+		},
+		"future": {
+			"other": "po {0} mėn."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "prieš {0} sav."
+		},
+		"future": {
+			"other": "po {0} sav."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "prieš {0} d."
+		},
+		"future": {
+			"other": "po {0} d."
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "prieš {0} val."
+		},
+		"future": {
+			"other": "po {0} val."
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "prieš {0} min."
+		},
+		"future": {
+			"other": "po {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "prieš {0} s"
+		},
+		"future": {
+			"other": "po {0} s"
+		}
+	}
+}

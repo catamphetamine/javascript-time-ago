@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} ár síðan"
+		},
+		"future": {
+			"other": "um {0} ár"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} mnð. síðan"
+		},
+		"future": {
+			"other": "um {0} mnð."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} v. síðan"
+		},
+		"future": {
+			"other": "um {0} v."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} d. síðan"
+		},
+		"future": {
+			"other": "um {0} d."
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} t. síðan"
+		},
+		"future": {
+			"other": "um {0} t."
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} m. síðan"
+		},
+		"future": {
+			"other": "um {0} m."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} s. síðan"
+		},
+		"future": {
+			"other": "um {0} s."
+		}
+	}
+}

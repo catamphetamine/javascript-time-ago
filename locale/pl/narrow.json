@@ -1,0 +1,72 @@
+{
+	"year": {
+		"past": {
+			"one": "{0} rok temu",
+			"few": "{0} lata temu",
+			"many": "{0} lat temu",
+			"other": "{0} roku temu"
+		},
+		"future": {
+			"one": "za {0} rok",
+			"few": "za {0} lata",
+			"many": "za {0} lat",
+			"other": "za {0} roku"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} mies. temu"
+		},
+		"future": {
+			"other": "za {0} mies."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "{0} tydz. temu",
+			"other": "{0} tyg. temu"
+		},
+		"future": {
+			"one": "za {0} tydz.",
+			"other": "za {0} tyg."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} dzień temu",
+			"few": "{0} dni temu",
+			"many": "{0} dni temu",
+			"other": "{0} dnia temu"
+		},
+		"future": {
+			"one": "za {0} dzień",
+			"few": "za {0} dni",
+			"many": "za {0} dni",
+			"other": "za {0} dnia"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} g. temu"
+		},
+		"future": {
+			"other": "za {0} g."
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} min temu"
+		},
+		"future": {
+			"other": "za {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} s temu"
+		},
+		"future": {
+			"other": "za {0} s"
+		}
+	}
+}

@@ -1,0 +1,67 @@
+{
+	"year": {
+		"past": {
+			"one": "pred {0} letom",
+			"two": "pred {0} letoma",
+			"other": "pred {0} leti"
+		},
+		"future": {
+			"one": "čez {0} leto",
+			"two": "čez {0} leti",
+			"few": "čez {0} leta",
+			"other": "čez {0} let"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "pred {0} mes."
+		},
+		"future": {
+			"other": "čez {0} mes."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "pred {0} ted."
+		},
+		"future": {
+			"other": "čez {0} ted."
+		}
+	},
+	"day": {
+		"past": {
+			"one": "pred {0} dnevom",
+			"two": "pred {0} dnevoma",
+			"other": "pred {0} dnevi"
+		},
+		"future": {
+			"one": "čez {0} dan",
+			"two": "čez {0} dneva",
+			"other": "čez {0} dni"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "pred {0} h"
+		},
+		"future": {
+			"other": "čez {0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "pred {0} min"
+		},
+		"future": {
+			"other": "čez {0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "pred {0} s"
+		},
+		"future": {
+			"other": "čez {0} s"
+		}
+	}
+}

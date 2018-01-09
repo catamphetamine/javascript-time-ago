@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} yıl önce"
+		},
+		"future": {
+			"other": "{0} yıl sonra"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} ay önce"
+		},
+		"future": {
+			"other": "{0} ay sonra"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} hf. önce"
+		},
+		"future": {
+			"other": "{0} hf. sonra"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} gün önce"
+		},
+		"future": {
+			"other": "{0} gün sonra"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} sa. önce"
+		},
+		"future": {
+			"other": "{0} sa. sonra"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} dk. önce"
+		},
+		"future": {
+			"other": "{0} dk. sonra"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} sn. önce"
+		},
+		"future": {
+			"other": "{0} sn. sonra"
+		}
+	}
+}

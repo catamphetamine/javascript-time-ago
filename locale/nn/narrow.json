@@ -1,0 +1,59 @@
+{
+	"year": {
+		"past": {
+			"other": "for {0} år sidan"
+		},
+		"future": {
+			"other": "om {0} år"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "–{0} md."
+		},
+		"future": {
+			"other": "+{0} md."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "–{0} v."
+		},
+		"future": {
+			"other": "+{0} v."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "–{0} d."
+		},
+		"future": {
+			"other": "+{0} d."
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "–{0} t"
+		},
+		"future": {
+			"other": "+{0} t"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "–{0} min"
+		},
+		"future": {
+			"other": "+{0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"one": "–{0} s",
+			"other": "–{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	}
+}

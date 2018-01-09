@@ -104,7 +104,7 @@ export default
 
 			gradation: twitter_gradation,
 
-			flavour: ['tiny', 'short_time', 'short']
+			flavour: ['tiny', 'short_time', 'narrow', 'short']
 		}
 	},
 

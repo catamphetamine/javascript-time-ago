@@ -1,0 +1,66 @@
+{
+	"year": {
+		"past": {
+			"other": "for {0} år siden"
+		},
+		"future": {
+			"other": "om {0} år"
+		}
+	},
+	"month": {
+		"past": {
+			"one": "for {0} md. siden",
+			"other": "for {0} mdr. siden"
+		},
+		"future": {
+			"one": "om {0} md.",
+			"other": "om {0} mdr."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "for {0} uge siden",
+			"other": "for {0} uger siden"
+		},
+		"future": {
+			"one": "om {0} uge",
+			"other": "om {0} uger"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "for {0} dag siden",
+			"other": "for {0} dage siden"
+		},
+		"future": {
+			"one": "om {0} dag",
+			"other": "om {0} dage"
+		}
+	},
+	"hour": {
+		"past": {
+			"one": "for {0} time siden",
+			"other": "for {0} timer siden"
+		},
+		"future": {
+			"one": "om {0} time",
+			"other": "om {0} timer"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "for {0} min. siden"
+		},
+		"future": {
+			"other": "om {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "for {0} sek. siden"
+		},
+		"future": {
+			"other": "om {0} sek."
+		}
+	}
+}

@@ -43,3 +43,4 @@ npm-debug.log
 
 # tests aren't needed for npm
 /test/
+*.test.js

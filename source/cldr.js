@@ -1,3 +1,7 @@
+// The generic time measurement units
+// (other units like "quarter" or "thu" are ignored).
+export const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'year']
+
 // Converts locale data from CLDR format to this library's format.
 //
 // CLDR locale data example:
@@ -60,14 +64,12 @@
 // ```
 export default function parse_CLDR(data)
 {
-	// The generic time measurement units
-	// (other units like "quarter" or "thu" are ignored).
-	const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'year']
-
-	// Detects the short flavour of labels (yr., mo., etc).
-	// E.g. for English there are "month", "month-short", "month-narrow".
-	// Out of these three only the regular one and the "short" one are used.
+	// Detects short and narrow flavours of labels (yr., mo., etc).
+	// E.g. there are "month", "month-short", "month-narrow".
+	// More on "narrow" vs "short":
+	// http://cldr.unicode.org/translation/plurals#TOC-Narrow-and-Short-Forms
 	const short = /-short$/
+	const narrow = /-narrow$/
 
 	// Extract `locale` from CLDR data
 	const locale = Object.keys(data.main)[0]
@@ -78,7 +80,9 @@ export default function parse_CLDR(data)
 	{
 		// Take only the generic time measurement units
 		// (skip exotic ones like "quarter" on "thu").
-		return units.indexOf(unit) >= 0 || units.indexOf(unit.replace(short, '')) >= 0
+		return units.indexOf(unit) >= 0 ||
+			units.indexOf(unit.replace(short, '')) >= 0 ||
+			units.indexOf(unit.replace(narrow, '')) >= 0
 	})
 	.reduce((locale_data, unit) =>
 	{
@@ -96,6 +100,18 @@ export default function parse_CLDR(data)
 
 			locale_data.short[unit.replace(short, '')] = parsed_time_unit_formatting_rules
 		}
+		// If a `unit` ends with `-narrow`
+		// then it's a "narrow" flavour of this unit.
+		else if (narrow.test(unit))
+		{
+			if (!locale_data.narrow)
+			{
+				locale_data.narrow = {}
+			}
+
+			locale_data.narrow[unit.replace(narrow, '')] = parsed_time_unit_formatting_rules
+		}
+		// Otherwise it's "long".
 		else
 		{
 			locale_data.long[unit] = parsed_time_unit_formatting_rules
@@ -121,7 +137,7 @@ export default function parse_CLDR(data)
 		// }
 
 		// Use "now" for "second"s from CLDR as "now" formatting rule.
-		if (unit === 'second' || unit === 'second-short')
+		if (unit === 'second' || unit === 'second-short' || unit === 'second-narrow')
 		{
 			const now = time_unit_formatting_rules['relative-type-0']
 

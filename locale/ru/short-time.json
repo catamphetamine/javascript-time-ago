@@ -50,7 +50,6 @@
 		}
 	},
 	"second": {
-		"current": "сейчас",
 		"future": {
 			"other": "{0} сек."
 		},

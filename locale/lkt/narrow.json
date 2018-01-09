@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "Hékta ómakȟa {0} kʼuŋ héhaŋ"
+		},
+		"future": {
+			"other": "Letáŋhaŋ ómakȟa {0} kiŋháŋ"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "Hékta wíyawapi {0} kʼuŋ héhaŋ"
+		},
+		"future": {
+			"other": "Letáŋhaŋ wíyawapi {0} kiŋháŋ"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "Hékta okó {0} kʼuŋ héhaŋ"
+		},
+		"future": {
+			"other": "Letáŋhaŋ okó {0} kiŋháŋ"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "Hékta {0}-čháŋ k’uŋ héhaŋ"
+		},
+		"future": {
+			"other": "Letáŋhaŋ {0}-čháŋ kiŋháŋ"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "Hékta owápȟe {0} kʼuŋ héhaŋ"
+		},
+		"future": {
+			"other": "Letáŋhaŋ owápȟe {0} kiŋháŋ"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "Hékta oȟ’áŋkȟo {0} k’uŋ héhaŋ"
+		},
+		"future": {
+			"other": "Letáŋhaŋ oȟ’áŋkȟo {0} kiŋháŋ"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "Hékta okpí {0} k’uŋ héhaŋ"
+		},
+		"future": {
+			"other": "Letáŋhaŋ okpí {0} kiŋháŋ"
+		}
+	}
+}

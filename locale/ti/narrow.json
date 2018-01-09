@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "ቅድሚ {0} ዓ"
+		},
+		"future": {
+			"other": "ኣብ {0} ዓ"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "ቅድሚ {0} ወርሒ"
+		},
+		"future": {
+			"other": "ኣብ {0} ወርሒ"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "ቅድሚ {0} ሰሙን"
+		},
+		"future": {
+			"other": "ኣብ {0} ሰሙን"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "ቅድሚ {0} መዓልቲ"
+		},
+		"future": {
+			"other": "ኣብ {0} መዓልቲ"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "ቅድሚ {0} ሰዓት"
+		},
+		"future": {
+			"other": "ኣብ {0} ሰዓት"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "ቅድሚ {0} ደቒቕ"
+		},
+		"future": {
+			"other": "ኣብ {0} ደቒቕ"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "ቅድሚ {0} ካልኢት"
+		},
+		"future": {
+			"other": "ኣብ {0} ካልኢት"
+		}
+	}
+}

@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} წლის წინ"
+		},
+		"future": {
+			"other": "{0} წელში"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} თვის წინ"
+		},
+		"future": {
+			"other": "{0} თვეში"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} კვირის წინ"
+		},
+		"future": {
+			"other": "{0} კვირაში"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} დღის წინ"
+		},
+		"future": {
+			"other": "{0} დღეში"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} სთ წინ"
+		},
+		"future": {
+			"other": "{0} საათში"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} წთ წინ"
+		},
+		"future": {
+			"other": "{0} წუთში"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} წმ წინ"
+		},
+		"future": {
+			"other": "{0} წამში"
+		}
+	}
+}

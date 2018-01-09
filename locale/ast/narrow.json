@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "hai {0} a."
+		},
+		"future": {
+			"other": "en {0} a."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "hai {0} m."
+		},
+		"future": {
+			"other": "en {0} m."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "hai {0} se."
+		},
+		"future": {
+			"other": "en {0} se."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "hai {0} d."
+		},
+		"future": {
+			"other": "en {0} d."
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "hai {0} h."
+		},
+		"future": {
+			"other": "en {0} h."
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "hai {0} min."
+		},
+		"future": {
+			"other": "en {0} min."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "hai {0} s."
+		},
+		"future": {
+			"other": "en {0} s."
+		}
+	}
+}

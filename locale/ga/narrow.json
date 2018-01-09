@@ -1,0 +1,70 @@
+{
+	"year": {
+		"past": {
+			"one": "-{0} bhl.",
+			"two": "-{0} bhl.",
+			"many": "-{0} mbl.",
+			"other": "-{0} bl."
+		},
+		"future": {
+			"one": "+{0} bhl.",
+			"two": "+{0} bhl.",
+			"many": "+{0} mbl.",
+			"other": "+{0} bl."
+		}
+	},
+	"month": {
+		"past": {
+			"one": "-{0} mhí",
+			"two": "-{0} mhí",
+			"few": "-{0} mhí",
+			"other": "-{0} mí"
+		},
+		"future": {
+			"one": "+{0} mhí",
+			"two": "+{0} mhí",
+			"few": "+{0} mhí",
+			"other": "+{0} mí"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "-{0} scht."
+		},
+		"future": {
+			"other": "+{0} scht."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "-{0} lá"
+		},
+		"future": {
+			"other": "+{0} lá"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "-{0} u"
+		},
+		"future": {
+			"other": "+{0} u"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "-{0} n"
+		},
+		"future": {
+			"other": "+{0} n"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	}
+}

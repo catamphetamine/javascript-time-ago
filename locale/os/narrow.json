@@ -1,0 +1,59 @@
+{
+	"year": {
+		"past": {
+			"other": "-{0} y"
+		},
+		"future": {
+			"other": "+{0} y"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "-{0} m"
+		},
+		"future": {
+			"other": "+{0} m"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "-{0} w"
+		},
+		"future": {
+			"other": "+{0} w"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "{0} бон раздӕр",
+			"other": "{0} боны размӕ"
+		},
+		"future": {
+			"other": "{0} боны фӕстӕ"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} сахаты размӕ"
+		},
+		"future": {
+			"other": "{0} сахаты фӕстӕ"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "-{0} min"
+		},
+		"future": {
+			"other": "+{0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	}
+}

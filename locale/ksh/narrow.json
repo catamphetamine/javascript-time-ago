@@ -1,0 +1,62 @@
+{
+	"year": {
+		"past": {
+			"zero": "vör keijnem Johr",
+			"one": "vör {0} Johr",
+			"other": "vör {0} Johre"
+		},
+		"future": {
+			"zero": "en keinem Johr",
+			"one": "en {0} Johr",
+			"other": "en {0} Johre"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "-{0} m"
+		},
+		"future": {
+			"other": "+{0} m"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "-{0} w"
+		},
+		"future": {
+			"other": "+{0} w"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "-{0} d"
+		},
+		"future": {
+			"other": "+{0} d"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "-{0} h"
+		},
+		"future": {
+			"other": "+{0} h"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "-{0} min"
+		},
+		"future": {
+			"other": "+{0} min"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} s"
+		},
+		"future": {
+			"other": "+{0} s"
+		}
+	}
+}

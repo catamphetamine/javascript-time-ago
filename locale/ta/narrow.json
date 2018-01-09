@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} ஆ. முன்"
+		},
+		"future": {
+			"other": "{0} ஆ."
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} மா. முன்"
+		},
+		"future": {
+			"other": "{0} மா."
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} வா. முன்"
+		},
+		"future": {
+			"other": "{0} வா."
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} நா. முன்"
+		},
+		"future": {
+			"other": "{0} நா."
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} ம. முன்"
+		},
+		"future": {
+			"other": "{0} ம."
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} நி. முன்"
+		},
+		"future": {
+			"other": "{0} நி."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} வி. முன்"
+		},
+		"future": {
+			"other": "{0} வி."
+		}
+	}
+}

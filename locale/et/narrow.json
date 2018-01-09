@@ -1,0 +1,58 @@
+{
+	"year": {
+		"past": {
+			"other": "{0} a eest"
+		},
+		"future": {
+			"other": "{0} a pärast"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "{0} k eest"
+		},
+		"future": {
+			"other": "{0} k pärast"
+		}
+	},
+	"week": {
+		"past": {
+			"other": "{0} näd eest"
+		},
+		"future": {
+			"other": "{0} näd pärast"
+		}
+	},
+	"day": {
+		"past": {
+			"other": "{0} p eest"
+		},
+		"future": {
+			"other": "{0} p pärast"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "{0} t eest"
+		},
+		"future": {
+			"other": "{0} t pärast"
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "{0} min eest"
+		},
+		"future": {
+			"other": "{0} min pärast"
+		}
+	},
+	"second": {
+		"past": {
+			"other": "{0} s eest"
+		},
+		"future": {
+			"other": "{0} s pärast"
+		}
+	}
+}

@@ -1,0 +1,62 @@
+{
+	"year": {
+		"past": {
+			"other": "fyrir {0} árum"
+		},
+		"future": {
+			"other": "eftir {0} ár"
+		}
+	},
+	"month": {
+		"past": {
+			"other": "fyrir {0} mán."
+		},
+		"future": {
+			"other": "eftir {0} mán."
+		}
+	},
+	"week": {
+		"past": {
+			"one": "-{0} viku",
+			"other": "-{0} vikur"
+		},
+		"future": {
+			"one": "+{0} viku",
+			"other": "+{0} vikur"
+		}
+	},
+	"day": {
+		"past": {
+			"one": "-{0} degi",
+			"other": "-{0} dögum"
+		},
+		"future": {
+			"one": "+{0} dag",
+			"other": "+{0} daga"
+		}
+	},
+	"hour": {
+		"past": {
+			"other": "-{0} klst."
+		},
+		"future": {
+			"other": "+{0} klst."
+		}
+	},
+	"minute": {
+		"past": {
+			"other": "-{0} mín."
+		},
+		"future": {
+			"other": "+{0} mín."
+		}
+	},
+	"second": {
+		"past": {
+			"other": "-{0} sek."
+		},
+		"future": {
+			"other": "+{0} sek."
+		}
+	}
+}
