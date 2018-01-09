@@ -20,6 +20,12 @@ describe('Intl.RelativeTimeFormat', () => {
     // expect(rtf.format(-0, "day")).to.equal("today");
   })
 
+  it('should accept an array of locales', () => {
+    const rtf = new RelativeTimeFormat(["en"]);
+    
+    expect(rtf.format(-2, "day")).to.equal("2 days ago");
+  })
+
   it('should format to parts', () => {
     const rtf = new RelativeTimeFormat("en");
 

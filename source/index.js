@@ -128,6 +128,18 @@ export default class JavascriptTimeAgo
 
 		// Format the time elapsed.
 		// Using `Intl.RelativeTimeFormat` proposal polyfill.
+		//
+		// TODO: Should cache `Intl.RelativeTimeFormat` instances
+		// for given `this.locale` and `flavour`.
+		//
+		// ```js
+		// import Cache from './cache'
+		// const cache = new Cache()
+		// const formatter = this.cache.get(this.locale, flavour) ||
+		//   this.cache.put(this.locale, flavour, new Intl.RelativeTimeFormat(...))
+		// return formatter.format(...)
+		// ```
+		//
 		return new RelativeTimeFormat(this.locale, { style: flavour }).format
 		(
 			-1 * Math.sign(seconds_elapsed) * amount,

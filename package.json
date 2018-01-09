@@ -31,8 +31,8 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --colors --bail --reporter spec --require ./test/setup.js \"./{,!(node_modules|build|es6)/**/}*.test.js\"  --recursive",
-    "test-coverage": "istanbul cover -x \"locale/**\" -x \"build/**\" -x \"es6/**\" node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot --require ./test/setup.js \"./{,!(node_modules|build|es6)/**/}*.test.js\" --recursive",
-    "test-travis": "istanbul cover -x \"locale/**\" -x \"build/**\" -x \"es6/**\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-core/register --colors --reporter spec --require ./test/setup.js \"./{,!(node_modules|build|es6)/**/}*.test.js\" --recursive",
+    "test-coverage": "istanbul cover -x \"locale/**\" -x \"build/**\" -x \"es6/**\" -x \"*.test.js\" node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot --require ./test/setup.js \"./{,!(node_modules|build|es6)/**/}*.test.js\" --recursive",
+    "test-travis": "istanbul cover -x \"locale/**\" -x \"build/**\" -x \"es6/**\" -x \"*.test.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-core/register --colors --reporter spec --require ./test/setup.js \"./{,!(node_modules|build|es6)/**/}*.test.js\" --recursive",
     "browser-build": "better-npm-run browser-build",
     "browser-build-dev": "npm run build-es6-modules && WEBPACK_ENV=dev webpack --progress --colors --watch",
     "clean-for-build": "rimraf ./build/**/* ./es6/**/*",
