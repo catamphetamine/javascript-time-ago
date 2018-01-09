@@ -71,6 +71,7 @@ export default
 				// If `Intl` is not available,
 				// or the locale is not supported,
 				// then don't override the default labels.
+				/* istanbul ignore if */
 				if (!can_use_intl)
 				{
 					return

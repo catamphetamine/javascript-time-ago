@@ -10,15 +10,15 @@ describe('locale', function()
 
 	it(`should choose the most appropriate locale`, function()
 	{
-		// function array_to_object(array)
-		// {
-		// 	return array.reduce((object, locale) =>
-		// 	{
-		// 		object[locale] = true
-		// 		return object
-		// 	},
-		// 	{})
-		// }
+		function array_to_object(array)
+		{
+			return array.reduce((object, locale) =>
+			{
+				object[locale] = true
+				return object
+			},
+			{})
+		}
 
 		function choose(locale, locales, default_locale = 'en')
 		{
@@ -29,7 +29,7 @@ describe('locale', function()
 
 			locale = locale.concat(default_locale)
 
-			return choose_locale(locale, locales) // array_to_object(locales))
+			return choose_locale(locale, array_to_object(locales))
 		}
 
 		choose('ru-RU', ['en', 'ru']).should.equal('ru')

@@ -29,7 +29,7 @@ export default class JavascriptTimeAgo
 		this.locale = choose_locale
 		(
 			locales.concat(JavascriptTimeAgo.default_locale),
-			Object.keys(JavascriptTimeAgo.locales)
+			JavascriptTimeAgo.locales
 		)
 	}
 

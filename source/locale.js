@@ -3,13 +3,13 @@
 // based on the list of preferred `locales` supplied by the user.
 //
 // @param {string[]} locales - the list of preferable locales (in [IETF format](https://en.wikipedia.org/wiki/IETF_language_tag)).
-// @param {string[]} registered_locales - an array of available locales.
+// @param {Object} registered_locales - a map of available locales.
 //
-// @returns {string} Returns the most suitable locale
+// @returns {string} The most suitable locale
 //
 // @example
 // // Returns 'en'
-// choose_locale(['en-US'], undefined, ['ru', 'en'])
+// choose_locale(['en-US'], undefined, { 'ru', 'en' })
 //
 export default function choose_locale(locales, registered_locales)
 {
@@ -17,7 +17,7 @@ export default function choose_locale(locales, registered_locales)
 	// but it will do for this library's case.
 	for (const locale of locales)
 	{
-		if (registered_locales.indexOf(locale) >= 0)
+		if (registered_locales[locale])
 		{
 			return locale
 		}
@@ -26,7 +26,7 @@ export default function choose_locale(locales, registered_locales)
 
 		if (language !== locale)
 		{
-			if (registered_locales.indexOf(language) >= 0)
+			if (registered_locales[language])
 			{
 				return language
 			}
@@ -64,6 +64,9 @@ function get_language_from_locale(locale)
  */
 export function intl_supported_locale(locales)
 {
+	// Babel transforms `typeof` into some "branches"
+	// so istanbul will show this as "branch not covered".
+	/* istanbul ignore next */
 	if (typeof Intl === 'object' && Intl.DateTimeFormat)
 	{
 		return Intl.DateTimeFormat.supportedLocalesOf(locales)[0]
