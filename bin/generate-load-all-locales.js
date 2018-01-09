@@ -1,15 +1,13 @@
-// This file is in ES5 syntax to allow for older versions of Node.js
+import path from 'path'
+import fs from 'fs'
+// import javascript_time_ago from 'javascript-time-ago'
+import javascript_time_ago from '../source'
 
-var path = require('path')
-var fs = require('fs')
-// var javascript_time_ago = require('javascript-time-ago').default
-var javascript_time_ago = require('../source').default
-
-var locales = []
+const locales = []
 
 fs.readdirSync(path.resolve(__dirname, '../locale')).forEach(function(filename)
 {
-	var locale_path = path.resolve(__dirname, '../locale', filename)
+	const locale_path = path.resolve(__dirname, '../locale', filename)
 	if (fs.statSync(locale_path).isDirectory())
 	{
 		locales.push(filename)

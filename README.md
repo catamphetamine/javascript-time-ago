@@ -159,7 +159,7 @@ require('javascript-time-ago/load-all-locales')
 
 ## Native
 
-There's a spec proposal called [`Intl.RelativeTime`](https://github.com/tc39/proposal-intl-relative-time). It's still a draft, and not officially accepted yet, but I guess some time it will be accepted, in which case this library could serve as a polyfill for older browsers (iOS, Android).
+There's a spec proposal called [`Intl.RelativeTimeFormat`](https://github.com/tc39/proposal-intl-relative-time). It's still a draft, and not officially accepted yet, but I guess some time it will be accepted, in which case this library could serve as a polyfill for older browsers (iOS, Android).
 
 # Advanced
 
