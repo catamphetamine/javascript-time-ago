@@ -21,11 +21,9 @@
 	},
 	"week": {
 		"past": {
-			"one": "fa {0} setm.",
 			"other": "fa {0} setm."
 		},
 		"future": {
-			"one": "d’aquí a {0} setm.",
 			"other": "d’aquí a {0} setm."
 		}
 	},
@@ -41,31 +39,25 @@
 	},
 	"hour": {
 		"past": {
-			"one": "fa {0} h",
 			"other": "fa {0} h"
 		},
 		"future": {
-			"one": "d’aquí a {0} h",
 			"other": "d’aquí a {0} h"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "fa {0} min",
 			"other": "fa {0} min"
 		},
 		"future": {
-			"one": "d’aquí a {0} min",
 			"other": "d’aquí a {0} min"
 		}
 	},
 	"second": {
 		"past": {
-			"one": "fa {0} s",
 			"other": "fa {0} s"
 		},
 		"future": {
-			"one": "d’aquí a {0} s",
 			"other": "d’aquí a {0} s"
 		}
 	},

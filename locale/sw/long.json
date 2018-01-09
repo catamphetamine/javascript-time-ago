@@ -25,7 +25,6 @@
 			"other": "wiki {0} zilizopita"
 		},
 		"future": {
-			"one": "baada ya wiki {0}",
 			"other": "baada ya wiki {0}"
 		}
 	},
@@ -35,7 +34,6 @@
 			"other": "siku {0} zilizopita"
 		},
 		"future": {
-			"one": "baada ya siku {0}",
 			"other": "baada ya siku {0}"
 		}
 	},
@@ -45,7 +43,6 @@
 			"other": "saa {0} zilizopita"
 		},
 		"future": {
-			"one": "baada ya saa {0}",
 			"other": "baada ya saa {0}"
 		}
 	},
@@ -55,7 +52,6 @@
 			"other": "dakika {0} zilizopita"
 		},
 		"future": {
-			"one": "baada ya dakika {0}",
 			"other": "baada ya dakika {0}"
 		}
 	},
@@ -65,7 +61,6 @@
 			"other": "Sekunde {0} zilizopita"
 		},
 		"future": {
-			"one": "baada ya sekunde {0}",
 			"other": "baada ya sekunde {0}"
 		}
 	},

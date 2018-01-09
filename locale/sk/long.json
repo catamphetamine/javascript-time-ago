@@ -2,7 +2,6 @@
 	"year": {
 		"past": {
 			"one": "pred {0} rokom",
-			"few": "pred {0} rokmi",
 			"many": "pred {0} roka",
 			"other": "pred {0} rokmi"
 		},
@@ -16,7 +15,6 @@
 	"month": {
 		"past": {
 			"one": "pred {0} mesiacom",
-			"few": "pred {0} mesiacmi",
 			"many": "pred {0} mesiaca",
 			"other": "pred {0} mesiacmi"
 		},
@@ -30,7 +28,6 @@
 	"week": {
 		"past": {
 			"one": "pred {0} týždňom",
-			"few": "pred {0} týždňami",
 			"many": "pred {0} týždňa",
 			"other": "pred {0} týždňami"
 		},
@@ -44,7 +41,6 @@
 	"day": {
 		"past": {
 			"one": "pred {0} dňom",
-			"few": "pred {0} dňami",
 			"many": "pred {0} dňa",
 			"other": "pred {0} dňami"
 		},
@@ -58,7 +54,6 @@
 	"hour": {
 		"past": {
 			"one": "pred {0} hodinou",
-			"few": "pred {0} hodinami",
 			"many": "pred {0} hodinou",
 			"other": "pred {0} hodinami"
 		},
@@ -72,7 +67,6 @@
 	"minute": {
 		"past": {
 			"one": "pred {0} minútou",
-			"few": "pred {0} minútami",
 			"many": "pred {0} minúty",
 			"other": "pred {0} minútami"
 		},
@@ -86,7 +80,6 @@
 	"second": {
 		"past": {
 			"one": "pred {0} sekundou",
-			"few": "pred {0} sekundami",
 			"many": "pred {0} sekundy",
 			"other": "pred {0} sekundami"
 		},

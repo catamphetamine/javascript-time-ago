@@ -3,7 +3,6 @@
 		"past": {
 			"one": "pred {0} letom",
 			"two": "pred {0} letoma",
-			"few": "pred {0} leti",
 			"other": "pred {0} leti"
 		},
 		"future": {
@@ -17,7 +16,6 @@
 		"past": {
 			"one": "pred {0} mesecem",
 			"two": "pred {0} mesecema",
-			"few": "pred {0} meseci",
 			"other": "pred {0} meseci"
 		},
 		"future": {
@@ -31,7 +29,6 @@
 		"past": {
 			"one": "pred {0} tednom",
 			"two": "pred {0} tednoma",
-			"few": "pred {0} tedni",
 			"other": "pred {0} tedni"
 		},
 		"future": {
@@ -45,13 +42,11 @@
 		"past": {
 			"one": "pred {0} dnevom",
 			"two": "pred {0} dnevoma",
-			"few": "pred {0} dnevi",
 			"other": "pred {0} dnevi"
 		},
 		"future": {
 			"one": "čez {0} dan",
 			"two": "čez {0} dneva",
-			"few": "čez {0} dni",
 			"other": "čez {0} dni"
 		}
 	},
@@ -59,7 +54,6 @@
 		"past": {
 			"one": "pred {0} uro",
 			"two": "pred {0} urama",
-			"few": "pred {0} urami",
 			"other": "pred {0} urami"
 		},
 		"future": {
@@ -73,7 +67,6 @@
 		"past": {
 			"one": "pred {0} minuto",
 			"two": "pred {0} minutama",
-			"few": "pred {0} minutami",
 			"other": "pred {0} minutami"
 		},
 		"future": {
@@ -87,7 +80,6 @@
 		"past": {
 			"one": "pred {0} sekundo",
 			"two": "pred {0} sekundama",
-			"few": "pred {0} sekundami",
 			"other": "pred {0} sekundami"
 		},
 		"future": {

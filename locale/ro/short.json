@@ -14,24 +14,18 @@
 	"month": {
 		"past": {
 			"one": "acum {0} lună",
-			"few": "acum {0} luni",
 			"other": "acum {0} luni"
 		},
 		"future": {
 			"one": "peste {0} lună",
-			"few": "peste {0} luni",
 			"other": "peste {0} luni"
 		}
 	},
 	"week": {
 		"past": {
-			"one": "acum {0} săpt.",
-			"few": "acum {0} săpt.",
 			"other": "acum {0} săpt."
 		},
 		"future": {
-			"one": "peste {0} săpt.",
-			"few": "peste {0} săpt.",
 			"other": "peste {0} săpt."
 		}
 	},
@@ -49,37 +43,25 @@
 	},
 	"hour": {
 		"past": {
-			"one": "acum {0} h",
-			"few": "acum {0} h",
 			"other": "acum {0} h"
 		},
 		"future": {
-			"one": "peste {0} h",
-			"few": "peste {0} h",
 			"other": "peste {0} h"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "acum {0} min.",
-			"few": "acum {0} min.",
 			"other": "acum {0} min."
 		},
 		"future": {
-			"one": "peste {0} min.",
-			"few": "peste {0} min.",
 			"other": "peste {0} min."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "acum {0} sec.",
-			"few": "acum {0} sec.",
 			"other": "acum {0} sec."
 		},
 		"future": {
-			"one": "peste {0} sec.",
-			"few": "peste {0} sec.",
 			"other": "peste {0} sec."
 		}
 	},

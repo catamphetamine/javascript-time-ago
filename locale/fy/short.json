@@ -1,11 +1,9 @@
 {
 	"year": {
 		"past": {
-			"one": "{0} jier lyn",
 			"other": "{0} jier lyn"
 		},
 		"future": {
-			"one": "Oer {0} jier",
 			"other": "Oer {0} jier"
 		}
 	},
@@ -41,11 +39,9 @@
 	},
 	"hour": {
 		"past": {
-			"one": "{0} oere lyn",
 			"other": "{0} oere lyn"
 		},
 		"future": {
-			"one": "Oer {0} oere",
 			"other": "Oer {0} oere"
 		}
 	},

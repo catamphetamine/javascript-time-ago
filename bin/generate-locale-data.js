@@ -59,6 +59,8 @@ for (const locale of Object.keys(plurals))
 		continue
 	}
 
+	reduce_quantifiers(data.long)
+
 	// Write the default "long" flavour (always present)
 	fs.outputFileSync
 	(
@@ -69,6 +71,8 @@ for (const locale of Object.keys(plurals))
 	// Write the "short" flavour (if present)
 	if (data.short)
 	{
+		reduce_quantifiers(data.short)
+
 		fs.outputFileSync
 		(
 			path.join(locale_folder, 'short.json'),
@@ -112,3 +116,25 @@ module.exports =
 }
 
 // module.exports=exports["default"]
+
+function reduce_quantifiers(flavour)
+{
+	for (const unit of Object.keys(flavour))
+	{
+		for (const past_future of Object.keys(flavour[unit]))
+		{
+			for (const quantifier of Object.keys(flavour[unit][past_future]))
+			{
+				if (quantifier === 'other')
+				{
+					continue
+				}
+
+				if (flavour[unit][past_future][quantifier] === flavour[unit][past_future].other)
+				{
+					delete flavour[unit][past_future][quantifier]
+				}
+			}
+		}
+	}
+}

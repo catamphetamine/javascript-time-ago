@@ -31,11 +31,9 @@
 	},
 	"day": {
 		"past": {
-			"one": "{0} (na) araw ang nakalipas",
 			"other": "{0} (na) araw ang nakalipas"
 		},
 		"future": {
-			"one": "sa {0} (na) araw",
 			"other": "sa {0} (na) araw"
 		}
 	},

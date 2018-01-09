@@ -2,14 +2,12 @@
 	"year": {
 		"past": {
 			"one": "{0} bloaz zo",
-			"two": "{0} vloaz zo",
 			"few": "{0} bloaz zo",
 			"many": "{0} a vloazioù zo",
 			"other": "{0} vloaz zo"
 		},
 		"future": {
 			"one": "a-benn {0} bloaz",
-			"two": "a-benn {0} vloaz",
 			"few": "a-benn {0} bloaz",
 			"many": "a-benn {0} a vloazioù",
 			"other": "a-benn {0} vloaz"
@@ -17,96 +15,65 @@
 	},
 	"month": {
 		"past": {
-			"one": "{0} miz zo",
 			"two": "{0} viz zo",
-			"few": "{0} miz zo",
 			"many": "{0} a vizioù zo",
 			"other": "{0} miz zo"
 		},
 		"future": {
-			"one": "a-benn {0} miz",
 			"two": "a-benn {0} viz",
-			"few": "a-benn {0} miz",
 			"many": "a-benn {0} a vizioù",
 			"other": "a-benn {0} miz"
 		}
 	},
 	"week": {
 		"past": {
-			"one": "{0} sizhun zo",
-			"two": "{0} sizhun zo",
-			"few": "{0} sizhun zo",
 			"many": "{0} a sizhunioù zo",
 			"other": "{0} sizhun zo"
 		},
 		"future": {
-			"one": "a-benn {0} sizhun",
-			"two": "a-benn {0} sizhun",
-			"few": "a-benn {0} sizhun",
 			"many": "a-benn {0} a sizhunioù",
 			"other": "a-benn {0} sizhun"
 		}
 	},
 	"day": {
 		"past": {
-			"one": "{0} deiz zo",
 			"two": "{0} zeiz zo",
-			"few": "{0} deiz zo",
 			"many": "{0} a zeizioù zo",
 			"other": "{0} deiz zo"
 		},
 		"future": {
-			"one": "a-benn {0} deiz",
 			"two": "a-benn {0} zeiz",
-			"few": "a-benn {0} deiz",
 			"many": "a-benn {0} a zeizioù",
 			"other": "a-benn {0} deiz"
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "{0} eur zo",
-			"two": "{0} eur zo",
-			"few": "{0} eur zo",
 			"many": "{0} a eurioù zo",
 			"other": "{0} eur zo"
 		},
 		"future": {
-			"one": "a-benn {0} eur",
-			"two": "a-benn {0} eur",
-			"few": "a-benn {0} eur",
 			"many": "a-benn {0} a eurioù",
 			"other": "a-benn {0} eur"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "{0} munut zo",
 			"two": "{0} vunut zo",
-			"few": "{0} munut zo",
 			"many": "{0} a vunutoù zo",
 			"other": "{0} munut zo"
 		},
 		"future": {
-			"one": "a-benn {0} munut",
 			"two": "a-benn {0} vunut",
-			"few": "a-benn {0} munut",
 			"many": "a-benn {0} a vunutoù",
 			"other": "a-benn {0} munut"
 		}
 	},
 	"second": {
 		"past": {
-			"one": "{0} eilenn zo",
-			"two": "{0} eilenn zo",
-			"few": "{0} eilenn zo",
-			"many": "{0} eilenn zo",
 			"other": "{0} eilenn zo"
 		},
 		"future": {
-			"one": "a-benn {0} eilenn",
-			"two": "a-benn {0} eilenn",
-			"few": "a-benn {0} eilenn",
 			"many": "a-benn {0} a eilennoù",
 			"other": "a-benn {0} eilenn"
 		}

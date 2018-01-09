@@ -58,13 +58,11 @@
 	"hour": {
 		"past": {
 			"one": "{0} godzinę temu",
-			"few": "{0} godziny temu",
 			"many": "{0} godzin temu",
 			"other": "{0} godziny temu"
 		},
 		"future": {
 			"one": "za {0} godzinę",
-			"few": "za {0} godziny",
 			"many": "za {0} godzin",
 			"other": "za {0} godziny"
 		}
@@ -72,13 +70,11 @@
 	"minute": {
 		"past": {
 			"one": "{0} minutę temu",
-			"few": "{0} minuty temu",
 			"many": "{0} minut temu",
 			"other": "{0} minuty temu"
 		},
 		"future": {
 			"one": "za {0} minutę",
-			"few": "za {0} minuty",
 			"many": "za {0} minut",
 			"other": "za {0} minuty"
 		}
@@ -86,13 +82,11 @@
 	"second": {
 		"past": {
 			"one": "{0} sekundę temu",
-			"few": "{0} sekundy temu",
 			"many": "{0} sekund temu",
 			"other": "{0} sekundy temu"
 		},
 		"future": {
 			"one": "za {0} sekundę",
-			"few": "za {0} sekundy",
 			"many": "za {0} sekund",
 			"other": "za {0} sekundy"
 		}

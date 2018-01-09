@@ -1,11 +1,9 @@
 {
 	"year": {
 		"past": {
-			"one": "{0} ár síðan",
 			"other": "{0} ár síðan"
 		},
 		"future": {
-			"one": "um {0} ár",
 			"other": "um {0} ár"
 		}
 	},
@@ -61,11 +59,9 @@
 	},
 	"second": {
 		"past": {
-			"one": "{0} sekund síðan",
 			"other": "{0} sekund síðan"
 		},
 		"future": {
-			"one": "um {0} sekund",
 			"other": "um {0} sekund"
 		}
 	},

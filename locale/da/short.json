@@ -1,11 +1,9 @@
 {
 	"year": {
 		"past": {
-			"one": "for {0} år siden",
 			"other": "for {0} år siden"
 		},
 		"future": {
-			"one": "om {0} år",
 			"other": "om {0} år"
 		}
 	},
@@ -51,21 +49,17 @@
 	},
 	"minute": {
 		"past": {
-			"one": "for {0} min. siden",
 			"other": "for {0} min. siden"
 		},
 		"future": {
-			"one": "om {0} min.",
 			"other": "om {0} min."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "for {0} sek. siden",
 			"other": "for {0} sek. siden"
 		},
 		"future": {
-			"one": "om {0} sek.",
 			"other": "om {0} sek."
 		}
 	},

@@ -1,71 +1,57 @@
 {
 	"year": {
 		"past": {
-			"one": "{0} aasta eest",
 			"other": "{0} aasta eest"
 		},
 		"future": {
-			"one": "{0} aasta pärast",
 			"other": "{0} aasta pärast"
 		}
 	},
 	"month": {
 		"past": {
-			"one": "{0} kuu eest",
 			"other": "{0} kuu eest"
 		},
 		"future": {
-			"one": "{0} kuu pärast",
 			"other": "{0} kuu pärast"
 		}
 	},
 	"week": {
 		"past": {
-			"one": "{0} nädala eest",
 			"other": "{0} nädala eest"
 		},
 		"future": {
-			"one": "{0} nädala pärast",
 			"other": "{0} nädala pärast"
 		}
 	},
 	"day": {
 		"past": {
-			"one": "{0} päeva eest",
 			"other": "{0} päeva eest"
 		},
 		"future": {
-			"one": "{0} päeva pärast",
 			"other": "{0} päeva pärast"
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "{0} tunni eest",
 			"other": "{0} tunni eest"
 		},
 		"future": {
-			"one": "{0} tunni pärast",
 			"other": "{0} tunni pärast"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "{0} minuti eest",
 			"other": "{0} minuti eest"
 		},
 		"future": {
-			"one": "{0} minuti pärast",
 			"other": "{0} minuti pärast"
 		}
 	},
 	"second": {
 		"past": {
-			"one": "{0} sekundi eest",
 			"other": "{0} sekundi eest"
 		},
 		"future": {
-			"one": "{0} sekundi pärast",
 			"other": "{0} sekundi pärast"
 		}
 	},

@@ -3,7 +3,6 @@
 		"past": {
 			"one": "před {0} lětom",
 			"two": "před {0} lětomaj",
-			"few": "před {0} lětami",
 			"other": "před {0} lětami"
 		},
 		"future": {
@@ -17,7 +16,6 @@
 		"past": {
 			"one": "před {0} měsacom",
 			"two": "před {0} měsacomaj",
-			"few": "před {0} měsacami",
 			"other": "před {0} měsacami"
 		},
 		"future": {
@@ -31,7 +29,6 @@
 		"past": {
 			"one": "před {0} tydźenjom",
 			"two": "před {0} tydźenjomaj",
-			"few": "před {0} tydźenjemi",
 			"other": "před {0} tydźenjemi"
 		},
 		"future": {
@@ -45,7 +42,6 @@
 		"past": {
 			"one": "před {0} dnjom",
 			"two": "před {0} dnjomaj",
-			"few": "před {0} dnjemi",
 			"other": "před {0} dnjemi"
 		},
 		"future": {
@@ -59,7 +55,6 @@
 		"past": {
 			"one": "před {0} hodźinu",
 			"two": "před {0} hodźinomaj",
-			"few": "před {0} hodźinami",
 			"other": "před {0} hodźinami"
 		},
 		"future": {
@@ -73,7 +68,6 @@
 		"past": {
 			"one": "před {0} minutu",
 			"two": "před {0} minutomaj",
-			"few": "před {0} minutami",
 			"other": "před {0} minutami"
 		},
 		"future": {
@@ -87,7 +81,6 @@
 		"past": {
 			"one": "před {0} sekundu",
 			"two": "před {0} sekundomaj",
-			"few": "před {0} sekundami",
 			"other": "před {0} sekundami"
 		},
 		"future": {

@@ -2,43 +2,34 @@
 	"year": {
 		"past": {
 			"one": "{0} jahki árat",
-			"two": "{0} jahkki árat",
 			"other": "{0} jahkki árat"
 		},
 		"future": {
 			"one": "{0} jahki maŋŋilit",
-			"two": "{0} jahkki maŋŋilit",
 			"other": "{0} jahkki maŋŋilit"
 		}
 	},
 	"month": {
 		"past": {
-			"one": "{0} mánotbadji árat",
-			"two": "{0} mánotbadji árat",
 			"other": "{0} mánotbadji árat"
 		},
 		"future": {
-			"one": "{0} mánotbadji maŋŋilit",
-			"two": "{0} mánotbadji maŋŋilit",
 			"other": "{0} mánotbadji maŋŋilit"
 		}
 	},
 	"week": {
 		"past": {
 			"one": "{0} vahku árat",
-			"two": "{0} vahkku árat",
 			"other": "{0} vahkku árat"
 		},
 		"future": {
 			"one": "{0} vahku maŋŋilit",
-			"two": "{0} vahkku maŋŋilit",
 			"other": "{0} vahkku maŋŋilit"
 		}
 	},
 	"day": {
 		"past": {
 			"one": "{0} jándor árat",
-			"two": "{0} jándora árat",
 			"other": "{0} jándora árat"
 		},
 		"future": {
@@ -50,36 +41,30 @@
 	"hour": {
 		"past": {
 			"one": "{0} diibmu árat",
-			"two": "{0} diibmur árat",
 			"other": "{0} diibmur árat"
 		},
 		"future": {
 			"one": "{0} diibmu maŋŋilit",
-			"two": "{0} diibmur maŋŋilit",
 			"other": "{0} diibmur maŋŋilit"
 		}
 	},
 	"minute": {
 		"past": {
 			"one": "{0} minuhta árat",
-			"two": "{0} minuhtta árat",
 			"other": "{0} minuhtta árat"
 		},
 		"future": {
 			"one": "{0} minuhta maŋŋilit",
-			"two": "{0} minuhtta maŋŋilit",
 			"other": "{0} minuhtta maŋŋilit"
 		}
 	},
 	"second": {
 		"past": {
 			"one": "{0} sekunda árat",
-			"two": "{0} sekundda árat",
 			"other": "{0} sekundda árat"
 		},
 		"future": {
 			"one": "{0} sekunda maŋŋilit",
-			"two": "{0} sekundda maŋŋilit",
 			"other": "{0} sekundda maŋŋilit"
 		}
 	},

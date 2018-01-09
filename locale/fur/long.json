@@ -11,11 +11,9 @@
 	},
 	"month": {
 		"past": {
-			"one": "{0} mês indaûr",
 			"other": "{0} mês indaûr"
 		},
 		"future": {
-			"one": "ca di {0} mês",
 			"other": "ca di {0} mês"
 		}
 	},

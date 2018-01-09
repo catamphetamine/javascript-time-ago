@@ -5,17 +5,14 @@
 			"other": "fyrir {0} árum"
 		},
 		"future": {
-			"one": "eftir {0} ár",
 			"other": "eftir {0} ár"
 		}
 	},
 	"month": {
 		"past": {
-			"one": "fyrir {0} mán.",
 			"other": "fyrir {0} mán."
 		},
 		"future": {
-			"one": "eftir {0} mán.",
 			"other": "eftir {0} mán."
 		}
 	},
@@ -25,7 +22,6 @@
 			"other": "fyrir {0} vikum"
 		},
 		"future": {
-			"one": "eftir {0} vikur",
 			"other": "eftir {0} vikur"
 		}
 	},
@@ -41,31 +37,25 @@
 	},
 	"hour": {
 		"past": {
-			"one": "fyrir {0} klst.",
 			"other": "fyrir {0} klst."
 		},
 		"future": {
-			"one": "eftir {0} klst.",
 			"other": "eftir {0} klst."
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "fyrir {0} mín.",
 			"other": "fyrir {0} mín."
 		},
 		"future": {
-			"one": "eftir {0} mín.",
 			"other": "eftir {0} mín."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "fyrir {0} sek.",
 			"other": "fyrir {0} sek."
 		},
 		"future": {
-			"one": "eftir {0} sek.",
 			"other": "eftir {0} sek."
 		}
 	},

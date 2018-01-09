@@ -11,7 +11,6 @@
 	},
 	"month": {
 		"past": {
-			"one": "{0} muaj më parë",
 			"other": "{0} muaj më parë"
 		},
 		"future": {
@@ -21,7 +20,6 @@
 	},
 	"week": {
 		"past": {
-			"one": "{0} javë më parë",
 			"other": "{0} javë më parë"
 		},
 		"future": {
@@ -31,7 +29,6 @@
 	},
 	"day": {
 		"past": {
-			"one": "{0} ditë më parë",
 			"other": "{0} ditë më parë"
 		},
 		"future": {
@@ -41,7 +38,6 @@
 	},
 	"hour": {
 		"past": {
-			"one": "{0} orë më parë",
 			"other": "{0} orë më parë"
 		},
 		"future": {
@@ -51,21 +47,17 @@
 	},
 	"minute": {
 		"past": {
-			"one": "{0} min. më parë",
 			"other": "{0} min. më parë"
 		},
 		"future": {
-			"one": "pas {0} min.",
 			"other": "pas {0} min."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "{0} sek. më parë",
 			"other": "{0} sek. më parë"
 		},
 		"future": {
-			"one": "pas {0} sek.",
 			"other": "pas {0} sek."
 		}
 	},

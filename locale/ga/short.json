@@ -3,14 +3,11 @@
 		"past": {
 			"one": "{0} bhl. ó shin",
 			"two": "{0} bhl. ó shin",
-			"few": "{0} bl. ó shin",
 			"many": "{0} mbl. ó shin",
 			"other": "{0} bl. ó shin"
 		},
 		"future": {
-			"one": "i gceann {0} bl.",
 			"two": "i gceann {0} bhl.",
-			"few": "i gceann {0} bl.",
 			"many": "i gceann {0} mbl.",
 			"other": "i gceann {0} bl."
 		}
@@ -20,60 +17,39 @@
 			"one": "{0} mhí ó shin",
 			"two": "{0} mhí ó shin",
 			"few": "{0} mhí ó shin",
-			"many": "{0} mí ó shin",
 			"other": "{0} mí ó shin"
 		},
 		"future": {
 			"one": "i gceann {0} mhí",
 			"two": "i gceann {0} mhí",
 			"few": "i gceann {0} mhí",
-			"many": "i gceann {0} mí",
 			"other": "i gceann {0} mí"
 		}
 	},
 	"week": {
 		"past": {
-			"one": "{0} scht. ó shin",
-			"two": "{0} scht. ó shin",
-			"few": "{0} scht. ó shin",
-			"many": "{0} scht. ó shin",
 			"other": "{0} scht. ó shin"
 		},
 		"future": {
-			"one": "i gceann {0} scht.",
 			"two": "i gceann {0} shcht.",
-			"few": "i gceann {0} scht.",
-			"many": "i gceann {0} scht.",
 			"other": "i gceann {0} scht."
 		}
 	},
 	"day": {
 		"past": {
-			"one": "{0} lá ó shin",
-			"two": "{0} lá ó shin",
-			"few": "{0} lá ó shin",
-			"many": "{0} lá ó shin",
 			"other": "{0} lá ó shin"
 		},
 		"future": {
-			"one": "i gceann {0} lá",
-			"two": "i gceann {0} lá",
-			"few": "i gceann {0} lá",
-			"many": "i gceann {0} lá",
 			"other": "i gceann {0} lá"
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "{0} uair ó shin",
-			"two": "{0} uair ó shin",
 			"few": "{0} huaire ó shin",
 			"many": "{0} n-uaire ó shin",
 			"other": "{0} uair ó shin"
 		},
 		"future": {
-			"one": "i gceann {0} uair",
-			"two": "i gceann {0} uair",
 			"few": "i gceann {0} huaire",
 			"many": "i gceann {0} n-uaire",
 			"other": "i gceann {0} uair"
@@ -81,33 +57,21 @@
 	},
 	"minute": {
 		"past": {
-			"one": "{0} nóim. ó shin",
-			"two": "{0} nóim. ó shin",
-			"few": "{0} nóim. ó shin",
-			"many": "{0} nóim. ó shin",
 			"other": "{0} nóim. ó shin"
 		},
 		"future": {
-			"one": "i gceann {0} nóim.",
-			"two": "i gceann {0} nóim.",
-			"few": "i gceann {0} nóim.",
-			"many": "i gceann {0} nóim.",
 			"other": "i gceann {0} nóim."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "{0} soic. ó shin",
 			"two": "{0} shoic. ó shin",
 			"few": "{0} shoic. ó shin",
-			"many": "{0} soic. ó shin",
 			"other": "{0} soic. ó shin"
 		},
 		"future": {
-			"one": "i gceann {0} soic.",
 			"two": "i gceann {0} shoic.",
 			"few": "i gceann {0} shoic.",
-			"many": "i gceann {0} soic.",
 			"other": "i gceann {0} soic."
 		}
 	},

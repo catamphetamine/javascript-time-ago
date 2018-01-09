@@ -41,31 +41,25 @@
 	},
 	"hour": {
 		"past": {
-			"one": "vor {0} Std.",
 			"other": "vor {0} Std."
 		},
 		"future": {
-			"one": "in {0} Std.",
 			"other": "in {0} Std."
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "vor {0} Min.",
 			"other": "vor {0} Min."
 		},
 		"future": {
-			"one": "in {0} Min.",
 			"other": "in {0} Min."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "vor {0} Sek.",
 			"other": "vor {0} Sek."
 		},
 		"future": {
-			"one": "in {0} Sek.",
 			"other": "in {0} Sek."
 		}
 	},

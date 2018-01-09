@@ -1,99 +1,57 @@
 {
 	"year": {
 		"past": {
-			"one": "prieš {0} m.",
-			"few": "prieš {0} m.",
-			"many": "prieš {0} m.",
 			"other": "prieš {0} m."
 		},
 		"future": {
-			"one": "po {0} m.",
-			"few": "po {0} m.",
-			"many": "po {0} m.",
 			"other": "po {0} m."
 		}
 	},
 	"month": {
 		"past": {
-			"one": "prieš {0} mėn.",
-			"few": "prieš {0} mėn.",
-			"many": "prieš {0} mėn.",
 			"other": "prieš {0} mėn."
 		},
 		"future": {
-			"one": "po {0} mėn.",
-			"few": "po {0} mėn.",
-			"many": "po {0} mėn.",
 			"other": "po {0} mėn."
 		}
 	},
 	"week": {
 		"past": {
-			"one": "prieš {0} sav.",
-			"few": "prieš {0} sav.",
-			"many": "prieš {0} sav.",
 			"other": "prieš {0} sav."
 		},
 		"future": {
-			"one": "po {0} sav.",
-			"few": "po {0} sav.",
-			"many": "po {0} sav.",
 			"other": "po {0} sav."
 		}
 	},
 	"day": {
 		"past": {
-			"one": "prieš {0} d.",
-			"few": "prieš {0} d.",
-			"many": "prieš {0} d.",
 			"other": "prieš {0} d."
 		},
 		"future": {
-			"one": "po {0} d.",
-			"few": "po {0} d.",
-			"many": "po {0} d.",
 			"other": "po {0} d."
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "prieš {0} val.",
-			"few": "prieš {0} val.",
-			"many": "prieš {0} val.",
 			"other": "prieš {0} val."
 		},
 		"future": {
-			"one": "po {0} val.",
-			"few": "po {0} val.",
-			"many": "po {0} val.",
 			"other": "po {0} val."
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "prieš {0} min.",
-			"few": "prieš {0} min.",
-			"many": "prieš {0} min.",
 			"other": "prieš {0} min."
 		},
 		"future": {
-			"one": "po {0} min.",
-			"few": "po {0} min.",
-			"many": "po {0} min.",
 			"other": "po {0} min."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "prieš {0} sek.",
-			"few": "prieš {0} sek.",
-			"many": "prieš {0} sek.",
 			"other": "prieš {0} sek."
 		},
 		"future": {
-			"one": "po {0} sek.",
-			"few": "po {0} sek.",
-			"many": "po {0} sek.",
 			"other": "po {0} sek."
 		}
 	},

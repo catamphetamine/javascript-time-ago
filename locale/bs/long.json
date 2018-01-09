@@ -38,12 +38,10 @@
 	"day": {
 		"past": {
 			"one": "prije {0} dan",
-			"few": "prije {0} dana",
 			"other": "prije {0} dana"
 		},
 		"future": {
 			"one": "za {0} dan",
-			"few": "za {0} dana",
 			"other": "za {0} dana"
 		}
 	},

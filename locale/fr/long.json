@@ -11,11 +11,9 @@
 	},
 	"month": {
 		"past": {
-			"one": "il y a {0} mois",
 			"other": "il y a {0} mois"
 		},
 		"future": {
-			"one": "dans {0} mois",
 			"other": "dans {0} mois"
 		}
 	},

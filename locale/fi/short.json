@@ -1,71 +1,57 @@
 {
 	"year": {
 		"past": {
-			"one": "{0} v sitten",
 			"other": "{0} v sitten"
 		},
 		"future": {
-			"one": "{0} v päästä",
 			"other": "{0} v päästä"
 		}
 	},
 	"month": {
 		"past": {
-			"one": "{0} kk sitten",
 			"other": "{0} kk sitten"
 		},
 		"future": {
-			"one": "{0} kk päästä",
 			"other": "{0} kk päästä"
 		}
 	},
 	"week": {
 		"past": {
-			"one": "{0} vk sitten",
 			"other": "{0} vk sitten"
 		},
 		"future": {
-			"one": "{0} vk päästä",
 			"other": "{0} vk päästä"
 		}
 	},
 	"day": {
 		"past": {
-			"one": "{0} pv sitten",
 			"other": "{0} pv sitten"
 		},
 		"future": {
-			"one": "{0} pv päästä",
 			"other": "{0} pv päästä"
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "{0} t sitten",
 			"other": "{0} t sitten"
 		},
 		"future": {
-			"one": "{0} t päästä",
 			"other": "{0} t päästä"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "{0} min sitten",
 			"other": "{0} min sitten"
 		},
 		"future": {
-			"one": "{0} min päästä",
 			"other": "{0} min päästä"
 		}
 	},
 	"second": {
 		"past": {
-			"one": "{0} s sitten",
 			"other": "{0} s sitten"
 		},
 		"future": {
-			"one": "{0} s päästä",
 			"other": "{0} s päästä"
 		}
 	},

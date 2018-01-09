@@ -1,99 +1,57 @@
 {
 	"year": {
 		"past": {
-			"one": "pred {0} r.",
-			"few": "pred {0} r.",
-			"many": "pred {0} r.",
 			"other": "pred {0} r."
 		},
 		"future": {
-			"one": "o {0} r.",
-			"few": "o {0} r.",
-			"many": "o {0} r.",
 			"other": "o {0} r."
 		}
 	},
 	"month": {
 		"past": {
-			"one": "pred {0} mes.",
-			"few": "pred {0} mes.",
-			"many": "pred {0} mes.",
 			"other": "pred {0} mes."
 		},
 		"future": {
-			"one": "o {0} mes.",
-			"few": "o {0} mes.",
-			"many": "o {0} mes.",
 			"other": "o {0} mes."
 		}
 	},
 	"week": {
 		"past": {
-			"one": "pred {0} týž.",
-			"few": "pred {0} týž.",
-			"many": "pred {0} týž.",
 			"other": "pred {0} týž."
 		},
 		"future": {
-			"one": "o {0} týž.",
-			"few": "o {0} týž.",
-			"many": "o {0} týž.",
 			"other": "o {0} týž."
 		}
 	},
 	"day": {
 		"past": {
-			"one": "pred {0} d.",
-			"few": "pred {0} d.",
-			"many": "pred {0} d.",
 			"other": "pred {0} d."
 		},
 		"future": {
-			"one": "o {0} d.",
-			"few": "o {0} d.",
-			"many": "o {0} d.",
 			"other": "o {0} d."
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "pred {0} h",
-			"few": "pred {0} h",
-			"many": "pred {0} h",
 			"other": "pred {0} h"
 		},
 		"future": {
-			"one": "o {0} h",
-			"few": "o {0} h",
-			"many": "o {0} h",
 			"other": "o {0} h"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "pred {0} min",
-			"few": "pred {0} min",
-			"many": "pred {0} min",
 			"other": "pred {0} min"
 		},
 		"future": {
-			"one": "o {0} min",
-			"few": "o {0} min",
-			"many": "o {0} min",
 			"other": "o {0} min"
 		}
 	},
 	"second": {
 		"past": {
-			"one": "pred {0} s",
-			"few": "pred {0} s",
-			"many": "pred {0} s",
 			"other": "pred {0} s"
 		},
 		"future": {
-			"one": "o {0} s",
-			"few": "o {0} s",
-			"many": "o {0} s",
 			"other": "o {0} s"
 		}
 	},

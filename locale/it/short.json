@@ -21,11 +21,9 @@
 	},
 	"week": {
 		"past": {
-			"one": "{0} sett. fa",
 			"other": "{0} sett. fa"
 		},
 		"future": {
-			"one": "tra {0} sett.",
 			"other": "tra {0} sett."
 		}
 	},
@@ -41,21 +39,17 @@
 	},
 	"hour": {
 		"past": {
-			"one": "{0} h fa",
 			"other": "{0} h fa"
 		},
 		"future": {
-			"one": "tra {0} h",
 			"other": "tra {0} h"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "{0} min fa",
 			"other": "{0} min fa"
 		},
 		"future": {
-			"one": "tra {0} min",
 			"other": "tra {0} min"
 		}
 	},

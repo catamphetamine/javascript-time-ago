@@ -3,13 +3,9 @@
 		"past": {
 			"one": "prieš {0} metus",
 			"few": "prieš {0} metus",
-			"many": "prieš {0} metų",
 			"other": "prieš {0} metų"
 		},
 		"future": {
-			"one": "po {0} metų",
-			"few": "po {0} metų",
-			"many": "po {0} metų",
 			"other": "po {0} metų"
 		}
 	},
@@ -22,7 +18,6 @@
 		},
 		"future": {
 			"one": "po {0} mėnesio",
-			"few": "po {0} mėnesių",
 			"many": "po {0} mėnesio",
 			"other": "po {0} mėnesių"
 		}
@@ -36,7 +31,6 @@
 		},
 		"future": {
 			"one": "po {0} savaitės",
-			"few": "po {0} savaičių",
 			"many": "po {0} savaitės",
 			"other": "po {0} savaičių"
 		}
@@ -50,7 +44,6 @@
 		},
 		"future": {
 			"one": "po {0} dienos",
-			"few": "po {0} dienų",
 			"many": "po {0} dienos",
 			"other": "po {0} dienų"
 		}
@@ -64,7 +57,6 @@
 		},
 		"future": {
 			"one": "po {0} valandos",
-			"few": "po {0} valandų",
 			"many": "po {0} valandos",
 			"other": "po {0} valandų"
 		}
@@ -78,7 +70,6 @@
 		},
 		"future": {
 			"one": "po {0} minutės",
-			"few": "po {0} minučių",
 			"many": "po {0} minutės",
 			"other": "po {0} minučių"
 		}
@@ -92,7 +83,6 @@
 		},
 		"future": {
 			"one": "po {0} sekundės",
-			"few": "po {0} sekundžių",
 			"many": "po {0} sekundės",
 			"other": "po {0} sekundžių"
 		}

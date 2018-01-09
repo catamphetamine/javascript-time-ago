@@ -1,11 +1,9 @@
 {
 	"year": {
 		"past": {
-			"one": "le ƒe {0} si va yi me",
 			"other": "le ƒe {0} si va yi me"
 		},
 		"future": {
-			"one": "le ƒe {0} me",
 			"other": "le ƒe {0} me"
 		}
 	},

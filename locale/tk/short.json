@@ -1,71 +1,57 @@
 {
 	"year": {
 		"past": {
-			"one": "{0}ý. öň",
 			"other": "{0}ý. öň"
 		},
 		"future": {
-			"one": "{0}ý.-dan",
 			"other": "{0}ý.-dan"
 		}
 	},
 	"month": {
 		"past": {
-			"one": "{0} aý öň",
 			"other": "{0} aý öň"
 		},
 		"future": {
-			"one": "{0} aýdan",
 			"other": "{0} aýdan"
 		}
 	},
 	"week": {
 		"past": {
-			"one": "{0} hep. öň",
 			"other": "{0} hep. öň"
 		},
 		"future": {
-			"one": "{0} hep-den",
 			"other": "{0} hep-den"
 		}
 	},
 	"day": {
 		"past": {
-			"one": "{0} g. öň",
 			"other": "{0} g. öň"
 		},
 		"future": {
-			"one": "{0} g-den",
 			"other": "{0} g-den"
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "{0} sag. öň",
 			"other": "{0} sag. öň"
 		},
 		"future": {
-			"one": "{0} sag-dan",
 			"other": "{0} sag-dan"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "{0} min. öň",
 			"other": "{0} min. öň"
 		},
 		"future": {
-			"one": "{0} min-dan",
 			"other": "{0} min-dan"
 		}
 	},
 	"second": {
 		"past": {
-			"one": "{0} sek. öň",
 			"other": "{0} sek. öň"
 		},
 		"future": {
-			"one": "{0} sek-dan",
 			"other": "{0} sek-dan"
 		}
 	},

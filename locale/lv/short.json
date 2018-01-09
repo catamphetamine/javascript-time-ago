@@ -1,85 +1,59 @@
 {
 	"year": {
 		"past": {
-			"zero": "pirms {0} g.",
-			"one": "pirms {0} g.",
 			"other": "pirms {0} g."
 		},
 		"future": {
-			"zero": "pēc {0} g.",
-			"one": "pēc {0} g.",
 			"other": "pēc {0} g."
 		}
 	},
 	"month": {
 		"past": {
-			"zero": "pirms {0} mēn.",
-			"one": "pirms {0} mēn.",
 			"other": "pirms {0} mēn."
 		},
 		"future": {
-			"zero": "pēc {0} mēn.",
-			"one": "pēc {0} mēn.",
 			"other": "pēc {0} mēn."
 		}
 	},
 	"week": {
 		"past": {
-			"zero": "pirms {0} ned.",
-			"one": "pirms {0} ned.",
 			"other": "pirms {0} ned."
 		},
 		"future": {
-			"zero": "pēc {0} ned.",
-			"one": "pēc {0} ned.",
 			"other": "pēc {0} ned."
 		}
 	},
 	"day": {
 		"past": {
-			"zero": "pirms {0} d.",
 			"one": "pirms {0} d.",
 			"other": "pirms {0} d."
 		},
 		"future": {
-			"zero": "pēc {0} d.",
 			"one": "pēc {0} d.",
 			"other": "pēc {0} d."
 		}
 	},
 	"hour": {
 		"past": {
-			"zero": "pirms {0} st.",
-			"one": "pirms {0} st.",
 			"other": "pirms {0} st."
 		},
 		"future": {
-			"zero": "pēc {0} st.",
-			"one": "pēc {0} st.",
 			"other": "pēc {0} st."
 		}
 	},
 	"minute": {
 		"past": {
-			"zero": "pirms {0} min.",
-			"one": "pirms {0} min.",
 			"other": "pirms {0} min."
 		},
 		"future": {
-			"zero": "pēc {0} min.",
-			"one": "pēc {0} min.",
 			"other": "pēc {0} min."
 		}
 	},
 	"second": {
 		"past": {
-			"zero": "pirms {0} sek.",
-			"one": "pirms {0} sek.",
 			"other": "pirms {0} sek."
 		},
 		"future": {
-			"zero": "pēc {0} sek.",
-			"one": "pēc {0} sek.",
 			"other": "pēc {0} sek."
 		}
 	},

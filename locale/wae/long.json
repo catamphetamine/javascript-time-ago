@@ -5,17 +5,14 @@
 			"other": "cor {0} jár"
 		},
 		"future": {
-			"one": "I {0} jár",
 			"other": "I {0} jár"
 		}
 	},
 	"month": {
 		"past": {
-			"one": "vor {0} mánet",
 			"other": "vor {0} mánet"
 		},
 		"future": {
-			"one": "I {0} mánet",
 			"other": "I {0} mánet"
 		}
 	},

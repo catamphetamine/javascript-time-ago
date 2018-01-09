@@ -3,13 +3,11 @@
 		"past": {
 			"one": "o {0} bhlia.",
 			"two": "o {0} bhlia.",
-			"few": "o {0} blia.",
 			"other": "o {0} blia."
 		},
 		"future": {
 			"one": "an {0} bhlia.",
 			"two": "an {0} bhlia.",
-			"few": "an {0} blia.",
 			"other": "an {0} blia."
 		}
 	},
@@ -17,13 +15,11 @@
 		"past": {
 			"one": "o {0} mhìos.",
 			"two": "o {0} mhìos.",
-			"few": "o {0} mìos.",
 			"other": "o {0} mìos."
 		},
 		"future": {
 			"one": "an {0} mhìos.",
 			"two": "an {0} mhìos.",
-			"few": "an {0} mìos.",
 			"other": "an {0} mìos."
 		}
 	},
@@ -31,40 +27,30 @@
 		"past": {
 			"one": "o {0} sheachd.",
 			"two": "o {0} sheachd.",
-			"few": "o {0} seachd.",
 			"other": "o {0} seachd."
 		},
 		"future": {
 			"one": "an {0} sheachd.",
 			"two": "an {0} sheachd.",
-			"few": "an {0} seachd.",
 			"other": "an {0} seachd."
 		}
 	},
 	"day": {
 		"past": {
-			"one": "o {0} là",
-			"two": "o {0} là",
 			"few": "o {0} là.",
 			"other": "o {0} là"
 		},
 		"future": {
-			"one": "an {0} là",
-			"two": "an {0} là",
 			"few": "an {0} là.",
 			"other": "an {0} là"
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "o {0} uair",
-			"two": "o {0} uair",
 			"few": "o {0} uair.",
 			"other": "o {0} uair"
 		},
 		"future": {
-			"one": "an {0} uair",
-			"two": "an {0} uair",
 			"few": "an {0} uair.",
 			"other": "an {0} uair"
 		}
@@ -73,25 +59,21 @@
 		"past": {
 			"one": "o {0} mhion.",
 			"two": "o {0} mhion.",
-			"few": "o {0} mion.",
 			"other": "o {0} mion."
 		},
 		"future": {
 			"one": "an {0} mhion.",
 			"two": "an {0} mhion.",
-			"few": "an {0} mion.",
 			"other": "an {0} mion."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "o {0} diog",
 			"two": "o {0} dhiog",
 			"few": "o {0} diog.",
 			"other": "o {0} diog"
 		},
 		"future": {
-			"one": "an {0} diog",
 			"two": "an {0} dhiog",
 			"few": "an {0} diog.",
 			"other": "an {0} diog"

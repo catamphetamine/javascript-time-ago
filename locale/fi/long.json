@@ -5,7 +5,6 @@
 			"other": "{0} vuotta sitten"
 		},
 		"future": {
-			"one": "{0} vuoden päästä",
 			"other": "{0} vuoden päästä"
 		}
 	},
@@ -15,7 +14,6 @@
 			"other": "{0} kuukautta sitten"
 		},
 		"future": {
-			"one": "{0} kuukauden päästä",
 			"other": "{0} kuukauden päästä"
 		}
 	},
@@ -25,7 +23,6 @@
 			"other": "{0} viikkoa sitten"
 		},
 		"future": {
-			"one": "{0} viikon päästä",
 			"other": "{0} viikon päästä"
 		}
 	},
@@ -35,7 +32,6 @@
 			"other": "{0} päivää sitten"
 		},
 		"future": {
-			"one": "{0} päivän päästä",
 			"other": "{0} päivän päästä"
 		}
 	},
@@ -45,7 +41,6 @@
 			"other": "{0} tuntia sitten"
 		},
 		"future": {
-			"one": "{0} tunnin päästä",
 			"other": "{0} tunnin päästä"
 		}
 	},
@@ -55,7 +50,6 @@
 			"other": "{0} minuuttia sitten"
 		},
 		"future": {
-			"one": "{0} minuutin päästä",
 			"other": "{0} minuutin päästä"
 		}
 	},
@@ -65,7 +59,6 @@
 			"other": "{0} sekuntia sitten"
 		},
 		"future": {
-			"one": "{0} sekunnin päästä",
 			"other": "{0} sekunnin päästä"
 		}
 	},

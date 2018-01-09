@@ -1,7 +1,6 @@
 {
 	"year": {
 		"past": {
-			"one": "{0} unyaka odlule",
 			"other": "{0} unyaka odlule"
 		},
 		"future": {
@@ -11,17 +10,14 @@
 	},
 	"month": {
 		"past": {
-			"one": "{0} izinyanga ezedlule",
 			"other": "{0} izinyanga ezedlule"
 		},
 		"future": {
-			"one": "ezinyangeni ezingu-{0} ezizayo",
 			"other": "ezinyangeni ezingu-{0} ezizayo"
 		}
 	},
 	"week": {
 		"past": {
-			"one": "amaviki angu-{0} edlule",
 			"other": "amaviki angu-{0} edlule"
 		},
 		"future": {

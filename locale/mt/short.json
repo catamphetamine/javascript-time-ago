@@ -2,8 +2,6 @@
 	"year": {
 		"past": {
 			"one": "{0} sena ilu",
-			"few": "{0} snin ilu",
-			"many": "{0} snin ilu",
 			"other": "{0} snin ilu"
 		},
 		"future": {

@@ -1,71 +1,57 @@
 {
 	"year": {
 		"past": {
-			"one": "{0} évvel ezelőtt",
 			"other": "{0} évvel ezelőtt"
 		},
 		"future": {
-			"one": "{0} év múlva",
 			"other": "{0} év múlva"
 		}
 	},
 	"month": {
 		"past": {
-			"one": "{0} hónappal ezelőtt",
 			"other": "{0} hónappal ezelőtt"
 		},
 		"future": {
-			"one": "{0} hónap múlva",
 			"other": "{0} hónap múlva"
 		}
 	},
 	"week": {
 		"past": {
-			"one": "{0} héttel ezelőtt",
 			"other": "{0} héttel ezelőtt"
 		},
 		"future": {
-			"one": "{0} hét múlva",
 			"other": "{0} hét múlva"
 		}
 	},
 	"day": {
 		"past": {
-			"one": "{0} nappal ezelőtt",
 			"other": "{0} nappal ezelőtt"
 		},
 		"future": {
-			"one": "{0} nap múlva",
 			"other": "{0} nap múlva"
 		}
 	},
 	"hour": {
 		"past": {
-			"one": "{0} órával ezelőtt",
 			"other": "{0} órával ezelőtt"
 		},
 		"future": {
-			"one": "{0} óra múlva",
 			"other": "{0} óra múlva"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "{0} perccel ezelőtt",
 			"other": "{0} perccel ezelőtt"
 		},
 		"future": {
-			"one": "{0} perc múlva",
 			"other": "{0} perc múlva"
 		}
 	},
 	"second": {
 		"past": {
-			"one": "{0} másodperccel ezelőtt",
 			"other": "{0} másodperccel ezelőtt"
 		},
 		"future": {
-			"one": "{0} másodperc múlva",
 			"other": "{0} másodperc múlva"
 		}
 	},

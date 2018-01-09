@@ -1,11 +1,9 @@
 {
 	"year": {
 		"past": {
-			"one": "för {0} år sedan",
 			"other": "för {0} år sedan"
 		},
 		"future": {
-			"one": "om {0} år",
 			"other": "om {0} år"
 		}
 	},

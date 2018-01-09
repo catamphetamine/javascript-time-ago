@@ -1,11 +1,9 @@
 {
 	"year": {
 		"past": {
-			"one": "for {0} år siden",
 			"other": "for {0} år siden"
 		},
 		"future": {
-			"one": "om {0} år",
 			"other": "om {0} år"
 		}
 	},
@@ -31,11 +29,9 @@
 	},
 	"day": {
 		"past": {
-			"one": "for {0} døgn siden",
 			"other": "for {0} døgn siden"
 		},
 		"future": {
-			"one": "om {0} døgn",
 			"other": "om {0} døgn"
 		}
 	},

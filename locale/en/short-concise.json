@@ -1,31 +1,25 @@
  {
 	"year": {
 		"future": {
-			"one": "{0} yr.",
 			"other": "{0} yr."
 		},
 		"past": {
-			"one": "{0} yr.",
 			"other": "{0} yr."
 		}
 	},
 	"month": {
 		"future": {
-			"one": "{0} mo.",
 			"other": "{0} mo."
 		},
 		"past": {
-			"one": "{0} mo.",
 			"other": "{0} mo."
 		}
 	},
 	"week": {
 		"future": {
-			"one": "{0} wk.",
 			"other": "{0} wk."
 		},
 		"past": {
-			"one": "{0} wk.",
 			"other": "{0} wk."
 		}
 	},
@@ -41,31 +35,25 @@
 	},
 	"hour": {
 		"future": {
-			"one": "{0} hr.",
 			"other": "{0} hr."
 		},
 		"past": {
-			"one": "{0} hr.",
 			"other": "{0} hr."
 		}
 	},
 	"minute": {
 		"future": {
-			"one": "{0} min.",
 			"other": "{0} min."
 		},
 		"past": {
-			"one": "{0} min.",
 			"other": "{0} min."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "{0} sec.",
 			"other": "{0} sec."
 		},
 		"future": {
-			"one": "{0} sec.",
 			"other": "{0} sec."
 		}
 	},

@@ -15,36 +15,23 @@
 	},
 	"month": {
 		"past": {
-			"one": "před {0} měs.",
-			"few": "před {0} měs.",
-			"many": "před {0} měs.",
 			"other": "před {0} měs."
 		},
 		"future": {
-			"one": "za {0} měs.",
-			"few": "za {0} měs.",
-			"many": "za {0} měs.",
 			"other": "za {0} měs."
 		}
 	},
 	"week": {
 		"past": {
-			"one": "před {0} týd.",
-			"few": "před {0} týd.",
-			"many": "před {0} týd.",
 			"other": "před {0} týd."
 		},
 		"future": {
-			"one": "za {0} týd.",
-			"few": "za {0} týd.",
-			"many": "za {0} týd.",
 			"other": "za {0} týd."
 		}
 	},
 	"day": {
 		"past": {
 			"one": "před {0} dnem",
-			"few": "před {0} dny",
 			"many": "před {0} dne",
 			"other": "před {0} dny"
 		},
@@ -57,43 +44,25 @@
 	},
 	"hour": {
 		"past": {
-			"one": "před {0} h",
-			"few": "před {0} h",
-			"many": "před {0} h",
 			"other": "před {0} h"
 		},
 		"future": {
-			"one": "za {0} h",
-			"few": "za {0} h",
-			"many": "za {0} h",
 			"other": "za {0} h"
 		}
 	},
 	"minute": {
 		"past": {
-			"one": "před {0} min",
-			"few": "před {0} min",
-			"many": "před {0} min",
 			"other": "před {0} min"
 		},
 		"future": {
-			"one": "za {0} min",
-			"few": "za {0} min",
-			"many": "za {0} min",
 			"other": "za {0} min"
 		}
 	},
 	"second": {
 		"past": {
-			"one": "před {0} s",
-			"few": "před {0} s",
-			"many": "před {0} s",
 			"other": "před {0} s"
 		},
 		"future": {
-			"one": "za {0} s",
-			"few": "za {0} s",
-			"many": "za {0} s",
 			"other": "za {0} s"
 		}
 	},

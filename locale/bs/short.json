@@ -1,49 +1,33 @@
 {
 	"year": {
 		"past": {
-			"one": "prije {0} god.",
-			"few": "prije {0} god.",
 			"other": "prije {0} god."
 		},
 		"future": {
-			"one": "za {0} god.",
-			"few": "za {0} god.",
 			"other": "za {0} god."
 		}
 	},
 	"month": {
 		"past": {
-			"one": "prije {0} mj.",
-			"few": "prije {0} mj.",
 			"other": "prije {0} mj."
 		},
 		"future": {
-			"one": "za {0} mj.",
-			"few": "za {0} mj.",
 			"other": "za {0} mj."
 		}
 	},
 	"week": {
 		"past": {
-			"one": "prije {0} sed.",
-			"few": "prije {0} sed.",
 			"other": "prije {0} sed."
 		},
 		"future": {
-			"one": "za {0} sed.",
-			"few": "za {0} sed.",
 			"other": "za {0} sed."
 		}
 	},
 	"day": {
 		"past": {
-			"one": "prije {0} d.",
-			"few": "prije {0} d.",
 			"other": "prije {0} d."
 		},
 		"future": {
-			"one": "za {0} d.",
-			"few": "za {0} d.",
 			"other": "za {0} d."
 		}
 	},
@@ -61,25 +45,17 @@
 	},
 	"minute": {
 		"past": {
-			"one": "prije {0} min.",
-			"few": "prije {0} min.",
 			"other": "prije {0} min."
 		},
 		"future": {
-			"one": "za {0} min.",
-			"few": "za {0} min.",
 			"other": "za {0} min."
 		}
 	},
 	"second": {
 		"past": {
-			"one": "prije {0} sek.",
-			"few": "prije {0} sek.",
 			"other": "prije {0} sek."
 		},
 		"future": {
-			"one": "za {0} sek.",
-			"few": "za {0} sek.",
 			"other": "za {0} sek."
 		}
 	},
