@@ -66,11 +66,7 @@ describe('Intl.RelativeTimeFormat', () => {
 
   it('should show resolved options', function() {
     expect(new RelativeTimeFormat('ru-XX', { timeZone: 'UTC' }).resolvedOptions()).to.deep.equal({
-      locale: "ru",
-      // calendar: "gregory",
-      // numberingSystem: "latn",
-      // timeZone: "UTC",
-      // month: "numeric"
+      locale: "ru"
     })
   })
 })
