@@ -310,7 +310,21 @@ else {
 }
 ```
 
-Web browser: same as for Node.js with `global` replaced with `window`.
+Web browser: only download `intl` package if the web browser doesn't support it, and only download the required locale.
+
+```js
+async function initIntl() {
+  if (typeof Intl === 'object') {
+    return
+  }
+  await Promise.all([
+    import('intl'),
+    import('intl/locale-data/jsonp/en')
+  ])
+}
+
+initIntl().then(...)
+```
 
 ## Contributing
 
