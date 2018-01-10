@@ -1,3 +1,5 @@
+import { getLanguageFromLanguageTag } from './RelativeTimeFormat'
+
 // Chooses the most appropriate locale
 // (one of the registered ones)
 // based on the list of preferred `locales` supplied by the user.
@@ -22,7 +24,7 @@ export default function choose_locale(locales, registered_locales)
 			return locale
 		}
 
-		const language = get_language_from_locale(locale)
+		const language = getLanguageFromLanguageTag(locale)
 
 		if (language !== locale)
 		{
@@ -34,26 +36,6 @@ export default function choose_locale(locales, registered_locales)
 	}
 
 	throw new Error(`No locale data has been registered for any of the locales: ${locales.join(', ')}`)
-}
-
-/**
- * Extracts language from locale (in IETF format).
- * @param {string} locale
- * @return {string} language
- */
-function get_language_from_locale(locale)
-{
-	// `locale` can be, for example,
-	// "he-IL-u-ca-hebrew-tz-jeruslm" or "ar-u-nu-latn".
-
-	const hyphen_index = locale.indexOf('-')
-
-	if (hyphen_index > 0)
-	{
-		return locale.slice(0, hyphen_index)
-	}
-
-	return locale
 }
 
 /**

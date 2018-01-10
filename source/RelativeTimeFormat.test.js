@@ -24,7 +24,11 @@ describe('Intl.RelativeTimeFormat', () => {
 
   it('should accept an array of locales', () => {
     const rtf = new RelativeTimeFormat(["en"]);
+    expect(rtf.format(-2, "day")).to.equal("2 days ago");
+  })
 
+  it('should fallback to default system locale', () => {
+    const rtf = new RelativeTimeFormat();
     expect(rtf.format(-2, "day")).to.equal("2 days ago");
   })
 
@@ -48,5 +52,10 @@ describe('Intl.RelativeTimeFormat', () => {
       { type: "literal", value: "ʻi he ʻaho ʻe "},
       { type: "day", value: "100"}
     ]);
+  })
+
+  it('should list supported locales', function() {
+    expect(RelativeTimeFormat.supportedLocalesOf(['es-ES', 'ru', 'ru-RU', 'en-GB']))
+      .to.deep.equal(['ru', 'ru-RU', 'en-GB'])
   })
 })

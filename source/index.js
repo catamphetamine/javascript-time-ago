@@ -113,7 +113,7 @@ export default class JavascriptTimeAgo
 			return ''
 		}
 
-		// Choose the appropriate time measurement unit 
+		// Choose the appropriate time measurement unit
 		// and get the corresponding rounded time amount.
 		const { unit, amount } = elapsed(Math.abs(seconds_elapsed), units, style.gradation)
 

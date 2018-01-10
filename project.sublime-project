@@ -6,5 +6,9 @@
 			"path": ".",
 			"folder_exclude_patterns": ["javascript-time-ago/node_modules", "javascript-time-ago/coverage", "javascript-time-ago/build", "javascript-time-ago/es6", "project.sublime-workspace"]
 		}
-	]
+	],
+	"settings":
+	{
+		"trim_trailing_white_space_on_save": true
+	}
 }

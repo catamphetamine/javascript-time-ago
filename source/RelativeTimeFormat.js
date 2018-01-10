@@ -1,5 +1,4 @@
 import JavascriptTimeAgo from './index'
-import chooseLocale from './locale'
 
 /**
  * Polyfill for `Intl.RelativeTimeFormat` proposal.
@@ -7,7 +6,7 @@ import chooseLocale from './locale'
  */
 export default class RelativeTimeFormat {
   /**
-   * @param {(string|string[])} locales - Preferred locales (or locale).
+   * @param {(string|string[])} [locales] - Preferred locales (or locale).
    * @param {Object} [options] - Formatting options.
    * @param {string} [options.style] - Formatting style (e.g. "long", "short", "narrow").
    */
@@ -15,17 +14,12 @@ export default class RelativeTimeFormat {
     const { style } = options
     this.style = style || 'long'
 
-    // Convert `locales` to an array.
-    if (typeof locales === 'string') {
-      locales = [locales]
-    }
-
     // Choose the most appropriate locale.
     // This could implement some kind of a "best-fit" algorythm.
-    this.locale = chooseLocale(
-      locales,
-      getLocales()
-    )
+    if (locales) {
+      this.locale = RelativeTimeFormat.supportedLocalesOf(locales)[0]
+    }
+    this.locale = this.locale || getDefaultLocale()
   }
 
   /**
@@ -118,10 +112,65 @@ export default class RelativeTimeFormat {
   }
 }
 
+/**
+ * Returns an array containing those of the provided locales
+ * that are supported in collation without having to fall back
+ * to the runtime's default locale.
+ * @param {(string|string[])} locale - A string with a BCP 47 language tag, or an array of such strings. For the general form of the locales argument, see the Intl page.
+ * @param {Object} [options] - An object that may have the following property:
+ * @param {Function} [options.localeMatcher] - The locale matching algorithm to use. Possible values are "lookup" and "best fit"; the default is "best fit". For information about this option, see the Intl page.
+ * @return {string[]} An array of strings representing a subset of the given locale tags that are supported in collation without having to fall back to the runtime's default locale.
+ * @example
+ * var locales = ['ban', 'id-u-co-pinyin', 'de-ID'];
+ * var options = { localeMatcher: 'lookup' };
+ * console.log(Intl.RelativeTimeFormat.supportedLocalesOf(locales, options).join(', '));
+ * // → "id-u-co-pinyin, de-ID"
+ */
+RelativeTimeFormat.supportedLocalesOf = function(locales, options) {
+  // Convert `locales` to an array.
+  if (typeof locales === 'string') {
+    locales = [locales]
+  }
+  // This is not an intelligent algorythm,
+  // but it will do for the polyfill purposes.
+  // This could implement some kind of a "best-fit" algorythm.
+  return locales.filter((locale) => {
+    if (getLocales()[locale]) {
+      return true
+    }
+    const language = getLanguageFromLanguageTag(locale)
+    if (getLocales()[language]) {
+      return true
+    }
+  })
+}
+
 export function loadLocale(locale) {
   JavascriptTimeAgo.locale(locale)
 }
 
 function getLocales() {
   return JavascriptTimeAgo.locales
+}
+
+function getDefaultLocale() {
+  return JavascriptTimeAgo.default_locale
+}
+
+/**
+ * Extracts language from an IETF BCP 47 language tag.
+ * @param {string} languageTag - IETF BCP 47 language tag.
+ * @return {string}
+ * @example
+ * // Returns "he"
+ * getLanguageFromLanguageTag("he-IL-u-ca-hebrew-tz-jeruslm")
+ * // Returns "ar"
+ * getLanguageFromLanguageTag("ar-u-nu-latn")
+ */
+export function getLanguageFromLanguageTag(languageTag) {
+  const hyphenIndex = languageTag.indexOf('-')
+  if (hyphenIndex > 0) {
+    return languageTag.slice(0, hyphenIndex)
+  }
+  return languageTag
 }
