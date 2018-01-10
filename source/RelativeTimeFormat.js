@@ -3,6 +3,7 @@ import JavascriptTimeAgo from './index'
 /**
  * Polyfill for `Intl.RelativeTimeFormat` proposal.
  * https://github.com/tc39/proposal-intl-relative-time
+ * https://github.com/tc39/proposal-intl-relative-time/issues/55
  */
 export default class RelativeTimeFormat {
   /**
