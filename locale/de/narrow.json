@@ -9,6 +9,14 @@
 			"other": "in {0} Jahren"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "vor {0} Q"
+		},
+		"future": {
+			"other": "in {0} Q"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "vor {0} Monat",

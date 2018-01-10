@@ -13,6 +13,14 @@
 			"other": "za {0} roku"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} kw. temu"
+		},
+		"future": {
+			"other": "za {0} kw."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} mies. temu"

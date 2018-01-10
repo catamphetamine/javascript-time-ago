@@ -7,6 +7,14 @@
 			"other": "{0}년 후"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0}분기 전"
+		},
+		"future": {
+			"other": "{0}분기 후"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0}개월 전"

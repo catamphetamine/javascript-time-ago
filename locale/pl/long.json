@@ -13,6 +13,20 @@
 			"other": "za {0} roku"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "{0} kwartał temu",
+			"few": "{0} kwartały temu",
+			"many": "{0} kwartałów temu",
+			"other": "{0} kwartału temu"
+		},
+		"future": {
+			"one": "za {0} kwartał",
+			"few": "za {0} kwartały",
+			"many": "za {0} kwartałów",
+			"other": "za {0} kwartału"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} miesiąc temu",

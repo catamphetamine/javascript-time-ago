@@ -7,6 +7,14 @@
 			"other": "ʻi he taʻu ʻe {0}"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "kuata ʻe {0} kuoʻosi"
+		},
+		"future": {
+			"other": "ʻi he kuata ʻe {0}"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "māhina ʻe {0} kuoʻosi"

@@ -7,6 +7,14 @@
 			"other": "za {0} l."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "před {0} kwart."
+		},
+		"future": {
+			"other": "za {0} kwart."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "před {0} měs."

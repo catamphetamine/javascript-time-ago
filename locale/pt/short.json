@@ -9,6 +9,14 @@
 			"other": "em {0} anos"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} trim. atrás"
+		},
+		"future": {
+			"other": "em {0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} mês atrás",

@@ -72,6 +72,16 @@ const english_CLDR_converted =
         "other": "in {0} minutes"
       }
     },
+    "quarter": {
+      "future": {
+        "one": "in {0} quarter",
+        "other": "in {0} quarters"
+      },
+      "past": {
+        "one": "{0} quarter ago",
+        "other": "{0} quarters ago"
+      }
+    },
     "second": {
       "past": {
         "one": "{0} second ago",
@@ -152,6 +162,16 @@ const english_CLDR_converted =
         "other": "in {0} min."
       }
     },
+    "quarter": {
+      "future": {
+        "one": "in {0} qtr.",
+        "other": "in {0} qtrs."
+      },
+      "past": {
+        "one": "{0} qtr. ago",
+        "other": "{0} qtrs. ago"
+      }
+    },
     "second": {
       "past": {
         "one": "{0} sec. ago",
@@ -212,6 +232,16 @@ const english_CLDR_converted =
         "other": "{0} mo. ago"
       }
     },
+    "quarter": {
+      "future": {
+        "one": "in {0} qtrs.",
+        "other": "in {0} qtrs."
+      },
+      "past": {
+        "one": "{0} qtrs. ago",
+        "other": "{0} qtrs. ago"
+      }
+    },
     "second": {
       "future": {
         "one": "in {0} sec.",
@@ -245,7 +275,7 @@ const english_CLDR_converted =
   }
 }
 
-const english_CLDR = 
+const english_CLDR =
 {
   "main": {
     "en-US-POSIX": {

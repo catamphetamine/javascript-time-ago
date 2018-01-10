@@ -7,6 +7,14 @@
 			"other": "{0}年后"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0}个季度前"
+		},
+		"future": {
+			"other": "{0}个季度后"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0}个月前"

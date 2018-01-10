@@ -7,6 +7,14 @@
 			"other": "{0} aasta pärast"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} kvartali eest"
+		},
+		"future": {
+			"other": "{0} kvartali pärast"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} kuu eest"

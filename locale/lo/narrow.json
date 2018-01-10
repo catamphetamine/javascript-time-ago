@@ -7,6 +7,14 @@
 			"other": "ໃນອີກ {0} ປີ"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} ຕມ. ກ່ອນ"
+		},
+		"future": {
+			"other": "ໃນ {0} ຕມ."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} ດ. ກ່ອນ"

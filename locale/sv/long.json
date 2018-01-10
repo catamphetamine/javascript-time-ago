@@ -7,6 +7,14 @@
 			"other": "om {0} år"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "för {0} kvartal sedan"
+		},
+		"future": {
+			"other": "om {0} kvartal"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "för {0} månad sedan",

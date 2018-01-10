@@ -11,6 +11,14 @@
 			"other": "en {0} Johre"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "-{0} Q"
+		},
+		"future": {
+			"other": "+{0} Q"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "-{0} m"

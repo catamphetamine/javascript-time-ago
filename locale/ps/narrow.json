@@ -9,6 +9,14 @@
 			"other": "په {0} کالونو کې"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "-{0} Q"
+		},
+		"future": {
+			"other": "+{0} Q"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "-{0} m"

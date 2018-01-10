@@ -12,6 +12,19 @@
 			"other": "za {0} lět"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "před {0} kwartalom",
+			"two": "před {0} kwartalomaj",
+			"other": "před {0} kwartalemi"
+		},
+		"future": {
+			"one": "za {0} kwartal",
+			"two": "za {0} kwartalej",
+			"few": "za {0} kwartale",
+			"other": "za {0} kwartalow"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "před {0} měsacom",

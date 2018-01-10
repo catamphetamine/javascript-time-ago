@@ -12,6 +12,19 @@
 			"other": "o {0} rokov"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "pred {0} štvrťrokom",
+			"many": "pred {0} štvrťroka",
+			"other": "pred {0} štvrťrokmi"
+		},
+		"future": {
+			"one": "o {0} štvrťrok",
+			"few": "o {0} štvrťroky",
+			"many": "o {0} štvrťroka",
+			"other": "o {0} štvrťrokov"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "pred {0} mesiacom",

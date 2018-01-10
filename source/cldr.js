@@ -1,6 +1,7 @@
-// The generic time measurement units
-// (other units like "quarter" or "thu" are ignored).
-export const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'year']
+// The generic time measurement units.
+// (other units like "fri" or "thu" are ignored)
+// ("quarter" is required by `Intl.RelativeTimeFormat`)
+export const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'quarter', 'year']
 
 // Converts locale data from CLDR format to this library's format.
 //
@@ -79,7 +80,7 @@ export default function parse_CLDR(data)
 	.filter((unit) =>
 	{
 		// Take only the generic time measurement units
-		// (skip exotic ones like "quarter" on "thu").
+		// (skip exotic ones like "fri" on "thu").
 		return units.indexOf(unit) >= 0 ||
 			units.indexOf(unit.replace(short, '')) >= 0 ||
 			units.indexOf(unit.replace(narrow, '')) >= 0

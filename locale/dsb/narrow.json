@@ -7,6 +7,14 @@
 			"other": "za {0} l."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "pśed {0} kw."
+		},
+		"future": {
+			"other": "za {0} kw."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "pśed {0} mjas."

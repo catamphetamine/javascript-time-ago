@@ -7,6 +7,14 @@
 			"other": "dalam {0} tahun"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} suku tahun lalu"
+		},
+		"future": {
+			"other": "dalam {0} suku tahun"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} bulan lalu"

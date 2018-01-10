@@ -13,6 +13,14 @@
 			"other": "+{0} bl."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "-{0} R"
+		},
+		"future": {
+			"other": "+{0} R"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "-{0} mhí",

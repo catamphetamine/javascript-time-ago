@@ -7,6 +7,14 @@
 			"other": "di li {0} anu"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "a ten {0} trimestri"
+		},
+		"future": {
+			"other": "di li {0} trimestri"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "a ten {0} mes"

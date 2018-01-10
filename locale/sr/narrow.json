@@ -7,6 +7,14 @@
 			"other": "за {0} г."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "пре {0} кв."
+		},
+		"future": {
+			"other": "за {0} кв."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "пре {0} м."

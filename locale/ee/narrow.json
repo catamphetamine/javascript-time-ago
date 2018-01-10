@@ -7,6 +7,15 @@
 			"other": "le ƒe {0} si gbɔna me"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "kɔta {0} si va yi me"
+		},
+		"future": {
+			"one": "le kɔta {0} si gbɔna me",
+			"other": "le kɔta {0} si gbɔ na me"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "ɣleti {0} si va yi",

@@ -11,6 +11,18 @@
 			"other": "peste {0} de ani"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "acum {0} trimestru",
+			"few": "acum {0} trimestre",
+			"other": "acum {0} de trimestre"
+		},
+		"future": {
+			"one": "peste {0} trimestru",
+			"few": "peste {0} trimestre",
+			"other": "peste {0} de trimestre"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "acum {0} lună",

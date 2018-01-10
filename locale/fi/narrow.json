@@ -7,6 +7,14 @@
 			"other": "{0} v päästä"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} nelj. sitten"
+		},
+		"future": {
+			"other": "{0} nelj. päästä"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} kk sitten"

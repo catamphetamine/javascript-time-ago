@@ -8,6 +8,14 @@
 			"other": "eftir {0} ár"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "fyrir {0} ársfj."
+		},
+		"future": {
+			"other": "eftir {0} ársfj."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "fyrir {0} mán."

@@ -13,6 +13,20 @@
 			"other": "an ceann {0} bliadhna"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "o chionn {0} chairteil",
+			"two": "o chionn {0} chairteil",
+			"few": "o chionn {0} cairtealan",
+			"other": "o chionn {0} cairteil"
+		},
+		"future": {
+			"one": "an ceann {0} chairteil",
+			"two": "an ceann {0} chairteil",
+			"few": "an ceann {0} cairtealan",
+			"other": "an ceann {0} cairteil"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} mhìos air ais",

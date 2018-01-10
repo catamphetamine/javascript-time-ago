@@ -9,6 +9,16 @@
 			"other": "pēc {0} gadiem"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "pirms {0} ceturkšņa",
+			"other": "pirms {0} ceturkšņiem"
+		},
+		"future": {
+			"one": "pēc {0} ceturkšņa",
+			"other": "pēc {0} ceturkšņiem"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "pirms {0} mēneša",

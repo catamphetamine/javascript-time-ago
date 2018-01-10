@@ -12,6 +12,19 @@
 			"other": "za {0} lět"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "pśed {0} kwartalom",
+			"two": "pśed {0} kwartaloma",
+			"other": "pśed {0} kwartalami"
+		},
+		"future": {
+			"one": "za {0} kwartal",
+			"two": "za {0} kwartala",
+			"few": "za {0} kwartale",
+			"other": "za {0} kwartalow"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "pśed {0} mjasecom",

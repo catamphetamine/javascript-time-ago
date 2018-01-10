@@ -9,6 +9,14 @@
 			"other": "en {0} años"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "hai {0} trim."
+		},
+		"future": {
+			"other": "en {0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"one": "hai {0} mes",

@@ -7,6 +7,14 @@
 			"other": "pēc {0} g."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "pirms {0} cet."
+		},
+		"future": {
+			"other": "pēc {0} cet."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "pirms {0} mēn."

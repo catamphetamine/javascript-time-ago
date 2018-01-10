@@ -7,6 +7,14 @@
 			"other": "በ{0} ዓመታት ውስጥ"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} ሩብ በፊት"
+		},
+		"future": {
+			"other": "+{0} ሩብ"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "ከ{0} ወራት በፊት"

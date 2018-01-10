@@ -7,6 +7,14 @@
 			"other": "+{0} år"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "–{0} kv."
+		},
+		"future": {
+			"other": "+{0} kv."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "-{0} md."

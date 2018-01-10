@@ -13,6 +13,20 @@
 			"other": "a-benn {0} vloaz"
 		}
 	},
+	"quarter": {
+		"past": {
+			"two": "{0} drimiziad zo",
+			"few": "{0} zrimiziad zo",
+			"many": "{0} a zrimiziadoù zo",
+			"other": "{0} trimiziad zo"
+		},
+		"future": {
+			"two": "a-benn {0} drimiziad",
+			"few": "a-benn {0} zrimiziad",
+			"many": "a-benn {0} a drimiziadoù",
+			"other": "a-benn {0} trimiziad"
+		}
+	},
 	"month": {
 		"past": {
 			"two": "{0} viz zo",

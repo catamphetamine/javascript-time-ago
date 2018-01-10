@@ -9,6 +9,16 @@
 			"other": "a(n) {0} Joer"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "virun {0} Quartal",
+			"other": "viru(n) {0} Quartaler"
+		},
+		"future": {
+			"one": "an {0} Quartal",
+			"other": "a(n) {0} Quartaler"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "virun {0} Mount",

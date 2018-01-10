@@ -7,6 +7,14 @@
 			"other": "en {0} a."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "hai {0} trim."
+		},
+		"future": {
+			"other": "en {0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "hai {0} m."

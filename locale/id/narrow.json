@@ -7,6 +7,14 @@
 			"other": "dlm {0} thn"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} krtl. lalu"
+		},
+		"future": {
+			"other": "dlm {0} krtl."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} bln lalu"

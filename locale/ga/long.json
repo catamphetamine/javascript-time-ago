@@ -15,6 +15,14 @@
 			"other": "i gceann {0} bliain"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} ráithe ó shin"
+		},
+		"future": {
+			"other": "i gceann {0} ráithe"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} mhí ó shin",

@@ -15,6 +15,18 @@
 			"other": "ymhen {0} mlynedd"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "{0} chwarter yn ôl",
+			"two": "{0} chwarter yn ôl",
+			"few": "{0} chwarter yn ôl",
+			"many": "{0} chwarter yn ôl",
+			"other": "{0} o chwarteri yn ôl"
+		},
+		"future": {
+			"other": "ymhen {0} chwarter"
+		}
+	},
 	"month": {
 		"past": {
 			"two": "{0} fis yn ôl",

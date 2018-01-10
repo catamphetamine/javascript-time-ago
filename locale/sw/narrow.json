@@ -9,6 +9,15 @@
 			"other": "baada ya miaka {0}"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "robo {0} iliyopita",
+			"other": "robo {0} zilizopita"
+		},
+		"future": {
+			"other": "baada ya robo {0}"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "mwezi {0} uliopita",

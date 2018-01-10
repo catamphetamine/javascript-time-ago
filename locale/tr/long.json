@@ -7,6 +7,14 @@
 			"other": "{0} yıl sonra"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} çeyrek önce"
+		},
+		"future": {
+			"other": "{0} çeyrek sonra"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} ay önce"

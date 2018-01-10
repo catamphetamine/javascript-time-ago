@@ -8,6 +8,16 @@
 			"other": "eminyakeni engu-{0} ezayo"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "{0} amakota adlule",
+			"other": "{0} amakota edlule"
+		},
+		"future": {
+			"one": "kwikota engu-{0} ezayo",
+			"other": "kumakota angu-{0} ezayo"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} izinyanga ezedlule"

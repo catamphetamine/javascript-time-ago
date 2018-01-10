@@ -7,6 +7,14 @@
 			"other": "sau {0} năm nữa"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} quý trước"
+		},
+		"future": {
+			"other": "sau {0} quý nữa"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} tháng trước"

@@ -11,6 +11,16 @@
 			"other": "za {0} godina"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "prije {0} kvartal",
+			"other": "prije {0} kvartala"
+		},
+		"future": {
+			"one": "za {0} kvartal",
+			"other": "za {0} kvartala"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "prije {0} mjesec",

@@ -8,6 +8,14 @@
 			"other": "ኣብ {0} ዓ"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "ቅድሚ {0} ርብዒ"
+		},
+		"future": {
+			"other": "ኣብ {0} ርብዒ"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "ቅድሚ {0} ወርሒ"

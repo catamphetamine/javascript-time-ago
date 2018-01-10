@@ -7,6 +7,14 @@
 			"other": "o {0} r."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "pred {0} štvrťr."
+		},
+		"future": {
+			"other": "o {0} štvrťr."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "pred {0} mes."

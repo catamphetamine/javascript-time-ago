@@ -9,6 +9,16 @@
 			"other": "dentro de {0} anos"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "hai {0} trimestre",
+			"other": "hai {0} trimestres"
+		},
+		"future": {
+			"one": "dentro de {0} trimestre",
+			"other": "dentro de {0} trimestres"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "hai {0} mes",

@@ -7,6 +7,14 @@
 			"other": "ལོ་འཁོར་ {0} ནང་"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "-{0} Q"
+		},
+		"future": {
+			"other": "+{0} Q"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "ཟླཝ་ {0} ཧེ་མ་"

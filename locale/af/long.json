@@ -7,6 +7,16 @@
 			"other": "oor {0} jaar"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "{0} kwartaal gelede",
+			"other": "{0} kwartale gelede"
+		},
+		"future": {
+			"one": "oor {0} kwartaal",
+			"other": "oor {0} kwartale"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} maand gelede",

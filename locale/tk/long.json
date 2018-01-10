@@ -7,6 +7,14 @@
 			"other": "{0} ýyldan"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} çärýek öň"
+		},
+		"future": {
+			"other": "{0} çärýekden"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} aý öň"

@@ -9,6 +9,15 @@
 			"other": "sa {0} (na) taon"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "{0} quarter ang nakalipas",
+			"other": "{0} (na) quarter ang nakalipas"
+		},
+		"future": {
+			"other": "sa {0} (na) quarter"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} buwan ang nakalipas",

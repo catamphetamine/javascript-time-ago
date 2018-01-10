@@ -7,6 +7,14 @@
 			"other": "om {0} ukioq"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "-{0} Q"
+		},
+		"future": {
+			"other": "+{0} Q"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "for {0} qaammat siden"

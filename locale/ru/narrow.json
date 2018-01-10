@@ -9,6 +9,14 @@
 			"other": "-{0} г."
 		}
 	},
+	"quarter": {
+		"future": {
+			"other": "+{0} кв."
+		},
+		"past": {
+			"other": "-{0} кв."
+		}
+	},
 	"month": {
 		"future": {
 			"other": "+{0} мес."

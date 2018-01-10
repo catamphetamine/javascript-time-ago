@@ -7,6 +7,14 @@
 			"other": "{0} urte barru"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "Duela {0} hiruhileko"
+		},
+		"future": {
+			"other": "{0} hiruhileko barru"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "Duela {0} hilabete"

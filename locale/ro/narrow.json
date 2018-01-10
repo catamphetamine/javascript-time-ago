@@ -9,6 +9,14 @@
 			"other": "+{0} ani"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "-{0} trim."
+		},
+		"future": {
+			"other": "+{0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"one": "-{0} lună",

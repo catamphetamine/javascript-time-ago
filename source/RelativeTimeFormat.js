@@ -8,7 +8,9 @@ export default class RelativeTimeFormat {
   /**
    * @param {(string|string[])} [locales] - Preferred locales (or locale).
    * @param {Object} [options] - Formatting options.
-   * @param {string} [options.style] - Formatting style (e.g. "long", "short", "narrow").
+   * @param {string} [options.style="long"] - One of: "long", "short", "narrow".
+   * @param {string} [options.type="numeric"] - One of: "numeric", "text".
+   * @param {string} [options.localeMatcher="best fit"] - One of: "lookup", "best fit".
    */
   constructor(locales, options = {}) {
     const { style } = options
@@ -27,6 +29,7 @@ export default class RelativeTimeFormat {
    * @param {number} value - Time interval value.
    * @param {string} unit - Time interval measurement unit.
    * @return {string}
+   * @throws {RangeError} If unit is not one of "second", "minute", "hour", "day", "week", "month", "quarter".
    * @example
    * // Returns "2 days ago"
    * rtf.format(-2, "day")
@@ -42,6 +45,7 @@ export default class RelativeTimeFormat {
    * @param {number} value - Time interval value.
    * @param {string} unit - Time interval measurement unit.
    * @return {Object[]} The parts (`{ type, value }`).
+   * @throws {RangeError} If unit is not one of "second", "minute", "hour", "day", "week", "month", "quarter".
    * @example
    * // Returns [
    * //   { type: "literal", value: "in "},
@@ -80,11 +84,16 @@ export default class RelativeTimeFormat {
    * @param {number} value - Time interval value.
    * @param {string} unit - Time interval measurement unit.
    * @return {string}
+   * @throws {RangeError} If unit is not one of "second", "minute", "hour", "day", "week", "month", "quarter".
    * @example
    * // Returns "{0} days ago"
    * getRule(-2, "day")
    */
   getRule(value, unit) {
+    // `javascript-time-ago` also uses "now" unit so not throwing here.
+    // if (["second", "minute", "hour", "day", "week", "month", "quarter"].indexOf(value) < 0) {
+    //   throw new RangeError(`Unknown time unit: ${unit}.`)
+    // }
     // Get locale-specific time interval formatting rules
     // of a given `style` for the given value of measurement `unit`.
     //

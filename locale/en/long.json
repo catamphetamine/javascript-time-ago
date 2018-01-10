@@ -17,6 +17,16 @@
 			"other": "half a year ago"
 		}
 	},
+	"quarter": {
+		"future": {
+			"one": "in {0} quarter",
+			"other": "in {0} quarters"
+		},
+		"past": {
+			"one": "{0} quarter ago",
+			"other": "{0} quarters ago"
+		}
+	},
 	"month": {
 		"future": {
 			"one": "in a month",

@@ -11,6 +11,18 @@
 			"other": "an {0} blia."
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "o {0} chairt.",
+			"two": "o {0} chairt.",
+			"other": "o {0} cairt."
+		},
+		"future": {
+			"one": "an {0} chairt.",
+			"two": "an {0} chairt.",
+			"other": "an {0} cairt."
+		}
+	},
 	"month": {
 		"past": {
 			"one": "o {0} mhìos.",

@@ -7,6 +7,14 @@
 			"other": "dans {0} a"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "il y a {0} trim."
+		},
+		"future": {
+			"other": "dans {0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "il y a {0} m."

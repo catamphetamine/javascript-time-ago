@@ -7,6 +7,16 @@
 			"other": "over {0} jaar"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "{0} kwartaal geleden",
+			"other": "{0} kwartalen geleden"
+		},
+		"future": {
+			"one": "over {0} kw.",
+			"other": "over {0} kwartalen"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} maand geleden",

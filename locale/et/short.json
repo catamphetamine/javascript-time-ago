@@ -7,6 +7,14 @@
 			"other": "{0} a pärast"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} kv eest"
+		},
+		"future": {
+			"other": "{0} kv pärast"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} kuu eest"

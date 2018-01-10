@@ -7,6 +7,14 @@
 			"other": "{0} év múlva"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} negyedévvel ezelőtt"
+		},
+		"future": {
+			"other": "{0} n.év múlva"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} hónappal ezelőtt"

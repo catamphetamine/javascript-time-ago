@@ -8,6 +8,14 @@
 			"other": "le ƒe {0} me"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "kɔta {0} si va yi me"
+		},
+		"future": {
+			"other": "le kɔta {0} si gbɔ na me"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "ɣleti {0} si va yi",

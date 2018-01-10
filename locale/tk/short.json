@@ -7,6 +7,14 @@
 			"other": "{0}ý.-dan"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} çär. öň"
+		},
+		"future": {
+			"other": "{0} çär.-den"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} aý öň"

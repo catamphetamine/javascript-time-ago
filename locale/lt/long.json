@@ -9,6 +9,19 @@
 			"other": "po {0} metų"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "prieš {0} ketvirtį",
+			"few": "prieš {0} ketvirčius",
+			"many": "prieš {0} ketvirčio",
+			"other": "prieš {0} ketvirčių"
+		},
+		"future": {
+			"one": "po {0} ketvirčio",
+			"many": "po {0} ketvirčio",
+			"other": "po {0} ketvirčių"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "prieš {0} mėnesį",

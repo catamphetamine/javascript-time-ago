@@ -7,6 +7,14 @@
 			"other": "za {0} god."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "prije {0} kv."
+		},
+		"future": {
+			"other": "za {0} kv."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "prije {0} mj."

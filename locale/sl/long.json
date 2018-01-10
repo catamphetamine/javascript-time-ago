@@ -12,6 +12,19 @@
 			"other": "čez {0} let"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "pred {0} četrtletjem",
+			"two": "pred {0} četrtletjema",
+			"other": "pred {0} četrtletji"
+		},
+		"future": {
+			"one": "čez {0} četrtletje",
+			"two": "čez {0} četrtletji",
+			"few": "čez {0} četrtletja",
+			"other": "čez {0} četrtletij"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "pred {0} mesecem",

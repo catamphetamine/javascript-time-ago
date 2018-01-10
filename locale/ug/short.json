@@ -7,6 +7,14 @@
 			"other": "{0} يىلدىن كېيىن"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "-{0} Q"
+		},
+		"future": {
+			"other": "+{0} Q"
+		}
+	},
 	"month": {
 		"past": {
 			"other": "{0} ئاي ئىلگىرى"

@@ -7,6 +7,14 @@
 			"other": "om {0} år"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "för {0} kv. sen"
+		},
+		"future": {
+			"other": "om {0} kv."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "för {0} mån. sen"

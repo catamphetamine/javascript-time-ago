@@ -8,6 +8,15 @@
 			"other": "{0} vuoden päästä"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "{0} neljännesvuosi sitten",
+			"other": "{0} neljännesvuotta sitten"
+		},
+		"future": {
+			"other": "{0} neljännesvuoden päästä"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} kuukausi sitten",

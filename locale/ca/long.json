@@ -9,6 +9,16 @@
 			"other": "d’aquí a {0} anys"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "fa {0} trimestre",
+			"other": "fa {0} trimestres"
+		},
+		"future": {
+			"one": "d’aquí a {0} trimestre",
+			"other": "d’aquí a {0} trimestres"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "fa {0} mes",

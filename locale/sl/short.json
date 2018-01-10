@@ -12,6 +12,14 @@
 			"other": "čez {0} let"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "pred {0} četrtl."
+		},
+		"future": {
+			"other": "čez {0} četrtl."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "pred {0} mes."

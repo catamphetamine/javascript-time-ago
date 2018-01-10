@@ -7,6 +7,14 @@
 			"other": "a-benn {0} bl."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "{0} trim. zo"
+		},
+		"future": {
+			"other": "a-benn {0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"two": "{0} viz zo",

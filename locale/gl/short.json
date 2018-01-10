@@ -9,6 +9,14 @@
 			"other": "dentro de {0} anos"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "hai {0} trim."
+		},
+		"future": {
+			"other": "dentro de {0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"one": "hai {0} mes",

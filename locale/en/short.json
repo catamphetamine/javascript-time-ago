@@ -7,6 +7,16 @@
 			"other": "{0} yr. ago"
 		}
 	},
+	"quarter": {
+		"future": {
+			"one": "in {0} qtr.",
+			"other": "in {0} qtrs."
+		},
+		"past": {
+			"one": "{0} qtr. ago",
+			"other": "{0} qtrs. ago"
+		}
+	},
 	"month": {
 		"future": {
 			"other": "in {0} mo."

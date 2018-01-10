@@ -7,6 +7,14 @@
 			"other": "dentro de {0} a"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "hace {0} trim."
+		},
+		"future": {
+			"other": "dentro de {0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"other": "hace {0} m"

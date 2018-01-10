@@ -7,6 +7,16 @@
 			"other": "um {0} ár"
 		}
 	},
+	"quarter": {
+		"past": {
+			"one": "{0} ársfjórðing síðan",
+			"other": "{0} ársfjórðingar síðan"
+		},
+		"future": {
+			"one": "um {0} ársfjórðing",
+			"other": "um {0} ársfjórðingar"
+		}
+	},
 	"month": {
 		"past": {
 			"one": "{0} mánað síðan",

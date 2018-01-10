@@ -11,6 +11,14 @@
 			"other": "+{0} bl."
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "-{0} c."
+		},
+		"future": {
+			"other": "+{0} c."
+		}
+	},
 	"month": {
 		"past": {
 			"one": "-{0} mhì.",

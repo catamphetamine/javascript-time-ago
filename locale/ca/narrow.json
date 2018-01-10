@@ -9,6 +9,14 @@
 			"other": "d’aquí a {0} anys"
 		}
 	},
+	"quarter": {
+		"past": {
+			"other": "fa {0} trim."
+		},
+		"future": {
+			"other": "d’aquí a {0} trim."
+		}
+	},
 	"month": {
 		"past": {
 			"one": "fa {0} mes",
