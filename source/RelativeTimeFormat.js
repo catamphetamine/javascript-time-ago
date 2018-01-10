@@ -22,7 +22,7 @@ export default class RelativeTimeFormat {
     if (locales) {
       this.locale = RelativeTimeFormat.supportedLocalesOf(locales)[0]
     }
-    this.locale = this.locale || getDefaultLocale()
+    this.locale = this.locale ? resolveLocale(this.locale) : getDefaultLocale()
   }
 
   /**
@@ -120,6 +120,17 @@ export default class RelativeTimeFormat {
     // "other" rule is supposed to always be present
     return rules[quantifier] || rules.other
   }
+
+  /**
+   * Returns a new object with properties reflecting the locale and date and time formatting options computed during initialization of this DateTimeFormat object.
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat/resolvedOptions
+   * @return {Object}
+   */
+  resolvedOptions() {
+    return {
+      locale: this.locale
+    }
+  }
 }
 
 /**
@@ -144,15 +155,22 @@ RelativeTimeFormat.supportedLocalesOf = function(locales, options) {
   // This is not an intelligent algorythm,
   // but it will do for the polyfill purposes.
   // This could implement some kind of a "best-fit" algorythm.
-  return locales.filter((locale) => {
-    if (getLocales()[locale]) {
-      return true
-    }
-    const language = getLanguageFromLanguageTag(locale)
-    if (getLocales()[language]) {
-      return true
-    }
-  })
+  return locales.filter(resolveLocale)
+}
+
+/**
+ * Resolves a locale to a supported one.
+ * @param  {string} locale
+ * @return {string}
+ */
+function resolveLocale(locale) {
+  if (getLocales()[locale]) {
+    return locale
+  }
+  const language = getLanguageFromLanguageTag(locale)
+  if (getLocales()[language]) {
+    return language
+  }
 }
 
 export function loadLocale(locale) {

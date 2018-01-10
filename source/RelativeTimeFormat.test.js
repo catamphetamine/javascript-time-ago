@@ -27,6 +27,11 @@ describe('Intl.RelativeTimeFormat', () => {
     expect(rtf.format(-2, "day")).to.equal("2 days ago");
   })
 
+  it('should resolve locales as "best fit"', () => {
+    const rtf = new RelativeTimeFormat('en-XX');
+    expect(rtf.format(-2, "day")).to.equal("2 days ago");
+  })
+
   it('should fallback to default system locale', () => {
     const rtf = new RelativeTimeFormat();
     expect(rtf.format(-2, "day")).to.equal("2 days ago");
@@ -57,5 +62,15 @@ describe('Intl.RelativeTimeFormat', () => {
   it('should list supported locales', function() {
     expect(RelativeTimeFormat.supportedLocalesOf(['es-ES', 'ru', 'ru-RU', 'en-GB']))
       .to.deep.equal(['ru', 'ru-RU', 'en-GB'])
+  })
+
+  it('should show resolved options', function() {
+    expect(new RelativeTimeFormat('ru-XX', { timeZone: 'UTC' }).resolvedOptions()).to.deep.equal({
+      locale: "ru",
+      // calendar: "gregory",
+      // numberingSystem: "latn",
+      // timeZone: "UTC",
+      // month: "numeric"
+    })
   })
 })
