@@ -60,8 +60,8 @@ describe('Intl.RelativeTimeFormat', () => {
   })
 
   it('should list supported locales', function() {
-    expect(RelativeTimeFormat.supportedLocalesOf(['es-ES', 'ru', 'ru-RU', 'en-GB']))
-      .to.deep.equal(['ru', 'ru-RU', 'en-GB'])
+    expect(RelativeTimeFormat.supportedLocalesOf(['es-ES', 'ru', 'ru-XX', 'en-GB']))
+      .to.deep.equal(['ru', 'ru-XX', 'en-GB'])
   })
 
   it('should show resolved options', function() {
