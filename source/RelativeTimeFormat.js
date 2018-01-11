@@ -59,8 +59,6 @@ export default class RelativeTimeFormat {
     const rule = this.getRule(value, unit)
     const valueIndex = rule.indexOf("{0}")
     const parts = []
-    let pre
-    let post
     if (valueIndex > 0) {
       parts.push({
         type: "literal",
