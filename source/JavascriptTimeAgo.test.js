@@ -23,7 +23,7 @@ describe(`time ago`, function()
 	{
 		const time_ago = new javascript_time_ago('en')
 		time_ago.format(Date.now(), 'twitter').should.equal('')
-		time_ago.format(Date.now(), 'time').should.equal('just-now')
+		time_ago.format(Date.now(), 'time').should.equal('just now')
 	})
 
 	it(`should accept empty constructor parameters`, function()
