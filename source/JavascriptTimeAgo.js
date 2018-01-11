@@ -43,10 +43,10 @@ export default class JavascriptTimeAgo
 	// @param {string[]} [style.units] - A list of allowed time units
 	//                                  (e.g. ['second', 'minute', 'hour', …])
 	//
-	// @param {Function} [style.override] - `function ({ elapsed, time, date, now })`.
-	//                                      If the `override` function returns a value,
-	//                                      then the `.format()` call will return that value.
-	//                                      Otherwise it has no effect.
+	// @param {Function} [style.custom] - `function ({ elapsed, time, date, now })`.
+	//                                    If this function returns a value, then
+	//                                    the `.format()` call will return that value.
+	//                                    Otherwise it has no effect.
 	//
 	// @param {string} [style.flavour] - e.g. "long", "short", "tiny", etc.
 	//
@@ -96,14 +96,14 @@ export default class JavascriptTimeAgo
 		const seconds_elapsed = (now - time) / 1000 // in seconds
 
 		// Allows returning any custom value for any `elapsed` interval.
-		// If `style.override()` returns a value (`string`)
+		// If `style.custom()` returns a value (`string`)
 		// then this value is returned from this `.format()` call.
 		// For example, seconds, minutes and hours can be shown relatively,
 		// and other intervals can be shown using full date format.
-		// (that's what Twitter style does with its `override()`)
-		if (style.override)
+		// (that's what Twitter style does with its `custom()`)
+		if (style.custom)
 		{
-			const override = style.override
+			const custom = style.custom
 			({
 				now,
 				date,
@@ -112,9 +112,9 @@ export default class JavascriptTimeAgo
 				locale  : this.locale
 			})
 
-			if (override !== undefined)
+			if (custom !== undefined)
 			{
-				return override
+				return custom
 			}
 		}
 

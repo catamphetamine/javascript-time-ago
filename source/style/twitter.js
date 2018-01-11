@@ -29,7 +29,7 @@ export default
 	// Twitter style relative time formatting:
 	// Seconds, minutes and hours are shown relatively,
 	// and other intervals can be shown using full date format.
-	override({ elapsed, date, time, now, locale })
+	custom({ elapsed, date, time, now, locale })
 	{
 		// Whether can use `Intl.DateTimeFormat`.
 		// If `Intl` is not available,

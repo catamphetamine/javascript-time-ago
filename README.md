@@ -193,7 +193,7 @@ One can pass `style` (`string` or `object`) as a second parameter to the `.forma
   * `flavour` – preferred labels variant (e.g. `short`, `long`)
   * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
   * `gradation` – custom time interval measurement units scale
-  * `override` – is a function of `{ elapsed, time, date, now, locale }`. If the `override` function returns a value, then the `.format()` call will return that value. Otherwise the date/time is formatter as usual.
+  * `custom` – a function of `{ elapsed, time, date, now, locale }`. If this function returns a value, then the `.format()` call will return that value. Otherwise the date/time is formatted as usual.
 
 (see [`twitter`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style.js) style for an example)
 
