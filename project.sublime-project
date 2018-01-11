@@ -4,7 +4,7 @@
 		{
 			"follow_symlinks": true,
 			"path": ".",
-			"folder_exclude_patterns": ["javascript-time-ago/node_modules", "javascript-time-ago/coverage", "javascript-time-ago/build", "javascript-time-ago/es6", "project.sublime-workspace"]
+			"folder_exclude_patterns": ["javascript-time-ago/node_modules", "javascript-time-ago/coverage", "javascript-time-ago/modules", "javascript-time-ago/commonjs", "project.sublime-workspace"]
 		}
 	],
 	"settings":

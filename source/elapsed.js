@@ -1,20 +1,20 @@
-import gradation from './gradation'
+import { convenient } from './gradation'
 
 /**
  * `elapsed()` function result.
- * 
+ *
  * @typedef {Object} ElapsedResult
  * @property {number} unit - The most appropriate time interval measurement unit for the time elapsed.
  * @property {number} amount - The rounded amount of time measurement `unit`s elapsed.
- * 
+ *
  * @example
  * // Returns { unit: 'day', amount: 3 }
  * elapsed(2.7 * 24 * 60 * 60)
  */
 
-// Chooses the appropriate time measurement unit 
+// Chooses the appropriate time measurement unit
 // and also returns the corresponding rounded time amount.
-// In other words, rounds the `elapsed` time interval 
+// In other words, rounds the `elapsed` time interval
 // to the most appropriate time measurement unit.
 //
 // @param {Number} elapsed - Time interval (in seconds)
@@ -26,7 +26,7 @@ import gradation from './gradation'
 //
 //                               E.g.:
 //                               [
-//                                 { unit: 'second', factor: 1 }, 
+//                                 { unit: 'second', factor: 1 },
 //                                 { unit: 'minute', factor: 60, threshold: 60 },
 //                                 …
 //                               ]
@@ -36,7 +36,7 @@ import gradation from './gradation'
 export default function elapsed(elapsed, units, gradation_steps)
 {
 	// Time interval measurement unit rounding gradation
-	gradation_steps = gradation_steps || gradation.convenient()
+	gradation_steps = gradation_steps || convenient
 
 	// Leave only supported gradation steps
 	gradation_steps = gradation_steps.filter(({ unit }) => units.indexOf(unit) >= 0)
@@ -83,13 +83,6 @@ export default function elapsed(elapsed, units, gradation_steps)
 		const exact_amount = elapsed / step.factor
 		let amount = Math.round(exact_amount)
 
-		// // Amount shouldn't be zero, 
-		// // so set it to 1 at least.
-		// if (amount === 0)
-		// {
-		// 	amount = elapsed >= 0 ? 1 : -1
-		// }
-
 		// Apply granularity to the time amount
 		// (and fallback to the previous step
 		//  if the first level of granularity
@@ -100,7 +93,7 @@ export default function elapsed(elapsed, units, gradation_steps)
 			amount = Math.round(exact_amount / step.granularity) * step.granularity
 
 			// If the granularity for this step of time scale
-			// is too high, then fallback 
+			// is too high, then fallback
 			// to the previous step of time scale.
 			// (if there is the previous step of time scale)
 			if (amount === 0)
@@ -110,7 +103,7 @@ export default function elapsed(elapsed, units, gradation_steps)
 				if (previous_step)
 				{
 					return {
-						unit   : previous_step.unit, 
+						unit   : previous_step.unit,
 						amount : Math.round(elapsed / previous_step.factor)
 					}
 				}

@@ -1,11 +1,12 @@
-import choose_locale, { intl_supported_locale } from '../source/locale'
+import choose_locale, { intlSupportedLocale } from '../source/locale'
 
 describe('locale', function()
 {
 	it(`should tell if can use Intl for date formatting`, function()
 	{
-		intl_supported_locale('en').should.equal('en')
-		intl_supported_locale(['en', 'ru']).should.equal('en')
+		intlSupportedLocale('en').should.equal('en')
+		intlSupportedLocale('en-XX').should.equal('en-XX')
+		intlSupportedLocale(['en', 'ru']).should.equal('en')
 	})
 
 	it(`should choose the most appropriate locale`, function()
@@ -39,7 +40,7 @@ describe('locale', function()
 		choose(['fr-FR', 'de-DE'], ['en', 'de']).should.equal('de')
 		choose(['fr-FR', 'de-DE'], ['en', 'de', 'fr']).should.equal('fr')
 		choose('fr-FR', ['en', 'fr-FR']).should.equal('fr-FR')
-		
+
 		const thrower = () => choose('fr-FR', ['de', 'ru'])
 		thrower.should.throw('No locale data has been registered for any of the locales: fr-FR')
 	})

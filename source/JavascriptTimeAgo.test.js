@@ -1,6 +1,6 @@
-import javascript_time_ago from '../source/index'
-import style from '../source/style'
-import gradation, { day, month, year } from '../source/gradation'
+import javascript_time_ago from '../source/JavascriptTimeAgo'
+import { twitter, time as just_time } from '../source/style'
+import { day, month, year } from '../source/gradation'
 
 // Load locale specific relative date/time messages
 import english from '../locale/en'
@@ -23,6 +23,7 @@ describe(`time ago`, function()
 	{
 		const time_ago = new javascript_time_ago('en')
 		time_ago.format(Date.now(), 'twitter').should.equal('')
+		time_ago.format(Date.now(), 'time').should.equal('just-now')
 	})
 
 	it(`should accept empty constructor parameters`, function()
@@ -68,11 +69,10 @@ describe(`time ago`, function()
 	it(`should format Twitter style relative time (English)`, function()
 	{
 		const time_ago = new javascript_time_ago('en')
-		const twitter_style = style.twitter(time_ago.locale)
 
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = (time) => time_ago.format(now - time * 1000, { now, ...twitter_style })
-	
+		const elapsed = (time) => time_ago.format(now - time * 1000, { now, ...twitter })
+
 		elapsed(0).should.equal('')
 		elapsed(44.9).should.equal('')
 		elapsed(45.1).should.equal('1m')
@@ -97,11 +97,10 @@ describe(`time ago`, function()
 	it(`should format Twitter style relative time (Russian)`, function()
 	{
 		const time_ago = new javascript_time_ago(['ru'])
-		const twitter_style = style.twitter(time_ago.locale)
-	
+
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = time => time_ago.format(now - time * 1000, { now, ...twitter_style })
-	
+		const elapsed = time => time_ago.format(now - time * 1000, { now, ...twitter })
+
 		elapsed(0).should.equal('')
 		elapsed(44.9).should.equal('')
 		elapsed(45.1).should.equal('1м')
@@ -123,7 +122,7 @@ describe(`time ago`, function()
 		elapsed(year).should.equal('11 апр. 2015 г.')
 	})
 
-	it(`should format fuzzy style relative time (English)`, function()
+	it(`should format "time" style relative time (English)`, function()
 	{
 		const time_ago = new javascript_time_ago('en-US')
 
@@ -187,10 +186,10 @@ describe(`time ago`, function()
 			'100 years'
 		],
 		time_ago,
-		style.fuzzy())
+		'time')
 	})
 
-	it(`should format fuzzy style relative time (Russian)`, function()
+	it(`should format "time" style relative time (Russian)`, function()
 	{
 		const time_ago = new javascript_time_ago('ru-RU')
 
@@ -254,7 +253,7 @@ describe(`time ago`, function()
 			'100 лет'
 		],
 		time_ago,
-		style.fuzzy())
+		'time')
 	})
 
 	it(`should format time correctly for English language (short)`, function()
@@ -522,10 +521,23 @@ describe(`time ago`, function()
 	})
 })
 
-function convenient_gradation_test(convenient_gradation_labels, time_ago, options = {})
+function convenient_gradation_test(convenient_gradation_labels, time_ago, style = {})
 {
+	if (typeof style === 'string')
+	{
+		switch (style)
+		{
+			case 'twitter':
+				style = twitter
+				break
+			case 'time':
+				style = just_time
+				break
+		}
+	}
+
 	const now = Date.now()
-	const elapsed = time => time_ago.format(now - time * 1000, { now, ...options })
+	const elapsed = time => time_ago.format(now - time * 1000, { now, ...style })
 
 	if (convenient_gradation.length !== convenient_gradation_labels.length)
 	{

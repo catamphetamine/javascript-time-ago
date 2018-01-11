@@ -109,10 +109,10 @@ timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'twitter')
 
 The built-in Twitter style uses `Intl` internally for formatting `day/month/year` labels. This is not an issue for modern web browsers but requies `Intl` polyfill for a couple of older browsers and for Node.js (if you're running this code on server side). See the [`Intl`](https://github.com/catamphetamine/javascript-time-ago#intl) section of this document for `Intl` polyfill instructions. When `Intl` is not available Twitter style falls back to the default one.
 
-## Fuzzy style
+## "Just time" style
 
 ```js
-timeAgo.format(new Date(), 'fuzzy')
+timeAgo.format(new Date(), 'time')
 ```
 
 Similar to the default style but with "ago" omitted:
@@ -245,7 +245,7 @@ The format a localization is:
 ```js
 {
   …
-  "day": 
+  "day":
   {
     "past":
     {

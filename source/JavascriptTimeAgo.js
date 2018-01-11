@@ -1,7 +1,6 @@
-import elapsed       from './elapsed'
-import styles        from './style'
+import elapsed from './elapsed'
 import choose_locale from './locale'
-
+import { twitter, time as just_time } from './style'
 import RelativeTimeFormat from './RelativeTimeFormat'
 
 export default class JavascriptTimeAgo
@@ -39,7 +38,7 @@ export default class JavascriptTimeAgo
 	//
 	// @return {string} Returns the formatted relative date/time.
 	//
-	// @param {Object} [style] - Relative date/time formatting style.
+	// @param {(Object|string)} [style] - Relative date/time formatting style.
 	//
 	// @param {string[]} [style.units] - A list of allowed time units
 	//                                  (e.g. ['second', 'minute', 'hour', …])
@@ -71,7 +70,15 @@ export default class JavascriptTimeAgo
 	{
 		if (typeof style === 'string')
 		{
-			style = styles[style](this.locale)
+			switch (style)
+			{
+				case 'twitter':
+					style = twitter
+					break
+				case 'time':
+					style = just_time
+					break
+			}
 		}
 
 		const { date, time } = get_date_and_time_being_formatted(input)
@@ -96,7 +103,15 @@ export default class JavascriptTimeAgo
 		// (that's what Twitter style does with its `override()`)
 		if (style.override)
 		{
-			const override = style.override({ elapsed: seconds_elapsed, date, time, now })
+			const override = style.override
+			({
+				now,
+				date,
+				time,
+				elapsed : seconds_elapsed,
+				locale  : this.locale
+			})
+
 			if (override !== undefined)
 			{
 				return override

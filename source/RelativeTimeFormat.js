@@ -1,4 +1,4 @@
-import JavascriptTimeAgo from './index'
+import JavascriptTimeAgo from './JavascriptTimeAgo'
 
 /**
  * Polyfill for `Intl.RelativeTimeFormat` proposal.
@@ -91,7 +91,8 @@ export default class RelativeTimeFormat {
    * getRule(-2, "day")
    */
   getRule(value, unit) {
-    // `javascript-time-ago` also uses "now" unit so not throwing here.
+    // `javascript-time-ago` uses some extra time unterval units
+    // like "now", "half-hour", "half-year" so not throwing here.
     // if (["second", "minute", "hour", "day", "week", "month", "quarter"].indexOf(value) < 0) {
     //   throw new RangeError(`Unknown time unit: ${unit}.`)
     // }

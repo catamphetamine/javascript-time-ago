@@ -2,8 +2,8 @@
   "name": "javascript-time-ago",
   "version": "1.0.14",
   "description": "International highly customizable relative time formatting",
-  "main": "index.common.js",
-  "module": "index.es6.js",
+  "main": "index.commonjs.js",
+  "module": "index.js",
   "dependencies": {
     "babel-runtime": "^6.6.1"
   },
@@ -30,12 +30,12 @@
     "webpack": "^1.14.0"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --colors --bail --reporter spec --require ./test/setup.js \"./{,!(node_modules|build|es6)/**/}*.test.js\"  --recursive",
-    "test-coverage": "istanbul cover -x \"locale/**\" -x \"build/**\" -x \"es6/**\" -x \"*.test.js\" node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot --require ./test/setup.js \"./{,!(node_modules|build|es6)/**/}*.test.js\" --recursive",
-    "test-travis": "istanbul cover -x \"locale/**\" -x \"build/**\" -x \"es6/**\" -x \"*.test.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-core/register --colors --reporter spec --require ./test/setup.js \"./{,!(node_modules|build|es6)/**/}*.test.js\" --recursive",
+    "test": "mocha --compilers js:babel-core/register --colors --bail --reporter spec --require ./test/setup.js \"./{,!(node_modules|commonjs|modules)/**/}*.test.js\"  --recursive",
+    "test-coverage": "istanbul cover -x \"locale/**\" -x \"commonjs/**\" -x \"modules/**\" -x \"*.test.js\" node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot --require ./test/setup.js \"./{,!(node_modules|commonjs|modules)/**/}*.test.js\" --recursive",
+    "test-travis": "istanbul cover -x \"locale/**\" -x \"commonjs/**\" -x \"modules/**\" -x \"*.test.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-core/register --colors --reporter spec --require ./test/setup.js \"./{,!(node_modules|commonjs|modules)/**/}*.test.js\" --recursive",
     "browser-build": "better-npm-run browser-build",
     "browser-build-dev": "npm run build-es6-modules && WEBPACK_ENV=dev webpack --progress --colors --watch",
-    "clean-for-build": "rimraf ./build/**/* ./es6/**/*",
+    "clean-for-build": "rimraf ./commonjs/**/* ./modules/**/*",
     "build-commonjs-modules": "better-npm-run build-commonjs-modules",
     "build-es6-modules": "better-npm-run build-es6-modules",
     "build": "npm-run-all clean-for-build build-commonjs-modules build-es6-modules",
@@ -52,13 +52,13 @@
       }
     },
     "build-commonjs-modules": {
-      "command": "babel ./source --out-dir ./build --source-maps",
+      "command": "babel ./source --out-dir ./commonjs --source-maps",
       "env": {
         "BABEL_ENV": "commonjs"
       }
     },
     "build-es6-modules": {
-      "command": "babel ./source --out-dir ./es6 --source-maps",
+      "command": "babel ./source --out-dir ./modules --source-maps",
       "env": {
         "BABEL_ENV": "es6"
       }

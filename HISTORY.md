@@ -1,8 +1,16 @@
+1.0.15 / 11.01.2018
+===================
+
+  * Renamed `fuzzy` style to `time`.
+  * Refactored `gradation`s and `style`s.
+  * `gradation` is now not being exported from `index.js` along with `day`, `month` and `year` (one can still `import` it manually from `gradation.js`).
+  * `es6` folder got renamed to `modules`
+  * `build` folder got renamed to `commonjs`
+
 1.0.11 / 10.01.2018
 ===================
 
   * Renamed `plural` to `quantify` inside locale data.
-
   * Implemented `Intl.RelativeTimeFormat` proposal polyfill which is now being exported.
 
 1.0.10 / 09.01.2018

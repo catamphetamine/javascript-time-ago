@@ -25,7 +25,7 @@ else
 
 const config =
 {
-  entry: path.join(__dirname, '/index.es6.js'),
+  entry: path.join(__dirname, '/index.js'),
   devtool: 'source-map',
   output:
   {

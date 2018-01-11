@@ -3,7 +3,7 @@ import intlLocalesSupported from 'intl-locales-supported'
 
 import chai, { expect } from 'chai'
 
-import javascript_time_ago from '../source/index'
+import javascript_time_ago from '../source/JavascriptTimeAgo'
 
 import * as en from '../locale/en'
 import * as ru from '../locale/ru'

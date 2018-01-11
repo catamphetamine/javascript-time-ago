@@ -44,7 +44,7 @@ export default function choose_locale(locales, registered_locales)
  * @param  {(string|string[])} locales
  * @return {?string} The first locale that can be used.
  */
-export function intl_supported_locale(locales)
+export function intlSupportedLocale(locales)
 {
 	// Babel transforms `typeof` into some "branches"
 	// so istanbul will show this as "branch not covered".

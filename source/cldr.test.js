@@ -1,4 +1,4 @@
-import parse_CLDR from '../source/cldr'
+import parse_CLDR from './cldr'
 import { short as english_short, long as english_long } from '../locale/en'
 
 describe(`CLDR`, function()
