@@ -44,13 +44,22 @@ export default function choose_locale(locales, registered_locales)
  * @param  {(string|string[])} locales
  * @return {?string} The first locale that can be used.
  */
-export function intlSupportedLocale(locales)
+export function intlDateTimeFormatSupportedLocale(locales)
+{
+	/* istanbul ignore else */
+	if (intlDateTimeFormatSupported())
+	{
+		return Intl.DateTimeFormat.supportedLocalesOf(locales)[0]
+	}
+}
+/**
+ * Whether can use `Intl.DateTimeFormat`.
+ * @return {boolean}
+ */
+export function intlDateTimeFormatSupported()
 {
 	// Babel transforms `typeof` into some "branches"
 	// so istanbul will show this as "branch not covered".
 	/* istanbul ignore next */
-	if (typeof Intl === 'object' && Intl.DateTimeFormat)
-	{
-		return Intl.DateTimeFormat.supportedLocalesOf(locales)[0]
-	}
+	return typeof Intl === 'object' && typeof Intl.DateTimeFormat === 'function'
 }

@@ -1,6 +1,7 @@
 import TimeAgo,
 {
-	intlSupportedLocale,
+	intlDateTimeFormatSupported,
+	intlDateTimeFormatSupportedLocale,
 	RelativeTimeFormat
 }
 from '../index'
@@ -19,7 +20,8 @@ describe(`exports`, function()
 		// gradation.twitter.should.be.an('object')
 		// gradation.twitter.custom.should.be.a('function')
 		// gradation.time.should.be.an('object')
-		intlSupportedLocale('en').should.be.a('string')
+		intlDateTimeFormatSupported().should.be.a('boolean')
+		intlDateTimeFormatSupportedLocale('en').should.be.a('string')
 		new RelativeTimeFormat('en').format(1, 'day').should.be.a('string')
 	})
 
@@ -39,7 +41,8 @@ describe(`exports`, function()
 		// Library.gradation.twitter.should.be.an('object')
 		// Library.gradation.twitter.custom.should.be.a('function')
 		// Library.gradation.time.should.be.an('object')
-		Library.intlSupportedLocale('en').should.be.a('string')
+		Library.intlDateTimeFormatSupported().should.be.a('boolean')
+		Library.intlDateTimeFormatSupportedLocale('en').should.be.a('string')
 		new Library.RelativeTimeFormat('en').format(1, 'day').should.be.a('string')
 	})
 })

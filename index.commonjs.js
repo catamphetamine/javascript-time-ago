@@ -5,6 +5,7 @@ exports['default'] = exports
 
 var locale = require('./commonjs/locale')
 
-exports.intlSupportedLocale = locale.intlSupportedLocale
+exports.intlDateTimeFormatSupported       = locale.intlDateTimeFormatSupported
+exports.intlDateTimeFormatSupportedLocale = locale.intlDateTimeFormatSupportedLocale
 
 exports.RelativeTimeFormat = require('./commonjs/RelativeTimeFormat').default

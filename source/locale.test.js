@@ -1,12 +1,12 @@
-import choose_locale, { intlSupportedLocale } from '../source/locale'
+import choose_locale, { intlDateTimeFormatSupportedLocale } from '../source/locale'
 
 describe('locale', function()
 {
 	it(`should tell if can use Intl for date formatting`, function()
 	{
-		intlSupportedLocale('en').should.equal('en')
-		intlSupportedLocale('en-XX').should.equal('en-XX')
-		intlSupportedLocale(['en', 'ru']).should.equal('en')
+		intlDateTimeFormatSupportedLocale('en').should.equal('en')
+		intlDateTimeFormatSupportedLocale('en-XX').should.equal('en-XX')
+		intlDateTimeFormatSupportedLocale(['en', 'ru']).should.equal('en')
 	})
 
 	it(`should choose the most appropriate locale`, function()

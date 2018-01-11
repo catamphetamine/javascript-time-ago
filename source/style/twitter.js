@@ -1,5 +1,5 @@
 import { day, canonical } from '../gradation'
-import { intlSupportedLocale } from '../locale'
+import { intlDateTimeFormatSupported } from '../locale'
 
 // A cache for `Intl.DateTimeFormat` twitter formatters
 // for various locales (is a global variable).
@@ -36,7 +36,7 @@ export default
 		// or the locale is not supported,
 		// then don't override the default labels.
 		/* istanbul ignore if */
-		if (!intlSupportedLocale(locale))
+		if (!intlDateTimeFormatSupported())
 		{
 			return
 		}
