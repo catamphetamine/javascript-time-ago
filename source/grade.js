@@ -1,29 +1,9 @@
 import { convenient } from './gradation'
 
 /**
- * `elapsed()` function result.
- *
- * @typedef {Object} ElapsedResultUnits
- * @property {number} unit - The most appropriate time interval measurement unit for the time elapsed.
- * @property {number} amount - The rounded amount of time measurement `unit`s elapsed.
- *
- * @example
- * // Returns { unit: 'day', amount: 3 }
- * elapsed(2.7 * 24 * 60 * 60)
- */
-
-/**
- * `elapsed()` function result when gradation step has `format` instead of `unit`.
- *
- * @typedef {Object} ElapsedResultFormat
- * @property {Function} format - Formats `value` to a string given locale.
- */
-
-/**
- * Chooses the appropriate time measurement unit
- * and also returns the corresponding rounded time amount.
- * In other words, rounds the `elapsed` time interval
- * to the most appropriate time measurement unit.
+ * Takes seconds `elapsed` and measures them
+ * against `gradation` to return the suitable
+ * `gradation` step.
  *
  * @param {number} elapsed - Time interval (in seconds)
  *
@@ -36,18 +16,16 @@ import { convenient } from './gradation'
  *                               [
  *                                 { unit: 'second', factor: 1 },
  *                                 { unit: 'minute', factor: 60, threshold: 60 },
+ *                                 { format(), threshold: 24 * 60 * 60 },
  *                                 …
  *                               ]
  *
- * @return {(ElapsedResultUnits|ElapsedResultFormat)}
+ * @return {?Object} `gradation` step.
  */
-export default function elapsed(elapsed, now, units, gradation_steps)
+export default function grade(elapsed, now, units, gradation = convenient)
 {
-	// Time interval measurement unit rounding gradation
-	gradation_steps = gradation_steps || convenient
-
 	// Leave only supported gradation steps
-	gradation_steps = gradation_steps.filter(({ unit }) =>
+	gradation = gradation.filter(({ unit }) =>
 	{
 		if (unit)
 		{
@@ -59,12 +37,12 @@ export default function elapsed(elapsed, now, units, gradation_steps)
 
 	// Find the most appropriate time scale gradation step
 	let i = 0
-	while (i < gradation_steps.length)
+	while (i < gradation.length)
 	{
 		// Current step of time scale
-		const step = gradation_steps[i]
+		const step = gradation[i]
 		// The next step of time scale
-		const next_step = i + 1 < gradation_steps.length ? gradation_steps[i + 1] : undefined
+		const next_step = i + 1 < gradation.length ? gradation[i + 1] : undefined
 
 		// If it's not the last step of time scale,
 		// and the next step of time scale is reachable,
@@ -99,10 +77,14 @@ export default function elapsed(elapsed, now, units, gradation_steps)
 		// If time elapsed is so small no gradation scale unit suits it.
 		if (step.threshold)
 		{
-			const threshold = typeof step.threshold === 'function' ? step.threshold(now) : step.threshold
+			const threshold =
+				typeof step.threshold === 'function' ?
+				step.threshold(now) :
+				step.threshold
+
 			if (threshold && elapsed < threshold)
 			{
-				return {}
+				return
 			}
 		}
 
@@ -124,37 +106,16 @@ export default function elapsed(elapsed, now, units, gradation_steps)
 			// (if there is the previous step of time scale)
 			if (amount === 0)
 			{
-				const previous_step = gradation_steps[i - 1]
-
-				if (previous_step)
+				if (gradation[i - 1])
 				{
-					/* istanbul ignore if */
-					if (previous_step.format)
-					{
-						return { format : previous_step.format }
-					}
-
-					return {
-						unit   : previous_step.unit,
-						amount : Math.round(elapsed / previous_step.factor)
-					}
+					return gradation[i - 1]
 				}
 			}
 		}
 
-		if (step.format)
-		{
-			return { format : step.format }
-		}
-
-		return {
-			unit : step.unit,
-			amount
-		}
+		return step
 	}
 
 	console.error(`Not a single time unit of "${units.join(', ')}" was specified `
-		+ `in the gradation \n ${JSON.stringify({ gradation: gradation_steps }, null, 3)}`)
-
-	return {}
+		+ `in the gradation \n ${JSON.stringify({ gradation }, null, 3)}`)
 }

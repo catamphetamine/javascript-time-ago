@@ -1,4 +1,4 @@
-import elapsed from './elapsed'
+import grade from './grade'
 import choose_locale from './locale'
 import { twitterStyle, timeStyle, defaultStyle } from './style'
 import RelativeTimeFormat from './RelativeTimeFormat'
@@ -95,7 +95,7 @@ export default class JavascriptTimeAgo
 		const now = style.now || Date.now()
 
 		// how much time elapsed (in seconds)
-		const seconds_elapsed = (now - time) / 1000 // in seconds
+		const elapsed = (now - time) / 1000 // in seconds
 
 		// Allows returning any custom value for any `elapsed` interval.
 		// If `style.custom()` returns a value (`string`)
@@ -110,8 +110,8 @@ export default class JavascriptTimeAgo
 				now,
 				date,
 				time,
-				elapsed : seconds_elapsed,
-				locale  : this.locale
+				elapsed,
+				locale : this.locale
 			})
 
 			if (custom !== undefined)
@@ -132,9 +132,9 @@ export default class JavascriptTimeAgo
 
 		// Choose the appropriate time measurement unit
 		// and get the corresponding rounded time amount.
-		const { unit, amount, format } = elapsed
+		const step = grade
 		(
-			Math.abs(seconds_elapsed),
+			Math.abs(elapsed),
 			now,
 			units,
 			style.gradation
@@ -144,14 +144,28 @@ export default class JavascriptTimeAgo
 		// E.g. when "now" unit is not available
 		// and "second" has a threshold of `0.5`
 		// (e.g. the "canonical" grading scale).
-		if (!unit && !format)
+		if (!step)
 		{
 			return ''
 		}
 
-		if (format)
+		if (step.format)
 		{
-			return format(date || time, this.locale)
+			return step.format(date || time, this.locale)
+		}
+
+		const { unit, factor, granularity } = step
+
+		let amount = Math.abs(elapsed) / factor
+
+		// Apply granularity to the time amount
+		// (and fallback to the previous step
+		//  if the first level of granularity
+		//  isn't met by this amount)
+		if (granularity)
+		{
+			// Recalculate the elapsed time amount based on granularity
+			amount = Math.round(amount / granularity) * granularity
 		}
 
 		// Format the time elapsed.
@@ -170,7 +184,7 @@ export default class JavascriptTimeAgo
 		//
 		return new RelativeTimeFormat(this.locale, { style: flavour }).format
 		(
-			-1 * Math.sign(seconds_elapsed) * amount,
+			-1 * Math.sign(elapsed) * Math.round(amount),
 			unit
 		)
 	}
