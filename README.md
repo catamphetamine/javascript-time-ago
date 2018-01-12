@@ -12,22 +12,12 @@ Formats a date to something like:
   * 5m
   * 15 min
   * 25 minutes
-  * half an hour ago
   * an hour ago
-  * 2h
-  * yesterday
-  * 2d
-  * 1wk
-  * 2 weeks ago
-  * 3 weeks
-  * half a month ago
-  * 1 mo. ago
-  * 2 months
-  * half a year
-  * a year
-  * 2yr
+  * 1 mo.
   * 5 years ago
   * … or whatever else
+
+For React users there's also a [React component](https://github.com/catamphetamine/react-time-ago).
 
 ## Usage
 
