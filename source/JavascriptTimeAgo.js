@@ -1,6 +1,6 @@
 import elapsed from './elapsed'
 import choose_locale from './locale'
-import { twitter, time as just_time } from './style'
+import { twitterStyle, timeStyle, defaultStyle } from './style'
 import RelativeTimeFormat from './RelativeTimeFormat'
 
 export default class JavascriptTimeAgo
@@ -66,18 +66,20 @@ export default class JavascriptTimeAgo
 	//                                                 There can also be specific `threshold_[unit]`
 	//                                                 thresholds for fine-tuning.
 	//
-	format(input, style = {})
+	format(input, style = defaultStyle)
 	{
 		if (typeof style === 'string')
 		{
 			switch (style)
 			{
 				case 'twitter':
-					style = twitter
+					style = twitterStyle
 					break
 				case 'time':
-					style = just_time
+					style = timeStyle
 					break
+				default:
+					style = defaultStyle
 			}
 		}
 
@@ -130,15 +132,26 @@ export default class JavascriptTimeAgo
 
 		// Choose the appropriate time measurement unit
 		// and get the corresponding rounded time amount.
-		const { unit, amount } = elapsed(Math.abs(seconds_elapsed), units, style.gradation)
+		const { unit, amount, format } = elapsed
+		(
+			Math.abs(seconds_elapsed),
+			now,
+			units,
+			style.gradation
+		)
 
 		// If no time unit is suitable, just output an empty string.
 		// E.g. when "now" unit is not available
 		// and "second" has a threshold of `0.5`
 		// (e.g. the "canonical" grading scale).
-		if (!unit)
+		if (!unit && !format)
 		{
 			return ''
+		}
+
+		if (format)
+		{
+			return format(date || time, this.locale)
 		}
 
 		// Format the time elapsed.

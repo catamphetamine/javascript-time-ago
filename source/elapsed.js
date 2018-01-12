@@ -3,7 +3,7 @@ import { convenient } from './gradation'
 /**
  * `elapsed()` function result.
  *
- * @typedef {Object} ElapsedResult
+ * @typedef {Object} ElapsedResultUnits
  * @property {number} unit - The most appropriate time interval measurement unit for the time elapsed.
  * @property {number} amount - The rounded amount of time measurement `unit`s elapsed.
  *
@@ -12,34 +12,50 @@ import { convenient } from './gradation'
  * elapsed(2.7 * 24 * 60 * 60)
  */
 
-// Chooses the appropriate time measurement unit
-// and also returns the corresponding rounded time amount.
-// In other words, rounds the `elapsed` time interval
-// to the most appropriate time measurement unit.
-//
-// @param {Number} elapsed - Time interval (in seconds)
-//
-// @param {string[]} units - A list of allowed time units
-//                           (e.g. ['second', 'minute', 'hour', …])
-//
-// @param {Object} [gradation] - Time scale gradation steps.
-//
-//                               E.g.:
-//                               [
-//                                 { unit: 'second', factor: 1 },
-//                                 { unit: 'minute', factor: 60, threshold: 60 },
-//                                 …
-//                               ]
-//
-// @returns {ElapsedResult} Returns an object holding `unit` and `amount`.
-//
-export default function elapsed(elapsed, units, gradation_steps)
+/**
+ * `elapsed()` function result when gradation step has `format` instead of `unit`.
+ *
+ * @typedef {Object} ElapsedResultFormat
+ * @property {Function} format - Formats `value` to a string given locale.
+ */
+
+/**
+ * Chooses the appropriate time measurement unit
+ * and also returns the corresponding rounded time amount.
+ * In other words, rounds the `elapsed` time interval
+ * to the most appropriate time measurement unit.
+ *
+ * @param {number} elapsed - Time interval (in seconds)
+ *
+ * @param {string[]} units - A list of allowed time units
+ *                           (e.g. ['second', 'minute', 'hour', …])
+ *
+ * @param {Object} [gradation] - Time scale gradation steps.
+ *
+ *                               E.g.:
+ *                               [
+ *                                 { unit: 'second', factor: 1 },
+ *                                 { unit: 'minute', factor: 60, threshold: 60 },
+ *                                 …
+ *                               ]
+ *
+ * @return {(ElapsedResultUnits|ElapsedResultFormat)}
+ */
+export default function elapsed(elapsed, now, units, gradation_steps)
 {
 	// Time interval measurement unit rounding gradation
 	gradation_steps = gradation_steps || convenient
 
 	// Leave only supported gradation steps
-	gradation_steps = gradation_steps.filter(({ unit }) => units.indexOf(unit) >= 0)
+	gradation_steps = gradation_steps.filter(({ unit }) =>
+	{
+		if (unit)
+		{
+			return units.indexOf(unit) >= 0
+		}
+
+		return true
+	})
 
 	// Find the most appropriate time scale gradation step
 	let i = 0
@@ -59,7 +75,13 @@ export default function elapsed(elapsed, units, gradation_steps)
 			// based on which time interval measurement `units`
 			// are available during this `elapsed(value, units)` call.
 			const specific_threshold = next_step[`threshold_for_${step.unit}`]
-			const next_step_threshold = specific_threshold || next_step.threshold
+			let  next_step_threshold = specific_threshold || next_step.threshold
+
+			// `threshold` can be a function of `now`.
+			if (typeof next_step_threshold === 'function')
+			{
+				next_step_threshold = next_step_threshold(now)
+			}
 
 			// If the next step of time scale is reachable,
 			// then proceed with that next step of time scale.
@@ -75,9 +97,13 @@ export default function elapsed(elapsed, units, gradation_steps)
 		// so stick with the current step of time scale.
 
 		// If time elapsed is so small no gradation scale unit suits it.
-		if (step.threshold && elapsed < step.threshold)
+		if (step.threshold)
 		{
-			return {}
+			const threshold = typeof step.threshold === 'function' ? step.threshold(now) : step.threshold
+			if (threshold && elapsed < threshold)
+			{
+				return {}
+			}
 		}
 
 		const exact_amount = elapsed / step.factor
@@ -102,6 +128,12 @@ export default function elapsed(elapsed, units, gradation_steps)
 
 				if (previous_step)
 				{
+					/* istanbul ignore if */
+					if (previous_step.format)
+					{
+						return { format : previous_step.format }
+					}
+
 					return {
 						unit   : previous_step.unit,
 						amount : Math.round(elapsed / previous_step.factor)
@@ -110,8 +142,15 @@ export default function elapsed(elapsed, units, gradation_steps)
 			}
 		}
 
-		// Result
-		return { unit: step.unit, amount }
+		if (step.format)
+		{
+			return { format : step.format }
+		}
+
+		return {
+			unit : step.unit,
+			amount
+		}
 	}
 
 	console.error(`Not a single time unit of "${units.join(', ')}" was specified `

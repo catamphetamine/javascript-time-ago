@@ -3,5 +3,6 @@
 //
 // `date` parameter of `custom()` is not guaranteed to be set (can be inferred from `time`).
 //
-export { default as time } from './time'
-export { default as twitter } from './twitter'
+export { default as timeStyle } from './time'
+export { default as twitterStyle } from './twitter'
+export { default as defaultStyle } from './default'

@@ -31,4 +31,4 @@
 //
 export { default as canonical } from './canonical'
 export { default as convenient } from './convenient'
-export { day, month, year } from './helpers'
+export { minute, hour, day, month, year, getStep, getDate } from './helpers'

@@ -1,3 +1,8 @@
+1.0.19 / 12.01.2018
+===================
+
+  * Refactored `twitter` style and styles overall: style can now have `threshold(now)` function and also gradation step can have `format(value, locale)` function instead of `unit`.
+
 1.0.17 / 11.01.2018
 ===================
 

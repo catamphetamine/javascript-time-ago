@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "International highly customizable relative date/time formatting",
   "main": "index.commonjs.js",
   "module": "index.js",
@@ -25,6 +25,7 @@
     "make-plural": "^4.1.1",
     "mocha": "^2.4.5",
     "npm-run-all": "^1.4.0",
+    "prop-types": "^15.6.0",
     "rimraf": "^2.5.0",
     "uglify-js": "^3.3.5",
     "webpack": "^1.14.0"

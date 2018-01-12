@@ -1,5 +1,5 @@
 import javascript_time_ago from '../source/JavascriptTimeAgo'
-import { twitter, time as just_time } from '../source/style'
+import { twitterStyle, timeStyle } from '../source/style'
 import { day, month, year } from '../source/gradation'
 
 // Load locale specific relative date/time messages
@@ -24,6 +24,7 @@ describe(`time ago`, function()
 		const time_ago = new javascript_time_ago('en')
 		time_ago.format(Date.now(), 'twitter').should.equal('')
 		time_ago.format(Date.now(), 'time').should.equal('just now')
+		time_ago.format(Date.now(), 'exotic').should.equal('just now')
 	})
 
 	it(`should accept empty constructor parameters`, function()
@@ -66,12 +67,37 @@ describe(`time ago`, function()
 		javascript_time_ago.locales.en.long.now = just_now_formatter
 	})
 
+	it(`should format for a style with "custom" function`, function()
+	{
+		const time_ago = new javascript_time_ago('en')
+
+		// `custom` returns a string
+		time_ago.format(Date.now(),
+		{
+			custom({ now, time, date, locale })
+			{
+				return locale
+			}
+		})
+		.should.equal('en')
+
+		// `custom` returns `undefined`
+		time_ago.format(Date.now(),
+		{
+			custom({ now, time, date, locale })
+			{
+				return
+			}
+		})
+		.should.equal('just now')
+	})
+
 	it(`should format Twitter style relative time (English)`, function()
 	{
 		const time_ago = new javascript_time_ago('en')
 
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = (time) => time_ago.format(now - time * 1000, { now, ...twitter })
+		const elapsed = (time) => time_ago.format(now - time * 1000, { now, ...twitterStyle })
 
 		elapsed(0).should.equal('')
 		elapsed(44.9).should.equal('')
@@ -89,7 +115,7 @@ describe(`time ago`, function()
 		elapsed(2.51 * 60 * 60).should.equal('3h')
 		// …
 		elapsed(23.49 * 60 * 60).should.equal('23h')
-		elapsed(day + 62 * 60).should.equal('Apr 9')
+		elapsed(day + 2 * 60 + 60 * 60).should.equal('Apr 9')
 		// …
 		elapsed(year).should.equal('Apr 11, 2015')
 	})
@@ -99,7 +125,7 @@ describe(`time ago`, function()
 		const time_ago = new javascript_time_ago(['ru'])
 
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = time => time_ago.format(now - time * 1000, { now, ...twitter })
+		const elapsed = time => time_ago.format(now - time * 1000, { now, ...twitterStyle })
 
 		elapsed(0).should.equal('')
 		elapsed(44.9).should.equal('')
@@ -528,10 +554,10 @@ function convenient_gradation_test(convenient_gradation_labels, time_ago, style 
 		switch (style)
 		{
 			case 'twitter':
-				style = twitter
+				style = twitterStyle
 				break
 			case 'time':
-				style = just_time
+				style = timeStyle
 				break
 		}
 	}
