@@ -1,1 +1,1 @@
-module.exports = require('./commonjs/Cache').default
+module.exports = require('./commonjs/cache').default
