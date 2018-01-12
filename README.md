@@ -6,7 +6,7 @@
 
 International higly customizable relative date/time formatter (both for past and future dates).
 
-Formats a date to something like:
+Formats a date/timestamp to:
 
   * just now
   * 5m
