@@ -8,6 +8,7 @@ from '../index'
 
 import PropTypes from '../prop-types'
 import Cache from '../cache'
+import { canonical, convenient } from '../gradation'
 
 describe(`exports`, function()
 {
@@ -57,5 +58,11 @@ describe(`exports`, function()
 	it(`should export Cache`, function()
 	{
 		new Cache().cache.should.be.an('object')
+	})
+
+	it(`should export gradation`, function()
+	{
+		canonical.should.be.an('array')
+		convenient.should.be.an('array')
 	})
 })

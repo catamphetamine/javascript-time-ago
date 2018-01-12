@@ -199,7 +199,7 @@ One can pass `style` (`string` or `object`) as a second parameter to the `.forma
 
 ## Gradation
 
-A `gradation` is a list of time interval measurement steps. A simple example:
+A `gradation` is a list of time interval measurement steps.
 
 ```js
 [
@@ -220,20 +220,32 @@ A `gradation` is a list of time interval measurement steps. A simple example:
 ]
 ```
 
-  * `factor` is a divider for the supplied time interval (in seconds)
-  * `threshold` is a minimum time interval value (in seconds) required for this gradation step
-  * (some advanced `threshold` customization is possible, see `./source/gradation.js` for more info)
-  * `granularity` can also be specified (for example, `5` for `minute` to allow only 5-minute intervals)
+Each step is described by:
 
-For more gradation examples see [`source/gradation.js`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation.js)
+  * `unit` — a localized time measurement unit: `second`, `minute`, `hour`, `day`, `month`, `year` are the standardized CLDR ones.
+  * `factor` — a divider for the supplied time interval (in seconds).
+  * `threshold` — a minimum time interval value (in seconds) required for this gradation step. Each step must have a `threshold` defined except for the first one. Can a `number` or a `function(now)` returning a `number`. Some advanced `threshold` customization is possible like `threshold_for_[prev-unit]` (see `./source/gradation/convenient.js`).
+  * `granularity` — for example, `5` for `minute` to allow only 5-minute intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc.
+
+If a gradation step should output not simply a time interval of a certain time unit but something different instead then it may be described by:
+
+  * `unit` — a localized time measurement unit: `second`, `minute`, `hour`, `day`, `month`, `year` are the standardized CLDR ones.
+  * `factor` — a divider for the supplied time interval (in seconds).
+  * `threshold` — a minimum time interval value (in seconds) required for this gradation step. Each step must have a `threshold` defined except for the first one. Can a `number` or a `function(now)` returning a `number`. Some advanced `threshold` customization is possible like `threshold_for_[prev-unit]` (see `./source/gradation/convenient.js`).
+  * `granularity` — for example, `5` for `minute` to allow only 5-minute intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc.
+
+For more gradation examples see [`source/gradation`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation) folder.
+
+ * `threshold` — same as above.
+ * `format` — a `function(value, locale)` returning a `string`. `value` argument is the date/time being formatted as passed to `TimeAgo.format(value)`: either a `number` or a `Date`. `locale` argument is the selected locale (aka "BCP 47 language tag", e.g. `ru-RU`). For example, the built-in Twitter gradation has regular `minute` and `hour` steps followed by a custom one formatting a date as "day/month/year", e.g. `Jan 24, 2018`.
 
 Built-in gradations:
 
 ```js
-import { gradation } from 'javascript-time-ago'
-
-gradation.canonical()  // '1 second ago', '2 minutes ago', …
-gradation.convenient() // 'just now', '5 minutes ago', …
+import {
+  canonical, // '1 second ago', '2 minutes ago', …
+  convenient // 'just now', '5 minutes ago', …
+} from 'javascript-time-ago/gradation'
 ```
 
 ## Localization internals

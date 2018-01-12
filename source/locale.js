@@ -61,5 +61,7 @@ export function intlDateTimeFormatSupported()
 	// Babel transforms `typeof` into some "branches"
 	// so istanbul will show this as "branch not covered".
 	/* istanbul ignore next */
-	return typeof Intl === 'object' && typeof Intl.DateTimeFormat === 'function'
+	const is_intl_available = typeof Intl === 'object'
+
+	return is_intl_available && typeof Intl.DateTimeFormat === 'function'
 }

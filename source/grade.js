@@ -52,18 +52,26 @@ export default function grade(elapsed, now, units, gradation = convenient)
 			// Allows threshold customization
 			// based on which time interval measurement `units`
 			// are available during this `elapsed(value, units)` call.
-			const specific_threshold = next_step[`threshold_for_${step.unit}`]
-			let  next_step_threshold = specific_threshold || next_step.threshold
+			let threshold = next_step[`threshold_for_${step.unit}`] || next_step.threshold
 
 			// `threshold` can be a function of `now`.
-			if (typeof next_step_threshold === 'function')
+			if (typeof threshold === 'function')
 			{
-				next_step_threshold = next_step_threshold(now)
+				threshold = threshold(now)
+			}
+
+			if (typeof threshold !== 'number')
+			{
+				// Babel transforms `typeof` into some "branches"
+				// so istanbul will show this as "branch not covered".
+				/* istanbul ignore next */
+				const type = typeof threshold
+				throw new Error(`Each step of a gradation must have a threshold defined except for the first one. Got "${threshold}", ${type}. Step: ${JSON.stringify(next_step)}`)
 			}
 
 			// If the next step of time scale is reachable,
 			// then proceed with that next step of time scale.
-			if (elapsed >= next_step_threshold)
+			if (elapsed >= threshold)
 			{
 				i++
 				continue
