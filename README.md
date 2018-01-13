@@ -303,11 +303,14 @@ Node.js
 
 ```js
 import IntlPolyfill from 'intl'
-import intlLocalesSupported from 'intl-locales-supported'
+
+const locales = ['ru', 'fr', ...]
 
 if (typeof Intl === 'object') {
-  if (!intlLocalesSupported(['ru', 'fr', ...])) {
-    Intl.NumberFormat   = IntlPolyfill.NumberFormat
+  if (!Intl.NumberFormat || Intl.NumberFormat.supportedLocalesOf(locales) !== locales.length) {
+    Intl.NumberFormat = IntlPolyfill.NumberFormat
+  }
+  if (!Intl.DateTimeFormat || Intl.DateTimeFormat.supportedLocalesOf(locales) !== locales.length) {
     Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat
   }
 }
