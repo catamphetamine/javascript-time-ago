@@ -304,7 +304,7 @@ Node.js
 ```js
 import IntlPolyfill from 'intl'
 
-const locales = ['ru', 'fr', ...]
+const locales = ['en', 'ru', ...]
 
 if (typeof Intl === 'object') {
   if (!Intl.NumberFormat || Intl.NumberFormat.supportedLocalesOf(locales).length !== locales.length) {
@@ -328,7 +328,9 @@ async function initIntl() {
   }
   await Promise.all([
     import('intl'),
-    import('intl/locale-data/jsonp/en')
+    import('intl/locale-data/jsonp/en'),
+    import('intl/locale-data/jsonp/ru'),
+    ...
   ])
 }
 
