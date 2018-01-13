@@ -25,26 +25,16 @@ For React users there's also a [React component](https://github.com/catamphetami
 npm install javascript-time-ago --save
 ```
 
-First, the library must be initialized with a set of desired locales.
-
 ```js
-// Time ago formatter.
 import TimeAgo from 'javascript-time-ago'
 
 // Load locale-specific relative date/time formatting rules.
 import en from 'javascript-time-ago/locale/en'
-import ru from 'javascript-time-ago/locale/ru'
 
 // Add locale-specific relative date/time formatting rules.
 TimeAgo.locale(en)
-TimeAgo.locale(ru)
-```
 
-After the initialization step is complete it is ready to format relative dates.
-
-```js
-import TimeAgo from 'javascript-time-ago'
-
+// Create relative date/time formatter.
 const timeAgo = new TimeAgo('en-US')
 
 timeAgo.format(new Date())
@@ -62,6 +52,14 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 
 ```js
 import TimeAgo from 'javascript-time-ago'
+
+// Load locale-specific relative date/time formatting rules.
+import en from 'javascript-time-ago/locale/en'
+import ru from 'javascript-time-ago/locale/ru'
+
+// Add locale-specific relative date/time formatting rules.
+TimeAgo.locale(en)
+TimeAgo.locale(ru)
 
 // cyka blyat idi nahui
 const timeAgo = new TimeAgo('ru-RU')
