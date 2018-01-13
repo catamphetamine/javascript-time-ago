@@ -296,7 +296,6 @@ Applying [`Intl` polyfill](https://github.com/andyearnshaw/Intl.js):
 
 ```
 npm install intl@1.2.4 --save
-npm install intl-locales-supported --save
 ```
 
 Node.js
