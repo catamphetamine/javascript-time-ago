@@ -306,9 +306,6 @@ import IntlPolyfill from 'intl'
 const locales = ['en', 'ru', ...]
 
 if (typeof Intl === 'object') {
-  if (!Intl.NumberFormat || Intl.NumberFormat.supportedLocalesOf(locales).length !== locales.length) {
-    Intl.NumberFormat = IntlPolyfill.NumberFormat
-  }
   if (!Intl.DateTimeFormat || Intl.DateTimeFormat.supportedLocalesOf(locales).length !== locales.length) {
     Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat
   }
