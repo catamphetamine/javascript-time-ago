@@ -307,10 +307,10 @@ import IntlPolyfill from 'intl'
 const locales = ['ru', 'fr', ...]
 
 if (typeof Intl === 'object') {
-  if (!Intl.NumberFormat || Intl.NumberFormat.supportedLocalesOf(locales) !== locales.length) {
+  if (!Intl.NumberFormat || Intl.NumberFormat.supportedLocalesOf(locales).length !== locales.length) {
     Intl.NumberFormat = IntlPolyfill.NumberFormat
   }
-  if (!Intl.DateTimeFormat || Intl.DateTimeFormat.supportedLocalesOf(locales) !== locales.length) {
+  if (!Intl.DateTimeFormat || Intl.DateTimeFormat.supportedLocalesOf(locales).length !== locales.length) {
     Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat
   }
 }
