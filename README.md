@@ -92,9 +92,15 @@ timeAgo.format(Date.now() - 60 * 1000, 'twitter')
 
 timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'twitter')
 // "2h"
+
+timeAgo.format(Date.now() - 2 * 24 * 60 * 60 * 1000, 'twitter')
+// "Mar 3"
+
+timeAgo.format(Date.now() - 365 * 24 * 60 * 60 * 1000, 'twitter')
+// "Mar 5, 2017"
 ```
 
-The built-in Twitter style uses `Intl` internally for formatting `day/month/year` labels. This is not an issue for modern web browsers but requies `Intl` polyfill for a couple of older browsers and for Node.js (if you're running this code on server side). See the [`Intl`](https://github.com/catamphetamine/javascript-time-ago#intl) section of this document for `Intl` polyfill instructions. When `Intl` is not available Twitter style falls back to the default one.
+The built-in Twitter style uses [`Intl`](https://github.com/catamphetamine/javascript-time-ago#intl) for formatting `day/month/year` labels. If `Intl` is not available then it falls back to the default style.
 
 ## "Just time" style
 
