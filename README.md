@@ -84,9 +84,6 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 Mimics Twitter style of time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
 
 ```js
-…
-const timeAgo = new TimeAgo('en-US')
-
 timeAgo.format(new Date(), 'twitter')
 // ""
 
@@ -102,7 +99,8 @@ The built-in Twitter style uses `Intl` internally for formatting `day/month/year
 ## "Just time" style
 
 ```js
-timeAgo.format(new Date(), 'time')
+timeAgo.format(Date.now() - 60 * 1000, 'time')
+// "1 minute"
 ```
 
 Similar to the default style but with "ago" omitted:
