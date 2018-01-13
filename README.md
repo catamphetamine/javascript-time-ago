@@ -292,7 +292,7 @@ There is also a [React component](https://catamphetamine.github.io/react-time-ag
 
 Node.js starting from `0.12` has `Intl` built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side (e.g. Server-Side Rendering) then you'll need to use `Intl` polyfill.
 
-Applying `Intl` polyfill:
+Applying [`Intl` polyfill](https://github.com/andyearnshaw/Intl.js):
 
 ```
 npm install intl@1.2.4 --save
