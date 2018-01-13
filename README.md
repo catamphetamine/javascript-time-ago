@@ -145,7 +145,7 @@ Similar to the default style but with "ago" omitted:
 
 No locale data is loaded by default: a developer must manually choose which locales must be loaded. This is to reduce the resulting javascript bundle size.
 
-If the resulting bundle size is of no concern (e.g. a big enterprise application), or if the code is being run on server side, then use this helper to load all available locales:
+If the resulting bundle size is of no concern (e.g. a big enterprise application), or if the code is being run on server side (e.g. Server-Side Rendering), then use this helper to load all available locales:
 
 ```js
 require('javascript-time-ago/load-all-locales')
@@ -290,7 +290,7 @@ There is also a [React component](https://catamphetamine.github.io/react-time-ag
 
 `Intl` is present in all modern web browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using `Intl` polyfill).
 
-Node.js starting from `0.12` has `Intl` built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side then you'll need to use `Intl` polyfill.
+Node.js starting from `0.12` has `Intl` built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side (e.g. Server-Side Rendering) then you'll need to use `Intl` polyfill.
 
 Applying `Intl` polyfill:
 
