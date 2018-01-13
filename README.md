@@ -50,6 +50,8 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 // "a day ago"
 ```
 
+Russian
+
 ```js
 import TimeAgo from 'javascript-time-ago'
 
