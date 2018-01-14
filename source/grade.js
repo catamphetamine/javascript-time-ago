@@ -1,9 +1,8 @@
 import { convenient } from './gradation'
 
 /**
- * Takes seconds `elapsed` and measures them
- * against `gradation` to return the suitable
- * `gradation` step.
+ * Takes seconds `elapsed` and measures them against
+ * `gradation` to return the suitable `gradation` step.
  *
  * @param {number} elapsed - Time interval (in seconds)
  *
@@ -24,7 +23,7 @@ import { convenient } from './gradation'
  */
 export default function grade(elapsed, now, units, gradation = convenient)
 {
-	// Leave only supported gradation steps
+	// Leave only allowed gradation steps
 	gradation = gradation.filter(({ unit }) =>
 	{
 		// If this step has a `unit` defined
