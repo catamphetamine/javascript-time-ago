@@ -27,100 +27,140 @@ export default function grade(elapsed, now, units, gradation = convenient)
 	// Leave only supported gradation steps
 	gradation = gradation.filter(({ unit }) =>
 	{
+		// If this step has a `unit` defined
+		// then this `unit` must be in the list of `units` allowed.
 		if (unit)
 		{
 			return units.indexOf(unit) >= 0
 		}
 
+		// A gradation step is not required to specify a `unit`.
+		// E.g. for Twitter gradation it specifies `format()` instead.
 		return true
 	})
 
-	// Find the most appropriate time scale gradation step
-	let i = 0
-	while (i < gradation.length)
+	// If no steps of gradation fit the conditions
+	// then return nothing.
+	if (gradation.length === 0)
 	{
-		// Current step of time scale
-		const step = gradation[i]
-		// The next step of time scale
-		const next_step = i + 1 < gradation.length ? gradation[i + 1] : undefined
-
-		// If it's not the last step of time scale,
-		// and the next step of time scale is reachable,
-		// then proceed with that next step of time scale.
-		if (next_step)
-		{
-			// Allows threshold customization
-			// based on which time interval measurement `units`
-			// are available during this `elapsed(value, units)` call.
-			let threshold = next_step[`threshold_for_${step.unit}`] || next_step.threshold
-
-			// `threshold` can be a function of `now`.
-			if (typeof threshold === 'function')
-			{
-				threshold = threshold(now)
-			}
-
-			if (typeof threshold !== 'number')
-			{
-				// Babel transforms `typeof` into some "branches"
-				// so istanbul will show this as "branch not covered".
-				/* istanbul ignore next */
-				const type = typeof threshold
-				throw new Error(`Each step of a gradation must have a threshold defined except for the first one. Got "${threshold}", ${type}. Step: ${JSON.stringify(next_step)}`)
-			}
-
-			// If the next step of time scale is reachable,
-			// then proceed with that next step of time scale.
-			if (elapsed >= threshold)
-			{
-				i++
-				continue
-			}
-		}
-
-		// Either it's the last step of time scale,
-		// or the next step of time scale is unreachable,
-		// so stick with the current step of time scale.
-
-		// If time elapsed is so small no gradation scale unit suits it.
-		if (step.threshold)
-		{
-			const threshold =
-				typeof step.threshold === 'function' ?
-				step.threshold(now) :
-				step.threshold
-
-			if (threshold && elapsed < threshold)
-			{
-				return
-			}
-		}
-
-		// Apply granularity to the time amount
-		// (and fallback to the previous step
-		//  if the first level of granularity
-		//  isn't met by this amount)
-		if (step.granularity)
-		{
-			// Recalculate the elapsed time amount based on granularity
-			const amount = Math.round((elapsed / step.factor) / step.granularity) * step.granularity
-
-			// If the granularity for this step of time scale
-			// is too high, then fallback
-			// to the previous step of time scale.
-			// (if there is the previous step of time scale)
-			if (amount === 0)
-			{
-				if (gradation[i - 1])
-				{
-					return gradation[i - 1]
-				}
-			}
-		}
-
-		return step
+		return
 	}
 
-	console.error(`Not a single time unit of "${units.join(', ')}" was specified `
-		+ `in the gradation \n ${JSON.stringify({ gradation }, null, 3)}`)
+	// Find the most appropriate gradation step
+	const i = find_gradation_step(elapsed, now, gradation)
+	const step = gradation[i]
+
+	// If time elapsed is too small and even
+	// the first gradation step doesn't suit it
+	// then return nothing.
+	if (i === -1)
+	{
+		return
+	}
+
+	// Apply granularity to the time amount
+	// (and fall back to the previous step
+	//  if the first level of granularity
+	//  isn't met by this amount)
+	if (step.granularity)
+	{
+		// Recalculate the elapsed time amount based on granularity
+		const amount = Math.round((elapsed / step.factor) / step.granularity) * step.granularity
+
+		// If the granularity for this step
+		// is too high, then fallback
+		// to the previous step of gradation.
+		// (if there is any previous step of gradation)
+		if (amount === 0 && i > 0)
+		{
+			return gradation[i - 1]
+		}
+	}
+
+	return step
+}
+
+/**
+ * Gets threshold for moving from `from_step` to `next_step`.
+ * @param  {Object} from_step - From step.
+ * @param  {Object} next_step - To step.
+ * @param  {number} now - The current timestamp.
+ * @return {number}
+ * @throws Will throw if no threshold is found.
+ */
+function get_threshold(from_step, to_step, now)
+{
+	let threshold
+
+	// Allows custom thresholds when moving
+	// from a specific step to a specific step.
+	if (from_step && (from_step.id || from_step.unit))
+	{
+		threshold = to_step[`threshold_for_${from_step.id || from_step.unit}`]
+	}
+
+	// If no custom threshold is set for this transition
+	// then use the usual threshold for the next step.
+	if (threshold === undefined)
+	{
+		threshold = to_step.threshold
+	}
+
+	// Convert threshold to a number.
+	threshold = calculate_threshold(threshold, now)
+
+	// Throw if no threshold is found.
+	if (from_step && typeof threshold !== 'number')
+	{
+		// Babel transforms `typeof` into some "branches"
+		// so istanbul will show this as "branch not covered".
+		/* istanbul ignore next */
+		const type = typeof threshold
+		throw new Error(`Each step of a gradation must have a threshold defined except for the first one. Got "${threshold}", ${type}. Step: ${JSON.stringify(to_step)}`)
+	}
+
+	return threshold
+}
+
+/**
+ * Converts threshold to a number.
+ * E.g. if threshold is a function(now).
+ * @param  {Object} threshold
+ * @param  {number} now - Current timestamp.
+ * @return {number}
+ */
+function calculate_threshold(threshold, now)
+{
+	if (typeof threshold === 'function')
+	{
+		return threshold(now)
+	}
+
+	return threshold
+}
+
+/**
+ * @param  {number} elapsed - Time elapsed (in seconds).
+ * @param  {number} now - Current timestamp.
+ * @param  {Object} gradation - Gradation.
+ * @param  {number} i - Gradation step currently being tested.
+ * @return {number} Gradation step index.
+ */
+function find_gradation_step(elapsed, now, gradation, i = 0)
+{
+	// If the threshold for moving from previous step
+	// to this step is too high then return the previous step.
+	if (elapsed < get_threshold(gradation[i - 1], gradation[i], now))
+	{
+		return i - 1
+	}
+
+	// If it's the last step of gradation then return it.
+	if (i === gradation.length - 1)
+	{
+		return i
+	}
+
+	// Move to the next step.
+	return find_gradation_step(elapsed, now, gradation, i + 1)
 }

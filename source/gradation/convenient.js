@@ -28,61 +28,61 @@ import { day, month, year } from './helpers'
 export default
 [
 	{
-		unit: 'now',
-		factor: 1
-	},
-	{
-		unit: 'second',
 		factor: 1,
+		unit: 'now'
+	},
+	{
 		threshold: 1,
-		threshold_for_now: 45
+		threshold_for_now: 45,
+		factor: 1,
+		unit: 'second'
 	},
 	{
-		unit: 'minute',
+		threshold: 45,
 		factor: 60,
-		threshold: 45
+		unit: 'minute'
 	},
 	{
-		unit: 'minute',
-		factor: 60,
 		threshold: 2.5 * 60,
-		granularity: 5
+		factor: 60,
+		granularity: 5,
+		unit: 'minute'
 	},
 	{
-		unit: 'half-hour',
+		threshold: 22.5 * 60,
 		factor: 30 * 60,
-		threshold: 22.5 * 60
+		unit: 'half-hour'
 	},
 	{
-		unit: 'hour',
-		factor: 60 * 60,
 		threshold: 42.5 * 60,
-		threshold_for_minute: 52.5 * 60
+		threshold_for_minute: 52.5 * 60,
+		factor: 60 * 60,
+		unit: 'hour'
 	},
 	{
-		unit: 'day',
+		threshold: (20.5 / 24) * day,
 		factor: day,
-		threshold: (20.5 / 24) * day
+		unit: 'day'
 	},
 	{
-		unit: 'week',
+		threshold: 5.5 * day,
 		factor: 7 * day,
-		threshold: 5.5 * day
+		unit: 'week'
 	},
 	{
-		unit: 'month',
+		threshold: 3.5 * 7 * day,
 		factor: month,
-		threshold: 3.5 * 7 * day
+		unit: 'month'
 	},
 	{
-		unit: 'half-year',
+		threshold: 4.5 * month,
 		factor: 0.5 * year,
-		threshold: 4.5 * month
+		unit: 'half-year'
 	},
 	{
-		unit: 'year',
+		threshold: 10.5 * month,
+		'threshold_for_half-year': 9 * month,
 		factor: year,
-		threshold: 9 * month,
-		threshold_for_month: 10.5 * month
+		unit: 'year'
 	}
 ]
