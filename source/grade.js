@@ -24,19 +24,7 @@ import { convenient } from './gradation'
 export default function grade(elapsed, now, units, gradation = convenient)
 {
 	// Leave only allowed gradation steps
-	gradation = gradation.filter(({ unit }) =>
-	{
-		// If this step has a `unit` defined
-		// then this `unit` must be in the list of `units` allowed.
-		if (unit)
-		{
-			return units.indexOf(unit) >= 0
-		}
-
-		// A gradation step is not required to specify a `unit`.
-		// E.g. for Twitter gradation it specifies `format()` instead.
-		return true
-	})
+	gradation = get_allowed_steps(gradation, units)
 
 	// If no steps of gradation fit the conditions
 	// then return nothing.
@@ -162,4 +150,27 @@ function find_gradation_step(elapsed, now, gradation, i = 0)
 
 	// Move to the next step.
 	return find_gradation_step(elapsed, now, gradation, i + 1)
+}
+
+/**
+ * Leaves only allowed gradation steps.
+ * @param  {Object[]} gradation
+ * @param  {string[]} units - Allowed time units.
+ * @return {Object[]}
+ */
+function get_allowed_steps(gradation, units)
+{
+	return gradation.filter(({ unit }) =>
+	{
+		// If this step has a `unit` defined
+		// then this `unit` must be in the list of `units` allowed.
+		if (unit)
+		{
+			return units.indexOf(unit) >= 0
+		}
+
+		// A gradation step is not required to specify a `unit`.
+		// E.g. for Twitter gradation it specifies `format()` instead.
+		return true
+	})
 }
