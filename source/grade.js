@@ -94,7 +94,10 @@ function get_threshold(from_step, to_step, now)
 	}
 
 	// Convert threshold to a number.
-	threshold = calculate_threshold(threshold, now)
+	if (typeof threshold === 'function')
+	{
+		threshold = threshold(now)
+	}
 
 	// Throw if no threshold is found.
 	if (from_step && typeof threshold !== 'number')
@@ -104,23 +107,6 @@ function get_threshold(from_step, to_step, now)
 		/* istanbul ignore next */
 		const type = typeof threshold
 		throw new Error(`Each step of a gradation must have a threshold defined except for the first one. Got "${threshold}", ${type}. Step: ${JSON.stringify(to_step)}`)
-	}
-
-	return threshold
-}
-
-/**
- * Converts threshold to a number.
- * E.g. if threshold is a function(now).
- * @param  {Object} threshold
- * @param  {number} now - Current timestamp.
- * @return {number}
- */
-function calculate_threshold(threshold, now)
-{
-	if (typeof threshold === 'function')
-	{
-		return threshold(now)
 	}
 
 	return threshold
