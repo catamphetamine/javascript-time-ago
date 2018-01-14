@@ -96,9 +96,6 @@ export default function grade(elapsed, now, units, gradation = convenient)
 			}
 		}
 
-		const exact_amount = elapsed / step.factor
-		let amount = Math.round(exact_amount)
-
 		// Apply granularity to the time amount
 		// (and fallback to the previous step
 		//  if the first level of granularity
@@ -106,7 +103,7 @@ export default function grade(elapsed, now, units, gradation = convenient)
 		if (step.granularity)
 		{
 			// Recalculate the elapsed time amount based on granularity
-			amount = Math.round(exact_amount / step.granularity) * step.granularity
+			const amount = Math.round((elapsed / step.factor) / step.granularity) * step.granularity
 
 			// If the granularity for this step of time scale
 			// is too high, then fallback
