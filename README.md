@@ -63,7 +63,7 @@ import ru from 'javascript-time-ago/locale/ru'
 TimeAgo.locale(en)
 TimeAgo.locale(ru)
 
-// cyka blyat idi nahui
+// cyka blyat
 const timeAgo = new TimeAgo('ru-RU')
 
 timeAgo.format(new Date())
