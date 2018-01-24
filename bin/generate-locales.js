@@ -4,6 +4,8 @@ import fs from 'fs-extra'
 
 import parseCLDR from '../source/cldr'
 
+throw new Error('Some locales (ru, en, ko) have their data changed. This script has been blocked because it was only used at the start for generating initial locale data for all locales. Since then that locale data may have been modified. To prevent that modified data from being accidentally overwritten this guard has been placed here.')
+
 // Generate plurals first, then run this script.
 //
 // ```
