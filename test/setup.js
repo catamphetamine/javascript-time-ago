@@ -8,11 +8,12 @@ import javascript_time_ago from '../source/JavascriptTimeAgo'
 import * as en from '../locale/en'
 import * as ru from '../locale/ru'
 import * as de from '../locale/de'
+import * as ko from '../locale/ko'
 
 // Just so this function code is covered.
 javascript_time_ago.setDefaultLocale('en')
 
-const locales = ['en', 'ru', 'de']
+const locales = ['en', 'ru', 'de', 'ko']
 
 if (typeof Intl === 'object')
 {
@@ -44,6 +45,7 @@ else
 javascript_time_ago.locale(en)
 javascript_time_ago.locale(ru)
 javascript_time_ago.locale(de)
+javascript_time_ago.locale(ko)
 
 chai.should()
 global.expect = expect
