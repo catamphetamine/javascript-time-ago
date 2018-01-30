@@ -80,7 +80,7 @@ export default function parse_CLDR(data)
 	{
 		// Take only the generic time measurement units
 		// (skip exotic ones like "fri" on "thu").
-		return units.includes(parse_unit(unit).unit)
+		return units.indexOf(parse_unit(unit).unit) >= 0
 	})
 	.reduce((locale_data, _unit) =>
 	{
