@@ -1,0 +1,101 @@
+{
+	"year": {
+		"previous": "el año pasado",
+		"current": "este año",
+		"next": "el año próximo",
+		"past": {
+			"one": "hace {0} año",
+			"other": "hace {0} años"
+		},
+		"future": {
+			"one": "dentro de {0} año",
+			"other": "dentro de {0} años"
+		}
+	},
+	"quarter": {
+		"previous": "el trimestre pasado",
+		"current": "este trimestre",
+		"next": "el próximo trimestre",
+		"past": {
+			"one": "hace {0} trimestre",
+			"other": "hace {0} trimestres"
+		},
+		"future": {
+			"one": "dentro de {0} trimetre",
+			"other": "dentro de {0} trimetres"
+		}
+	},
+	"month": {
+		"previous": "el mes pasado",
+		"current": "este mes",
+		"next": "el mes próximo",
+		"past": {
+			"one": "hace {0} mes",
+			"other": "hace {0} meses"
+		},
+		"future": {
+			"one": "en {0} mes",
+			"other": "en {0} meses"
+		}
+	},
+	"week": {
+		"previous": "la semana pasada",
+		"current": "esta semana",
+		"next": "la semana próxima",
+		"past": {
+			"one": "hace {0} semana",
+			"other": "hace {0} semanas"
+		},
+		"future": {
+			"one": "dentro de {0} semana",
+			"other": "dentro de {0} semanas"
+		}
+	},
+	"day": {
+		"previous": "ayer",
+		"current": "hoy",
+		"next": "mañana",
+		"past": {
+			"one": "hace {0} día",
+			"other": "hace {0} días"
+		},
+		"future": {
+			"one": "dentro de {0} día",
+			"other": "dentro de {0} días"
+		}
+	},
+	"hour": {
+		"current": "esta hora",
+		"past": {
+			"one": "hace {0} hora",
+			"other": "hace {0} horas"
+		},
+		"future": {
+			"one": "dentro de {0} hora",
+			"other": "dentro de {0} horas"
+		}
+	},
+	"minute": {
+		"current": "este minuto",
+		"past": {
+			"one": "hace {0} minuto",
+			"other": "hace {0} minutos"
+		},
+		"future": {
+			"one": "dentro de {0} minuto",
+			"other": "dentro de {0} minutos"
+		}
+	},
+	"second": {
+		"current": "ahora",
+		"past": {
+			"one": "hace {0} segundo",
+			"other": "hace {0} segundos"
+		},
+		"future": {
+			"one": "dentro de {0} segundo",
+			"other": "dentro de {0} segundos"
+		}
+	},
+	"now": "ahora"
+}

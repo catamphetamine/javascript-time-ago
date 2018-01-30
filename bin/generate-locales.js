@@ -4,7 +4,16 @@ import fs from 'fs-extra'
 
 import parseCLDR from '../source/cldr'
 
-throw new Error('Some locales (ru, en, ko) have their data changed. This script has been blocked because it was only used at the start for generating initial locale data for all locales. Since then that locale data may have been modified. To prevent that modified data from being accidentally overwritten this guard has been placed here.')
+const stub_long = `{
+	"year": {
+		"previous": "last year",
+		"current": "this year",
+		"next": "next year",
+		"past": "-{0} y",
+		"future": "+{0} y"
+	}`
+
+// throw new Error('Some locales (ru, en, ko) have their data changed. This script has been blocked because it was only used at the start for generating initial locale data for all locales. Since then that locale data may have been modified. To prevent that modified data from being accidentally overwritten this guard has been placed here.')
 
 // Generate plurals first, then run this script.
 //
@@ -13,17 +22,42 @@ throw new Error('Some locales (ru, en, ko) have their data changed. This script 
 // npm run generate-locale-data
 // npm run generate-load-all-locales
 // ````
-for (const locale of Object.keys(plurals))
+const all_cldr_locales = list_all_cldr_locales()
+for (const locale of all_cldr_locales) // .filter(_ => _.indexOf('cu') === 0))
 {
-	// Some keys are locales, e.g. "pt-PT".
-	// (whatever that means)
-	const language = locale.split('-')[0]
-
 	// Don't know what the "root" key is for so skip it.
-	if (language === 'root')
+	if (locale === 'root')
 	{
 		continue
 	}
+
+	// Temporary.
+	if (locale.split('-')[0] === 'en' ||
+		locale.split('-')[0] === 'ru' ||
+		locale.split('-')[0] === 'ko')
+	{
+		continue
+	}
+
+	if
+	(
+		// For English language `en/short.json` and `en/narrow.json`
+		// differ from one another by a simple dot, e.g. `yr.` vs `yr`.
+		locale.indexOf('en-') === 0 ||
+		// For PT language `pt/short.json` and `pt/narrow.json`
+		// are different from all others which are identical to `pt-PT`.
+		// Seems like a bug in CLDR.
+		locale.indexOf('pt-') === 0
+	)
+	{
+		fs.removeSync(path.join(__dirname, '../locale', locale))
+		continue
+	}
+
+	console.log(locale)
+
+	const language = locale.split('-')[0]
+	const has_parent = language !== locale
 
 	// // Skip the already built-in languages.
 	// if (language === 'en' || language === 'ru' || language === 'ko')
@@ -31,69 +65,67 @@ for (const locale of Object.keys(plurals))
 	// 	continue
 	// }
 
-	const cldrJsonPath = `cldr-dates-full/main/${language}/dateFields.json`
-	const locale_folder = path.join(__dirname, '../locale', language)
+	// For PT language `pt/short.json` and `pt/narrow.json`
+	// are different from all others which are identical to `pt-PT`.
+	// Seems like a bug in CLDR.
+	const cldr_locale = locale === 'pt' ? 'pt-PT' : locale
 
-	// If no such language exists in `cldr-dates-full`
-	// then delete its folder along with the pluralization function.
-	if (!fs.existsSync(path.resolve(__dirname, '../node_modules', cldrJsonPath)))
-	{
-		fs.removeSync(locale_folder)
-		continue
-	}
+	const cldrJsonPath = `cldr-dates-full/main/${cldr_locale}/dateFields.json`
+	const locale_folder = path.join(__dirname, '../locale', locale)
+	const language_folder = path.join(__dirname, '../locale', language)
+
+	// // If no such language exists in `cldr-dates-full`
+	// // then delete its folder along with the pluralization function.
+	// if (!fs.existsSync(path.resolve(__dirname, '../node_modules', cldrJsonPath)))
+	// {
+	// 	// fs.removeSync(locale_folder)
+	// 	continue
+	// }
 
 	// If there's no pluralization classifier function
 	// for this language then don't add it.
-	if (!fs.existsSync(path.join(locale_folder, 'quantify.js')))
-	{
-		fs.removeSync(locale_folder)
-		continue
-	}
+	const quantify = get_quantify_path(locale)
 
 	let data = require(cldrJsonPath)
 
 	data = parseCLDR(data)
 
-	// There must be at least "long" flavour
 	if (!data.long)
 	{
+		throw new Error(`Default (long) locale data is missing for locale "${locale}".`)
+	}
+
+	if (JSON.stringify(data.long, null, '\t').indexOf(stub_long) === 0)
+	{
+		console.warn(`Data for "${locale}" locale is an English stub. Skipping.`)
 		fs.removeSync(locale_folder)
 		continue
 	}
 
+	if (!data.short)
+	{
+		throw new Error(`Short locale data is missing for locale "${locale}".`)
+	}
+
+	if (!data.narrow)
+	{
+		throw new Error(`Narrow locale data is missing for locale "${locale}".`)
+	}
+
 	reduce_quantifiers(data.long)
+	reduce_quantifiers(data.short)
+	reduce_quantifiers(data.narrow)
 
-	// Write the default "long" flavour (always present)
-	fs.outputFileSync
-	(
-		path.join(locale_folder, 'long.json'),
-		JSON.stringify(data.long, null, '\t')
-	)
+	// http://cldr.unicode.org/translation/plurals#TOC-Narrow-and-Short-Forms
 
-	// Write the "short" flavour (if present)
-	if (data.short)
-	{
-		reduce_quantifiers(data.short)
+	// Extra flavours.
+	const shortTimeExists = fs.existsSync(path.join(locale_folder, 'short-time.json'))
+	const longTimeExists  = fs.existsSync(path.join(locale_folder, 'long-time.json'))
+	const tinyExists      = fs.existsSync(path.join(locale_folder, 'tiny.json'))
 
-		fs.outputFileSync
-		(
-			path.join(locale_folder, 'short.json'),
-			JSON.stringify(data.short, null, '\t')
-		)
-	}
-
-	// Write the "narrow" flavour (if present)
-	//http://cldr.unicode.org/translation/plurals#TOC-Narrow-and-Short-Forms
-	if (data.narrow)
-	{
-		reduce_quantifiers(data.narrow)
-
-		fs.outputFileSync
-		(
-			path.join(locale_folder, 'narrow.json'),
-			JSON.stringify(data.narrow, null, '\t')
-		)
-	}
+	const parentShortTimeExists = fs.existsSync(path.join(language_folder, 'short-time.json'))
+	const parentLongTimeExists  = fs.existsSync(path.join(language_folder, 'long-time.json'))
+	const parentTinyExists      = fs.existsSync(path.join(language_folder, 'tiny.json'))
 
 	// `index.js`
 	fs.outputFileSync
@@ -102,30 +134,45 @@ for (const locale of Object.keys(plurals))
 		`
 module.exports =
 {
-	locale: '${language}',
-	long: require('./long.json'),
-	${data.short ? "short: require('./short.json')," : ""}
-	${data.narrow ? "narrow: require('./narrow.json')," : ""}
-	quantify: require('./quantify')
+	${[
+	"locale: '" + locale + "'",
+	"long: require('" + generate_messages(locale, 'long', data) + "')",
+	(longTimeExists || parentLongTimeExists) && "long_time: require('" + (longTimeExists ? '.' : '../' + language) + "/long-time.json')",
+	"short: require('" + generate_messages(locale, 'short', data) + "')",
+	(shortTimeExists || parentShortTimeExists) && "short_time: require('" + (shortTimeExists ? '.' : '../' + language) + "/short-time.json')",
+	"narrow: require('" + generate_messages(locale, 'narrow', data) + "')",
+	(tinyExists || parentTinyExists) && "tiny: require('" + (tinyExists ? '.' : '../' + language) + "/tiny.json')",
+	quantify && ("quantify: require('" + quantify + "')")
+]
+.filter(_ => _)
+.join(',\n\t')}
 }
 		`
 		.trim()
 	)
 
-// 	// `index.es6.js`
-// 	// (though it's not used and has no purpose so far)
-// 	fs.outputFileSync
-// 	(
-// 		path.join(locale_folder, 'index.es6.js'),
-// 		`
-// export var locale = '${language}'
-// export { default as long } from './long.json'
-// ${data.short ? "export { default as short } from './short.json'": ""}
-// ${data.narrow ? "export { default as narrow } from './narrow.json'": ""}
-// export { default as quantify } from './quantify'
-// 		`
-// 		.trim()
-// 	)
+	// // Remove all non-CLDR-translated locales.
+	// // (the ones having just a quantify function)
+	// for (const locale of list_all_locales().filter(_ => all_cldr_locales.indexOf(_) < 0))
+	// {
+	// 	fs.removeSync(path.resolve(__dirname, '../locale', locale))
+	// }
+
+	// Remove all locales containing just `index.js`
+	// which means they're fully inherting from parent locale.
+	for (const locale of list_all_locales())
+	{
+		if (fs.readdirSync(path.join(__dirname, '../locale', locale)).length === 1)
+		{
+			fs.removeSync(path.resolve(__dirname, '../locale', locale))
+		}
+	}
+
+	// Remove strange locales.
+	fs.removeSync(path.resolve(__dirname, '../locale/en-001'))
+	fs.removeSync(path.resolve(__dirname, '../locale/en-150'))
+	fs.removeSync(path.resolve(__dirname, '../locale/en-US-POSIX'))
+	fs.removeSync(path.resolve(__dirname, '../locale/es-419'))
 }
 
 function reduce_quantifiers(flavour)
@@ -148,4 +195,104 @@ function reduce_quantifiers(flavour)
 			}
 		}
 	}
+}
+
+function list_all_cldr_locales()
+{
+	return fs.readdirSync(path.join(__dirname, '../node_modules/cldr-dates-full/main/'))
+		.filter(_ => fs.statSync(path.join(__dirname, '../node_modules/cldr-dates-full/main', _)).isDirectory())
+}
+
+function list_all_locales()
+{
+	return fs.readdirSync(path.join(__dirname, '../locale'))
+		.filter(_ => fs.statSync(path.join(__dirname, '../locale', _)).isDirectory())
+}
+
+function generate_messages(locale, style, data)
+{
+	const content = JSON.stringify(data[style], null, '\t')
+
+	// `sr-Cyrl-BA` -> `sr-Cyrl` -> `sr`.
+
+	const rest_parts = locale.split('-')
+	const parts = []
+	let inherit_from
+
+	while (rest_parts.length > 0)
+	{
+		parts.push(rest_parts.shift())
+
+		const parent_locale = parts.join('-')
+
+		if (parent_locale === locale)
+		{
+			continue
+		}
+
+		if (!fs.existsSync(path.join(__dirname, '../locale', parent_locale)))
+		{
+			continue
+		}
+
+		if (!fs.existsSync(path.join(__dirname, '../locale', parent_locale, `${style}.json`)))
+		{
+			continue
+		}
+
+		const parent_content = fs.readFileSync(path.join(__dirname, '../locale', parent_locale, `${style}.json`), 'utf-8')
+
+		if (parent_content === content)
+		{
+			inherit_from = parent_locale
+		}
+	}
+
+	if (!inherit_from)
+	{
+		fs.outputFileSync(path.join(__dirname, '../locale', locale, `${style}.json`), content)
+	}
+
+	return inherit_from ? `../${inherit_from}/${style}.json` : `./${style}.json`
+}
+
+function get_quantify_path(locale)
+{
+	// `sr-Cyrl-BA` -> `sr-Cyrl` -> `sr`.
+
+	const rest_parts = locale.split('-')
+	const parts = []
+	let inherit_from
+
+	while (rest_parts.length > 0)
+	{
+		parts.push(rest_parts.shift())
+
+		const parent_locale = parts.join('-')
+
+		if (parent_locale === locale)
+		{
+			continue
+		}
+
+		if (!fs.existsSync(path.join(__dirname, '../locale', parent_locale)))
+		{
+			continue
+		}
+
+		if (fs.existsSync(path.join(__dirname, '../locale', parent_locale, `quantify.js`)))
+		{
+			inherit_from = parent_locale
+		}
+	}
+
+	if (!inherit_from)
+	{
+		if (!fs.existsSync(path.join(__dirname, '../locale', locale, `quantify.js`)))
+		{
+			return
+		}
+	}
+
+	return inherit_from ? `../${inherit_from}/quantify` : `./quantify`
 }

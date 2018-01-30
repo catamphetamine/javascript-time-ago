@@ -238,12 +238,16 @@ JavascriptTimeAgo.setDefaultLocale = function(locale)
 	JavascriptTimeAgo.default_locale = locale
 }
 
-// Adds locale data for a specific locale.
-//
-// @param {Object} locale_data - Locale data.
-//
+/**
+ * Adds locale data for a specific locale.
+ * @param {Object} locale_data
+ */
 JavascriptTimeAgo.locale = function(locale_data)
 {
+	if (!locale_data)
+	{
+		throw new Error('[javascript-time-ago] Invalid locale data passed.')
+	}
 	// This locale data is stored in a global variable
 	// and later used when calling `.format(time)`.
 	JavascriptTimeAgo.locales[locale_data.locale] = locale_data

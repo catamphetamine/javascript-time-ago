@@ -4,25 +4,25 @@
 		"current": "este ano",
 		"next": "próximo ano",
 		"past": {
-			"one": "{0} ano atrás",
-			"other": "{0} anos atrás"
+			"one": "há {0} ano",
+			"other": "há {0} anos"
 		},
 		"future": {
-			"one": "em {0} ano",
-			"other": "em {0} anos"
+			"one": "dentro de {0} ano",
+			"other": "dentro de {0} anos"
 		}
 	},
 	"quarter": {
-		"previous": "último trimestre",
+		"previous": "trimestre passado",
 		"current": "este trimestre",
 		"next": "próximo trimestre",
 		"past": {
-			"one": "{0} trimestre atrás",
-			"other": "{0} trimestres atrás"
+			"one": "há {0} trimestre",
+			"other": "há {0} trimestres"
 		},
 		"future": {
-			"one": "em {0} trimestre",
-			"other": "em {0} trimestres"
+			"one": "dentro de {0} trimestre",
+			"other": "dentro de {0} trimestres"
 		}
 	},
 	"month": {
@@ -30,12 +30,12 @@
 		"current": "este mês",
 		"next": "próximo mês",
 		"past": {
-			"one": "{0} mês atrás",
-			"other": "{0} meses atrás"
+			"one": "há {0} mês",
+			"other": "há {0} meses"
 		},
 		"future": {
-			"one": "em {0} mês",
-			"other": "em {0} meses"
+			"one": "dentro de {0} mês",
+			"other": "dentro de {0} meses"
 		}
 	},
 	"week": {
@@ -43,12 +43,12 @@
 		"current": "esta semana",
 		"next": "próxima semana",
 		"past": {
-			"one": "{0} semana atrás",
-			"other": "{0} semanas atrás"
+			"one": "há {0} semana",
+			"other": "há {0} semanas"
 		},
 		"future": {
-			"one": "em {0} semana",
-			"other": "em {0} semanas"
+			"one": "dentro de {0} semana",
+			"other": "dentro de {0} semanas"
 		}
 	},
 	"day": {
@@ -56,45 +56,45 @@
 		"current": "hoje",
 		"next": "amanhã",
 		"past": {
-			"one": "{0} dia atrás",
-			"other": "{0} dias atrás"
+			"one": "há {0} dia",
+			"other": "há {0} dias"
 		},
 		"future": {
-			"one": "em {0} dia",
-			"other": "em {0} dias"
+			"one": "dentro de {0} dia",
+			"other": "dentro de {0} dias"
 		}
 	},
 	"hour": {
 		"current": "esta hora",
 		"past": {
-			"one": "{0} hora atrás",
-			"other": "{0} horas atrás"
+			"one": "há {0} hora",
+			"other": "há {0} horas"
 		},
 		"future": {
-			"one": "em {0} hora",
-			"other": "em {0} horas"
+			"one": "dentro de {0} hora",
+			"other": "dentro de {0} horas"
 		}
 	},
 	"minute": {
 		"current": "este minuto",
 		"past": {
-			"one": "{0} minuto atrás",
-			"other": "{0} minutos atrás"
+			"one": "há {0} minuto",
+			"other": "há {0} minutos"
 		},
 		"future": {
-			"one": "em {0} minuto",
-			"other": "em {0} minutos"
+			"one": "dentro de {0} minuto",
+			"other": "dentro de {0} minutos"
 		}
 	},
 	"second": {
 		"current": "agora",
 		"past": {
-			"one": "{0} segundo atrás",
-			"other": "{0} segundos atrás"
+			"one": "há {0} segundo",
+			"other": "há {0} segundos"
 		},
 		"future": {
-			"one": "em {0} segundo",
-			"other": "em {0} segundos"
+			"one": "dentro de {0} segundo",
+			"other": "dentro de {0} segundos"
 		}
 	},
 	"now": "agora"

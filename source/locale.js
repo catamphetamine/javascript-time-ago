@@ -17,20 +17,22 @@ export default function choose_locale(locales, registered_locales)
 {
 	// This is not an intelligent algorythm,
 	// but it will do for this library's case.
-	for (const locale of locales)
+	// `sr-Cyrl-BA` -> `sr-Cyrl` -> `sr`.
+	for (let locale of locales)
 	{
 		if (registered_locales[locale])
 		{
 			return locale
 		}
 
-		const language = getLanguageFromLanguageTag(locale)
-
-		if (language !== locale)
+		const parts = locale.split('-')
+		while (parts.length > 1)
 		{
-			if (registered_locales[language])
+			parts.pop()
+			locale = parts.join('-')
+			if (registered_locales[locale])
 			{
-				return language
+				return locale
 			}
 		}
 	}

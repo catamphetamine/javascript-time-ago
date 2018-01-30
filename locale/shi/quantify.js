@@ -1,1 +1,0 @@
-module.exports=function(r){var e=String(r).split("."),n=Number(e[0])==r;return r>=0&&r<=1?"one":n&&r>=2&&r<=10?"few":"other"}

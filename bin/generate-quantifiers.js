@@ -11,12 +11,12 @@ import fs from 'fs-extra'
 // Generate a pluralization function for each language
 for (const locale of Object.keys(plurals))
 {
-	// Some keys are locales, e.g. "pt-PT".
-	// (whatever that means)
-	const language = locale.split('-')[0]
+	// // Some keys are locales, e.g. "pt-PT".
+	// // (whatever that means)
+	// const language = locale.split('-')[0]
 
 	// Don't know what the "root" key is for so skip it.
-	if (language === 'root')
+	if (locale === 'root')
 	{
 		continue
 	}
@@ -33,7 +33,7 @@ for (const locale of Object.keys(plurals))
 	)
 
 	// Pluralization function code
-	const function_code = new make_plural(language).toString('classify')
+	const function_code = new make_plural(locale).toString('classify')
 
 	// Minify pluralization function code
 	let { error, code } = UglifyJS.minify(function_code)
@@ -43,13 +43,18 @@ for (const locale of Object.keys(plurals))
 		throw error
 	}
 
-	// Strip function name
+	// Strip function name.
 	code = code.replace('function classify(', 'function(')
 
-	// Write pluralization function to a file
+	if (code === 'function(n){return"other"}')
+	{
+		continue
+	}
+
+	// Write pluralization function to a file.
 	fs.outputFileSync
 	(
-		path.join(__dirname, '../locale', language, 'quantify.js'),
+		path.join(__dirname, '../locale', locale, 'quantify.js'),
 		`module.exports=${code}`
 	)
 }

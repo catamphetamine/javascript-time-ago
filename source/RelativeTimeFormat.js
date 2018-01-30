@@ -124,7 +124,14 @@ export default class RelativeTimeFormat {
       return quantifierRules
     }
     // Quantify `value`.
-    const quantifier = getLocales()[this.locale].quantify(Math.abs(value))
+    const quantify = getLocales()[this.locale].quantify
+    let quantifier = quantify && quantify(Math.abs(value))
+    // There seems to be no such locale in CLDR
+    // for which `quantify` is missing
+    // and still `past` and `future` messages
+    // contain something other than "other".
+    /* istanbul ignore next */
+    quantifier = quantifier || 'other'
     // "other" rule is supposed to always be present.
     // If only "other" rule is present then "rules" is not an object and is a string.
     return quantifierRules[quantifier] || quantifierRules.other
@@ -176,9 +183,14 @@ function resolveLocale(locale) {
   if (getLocales()[locale]) {
     return locale
   }
-  const language = getLanguageFromLanguageTag(locale)
-  if (getLocales()[language]) {
-    return language
+  // `sr-Cyrl-BA` -> `sr-Cyrl` -> `sr`.
+  const parts = locale.split('-')
+  while (locale.length > 1) {
+    parts.pop()
+    locale = parts.join('-')
+    if (getLocales()[locale]) {
+      return locale
+    }
   }
 }
 
@@ -204,10 +216,10 @@ function getDefaultLocale() {
  * // Returns "ar"
  * getLanguageFromLanguageTag("ar-u-nu-latn")
  */
-export function getLanguageFromLanguageTag(languageTag) {
-  const hyphenIndex = languageTag.indexOf('-')
-  if (hyphenIndex > 0) {
-    return languageTag.slice(0, hyphenIndex)
-  }
-  return languageTag
-}
+// export function getLanguageFromLanguageTag(languageTag) {
+//   const hyphenIndex = languageTag.indexOf('-')
+//   if (hyphenIndex > 0) {
+//     return languageTag.slice(0, hyphenIndex)
+//   }
+//   return languageTag
+// }

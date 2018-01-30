@@ -348,6 +348,16 @@ describe(`time ago`, function()
 		new JavascriptTimeAgo('en').format(Date.now() + 60 * 60 * 1000).should.equal('in an hour')
 		new JavascriptTimeAgo('ru').format(Date.now() + 45.1 * 1000).should.equal('через 1 минуту')
 	})
+
+	it(`should have generated missing quantifier functions`, function()
+	{
+		new JavascriptTimeAgo('ccp').format(Date.now() + 60 * 1000).should.equal('1 𑄟𑄨𑄚𑄨𑄘𑄬')
+	})
+
+	it(`should throw for non-existing locales`, function()
+	{
+		(() => JavascriptTimeAgo.locale()).should.throw('Invalid locale data passed')
+	})
 })
 
 export function convenient_gradation_test(convenient_gradation_labels, time_ago, style = {})

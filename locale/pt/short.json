@@ -4,68 +4,68 @@
 		"current": "este ano",
 		"next": "próximo ano",
 		"past": {
-			"one": "{0} ano atrás",
-			"other": "{0} anos atrás"
+			"one": "há {0} ano",
+			"other": "há {0} anos"
 		},
 		"future": {
-			"one": "em {0} ano",
-			"other": "em {0} anos"
+			"one": "dentro de {0} ano",
+			"other": "dentro de {0} anos"
 		}
 	},
 	"quarter": {
-		"previous": "último trimestre",
-		"current": "este trimestre",
-		"next": "próximo trimestre",
-		"past": "{0} trim. atrás",
-		"future": "em {0} trim."
+		"previous": "trim. passado",
+		"current": "este trim.",
+		"next": "próximo trim.",
+		"past": "há {0} trim.",
+		"future": "dentro de {0} trim."
 	},
 	"month": {
 		"previous": "mês passado",
 		"current": "este mês",
 		"next": "próximo mês",
 		"past": {
-			"one": "{0} mês atrás",
-			"other": "{0} meses atrás"
+			"one": "há {0} mês",
+			"other": "há {0} meses"
 		},
 		"future": {
-			"one": "em {0} mês",
-			"other": "em {0} meses"
+			"one": "dentro de {0} mês",
+			"other": "dentro de {0} meses"
 		}
 	},
 	"week": {
 		"previous": "semana passada",
 		"current": "esta semana",
 		"next": "próxima semana",
-		"past": "{0} sem. atrás",
-		"future": "em {0} sem."
+		"past": "há {0} sem.",
+		"future": "dentro de {0} sem."
 	},
 	"day": {
 		"previous": "ontem",
 		"current": "hoje",
 		"next": "amanhã",
 		"past": {
-			"one": "{0} dia atrás",
-			"other": "{0} dias atrás"
+			"one": "há {0} dia",
+			"other": "há {0} dias"
 		},
 		"future": {
-			"one": "em {0} dia",
-			"other": "em {0} dias"
+			"one": "dentro de {0} dia",
+			"other": "dentro de {0} dias"
 		}
 	},
 	"hour": {
 		"current": "esta hora",
-		"past": "{0} h atrás",
-		"future": "em {0} h"
+		"past": "há {0} h",
+		"future": "dentro de {0} h"
 	},
 	"minute": {
 		"current": "este minuto",
-		"past": "{0} min. atrás",
-		"future": "em {0} min."
+		"past": "há {0} min",
+		"future": "dentro de {0} min"
 	},
 	"second": {
 		"current": "agora",
-		"past": "{0} seg. atrás",
-		"future": "em {0} seg."
+		"past": "há {0} s",
+		"future": "dentro de {0} s"
 	},
 	"now": "agora"
 }

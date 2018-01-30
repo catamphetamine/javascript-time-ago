@@ -1,0 +1,59 @@
+{
+	"year": {
+		"previous": "el año pasado",
+		"current": "este año",
+		"next": "el próximo año",
+		"past": "-{0} a",
+		"future": "en {0} a"
+	},
+	"quarter": {
+		"previous": "el trimestre pasado",
+		"current": "este trimestre",
+		"next": "el próximo trimestre",
+		"past": "-{0} T",
+		"future": "+{0} T"
+	},
+	"month": {
+		"previous": "el mes pasado",
+		"current": "este mes",
+		"next": "el próximo mes",
+		"past": "-{0} m",
+		"future": "+{0} m"
+	},
+	"week": {
+		"previous": "la semana pasada",
+		"current": "esta semana",
+		"next": "la semana próxima",
+		"past": "hace {0} sem.",
+		"future": "dentro de {0} sem."
+	},
+	"day": {
+		"previous": "ayer",
+		"current": "hoy",
+		"next": "mañana",
+		"past": {
+			"one": "hace {0} día",
+			"other": "hace {0} días"
+		},
+		"future": {
+			"one": "+{0} día",
+			"other": "+{0} días"
+		}
+	},
+	"hour": {
+		"current": "esta hora",
+		"past": "hace {0} h",
+		"future": "dentro de {0} h"
+	},
+	"minute": {
+		"current": "este minuto",
+		"past": "-{0} min",
+		"future": "+{0} min"
+	},
+	"second": {
+		"current": "ahora",
+		"past": "hace {0} s",
+		"future": "+{0} s"
+	},
+	"now": "ahora"
+}

@@ -1,16 +1,19 @@
 import path from 'path'
 import fs from 'fs'
 // import javascript_time_ago from 'javascript-time-ago'
-import javascript_time_ago from '../source'
+import javascript_time_ago from '../source/JavascriptTimeAgo'
 
 const locales = []
 
-fs.readdirSync(path.resolve(__dirname, '../locale')).forEach(function(filename)
+fs.readdirSync(path.resolve(__dirname, '../locale')).forEach(function(locale)
 {
-	const locale_path = path.resolve(__dirname, '../locale', filename)
+	const locale_path = path.resolve(__dirname, '../locale', locale)
 	if (fs.statSync(locale_path).isDirectory())
 	{
-		locales.push(filename)
+		if (fs.existsSync(path.resolve(__dirname, '../locale', locale, 'long.json')))
+		{
+			locales.push(locale)
+		}
 	}
 })
 
