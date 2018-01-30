@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "llynedd",
+		"current": "eleni",
+		"next": "blwyddyn nesaf",
 		"past": {
 			"one": "blwyddyn yn ôl",
 			"two": "{0} flynedd yn ôl",
@@ -16,6 +19,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "chwarter olaf",
+		"current": "chwarter hwn",
+		"next": "chwarter nesaf",
 		"past": {
 			"one": "{0} chwarter yn ôl",
 			"two": "{0} chwarter yn ôl",
@@ -23,11 +29,12 @@
 			"many": "{0} chwarter yn ôl",
 			"other": "{0} o chwarteri yn ôl"
 		},
-		"future": {
-			"other": "ymhen {0} chwarter"
-		}
+		"future": "ymhen {0} chwarter"
 	},
 	"month": {
+		"previous": "mis diwethaf",
+		"current": "y mis hwn",
+		"next": "mis nesaf",
 		"past": {
 			"two": "{0} fis yn ôl",
 			"other": "{0} mis yn ôl"
@@ -39,45 +46,39 @@
 		}
 	},
 	"week": {
+		"previous": "wythnos ddiwethaf",
+		"current": "yr wythnos hon",
+		"next": "wythnos nesaf",
 		"past": {
 			"two": "pythefnos yn ôl",
 			"other": "{0} wythnos yn ôl"
 		},
-		"future": {
-			"other": "ymhen {0} wythnos"
-		}
+		"future": "ymhen {0} wythnos"
 	},
 	"day": {
+		"previous": "ddoe",
+		"current": "heddiw",
+		"next": "yfory",
 		"past": {
 			"two": "{0} ddiwrnod yn ôl",
 			"other": "{0} diwrnod yn ôl"
 		},
-		"future": {
-			"other": "ymhen {0} diwrnod"
-		}
+		"future": "ymhen {0} diwrnod"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} awr yn ôl"
-		},
-		"future": {
-			"other": "ymhen {0} awr"
-		}
+		"current": "yr awr hon",
+		"past": "{0} awr yn ôl",
+		"future": "ymhen {0} awr"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} mun. yn ôl"
-		},
-		"future": {
-			"other": "ymhen {0} mun."
-		}
+		"current": "y funud hon",
+		"past": "{0} mun. yn ôl",
+		"future": "ymhen {0} mun."
 	},
 	"second": {
-		"past": {
-			"other": "{0} eiliad yn ôl"
-		},
-		"future": {
-			"other": "ymhen {0} eiliad"
-		}
-	}
+		"current": "nawr",
+		"past": "{0} eiliad yn ôl",
+		"future": "ymhen {0} eiliad"
+	},
+	"now": "nawr"
 }

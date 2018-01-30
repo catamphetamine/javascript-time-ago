@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "letztes Jahr",
+		"current": "dieses Jahr",
+		"next": "nächstes Jahr",
 		"past": {
 			"one": "vor {0} Jahr",
 			"other": "vor {0} Jahren"
@@ -10,14 +13,16 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "vor {0} Quart."
-		},
-		"future": {
-			"other": "in {0} Quart."
-		}
+		"previous": "letztes Quartal",
+		"current": "dieses Quartal",
+		"next": "nächstes Quartal",
+		"past": "vor {0} Quart.",
+		"future": "in {0} Quart."
 	},
 	"month": {
+		"previous": "letzten Monat",
+		"current": "diesen Monat",
+		"next": "nächsten Monat",
 		"past": {
 			"one": "vor {0} Monat",
 			"other": "vor {0} Monaten"
@@ -28,6 +33,9 @@
 		}
 	},
 	"week": {
+		"previous": "letzte Woche",
+		"current": "diese Woche",
+		"next": "nächste Woche",
 		"past": {
 			"one": "vor {0} Woche",
 			"other": "vor {0} Wochen"
@@ -38,6 +46,9 @@
 		}
 	},
 	"day": {
+		"previous": "gestern",
+		"current": "heute",
+		"next": "morgen",
 		"past": {
 			"one": "vor {0} Tag",
 			"other": "vor {0} Tagen"
@@ -48,35 +59,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "vor {0} Std."
-		},
-		"future": {
-			"other": "in {0} Std."
-		}
+		"current": "in dieser Stunde",
+		"past": "vor {0} Std.",
+		"future": "in {0} Std."
 	},
 	"minute": {
-		"past": {
-			"other": "vor {0} Min."
-		},
-		"future": {
-			"other": "in {0} Min."
-		}
+		"current": "in dieser Minute",
+		"past": "vor {0} Min.",
+		"future": "in {0} Min."
 	},
 	"second": {
-		"past": {
-			"other": "vor {0} Sek."
-		},
-		"future": {
-			"other": "in {0} Sek."
-		}
+		"current": "jetzt",
+		"past": "vor {0} Sek.",
+		"future": "in {0} Sek."
 	},
-	"now": {
-		"past": {
-			"other": "jetzt"
-		},
-		"future": {
-			"other": "jetzt"
-		}
-	}
+	"now": "jetzt"
 }

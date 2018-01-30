@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "łoni",
+		"current": "lětosa",
+		"next": "znowa",
 		"past": {
 			"one": "pśed {0} lětom",
 			"two": "pśed {0} lětoma",
@@ -13,6 +16,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
 		"past": {
 			"one": "pśed {0} kwartalom",
 			"two": "pśed {0} kwartaloma",
@@ -26,6 +32,9 @@
 		}
 	},
 	"month": {
+		"previous": "slědny mjasec",
+		"current": "ten mjasec",
+		"next": "pśiducy mjasec",
 		"past": {
 			"one": "pśed {0} mjasecom",
 			"two": "pśed {0} mjasecoma",
@@ -39,6 +48,9 @@
 		}
 	},
 	"week": {
+		"previous": "slědny tyźeń",
+		"current": "ten tyźeń",
+		"next": "pśiducy tyźeń",
 		"past": {
 			"one": "pśed {0} tyźenjom",
 			"two": "pśed {0} tyźenjoma",
@@ -52,6 +64,9 @@
 		}
 	},
 	"day": {
+		"previous": "cora",
+		"current": "źinsa",
+		"next": "witśe",
 		"past": {
 			"one": "pśed {0} dnjom",
 			"two": "pśed {0} dnjoma",
@@ -65,6 +80,7 @@
 		}
 	},
 	"hour": {
+		"current": "this hour",
 		"past": {
 			"one": "pśed {0} góźinu",
 			"two": "pśed {0} góźinoma",
@@ -78,6 +94,7 @@
 		}
 	},
 	"minute": {
+		"current": "this minute",
 		"past": {
 			"one": "pśed {0} minutu",
 			"two": "pśed {0} minutoma",
@@ -91,6 +108,7 @@
 		}
 	},
 	"second": {
+		"current": "now",
 		"past": {
 			"one": "pśed {0} sekundu",
 			"two": "pśed {0} sekundoma",
@@ -103,12 +121,5 @@
 			"other": "za {0} sekundow"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "now"
-		},
-		"future": {
-			"other": "now"
-		}
-	}
+	"now": "now"
 }

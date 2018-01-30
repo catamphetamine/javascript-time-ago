@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "hai {0} a."
-		},
-		"future": {
-			"other": "en {0} a."
-		}
+		"previous": "ano pasado",
+		"current": "este ano",
+		"next": "seguinte ano",
+		"past": "hai {0} a.",
+		"future": "en {0} a."
 	},
 	"quarter": {
-		"past": {
-			"other": "hai {0} trim."
-		},
-		"future": {
-			"other": "en {0} trim."
-		}
+		"previous": "trim. pasado",
+		"current": "este trim.",
+		"next": "trim. seguinte",
+		"past": "hai {0} trim.",
+		"future": "en {0} trim."
 	},
 	"month": {
-		"past": {
-			"other": "hai {0} m."
-		},
-		"future": {
-			"other": "en {0} m."
-		}
+		"previous": "m. pasado",
+		"current": "este m.",
+		"next": "m. seguinte",
+		"past": "hai {0} m.",
+		"future": "en {0} m."
 	},
 	"week": {
-		"past": {
-			"other": "hai {0} sem."
-		},
-		"future": {
-			"other": "en {0} sem."
-		}
+		"previous": "sem. pasada",
+		"current": "esta sem.",
+		"next": "sem. seguinte",
+		"past": "hai {0} sem.",
+		"future": "en {0} sem."
 	},
 	"day": {
-		"past": {
-			"other": "hai {0} d."
-		},
-		"future": {
-			"other": "en {0} d."
-		}
+		"previous": "onte",
+		"current": "hoxe",
+		"next": "mañá",
+		"past": "hai {0} d.",
+		"future": "en {0} d."
 	},
 	"hour": {
-		"past": {
-			"other": "hai {0} h"
-		},
-		"future": {
-			"other": "en {0} h"
-		}
+		"current": "esta hora",
+		"past": "hai {0} h",
+		"future": "en {0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "hai {0} min"
-		},
-		"future": {
-			"other": "en {0} min"
-		}
+		"current": "este minuto",
+		"past": "hai {0} min",
+		"future": "en {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "hai {0} s"
-		},
-		"future": {
-			"other": "en {0} s"
-		}
-	}
+		"current": "agora",
+		"past": "hai {0} s",
+		"future": "en {0} s"
+	},
+	"now": "agora"
 }

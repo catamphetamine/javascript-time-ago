@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} a eest"
-		},
-		"future": {
-			"other": "{0} a pärast"
-		}
+		"previous": "eelmine aasta",
+		"current": "käesolev aasta",
+		"next": "järgmine aasta",
+		"past": "{0} a eest",
+		"future": "{0} a pärast"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} kv eest"
-		},
-		"future": {
-			"other": "{0} kv pärast"
-		}
+		"previous": "eelmine kv",
+		"current": "käesolev kv",
+		"next": "järgmine kv",
+		"past": "{0} kv eest",
+		"future": "{0} kv pärast"
 	},
 	"month": {
-		"past": {
-			"other": "{0} kuu eest"
-		},
-		"future": {
-			"other": "{0} kuu pärast"
-		}
+		"previous": "eelmine kuu",
+		"current": "käesolev kuu",
+		"next": "järgmine kuu",
+		"past": "{0} kuu eest",
+		"future": "{0} kuu pärast"
 	},
 	"week": {
-		"past": {
-			"other": "{0} näd eest"
-		},
-		"future": {
-			"other": "{0} näd pärast"
-		}
+		"previous": "eelmine nädal",
+		"current": "käesolev nädal",
+		"next": "järgmine nädal",
+		"past": "{0} näd eest",
+		"future": "{0} näd pärast"
 	},
 	"day": {
-		"past": {
-			"other": "{0} p eest"
-		},
-		"future": {
-			"other": "{0} p pärast"
-		}
+		"previous": "eile",
+		"current": "täna",
+		"next": "homme",
+		"past": "{0} p eest",
+		"future": "{0} p pärast"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} t eest"
-		},
-		"future": {
-			"other": "{0} t pärast"
-		}
+		"current": "praegusel tunnil",
+		"past": "{0} t eest",
+		"future": "{0} t pärast"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} min eest"
-		},
-		"future": {
-			"other": "{0} min pärast"
-		}
+		"current": "praegusel minutil",
+		"past": "{0} min eest",
+		"future": "{0} min pärast"
 	},
 	"second": {
-		"past": {
-			"other": "{0} sek eest"
-		},
-		"future": {
-			"other": "{0} sek pärast"
-		}
+		"current": "nüüd",
+		"past": "{0} sek eest",
+		"future": "{0} sek pärast"
 	},
-	"now": {
-		"past": {
-			"other": "nüüd"
-		},
-		"future": {
-			"other": "nüüd"
-		}
-	}
+	"now": "nüüd"
 }

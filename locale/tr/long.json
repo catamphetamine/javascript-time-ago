@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} yıl önce"
-		},
-		"future": {
-			"other": "{0} yıl sonra"
-		}
+		"previous": "geçen yıl",
+		"current": "bu yıl",
+		"next": "gelecek yıl",
+		"past": "{0} yıl önce",
+		"future": "{0} yıl sonra"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} çeyrek önce"
-		},
-		"future": {
-			"other": "{0} çeyrek sonra"
-		}
+		"previous": "geçen çeyrek",
+		"current": "bu çeyrek",
+		"next": "gelecek çeyrek",
+		"past": "{0} çeyrek önce",
+		"future": "{0} çeyrek sonra"
 	},
 	"month": {
-		"past": {
-			"other": "{0} ay önce"
-		},
-		"future": {
-			"other": "{0} ay sonra"
-		}
+		"previous": "geçen ay",
+		"current": "bu ay",
+		"next": "gelecek ay",
+		"past": "{0} ay önce",
+		"future": "{0} ay sonra"
 	},
 	"week": {
-		"past": {
-			"other": "{0} hafta önce"
-		},
-		"future": {
-			"other": "{0} hafta sonra"
-		}
+		"previous": "geçen hafta",
+		"current": "bu hafta",
+		"next": "gelecek hafta",
+		"past": "{0} hafta önce",
+		"future": "{0} hafta sonra"
 	},
 	"day": {
-		"past": {
-			"other": "{0} gün önce"
-		},
-		"future": {
-			"other": "{0} gün sonra"
-		}
+		"previous": "dün",
+		"current": "bugün",
+		"next": "yarın",
+		"past": "{0} gün önce",
+		"future": "{0} gün sonra"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} saat önce"
-		},
-		"future": {
-			"other": "{0} saat sonra"
-		}
+		"current": "bu saat",
+		"past": "{0} saat önce",
+		"future": "{0} saat sonra"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} dakika önce"
-		},
-		"future": {
-			"other": "{0} dakika sonra"
-		}
+		"current": "bu dakika",
+		"past": "{0} dakika önce",
+		"future": "{0} dakika sonra"
 	},
 	"second": {
-		"past": {
-			"other": "{0} saniye önce"
-		},
-		"future": {
-			"other": "{0} saniye sonra"
-		}
+		"current": "şimdi",
+		"past": "{0} saniye önce",
+		"future": "{0} saniye sonra"
 	},
-	"now": {
-		"past": {
-			"other": "şimdi"
-		},
-		"future": {
-			"other": "şimdi"
-		}
-	}
+	"now": "şimdi"
 }

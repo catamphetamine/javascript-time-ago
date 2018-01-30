@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "warlene",
+		"current": "hevlene",
+		"next": "ar bloaz a zeu",
 		"past": {
 			"one": "{0} bloaz zo",
 			"few": "{0} bloaz zo",
@@ -14,6 +17,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
 		"past": {
 			"two": "{0} drimiziad zo",
 			"few": "{0} zrimiziad zo",
@@ -28,6 +34,9 @@
 		}
 	},
 	"month": {
+		"previous": "ar miz diaraok",
+		"current": "ar miz-mañ",
+		"next": "ar miz a zeu",
 		"past": {
 			"two": "{0} viz zo",
 			"many": "{0} a vizioù zo",
@@ -40,6 +49,9 @@
 		}
 	},
 	"week": {
+		"previous": "ar sizhun diaraok",
+		"current": "ar sizhun-mañ",
+		"next": "ar sizhun a zeu",
 		"past": {
 			"many": "{0} a sizhunioù zo",
 			"other": "{0} sizhun zo"
@@ -50,6 +62,9 @@
 		}
 	},
 	"day": {
+		"previous": "decʼh",
+		"current": "hiziv",
+		"next": "warcʼhoazh",
 		"past": {
 			"two": "{0} zeiz zo",
 			"many": "{0} a zeizioù zo",
@@ -62,6 +77,7 @@
 		}
 	},
 	"hour": {
+		"current": "this hour",
 		"past": {
 			"many": "{0} a eurioù zo",
 			"other": "{0} eur zo"
@@ -72,6 +88,7 @@
 		}
 	},
 	"minute": {
+		"current": "this minute",
 		"past": {
 			"two": "{0} vunut zo",
 			"many": "{0} a vunutoù zo",
@@ -84,20 +101,12 @@
 		}
 	},
 	"second": {
-		"past": {
-			"other": "{0} eilenn zo"
-		},
+		"current": "bremañ",
+		"past": "{0} eilenn zo",
 		"future": {
 			"many": "a-benn {0} a eilennoù",
 			"other": "a-benn {0} eilenn"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "brem."
-		},
-		"future": {
-			"other": "brem."
-		}
-	}
+	"now": "bremañ"
 }

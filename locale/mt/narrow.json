@@ -1,67 +1,56 @@
 {
 	"year": {
+		"previous": "Is-sena li għaddiet",
+		"current": "din is-sena",
+		"next": "Is-sena d-dieħla",
 		"past": {
 			"one": "{0} sena ilu",
 			"other": "{0} snin ilu"
 		},
-		"future": {
-			"other": "+{0} y"
-		}
+		"future": "+{0} y"
 	},
 	"quarter": {
-		"past": {
-			"other": "-{0} Q"
-		},
-		"future": {
-			"other": "+{0} Q"
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "-{0} Q",
+		"future": "+{0} Q"
 	},
 	"month": {
-		"past": {
-			"other": "-{0} m"
-		},
-		"future": {
-			"other": "+{0} m"
-		}
+		"previous": "Ix-xahar li għadda",
+		"current": "Dan ix-xahar",
+		"next": "Ix-xahar id-dieħel",
+		"past": "-{0} m",
+		"future": "+{0} m"
 	},
 	"week": {
-		"past": {
-			"other": "-{0} w"
-		},
-		"future": {
-			"other": "+{0} w"
-		}
+		"previous": "Il-ġimgħa li għaddiet",
+		"current": "Din il-ġimgħa",
+		"next": "Il-ġimgħa d-dieħla",
+		"past": "-{0} w",
+		"future": "+{0} w"
 	},
 	"day": {
-		"past": {
-			"other": "-{0} d"
-		},
-		"future": {
-			"other": "+{0} d"
-		}
+		"previous": "Ilbieraħ",
+		"current": "Illum",
+		"next": "Għada",
+		"past": "-{0} d",
+		"future": "+{0} d"
 	},
 	"hour": {
-		"past": {
-			"other": "-{0} h"
-		},
-		"future": {
-			"other": "+{0} h"
-		}
+		"current": "this hour",
+		"past": "-{0} h",
+		"future": "+{0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "-{0} min"
-		},
-		"future": {
-			"other": "+{0} min"
-		}
+		"current": "this minute",
+		"past": "-{0} min",
+		"future": "+{0} min"
 	},
 	"second": {
-		"past": {
-			"other": "-{0} s"
-		},
-		"future": {
-			"other": "+{0} s"
-		}
-	}
+		"current": "now",
+		"past": "-{0} s",
+		"future": "+{0} s"
+	},
+	"now": "now"
 }

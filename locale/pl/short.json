@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "w zeszłym roku",
+		"current": "w tym roku",
+		"next": "w przyszłym roku",
 		"past": {
 			"one": "{0} rok temu",
 			"few": "{0} lata temu",
@@ -14,22 +17,23 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} kw. temu"
-		},
-		"future": {
-			"other": "za {0} kw."
-		}
+		"previous": "w zeszłym kwartale",
+		"current": "w tym kwartale",
+		"next": "w przyszłym kwartale",
+		"past": "{0} kw. temu",
+		"future": "za {0} kw."
 	},
 	"month": {
-		"past": {
-			"other": "{0} mies. temu"
-		},
-		"future": {
-			"other": "za {0} mies."
-		}
+		"previous": "w zeszłym miesiącu",
+		"current": "w tym miesiącu",
+		"next": "w przyszłym miesiącu",
+		"past": "{0} mies. temu",
+		"future": "za {0} mies."
 	},
 	"week": {
+		"previous": "w zeszłym tygodniu",
+		"current": "w tym tygodniu",
+		"next": "w przyszłym tygodniu",
 		"past": {
 			"one": "{0} tydz. temu",
 			"other": "{0} tyg. temu"
@@ -40,6 +44,9 @@
 		}
 	},
 	"day": {
+		"previous": "wczoraj",
+		"current": "dzisiaj",
+		"next": "jutro",
 		"past": {
 			"one": "{0} dzień temu",
 			"few": "{0} dni temu",
@@ -54,35 +61,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "{0} godz. temu"
-		},
-		"future": {
-			"other": "za {0} godz."
-		}
+		"current": "ta godzina",
+		"past": "{0} godz. temu",
+		"future": "za {0} godz."
 	},
 	"minute": {
-		"past": {
-			"other": "{0} min temu"
-		},
-		"future": {
-			"other": "za {0} min"
-		}
+		"current": "ta minuta",
+		"past": "{0} min temu",
+		"future": "za {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "{0} sek. temu"
-		},
-		"future": {
-			"other": "za {0} sek."
-		}
+		"current": "teraz",
+		"past": "{0} sek. temu",
+		"future": "za {0} sek."
 	},
-	"now": {
-		"past": {
-			"other": "teraz"
-		},
-		"future": {
-			"other": "teraz"
-		}
-	}
+	"now": "teraz"
 }

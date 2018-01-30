@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "−{0} år"
-		},
-		"future": {
-			"other": "+{0} år"
-		}
+		"previous": "i fjol",
+		"current": "i år",
+		"next": "nästa år",
+		"past": "−{0} år",
+		"future": "+{0} år"
 	},
 	"quarter": {
-		"past": {
-			"other": "−{0} kv"
-		},
-		"future": {
-			"other": "+{0} kv."
-		}
+		"previous": "förra kv.",
+		"current": "detta kv.",
+		"next": "nästa kv.",
+		"past": "−{0} kv",
+		"future": "+{0} kv."
 	},
 	"month": {
-		"past": {
-			"other": "−{0} mån"
-		},
-		"future": {
-			"other": "+{0} mån."
-		}
+		"previous": "förra mån.",
+		"current": "denna mån.",
+		"next": "nästa mån.",
+		"past": "−{0} mån",
+		"future": "+{0} mån."
 	},
 	"week": {
-		"past": {
-			"other": "−{0} v"
-		},
-		"future": {
-			"other": "+{0} v."
-		}
+		"previous": "förra v.",
+		"current": "denna v.",
+		"next": "nästa v.",
+		"past": "−{0} v",
+		"future": "+{0} v."
 	},
 	"day": {
-		"past": {
-			"other": "−{0} d"
-		},
-		"future": {
-			"other": "+{0} d"
-		}
+		"previous": "igår",
+		"current": "idag",
+		"next": "imorgon",
+		"past": "−{0} d",
+		"future": "+{0} d"
 	},
 	"hour": {
-		"past": {
-			"other": "−{0} h"
-		},
-		"future": {
-			"other": "+{0} h"
-		}
+		"current": "denna timme",
+		"past": "−{0} h",
+		"future": "+{0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "−{0} min"
-		},
-		"future": {
-			"other": "+{0} min"
-		}
+		"current": "denna minut",
+		"past": "−{0} min",
+		"future": "+{0} min"
 	},
 	"second": {
-		"past": {
-			"other": "−{0} s"
-		},
-		"future": {
-			"other": "+{0} s"
-		}
-	}
+		"current": "nu",
+		"past": "−{0} s",
+		"future": "+{0} s"
+	},
+	"now": "nu"
 }

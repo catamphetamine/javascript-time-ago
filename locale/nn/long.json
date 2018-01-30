@@ -1,21 +1,22 @@
 {
 	"year": {
-		"past": {
-			"other": "for {0} år sidan"
-		},
-		"future": {
-			"other": "om {0} år"
-		}
+		"previous": "i fjor",
+		"current": "i år",
+		"next": "neste år",
+		"past": "for {0} år sidan",
+		"future": "om {0} år"
 	},
 	"quarter": {
-		"past": {
-			"other": "for {0} kvartal sidan"
-		},
-		"future": {
-			"other": "om {0} kvartal"
-		}
+		"previous": "førre kvartal",
+		"current": "dette kvartalet",
+		"next": "neste kvartal",
+		"past": "for {0} kvartal sidan",
+		"future": "om {0} kvartal"
 	},
 	"month": {
+		"previous": "førre månad",
+		"current": "denne månaden",
+		"next": "neste månad",
 		"past": {
 			"one": "for {0} månad sidan",
 			"other": "for {0} månadar sidan"
@@ -26,6 +27,9 @@
 		}
 	},
 	"week": {
+		"previous": "førre veke",
+		"current": "denne veka",
+		"next": "neste veke",
 		"past": {
 			"one": "for {0} veke sidan",
 			"other": "for {0} veker sidan"
@@ -36,14 +40,14 @@
 		}
 	},
 	"day": {
-		"past": {
-			"other": "for {0} døgn sidan"
-		},
-		"future": {
-			"other": "om {0} døgn"
-		}
+		"previous": "i går",
+		"current": "i dag",
+		"next": "i morgon",
+		"past": "for {0} døgn sidan",
+		"future": "om {0} døgn"
 	},
 	"hour": {
+		"current": "denne timen",
 		"past": {
 			"one": "for {0} time sidan",
 			"other": "for {0} timar sidan"
@@ -54,28 +58,17 @@
 		}
 	},
 	"minute": {
-		"past": {
-			"other": "for {0} minutt sidan"
-		},
-		"future": {
-			"other": "om {0} minutt"
-		}
+		"current": "dette minuttet",
+		"past": "for {0} minutt sidan",
+		"future": "om {0} minutt"
 	},
 	"second": {
-		"past": {
-			"other": "for {0} sekund sidan"
-		},
+		"current": "no",
+		"past": "for {0} sekund sidan",
 		"future": {
 			"one": "om {0} sekund",
 			"other": "om {0} sekund"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "no"
-		},
-		"future": {
-			"other": "no"
-		}
-	}
+	"now": "no"
 }

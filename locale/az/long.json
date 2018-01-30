@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} il öncə"
-		},
-		"future": {
-			"other": "{0} il ərzində"
-		}
+		"previous": "keçən il",
+		"current": "bu il",
+		"next": "gələn il",
+		"past": "{0} il öncə",
+		"future": "{0} il ərzində"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} rüb öncə"
-		},
-		"future": {
-			"other": "{0} rüb ərzində"
-		}
+		"previous": "keçən rüb",
+		"current": "bu rüb",
+		"next": "gələn rüb",
+		"past": "{0} rüb öncə",
+		"future": "{0} rüb ərzində"
 	},
 	"month": {
-		"past": {
-			"other": "{0} ay öncə"
-		},
-		"future": {
-			"other": "{0} ay ərzində"
-		}
+		"previous": "keçən ay",
+		"current": "bu ay",
+		"next": "gələn ay",
+		"past": "{0} ay öncə",
+		"future": "{0} ay ərzində"
 	},
 	"week": {
-		"past": {
-			"other": "{0} həftə öncə"
-		},
-		"future": {
-			"other": "{0} həftə ərzində"
-		}
+		"previous": "keçən həftə",
+		"current": "bu həftə",
+		"next": "gələn həftə",
+		"past": "{0} həftə öncə",
+		"future": "{0} həftə ərzində"
 	},
 	"day": {
-		"past": {
-			"other": "{0} gün öncə"
-		},
-		"future": {
-			"other": "{0} gün ərzində"
-		}
+		"previous": "dünən",
+		"current": "bu gün",
+		"next": "sabah",
+		"past": "{0} gün öncə",
+		"future": "{0} gün ərzində"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} saat öncə"
-		},
-		"future": {
-			"other": "{0} saat ərzində"
-		}
+		"current": "bu saat",
+		"past": "{0} saat öncə",
+		"future": "{0} saat ərzində"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} dəqiqə öncə"
-		},
-		"future": {
-			"other": "{0} dəqiqə ərzində"
-		}
+		"current": "bu dəqiqə",
+		"past": "{0} dəqiqə öncə",
+		"future": "{0} dəqiqə ərzində"
 	},
 	"second": {
-		"past": {
-			"other": "{0} saniyə öncə"
-		},
-		"future": {
-			"other": "{0} saniyə ərzində"
-		}
+		"current": "indi",
+		"past": "{0} saniyə öncə",
+		"future": "{0} saniyə ərzində"
 	},
-	"now": {
-		"past": {
-			"other": "indi"
-		},
-		"future": {
-			"other": "indi"
-		}
-	}
+	"now": "indi"
 }

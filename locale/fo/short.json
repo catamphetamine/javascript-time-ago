@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} ár síðan"
-		},
-		"future": {
-			"other": "um {0} ár"
-		}
+		"previous": "í fjør",
+		"current": "í ár",
+		"next": "næsta ár",
+		"past": "{0} ár síðan",
+		"future": "um {0} ár"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} ársfj. síðan"
-		},
-		"future": {
-			"other": "um {0} ársfj."
-		}
+		"previous": "seinasta ársfjórðing",
+		"current": "hendan ársfjórðingin",
+		"next": "næsta ársfjórðing",
+		"past": "{0} ársfj. síðan",
+		"future": "um {0} ársfj."
 	},
 	"month": {
-		"past": {
-			"other": "{0} mnð. síðan"
-		},
-		"future": {
-			"other": "um {0} mnð."
-		}
+		"previous": "seinasta mánað",
+		"current": "henda mánaðin",
+		"next": "næsta mánað",
+		"past": "{0} mnð. síðan",
+		"future": "um {0} mnð."
 	},
 	"week": {
-		"past": {
-			"other": "{0} vi. síðan"
-		},
-		"future": {
-			"other": "um {0} vi."
-		}
+		"previous": "seinastu viku",
+		"current": "hesu viku",
+		"next": "næstu viku",
+		"past": "{0} vi. síðan",
+		"future": "um {0} vi."
 	},
 	"day": {
-		"past": {
-			"other": "{0} da. síðan"
-		},
-		"future": {
-			"other": "um {0} da."
-		}
+		"previous": "í gjár",
+		"current": "í dag",
+		"next": "í morgin",
+		"past": "{0} da. síðan",
+		"future": "um {0} da."
 	},
 	"hour": {
-		"past": {
-			"other": "{0} t. síðan"
-		},
-		"future": {
-			"other": "um {0} t."
-		}
+		"current": "hendan tíman",
+		"past": "{0} t. síðan",
+		"future": "um {0} t."
 	},
 	"minute": {
-		"past": {
-			"other": "{0} min. síðan"
-		},
-		"future": {
-			"other": "um {0} min."
-		}
+		"current": "hendan minuttin",
+		"past": "{0} min. síðan",
+		"future": "um {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "{0} sek. síðan"
-		},
-		"future": {
-			"other": "um {0} sek."
-		}
+		"current": "nú",
+		"past": "{0} sek. síðan",
+		"future": "um {0} sek."
 	},
-	"now": {
-		"past": {
-			"other": "nú"
-		},
-		"future": {
-			"other": "nú"
-		}
-	}
+	"now": "nú"
 }

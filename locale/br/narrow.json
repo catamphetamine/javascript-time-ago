@@ -1,29 +1,29 @@
 {
 	"year": {
-		"past": {
-			"other": "-{0} bl."
-		},
-		"future": {
-			"other": "+{0} bl."
-		}
+		"previous": "warlene",
+		"current": "hevlene",
+		"next": "ar bl. a zeu",
+		"past": "-{0} bl.",
+		"future": "+{0} bl."
 	},
 	"quarter": {
-		"past": {
-			"other": "-{0} trim."
-		},
-		"future": {
-			"other": "+{0} trim."
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "-{0} trim.",
+		"future": "+{0} trim."
 	},
 	"month": {
-		"past": {
-			"other": "-{0} miz"
-		},
-		"future": {
-			"other": "+{0} miz"
-		}
+		"previous": "ar miz diaraok",
+		"current": "ar miz-mañ",
+		"next": "ar miz a zeu",
+		"past": "-{0} miz",
+		"future": "+{0} miz"
 	},
 	"week": {
+		"previous": "ar sizhun diaraok",
+		"current": "ar sizhun-mañ",
+		"next": "ar sizhun a zeu",
 		"past": {
 			"many": "{0} a sizhunioù zo",
 			"other": "{0} sizhun zo"
@@ -34,35 +34,26 @@
 		}
 	},
 	"day": {
-		"past": {
-			"other": "-{0} d"
-		},
-		"future": {
-			"other": "+{0} d"
-		}
+		"previous": "decʼh",
+		"current": "hiziv",
+		"next": "warcʼhoazh",
+		"past": "-{0} d",
+		"future": "+{0} d"
 	},
 	"hour": {
-		"past": {
-			"other": "-{0} h"
-		},
-		"future": {
-			"other": "+{0} h"
-		}
+		"current": "this hour",
+		"past": "-{0} h",
+		"future": "+{0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "-{0} min"
-		},
-		"future": {
-			"other": "+{0} min"
-		}
+		"current": "this minute",
+		"past": "-{0} min",
+		"future": "+{0} min"
 	},
 	"second": {
-		"past": {
-			"other": "-{0} s"
-		},
-		"future": {
-			"other": "+{0} s"
-		}
-	}
+		"current": "brem.",
+		"past": "-{0} s",
+		"future": "+{0} s"
+	},
+	"now": "brem."
 }

@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "anno scorso",
+		"current": "quest’anno",
+		"next": "anno prossimo",
 		"past": {
 			"one": "{0} anno fa",
 			"other": "{0} anni fa"
@@ -10,6 +13,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "trimestre scorso",
+		"current": "questo trimestre",
+		"next": "trimestre prossimo",
 		"past": {
 			"one": "{0} trimestre fa",
 			"other": "{0} trimestri fa"
@@ -20,6 +26,9 @@
 		}
 	},
 	"month": {
+		"previous": "mese scorso",
+		"current": "questo mese",
+		"next": "mese prossimo",
 		"past": {
 			"one": "{0} mese fa",
 			"other": "{0} mesi fa"
@@ -30,6 +39,9 @@
 		}
 	},
 	"week": {
+		"previous": "settimana scorsa",
+		"current": "questa settimana",
+		"next": "settimana prossima",
 		"past": {
 			"one": "{0} settimana fa",
 			"other": "{0} settimane fa"
@@ -40,6 +52,9 @@
 		}
 	},
 	"day": {
+		"previous": "ieri",
+		"current": "oggi",
+		"next": "domani",
 		"past": {
 			"one": "{0} giorno fa",
 			"other": "{0} giorni fa"
@@ -50,6 +65,7 @@
 		}
 	},
 	"hour": {
+		"current": "quest’ora",
 		"past": {
 			"one": "{0} ora fa",
 			"other": "{0} ore fa"
@@ -60,6 +76,7 @@
 		}
 	},
 	"minute": {
+		"current": "questo minuto",
 		"past": {
 			"one": "{0} minuto fa",
 			"other": "{0} minuti fa"
@@ -70,6 +87,7 @@
 		}
 	},
 	"second": {
+		"current": "ora",
 		"past": {
 			"one": "{0} secondo fa",
 			"other": "{0} secondi fa"
@@ -79,12 +97,5 @@
 			"other": "tra {0} secondi"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "ora"
-		},
-		"future": {
-			"other": "ora"
-		}
-	}
+	"now": "ora"
 }

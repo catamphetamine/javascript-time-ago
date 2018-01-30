@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "пр. {0} г."
-		},
-		"future": {
-			"other": "сл. {0} г."
-		}
+		"previous": "мин. г.",
+		"current": "т. г.",
+		"next": "сл. г.",
+		"past": "пр. {0} г.",
+		"future": "сл. {0} г."
 	},
 	"quarter": {
-		"past": {
-			"other": "пр. {0} трим."
-		},
-		"future": {
-			"other": "сл. {0} трим."
-		}
+		"previous": "мин. трим.",
+		"current": "това трим.",
+		"next": "следв. трим.",
+		"past": "пр. {0} трим.",
+		"future": "сл. {0} трим."
 	},
 	"month": {
-		"past": {
-			"other": "пр. {0} м."
-		},
-		"future": {
-			"other": "сл. {0} м."
-		}
+		"previous": "мин. м.",
+		"current": "т. м.",
+		"next": "сл. м.",
+		"past": "пр. {0} м.",
+		"future": "сл. {0} м."
 	},
 	"week": {
-		"past": {
-			"other": "пр. {0} седм."
-		},
-		"future": {
-			"other": "сл. {0} седм."
-		}
+		"previous": "мин. седм.",
+		"current": "тази седм.",
+		"next": "сл. седм.",
+		"past": "пр. {0} седм.",
+		"future": "сл. {0} седм."
 	},
 	"day": {
-		"past": {
-			"other": "пр. {0} д"
-		},
-		"future": {
-			"other": "сл. {0} д"
-		}
+		"previous": "вчера",
+		"current": "днес",
+		"next": "утре",
+		"past": "пр. {0} д",
+		"future": "сл. {0} д"
 	},
 	"hour": {
-		"past": {
-			"other": "пр. {0} ч"
-		},
-		"future": {
-			"other": "сл. {0} ч"
-		}
+		"current": "в този час",
+		"past": "пр. {0} ч",
+		"future": "сл. {0} ч"
 	},
 	"minute": {
-		"past": {
-			"other": "пр. {0} мин"
-		},
-		"future": {
-			"other": "сл. {0} мин"
-		}
+		"current": "в тази минута",
+		"past": "пр. {0} мин",
+		"future": "сл. {0} мин"
 	},
 	"second": {
-		"past": {
-			"other": "пр. {0} сек"
-		},
-		"future": {
-			"other": "сл. {0} сек"
-		}
-	}
+		"current": "сега",
+		"past": "пр. {0} сек",
+		"future": "сл. {0} сек"
+	},
+	"now": "сега"
 }

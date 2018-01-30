@@ -1,37 +1,36 @@
 {
 	"year": {
-		"past": {
-			"other": "prije {0} g."
-		},
-		"future": {
-			"other": "za {0} g."
-		}
+		"previous": "prošle god.",
+		"current": "ove god.",
+		"next": "sljedeće god.",
+		"past": "prije {0} g.",
+		"future": "za {0} g."
 	},
 	"quarter": {
-		"past": {
-			"other": "prije {0} kv."
-		},
-		"future": {
-			"other": "za {0} kv."
-		}
+		"previous": "prošli kv.",
+		"current": "ovaj kv.",
+		"next": "sljedeći kv.",
+		"past": "prije {0} kv.",
+		"future": "za {0} kv."
 	},
 	"month": {
-		"past": {
-			"other": "prije {0} mj."
-		},
-		"future": {
-			"other": "za {0} mj."
-		}
+		"previous": "prošli mj.",
+		"current": "ovaj mj.",
+		"next": "sljedeći mj.",
+		"past": "prije {0} mj.",
+		"future": "za {0} mj."
 	},
 	"week": {
-		"past": {
-			"other": "prije {0} tj."
-		},
-		"future": {
-			"other": "za {0} tj."
-		}
+		"previous": "prošli tj.",
+		"current": "ovaj tj.",
+		"next": "sljedeći tj.",
+		"past": "prije {0} tj.",
+		"future": "za {0} tj."
 	},
 	"day": {
+		"previous": "jučer",
+		"current": "danas",
+		"next": "sutra",
 		"past": {
 			"one": "prije {0} dan",
 			"other": "prije {0} dana"
@@ -42,35 +41,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "prije {0} h"
-		},
-		"future": {
-			"other": "za {0} h"
-		}
+		"current": "ovaj sat",
+		"past": "prije {0} h",
+		"future": "za {0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "prije {0} min"
-		},
-		"future": {
-			"other": "za {0} min"
-		}
+		"current": "ova minuta",
+		"past": "prije {0} min",
+		"future": "za {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "prije {0} s"
-		},
-		"future": {
-			"other": "za {0} s"
-		}
+		"current": "sad",
+		"past": "prije {0} s",
+		"future": "za {0} s"
 	},
-	"now": {
-		"past": {
-			"other": "sad"
-		},
-		"future": {
-			"other": "sad"
-		}
-	}
+	"now": "sad"
 }

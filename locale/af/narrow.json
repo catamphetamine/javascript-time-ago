@@ -1,37 +1,36 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} jaar gelede"
-		},
-		"future": {
-			"other": "oor {0} jaar"
-		}
+		"previous": "verlede jaar",
+		"current": "hierdie jaar",
+		"next": "volgende jaar",
+		"past": "{0} jaar gelede",
+		"future": "oor {0} jaar"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} kwartale gelede"
-		},
-		"future": {
-			"other": "oor {0} kwartale"
-		}
+		"previous": "vorige kwartaal",
+		"current": "hierdie kwartaal",
+		"next": "volgende kwartaal",
+		"past": "{0} kwartale gelede",
+		"future": "oor {0} kwartale"
 	},
 	"month": {
-		"past": {
-			"other": "{0} md. gelede"
-		},
-		"future": {
-			"other": "oor {0} md."
-		}
+		"previous": "verlede maand",
+		"current": "vandeesmaand",
+		"next": "volgende maand",
+		"past": "{0} md. gelede",
+		"future": "oor {0} md."
 	},
 	"week": {
-		"past": {
-			"other": "{0} w. gelede"
-		},
-		"future": {
-			"other": "oor {0} w."
-		}
+		"previous": "verlede week",
+		"current": "vandeesweek",
+		"next": "volgende week",
+		"past": "{0} w. gelede",
+		"future": "oor {0} w."
 	},
 	"day": {
+		"previous": "gister",
+		"current": "vandag",
+		"next": "môre",
 		"past": {
 			"one": "{0} dag gelede",
 			"other": "{0} dae gelede"
@@ -42,27 +41,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "{0} uur gelede"
-		},
-		"future": {
-			"other": "oor {0} uur"
-		}
+		"current": "hierdie uur",
+		"past": "{0} uur gelede",
+		"future": "oor {0} uur"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} min. gelede"
-		},
-		"future": {
-			"other": "oor {0} min."
-		}
+		"current": "hierdie minuut",
+		"past": "{0} min. gelede",
+		"future": "oor {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "{0} sek. gelede"
-		},
-		"future": {
-			"other": "oor {0} sek."
-		}
-	}
+		"current": "nou",
+		"past": "{0} sek. gelede",
+		"future": "oor {0} sek."
+	},
+	"now": "nou"
 }

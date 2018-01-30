@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "last year",
+		"current": "this year",
+		"next": "next year",
 		"past": {
 			"one": "{0} jahki árat",
 			"other": "{0} jahkki árat"
@@ -10,22 +13,23 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "-{0} Q"
-		},
-		"future": {
-			"other": "+{0} Q"
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "-{0} Q",
+		"future": "+{0} Q"
 	},
 	"month": {
-		"past": {
-			"other": "{0} mánotbadji árat"
-		},
-		"future": {
-			"other": "{0} mánotbadji maŋŋilit"
-		}
+		"previous": "last month",
+		"current": "this month",
+		"next": "next month",
+		"past": "{0} mánotbadji árat",
+		"future": "{0} mánotbadji maŋŋilit"
 	},
 	"week": {
+		"previous": "last week",
+		"current": "this week",
+		"next": "next week",
 		"past": {
 			"one": "{0} vahku árat",
 			"other": "{0} vahkku árat"
@@ -36,6 +40,9 @@
 		}
 	},
 	"day": {
+		"previous": "ikte",
+		"current": "odne",
+		"next": "ihttin",
 		"past": {
 			"one": "{0} jándor árat",
 			"other": "{0} jándora árat"
@@ -47,6 +54,7 @@
 		}
 	},
 	"hour": {
+		"current": "this hour",
 		"past": {
 			"one": "{0} diibmu árat",
 			"other": "{0} diibmur árat"
@@ -57,6 +65,7 @@
 		}
 	},
 	"minute": {
+		"current": "this minute",
 		"past": {
 			"one": "{0} minuhta árat",
 			"other": "{0} minuhtta árat"
@@ -67,6 +76,7 @@
 		}
 	},
 	"second": {
+		"current": "now",
 		"past": {
 			"one": "{0} sekunda árat",
 			"other": "{0} sekundda árat"
@@ -75,5 +85,6 @@
 			"one": "{0} sekunda maŋŋilit",
 			"other": "{0} sekundda maŋŋilit"
 		}
-	}
+	},
+	"now": "now"
 }

@@ -1,7 +1,16 @@
+// import { isEqual } from 'lodash'
+
 // The generic time measurement units.
 // (other units like "fri" or "thu" are ignored)
 // ("quarter" is required by `Intl.RelativeTimeFormat`)
 export const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'quarter', 'year']
+
+// Detects short and narrow flavours of labels (yr., mo., etc).
+// E.g. there are "month", "month-short", "month-narrow".
+// More on "narrow" vs "short":
+// http://cldr.unicode.org/translation/plurals#TOC-Narrow-and-Short-Forms
+const short = /-short$/
+const narrow = /-narrow$/
 
 // Converts locale data from CLDR format to this library's format.
 //
@@ -41,19 +50,16 @@ export const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'quart
 // 	"long":
 // 	{
 // 		...
-// 		"second":
-// 		{
-// 			"future":
-// 			{
-// 				"one": "in a second",
-// 				"other": "in {0} seconds"
-// 			},
-// 			"past":
+// 		"second": [
 // 			{
 // 				"one": "a second ago",
 // 				"other": "{0} seconds ago"
+// 			},
+// 			{
+// 				"one": "in a second",
+// 				"other": "in {0} seconds"
 // 			}
-// 		},
+// 		],
 // 		...
 // 	},
 // 	"short":
@@ -65,13 +71,6 @@ export const units = ['second', 'minute', 'hour', 'day', 'week', 'month', 'quart
 // ```
 export default function parse_CLDR(data)
 {
-	// Detects short and narrow flavours of labels (yr., mo., etc).
-	// E.g. there are "month", "month-short", "month-narrow".
-	// More on "narrow" vs "short":
-	// http://cldr.unicode.org/translation/plurals#TOC-Narrow-and-Short-Forms
-	const short = /-short$/
-	const narrow = /-narrow$/
-
 	// Extract `locale` from CLDR data
 	const locale = Object.keys(data.main)[0]
 	const time_units_formatting_rules = data.main[locale].dates.fields
@@ -81,132 +80,194 @@ export default function parse_CLDR(data)
 	{
 		// Take only the generic time measurement units
 		// (skip exotic ones like "fri" on "thu").
-		return units.indexOf(unit) >= 0 ||
-			units.indexOf(unit.replace(short, '')) >= 0 ||
-			units.indexOf(unit.replace(narrow, '')) >= 0
+		return units.includes(parse_unit(unit).unit)
 	})
-	.reduce((locale_data, unit) =>
+	.reduce((locale_data, _unit) =>
 	{
-		const time_unit_formatting_rules = time_units_formatting_rules[unit]
-		const parsed_time_unit_formatting_rules = {}
-
-		// If a `unit` ends with `-short`
-		// then it's a "short" flavour of this unit.
-		if (short.test(unit))
-		{
-			if (!locale_data.short)
-			{
-				locale_data.short = {}
-			}
-
-			locale_data.short[unit.replace(short, '')] = parsed_time_unit_formatting_rules
-		}
-		// If a `unit` ends with `-narrow`
-		// then it's a "narrow" flavour of this unit.
-		else if (narrow.test(unit))
-		{
-			if (!locale_data.narrow)
-			{
-				locale_data.narrow = {}
-			}
-
-			locale_data.narrow[unit.replace(narrow, '')] = parsed_time_unit_formatting_rules
-		}
-		// Otherwise it's "long".
-		else
-		{
-			locale_data.long[unit] = parsed_time_unit_formatting_rules
-		}
-
-		// the "relative" values aren't suitable for "ago" or "in a" cases,
-		// because "1 year ago" != "last year" (too vague for Jan 30th)
-		// and "in 0.49 years" != "this year" (it could be Nov 30th).
-
-		// if (time_unit_formatting_rules['relative-type--1'])
-		// {
-		// 	parsed_time_unit_formatting_rules.previous = time_unit_formatting_rules['relative-type--1']
-		// }
-
-		// if (time_unit_formatting_rules['relative-type-0'])
-		// {
-		// 	parsed_time_unit_formatting_rules.current = time_unit_formatting_rules['relative-type-0']
-		// }
-
-		// if (time_unit_formatting_rules['relative-type-1'])
-		// {
-		// 	parsed_time_unit_formatting_rules.next = entry['relative-type-1']
-		// }
-
-		// Use "now" for "second"s from CLDR as "now" formatting rule.
-		if (unit === 'second' || unit === 'second-short' || unit === 'second-narrow')
-		{
-			const now = time_unit_formatting_rules['relative-type-0']
-
-			/* istanbul ignore else */
-			if (now)
-			{
-				locale_data[short.test(unit) ? 'short' : 'long'].now =
-				{
-					past   : { other : now },
-					future : { other : now }
-				}
-			}
-		}
-
-		// Formatting past times.
-		//
-		// E.g.:
-		//
-		// "relativeTime-type-past":
-		// {
-		// 	"relativeTimePattern-count-one": "{0} mo. ago",
-		// 	"relativeTimePattern-count-other": "{0} mo. ago"
-		// }
-		//
-		/* istanbul ignore else */
-		if (time_unit_formatting_rules['relativeTime-type-past'])
-		{
-			const past = time_unit_formatting_rules['relativeTime-type-past']
-			parsed_time_unit_formatting_rules.past = {}
-
-			for (const count_classifier of Object.keys(past))
-			{
-				parsed_time_unit_formatting_rules.past
-				[
-					count_classifier.replace('relativeTimePattern-count-', '')
-				]
-				= past[count_classifier]
-			}
-		}
-
-		// Formatting future times.
-		//
-		// E.g.:
-		//
-		// "relativeTime-type-future":
-		// {
-		// 	"relativeTimePattern-count-one": "in {0} mo.",
-		// 	"relativeTimePattern-count-other": "in {0} mo."
-		// }
-		//
-		/* istanbul ignore else */
-		if (time_unit_formatting_rules['relativeTime-type-future'])
-		{
-			const future = time_unit_formatting_rules['relativeTime-type-future']
-			parsed_time_unit_formatting_rules.future = {}
-
-			for (const count_classifier of Object.keys(future))
-			{
-				parsed_time_unit_formatting_rules.future
-				[
-					count_classifier.replace('relativeTimePattern-count-', '')
-				]
-				= future[count_classifier]
-			}
-		}
-
-		return locale_data
+		const { unit, type } = parse_unit(_unit)
+		return set_unit_rules(locale_data, type, unit, parse_CLDR_time_unit_formatting_rules(time_units_formatting_rules[_unit]))
 	},
 	// Parsed locale data
-	{ long: {} })
+	{})
+}
+
+/**
+ * Parses CLDR time unit formatting rules.
+ * @param  {object} - CLDR time unit formatting rules.
+ * @return {(object|string)}
+ */
+function parse_CLDR_time_unit_formatting_rules(rules_CLDR)
+{
+	let rules = {}
+
+	// "relative" values aren't suitable for "ago" or "in a" cases,
+	// because "1 year ago" != "last year" (too vague for Jan 30th)
+	// and "in 0.49 years" != "this year" (it could be Nov 30th).
+	// Still including them here for `Intl.RelativeTimeFormat` polyfill.
+
+	// "yesterday"
+	if (rules_CLDR['relative-type--1'])
+	{
+		rules.previous = rules_CLDR['relative-type--1']
+	}
+
+	// "today"
+	/* istanbul ignore else */
+	if (rules_CLDR['relative-type-0'])
+	{
+		rules.current = rules_CLDR['relative-type-0']
+	}
+
+	// "tomorrow"
+	if (rules_CLDR['relative-type-1'])
+	{
+		rules.next = rules_CLDR['relative-type-1']
+	}
+
+	// Formatting past times.
+	//
+	// E.g.:
+	//
+	// "relativeTime-type-past":
+	// {
+	// 	"relativeTimePattern-count-one": "{0} mo. ago",
+	// 	"relativeTimePattern-count-other": "{0} mo. ago"
+	// }
+	//
+	/* istanbul ignore else */
+	if (rules_CLDR['relativeTime-type-past'])
+	{
+		const past = rules_CLDR['relativeTime-type-past']
+		rules.past = {}
+
+		// Populate all quantifiers ("one", "other", etc).
+		for (const quantifier of Object.keys(past))
+		{
+			rules.past
+			[
+				quantifier.replace('relativeTimePattern-count-', '')
+			]
+			= past[quantifier]
+		}
+
+		// Delete all duplicates of "other" rule.
+		for (const quantifier of Object.keys(rules.past))
+		{
+			if (quantifier !== 'other' && rules.past[quantifier] === rules.past.other)
+			{
+				delete rules.past[quantifier]
+			}
+		}
+
+ 		// If only "other" rule is present then "rules" is not an object and is a string.
+		if (Object.keys(rules.past).length === 1)
+		{
+			rules.past = rules.past.other
+		}
+	}
+
+	// Formatting future times.
+	//
+	// E.g.:
+	//
+	// "relativeTime-type-future":
+	// {
+	// 	"relativeTimePattern-count-one": "in {0} mo.",
+	// 	"relativeTimePattern-count-other": "in {0} mo."
+	// }
+	//
+	/* istanbul ignore else */
+	if (rules_CLDR['relativeTime-type-future'])
+	{
+		const future = rules_CLDR['relativeTime-type-future']
+		rules.future = {}
+
+		// Populate all quantifiers ("one", "other", etc).
+		for (const quantifier of Object.keys(future))
+		{
+			rules.future
+			[
+				quantifier.replace('relativeTimePattern-count-', '')
+			]
+			= future[quantifier]
+		}
+
+		// Delete all duplicates of "other" rule.
+		for (const quantifier of Object.keys(rules.future))
+		{
+			if (quantifier !== 'other' && rules.future[quantifier] === rules.future.other)
+			{
+				delete rules.future[quantifier]
+			}
+		}
+
+ 		// If only "other" rule is present then "rules" is not an object and is a string.
+		if (Object.keys(rules.future).length === 1)
+		{
+			rules.future = rules.future.other
+		}
+	}
+
+	// // If `.past` === `.future` then replace them with `.other`.
+	// // (only eligible for "tiny" and "*-time" locale data which is not part of CLDR)
+	// if (isEqual(rules.past, rules.future))
+	// {
+	// 	rules.other = rules.past
+	// 	delete rules.future
+	// }
+
+	// // If only "other" rule is defined for a time unit
+	// // then make "rules" a string rather than an object.
+	// if (Object.keys(rules).length === 1)
+	// {
+	// 	rules = rules.other
+	// }
+
+	return rules
+}
+
+/**
+ * Sets time unit formatting rules in locale data.
+ * @param {object} locale_data
+ * @param {string} type
+ * @param {string} unit
+ * @param {object} rules
+ * @return {object} Locale data.
+ */
+function set_unit_rules(locale_data, type, unit, rules)
+{
+	if (!locale_data[type])
+	{
+		locale_data[type] = {}
+	}
+
+	locale_data[type][unit] = rules
+
+	// Populate "now" unit rules.
+	if (unit === 'second' && rules.current)
+	{
+		locale_data[type].now = rules.current
+	}
+
+	return locale_data
+}
+
+/**
+ * Parses CLDR time unit into `unit` and `type`.
+ * @param  {string} CLDR_unit
+ * @return {object} `{ type, unit }`.
+ */
+function parse_unit(unit)
+{
+	if (narrow.test(unit))
+	{
+		return { type: 'narrow', unit: unit.replace(narrow, '') }
+	}
+
+	if (short.test(unit))
+	{
+		return { type: 'short', unit: unit.replace(short, '') }
+	}
+
+	return { type: 'long', unit }
 }

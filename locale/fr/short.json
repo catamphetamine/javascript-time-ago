@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "il y a {0} a"
-		},
-		"future": {
-			"other": "dans {0} a"
-		}
+		"previous": "l’année dernière",
+		"current": "cette année",
+		"next": "l’année prochaine",
+		"past": "il y a {0} a",
+		"future": "dans {0} a"
 	},
 	"quarter": {
-		"past": {
-			"other": "il y a {0} trim."
-		},
-		"future": {
-			"other": "dans {0} trim."
-		}
+		"previous": "le trimestre dernier",
+		"current": "ce trimestre",
+		"next": "le trimestre prochain",
+		"past": "il y a {0} trim.",
+		"future": "dans {0} trim."
 	},
 	"month": {
-		"past": {
-			"other": "il y a {0} m."
-		},
-		"future": {
-			"other": "dans {0} m."
-		}
+		"previous": "le mois dernier",
+		"current": "ce mois-ci",
+		"next": "le mois prochain",
+		"past": "il y a {0} m.",
+		"future": "dans {0} m."
 	},
 	"week": {
-		"past": {
-			"other": "il y a {0} sem."
-		},
-		"future": {
-			"other": "dans {0} sem."
-		}
+		"previous": "la semaine dernière",
+		"current": "cette semaine",
+		"next": "la semaine prochaine",
+		"past": "il y a {0} sem.",
+		"future": "dans {0} sem."
 	},
 	"day": {
-		"past": {
-			"other": "il y a {0} j"
-		},
-		"future": {
-			"other": "dans {0} j"
-		}
+		"previous": "hier",
+		"current": "aujourd’hui",
+		"next": "demain",
+		"past": "il y a {0} j",
+		"future": "dans {0} j"
 	},
 	"hour": {
-		"past": {
-			"other": "il y a {0} h"
-		},
-		"future": {
-			"other": "dans {0} h"
-		}
+		"current": "cette heure-ci",
+		"past": "il y a {0} h",
+		"future": "dans {0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "il y a {0} min"
-		},
-		"future": {
-			"other": "dans {0} min"
-		}
+		"current": "cette minute-ci",
+		"past": "il y a {0} min",
+		"future": "dans {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "il y a {0} s"
-		},
-		"future": {
-			"other": "dans {0} s"
-		}
+		"current": "maintenant",
+		"past": "il y a {0} s",
+		"future": "dans {0} s"
 	},
-	"now": {
-		"past": {
-			"other": "maintenant"
-		},
-		"future": {
-			"other": "maintenant"
-		}
-	}
+	"now": "maintenant"
 }

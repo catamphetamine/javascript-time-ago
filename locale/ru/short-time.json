@@ -1,70 +1,19 @@
 {
 	"year": {
-		"future": {
-			"many": "{0} л.",
-			"other": "{0} г."
-		},
-		"past": {
-			"many": "{0} л.",
-			"other": "{0} г."
-		}
+		"many": "{0} л.",
+		"other": "{0} г."
 	},
-	"month": {
-		"future": {
-			"other": "{0} мес."
-		},
-		"past": {
-			"other": "{0} мес."
-		}
-	},
-	"week": {
-		"future": {
-			"other": "{0} нед."
-		},
-		"past": {
-			"other": "{0} нед."
-		}
-	},
+	"month": "{0} мес.",
+	"week": "{0} нед.",
 	"day": {
-		"future": {
-			"one": "{0} д.",
-			"other": "{0} дн."
-		},
-		"past": {
-			"one": "{0} д.",
-			"other": "{0} д."
-		}
+		"one": "{0} д.",
+		"other": "{0} дн."
 	},
-	"hour": {
-		"future": {
-			"other": "{0} ч."
-		},
-		"past": {
-			"other": "{0} ч."
-		}
-	},
-	"minute": {
-		"future": {
-			"other": "{0} мин."
-		},
-		"past": {
-			"other": "{0} мин."
-		}
-	},
-	"second": {
-		"future": {
-			"other": "{0} сек."
-		},
-		"past": {
-			"other": "{0} сек."
-		}
-	},
+	"hour": "{0} ч.",
+	"minute": "{0} мин.",
+	"second": "{0} сек.",
 	"now": {
-		"past": {
-			"other": "только что"
-		},
-		"future": {
-			"other": "сейчас"
-		}
+		"past": "только что",
+		"future": "сейчас"
 	}
 }

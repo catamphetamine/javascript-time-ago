@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} шо хьалха"
-		},
-		"future": {
-			"other": "{0} шо даьлча"
-		}
+		"previous": "даханчу шарахь",
+		"current": "карарчу шарахь",
+		"next": "рогӀерчу шарахь",
+		"past": "{0} шо хьалха",
+		"future": "{0} шо даьлча"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} квартал хьалха"
-		},
-		"future": {
-			"other": "{0} квартал яьлча"
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "{0} квартал хьалха",
+		"future": "{0} квартал яьлча"
 	},
 	"month": {
-		"past": {
-			"other": "{0} бутт хьалха"
-		},
-		"future": {
-			"other": "{0} бутт баьлча"
-		}
+		"previous": "баханчу баттахь",
+		"current": "карарчу баттахь",
+		"next": "рогӀерчу баттахь",
+		"past": "{0} бутт хьалха",
+		"future": "{0} бутт баьлча"
 	},
 	"week": {
-		"past": {
-			"other": "{0} кӀира хьалха"
-		},
-		"future": {
-			"other": "{0} кӀира даьлча"
-		}
+		"previous": "даханчу кӀирнахь",
+		"current": "карарчу кӀирнахь",
+		"next": "рогӀерчу кӀирнахь",
+		"past": "{0} кӀира хьалха",
+		"future": "{0} кӀира даьлча"
 	},
 	"day": {
-		"past": {
-			"other": "{0} де хьалха"
-		},
-		"future": {
-			"other": "{0} де даьлча"
-		}
+		"previous": "селхана",
+		"current": "тахана",
+		"next": "кхана",
+		"past": "{0} де хьалха",
+		"future": "{0} де даьлча"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} сахьт хьалха"
-		},
-		"future": {
-			"other": "{0} сахьт даьлча"
-		}
+		"current": "this hour",
+		"past": "{0} сахьт хьалха",
+		"future": "{0} сахьт даьлча"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} минот хьалха"
-		},
-		"future": {
-			"other": "{0} минот яьлча"
-		}
+		"current": "this minute",
+		"past": "{0} минот хьалха",
+		"future": "{0} минот яьлча"
 	},
 	"second": {
-		"past": {
-			"other": "{0} секунд хьалха"
-		},
-		"future": {
-			"other": "{0} секунд яьлча"
-		}
+		"current": "now",
+		"past": "{0} секунд хьалха",
+		"future": "{0} секунд яьлча"
 	},
-	"now": {
-		"past": {
-			"other": "now"
-		},
-		"future": {
-			"other": "now"
-		}
-	}
+	"now": "now"
 }

@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "anul trecut",
+		"current": "anul acesta",
+		"next": "anul viitor",
 		"past": {
 			"one": "acum {0} an",
 			"few": "acum {0} ani",
@@ -12,6 +15,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "trimestrul trecut",
+		"current": "trimestrul acesta",
+		"next": "trimestrul viitor",
 		"past": {
 			"one": "acum {0} trimestru",
 			"few": "acum {0} trimestre",
@@ -24,6 +30,9 @@
 		}
 	},
 	"month": {
+		"previous": "luna trecută",
+		"current": "luna aceasta",
+		"next": "luna viitoare",
 		"past": {
 			"one": "acum {0} lună",
 			"few": "acum {0} luni",
@@ -36,6 +45,9 @@
 		}
 	},
 	"week": {
+		"previous": "săptămâna trecută",
+		"current": "săptămâna aceasta",
+		"next": "săptămâna viitoare",
 		"past": {
 			"one": "acum {0} săptămână",
 			"few": "acum {0} săptămâni",
@@ -48,6 +60,9 @@
 		}
 	},
 	"day": {
+		"previous": "ieri",
+		"current": "azi",
+		"next": "mâine",
 		"past": {
 			"one": "acum {0} zi",
 			"few": "acum {0} zile",
@@ -60,6 +75,7 @@
 		}
 	},
 	"hour": {
+		"current": "ora aceasta",
 		"past": {
 			"one": "acum {0} oră",
 			"few": "acum {0} ore",
@@ -72,6 +88,7 @@
 		}
 	},
 	"minute": {
+		"current": "minutul acesta",
 		"past": {
 			"one": "acum {0} minut",
 			"few": "acum {0} minute",
@@ -84,6 +101,7 @@
 		}
 	},
 	"second": {
+		"current": "acum",
 		"past": {
 			"one": "acum {0} secundă",
 			"few": "acum {0} secunde",
@@ -95,12 +113,5 @@
 			"other": "peste {0} de secunde"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "acum"
-		},
-		"future": {
-			"other": "acum"
-		}
-	}
+	"now": "acum"
 }

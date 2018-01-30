@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "an-uiridh",
+		"current": "am bliadhna",
+		"next": "an ath-bhliadhna",
 		"past": {
 			"one": "o {0} bhlia.",
 			"two": "o {0} bhlia.",
@@ -12,6 +15,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "an cairt. sa chaidh",
+		"current": "an cairt. seo",
+		"next": "an ath-chairt.",
 		"past": {
 			"one": "o {0} chairt.",
 			"two": "o {0} chairt.",
@@ -24,6 +30,9 @@
 		}
 	},
 	"month": {
+		"previous": "am mìos sa chaidh",
+		"current": "am mìos seo",
+		"next": "an ath-mhìos",
 		"past": {
 			"one": "o {0} mhìos.",
 			"two": "o {0} mhìos.",
@@ -36,6 +45,9 @@
 		}
 	},
 	"week": {
+		"previous": "seachd. sa chaidh",
+		"current": "an t-seachd. seo",
+		"next": "an ath-sheachd.",
 		"past": {
 			"one": "o {0} sheachd.",
 			"two": "o {0} sheachd.",
@@ -48,6 +60,9 @@
 		}
 	},
 	"day": {
+		"previous": "an-dè",
+		"current": "an-diugh",
+		"next": "a-màireach",
 		"past": {
 			"few": "o {0} là.",
 			"other": "o {0} là"
@@ -58,6 +73,7 @@
 		}
 	},
 	"hour": {
+		"current": "am broinn uair",
 		"past": {
 			"few": "o {0} uair.",
 			"other": "o {0} uair"
@@ -68,6 +84,7 @@
 		}
 	},
 	"minute": {
+		"current": "am broinn mion.",
 		"past": {
 			"one": "o {0} mhion.",
 			"two": "o {0} mhion.",
@@ -80,6 +97,7 @@
 		}
 	},
 	"second": {
+		"current": "an-dràsta",
 		"past": {
 			"two": "o {0} dhiog",
 			"few": "o {0} diog.",
@@ -91,12 +109,5 @@
 			"other": "an {0} diog"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "an-dràsta"
-		},
-		"future": {
-			"other": "an-dràsta"
-		}
-	}
+	"now": "an-dràsta"
 }

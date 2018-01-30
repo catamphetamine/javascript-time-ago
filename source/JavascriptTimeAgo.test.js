@@ -9,7 +9,7 @@ describe(`time ago`, function()
 	it(`should try various flavours if some are not found`, function()
 	{
 		const time_ago = new JavascriptTimeAgo('en')
-		time_ago.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('now')
+		time_ago.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('just now')
 	})
 
 	it(`should accept a string style argument`, function()
@@ -89,7 +89,7 @@ describe(`time ago`, function()
 	{
 		convenient_gradation_test
 		([
-			'now',
+			'just now',
 			'1 min. ago',
 			'2 min. ago',
 			'5 min. ago',
@@ -231,7 +231,7 @@ describe(`time ago`, function()
 			'40 мин. назад',
 			'45 мин. назад',
 			'50 мин. назад',
-			'1 ч. назад',
+			'1 ч. назад',
 			'2 ч. назад',
 			'3 ч. назад',
 			'4 ч. назад',
@@ -251,7 +251,7 @@ describe(`time ago`, function()
 			'18 ч. назад',
 			'19 ч. назад',
 			'20 ч. назад',
-			'1 д. назад',
+			'1 дн. назад',
 			'2 дн. назад',
 			'3 дн. назад',
 			'4 дн. назад',
@@ -284,7 +284,7 @@ describe(`time ago`, function()
 		convenient_gradation_test
 		([
 			'только что',
-			'минуту назад',
+			'1 минуту назад',
 			'2 минуты назад',
 			'5 минут назад',
 			'10 минут назад',
@@ -294,9 +294,9 @@ describe(`time ago`, function()
 			'полчаса назад',
 			'полчаса назад',
 			'полчаса назад',
-			'час назад',
-			'час назад',
-			'час назад',
+			'1 час назад',
+			'1 час назад',
+			'1 час назад',
 			'2 часа назад',
 			'3 часа назад',
 			'4 часа назад',
@@ -316,15 +316,15 @@ describe(`time ago`, function()
 			'18 часов назад',
 			'19 часов назад',
 			'20 часов назад',
-			'день назад',
+			'1 день назад',
 			'2 дня назад',
 			'3 дня назад',
 			'4 дня назад',
 			'5 дней назад',
-			'неделю назад',
+			'1 неделю назад',
 			'2 недели назад',
 			'3 недели назад',
-			'месяц назад',
+			'1 месяц назад',
 			'2 месяца назад',
 			'3 месяца назад',
 			'4 месяца назад',
@@ -333,9 +333,9 @@ describe(`time ago`, function()
 			'полгода назад',
 			'полгода назад',
 			'полгода назад',
-			'год назад',
-			'год назад',
-			'год назад',
+			'1 год назад',
+			'1 год назад',
+			'1 год назад',
 			'2 года назад',
 			'3 года назад',
 			'100 лет назад'
@@ -346,7 +346,7 @@ describe(`time ago`, function()
 	it(`should format future dates`, function()
 	{
 		new JavascriptTimeAgo('en').format(Date.now() + 60 * 60 * 1000).should.equal('in an hour')
-		new JavascriptTimeAgo('ru').format(Date.now() + 45 * 1000).should.equal('через минуту')
+		new JavascriptTimeAgo('ru').format(Date.now() + 45.1 * 1000).should.equal('через 1 минуту')
 	})
 })
 

@@ -112,12 +112,22 @@ export default class RelativeTimeFormat {
     // }
     // ```
     //
-    // Then choose either "past" or "future" based on time `value` sign.
-    const rules = getLocales()[this.locale][this.style][unit][value <= 0 ? "past" : "future"]
+    const unitRules = getLocales()[this.locale][this.style][unit]
+    if (typeof unitRules === "string") {
+      return unitRules
+    }
+    // Choose either "past" or "future" based on time `value` sign.
+    // If "past" is same as "future" then they're stored as "other".
+    // If there's only "other" then it's being collapsed.
+    const quantifierRules = unitRules[value <= 0 ? "past" : "future"] || unitRules
+    if (typeof quantifierRules === "string") {
+      return quantifierRules
+    }
     // Quantify `value`.
     const quantifier = getLocales()[this.locale].quantify(Math.abs(value))
-    // "other" rule is supposed to always be present
-    return rules[quantifier] || rules.other
+    // "other" rule is supposed to always be present.
+    // If only "other" rule is present then "rules" is not an object and is a string.
+    return quantifierRules[quantifier] || quantifierRules.other
   }
 
   /**

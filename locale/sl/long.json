@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "lani",
+		"current": "letos",
+		"next": "naslednje leto",
 		"past": {
 			"one": "pred {0} letom",
 			"two": "pred {0} letoma",
@@ -13,6 +16,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "zadnje četrtletje",
+		"current": "to četrtletje",
+		"next": "naslednje četrtletje",
 		"past": {
 			"one": "pred {0} četrtletjem",
 			"two": "pred {0} četrtletjema",
@@ -26,6 +32,9 @@
 		}
 	},
 	"month": {
+		"previous": "prejšnji mesec",
+		"current": "ta mesec",
+		"next": "naslednji mesec",
 		"past": {
 			"one": "pred {0} mesecem",
 			"two": "pred {0} mesecema",
@@ -39,6 +48,9 @@
 		}
 	},
 	"week": {
+		"previous": "prejšnji teden",
+		"current": "ta teden",
+		"next": "naslednji teden",
 		"past": {
 			"one": "pred {0} tednom",
 			"two": "pred {0} tednoma",
@@ -52,6 +64,9 @@
 		}
 	},
 	"day": {
+		"previous": "včeraj",
+		"current": "danes",
+		"next": "jutri",
 		"past": {
 			"one": "pred {0} dnevom",
 			"two": "pred {0} dnevoma",
@@ -64,6 +79,7 @@
 		}
 	},
 	"hour": {
+		"current": "v tej uri",
 		"past": {
 			"one": "pred {0} uro",
 			"two": "pred {0} urama",
@@ -77,6 +93,7 @@
 		}
 	},
 	"minute": {
+		"current": "to minuto",
 		"past": {
 			"one": "pred {0} minuto",
 			"two": "pred {0} minutama",
@@ -90,6 +107,7 @@
 		}
 	},
 	"second": {
+		"current": "zdaj",
 		"past": {
 			"one": "pred {0} sekundo",
 			"two": "pred {0} sekundama",
@@ -102,12 +120,5 @@
 			"other": "čez {0} sekund"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "zdaj"
-		},
-		"future": {
-			"other": "zdaj"
-		}
-	}
+	"now": "zdaj"
 }

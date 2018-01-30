@@ -1,39 +1,42 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} unyaka odlule"
-		},
+		"previous": "onyakeni odlule",
+		"current": "kulo nyaka",
+		"next": "unyaka ozayo",
+		"past": "{0} unyaka odlule",
 		"future": {
 			"one": "onyakeni ongu-{0} ozayo",
 			"other": "eminyakeni engu-{0} ezayo"
 		}
 	},
 	"quarter": {
+		"previous": "ikota edlule",
+		"current": "le kota",
+		"next": "ikota ezayo",
 		"past": {
 			"one": "{0} amakota adlule",
 			"other": "{0} amakota edlule"
 		},
-		"future": {
-			"other": "kumakota angu-{0}"
-		}
+		"future": "kumakota angu-{0}"
 	},
 	"month": {
-		"past": {
-			"other": "{0} izinyanga ezedlule"
-		},
-		"future": {
-			"other": "enyangeni engu-{0} ezayo"
-		}
+		"previous": "inyanga edlule",
+		"current": "le nyanga",
+		"next": "inyanga ezayo",
+		"past": "{0} izinyanga ezedlule",
+		"future": "enyangeni engu-{0} ezayo"
 	},
 	"week": {
-		"past": {
-			"other": "amaviki angu-{0} edlule"
-		},
-		"future": {
-			"other": "emavikini angu-{0} ezayo"
-		}
+		"previous": "iviki eledlule",
+		"current": "leli viki",
+		"next": "iviki elizayo",
+		"past": "amaviki angu-{0} edlule",
+		"future": "emavikini angu-{0} ezayo"
 	},
 	"day": {
+		"previous": "izolo",
+		"current": "namhlanje",
+		"next": "kusasa",
 		"past": {
 			"one": "{0} usuku olwedlule",
 			"other": "{0} izinsuku ezedlule"
@@ -44,6 +47,7 @@
 		}
 	},
 	"hour": {
+		"current": "leli hora",
 		"past": {
 			"one": "{0} ihora eledlule",
 			"other": "{0} amahora edlule"
@@ -54,6 +58,7 @@
 		}
 	},
 	"minute": {
+		"current": "leli minithi",
 		"past": {
 			"one": "{0} iminithi eledlule",
 			"other": "{0} amaminithi edlule"
@@ -64,6 +69,7 @@
 		}
 	},
 	"second": {
+		"current": "manje",
 		"past": {
 			"one": "{0} isekhondi eledlule",
 			"other": "{0} amasekhondi edlule"
@@ -72,5 +78,6 @@
 			"one": "kusekhondi elingu-{0} elizayo",
 			"other": "kumasekhondi angu-{0} ezayo"
 		}
-	}
+	},
+	"now": "manje"
 }

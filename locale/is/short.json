@@ -1,39 +1,42 @@
 {
 	"year": {
+		"previous": "á síðasta ári",
+		"current": "á þessu ári",
+		"next": "á næsta ári",
 		"past": {
 			"one": "fyrir {0} ári",
 			"other": "fyrir {0} árum"
 		},
-		"future": {
-			"other": "eftir {0} ár"
-		}
+		"future": "eftir {0} ár"
 	},
 	"quarter": {
-		"past": {
-			"other": "fyrir {0} ársfj."
-		},
-		"future": {
-			"other": "eftir {0} ársfj."
-		}
+		"previous": "síðasti ársfj.",
+		"current": "þessi ársfj.",
+		"next": "næsti ársfj.",
+		"past": "fyrir {0} ársfj.",
+		"future": "eftir {0} ársfj."
 	},
 	"month": {
-		"past": {
-			"other": "fyrir {0} mán."
-		},
-		"future": {
-			"other": "eftir {0} mán."
-		}
+		"previous": "í síðasta mán.",
+		"current": "í þessum mán.",
+		"next": "í næsta mán.",
+		"past": "fyrir {0} mán.",
+		"future": "eftir {0} mán."
 	},
 	"week": {
+		"previous": "í síðustu viku",
+		"current": "í þessari viku",
+		"next": "í næstu viku",
 		"past": {
 			"one": "fyrir {0} viku",
 			"other": "fyrir {0} vikum"
 		},
-		"future": {
-			"other": "eftir {0} vikur"
-		}
+		"future": "eftir {0} vikur"
 	},
 	"day": {
+		"previous": "í gær",
+		"current": "í dag",
+		"next": "á morgun",
 		"past": {
 			"one": "fyrir {0} degi",
 			"other": "fyrir {0} dögum"
@@ -44,35 +47,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "fyrir {0} klst."
-		},
-		"future": {
-			"other": "eftir {0} klst."
-		}
+		"current": "þessa stundina",
+		"past": "fyrir {0} klst.",
+		"future": "eftir {0} klst."
 	},
 	"minute": {
-		"past": {
-			"other": "fyrir {0} mín."
-		},
-		"future": {
-			"other": "eftir {0} mín."
-		}
+		"current": "á þessari mínútu",
+		"past": "fyrir {0} mín.",
+		"future": "eftir {0} mín."
 	},
 	"second": {
-		"past": {
-			"other": "fyrir {0} sek."
-		},
-		"future": {
-			"other": "eftir {0} sek."
-		}
+		"current": "núna",
+		"past": "fyrir {0} sek.",
+		"future": "eftir {0} sek."
 	},
-	"now": {
-		"past": {
-			"other": "núna"
-		},
-		"future": {
-			"other": "núna"
-		}
-	}
+	"now": "núna"
 }

@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} thn lalu"
-		},
-		"future": {
-			"other": "dalam {0} thn"
-		}
+		"previous": "thn lepas",
+		"current": "thn ini",
+		"next": "thn depan",
+		"past": "{0} thn lalu",
+		"future": "dalam {0} thn"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} suku thn lalu"
-		},
-		"future": {
-			"other": "dlm {0} suku thn"
-		}
+		"previous": "suku lepas",
+		"current": "suku ini",
+		"next": "suku seterusnya",
+		"past": "{0} suku thn lalu",
+		"future": "dlm {0} suku thn"
 	},
 	"month": {
-		"past": {
-			"other": "{0} bln lalu"
-		},
-		"future": {
-			"other": "dlm {0} bln"
-		}
+		"previous": "bln lalu",
+		"current": "bln ini",
+		"next": "bln depan",
+		"past": "{0} bln lalu",
+		"future": "dlm {0} bln"
 	},
 	"week": {
-		"past": {
-			"other": "{0} mgu lalu"
-		},
-		"future": {
-			"other": "dlm {0} mgu"
-		}
+		"previous": "mng lepas",
+		"current": "mng ini",
+		"next": "mng depan",
+		"past": "{0} mgu lalu",
+		"future": "dlm {0} mgu"
 	},
 	"day": {
-		"past": {
-			"other": "{0} hari lalu"
-		},
-		"future": {
-			"other": "dlm {0} hari"
-		}
+		"previous": "semlm",
+		"current": "hari ini",
+		"next": "esok",
+		"past": "{0} hari lalu",
+		"future": "dlm {0} hari"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} jam lalu"
-		},
-		"future": {
-			"other": "dlm {0} jam"
-		}
+		"current": "jam ini",
+		"past": "{0} jam lalu",
+		"future": "dlm {0} jam"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} min lalu"
-		},
-		"future": {
-			"other": "dlm {0} min"
-		}
+		"current": "pada minit ini",
+		"past": "{0} min lalu",
+		"future": "dlm {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "{0} saat lalu"
-		},
-		"future": {
-			"other": "dlm {0} saat"
-		}
+		"current": "sekarang",
+		"past": "{0} saat lalu",
+		"future": "dlm {0} saat"
 	},
-	"now": {
-		"past": {
-			"other": "sekarang"
-		},
-		"future": {
-			"other": "sekarang"
-		}
-	}
+	"now": "sekarang"
 }

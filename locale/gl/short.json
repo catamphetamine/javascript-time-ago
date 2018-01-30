@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "ano pasado",
+		"current": "este ano",
+		"next": "seguinte ano",
 		"past": {
 			"one": "hai {0} ano",
 			"other": "hai {0} anos"
@@ -10,14 +13,16 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "hai {0} trim."
-		},
-		"future": {
-			"other": "dentro de {0} trim."
-		}
+		"previous": "trim. pasado",
+		"current": "este trim.",
+		"next": "trim. seguinte",
+		"past": "hai {0} trim.",
+		"future": "dentro de {0} trim."
 	},
 	"month": {
+		"previous": "m. pasado",
+		"current": "este m.",
+		"next": "m. seguinte",
 		"past": {
 			"one": "hai {0} mes",
 			"other": "hai {0} mes."
@@ -28,14 +33,16 @@
 		}
 	},
 	"week": {
-		"past": {
-			"other": "hai {0} sem."
-		},
-		"future": {
-			"other": "dentro de {0} sem."
-		}
+		"previous": "sem. pasada",
+		"current": "esta sem.",
+		"next": "sem. seguinte",
+		"past": "hai {0} sem.",
+		"future": "dentro de {0} sem."
 	},
 	"day": {
+		"previous": "onte",
+		"current": "hoxe",
+		"next": "mañá",
 		"past": {
 			"one": "hai {0} día",
 			"other": "hai {0} días"
@@ -46,35 +53,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "hai {0} h"
-		},
-		"future": {
-			"other": "dentro de {0} h"
-		}
+		"current": "esta hora",
+		"past": "hai {0} h",
+		"future": "dentro de {0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "hai {0} min"
-		},
-		"future": {
-			"other": "dentro de {0} min"
-		}
+		"current": "este minuto",
+		"past": "hai {0} min",
+		"future": "dentro de {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "hai {0} s"
-		},
-		"future": {
-			"other": "dentro de {0} s"
-		}
+		"current": "agora",
+		"past": "hai {0} s",
+		"future": "dentro de {0} s"
 	},
-	"now": {
-		"past": {
-			"other": "agora"
-		},
-		"future": {
-			"other": "agora"
-		}
-	}
+	"now": "agora"
 }

@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "pśed {0} l."
-		},
-		"future": {
-			"other": "za {0} l."
-		}
+		"previous": "łoni",
+		"current": "lětosa",
+		"next": "znowa",
+		"past": "pśed {0} l.",
+		"future": "za {0} l."
 	},
 	"quarter": {
-		"past": {
-			"other": "pśed {0} kw."
-		},
-		"future": {
-			"other": "za {0} kw."
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "pśed {0} kw.",
+		"future": "za {0} kw."
 	},
 	"month": {
-		"past": {
-			"other": "pśed {0} mjas."
-		},
-		"future": {
-			"other": "za {0} mjas."
-		}
+		"previous": "slědny mjasec",
+		"current": "ten mjasec",
+		"next": "pśiducy mjasec",
+		"past": "pśed {0} mjas.",
+		"future": "za {0} mjas."
 	},
 	"week": {
-		"past": {
-			"other": "pśed {0} tyź."
-		},
-		"future": {
-			"other": "za {0} tyź."
-		}
+		"previous": "slědny tyźeń",
+		"current": "ten tyźeń",
+		"next": "pśiducy tyźeń",
+		"past": "pśed {0} tyź.",
+		"future": "za {0} tyź."
 	},
 	"day": {
-		"past": {
-			"other": "pśed {0} d"
-		},
-		"future": {
-			"other": "za {0} ź"
-		}
+		"previous": "cora",
+		"current": "źinsa",
+		"next": "witśe",
+		"past": "pśed {0} d",
+		"future": "za {0} ź"
 	},
 	"hour": {
-		"past": {
-			"other": "pśed {0} g"
-		},
-		"future": {
-			"other": "za {0} g"
-		}
+		"current": "this hour",
+		"past": "pśed {0} g",
+		"future": "za {0} g"
 	},
 	"minute": {
-		"past": {
-			"other": "pśed {0} m"
-		},
-		"future": {
-			"other": "za {0} m"
-		}
+		"current": "this minute",
+		"past": "pśed {0} m",
+		"future": "za {0} m"
 	},
 	"second": {
-		"past": {
-			"other": "pśed {0} s"
-		},
-		"future": {
-			"other": "za {0} s"
-		}
-	}
+		"current": "now",
+		"past": "pśed {0} s",
+		"future": "za {0} s"
+	},
+	"now": "now"
 }

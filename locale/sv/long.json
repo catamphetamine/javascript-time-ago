@@ -1,21 +1,22 @@
 {
 	"year": {
-		"past": {
-			"other": "för {0} år sedan"
-		},
-		"future": {
-			"other": "om {0} år"
-		}
+		"previous": "i fjol",
+		"current": "i år",
+		"next": "nästa år",
+		"past": "för {0} år sedan",
+		"future": "om {0} år"
 	},
 	"quarter": {
-		"past": {
-			"other": "för {0} kvartal sedan"
-		},
-		"future": {
-			"other": "om {0} kvartal"
-		}
+		"previous": "förra kvartalet",
+		"current": "detta kvartal",
+		"next": "nästa kvartal",
+		"past": "för {0} kvartal sedan",
+		"future": "om {0} kvartal"
 	},
 	"month": {
+		"previous": "förra månaden",
+		"current": "denna månad",
+		"next": "nästa månad",
 		"past": {
 			"one": "för {0} månad sedan",
 			"other": "för {0} månader sedan"
@@ -26,6 +27,9 @@
 		}
 	},
 	"week": {
+		"previous": "förra veckan",
+		"current": "denna vecka",
+		"next": "nästa vecka",
 		"past": {
 			"one": "för {0} vecka sedan",
 			"other": "för {0} veckor sedan"
@@ -36,6 +40,9 @@
 		}
 	},
 	"day": {
+		"previous": "i går",
+		"current": "i dag",
+		"next": "i morgon",
 		"past": {
 			"one": "för {0} dag sedan",
 			"other": "för {0} dagar sedan"
@@ -46,6 +53,7 @@
 		}
 	},
 	"hour": {
+		"current": "denna timme",
 		"past": {
 			"one": "för {0} timme sedan",
 			"other": "för {0} timmar sedan"
@@ -56,6 +64,7 @@
 		}
 	},
 	"minute": {
+		"current": "denna minut",
 		"past": {
 			"one": "för {0} minut sedan",
 			"other": "för {0} minuter sedan"
@@ -66,6 +75,7 @@
 		}
 	},
 	"second": {
+		"current": "nu",
 		"past": {
 			"one": "för {0} sekund sedan",
 			"other": "för {0} sekunder sedan"
@@ -75,12 +85,5 @@
 			"other": "om {0} sekunder"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "nu"
-		},
-		"future": {
-			"other": "nu"
-		}
-	}
+	"now": "nu"
 }

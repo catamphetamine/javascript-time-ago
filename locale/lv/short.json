@@ -1,37 +1,36 @@
 {
 	"year": {
-		"past": {
-			"other": "pirms {0} g."
-		},
-		"future": {
-			"other": "pēc {0} g."
-		}
+		"previous": "pagājušajā gadā",
+		"current": "šajā gadā",
+		"next": "nākamajā gadā",
+		"past": "pirms {0} g.",
+		"future": "pēc {0} g."
 	},
 	"quarter": {
-		"past": {
-			"other": "pirms {0} cet."
-		},
-		"future": {
-			"other": "pēc {0} cet."
-		}
+		"previous": "pēdējais ceturksnis",
+		"current": "šis ceturksnis",
+		"next": "nākamais ceturksnis",
+		"past": "pirms {0} cet.",
+		"future": "pēc {0} cet."
 	},
 	"month": {
-		"past": {
-			"other": "pirms {0} mēn."
-		},
-		"future": {
-			"other": "pēc {0} mēn."
-		}
+		"previous": "pagājušajā mēnesī",
+		"current": "šajā mēnesī",
+		"next": "nākamajā mēnesī",
+		"past": "pirms {0} mēn.",
+		"future": "pēc {0} mēn."
 	},
 	"week": {
-		"past": {
-			"other": "pirms {0} ned."
-		},
-		"future": {
-			"other": "pēc {0} ned."
-		}
+		"previous": "pagājušajā nedēļā",
+		"current": "šajā nedēļā",
+		"next": "nākamajā nedēļā",
+		"past": "pirms {0} ned.",
+		"future": "pēc {0} ned."
 	},
 	"day": {
+		"previous": "vakar",
+		"current": "šodien",
+		"next": "rīt",
 		"past": {
 			"one": "pirms {0} d.",
 			"other": "pirms {0} d."
@@ -42,35 +41,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "pirms {0} st."
-		},
-		"future": {
-			"other": "pēc {0} st."
-		}
+		"current": "šajā stundā",
+		"past": "pirms {0} st.",
+		"future": "pēc {0} st."
 	},
 	"minute": {
-		"past": {
-			"other": "pirms {0} min."
-		},
-		"future": {
-			"other": "pēc {0} min."
-		}
+		"current": "šajā minūtē",
+		"past": "pirms {0} min.",
+		"future": "pēc {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "pirms {0} sek."
-		},
-		"future": {
-			"other": "pēc {0} sek."
-		}
+		"current": "tagad",
+		"past": "pirms {0} sek.",
+		"future": "pēc {0} sek."
 	},
-	"now": {
-		"past": {
-			"other": "tagad"
-		},
-		"future": {
-			"other": "tagad"
-		}
-	}
+	"now": "tagad"
 }

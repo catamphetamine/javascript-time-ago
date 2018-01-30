@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} aasta eest"
-		},
-		"future": {
-			"other": "{0} aasta pärast"
-		}
+		"previous": "eelmine aasta",
+		"current": "käesolev aasta",
+		"next": "järgmine aasta",
+		"past": "{0} aasta eest",
+		"future": "{0} aasta pärast"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} kvartali eest"
-		},
-		"future": {
-			"other": "{0} kvartali pärast"
-		}
+		"previous": "eelmine kvartal",
+		"current": "käesolev kvartal",
+		"next": "järgmine kvartal",
+		"past": "{0} kvartali eest",
+		"future": "{0} kvartali pärast"
 	},
 	"month": {
-		"past": {
-			"other": "{0} kuu eest"
-		},
-		"future": {
-			"other": "{0} kuu pärast"
-		}
+		"previous": "eelmine kuu",
+		"current": "käesolev kuu",
+		"next": "järgmine kuu",
+		"past": "{0} kuu eest",
+		"future": "{0} kuu pärast"
 	},
 	"week": {
-		"past": {
-			"other": "{0} nädala eest"
-		},
-		"future": {
-			"other": "{0} nädala pärast"
-		}
+		"previous": "eelmine nädal",
+		"current": "käesolev nädal",
+		"next": "järgmine nädal",
+		"past": "{0} nädala eest",
+		"future": "{0} nädala pärast"
 	},
 	"day": {
-		"past": {
-			"other": "{0} päeva eest"
-		},
-		"future": {
-			"other": "{0} päeva pärast"
-		}
+		"previous": "eile",
+		"current": "täna",
+		"next": "homme",
+		"past": "{0} päeva eest",
+		"future": "{0} päeva pärast"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} tunni eest"
-		},
-		"future": {
-			"other": "{0} tunni pärast"
-		}
+		"current": "praegusel tunnil",
+		"past": "{0} tunni eest",
+		"future": "{0} tunni pärast"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} minuti eest"
-		},
-		"future": {
-			"other": "{0} minuti pärast"
-		}
+		"current": "praegusel minutil",
+		"past": "{0} minuti eest",
+		"future": "{0} minuti pärast"
 	},
 	"second": {
-		"past": {
-			"other": "{0} sekundi eest"
-		},
-		"future": {
-			"other": "{0} sekundi pärast"
-		}
+		"current": "nüüd",
+		"past": "{0} sekundi eest",
+		"future": "{0} sekundi pärast"
 	},
-	"now": {
-		"past": {
-			"other": "nüüd"
-		},
-		"future": {
-			"other": "nüüd"
-		}
-	}
+	"now": "nüüd"
 }

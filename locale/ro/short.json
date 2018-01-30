@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "anul trecut",
+		"current": "anul acesta",
+		"next": "anul viitor",
 		"past": {
 			"one": "acum {0} an",
 			"few": "acum {0} ani",
@@ -12,14 +15,16 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "acum {0} trim."
-		},
-		"future": {
-			"other": "peste {0} trim."
-		}
+		"previous": "trim. trecut",
+		"current": "trim. acesta",
+		"next": "trim. viitor",
+		"past": "acum {0} trim.",
+		"future": "peste {0} trim."
 	},
 	"month": {
+		"previous": "luna trecută",
+		"current": "luna aceasta",
+		"next": "luna viitoare",
 		"past": {
 			"one": "acum {0} lună",
 			"other": "acum {0} luni"
@@ -30,14 +35,16 @@
 		}
 	},
 	"week": {
-		"past": {
-			"other": "acum {0} săpt."
-		},
-		"future": {
-			"other": "peste {0} săpt."
-		}
+		"previous": "săptămâna trecută",
+		"current": "săptămâna aceasta",
+		"next": "săptămâna viitoare",
+		"past": "acum {0} săpt.",
+		"future": "peste {0} săpt."
 	},
 	"day": {
+		"previous": "ieri",
+		"current": "azi",
+		"next": "mâine",
 		"past": {
 			"one": "acum {0} zi",
 			"few": "acum {0} zile",
@@ -50,35 +57,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "acum {0} h"
-		},
-		"future": {
-			"other": "peste {0} h"
-		}
+		"current": "ora aceasta",
+		"past": "acum {0} h",
+		"future": "peste {0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "acum {0} min."
-		},
-		"future": {
-			"other": "peste {0} min."
-		}
+		"current": "minutul acesta",
+		"past": "acum {0} min.",
+		"future": "peste {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "acum {0} sec."
-		},
-		"future": {
-			"other": "peste {0} sec."
-		}
+		"current": "acum",
+		"past": "acum {0} sec.",
+		"future": "peste {0} sec."
 	},
-	"now": {
-		"past": {
-			"other": "acum"
-		},
-		"future": {
-			"other": "acum"
-		}
-	}
+	"now": "acum"
 }

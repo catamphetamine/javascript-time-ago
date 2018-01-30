@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0}年前"
-		},
-		"future": {
-			"other": "{0}年后"
-		}
+		"previous": "去年",
+		"current": "今年",
+		"next": "明年",
+		"past": "{0}年前",
+		"future": "{0}年后"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0}个季度前"
-		},
-		"future": {
-			"other": "{0}个季度后"
-		}
+		"previous": "上季度",
+		"current": "本季度",
+		"next": "下季度",
+		"past": "{0}个季度前",
+		"future": "{0}个季度后"
 	},
 	"month": {
-		"past": {
-			"other": "{0}个月前"
-		},
-		"future": {
-			"other": "{0}个月后"
-		}
+		"previous": "上个月",
+		"current": "本月",
+		"next": "下个月",
+		"past": "{0}个月前",
+		"future": "{0}个月后"
 	},
 	"week": {
-		"past": {
-			"other": "{0}周前"
-		},
-		"future": {
-			"other": "{0}周后"
-		}
+		"previous": "上周",
+		"current": "本周",
+		"next": "下周",
+		"past": "{0}周前",
+		"future": "{0}周后"
 	},
 	"day": {
-		"past": {
-			"other": "{0}天前"
-		},
-		"future": {
-			"other": "{0}天后"
-		}
+		"previous": "昨天",
+		"current": "今天",
+		"next": "明天",
+		"past": "{0}天前",
+		"future": "{0}天后"
 	},
 	"hour": {
-		"past": {
-			"other": "{0}小时前"
-		},
-		"future": {
-			"other": "{0}小时后"
-		}
+		"current": "这一时间 / 此时",
+		"past": "{0}小时前",
+		"future": "{0}小时后"
 	},
 	"minute": {
-		"past": {
-			"other": "{0}分钟前"
-		},
-		"future": {
-			"other": "{0}分钟后"
-		}
+		"current": "此刻",
+		"past": "{0}分钟前",
+		"future": "{0}分钟后"
 	},
 	"second": {
-		"past": {
-			"other": "{0}秒前"
-		},
-		"future": {
-			"other": "{0}秒后"
-		}
+		"current": "现在",
+		"past": "{0}秒前",
+		"future": "{0}秒后"
 	},
-	"now": {
-		"past": {
-			"other": "现在"
-		},
-		"future": {
-			"other": "现在"
-		}
-	}
+	"now": "现在"
 }

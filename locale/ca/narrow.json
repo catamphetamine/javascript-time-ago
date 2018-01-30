@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "l’any passat",
+		"current": "enguany",
+		"next": "l’any que ve",
 		"past": {
 			"one": "fa {0} any",
 			"other": "fa {0} anys"
@@ -10,14 +13,16 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "fa {0} trim."
-		},
-		"future": {
-			"other": "d’aquí a {0} trim."
-		}
+		"previous": "trim. passat",
+		"current": "aquest trim.",
+		"next": "trim. vinent",
+		"past": "fa {0} trim.",
+		"future": "d’aquí a {0} trim."
 	},
 	"month": {
+		"previous": "mes passat",
+		"current": "aquest mes",
+		"next": "mes vinent",
 		"past": {
 			"one": "fa {0} mes",
 			"other": "fa {0} mesos"
@@ -28,14 +33,16 @@
 		}
 	},
 	"week": {
-		"past": {
-			"other": "fa {0} setm."
-		},
-		"future": {
-			"other": "d’aquí a {0} setm."
-		}
+		"previous": "setm. passada",
+		"current": "aquesta setm.",
+		"next": "setm. vinent",
+		"past": "fa {0} setm.",
+		"future": "d’aquí a {0} setm."
 	},
 	"day": {
+		"previous": "ahir",
+		"current": "avui",
+		"next": "demà",
 		"past": {
 			"one": "fa {0} dia",
 			"other": "fa {0} dies"
@@ -46,27 +53,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "fa {0} h"
-		},
-		"future": {
-			"other": "d‘aquí a {0} h"
-		}
+		"current": "aquesta hora",
+		"past": "fa {0} h",
+		"future": "d‘aquí a {0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "fa {0} min"
-		},
-		"future": {
-			"other": "d’aquí a {0} min"
-		}
+		"current": "aquest minut",
+		"past": "fa {0} min",
+		"future": "d’aquí a {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "fa {0} s"
-		},
-		"future": {
-			"other": "d’aquí a {0} s"
-		}
-	}
+		"current": "ara",
+		"past": "fa {0} s",
+		"future": "d’aquí a {0} s"
+	},
+	"now": "ara"
 }

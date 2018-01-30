@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} tahun lalu"
-		},
-		"future": {
-			"other": "dalam {0} tahun"
-		}
+		"previous": "tahun lalu",
+		"current": "tahun ini",
+		"next": "tahun depan",
+		"past": "{0} tahun lalu",
+		"future": "dalam {0} tahun"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} suku tahun lalu"
-		},
-		"future": {
-			"other": "dalam {0} suku tahun"
-		}
+		"previous": "suku tahun lalu",
+		"current": "suku tahun ini",
+		"next": "suku tahun seterusnya",
+		"past": "{0} suku tahun lalu",
+		"future": "dalam {0} suku tahun"
 	},
 	"month": {
-		"past": {
-			"other": "{0} bulan lalu"
-		},
-		"future": {
-			"other": "dalam {0} bulan"
-		}
+		"previous": "bulan lalu",
+		"current": "bulan ini",
+		"next": "bulan depan",
+		"past": "{0} bulan lalu",
+		"future": "dalam {0} bulan"
 	},
 	"week": {
-		"past": {
-			"other": "{0} minggu lalu"
-		},
-		"future": {
-			"other": "dalam {0} minggu"
-		}
+		"previous": "minggu lalu",
+		"current": "minggu ini",
+		"next": "minggu depan",
+		"past": "{0} minggu lalu",
+		"future": "dalam {0} minggu"
 	},
 	"day": {
-		"past": {
-			"other": "{0} hari lalu"
-		},
-		"future": {
-			"other": "dalam {0} hari"
-		}
+		"previous": "semalam",
+		"current": "hari ini",
+		"next": "esok",
+		"past": "{0} hari lalu",
+		"future": "dalam {0} hari"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} jam lalu"
-		},
-		"future": {
-			"other": "dalam {0} jam"
-		}
+		"current": "jam ini",
+		"past": "{0} jam lalu",
+		"future": "dalam {0} jam"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} minit lalu"
-		},
-		"future": {
-			"other": "dalam {0} minit"
-		}
+		"current": "pada minit ini",
+		"past": "{0} minit lalu",
+		"future": "dalam {0} minit"
 	},
 	"second": {
-		"past": {
-			"other": "{0} saat lalu"
-		},
-		"future": {
-			"other": "dalam {0} saat"
-		}
+		"current": "sekarang",
+		"past": "{0} saat lalu",
+		"future": "dalam {0} saat"
 	},
-	"now": {
-		"past": {
-			"other": "sekarang"
-		},
-		"future": {
-			"other": "sekarang"
-		}
-	}
+	"now": "sekarang"
 }

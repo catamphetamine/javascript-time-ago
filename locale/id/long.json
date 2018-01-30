@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} tahun yang lalu"
-		},
-		"future": {
-			"other": "dalam {0} tahun"
-		}
+		"previous": "tahun lalu",
+		"current": "tahun ini",
+		"next": "tahun depan",
+		"past": "{0} tahun yang lalu",
+		"future": "dalam {0} tahun"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} kuartal yang lalu"
-		},
-		"future": {
-			"other": "dalam {0} kuartal"
-		}
+		"previous": "Kuartal lalu",
+		"current": "kuartal ini",
+		"next": "kuartal berikutnya",
+		"past": "{0} kuartal yang lalu",
+		"future": "dalam {0} kuartal"
 	},
 	"month": {
-		"past": {
-			"other": "{0} bulan yang lalu"
-		},
-		"future": {
-			"other": "dalam {0} bulan"
-		}
+		"previous": "bulan lalu",
+		"current": "bulan ini",
+		"next": "bulan berikutnya",
+		"past": "{0} bulan yang lalu",
+		"future": "dalam {0} bulan"
 	},
 	"week": {
-		"past": {
-			"other": "{0} minggu yang lalu"
-		},
-		"future": {
-			"other": "dalam {0} minggu"
-		}
+		"previous": "minggu lalu",
+		"current": "minggu ini",
+		"next": "minggu depan",
+		"past": "{0} minggu yang lalu",
+		"future": "dalam {0} minggu"
 	},
 	"day": {
-		"past": {
-			"other": "{0} hari yang lalu"
-		},
-		"future": {
-			"other": "dalam {0} hari"
-		}
+		"previous": "kemarin",
+		"current": "hari ini",
+		"next": "besok",
+		"past": "{0} hari yang lalu",
+		"future": "dalam {0} hari"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} jam yang lalu"
-		},
-		"future": {
-			"other": "dalam {0} jam"
-		}
+		"current": "jam ini",
+		"past": "{0} jam yang lalu",
+		"future": "dalam {0} jam"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} menit yang lalu"
-		},
-		"future": {
-			"other": "dalam {0} menit"
-		}
+		"current": "menit ini",
+		"past": "{0} menit yang lalu",
+		"future": "dalam {0} menit"
 	},
 	"second": {
-		"past": {
-			"other": "{0} detik yang lalu"
-		},
-		"future": {
-			"other": "dalam {0} detik"
-		}
+		"current": "sekarang",
+		"past": "{0} detik yang lalu",
+		"future": "dalam {0} detik"
 	},
-	"now": {
-		"past": {
-			"other": "sekarang"
-		},
-		"future": {
-			"other": "sekarang"
-		}
-	}
+	"now": "sekarang"
 }

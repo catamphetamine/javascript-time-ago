@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "o ano pasado",
+		"current": "este ano",
+		"next": "o próximo ano",
 		"past": {
 			"one": "hai {0} ano",
 			"other": "hai {0} anos"
@@ -10,6 +13,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "o trimestre pasado",
+		"current": "este trimestre",
+		"next": "o próximo trimestre",
 		"past": {
 			"one": "hai {0} trimestre",
 			"other": "hai {0} trimestres"
@@ -20,6 +26,9 @@
 		}
 	},
 	"month": {
+		"previous": "o mes pasado",
+		"current": "este mes",
+		"next": "o próximo mes",
 		"past": {
 			"one": "hai {0} mes",
 			"other": "hai {0} meses"
@@ -30,6 +39,9 @@
 		}
 	},
 	"week": {
+		"previous": "a semana pasada",
+		"current": "esta semana",
+		"next": "a próxima semana",
 		"past": {
 			"one": "hai {0} semana",
 			"other": "hai {0} semanas"
@@ -40,6 +52,9 @@
 		}
 	},
 	"day": {
+		"previous": "onte",
+		"current": "hoxe",
+		"next": "mañá",
 		"past": {
 			"one": "hai {0} día",
 			"other": "hai {0} días"
@@ -50,6 +65,7 @@
 		}
 	},
 	"hour": {
+		"current": "esta hora",
 		"past": {
 			"one": "hai {0} hora",
 			"other": "hai {0} horas"
@@ -60,6 +76,7 @@
 		}
 	},
 	"minute": {
+		"current": "este minuto",
 		"past": {
 			"one": "hai {0} minuto",
 			"other": "hai {0} minutos"
@@ -70,6 +87,7 @@
 		}
 	},
 	"second": {
+		"current": "agora",
 		"past": {
 			"one": "hai {0} segundo",
 			"other": "hai {0} segundos"
@@ -79,12 +97,5 @@
 			"other": "dentro de {0} segundos"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "agora"
-		},
-		"future": {
-			"other": "agora"
-		}
-	}
+	"now": "agora"
 }

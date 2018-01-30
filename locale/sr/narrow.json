@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "пре {0} г."
-		},
-		"future": {
-			"other": "за {0} г."
-		}
+		"previous": "прошле г.",
+		"current": "ове г.",
+		"next": "следеће г.",
+		"past": "пре {0} г.",
+		"future": "за {0} г."
 	},
 	"quarter": {
-		"past": {
-			"other": "пре {0} кв."
-		},
-		"future": {
-			"other": "за {0} кв."
-		}
+		"previous": "прошлог квартала",
+		"current": "овог квартала",
+		"next": "следећег квартала",
+		"past": "пре {0} кв.",
+		"future": "за {0} кв."
 	},
 	"month": {
-		"past": {
-			"other": "пре {0} м."
-		},
-		"future": {
-			"other": "за {0} м."
-		}
+		"previous": "прошлог м.",
+		"current": "овог м.",
+		"next": "следећег м.",
+		"past": "пре {0} м.",
+		"future": "за {0} м."
 	},
 	"week": {
-		"past": {
-			"other": "пре {0} н."
-		},
-		"future": {
-			"other": "за {0} н."
-		}
+		"previous": "прошле н.",
+		"current": "ове н.",
+		"next": "следеће н.",
+		"past": "пре {0} н.",
+		"future": "за {0} н."
 	},
 	"day": {
-		"past": {
-			"other": "пре {0} д."
-		},
-		"future": {
-			"other": "за {0} д."
-		}
+		"previous": "јуче",
+		"current": "данас",
+		"next": "сутра",
+		"past": "пре {0} д.",
+		"future": "за {0} д."
 	},
 	"hour": {
-		"past": {
-			"other": "пре {0} ч."
-		},
-		"future": {
-			"other": "за {0} ч."
-		}
+		"current": "овог сата",
+		"past": "пре {0} ч.",
+		"future": "за {0} ч."
 	},
 	"minute": {
-		"past": {
-			"other": "пре {0} мин."
-		},
-		"future": {
-			"other": "за {0} мин."
-		}
+		"current": "овог минута",
+		"past": "пре {0} мин.",
+		"future": "за {0} мин."
 	},
 	"second": {
-		"past": {
-			"other": "пре {0} с."
-		},
-		"future": {
-			"other": "за {0} с."
-		}
-	}
+		"current": "сада",
+		"past": "пре {0} с.",
+		"future": "за {0} с."
+	},
+	"now": "сада"
 }

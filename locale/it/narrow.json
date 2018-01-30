@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "anno scorso",
+		"current": "quest’anno",
+		"next": "anno prossimo",
 		"past": {
 			"one": "{0} anno fa",
 			"other": "{0} anni fa"
@@ -10,14 +13,16 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} trim. fa"
-		},
-		"future": {
-			"other": "tra {0} trim."
-		}
+		"previous": "trimestre scorso",
+		"current": "questo trimestre",
+		"next": "trimestre prossimo",
+		"past": "{0} trim. fa",
+		"future": "tra {0} trim."
 	},
 	"month": {
+		"previous": "mese scorso",
+		"current": "questo mese",
+		"next": "mese prossimo",
 		"past": {
 			"one": "{0} mese fa",
 			"other": "{0} mesi fa"
@@ -28,14 +33,16 @@
 		}
 	},
 	"week": {
-		"past": {
-			"other": "{0} sett. fa"
-		},
-		"future": {
-			"other": "tra {0} sett."
-		}
+		"previous": "settimana scorsa",
+		"current": "questa settimana",
+		"next": "settimana prossima",
+		"past": "{0} sett. fa",
+		"future": "tra {0} sett."
 	},
 	"day": {
+		"previous": "ieri",
+		"current": "oggi",
+		"next": "domani",
 		"past": {
 			"one": "{0} g fa",
 			"other": "{0} gg fa"
@@ -46,27 +53,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "{0} h fa"
-		},
-		"future": {
-			"other": "tra {0} h"
-		}
+		"current": "quest’ora",
+		"past": "{0} h fa",
+		"future": "tra {0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} min fa"
-		},
-		"future": {
-			"other": "tra {0} min"
-		}
+		"current": "questo minuto",
+		"past": "{0} min fa",
+		"future": "tra {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "{0} s fa"
-		},
-		"future": {
-			"other": "tra {0} s"
-		}
-	}
+		"current": "ora",
+		"past": "{0} s fa",
+		"future": "tra {0} s"
+	},
+	"now": "ora"
 }

@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "vitin e kaluar",
+		"current": "këtë vit",
+		"next": "vitin e ardhshëm",
 		"past": {
 			"one": "{0} vit më parë",
 			"other": "{0} vjet më parë"
@@ -10,6 +13,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "tremujorin e kaluar",
+		"current": "këtë tremujor",
+		"next": "tremujorin e ardhshëm",
 		"past": {
 			"one": "{0} tremujor më parë",
 			"other": "{0} tremujorë më parë"
@@ -20,63 +26,52 @@
 		}
 	},
 	"month": {
-		"past": {
-			"other": "{0} muaj më parë"
-		},
+		"previous": "muajin e kaluar",
+		"current": "këtë muaj",
+		"next": "muajin e ardhshëm",
+		"past": "{0} muaj më parë",
 		"future": {
 			"one": "pas {0} muaji",
 			"other": "pas {0} muajsh"
 		}
 	},
 	"week": {
-		"past": {
-			"other": "{0} javë më parë"
-		},
+		"previous": "javën e kaluar",
+		"current": "këtë javë",
+		"next": "javën e ardhshme",
+		"past": "{0} javë më parë",
 		"future": {
 			"one": "pas {0} jave",
 			"other": "pas {0} javësh"
 		}
 	},
 	"day": {
-		"past": {
-			"other": "{0} ditë më parë"
-		},
+		"previous": "dje",
+		"current": "sot",
+		"next": "nesër",
+		"past": "{0} ditë më parë",
 		"future": {
 			"one": "pas {0} dite",
 			"other": "pas {0} ditësh"
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "{0} orë më parë"
-		},
+		"current": "këtë orë",
+		"past": "{0} orë më parë",
 		"future": {
 			"one": "pas {0} ore",
 			"other": "pas {0} orësh"
 		}
 	},
 	"minute": {
-		"past": {
-			"other": "{0} min. më parë"
-		},
-		"future": {
-			"other": "pas {0} min."
-		}
+		"current": "këtë minutë",
+		"past": "{0} min. më parë",
+		"future": "pas {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "{0} sek. më parë"
-		},
-		"future": {
-			"other": "pas {0} sek."
-		}
+		"current": "tani",
+		"past": "{0} sek. më parë",
+		"future": "pas {0} sek."
 	},
-	"now": {
-		"past": {
-			"other": "tani"
-		},
-		"future": {
-			"other": "tani"
-		}
-	}
+	"now": "tani"
 }

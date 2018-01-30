@@ -1,40 +1,37 @@
 {
 	"year": {
-		"past": {
-			"other": "před {0} l."
-		},
-		"future": {
-			"other": "za {0} l."
-		}
+		"previous": "loni",
+		"current": "lětsa",
+		"next": "klětu",
+		"past": "před {0} l.",
+		"future": "za {0} l."
 	},
 	"quarter": {
-		"past": {
-			"other": "před {0} kwart."
-		},
-		"future": {
-			"other": "za {0} kwart."
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "před {0} kwart.",
+		"future": "za {0} kwart."
 	},
 	"month": {
-		"past": {
-			"other": "před {0} měs."
-		},
-		"future": {
-			"other": "za {0} měs."
-		}
+		"previous": "zašły měsac",
+		"current": "tutón měsac",
+		"next": "přichodny měsac",
+		"past": "před {0} měs.",
+		"future": "za {0} měs."
 	},
 	"week": {
-		"past": {
-			"other": "před {0} tydź."
-		},
-		"future": {
-			"other": "za {0} tydź."
-		}
+		"previous": "zašły tydźeń",
+		"current": "tutón tydźeń",
+		"next": "přichodny tydźeń",
+		"past": "před {0} tydź.",
+		"future": "za {0} tydź."
 	},
 	"day": {
-		"past": {
-			"other": "před {0} dnj."
-		},
+		"previous": "wčera",
+		"current": "dźensa",
+		"next": "jutře",
+		"past": "před {0} dnj.",
 		"future": {
 			"one": "za {0} dźeń",
 			"few": "za {0} dny",
@@ -42,35 +39,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "před {0} hodź."
-		},
-		"future": {
-			"other": "za {0} hodź."
-		}
+		"current": "this hour",
+		"past": "před {0} hodź.",
+		"future": "za {0} hodź."
 	},
 	"minute": {
-		"past": {
-			"other": "před {0} min."
-		},
-		"future": {
-			"other": "za {0} min."
-		}
+		"current": "this minute",
+		"past": "před {0} min.",
+		"future": "za {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "před {0} sek."
-		},
-		"future": {
-			"other": "za {0} sek."
-		}
+		"current": "now",
+		"past": "před {0} sek.",
+		"future": "za {0} sek."
 	},
-	"now": {
-		"past": {
-			"other": "now"
-		},
-		"future": {
-			"other": "now"
-		}
-	}
+	"now": "now"
 }

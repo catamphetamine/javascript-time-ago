@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} yil oldin"
-		},
-		"future": {
-			"other": "{0} yildan keyin"
-		}
+		"previous": "oʻtgan yil",
+		"current": "bu yil",
+		"next": "keyingi yil",
+		"past": "{0} yil oldin",
+		"future": "{0} yildan keyin"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} chorak oldin"
-		},
-		"future": {
-			"other": "{0} chorakdan keyin"
-		}
+		"previous": "o‘tgan chorak",
+		"current": "shu chorak",
+		"next": "keyingi chorak",
+		"past": "{0} chorak oldin",
+		"future": "{0} chorakdan keyin"
 	},
 	"month": {
-		"past": {
-			"other": "{0} oy oldin"
-		},
-		"future": {
-			"other": "{0} oydan keyin"
-		}
+		"previous": "o‘tgan oy",
+		"current": "shu oy",
+		"next": "keyingi oy",
+		"past": "{0} oy oldin",
+		"future": "{0} oydan keyin"
 	},
 	"week": {
-		"past": {
-			"other": "{0} hafta oldin"
-		},
-		"future": {
-			"other": "{0} haftadan keyin"
-		}
+		"previous": "o‘tgan hafta",
+		"current": "shu hafta",
+		"next": "keyingi hafta",
+		"past": "{0} hafta oldin",
+		"future": "{0} haftadan keyin"
 	},
 	"day": {
-		"past": {
-			"other": "{0} kun oldin"
-		},
-		"future": {
-			"other": "{0} kundan keyin"
-		}
+		"previous": "kecha",
+		"current": "bugun",
+		"next": "ertaga",
+		"past": "{0} kun oldin",
+		"future": "{0} kundan keyin"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} soat oldin"
-		},
-		"future": {
-			"other": "{0} soatdan keyin"
-		}
+		"current": "shu soatda",
+		"past": "{0} soat oldin",
+		"future": "{0} soatdan keyin"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} daqiqa oldin"
-		},
-		"future": {
-			"other": "{0} daqiqadan keyin"
-		}
+		"current": "shu daqiqada",
+		"past": "{0} daqiqa oldin",
+		"future": "{0} daqiqadan keyin"
 	},
 	"second": {
-		"past": {
-			"other": "{0} soniya oldin"
-		},
-		"future": {
-			"other": "{0} soniyadan keyin"
-		}
+		"current": "hozir",
+		"past": "{0} soniya oldin",
+		"future": "{0} soniyadan keyin"
 	},
-	"now": {
-		"past": {
-			"other": "hozir"
-		},
-		"future": {
-			"other": "hozir"
-		}
-	}
+	"now": "hozir"
 }

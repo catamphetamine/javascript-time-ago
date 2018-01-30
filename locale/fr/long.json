@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "l’année dernière",
+		"current": "cette année",
+		"next": "l’année prochaine",
 		"past": {
 			"one": "il y a {0} an",
 			"other": "il y a {0} ans"
@@ -10,6 +13,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "le trimestre dernier",
+		"current": "ce trimestre",
+		"next": "le trimestre prochain",
 		"past": {
 			"one": "il y a {0} trimestre",
 			"other": "il y a {0} trimestres"
@@ -20,14 +26,16 @@
 		}
 	},
 	"month": {
-		"past": {
-			"other": "il y a {0} mois"
-		},
-		"future": {
-			"other": "dans {0} mois"
-		}
+		"previous": "le mois dernier",
+		"current": "ce mois-ci",
+		"next": "le mois prochain",
+		"past": "il y a {0} mois",
+		"future": "dans {0} mois"
 	},
 	"week": {
+		"previous": "la semaine dernière",
+		"current": "cette semaine",
+		"next": "la semaine prochaine",
 		"past": {
 			"one": "il y a {0} semaine",
 			"other": "il y a {0} semaines"
@@ -38,6 +46,9 @@
 		}
 	},
 	"day": {
+		"previous": "hier",
+		"current": "aujourd’hui",
+		"next": "demain",
 		"past": {
 			"one": "il y a {0} jour",
 			"other": "il y a {0} jours"
@@ -48,6 +59,7 @@
 		}
 	},
 	"hour": {
+		"current": "cette heure-ci",
 		"past": {
 			"one": "il y a {0} heure",
 			"other": "il y a {0} heures"
@@ -58,6 +70,7 @@
 		}
 	},
 	"minute": {
+		"current": "cette minute-ci",
 		"past": {
 			"one": "il y a {0} minute",
 			"other": "il y a {0} minutes"
@@ -68,6 +81,7 @@
 		}
 	},
 	"second": {
+		"current": "maintenant",
 		"past": {
 			"one": "il y a {0} seconde",
 			"other": "il y a {0} secondes"
@@ -77,12 +91,5 @@
 			"other": "dans {0} secondes"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "maintenant"
-		},
-		"future": {
-			"other": "maintenant"
-		}
-	}
+	"now": "maintenant"
 }

@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "-{0} y"
-		},
-		"future": {
-			"other": "+{0} y"
-		}
+		"previous": "last year",
+		"current": "this year",
+		"next": "next year",
+		"past": "-{0} y",
+		"future": "+{0} y"
 	},
 	"quarter": {
-		"past": {
-			"other": "-{0} Q"
-		},
-		"future": {
-			"other": "+{0} Q"
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "-{0} Q",
+		"future": "+{0} Q"
 	},
 	"month": {
-		"past": {
-			"other": "-{0} m"
-		},
-		"future": {
-			"other": "+{0} m"
-		}
+		"previous": "last month",
+		"current": "this month",
+		"next": "next month",
+		"past": "-{0} m",
+		"future": "+{0} m"
 	},
 	"week": {
-		"past": {
-			"other": "-{0} w"
-		},
-		"future": {
-			"other": "+{0} w"
-		}
+		"previous": "last week",
+		"current": "this week",
+		"next": "next week",
+		"past": "-{0} w",
+		"future": "+{0} w"
 	},
 	"day": {
-		"past": {
-			"other": "-{0} d"
-		},
-		"future": {
-			"other": "+{0} d"
-		}
+		"previous": "Omaly",
+		"current": "Anio",
+		"next": "Rahampitso",
+		"past": "-{0} d",
+		"future": "+{0} d"
 	},
 	"hour": {
-		"past": {
-			"other": "-{0} h"
-		},
-		"future": {
-			"other": "+{0} h"
-		}
+		"current": "this hour",
+		"past": "-{0} h",
+		"future": "+{0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "-{0} min"
-		},
-		"future": {
-			"other": "+{0} min"
-		}
+		"current": "this minute",
+		"past": "-{0} min",
+		"future": "+{0} min"
 	},
 	"second": {
-		"past": {
-			"other": "-{0} s"
-		},
-		"future": {
-			"other": "+{0} s"
-		}
-	}
+		"current": "now",
+		"past": "-{0} s",
+		"future": "+{0} s"
+	},
+	"now": "now"
 }

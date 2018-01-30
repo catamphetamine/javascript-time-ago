@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "loni",
+		"current": "lětsa",
+		"next": "klětu",
 		"past": {
 			"one": "před {0} lětom",
 			"two": "před {0} lětomaj",
@@ -13,6 +16,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
 		"past": {
 			"one": "před {0} kwartalom",
 			"two": "před {0} kwartalomaj",
@@ -26,6 +32,9 @@
 		}
 	},
 	"month": {
+		"previous": "zašły měsac",
+		"current": "tutón měsac",
+		"next": "přichodny měsac",
 		"past": {
 			"one": "před {0} měsacom",
 			"two": "před {0} měsacomaj",
@@ -39,6 +48,9 @@
 		}
 	},
 	"week": {
+		"previous": "zašły tydźeń",
+		"current": "tutón tydźeń",
+		"next": "přichodny tydźeń",
 		"past": {
 			"one": "před {0} tydźenjom",
 			"two": "před {0} tydźenjomaj",
@@ -52,6 +64,9 @@
 		}
 	},
 	"day": {
+		"previous": "wčera",
+		"current": "dźensa",
+		"next": "jutře",
 		"past": {
 			"one": "před {0} dnjom",
 			"two": "před {0} dnjomaj",
@@ -65,6 +80,7 @@
 		}
 	},
 	"hour": {
+		"current": "this hour",
 		"past": {
 			"one": "před {0} hodźinu",
 			"two": "před {0} hodźinomaj",
@@ -78,6 +94,7 @@
 		}
 	},
 	"minute": {
+		"current": "this minute",
 		"past": {
 			"one": "před {0} minutu",
 			"two": "před {0} minutomaj",
@@ -91,6 +108,7 @@
 		}
 	},
 	"second": {
+		"current": "now",
 		"past": {
 			"one": "před {0} sekundu",
 			"two": "před {0} sekundomaj",
@@ -103,12 +121,5 @@
 			"other": "za {0} sekundow"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "now"
-		},
-		"future": {
-			"other": "now"
-		}
-	}
+	"now": "now"
 }

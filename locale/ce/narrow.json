@@ -1,67 +1,56 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} ш. хьалха"
-		},
-		"future": {
-			"other": "{0} ш. даьлча"
-		}
+		"previous": "даханчу шарахь",
+		"current": "карарчу шарахь",
+		"next": "рогӀерчу шарахь",
+		"past": "{0} ш. хьалха",
+		"future": "{0} ш. даьлча"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} кв. хьалха"
-		},
-		"future": {
-			"other": "{0} кв. яьлча"
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "{0} кв. хьалха",
+		"future": "{0} кв. яьлча"
 	},
 	"month": {
-		"past": {
-			"other": "{0} б. хьалха"
-		},
-		"future": {
-			"other": "{0} б. баьлча"
-		}
+		"previous": "баханчу баттахь",
+		"current": "карарчу баттахь",
+		"next": "рогӀерчу баттахь",
+		"past": "{0} б. хьалха",
+		"future": "{0} б. баьлча"
 	},
 	"week": {
-		"past": {
-			"other": "{0} кӀир. хьалха"
-		},
-		"future": {
-			"other": "{0} кӀир. даьлча"
-		}
+		"previous": "даханчу кӀирнахь",
+		"current": "карарчу кӀирнахь",
+		"next": "рогӀерчу кӀирнахь",
+		"past": "{0} кӀир. хьалха",
+		"future": "{0} кӀир. даьлча"
 	},
 	"day": {
+		"previous": "селхана",
+		"current": "тахана",
+		"next": "кхана",
 		"past": {
 			"one": "де хьалха",
 			"other": "{0} де хьалха"
 		},
-		"future": {
-			"other": "{0} д. даьлча"
-		}
+		"future": "{0} д. даьлча"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} сахь. хьалха"
-		},
-		"future": {
-			"other": "{0} сахь. даьлча"
-		}
+		"current": "this hour",
+		"past": "{0} сахь. хьалха",
+		"future": "{0} сахь. даьлча"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} мин. хьалха"
-		},
-		"future": {
-			"other": "{0} мин. яьлча"
-		}
+		"current": "this minute",
+		"past": "{0} мин. хьалха",
+		"future": "{0} мин. яьлча"
 	},
 	"second": {
-		"past": {
-			"other": "{0} сек. хьалха"
-		},
-		"future": {
-			"other": "{0} сек. яьлча"
-		}
-	}
+		"current": "now",
+		"past": "{0} сек. хьалха",
+		"future": "{0} сек. яьлча"
+	},
+	"now": "now"
 }

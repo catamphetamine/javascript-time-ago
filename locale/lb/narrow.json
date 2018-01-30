@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "-{0} J."
-		},
-		"future": {
-			"other": "+{0} J."
-		}
+		"previous": "lescht Joer",
+		"current": "dëst Joer",
+		"next": "nächst Joer",
+		"past": "-{0} J.",
+		"future": "+{0} J."
 	},
 	"quarter": {
-		"past": {
-			"other": "-{0} Q."
-		},
-		"future": {
-			"other": "+{0} Q."
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "-{0} Q.",
+		"future": "+{0} Q."
 	},
 	"month": {
-		"past": {
-			"other": "-{0} M."
-		},
-		"future": {
-			"other": "+{0} M."
-		}
+		"previous": "leschte Mount",
+		"current": "dëse Mount",
+		"next": "nächste Mount",
+		"past": "-{0} M.",
+		"future": "+{0} M."
 	},
 	"week": {
-		"past": {
-			"other": "-{0} W."
-		},
-		"future": {
-			"other": "+{0} W."
-		}
+		"previous": "lescht Woch",
+		"current": "dës Woch",
+		"next": "nächst Woch",
+		"past": "-{0} W.",
+		"future": "+{0} W."
 	},
 	"day": {
-		"past": {
-			"other": "-{0} D."
-		},
-		"future": {
-			"other": "+{0} D."
-		}
+		"previous": "gëschter",
+		"current": "haut",
+		"next": "muer",
+		"past": "-{0} D.",
+		"future": "+{0} D."
 	},
 	"hour": {
-		"past": {
-			"other": "-{0} St."
-		},
-		"future": {
-			"other": "+{0} St."
-		}
+		"current": "this hour",
+		"past": "-{0} St.",
+		"future": "+{0} St."
 	},
 	"minute": {
-		"past": {
-			"other": "-{0} Min."
-		},
-		"future": {
-			"other": "+{0} Min."
-		}
+		"current": "this minute",
+		"past": "-{0} Min.",
+		"future": "+{0} Min."
 	},
 	"second": {
-		"past": {
-			"other": "-{0} Sek."
-		},
-		"future": {
-			"other": "+{0} Sek."
-		}
-	}
+		"current": "now",
+		"past": "-{0} Sek.",
+		"future": "+{0} Sek."
+	},
+	"now": "now"
 }

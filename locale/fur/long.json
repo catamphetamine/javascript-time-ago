@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "last year",
+		"current": "this year",
+		"next": "next year",
 		"past": {
 			"one": "{0} an indaûr",
 			"other": "{0} agns indaûr"
@@ -10,22 +13,23 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "-{0} Q"
-		},
-		"future": {
-			"other": "+{0} Q"
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "-{0} Q",
+		"future": "+{0} Q"
 	},
 	"month": {
-		"past": {
-			"other": "{0} mês indaûr"
-		},
-		"future": {
-			"other": "ca di {0} mês"
-		}
+		"previous": "last month",
+		"current": "this month",
+		"next": "next month",
+		"past": "{0} mês indaûr",
+		"future": "ca di {0} mês"
 	},
 	"week": {
+		"previous": "last week",
+		"current": "this week",
+		"next": "next week",
 		"past": {
 			"one": "{0} setemane indaûr",
 			"other": "{0} setemanis indaûr"
@@ -36,6 +40,9 @@
 		}
 	},
 	"day": {
+		"previous": "îr",
+		"current": "vuê",
+		"next": "doman",
 		"past": {
 			"one": "{0} zornade indaûr",
 			"other": "{0} zornadis indaûr"
@@ -46,6 +53,7 @@
 		}
 	},
 	"hour": {
+		"current": "this hour",
 		"past": {
 			"one": "{0} ore indaûr",
 			"other": "{0} oris indaûr"
@@ -56,6 +64,7 @@
 		}
 	},
 	"minute": {
+		"current": "this minute",
 		"past": {
 			"one": "{0} minût indaûr",
 			"other": "{0} minûts indaûr"
@@ -66,6 +75,7 @@
 		}
 	},
 	"second": {
+		"current": "now",
 		"past": {
 			"one": "{0} secont indaûr",
 			"other": "{0} seconts indaûr"
@@ -75,12 +85,5 @@
 			"other": "ca di {0} seconts"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "now"
-		},
-		"future": {
-			"other": "now"
-		}
-	}
+	"now": "now"
 }

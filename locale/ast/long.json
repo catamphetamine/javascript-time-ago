@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "l’añu pasáu",
+		"current": "esti añu",
+		"next": "l’añu viniente",
 		"past": {
 			"one": "hai {0} añu",
 			"other": "hai {0} años"
@@ -10,6 +13,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "trimestre anterior",
+		"current": "esti trimestre",
+		"next": "trimestre viniente",
 		"past": {
 			"one": "hai {0} trimestre",
 			"other": "hai {0} trimestres"
@@ -20,6 +26,9 @@
 		}
 	},
 	"month": {
+		"previous": "el mes pasáu",
+		"current": "esti mes",
+		"next": "el mes viniente",
 		"past": {
 			"one": "hai {0} mes",
 			"other": "hai {0} meses"
@@ -30,6 +39,9 @@
 		}
 	},
 	"week": {
+		"previous": "la selmana pasada",
+		"current": "esta selmana",
+		"next": "la selmana viniente",
 		"past": {
 			"one": "hai {0} selmana",
 			"other": "hai {0} selmanes"
@@ -40,6 +52,9 @@
 		}
 	},
 	"day": {
+		"previous": "ayeri",
+		"current": "güei",
+		"next": "mañana",
 		"past": {
 			"one": "hai {0} día",
 			"other": "hai {0} díes"
@@ -50,6 +65,7 @@
 		}
 	},
 	"hour": {
+		"current": "esta hora",
 		"past": {
 			"one": "hai {0} hora",
 			"other": "hai {0} hores"
@@ -60,6 +76,7 @@
 		}
 	},
 	"minute": {
+		"current": "esti minutu",
 		"past": {
 			"one": "hai {0} minutu",
 			"other": "hai {0} minutos"
@@ -70,6 +87,7 @@
 		}
 	},
 	"second": {
+		"current": "agora",
 		"past": {
 			"one": "hai {0} segundu",
 			"other": "hai {0} segundos"
@@ -79,12 +97,5 @@
 			"other": "en {0} segundos"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "agora"
-		},
-		"future": {
-			"other": "agora"
-		}
-	}
+	"now": "agora"
 }

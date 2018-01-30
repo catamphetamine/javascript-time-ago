@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "l’añu pas.",
+		"current": "esti añu",
+		"next": "l’añu vin.",
 		"past": {
 			"one": "hai {0} añu",
 			"other": "hai {0} años"
@@ -10,14 +13,16 @@
 		}
 	},
 	"quarter": {
-		"past": {
-			"other": "hai {0} trim."
-		},
-		"future": {
-			"other": "en {0} trim."
-		}
+		"previous": "trim. ant.",
+		"current": "esti trim.",
+		"next": "trim. vin.",
+		"past": "hai {0} trim.",
+		"future": "en {0} trim."
 	},
 	"month": {
+		"previous": "mes pas.",
+		"current": "esti mes",
+		"next": "mes vin.",
 		"past": {
 			"one": "hai {0} mes",
 			"other": "hai {0} meses"
@@ -28,14 +33,16 @@
 		}
 	},
 	"week": {
-		"past": {
-			"other": "hai {0} selm."
-		},
-		"future": {
-			"other": "en {0} selm."
-		}
+		"previous": "selm. pasada",
+		"current": "esta selm.",
+		"next": "selm. viniente",
+		"past": "hai {0} selm.",
+		"future": "en {0} selm."
 	},
 	"day": {
+		"previous": "ayeri",
+		"current": "güei",
+		"next": "mañana",
 		"past": {
 			"one": "hai {0} día",
 			"other": "hai {0} díes"
@@ -46,35 +53,19 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "hai {0} h."
-		},
-		"future": {
-			"other": "en {0} h."
-		}
+		"current": "esta hora",
+		"past": "hai {0} h.",
+		"future": "en {0} h."
 	},
 	"minute": {
-		"past": {
-			"other": "hai {0} min."
-		},
-		"future": {
-			"other": "en {0} min."
-		}
+		"current": "esti min.",
+		"past": "hai {0} min.",
+		"future": "en {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "hai {0} seg."
-		},
-		"future": {
-			"other": "en {0} seg."
-		}
+		"current": "agora",
+		"past": "hai {0} seg.",
+		"future": "en {0} seg."
 	},
-	"now": {
-		"past": {
-			"other": "agora"
-		},
-		"future": {
-			"other": "agora"
-		}
-	}
+	"now": "agora"
 }

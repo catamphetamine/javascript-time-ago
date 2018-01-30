@@ -1,96 +1,36 @@
 {
 	"year": {
-		"future": {
-			"one": "{0} year",
-			"other": "{0} years"
-		},
-		"past": {
-			"one": "{0} year",
-			"other": "{0} years"
-		}
+		"one": "{0} year",
+		"other": "{0} years"
 	},
-	"half-year": {
-		"future": {
-			"other": "half a year"
-		},
-		"past": {
-			"other": "half a year"
-		}
-	},
+	"half-year": "half a year",
 	"month": {
-		"future": {
-			"one": "{0} month",
-			"other": "{0} months"
-		},
-		"past": {
-			"one": "{0} month",
-			"other": "{0} months"
-		}
+		"one": "{0} month",
+		"other": "{0} months"
 	},
 	"week": {
-		"future": {
-			"one": "{0} week",
-			"other": "{0} weeks"
-		},
-		"past": {
-			"one": "{0} week",
-			"other": "{0} weeks"
-		}
+		"one": "{0} week",
+		"other": "{0} weeks"
 	},
 	"day": {
-		"future": {
-			"one": "{0} day",
-			"other": "{0} days"
-		},
-		"past": {
-			"one": "{0} day",
-			"other": "{0} days"
-		}
+		"one": "{0} day",
+		"other": "{0} days"
 	},
 	"hour": {
-		"future": {
-			"one": "{0} hour",
-			"other": "{0} hours"
-		},
-		"past": {
-			"one": "{0} hour",
-			"other": "{0} hours"
-		}
+		"one": "{0} hour",
+		"other": "{0} hours"
 	},
-	"half-hour": {
-		"future": {
-			"other": "half an hour"
-		},
-		"past": {
-			"other": "half an hour"
-		}
-	},
+	"half-hour": "half an hour",
 	"minute": {
-		"future": {
-			"one": "{0} minute",
-			"other": "{0} minutes"
-		},
-		"past": {
-			"one": "{0} minute",
-			"other": "{0} minutes"
-		}
+		"one": "{0} minute",
+		"other": "{0} minutes"
 	},
 	"second": {
-		"future": {
-			"one": "{0} second",
-			"other": "{0} seconds"
-		},
-		"past": {
-			"one": "{0} second",
-			"other": "{0} seconds"
-		}
+		"one": "{0} second",
+		"other": "{0} seconds"
 	},
 	"now": {
-		"future": {
-			"other": "a moment"
-		},
-		"past": {
-			"other": "just now"
-		}
+		"future": "in a moment",
+		"past": "just now"
 	}
 }

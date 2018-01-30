@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "lescht Joer",
+		"current": "dëst Joer",
+		"next": "nächst Joer",
 		"past": {
 			"one": "virun {0} Joer",
 			"other": "viru(n) {0} Joer"
@@ -10,6 +13,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
 		"past": {
 			"one": "virun {0} Quartal",
 			"other": "viru(n) {0} Quartaler"
@@ -20,6 +26,9 @@
 		}
 	},
 	"month": {
+		"previous": "leschte Mount",
+		"current": "dëse Mount",
+		"next": "nächste Mount",
 		"past": {
 			"one": "virun {0} Mount",
 			"other": "viru(n) {0} Méint"
@@ -30,6 +39,9 @@
 		}
 	},
 	"week": {
+		"previous": "lescht Woch",
+		"current": "dës Woch",
+		"next": "nächst Woch",
 		"past": {
 			"one": "virun {0} Woch",
 			"other": "viru(n) {0} Wochen"
@@ -40,6 +52,9 @@
 		}
 	},
 	"day": {
+		"previous": "gëschter",
+		"current": "haut",
+		"next": "muer",
 		"past": {
 			"one": "virun {0} Dag",
 			"other": "viru(n) {0} Deeg"
@@ -50,6 +65,7 @@
 		}
 	},
 	"hour": {
+		"current": "this hour",
 		"past": {
 			"one": "virun {0} Stonn",
 			"other": "viru(n) {0} Stonnen"
@@ -60,6 +76,7 @@
 		}
 	},
 	"minute": {
+		"current": "this minute",
 		"past": {
 			"one": "virun {0} Minutt",
 			"other": "viru(n) {0} Minutten"
@@ -70,6 +87,7 @@
 		}
 	},
 	"second": {
+		"current": "now",
 		"past": {
 			"one": "virun {0} Sekonn",
 			"other": "viru(n) {0} Sekonnen"
@@ -79,12 +97,5 @@
 			"other": "a(n) {0} Sekonnen"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "now"
-		},
-		"future": {
-			"other": "now"
-		}
-	}
+	"now": "now"
 }

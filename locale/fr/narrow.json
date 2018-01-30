@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "-{0} a"
-		},
-		"future": {
-			"other": "+{0} a"
-		}
+		"previous": "l’année dernière",
+		"current": "cette année",
+		"next": "l’année prochaine",
+		"past": "-{0} a",
+		"future": "+{0} a"
 	},
 	"quarter": {
-		"past": {
-			"other": "-{0} trim."
-		},
-		"future": {
-			"other": "+{0} trim."
-		}
+		"previous": "le trimestre dernier",
+		"current": "ce trimestre",
+		"next": "le trimestre prochain",
+		"past": "-{0} trim.",
+		"future": "+{0} trim."
 	},
 	"month": {
-		"past": {
-			"other": "-{0} m."
-		},
-		"future": {
-			"other": "+{0} m."
-		}
+		"previous": "le mois dernier",
+		"current": "ce mois-ci",
+		"next": "le mois prochain",
+		"past": "-{0} m.",
+		"future": "+{0} m."
 	},
 	"week": {
-		"past": {
-			"other": "-{0} sem."
-		},
-		"future": {
-			"other": "+{0} sem."
-		}
+		"previous": "la semaine dernière",
+		"current": "cette semaine",
+		"next": "la semaine prochaine",
+		"past": "-{0} sem.",
+		"future": "+{0} sem."
 	},
 	"day": {
-		"past": {
-			"other": "-{0} j"
-		},
-		"future": {
-			"other": "+{0} j"
-		}
+		"previous": "hier",
+		"current": "aujourd’hui",
+		"next": "demain",
+		"past": "-{0} j",
+		"future": "+{0} j"
 	},
 	"hour": {
-		"past": {
-			"other": "-{0} h"
-		},
-		"future": {
-			"other": "+{0} h"
-		}
+		"current": "cette heure-ci",
+		"past": "-{0} h",
+		"future": "+{0} h"
 	},
 	"minute": {
-		"past": {
-			"other": "-{0} min"
-		},
-		"future": {
-			"other": "+{0} min"
-		}
+		"current": "cette minute-ci",
+		"past": "-{0} min",
+		"future": "+{0} min"
 	},
 	"second": {
-		"past": {
-			"other": "-{0} s"
-		},
-		"future": {
-			"other": "+{0} s"
-		}
-	}
+		"current": "maintenant",
+		"past": "-{0} s",
+		"future": "+{0} s"
+	},
+	"now": "maintenant"
 }

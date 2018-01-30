@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "Duela {0} urte"
-		},
-		"future": {
-			"other": "{0} urte barru"
-		}
+		"previous": "aurreko urtea",
+		"current": "aurten",
+		"next": "hurrengo urtea",
+		"past": "Duela {0} urte",
+		"future": "{0} urte barru"
 	},
 	"quarter": {
-		"past": {
-			"other": "Duela {0} hiruhileko"
-		},
-		"future": {
-			"other": "{0} hiruhileko barru"
-		}
+		"previous": "aurreko hiruhilekoa",
+		"current": "hiruhileko hau",
+		"next": "hurrengo hiruhilekoa",
+		"past": "Duela {0} hiruhileko",
+		"future": "{0} hiruhileko barru"
 	},
 	"month": {
-		"past": {
-			"other": "Duela {0} hilabete"
-		},
-		"future": {
-			"other": "{0} hilabete barru"
-		}
+		"previous": "aurreko hilabetean",
+		"current": "hilabete honetan",
+		"next": "hurrengo hilabetean",
+		"past": "Duela {0} hilabete",
+		"future": "{0} hilabete barru"
 	},
 	"week": {
-		"past": {
-			"other": "Duela {0} aste"
-		},
-		"future": {
-			"other": "{0} aste barru"
-		}
+		"previous": "aurreko astean",
+		"current": "aste honetan",
+		"next": "hurrengo astean",
+		"past": "Duela {0} aste",
+		"future": "{0} aste barru"
 	},
 	"day": {
-		"past": {
-			"other": "Duela {0} egun"
-		},
-		"future": {
-			"other": "{0} egun barru"
-		}
+		"previous": "atzo",
+		"current": "gaur",
+		"next": "bihar",
+		"past": "Duela {0} egun",
+		"future": "{0} egun barru"
 	},
 	"hour": {
-		"past": {
-			"other": "Duela {0} ordu"
-		},
-		"future": {
-			"other": "{0} ordu barru"
-		}
+		"current": "ordu honetan",
+		"past": "Duela {0} ordu",
+		"future": "{0} ordu barru"
 	},
 	"minute": {
-		"past": {
-			"other": "Duela {0} minutu"
-		},
-		"future": {
-			"other": "{0} minutu barru"
-		}
+		"current": "minutu honetan",
+		"past": "Duela {0} minutu",
+		"future": "{0} minutu barru"
 	},
 	"second": {
-		"past": {
-			"other": "Duela {0} segundo"
-		},
-		"future": {
-			"other": "{0} segundo barru"
-		}
+		"current": "orain",
+		"past": "Duela {0} segundo",
+		"future": "{0} segundo barru"
 	},
-	"now": {
-		"past": {
-			"other": "orain"
-		},
-		"future": {
-			"other": "orain"
-		}
-	}
+	"now": "orain"
 }

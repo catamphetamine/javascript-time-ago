@@ -1,21 +1,22 @@
 {
 	"year": {
-		"past": {
-			"other": "le ƒe {0} si va yi me"
-		},
-		"future": {
-			"other": "le ƒe {0} me"
-		}
+		"previous": "ƒe si va yi",
+		"current": "ƒe sia",
+		"next": "ƒe si gbɔ na",
+		"past": "le ƒe {0} si va yi me",
+		"future": "le ƒe {0} me"
 	},
 	"quarter": {
-		"past": {
-			"other": "kɔta {0} si va yi me"
-		},
-		"future": {
-			"other": "le kɔta {0} si gbɔ na me"
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "kɔta {0} si va yi me",
+		"future": "le kɔta {0} si gbɔ na me"
 	},
 	"month": {
+		"previous": "ɣleti si va yi",
+		"current": "ɣleti sia",
+		"next": "ɣleti si gbɔ na",
 		"past": {
 			"one": "ɣleti {0} si va yi",
 			"other": "ɣleti {0} si wo va yi"
@@ -26,6 +27,9 @@
 		}
 	},
 	"week": {
+		"previous": "kɔsiɖa si va yi",
+		"current": "kɔsiɖa sia",
+		"next": "kɔsiɖa si gbɔ na",
 		"past": {
 			"one": "kɔsiɖa {0} si va yi",
 			"other": "kɔsiɖa {0} si wo va yi"
@@ -36,6 +40,9 @@
 		}
 	},
 	"day": {
+		"previous": "etsɔ si va yi",
+		"current": "egbe",
+		"next": "etsɔ si gbɔna",
 		"past": {
 			"one": "ŋkeke {0} si va yi",
 			"other": "ŋkeke {0} si wo va yi"
@@ -46,6 +53,7 @@
 		}
 	},
 	"hour": {
+		"current": "this hour",
 		"past": {
 			"one": "gaƒoƒo {0} si va yi",
 			"other": "gaƒoƒo {0} si wo va yi"
@@ -56,6 +64,7 @@
 		}
 	},
 	"minute": {
+		"current": "this minute",
 		"past": {
 			"one": "aɖabaƒoƒo {0} si va yi",
 			"other": "aɖabaƒoƒo {0} si wo va yi"
@@ -66,6 +75,7 @@
 		}
 	},
 	"second": {
+		"current": "fifi",
 		"past": {
 			"one": "sekend {0} si va yi",
 			"other": "sekend {0} si wo va yi"
@@ -75,12 +85,5 @@
 			"other": "le sekend {0} wo me"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "fifi"
-		},
-		"future": {
-			"other": "fifi"
-		}
-	}
+	"now": "fifi"
 }

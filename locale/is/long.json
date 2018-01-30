@@ -1,14 +1,18 @@
 {
 	"year": {
+		"previous": "á síðasta ári",
+		"current": "á þessu ári",
+		"next": "á næsta ári",
 		"past": {
 			"one": "fyrir {0} ári",
 			"other": "fyrir {0} árum"
 		},
-		"future": {
-			"other": "eftir {0} ár"
-		}
+		"future": "eftir {0} ár"
 	},
 	"quarter": {
+		"previous": "síðasti ársfjórðungur",
+		"current": "þessi ársfjórðungur",
+		"next": "næsti ársfjórðungur",
 		"past": {
 			"one": "fyrir {0} ársfjórðungi",
 			"other": "fyrir {0} ársfjórðungum"
@@ -19,6 +23,9 @@
 		}
 	},
 	"month": {
+		"previous": "í síðasta mánuði",
+		"current": "í þessum mánuði",
+		"next": "í næsta mánuði",
 		"past": {
 			"one": "fyrir {0} mánuði",
 			"other": "fyrir {0} mánuðum"
@@ -29,6 +36,9 @@
 		}
 	},
 	"week": {
+		"previous": "í síðustu viku",
+		"current": "í þessari viku",
+		"next": "í næstu viku",
 		"past": {
 			"one": "fyrir {0} viku",
 			"other": "fyrir {0} vikum"
@@ -39,6 +49,9 @@
 		}
 	},
 	"day": {
+		"previous": "í gær",
+		"current": "í dag",
+		"next": "á morgun",
 		"past": {
 			"one": "fyrir {0} degi",
 			"other": "fyrir {0} dögum"
@@ -49,6 +62,7 @@
 		}
 	},
 	"hour": {
+		"current": "þessa stundina",
 		"past": {
 			"one": "fyrir {0} klukkustund",
 			"other": "fyrir {0} klukkustundum"
@@ -59,6 +73,7 @@
 		}
 	},
 	"minute": {
+		"current": "á þessari mínútu",
 		"past": {
 			"one": "fyrir {0} mínútu",
 			"other": "fyrir {0} mínútum"
@@ -69,6 +84,7 @@
 		}
 	},
 	"second": {
+		"current": "núna",
 		"past": {
 			"one": "fyrir {0} sekúndu",
 			"other": "fyrir {0} sekúndum"
@@ -78,12 +94,5 @@
 			"other": "eftir {0} sekúndur"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "núna"
-		},
-		"future": {
-			"other": "núna"
-		}
-	}
+	"now": "núna"
 }

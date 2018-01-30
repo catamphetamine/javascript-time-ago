@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "nakaraang taon",
+		"current": "ngayong taon",
+		"next": "susunod na taon",
 		"past": {
 			"one": "{0} taon ang nakalipas",
 			"other": "{0} (na) taon ang nakalipas"
@@ -10,15 +13,19 @@
 		}
 	},
 	"quarter": {
+		"previous": "nakaraang quarter",
+		"current": "ngayong quarter",
+		"next": "susunod na quarter",
 		"past": {
 			"one": "{0} quarter ang nakalipas",
 			"other": "{0} (na) quarter ang nakalipas"
 		},
-		"future": {
-			"other": "sa {0} (na) quarter"
-		}
+		"future": "sa {0} (na) quarter"
 	},
 	"month": {
+		"previous": "nakaraang buwan",
+		"current": "ngayong buwan",
+		"next": "susunod na buwan",
 		"past": {
 			"one": "{0} buwan ang nakalipas",
 			"other": "{0} (na) buwan ang nakalipas"
@@ -29,6 +36,9 @@
 		}
 	},
 	"week": {
+		"previous": "nakaraang linggo",
+		"current": "ngayong linggo",
+		"next": "susunod na linggo",
 		"past": {
 			"one": "{0} linggo ang nakalipas",
 			"other": "{0} (na) linggo ang nakalipas"
@@ -39,14 +49,14 @@
 		}
 	},
 	"day": {
-		"past": {
-			"other": "{0} (na) araw ang nakalipas"
-		},
-		"future": {
-			"other": "sa {0} (na) araw"
-		}
+		"previous": "kahapon",
+		"current": "ngayong araw",
+		"next": "bukas",
+		"past": "{0} (na) araw ang nakalipas",
+		"future": "sa {0} (na) araw"
 	},
 	"hour": {
+		"current": "ngayong oras",
 		"past": {
 			"one": "{0} oras ang nakalipas",
 			"other": "{0} (na) oras ang nakalipas"
@@ -57,6 +67,7 @@
 		}
 	},
 	"minute": {
+		"current": "sa minutong ito",
 		"past": {
 			"one": "{0} min. ang nakalipas",
 			"other": "{0} (na) min. ang nakalipas"
@@ -67,6 +78,7 @@
 		}
 	},
 	"second": {
+		"current": "ngayon",
 		"past": {
 			"one": "{0} seg. ang nakalipas",
 			"other": "{0} (na) seg. nakalipas"
@@ -76,12 +88,5 @@
 			"other": "sa {0} (na) seg."
 		}
 	},
-	"now": {
-		"past": {
-			"other": "ngayon"
-		},
-		"future": {
-			"other": "ngayon"
-		}
-	}
+	"now": "ngayon"
 }

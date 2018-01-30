@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "prieš {0} m."
-		},
-		"future": {
-			"other": "po {0} m."
-		}
+		"previous": "praėjusiais metais",
+		"current": "šiais metais",
+		"next": "kitais metais",
+		"past": "prieš {0} m.",
+		"future": "po {0} m."
 	},
 	"quarter": {
-		"past": {
-			"other": "prieš {0} ketv."
-		},
-		"future": {
-			"other": "po {0} ketv."
-		}
+		"previous": "praėjęs ketvirtis",
+		"current": "šis ketvirtis",
+		"next": "kitas ketvirtis",
+		"past": "prieš {0} ketv.",
+		"future": "po {0} ketv."
 	},
 	"month": {
-		"past": {
-			"other": "prieš {0} mėn."
-		},
-		"future": {
-			"other": "po {0} mėn."
-		}
+		"previous": "praėjusį mėnesį",
+		"current": "šį mėnesį",
+		"next": "kitą mėnesį",
+		"past": "prieš {0} mėn.",
+		"future": "po {0} mėn."
 	},
 	"week": {
-		"past": {
-			"other": "prieš {0} sav."
-		},
-		"future": {
-			"other": "po {0} sav."
-		}
+		"previous": "praėjusią savaitę",
+		"current": "šią savaitę",
+		"next": "kitą savaitę",
+		"past": "prieš {0} sav.",
+		"future": "po {0} sav."
 	},
 	"day": {
-		"past": {
-			"other": "prieš {0} d."
-		},
-		"future": {
-			"other": "po {0} d."
-		}
+		"previous": "vakar",
+		"current": "šiandien",
+		"next": "rytoj",
+		"past": "prieš {0} d.",
+		"future": "po {0} d."
 	},
 	"hour": {
-		"past": {
-			"other": "prieš {0} val."
-		},
-		"future": {
-			"other": "po {0} val."
-		}
+		"current": "šią valandą",
+		"past": "prieš {0} val.",
+		"future": "po {0} val."
 	},
 	"minute": {
-		"past": {
-			"other": "prieš {0} min."
-		},
-		"future": {
-			"other": "po {0} min."
-		}
+		"current": "šią minutę",
+		"past": "prieš {0} min.",
+		"future": "po {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "prieš {0} s"
-		},
-		"future": {
-			"other": "po {0} s"
-		}
-	}
+		"current": "dabar",
+		"past": "prieš {0} s",
+		"future": "po {0} s"
+	},
+	"now": "dabar"
 }

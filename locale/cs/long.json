@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "minulý rok",
+		"current": "tento rok",
+		"next": "příští rok",
 		"past": {
 			"one": "před {0} rokem",
 			"many": "před {0} roku",
@@ -13,16 +16,20 @@
 		}
 	},
 	"quarter": {
+		"previous": "minulé čtvrtletí",
+		"current": "toto čtvrtletí",
+		"next": "příští čtvrtletí",
 		"past": {
 			"one": "před {0} čtvrtletím",
 			"many": "před {0} čtvrtletí",
 			"other": "před {0} čtvrtletími"
 		},
-		"future": {
-			"other": "za {0} čtvrtletí"
-		}
+		"future": "za {0} čtvrtletí"
 	},
 	"month": {
+		"previous": "minulý měsíc",
+		"current": "tento měsíc",
+		"next": "příští měsíc",
 		"past": {
 			"one": "před {0} měsícem",
 			"many": "před {0} měsíce",
@@ -36,6 +43,9 @@
 		}
 	},
 	"week": {
+		"previous": "minulý týden",
+		"current": "tento týden",
+		"next": "příští týden",
 		"past": {
 			"one": "před {0} týdnem",
 			"many": "před {0} týdne",
@@ -49,6 +59,9 @@
 		}
 	},
 	"day": {
+		"previous": "včera",
+		"current": "dnes",
+		"next": "zítra",
 		"past": {
 			"one": "před {0} dnem",
 			"many": "před {0} dne",
@@ -62,6 +75,7 @@
 		}
 	},
 	"hour": {
+		"current": "tuto hodinu",
 		"past": {
 			"one": "před {0} hodinou",
 			"many": "před {0} hodiny",
@@ -75,6 +89,7 @@
 		}
 	},
 	"minute": {
+		"current": "tuto minutu",
 		"past": {
 			"one": "před {0} minutou",
 			"many": "před {0} minuty",
@@ -88,6 +103,7 @@
 		}
 	},
 	"second": {
+		"current": "nyní",
 		"past": {
 			"one": "před {0} sekundou",
 			"many": "před {0} sekundy",
@@ -100,12 +116,5 @@
 			"other": "za {0} sekund"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "nyní"
-		},
-		"future": {
-			"other": "nyní"
-		}
-	}
+	"now": "nyní"
 }

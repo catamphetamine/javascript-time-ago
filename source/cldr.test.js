@@ -5,6 +5,7 @@ describe(`CLDR`, function()
 {
 	it(`should parse Unicode CLDR locale data`, function()
 	{
+    // console.log(JSON.stringify(parse_CLDR(english_CLDR), null, 2))
 		parse_CLDR(english_CLDR).should.deep.equal(english_CLDR_converted)
 	})
 })
@@ -13,6 +14,9 @@ const english_CLDR_converted =
 {
   "long": {
     "year": {
+      "previous": "last year",
+      "current": "this year",
+      "next": "next year",
       "past": {
         "one": "{0} year ago",
         "other": "{0} years ago"
@@ -22,7 +26,23 @@ const english_CLDR_converted =
         "other": "in {0} years"
       }
     },
+    "quarter": {
+      "previous": "last quarter",
+      "current": "this quarter",
+      "next": "next quarter",
+      "future": {
+        "one": "in {0} quarter",
+        "other": "in {0} quarters"
+      },
+      "past": {
+        "one": "{0} quarter ago",
+        "other": "{0} quarters ago"
+      }
+    },
     "month": {
+      "previous": "last month",
+      "current": "this month",
+      "next": "next month",
       "past": {
         "one": "{0} month ago",
         "other": "{0} months ago"
@@ -33,6 +53,9 @@ const english_CLDR_converted =
       }
     },
     "week": {
+      "previous": "last week",
+      "current": "this week",
+      "next": "next week",
       "past": {
         "one": "{0} week ago",
         "other": "{0} weeks ago"
@@ -43,6 +66,9 @@ const english_CLDR_converted =
       }
     },
     "day": {
+      "previous": "yesterday",
+      "current": "today",
+      "next": "tomorrow",
       "past": {
         "one": "{0} day ago",
         "other": "{0} days ago"
@@ -53,6 +79,7 @@ const english_CLDR_converted =
       }
     },
     "hour": {
+      "current": "this hour",
       "past": {
         "one": "{0} hour ago",
         "other": "{0} hours ago"
@@ -63,6 +90,7 @@ const english_CLDR_converted =
       }
     },
     "minute": {
+      "current": "this minute",
       "past": {
         "one": "{0} minute ago",
         "other": "{0} minutes ago"
@@ -72,17 +100,8 @@ const english_CLDR_converted =
         "other": "in {0} minutes"
       }
     },
-    "quarter": {
-      "future": {
-        "one": "in {0} quarter",
-        "other": "in {0} quarters"
-      },
-      "past": {
-        "one": "{0} quarter ago",
-        "other": "{0} quarters ago"
-      }
-    },
     "second": {
+      "current": "now",
       "past": {
         "one": "{0} second ago",
         "other": "{0} seconds ago"
@@ -92,47 +111,47 @@ const english_CLDR_converted =
         "other": "in {0} seconds"
       }
     },
-    "now": {
-      "past": {
-        "other": "now"
-      },
-      "future": {
-        "other": "now"
-      }
-    }
+    "now": "now"
   },
   "short": {
     "year": {
-      "past": {
-        "one": "{0} yr. ago",
-        "other": "{0} yr. ago"
-      },
+      "previous": "last yr.",
+      "current": "this yr.",
+      "next": "next yr.",
+      "past": "{0} yr. ago",
+      "future": "in {0} yr."
+    },
+    "quarter": {
+      "previous": "last qtr.",
+      "current": "this qtr.",
+      "next": "next qtr.",
       "future": {
-        "one": "in {0} yr.",
-        "other": "in {0} yr."
+        "one": "in {0} qtr.",
+        "other": "in {0} qtrs."
+      },
+      "past": {
+        "one": "{0} qtr. ago",
+        "other": "{0} qtrs. ago"
       }
     },
     "month": {
-      "past": {
-        "one": "{0} mo. ago",
-        "other": "{0} mo. ago"
-      },
-      "future": {
-        "one": "in {0} mo.",
-        "other": "in {0} mo."
-      }
+      "previous": "last mo.",
+      "current": "this mo.",
+      "next": "next mo.",
+      "past": "{0} mo. ago",
+      "future": "in {0} mo."
     },
     "week": {
-      "past": {
-        "one": "{0} wk. ago",
-        "other": "{0} wk. ago"
-      },
-      "future": {
-        "one": "in {0} wk.",
-        "other": "in {0} wk."
-      }
+      "previous": "last wk.",
+      "current": "this wk.",
+      "next": "next wk.",
+      "past": "{0} wk. ago",
+      "future": "in {0} wk."
     },
     "day": {
+      "previous": "yesterday",
+      "current": "today",
+      "next": "tomorrow",
       "past": {
         "one": "{0} day ago",
         "other": "{0} days ago"
@@ -143,26 +162,34 @@ const english_CLDR_converted =
       }
     },
     "hour": {
-      "past": {
-        "one": "{0} hr. ago",
-        "other": "{0} hr. ago"
-      },
-      "future": {
-        "one": "in {0} hr.",
-        "other": "in {0} hr."
-      }
+      "current": "this hour",
+      "past": "{0} hr. ago",
+      "future": "in {0} hr."
     },
     "minute": {
-      "past": {
-        "one": "{0} min. ago",
-        "other": "{0} min. ago"
-      },
-      "future": {
-        "one": "in {0} min.",
-        "other": "in {0} min."
-      }
+      "current": "this minute",
+      "past": "{0} min. ago",
+      "future": "in {0} min."
+    },
+    "second": {
+      "current": "now",
+      "past": "{0} sec. ago",
+      "future": "in {0} sec."
+    },
+    "now": "now"
+  },
+  "narrow": {
+    "year": {
+      "previous": "last yr.",
+      "current": "this yr.",
+      "next": "next yr.",
+      "future": "in {0} yr.",
+      "past": "{0} yr. ago"
     },
     "quarter": {
+      "previous": "last qtr.",
+      "current": "this qtr.",
+      "next": "next qtr.",
       "future": {
         "one": "in {0} qtr.",
         "other": "in {0} qtrs."
@@ -172,106 +199,49 @@ const english_CLDR_converted =
         "other": "{0} qtrs. ago"
       }
     },
-    "second": {
-      "past": {
-        "one": "{0} sec. ago",
-        "other": "{0} sec. ago"
-      },
-      "future": {
-        "one": "in {0} sec.",
-        "other": "in {0} sec."
-      }
+    "month": {
+      "previous": "last mo.",
+      "current": "this mo.",
+      "next": "next mo.",
+      "future": "in {0} mo.",
+      "past": "{0} mo. ago"
     },
-    "now": {
-      "past": {
-        "other": "now"
-      },
-      "future": {
-        "other": "now"
-      }
-    }
-  },
-  "narrow": {
+    "week": {
+      "previous": "last wk.",
+      "current": "this wk.",
+      "next": "next wk.",
+      "future": "in {0} wk.",
+      "past": "{0} wk. ago"
+    },
     "day": {
-      "future": {
-        "one": "in {0} days",
-        "other": "in {0} days"
-      },
+      "previous": "yesterday",
+      "current": "today",
+      "next": "tomorrow",
       "past": {
-        "one": "{0} days ago",
+        "one": "{0} day ago",
         "other": "{0} days ago"
+      },
+      "future": {
+        "one": "in {0} day",
+        "other": "in {0} days"
       }
     },
     "hour": {
-      "future": {
-        "one": "in {0} hr.",
-        "other": "in {0} hr."
-      },
-      "past": {
-        "one": "{0} hr. ago",
-        "other": "{0} hr. ago"
-      }
+      "current": "this hour",
+      "future": "in {0} hr.",
+      "past": "{0} hr. ago"
     },
     "minute": {
-      "future": {
-        "one": "in {0} min.",
-        "other": "in {0} min."
-      },
-      "past": {
-        "one": "{0} min. ago",
-        "other": "{0} min. ago"
-      }
-    },
-    "month": {
-      "future": {
-        "one": "in {0} mo.",
-        "other": "in {0} mo."
-      },
-      "past": {
-        "one": "{0} mo. ago",
-        "other": "{0} mo. ago"
-      }
-    },
-    "quarter": {
-      "future": {
-        "one": "in {0} qtrs.",
-        "other": "in {0} qtrs."
-      },
-      "past": {
-        "one": "{0} qtrs. ago",
-        "other": "{0} qtrs. ago"
-      }
+      "current": "this minute",
+      "future": "in {0} min.",
+      "past": "{0} min. ago"
     },
     "second": {
-      "future": {
-        "one": "in {0} sec.",
-        "other": "in {0} sec."
-      },
-      "past": {
-        "one": "{0} sec. ago",
-        "other": "{0} sec. ago"
-      }
+      "current": "now",
+      "future": "in {0} sec.",
+      "past": "{0} sec. ago"
     },
-    "week": {
-      "future": {
-        "one": "in {0} wk.",
-        "other": "in {0} wk."
-      },
-      "past": {
-        "one": "{0} wk. ago",
-        "other": "{0} wk. ago"
-      }
-    },
-    "year": {
-      "future": {
-        "one": "in {0} yr.",
-        "other": "in {0} yr."
-      },
-      "past": {
-        "one": "{0} yr. ago",
-        "other": "{0} yr. ago"
-      }
-    }
+    "now": "now"
   }
 }
 
@@ -369,11 +339,11 @@ const english_CLDR =
             "relative-type-0": "this qtr.",
             "relative-type-1": "next qtr.",
             "relativeTime-type-future": {
-              "relativeTimePattern-count-one": "in {0} qtrs.",
+              "relativeTimePattern-count-one": "in {0} qtr.",
               "relativeTimePattern-count-other": "in {0} qtrs."
             },
             "relativeTime-type-past": {
-              "relativeTimePattern-count-one": "{0} qtrs. ago",
+              "relativeTimePattern-count-one": "{0} qtr. ago",
               "relativeTimePattern-count-other": "{0} qtrs. ago"
             }
           },
@@ -495,11 +465,11 @@ const english_CLDR =
             "relative-type-0": "today",
             "relative-type-1": "tomorrow",
             "relativeTime-type-future": {
-              "relativeTimePattern-count-one": "in {0} days",
+              "relativeTimePattern-count-one": "in {0} day",
               "relativeTimePattern-count-other": "in {0} days"
             },
             "relativeTime-type-past": {
-              "relativeTimePattern-count-one": "{0} days ago",
+              "relativeTimePattern-count-one": "{0} day ago",
               "relativeTimePattern-count-other": "{0} days ago"
             }
           },
@@ -617,6 +587,7 @@ const english_CLDR =
           },
           "hour": {
             "displayName": "hour",
+            "relative-type-0": "this hour",
             "relativeTime-type-future": {
               "relativeTimePattern-count-one": "in {0} hour",
               "relativeTimePattern-count-other": "in {0} hours"
@@ -628,6 +599,7 @@ const english_CLDR =
           },
           "hour-short": {
             "displayName": "hr.",
+            "relative-type-0": "this hour",
             "relativeTime-type-future": {
               "relativeTimePattern-count-one": "in {0} hr.",
               "relativeTimePattern-count-other": "in {0} hr."
@@ -639,6 +611,7 @@ const english_CLDR =
           },
           "hour-narrow": {
             "displayName": "hr.",
+            "relative-type-0": "this hour",
             "relativeTime-type-future": {
               "relativeTimePattern-count-one": "in {0} hr.",
               "relativeTimePattern-count-other": "in {0} hr."
@@ -650,6 +623,7 @@ const english_CLDR =
           },
           "minute": {
             "displayName": "minute",
+            "relative-type-0": "this minute",
             "relativeTime-type-future": {
               "relativeTimePattern-count-one": "in {0} minute",
               "relativeTimePattern-count-other": "in {0} minutes"
@@ -661,6 +635,7 @@ const english_CLDR =
           },
           "minute-short": {
             "displayName": "min.",
+            "relative-type-0": "this minute",
             "relativeTime-type-future": {
               "relativeTimePattern-count-one": "in {0} min.",
               "relativeTimePattern-count-other": "in {0} min."
@@ -672,6 +647,7 @@ const english_CLDR =
           },
           "minute-narrow": {
             "displayName": "min.",
+            "relative-type-0": "this minute",
             "relativeTime-type-future": {
               "relativeTimePattern-count-one": "in {0} min.",
               "relativeTimePattern-count-other": "in {0} min."

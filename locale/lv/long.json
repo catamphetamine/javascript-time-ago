@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "pagājušajā gadā",
+		"current": "šajā gadā",
+		"next": "nākamajā gadā",
 		"past": {
 			"one": "pirms {0} gada",
 			"other": "pirms {0} gadiem"
@@ -10,6 +13,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "pēdējais ceturksnis",
+		"current": "šis ceturksnis",
+		"next": "nākamais ceturksnis",
 		"past": {
 			"one": "pirms {0} ceturkšņa",
 			"other": "pirms {0} ceturkšņiem"
@@ -20,6 +26,9 @@
 		}
 	},
 	"month": {
+		"previous": "pagājušajā mēnesī",
+		"current": "šajā mēnesī",
+		"next": "nākamajā mēnesī",
 		"past": {
 			"one": "pirms {0} mēneša",
 			"other": "pirms {0} mēnešiem"
@@ -30,6 +39,9 @@
 		}
 	},
 	"week": {
+		"previous": "pagājušajā nedēļā",
+		"current": "šajā nedēļā",
+		"next": "nākamajā nedēļā",
 		"past": {
 			"one": "pirms {0} nedēļas",
 			"other": "pirms {0} nedēļām"
@@ -40,6 +52,9 @@
 		}
 	},
 	"day": {
+		"previous": "vakar",
+		"current": "šodien",
+		"next": "rīt",
 		"past": {
 			"one": "pirms {0} dienas",
 			"other": "pirms {0} dienām"
@@ -50,6 +65,7 @@
 		}
 	},
 	"hour": {
+		"current": "šajā stundā",
 		"past": {
 			"one": "pirms {0} stundas",
 			"other": "pirms {0} stundām"
@@ -60,6 +76,7 @@
 		}
 	},
 	"minute": {
+		"current": "šajā minūtē",
 		"past": {
 			"one": "pirms {0} minūtes",
 			"other": "pirms {0} minūtēm"
@@ -70,6 +87,7 @@
 		}
 	},
 	"second": {
+		"current": "tagad",
 		"past": {
 			"one": "pirms {0} sekundes",
 			"other": "pirms {0} sekundēm"
@@ -79,12 +97,5 @@
 			"other": "pēc {0} sekundēm"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "tagad"
-		},
-		"future": {
-			"other": "tagad"
-		}
-	}
+	"now": "tagad"
 }

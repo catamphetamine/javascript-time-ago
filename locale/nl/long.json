@@ -1,13 +1,15 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} jaar geleden"
-		},
-		"future": {
-			"other": "over {0} jaar"
-		}
+		"previous": "vorig jaar",
+		"current": "dit jaar",
+		"next": "volgend jaar",
+		"past": "{0} jaar geleden",
+		"future": "over {0} jaar"
 	},
 	"quarter": {
+		"previous": "vorig kwartaal",
+		"current": "dit kwartaal",
+		"next": "volgend kwartaal",
 		"past": {
 			"one": "{0} kwartaal geleden",
 			"other": "{0} kwartalen geleden"
@@ -18,6 +20,9 @@
 		}
 	},
 	"month": {
+		"previous": "vorige maand",
+		"current": "deze maand",
+		"next": "volgende maand",
 		"past": {
 			"one": "{0} maand geleden",
 			"other": "{0} maanden geleden"
@@ -28,6 +33,9 @@
 		}
 	},
 	"week": {
+		"previous": "vorige week",
+		"current": "deze week",
+		"next": "volgende week",
 		"past": {
 			"one": "{0} week geleden",
 			"other": "{0} weken geleden"
@@ -38,6 +46,9 @@
 		}
 	},
 	"day": {
+		"previous": "gisteren",
+		"current": "vandaag",
+		"next": "morgen",
 		"past": {
 			"one": "{0} dag geleden",
 			"other": "{0} dagen geleden"
@@ -48,14 +59,12 @@
 		}
 	},
 	"hour": {
-		"past": {
-			"other": "{0} uur geleden"
-		},
-		"future": {
-			"other": "over {0} uur"
-		}
+		"current": "binnen een uur",
+		"past": "{0} uur geleden",
+		"future": "over {0} uur"
 	},
 	"minute": {
+		"current": "binnen een minuut",
 		"past": {
 			"one": "{0} minuut geleden",
 			"other": "{0} minuten geleden"
@@ -66,6 +75,7 @@
 		}
 	},
 	"second": {
+		"current": "nu",
 		"past": {
 			"one": "{0} seconde geleden",
 			"other": "{0} seconden geleden"
@@ -75,12 +85,5 @@
 			"other": "over {0} seconden"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "nu"
-		},
-		"future": {
-			"other": "nu"
-		}
-	}
+	"now": "nu"
 }

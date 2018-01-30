@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "ལོ་འཁོར་ {0} ཧེ་མ་"
-		},
-		"future": {
-			"other": "ལོ་འཁོར་ {0} ནང་"
-		}
+		"previous": "last year",
+		"current": "this year",
+		"next": "next year",
+		"past": "ལོ་འཁོར་ {0} ཧེ་མ་",
+		"future": "ལོ་འཁོར་ {0} ནང་"
 	},
 	"quarter": {
-		"past": {
-			"other": "-{0} Q"
-		},
-		"future": {
-			"other": "+{0} Q"
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "-{0} Q",
+		"future": "+{0} Q"
 	},
 	"month": {
-		"past": {
-			"other": "ཟླཝ་ {0} ཧེ་མ་"
-		},
-		"future": {
-			"other": "ཟླཝ་ {0} ནང་"
-		}
+		"previous": "last month",
+		"current": "this month",
+		"next": "next month",
+		"past": "ཟླཝ་ {0} ཧེ་མ་",
+		"future": "ཟླཝ་ {0} ནང་"
 	},
 	"week": {
-		"past": {
-			"other": "བངུན་ཕྲག་ {0} ཧེ་མ་"
-		},
-		"future": {
-			"other": "བངུན་ཕྲག་ {0} ནང་"
-		}
+		"previous": "last week",
+		"current": "this week",
+		"next": "next week",
+		"past": "བངུན་ཕྲག་ {0} ཧེ་མ་",
+		"future": "བངུན་ཕྲག་ {0} ནང་"
 	},
 	"day": {
-		"past": {
-			"other": "ཉིནམ་ {0} ཧེ་མ་"
-		},
-		"future": {
-			"other": "ཉིནམ་ {0} ནང་"
-		}
+		"previous": "ཁ་ཙ་",
+		"current": "ད་རིས་",
+		"next": "ནངས་པ་",
+		"past": "ཉིནམ་ {0} ཧེ་མ་",
+		"future": "ཉིནམ་ {0} ནང་"
 	},
 	"hour": {
-		"past": {
-			"other": "ཆུ་ཚོད་ {0} ཧེ་མ་"
-		},
-		"future": {
-			"other": "ཆུ་ཚོད་ {0} ནང་"
-		}
+		"current": "this hour",
+		"past": "ཆུ་ཚོད་ {0} ཧེ་མ་",
+		"future": "ཆུ་ཚོད་ {0} ནང་"
 	},
 	"minute": {
-		"past": {
-			"other": "སྐར་མ་ {0} ཧེ་མ་"
-		},
-		"future": {
-			"other": "སྐར་མ་ {0} ནང་"
-		}
+		"current": "this minute",
+		"past": "སྐར་མ་ {0} ཧེ་མ་",
+		"future": "སྐར་མ་ {0} ནང་"
 	},
 	"second": {
-		"past": {
-			"other": "སྐར་ཆ་ {0} ཧེ་མ་"
-		},
-		"future": {
-			"other": "སྐར་ཆ་ {0} ནང་"
-		}
+		"current": "now",
+		"past": "སྐར་ཆ་ {0} ཧེ་མ་",
+		"future": "སྐར་ཆ་ {0} ནང་"
 	},
-	"now": {
-		"past": {
-			"other": "now"
-		},
-		"future": {
-			"other": "now"
-		}
-	}
+	"now": "now"
 }

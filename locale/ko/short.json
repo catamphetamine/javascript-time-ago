@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0}년 전"
-		},
-		"future": {
-			"other": "{0}년 후"
-		}
+		"previous": "작년",
+		"current": "올해",
+		"next": "내년",
+		"past": "{0}년 전",
+		"future": "{0}년 후"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0}분기 전"
-		},
-		"future": {
-			"other": "{0}분기 후"
-		}
+		"previous": "지난 분기",
+		"current": "이번 분기",
+		"next": "다음 분기",
+		"past": "{0}분기 전",
+		"future": "{0}분기 후"
 	},
 	"month": {
-		"past": {
-			"other": "{0}개월 전"
-		},
-		"future": {
-			"other": "{0}개월 후"
-		}
+		"previous": "지난달",
+		"current": "이번 달",
+		"next": "다음 달",
+		"past": "{0}개월 전",
+		"future": "{0}개월 후"
 	},
 	"week": {
-		"past": {
-			"other": "{0}주 전"
-		},
-		"future": {
-			"other": "{0}주 후"
-		}
+		"previous": "지난주",
+		"current": "이번 주",
+		"next": "다음 주",
+		"past": "{0}주 전",
+		"future": "{0}주 후"
 	},
 	"day": {
-		"past": {
-			"other": "{0}일 전"
-		},
-		"future": {
-			"other": "{0}일 후"
-		}
+		"previous": "어제",
+		"current": "오늘",
+		"next": "내일",
+		"past": "{0}일 전",
+		"future": "{0}일 후"
 	},
 	"hour": {
-		"past": {
-			"other": "{0}시간 전"
-		},
-		"future": {
-			"other": "{0}시간 후"
-		}
+		"current": "현재 시간",
+		"past": "{0}시간 전",
+		"future": "{0}시간 후"
 	},
 	"minute": {
-		"past": {
-			"other": "{0}분 전"
-		},
-		"future": {
-			"other": "{0}분 후"
-		}
+		"current": "현재 분",
+		"past": "{0}분 전",
+		"future": "{0}분 후"
 	},
 	"second": {
-		"past": {
-			"other": "{0}초 전"
-		},
-		"future": {
-			"other": "{0}초 후"
-		}
+		"current": "지금",
+		"past": "{0}초 전",
+		"future": "{0}초 후"
 	},
-	"now": {
-		"past": {
-			"other": "지금"
-		},
-		"future": {
-			"other": "지금"
-		}
-	}
+	"now": "지금"
 }

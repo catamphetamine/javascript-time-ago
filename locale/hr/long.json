@@ -1,5 +1,8 @@
 {
 	"year": {
+		"previous": "prošle godine",
+		"current": "ove godine",
+		"next": "sljedeće godine",
 		"past": {
 			"one": "prije {0} godinu",
 			"few": "prije {0} godine",
@@ -12,6 +15,9 @@
 		}
 	},
 	"quarter": {
+		"previous": "prošli kvartal",
+		"current": "ovaj kvartal",
+		"next": "sljedeći kvartal",
 		"past": {
 			"one": "prije {0} kvartal",
 			"other": "prije {0} kvartala"
@@ -22,6 +28,9 @@
 		}
 	},
 	"month": {
+		"previous": "prošli mjesec",
+		"current": "ovaj mjesec",
+		"next": "sljedeći mjesec",
 		"past": {
 			"one": "prije {0} mjesec",
 			"few": "prije {0} mjeseca",
@@ -34,6 +43,9 @@
 		}
 	},
 	"week": {
+		"previous": "prošli tjedan",
+		"current": "ovaj tjedan",
+		"next": "sljedeći tjedan",
 		"past": {
 			"one": "prije {0} tjedan",
 			"few": "prije {0} tjedna",
@@ -46,6 +58,9 @@
 		}
 	},
 	"day": {
+		"previous": "jučer",
+		"current": "danas",
+		"next": "sutra",
 		"past": {
 			"one": "prije {0} dan",
 			"other": "prije {0} dana"
@@ -56,6 +71,7 @@
 		}
 	},
 	"hour": {
+		"current": "ovaj sat",
 		"past": {
 			"one": "prije {0} sat",
 			"few": "prije {0} sata",
@@ -68,6 +84,7 @@
 		}
 	},
 	"minute": {
+		"current": "ova minuta",
 		"past": {
 			"one": "prije {0} minutu",
 			"few": "prije {0} minute",
@@ -80,6 +97,7 @@
 		}
 	},
 	"second": {
+		"current": "sad",
 		"past": {
 			"one": "prije {0} sekundu",
 			"few": "prije {0} sekunde",
@@ -91,12 +109,5 @@
 			"other": "za {0} sekundi"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "sad"
-		},
-		"future": {
-			"other": "sad"
-		}
-	}
+	"now": "sad"
 }

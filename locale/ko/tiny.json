@@ -1,74 +1,11 @@
 {
-	"year": {
-		"past": {
-			"other": "{0}년"
-		},
-		"future": {
-			"other": "{0}년"
-		}
-	},
-	"quarter": {
-		"past": {
-			"other": "{0}분기"
-		},
-		"future": {
-			"other": "{0}분기"
-		}
-	},
-	"month": {
-		"past": {
-			"other": "{0}개월"
-		},
-		"future": {
-			"other": "{0}개월"
-		}
-	},
-	"week": {
-		"past": {
-			"other": "{0}주"
-		},
-		"future": {
-			"other": "{0}주"
-		}
-	},
-	"day": {
-		"past": {
-			"other": "{0}일"
-		},
-		"future": {
-			"other": "{0}일"
-		}
-	},
-	"hour": {
-		"past": {
-			"other": "{0}시간"
-		},
-		"future": {
-			"other": "{0}시간"
-		}
-	},
-	"minute": {
-		"past": {
-			"other": "{0}분"
-		},
-		"future": {
-			"other": "{0}분"
-		}
-	},
-	"second": {
-		"past": {
-			"other": "{0}초"
-		},
-		"future": {
-			"other": "{0}초"
-		}
-	},
-	"now": {
-		"past": {
-			"other": "지금"
-		},
-		"future": {
-			"other": "지금"
-		}
-	}
+	"year": "{0}년",
+	"quarter": "{0}분기",
+	"month": "{0}개월",
+	"week": "{0}주",
+	"day": "{0}일",
+	"hour": "{0}시간",
+	"minute": "{0}분",
+	"second": "{0}초",
+	"now": "지금"
 }

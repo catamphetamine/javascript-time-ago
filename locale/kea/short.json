@@ -1,74 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "a ten {0} anu"
-		},
-		"future": {
-			"other": "di li {0} anu"
-		}
+		"previous": "anu pasadu",
+		"current": "es anu li",
+		"next": "prósimu anu",
+		"past": "a ten {0} anu",
+		"future": "di li {0} anu"
 	},
 	"quarter": {
-		"past": {
-			"other": "a ten {0} trim."
-		},
-		"future": {
-			"other": "di li {0} trim."
-		}
+		"previous": "last quarter",
+		"current": "this quarter",
+		"next": "next quarter",
+		"past": "a ten {0} trim.",
+		"future": "di li {0} trim."
 	},
 	"month": {
-		"past": {
-			"other": "a ten {0} mes"
-		},
-		"future": {
-			"other": "di li {0} mes"
-		}
+		"previous": "mes pasadu",
+		"current": "es mes li",
+		"next": "prósimu mes",
+		"past": "a ten {0} mes",
+		"future": "di li {0} mes"
 	},
 	"week": {
-		"past": {
-			"other": "a ten {0} sim."
-		},
-		"future": {
-			"other": "di li {0} sim."
-		}
+		"previous": "simana pasadu",
+		"current": "es simana li",
+		"next": "prósimu simana",
+		"past": "a ten {0} sim.",
+		"future": "di li {0} sim."
 	},
 	"day": {
-		"past": {
-			"other": "a ten {0} dia"
-		},
-		"future": {
-			"other": "di li {0} dia"
-		}
+		"previous": "onti",
+		"current": "oji",
+		"next": "manha",
+		"past": "a ten {0} dia",
+		"future": "di li {0} dia"
 	},
 	"hour": {
-		"past": {
-			"other": "a ten {0} ora"
-		},
-		"future": {
-			"other": "di li {0} ora"
-		}
+		"current": "this hour",
+		"past": "a ten {0} ora",
+		"future": "di li {0} ora"
 	},
 	"minute": {
-		"past": {
-			"other": "a ten {0} min"
-		},
-		"future": {
-			"other": "di li {0} min"
-		}
+		"current": "this minute",
+		"past": "a ten {0} min",
+		"future": "di li {0} min"
 	},
 	"second": {
-		"past": {
-			"other": "a ten {0} sig"
-		},
-		"future": {
-			"other": "di li {0} sig"
-		}
+		"current": "now",
+		"past": "a ten {0} sig",
+		"future": "di li {0} sig"
 	},
-	"now": {
-		"past": {
-			"other": "now"
-		},
-		"future": {
-			"other": "now"
-		}
-	}
+	"now": "now"
 }

@@ -25,11 +25,11 @@ for (const locale of Object.keys(plurals))
 		continue
 	}
 
-	// Skip the already built-in languages.
-	if (language === 'en' || language === 'ru')
-	{
-		continue
-	}
+	// // Skip the already built-in languages.
+	// if (language === 'en' || language === 'ru' || language === 'ko')
+	// {
+	// 	continue
+	// }
 
 	const cldrJsonPath = `cldr-dates-full/main/${language}/dateFields.json`
 	const locale_folder = path.join(__dirname, '../locale', language)

@@ -1,15 +1,19 @@
 {
 	"year": {
+		"previous": "praėjusiais metais",
+		"current": "šiais metais",
+		"next": "kitais metais",
 		"past": {
 			"one": "prieš {0} metus",
 			"few": "prieš {0} metus",
 			"other": "prieš {0} metų"
 		},
-		"future": {
-			"other": "po {0} metų"
-		}
+		"future": "po {0} metų"
 	},
 	"quarter": {
+		"previous": "praėjęs ketvirtis",
+		"current": "šis ketvirtis",
+		"next": "kitas ketvirtis",
 		"past": {
 			"one": "prieš {0} ketvirtį",
 			"few": "prieš {0} ketvirčius",
@@ -23,6 +27,9 @@
 		}
 	},
 	"month": {
+		"previous": "praėjusį mėnesį",
+		"current": "šį mėnesį",
+		"next": "kitą mėnesį",
 		"past": {
 			"one": "prieš {0} mėnesį",
 			"few": "prieš {0} mėnesius",
@@ -36,6 +43,9 @@
 		}
 	},
 	"week": {
+		"previous": "praėjusią savaitę",
+		"current": "šią savaitę",
+		"next": "kitą savaitę",
 		"past": {
 			"one": "prieš {0} savaitę",
 			"few": "prieš {0} savaites",
@@ -49,6 +59,9 @@
 		}
 	},
 	"day": {
+		"previous": "vakar",
+		"current": "šiandien",
+		"next": "rytoj",
 		"past": {
 			"one": "prieš {0} dieną",
 			"few": "prieš {0} dienas",
@@ -62,6 +75,7 @@
 		}
 	},
 	"hour": {
+		"current": "šią valandą",
 		"past": {
 			"one": "prieš {0} valandą",
 			"few": "prieš {0} valandas",
@@ -75,6 +89,7 @@
 		}
 	},
 	"minute": {
+		"current": "šią minutę",
 		"past": {
 			"one": "prieš {0} minutę",
 			"few": "prieš {0} minutes",
@@ -88,6 +103,7 @@
 		}
 	},
 	"second": {
+		"current": "dabar",
 		"past": {
 			"one": "prieš {0} sekundę",
 			"few": "prieš {0} sekundes",
@@ -100,12 +116,5 @@
 			"other": "po {0} sekundžių"
 		}
 	},
-	"now": {
-		"past": {
-			"other": "dabar"
-		},
-		"future": {
-			"other": "dabar"
-		}
-	}
+	"now": "dabar"
 }

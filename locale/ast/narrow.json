@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "hai {0} a."
-		},
-		"future": {
-			"other": "en {0} a."
-		}
+		"previous": "añu pas.",
+		"current": "esti añu",
+		"next": "añu vin.",
+		"past": "hai {0} a.",
+		"future": "en {0} a."
 	},
 	"quarter": {
-		"past": {
-			"other": "hai {0} tr."
-		},
-		"future": {
-			"other": "en {0} tr."
-		}
+		"previous": "trim. ant.",
+		"current": "esti trim.",
+		"next": "trim. vin.",
+		"past": "hai {0} tr.",
+		"future": "en {0} tr."
 	},
 	"month": {
-		"past": {
-			"other": "hai {0} m."
-		},
-		"future": {
-			"other": "en {0} m."
-		}
+		"previous": "mes pas.",
+		"current": "esti mes",
+		"next": "mes vin.",
+		"past": "hai {0} m.",
+		"future": "en {0} m."
 	},
 	"week": {
-		"past": {
-			"other": "hai {0} se."
-		},
-		"future": {
-			"other": "en {0} se."
-		}
+		"previous": "selm. pas.",
+		"current": "esta selm.",
+		"next": "selm. vin.",
+		"past": "hai {0} se.",
+		"future": "en {0} se."
 	},
 	"day": {
-		"past": {
-			"other": "hai {0} d."
-		},
-		"future": {
-			"other": "en {0} d."
-		}
+		"previous": "ayeri",
+		"current": "güei",
+		"next": "mañ.",
+		"past": "hai {0} d.",
+		"future": "en {0} d."
 	},
 	"hour": {
-		"past": {
-			"other": "hai {0} h."
-		},
-		"future": {
-			"other": "en {0} h."
-		}
+		"current": "esta h.",
+		"past": "hai {0} h.",
+		"future": "en {0} h."
 	},
 	"minute": {
-		"past": {
-			"other": "hai {0} min."
-		},
-		"future": {
-			"other": "en {0} min."
-		}
+		"current": "esti min.",
+		"past": "hai {0} min.",
+		"future": "en {0} min."
 	},
 	"second": {
-		"past": {
-			"other": "hai {0} s."
-		},
-		"future": {
-			"other": "en {0} s."
-		}
-	}
+		"current": "agora",
+		"past": "hai {0} s.",
+		"future": "en {0} s."
+	},
+	"now": "agora"
 }

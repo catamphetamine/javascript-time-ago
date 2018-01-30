@@ -1,66 +1,53 @@
 {
 	"year": {
-		"past": {
-			"other": "{0} v sitten"
-		},
-		"future": {
-			"other": "{0} v päästä"
-		}
+		"previous": "viime v",
+		"current": "tänä v",
+		"next": "ensi v",
+		"past": "{0} v sitten",
+		"future": "{0} v päästä"
 	},
 	"quarter": {
-		"past": {
-			"other": "{0} nelj. sitten"
-		},
-		"future": {
-			"other": "{0} nelj. päästä"
-		}
+		"previous": "viime nelj.",
+		"current": "tänä nelj.",
+		"next": "ensi nelj.",
+		"past": "{0} nelj. sitten",
+		"future": "{0} nelj. päästä"
 	},
 	"month": {
-		"past": {
-			"other": "{0} kk sitten"
-		},
-		"future": {
-			"other": "{0} kk päästä"
-		}
+		"previous": "viime kk",
+		"current": "tässä kk",
+		"next": "ensi kk",
+		"past": "{0} kk sitten",
+		"future": "{0} kk päästä"
 	},
 	"week": {
-		"past": {
-			"other": "{0} vk sitten"
-		},
-		"future": {
-			"other": "{0} vk päästä"
-		}
+		"previous": "viime vk",
+		"current": "tällä vk",
+		"next": "ensi vk",
+		"past": "{0} vk sitten",
+		"future": "{0} vk päästä"
 	},
 	"day": {
-		"past": {
-			"other": "{0} pv sitten"
-		},
-		"future": {
-			"other": "{0} pv päästä"
-		}
+		"previous": "eilen",
+		"current": "tänään",
+		"next": "huom.",
+		"past": "{0} pv sitten",
+		"future": "{0} pv päästä"
 	},
 	"hour": {
-		"past": {
-			"other": "{0} t sitten"
-		},
-		"future": {
-			"other": "{0} t päästä"
-		}
+		"current": "tunnin sisällä",
+		"past": "{0} t sitten",
+		"future": "{0} t päästä"
 	},
 	"minute": {
-		"past": {
-			"other": "{0} min sitten"
-		},
-		"future": {
-			"other": "{0} min päästä"
-		}
+		"current": "minuutin sisällä",
+		"past": "{0} min sitten",
+		"future": "{0} min päästä"
 	},
 	"second": {
-		"past": {
-			"other": "{0} s sitten"
-		},
-		"future": {
-			"other": "{0} s päästä"
-		}
-	}
+		"current": "nyt",
+		"past": "{0} s sitten",
+		"future": "{0} s päästä"
+	},
+	"now": "nyt"
 }
