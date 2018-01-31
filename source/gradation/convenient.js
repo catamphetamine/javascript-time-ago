@@ -7,7 +7,6 @@ import { day, month, year } from './helpers'
 // 10 minutes ago
 // 15 minutes ago
 // 20 minutes ago
-// half an hour ago
 // an hour ago
 // 2 hours ago
 // …
@@ -21,7 +20,6 @@ import { day, month, year } from './helpers'
 // a month ago
 // 2 months ago
 // 4 months ago
-// half a year ago
 // a year ago
 // 2 years ago
 // …
@@ -75,13 +73,7 @@ export default
 		unit: 'month'
 	},
 	{
-		threshold: 4.5 * month,
-		factor: 0.5 * year,
-		unit: 'half-year'
-	},
-	{
 		threshold: 10.5 * month,
-		'threshold_for_half-year': 9 * month,
 		factor: year,
 		unit: 'year'
 	}

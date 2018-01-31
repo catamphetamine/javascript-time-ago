@@ -89,11 +89,10 @@ export default class RelativeTimeFormat {
    * getRule(-2, "day")
    */
   getRule(value, unit) {
-    // `javascript-time-ago` uses some extra time unterval units
-    // like "now", "half-hour", "half-year" so not throwing here.
-    // if (["second", "minute", "hour", "day", "week", "month", "quarter"].indexOf(value) < 0) {
-    //   throw new RangeError(`Unknown time unit: ${unit}.`)
-    // }
+    // "now" is used in `javascript-time-ago`.
+    if (["now", "second", "minute", "hour", "day", "week", "month", "quarter", "year"].indexOf(unit) < 0) {
+      throw new RangeError(`Unknown time unit: ${unit}.`)
+    }
     // Get locale-specific time interval formatting rules
     // of a given `style` for the given value of measurement `unit`.
     //

@@ -61,8 +61,5 @@
 		"past": "{0} sec. ago",
 		"future": "in {0} sec."
 	},
-	"now": {
-		"future": "in a moment",
-		"past": "just now"
-	}
+	"now": "now"
 }

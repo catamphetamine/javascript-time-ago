@@ -7,7 +7,6 @@ import { convenient } from '../gradation'
 // 10 minutes
 // 15 minutes
 // 20 minutes
-// half an hour
 // an hour
 // 2 hours
 // …
@@ -21,7 +20,6 @@ import { convenient } from '../gradation'
 // 2 months
 // 3 months
 // 4 months
-// half a year
 // a year
 // 2 years
 //
@@ -33,12 +31,10 @@ export default
 	[
 		'now',
 		'minute',
-		'half-hour',
 		'hour',
 		'day',
 		'week',
 		'month',
-		'half-year',
 		'year'
 	]
 }

@@ -46,6 +46,8 @@ for (const locale of Object.keys(plurals))
 	// Strip function name.
 	code = code.replace('function classify(', 'function(')
 
+	// If quantifier always returns "other"
+	// it's as if it wasn't specified at all.
 	if (code === 'function(n){return"other"}')
 	{
 		continue

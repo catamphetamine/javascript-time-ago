@@ -3,7 +3,6 @@
 		"one": "{0} year",
 		"other": "{0} years"
 	},
-	"half-year": "half a year",
 	"month": {
 		"one": "{0} month",
 		"other": "{0} months"
@@ -20,7 +19,6 @@
 		"one": "{0} hour",
 		"other": "{0} hours"
 	},
-	"half-hour": "half an hour",
 	"minute": {
 		"one": "{0} minute",
 		"other": "{0} minutes"

@@ -118,7 +118,6 @@ Similar to the default style but with "ago" omitted:
   * 10 minutes
   * 15 minutes
   * 20 minutes
-  * half an hour
   * 1 hour
   * 2 hours
   * …
@@ -135,7 +134,6 @@ Similar to the default style but with "ago" omitted:
   * 2 months
   * 3 months
   * 4 months
-  * half a year
   * 1 year
   * 2 years
   * 3 years

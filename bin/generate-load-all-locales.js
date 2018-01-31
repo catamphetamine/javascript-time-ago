@@ -10,7 +10,7 @@ fs.readdirSync(path.resolve(__dirname, '../locale')).forEach(function(locale)
 	const locale_path = path.resolve(__dirname, '../locale', locale)
 	if (fs.statSync(locale_path).isDirectory())
 	{
-		if (fs.existsSync(path.resolve(__dirname, '../locale', locale, 'long.json')))
+		if (fs.existsSync(path.resolve(__dirname, '../locale', locale, 'index.js')))
 		{
 			locales.push(locale)
 		}

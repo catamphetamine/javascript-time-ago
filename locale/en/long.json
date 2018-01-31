@@ -4,28 +4,24 @@
 		"current": "this year",
 		"next": "next year",
 		"past": {
-			"one": "a year ago",
+			"one": "{0} year ago",
 			"other": "{0} years ago"
 		},
 		"future": {
-			"one": "in a year",
+			"one": "in {0} year",
 			"other": "in {0} years"
 		}
-	},
-	"half-year": {
-		"future": "in half a year",
-		"past": "half a year ago"
 	},
 	"quarter": {
 		"previous": "last quarter",
 		"current": "this quarter",
 		"next": "next quarter",
 		"past": {
-			"one": "a quarter ago",
+			"one": "{0} quarter ago",
 			"other": "{0} quarters ago"
 		},
 		"future": {
-			"one": "in a quarter",
+			"one": "in {0} quarter",
 			"other": "in {0} quarters"
 		}
 	},
@@ -34,11 +30,11 @@
 		"current": "this month",
 		"next": "next month",
 		"past": {
-			"one": "a month ago",
+			"one": "{0} month ago",
 			"other": "{0} months ago"
 		},
 		"future": {
-			"one": "in a month",
+			"one": "in {0} month",
 			"other": "in {0} months"
 		}
 	},
@@ -47,11 +43,11 @@
 		"current": "this week",
 		"next": "next week",
 		"past": {
-			"one": "a week ago",
+			"one": "{0} week ago",
 			"other": "{0} weeks ago"
 		},
 		"future": {
-			"one": "in a week",
+			"one": "in {0} week",
 			"other": "in {0} weeks"
 		}
 	},
@@ -60,53 +56,46 @@
 		"current": "today",
 		"next": "tomorrow",
 		"past": {
-			"one": "a day ago",
+			"one": "{0} day ago",
 			"other": "{0} days ago"
 		},
 		"future": {
-			"one": "in a day",
+			"one": "in {0} day",
 			"other": "in {0} days"
 		}
 	},
 	"hour": {
 		"current": "this hour",
 		"past": {
-			"one": "an hour ago",
+			"one": "{0} hour ago",
 			"other": "{0} hours ago"
 		},
 		"future": {
-			"one": "in an hour",
+			"one": "in {0} hour",
 			"other": "in {0} hours"
 		}
-	},
-	"half-hour": {
-		"future": "in half an hour",
-		"past": "half an hour ago"
 	},
 	"minute": {
 		"current": "this minute",
 		"past": {
-			"one": "a minute ago",
+			"one": "{0} minute ago",
 			"other": "{0} minutes ago"
 		},
 		"future": {
-			"one": "in a minute",
+			"one": "in {0} minute",
 			"other": "in {0} minutes"
 		}
 	},
 	"second": {
 		"current": "now",
 		"past": {
-			"one": "a second ago",
+			"one": "{0} second ago",
 			"other": "{0} seconds ago"
 		},
 		"future": {
-			"one": "in a second",
+			"one": "in {0} second",
 			"other": "in {0} seconds"
 		}
 	},
-	"now": {
-		"future": "in a moment",
-		"past": "just now"
-	}
+	"now": "now"
 }

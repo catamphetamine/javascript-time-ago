@@ -1,0 +1,1 @@
+module.exports=function(n){return 1==n?"one":2==n?"two":"other"}

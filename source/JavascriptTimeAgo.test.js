@@ -1,5 +1,6 @@
 import JavascriptTimeAgo from '../source/JavascriptTimeAgo'
 import { day, month, year } from '../source/gradation'
+import { defaultStyle } from '../source/style'
 
 // Load locale specific relative date/time messages
 import english from '../locale/en'
@@ -9,7 +10,7 @@ describe(`time ago`, function()
 	it(`should try various flavours if some are not found`, function()
 	{
 		const time_ago = new JavascriptTimeAgo('en')
-		time_ago.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('just now')
+		time_ago.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('now')
 	})
 
 	it(`should accept a string style argument`, function()
@@ -82,14 +83,14 @@ describe(`time ago`, function()
 				return
 			}
 		})
-		.should.equal('just now')
+		.should.equal('now')
 	})
 
 	it(`should format time correctly for English language (short)`, function()
 	{
 		convenient_gradation_test
 		([
-			'just now',
+			'now',
 			'1 min. ago',
 			'2 min. ago',
 			'5 min. ago',
@@ -161,12 +162,12 @@ describe(`time ago`, function()
 			'10 minutes ago',
 			'15 minutes ago',
 			'20 minutes ago',
-			'half an hour ago',
-			'half an hour ago',
-			'half an hour ago',
-			'half an hour ago',
-			'an hour ago',
-			'an hour ago',
+			'25 minutes ago',
+			'30 minutes ago',
+			'35 minutes ago',
+			'40 minutes ago',
+			'45 minutes ago',
+			'50 minutes ago',
 			'an hour ago',
 			'2 hours ago',
 			'3 hours ago',
@@ -199,26 +200,27 @@ describe(`time ago`, function()
 			'2 months ago',
 			'3 months ago',
 			'4 months ago',
-			'half a year ago',
-			'half a year ago',
-			'half a year ago',
-			'half a year ago',
-			'half a year ago',
-			'a year ago',
-			'a year ago',
+			'5 months ago',
+			'6 months ago',
+			'7 months ago',
+			'8 months ago',
+			'9 months ago',
+			'9 months ago',
+			'10 months ago',
 			'a year ago',
 			'2 years ago',
 			'3 years ago',
 			'100 years ago'
 		],
-		'en')
+		'en',
+		defaultStyle)
 	})
 
 	it(`should format time correctly for Russian language (short)`, function()
 	{
 		convenient_gradation_test
 		([
-			'только что',
+			'сейчас',
 			'1 мин. назад',
 			'2 мин. назад',
 			'5 мин. назад',
@@ -290,12 +292,12 @@ describe(`time ago`, function()
 			'10 минут назад',
 			'15 минут назад',
 			'20 минут назад',
-			'полчаса назад',
-			'полчаса назад',
-			'полчаса назад',
-			'полчаса назад',
-			'1 час назад',
-			'1 час назад',
+			'25 минут назад',
+			'30 минут назад',
+			'35 минут назад',
+			'40 минут назад',
+			'45 минут назад',
+			'50 минут назад',
 			'1 час назад',
 			'2 часа назад',
 			'3 часа назад',
@@ -328,19 +330,20 @@ describe(`time ago`, function()
 			'2 месяца назад',
 			'3 месяца назад',
 			'4 месяца назад',
-			'полгода назад',
-			'полгода назад',
-			'полгода назад',
-			'полгода назад',
-			'полгода назад',
-			'1 год назад',
-			'1 год назад',
+			'5 месяцев назад',
+			'6 месяцев назад',
+			'7 месяцев назад',
+			'8 месяцев назад',
+			'9 месяцев назад',
+			'9 месяцев назад',
+			'10 месяцев назад',
 			'1 год назад',
 			'2 года назад',
 			'3 года назад',
 			'100 лет назад'
 		],
-		'ru')
+		'ru',
+		defaultStyle)
 	})
 
 	it(`should format future dates`, function()

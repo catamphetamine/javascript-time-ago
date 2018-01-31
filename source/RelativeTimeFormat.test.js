@@ -12,12 +12,18 @@ describe('Intl.RelativeTimeFormat', () => {
   it('should format relative time', () => {
     const rtf = new RelativeTimeFormat("en")
 
+    expect(rtf.format(-1, "day")).to.equal("1 day ago")
     expect(rtf.format(-2, "day")).to.equal("2 days ago")
     expect(rtf.format(2.15, "day")).to.equal("in 2.15 days")
     expect(rtf.format(100, "day")).to.equal("in 100 days")
 
     // expect(rtf.format(0, "day")).to.equal("today")
     // expect(rtf.format(-0, "day")).to.equal("today")
+  })
+
+  it('should throw if a time unit is unsupported', () => {
+    const rtf = new RelativeTimeFormat("en")
+    expect(() => rtf.format(-1, "decade")).to.throw("Unknown time unit: decade.")
   })
 
   // it('should format yesterday/today/tomorrow', () => {
