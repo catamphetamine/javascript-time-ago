@@ -1,5 +1,3 @@
-import { getLanguageFromLanguageTag } from './RelativeTimeFormat'
-
 // Chooses the most appropriate locale
 // (one of the registered ones)
 // based on the list of preferred `locales` supplied by the user.
