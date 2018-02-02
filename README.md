@@ -70,13 +70,13 @@ timeAgo.format(new Date())
 // "только что"
 
 timeAgo.format(Date.now() - 60 * 1000)
-// "минуту назад"
+// "1 минуту назад"
 
 timeAgo.format(Date.now() - 2 * 60 * 60 * 1000)
 // "2 часа назад"
 
 timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
-// "днём ранее"
+// "1 день назад"
 ```
 
 ## Twitter style
