@@ -189,7 +189,7 @@ english.long  // '1 second ago', '2 minutes ago', …
 ```
 
 * `tiny` is supposed to be the shortest one possible. It's not a CLDR-defined one and has been defined for `en`, `ru` and `ko` so far.
-* `narrow` is a CLDR-defined one and is supposed to be shorter than `short`, or at least no longer than it. I find `narrow` a weird one because for some locales it's the same as `short` and for other locales it's a really weird one (e.g. Russian).
+* `narrow` is a CLDR-defined one and is supposed to be shorter than `short`, or at least no longer than it. I find `narrow` a weird one because for some locales it's the same as `short` and for other locales it's a really weird one (e.g. for Russian).
 * `short` is "short".
 * `long` is "regular".
 
