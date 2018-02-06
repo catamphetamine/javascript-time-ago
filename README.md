@@ -275,7 +275,7 @@ When given future dates `.format()` produces the corresponding output, e.g. "in 
 
 ## Default
 
-The default locale is `en` and can be changed: `TimeAgo.defaultLocale = 'ru'`.
+The default locale is `en` and can be changed: `TimeAgo.setDefaultLocale('ru')`.
 
 ## React
 
