@@ -241,9 +241,7 @@ import {
 
 ## Localization internals
 
-The localization resides in the [`locale`](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale) folder.
-
-The format a localization is:
+The localization resides in the [`locale`](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale) folder. The format of a localization is:
 
 ```js
 {
@@ -264,6 +262,8 @@ The format a localization is:
   …
 }
 ```
+
+This can be reduced to just a string for cases when all variants are the same. E.g. `{ day: "{0}d" }` or `{ second: { past: "{0} sec. ago", future: "in {0} sec." } }`.
 
 The `past` and `future` can be defined by any of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
 
