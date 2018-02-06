@@ -170,22 +170,30 @@ This part of the documentation contains some advanced topics for those willing t
 
 ## Customization
 
-Localization can be further customized by selecting one of the "flavours": `long`, `short`, `narrow` or maybe some others (like `tiny` defined for `en`, `ru` and `ko`). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
+This library comes with three "styles" built-in: the default one, "twitter" style and "time" style. Each of these styles is an object defining its own `flavour`, `units` and `gradation`. If none of them suits a project then a custom "style" object may be passed as a second parameter to `.format(date, style)` having the following shape (all properties are optional):
+
+  * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred labels variant. Can be either a string (e.g. `"short"`) or an array of preferred flavours in which case each one of them is tried until a match is found. E.g. `["tiny", "short"]` searches for `tiny` first and falls back to `short`. `short`, `long` and `narrow` are always present for each locale.
+  * `units` – A list of time interval measurement units which can be used in the output. E.g. `["second", "minute", "hour", ...]`.
+  * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. Is [`convenient`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) by default. Another one available is [`canonical`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js). A developer may supply a custom `gradation` which must be an array of steps each of them having either a `unit : string` or a `format(value, locale) : string` function. See [Twitter style](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
+<!--   * `custom` – A function of `{ elapsed, time, date, now, locale }`. If this function returns a value, then the `.format()` call will return that value. Otherwise the relative date/time is formatted as usual. This feature is currently not used anywhere and is here just for providing the ultimate customization point in case anyone would ever need that. Prefer using `gradation[step].format(value, locale)` instead. -->
+
+## Flavour
+
+Relative date/time labels come in various "flavours": `long`, `short`, `narrow` are the standard CLDR ones (always present) possibly accompanied by other ones like `tiny` which is defined for `en`, `ru` and `ko`. Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
 ```js
 import english from 'javascript-time-ago/locale/en'
 
 english.tiny  // '1s', '2m', '3h', '4d', …
+english.narrow // '1 sec. ago', '2 min. ago', …
 english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-One can pass `style` (`string` or `object`) as a second parameter to the `.format(date, style)` function. The `style` object can specify (all are optional):
-
-  * `flavour` – Preferred labels variant. Can be either a string (e.g. `"short"`) or an array of preferred flavours in which case each one of them is tried until a match is found. E.g. `["tiny", "short"]` searches for `tiny` first and falls back to `short`. `short`, `long` and `narrow` are always present for each locale.
-  * `units` – A list of time interval measurement units which can be used in the output. E.g. `["second", "minute", "hour", ...]`.
-  * `gradation` – Time interval measurement units scale. Is [`convenient`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) by default. Another one available is [`canonical`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js). A developer may supply a custom `gradation` which must be an array of steps each of them having either a `unit : string` or a `format(value, locale) : string` function. See [Twitter style](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
-<!--   * `custom` – A function of `{ elapsed, time, date, now, locale }`. If this function returns a value, then the `.format()` call will return that value. Otherwise the relative date/time is formatted as usual. This feature is currently not used anywhere and is here just for providing the ultimate customization point in case anyone would ever need that. Prefer using `gradation[step].format(value, locale)` instead. -->
+* `tiny` is supposed to be the shortest one possible. It's not a CLDR-defined one and has been defined for `en`, `ru` and `ko` so far.
+* `narrow` is a CLDR-defined one and is supposed to be shorter than `short`, or at least no longer than it. I find `narrow` a weird one because for some locales it's the same as `short` and for other locales it's a really weird one (e.g. Russian).
+* `short` is "short".
+* `long` is "regular".
 
 ## Gradation
 
