@@ -97,12 +97,13 @@ export default class JavascriptTimeAgo
 		// how much time elapsed (in seconds)
 		const elapsed = (now - time) / 1000 // in seconds
 
-		// Allows returning any custom value for any `elapsed` interval.
-		// If `style.custom()` returns a value (`string`)
-		// then this value is returned from this `.format()` call.
-		// For example, seconds, minutes and hours can be shown relatively,
-		// and other intervals can be shown using full date format.
-		// (that's what Twitter style does with its `custom()`)
+		// `custom` – A function of `{ elapsed, time, date, now, locale }`.
+		// If this function returns a value, then the `.format()` call will return that value.
+		// Otherwise the relative date/time is formatted as usual.
+		// This feature is currently not used anywhere and is here
+		// just for providing the ultimate customization point
+		// in case anyone would ever need that. Prefer using
+		// `gradation[step].format(value, locale)` instead.
 		if (style.custom)
 		{
 			const custom = style.custom

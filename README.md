@@ -170,7 +170,7 @@ This part of the documentation contains some advanced topics for those willing t
 
 ## Customization
 
-Localization can be further customized by selecting one of the "flavours": `long`, `short`, or mabe some others (like `tiny` defined for `en`). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
+Localization can be further customized by selecting one of the "flavours": `long`, `short`, `narrow` or maybe some others (like `tiny` defined for `en`, `ru` and `ko`). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
 ```js
 import english from 'javascript-time-ago/locale/en'
@@ -182,12 +182,10 @@ english.long  // '1 second ago', '2 minutes ago', …
 
 One can pass `style` (`string` or `object`) as a second parameter to the `.format(date, style)` function. The `style` object can specify (all are optional):
 
-  * `flavour` – preferred labels variant (e.g. `short`, `long`)
-  * `units` – a list of time interval measurement units which can be used in the formatted output (e.g. `['second', 'minute', 'hour']`)
-  * `gradation` – custom time interval measurement units scale
-  * `custom` – a function of `{ elapsed, time, date, now, locale }`. If this function returns a value, then the `.format()` call will return that value. Otherwise the date/time is formatted as usual.
-
-(see [`twitter`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style.js) style for an example)
+  * `flavour` – Preferred labels variant. Can be either a string (e.g. `"short"`) or an array of preferred flavours in which case each one of them is tried until a match is found. E.g. `["tiny", "short"]` searches for `tiny` first and falls back to `short`. `short`, `long` and `narrow` are always present for each locale.
+  * `units` – A list of time interval measurement units which can be used in the output. E.g. `["second", "minute", "hour", ...]`.
+  * `gradation` – Time interval measurement units scale. Is [`convenient`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) by default. Another one available is [`canonical`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js). A developer may supply a custom `gradation` which must be an array of steps each of them having either a `unit : string` or a `format(value, locale) : string` function. See [Twitter style](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
+<!--   * `custom` – A function of `{ elapsed, time, date, now, locale }`. If this function returns a value, then the `.format()` call will return that value. Otherwise the relative date/time is formatted as usual. This feature is currently not used anywhere and is here just for providing the ultimate customization point in case anyone would ever need that. Prefer using `gradation[step].format(value, locale)` instead. -->
 
 ## Gradation
 
