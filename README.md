@@ -176,7 +176,7 @@ This library comes with three "styles" built-in: the default one, "twitter" styl
 
   * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. Is [`convenient`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) by default. Another one available is [`canonical`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js). A developer may supply a custom `gradation` which must be an array of steps each of them having either a `unit : string` or a `format(value, locale) : string` function. See [Twitter style](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
 
-  * `units` – A list of time interval measurement units which can be used in the output. E.g. `["second", "minute", "hour", ...]`. This is only used to filter out some of the non-conventional time units like `"quarter"` which is present in CLDR data.
+  * `units` – A list of time interval measurement units which can be used in the output. E.g. `["second", "minute", "hour", ...]`. By default all available units are used. This is only used to filter out some of the non-conventional time units like `"quarter"` which is present in CLDR data.
 
 ## Flavour
 
