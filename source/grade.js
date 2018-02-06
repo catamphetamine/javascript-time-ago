@@ -9,6 +9,12 @@ import { convenient } from './gradation'
  * @param {string[]} units - A list of allowed time units
  *                           (e.g. ['second', 'minute', 'hour', …])
  *
+ * `units` – A list of time interval measurement units
+ * which can be used in the output. E.g. `["second", "minute", "hour", ...]`.
+ * This is only used to filter gradation steps in those cases where
+ * it makes sense to use only a subset of them.
+ * I guess `units` is gonna be deprecated and removed in the next major release.
+ *
  * @param {Object} [gradation] - Time scale gradation steps.
  *
  *                               E.g.:
@@ -23,7 +29,14 @@ import { convenient } from './gradation'
  */
 export default function grade(elapsed, now, units, gradation = convenient)
 {
-	// Leave only allowed gradation steps
+	// Leave only allowed gradation steps.
+	//
+  	// `units` – A list of time interval measurement units
+  	// which can be used in the output. E.g. `["second", "minute", "hour", ...]`.
+  	// This is only used to filter gradation steps in those cases where
+  	// it makes sense to use only a subset of them.
+  	// I guess `units` is gonna be deprecated and removed in the next major release.
+  	//
 	gradation = get_allowed_steps(gradation, units)
 
 	// If no steps of gradation fit the conditions
@@ -146,6 +159,12 @@ function find_gradation_step(elapsed, now, gradation, i = 0)
  */
 function get_allowed_steps(gradation, units)
 {
+  	// `units` – A list of time interval measurement units
+  	// which can be used in the output. E.g. `["second", "minute", "hour", ...]`.
+  	// This is only used to filter gradation steps in those cases where
+  	// it makes sense to use only a subset of them.
+  	// I guess `units` is gonna be deprecated and removed in the next major release.
+
 	return gradation.filter(({ unit }) =>
 	{
 		// If this step has a `unit` defined

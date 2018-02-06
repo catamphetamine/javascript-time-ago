@@ -104,6 +104,10 @@ export default class JavascriptTimeAgo
 		// just for providing the ultimate customization point
 		// in case anyone would ever need that. Prefer using
 		// `gradation[step].format(value, locale)` instead.
+		//
+		// I guess `custom` is deprecated and will be removed
+		// in some future major version release.
+		//
 		if (style.custom)
 		{
 			const custom = style.custom
