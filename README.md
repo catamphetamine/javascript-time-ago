@@ -173,7 +173,10 @@ This part of the documentation contains some advanced topics for those willing t
 This library comes with three "styles" built-in: the default one, "twitter" style and "time" style. Each of these styles is an object defining its own `flavour` and `gradation`. If none of them suits a project then a custom "style" object may be passed as a second parameter to `.format(date, style)` having the following shape:
 
   * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred labels variant. Is `"long"` by default. Can be either a string (e.g. `"short"`) or an array of preferred flavours in which case each one of them is tried until a match is found. E.g. `["tiny", "short"]` searches for `tiny` first and falls back to `short`. `short`, `long` and `narrow` are always present for each locale.
+
   * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. Is [`convenient`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) by default. Another one available is [`canonical`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js). A developer may supply a custom `gradation` which must be an array of steps each of them having either a `unit : string` or a `format(value, locale) : string` function. See [Twitter style](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
+
+  * `units` – A list of time interval measurement units which can be used in the output. E.g. `["second", "minute", "hour", ...]`. This is only used to filter out some of the non-conventional time units like `"quarter"` which is present in CLDR data.
 
 ## Flavour
 
