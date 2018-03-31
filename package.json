@@ -32,8 +32,8 @@
     "test": "mocha --compilers js:babel-core/register --colors --bail --reporter spec --require ./test/setup.js \"./{,!(node_modules|commonjs|modules)/**/}*.test.js\"  --recursive",
     "test-coverage": "istanbul cover -x \"locale/**\" -x \"commonjs/**\" -x \"modules/**\" -x \"*.test.js\" node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot --require ./test/setup.js \"./{,!(node_modules|commonjs|modules)/**/}*.test.js\" --recursive",
     "test-travis": "istanbul cover -x \"locale/**\" -x \"commonjs/**\" -x \"modules/**\" -x \"*.test.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-core/register --colors --reporter spec --require ./test/setup.js \"./{,!(node_modules|commonjs|modules)/**/}*.test.js\" --recursive",
-    "browser-build": "better-npm-run browser-build",
-    "browser-build-dev": "npm run build-es6-modules && WEBPACK_ENV=dev webpack --progress --colors --watch",
+    "browser-build": "npm run build-es6-modules && webpack --mode production --progress --colors",
+    "browser-build-dev": "npm run build-es6-modules && webpack --mode development --progress --colors --watch",
     "clean-for-build": "rimraf ./commonjs/**/* ./modules/**/*",
     "build-commonjs-modules": "better-npm-run build-commonjs-modules",
     "build-es6-modules": "better-npm-run build-es6-modules",
@@ -44,12 +44,6 @@
     "generate-load-all-locales": "babel-node bin/generate-load-all-locales"
   },
   "betterScripts": {
-    "browser-build": {
-      "command": "npm run build-es6-modules && webpack --progress --colors",
-      "env": {
-        "WEBPACK_ENV": "build"
-      }
-    },
     "build-commonjs-modules": {
       "command": "babel ./source --out-dir ./commonjs --source-maps",
       "env": {
