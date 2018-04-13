@@ -1,20 +1,18 @@
 {
+	"presets":
+	[
+		"env"
+	],
+
+	"plugins":
+	[
+		["transform-es2015-for-of", { loose: true }],
+		"transform-object-rest-spread",
+		"transform-class-properties"
+	],
+
 	"env":
 	{
-		"development":
-		{
-			"presets":
-			[
-				"env"
-			],
-
-			"plugins":
-			[
-				["transform-es2015-for-of", { loose: true }],
-				"transform-object-rest-spread",
-				"transform-class-properties"
-			]
-		},
 		"commonjs":
 		{
 			"presets":
@@ -42,6 +40,10 @@
 				"transform-object-rest-spread",
 				"transform-class-properties"
 			]
+		},
+		"test":
+		{
+			"plugins": ["istanbul"]
 		}
 	}
 }
