@@ -4,6 +4,7 @@
   "description": "International highly customizable relative date/time formatting",
   "main": "index.commonjs.js",
   "module": "index.js",
+  "sideEffects": false,
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.6.5",

@@ -1,4 +1,3 @@
-
 // A gradation is a mapping from a time interval (in seconds)
 // to the most appropriate time interval measurement unit
 // for describing it, along with the amount of such units.
