@@ -19,7 +19,7 @@ const gradation = arrayOf(oneOfType(
 [
 	shape
 	({
-		name        : string.isRequired,
+		unit        : string.isRequired,
 		factor      : number,
 		granularity : number,
 		threshold
