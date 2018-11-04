@@ -32,7 +32,7 @@ import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
 
 // Add locale-specific relative date/time formatting rules.
-TimeAgo.locale(en)
+TimeAgo.addLocale(en)
 
 // Create relative date/time formatter.
 const timeAgo = new TimeAgo('en-US')
@@ -60,8 +60,8 @@ import en from 'javascript-time-ago/locale/en'
 import ru from 'javascript-time-ago/locale/ru'
 
 // Add locale-specific relative date/time formatting rules.
-TimeAgo.locale(en)
-TimeAgo.locale(ru)
+TimeAgo.addLocale(en)
+TimeAgo.addLocale(ru)
 
 // cyka blyat
 const timeAgo = new TimeAgo('ru-RU')
@@ -154,10 +154,10 @@ require('javascript-time-ago/load-all-locales')
 There's a spec proposal called [`Intl.RelativeTimeFormat`](https://github.com/tc39/proposal-intl-relative-time) suggesting web browsers implement "time ago" formatting natively like they already do for dates and numbers. It's still a draft, and not officially accepted yet, but I guess at some point in time it will be accepted, in which case this library could serve as a polyfill for older browsers (iOS, Android).
 
 ```js
-import JavascriptTimeAgo, { RelativeTimeFormat } from 'javascript-time-ago'
+import { RelativeTimeFormat } from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
 
-JavascriptTimeAgo.locale(en)
+RelativeTimeFormat.addLocale(en)
 // Returns "2 days ago"
 new RelativeTimeFormat('en').format(-2, 'day')
 ```

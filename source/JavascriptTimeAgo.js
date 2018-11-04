@@ -247,7 +247,7 @@ JavascriptTimeAgo.setDefaultLocale = function(locale)
  * Adds locale data for a specific locale.
  * @param {Object} locale_data
  */
-JavascriptTimeAgo.locale = function(locale_data)
+JavascriptTimeAgo.addLocale = function(locale_data)
 {
 	if (!locale_data)
 	{
@@ -257,6 +257,14 @@ JavascriptTimeAgo.locale = function(locale_data)
 	// and later used when calling `.format(time)`.
 	JavascriptTimeAgo.locales[locale_data.locale] = locale_data
 }
+
+/**
+ * (legacy alias)
+ * Adds locale data for a specific locale.
+ * @param {Object} locale_data
+ * @deprecated
+ */
+JavascriptTimeAgo.locale = JavascriptTimeAgo.addLocale
 
 // Normalizes `.format()` `time` argument.
 function get_date_and_time_being_formatted(input)

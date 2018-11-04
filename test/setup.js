@@ -43,11 +43,11 @@ else
 // }
 
 // Load localization data for Node.js
-javascript_time_ago.locale(en)
-javascript_time_ago.locale(ru)
-javascript_time_ago.locale(de)
-javascript_time_ago.locale(ko)
-javascript_time_ago.locale(ccp)
+javascript_time_ago.addLocale(en)
+javascript_time_ago.addLocale(ru)
+javascript_time_ago.addLocale(de)
+javascript_time_ago.addLocale(ko)
+javascript_time_ago.addLocale(ccp)
 
 chai.should()
 global.expect = expect

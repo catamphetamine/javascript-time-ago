@@ -20,7 +20,7 @@ fs.readdirSync(path.resolve(__dirname, '../locale')).forEach(function(locale)
 fs.writeFileSync(path.resolve(__dirname, '../load-all-locales.js'),
 `
 var TimeAgo = require("javascript-time-ago")
-${locales.map(locale => 'TimeAgo.locale(require("javascript-time-ago/locale/' + locale + '"))').join('\n')}
+${locales.map(locale => 'TimeAgo.addLocale(require("javascript-time-ago/locale/' + locale + '"))').join('\n')}
 `
 .trim())
 
@@ -30,5 +30,5 @@ ${locales.map(locale => 'TimeAgo.locale(require("javascript-time-ago/locale/' + 
 //
 // ${locales.map(locale => 'import ' + locale + ' from "javascript-time-ago/locale/' + locale + '"').join('\n')}
 //
-// ${locales.map(locale => 'TimeAgo.locale(' + locale + ')').join('\n')}
+// ${locales.map(locale => 'TimeAgo.addLocale(' + locale + ')').join('\n')}
 // `

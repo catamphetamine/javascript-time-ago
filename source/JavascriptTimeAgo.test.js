@@ -359,7 +359,7 @@ describe(`time ago`, function()
 
 	it(`should throw for non-existing locales`, function()
 	{
-		(() => JavascriptTimeAgo.locale()).should.throw('Invalid locale data passed')
+		(() => JavascriptTimeAgo.addLocale()).should.throw('Invalid locale data passed')
 	})
 })
 

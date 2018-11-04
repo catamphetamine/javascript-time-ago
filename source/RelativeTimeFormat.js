@@ -193,8 +193,10 @@ function resolveLocale(locale) {
   }
 }
 
-export function loadLocale(locale) {
-  JavascriptTimeAgo.locale(locale)
+// Due to the cyclic `import` dependency the one-liner won't work.
+// RelativeTimeFormat.addLocale = JavascriptTimeAgo.addLocale
+RelativeTimeFormat.addLocale = function(localeData) {
+  JavascriptTimeAgo.addLocale(localeData)
 }
 
 function getLocales() {

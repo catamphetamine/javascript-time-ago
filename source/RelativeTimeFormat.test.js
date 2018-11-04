@@ -2,11 +2,11 @@ import en from '../locale/en'
 import ru from '../locale/ru'
 import to from '../locale/to'
 
-import RelativeTimeFormat, { loadLocale } from './RelativeTimeFormat'
+import RelativeTimeFormat from './RelativeTimeFormat'
 
-loadLocale(en)
-loadLocale(ru)
-loadLocale(to)
+RelativeTimeFormat.addLocale(en)
+RelativeTimeFormat.addLocale(ru)
+RelativeTimeFormat.addLocale(to)
 
 describe('Intl.RelativeTimeFormat', () => {
   it('should format relative time', () => {

@@ -15,7 +15,7 @@ describe(`exports`, function()
 	it(`should export ES6`, function()
 	{
 		// Load locale specific relative date/time messages
-		TimeAgo.locale(require('../locale/en'))
+		TimeAgo.addLocale(require('../locale/en'))
 		new TimeAgo().format(new Date()).should.be.a('string')
 		// day.should.be.a('number')
 		// month.should.be.a('number')
@@ -34,6 +34,8 @@ describe(`exports`, function()
 		const Library = require('../index.commonjs')
 
 		// Load locale specific relative date/time messages
+		// Library.addLocale(require('../locale/en'))
+		// The legacy `.locale()` function name should still work in version `1.x`.
 		Library.locale(require('../locale/en'))
 
 		new Library().format(new Date()).should.be.a('string')

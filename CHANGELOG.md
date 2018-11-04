@@ -1,3 +1,10 @@
+1.0.32 / 04.11.2018
+===================
+
+  * Added `.addLocale()` alias for `.locale()` function (better naming). The old `.locale()` function name is now deprecated and will be removed in some next major version release.
+
+  * Added `RelativeTimeFormat.addLocale()` proxy function which simply calls `JavascriptTimeAgo.addLocale()`.
+
 1.0.19 / 12.01.2018
 ===================
 
