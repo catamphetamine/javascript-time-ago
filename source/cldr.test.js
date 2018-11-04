@@ -1,16 +1,16 @@
-import parse_CLDR from './cldr'
-import { short as english_short, long as english_long } from '../locale/en'
+import parseCLDR from './cldr'
+import { short as englishShort, long as englishLong } from '../locale/en'
 
-describe(`CLDR`, function()
+describe('CLDR', function()
 {
-	it(`should parse Unicode CLDR locale data`, function()
+	it('should parse Unicode CLDR locale data', () =>
 	{
-    // console.log(JSON.stringify(parse_CLDR(english_CLDR), null, 2))
-		parse_CLDR(english_CLDR).should.deep.equal(english_CLDR_converted)
+    // console.log(JSON.stringify(parseCLDR(englishCLDR), null, 2))
+		parseCLDR(englishCLDR).should.deep.equal(englishCLDRConverted)
 	})
 })
 
-const english_CLDR_converted =
+const englishCLDRConverted =
 {
   "long": {
     "year": {
@@ -245,7 +245,7 @@ const english_CLDR_converted =
   }
 }
 
-const english_CLDR =
+const englishCLDR =
 {
   "main": {
     "en-US-POSIX": {

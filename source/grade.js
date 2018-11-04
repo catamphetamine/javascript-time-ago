@@ -25,24 +25,22 @@ export default function grade(elapsed, now, units, gradation = convenient)
 {
 	// Leave only allowed time measurement units.
 	// E.g. omit "quarter" unit.
-	gradation = get_allowed_steps(gradation, units)
+	gradation = getAllowedSteps(gradation, units)
 
 	// If no steps of gradation fit the conditions
 	// then return nothing.
-	if (gradation.length === 0)
-	{
+	if (gradation.length === 0) {
 		return
 	}
 
 	// Find the most appropriate gradation step
-	const i = find_gradation_step(elapsed, now, gradation)
+	const i = findGradationStep(elapsed, now, gradation)
 	const step = gradation[i]
 
 	// If time elapsed is too small and even
 	// the first gradation step doesn't suit it
 	// then return nothing.
-	if (i === -1)
-	{
+	if (i === -1) {
 		return
 	}
 
@@ -50,17 +48,14 @@ export default function grade(elapsed, now, units, gradation = convenient)
 	// (and fall back to the previous step
 	//  if the first level of granularity
 	//  isn't met by this amount)
-	if (step.granularity)
-	{
+	if (step.granularity) {
 		// Recalculate the elapsed time amount based on granularity
 		const amount = Math.round((elapsed / step.factor) / step.granularity) * step.granularity
-
 		// If the granularity for this step
 		// is too high, then fallback
 		// to the previous step of gradation.
 		// (if there is any previous step of gradation)
-		if (amount === 0 && i > 0)
-		{
+		if (amount === 0 && i > 0) {
 			return gradation[i - 1]
 		}
 	}
@@ -69,45 +64,41 @@ export default function grade(elapsed, now, units, gradation = convenient)
 }
 
 /**
- * Gets threshold for moving from `from_step` to `next_step`.
- * @param  {Object} from_step - From step.
+ * Gets threshold for moving from `fromStep` to `next_step`.
+ * @param  {Object} fromStep - From step.
  * @param  {Object} next_step - To step.
  * @param  {number} now - The current timestamp.
  * @return {number}
  * @throws Will throw if no threshold is found.
  */
-function get_threshold(from_step, to_step, now)
+function getThreshold(fromStep, toStep, now)
 {
 	let threshold
 
 	// Allows custom thresholds when moving
 	// from a specific step to a specific step.
-	if (from_step && (from_step.id || from_step.unit))
-	{
-		threshold = to_step[`threshold_for_${from_step.id || from_step.unit}`]
+	if (fromStep && (fromStep.id || fromStep.unit)) {
+		threshold = toStep[`threshold_for_${fromStep.id || fromStep.unit}`]
 	}
 
 	// If no custom threshold is set for this transition
 	// then use the usual threshold for the next step.
-	if (threshold === undefined)
-	{
-		threshold = to_step.threshold
+	if (threshold === undefined) {
+		threshold = toStep.threshold
 	}
 
 	// Convert threshold to a number.
-	if (typeof threshold === 'function')
-	{
+	if (typeof threshold === 'function') {
 		threshold = threshold(now)
 	}
 
 	// Throw if no threshold is found.
-	if (from_step && typeof threshold !== 'number')
-	{
+	if (fromStep && typeof threshold !== 'number') {
 		// Babel transforms `typeof` into some "branches"
 		// so istanbul will show this as "branch not covered".
 		/* istanbul ignore next */
 		const type = typeof threshold
-		throw new Error(`Each step of a gradation must have a threshold defined except for the first one. Got "${threshold}", ${type}. Step: ${JSON.stringify(to_step)}`)
+		throw new Error(`Each step of a gradation must have a threshold defined except for the first one. Got "${threshold}", ${type}. Step: ${JSON.stringify(toStep)}`)
 	}
 
 	return threshold
@@ -120,23 +111,19 @@ function get_threshold(from_step, to_step, now)
  * @param  {number} i - Gradation step currently being tested.
  * @return {number} Gradation step index.
  */
-function find_gradation_step(elapsed, now, gradation, i = 0)
+function findGradationStep(elapsed, now, gradation, i = 0)
 {
 	// If the threshold for moving from previous step
 	// to this step is too high then return the previous step.
-	if (elapsed < get_threshold(gradation[i - 1], gradation[i], now))
-	{
+	if (elapsed < getThreshold(gradation[i - 1], gradation[i], now)) {
 		return i - 1
 	}
-
 	// If it's the last step of gradation then return it.
-	if (i === gradation.length - 1)
-	{
+	if (i === gradation.length - 1) {
 		return i
 	}
-
 	// Move to the next step.
-	return find_gradation_step(elapsed, now, gradation, i + 1)
+	return findGradationStep(elapsed, now, gradation, i + 1)
 }
 
 /**
@@ -145,17 +132,14 @@ function find_gradation_step(elapsed, now, gradation, i = 0)
  * @param  {string[]} units - Allowed time units.
  * @return {Object[]}
  */
-function get_allowed_steps(gradation, units)
+function getAllowedSteps(gradation, units)
 {
-	return gradation.filter(({ unit }) =>
-	{
+	return gradation.filter(({ unit }) => {
 		// If this step has a `unit` defined
 		// then this `unit` must be in the list of `units` allowed.
-		if (unit)
-		{
+		if (unit) {
 			return units.indexOf(unit) >= 0
 		}
-
 		// A gradation step is not required to specify a `unit`.
 		// E.g. for Twitter gradation it specifies `format()` instead.
 		return true

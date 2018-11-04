@@ -3,20 +3,18 @@ import gradation from './convenient'
 
 // Perhaps this should be part of `grade.test.js` instead.
 
-describe('convenient gradation', function()
+describe('convenient gradation', () =>
 {
-	it('should grade correctly', function()
+	it('should grade correctly', () =>
 	{
-		const test = (elapsed) => grade(elapsed, null,
-		[
+		const test = (elapsed) => grade(elapsed, null, [
 			'second',
 			'minute',
 			'hour',
 			'day',
 			'month',
 			'year'
-		],
-		gradation)
+		], gradation)
 
 		expect(test(0)).to.be.undefined
 

@@ -1,12 +1,11 @@
 import timeStyle from './time'
-import { convenient_gradation_test } from '../JavascriptTimeAgo.test'
+import { convenientGradationTest } from '../JavascriptTimeAgo.test'
 
-describe('"time" style', function()
+describe('"time" style', () =>
 {
-	it(`should format "time" style relative time (English)`, function()
+	it('should format "time" style relative time (English)', () =>
 	{
-		convenient_gradation_test
-		([
+		convenientGradationTest([
 			'just now',
 			'1 minute',
 			'2 minutes',
@@ -68,10 +67,9 @@ describe('"time" style', function()
 		timeStyle)
 	})
 
-	it(`should format "time" style relative time (Russian)`, function()
+	it('should format "time" style relative time (Russian)', () =>
 	{
-		convenient_gradation_test
-		([
+		convenientGradationTest([
 			'только что',
 			'1 минута',
 			'2 минуты',

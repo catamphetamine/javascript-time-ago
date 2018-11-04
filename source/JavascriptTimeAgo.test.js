@@ -5,68 +5,68 @@ import { defaultStyle } from '../source/style'
 // Load locale specific relative date/time messages
 import english from '../locale/en'
 
-describe(`time ago`, function()
+describe(`time ago`, () =>
 {
-	it(`should try various flavours if some are not found`, function()
+	it(`should try various flavours if some are not found`, () =>
 	{
-		const time_ago = new JavascriptTimeAgo('en')
-		time_ago.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('now')
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('now')
 	})
 
-	it(`should accept a string style argument`, function()
+	it(`should accept a string style argument`, () =>
 	{
-		const time_ago = new JavascriptTimeAgo('en')
-		time_ago.format(Date.now(), 'twitter').should.equal('')
-		time_ago.format(Date.now(), 'time').should.equal('just now')
-		time_ago.format(Date.now(), 'exotic').should.equal('just now')
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(Date.now(), 'twitter').should.equal('')
+		timeAgo.format(Date.now(), 'time').should.equal('just now')
+		timeAgo.format(Date.now(), 'exotic').should.equal('just now')
 	})
 
-	it(`should accept empty constructor parameters`, function()
+	it(`should accept empty constructor parameters`, () =>
 	{
-		const time_ago = new JavascriptTimeAgo()
-		time_ago.format(new Date()).should.equal('just now')
+		const timeAgo = new JavascriptTimeAgo()
+		timeAgo.format(new Date()).should.equal('just now')
 	})
 
-	it(`should accept Dates`, function()
+	it(`should accept Dates`, () =>
 	{
-		const time_ago = new JavascriptTimeAgo('en')
-		time_ago.format(new Date()).should.equal('just now')
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(new Date()).should.equal('just now')
 	})
 
-	it(`should not accept anything but Dates and timestamps`, function()
+	it(`should not accept anything but Dates and timestamps`, () =>
 	{
-		const time_ago = new JavascriptTimeAgo('en')
-		const thrower = () => time_ago.format('Jan 14, 2017')
+		const timeAgo = new JavascriptTimeAgo('en')
+		const thrower = () => timeAgo.format('Jan 14, 2017')
 		thrower.should.throw('Unsupported relative time formatter input: string, Jan 14, 2017')
 	})
 
-	it(`should return an empty string if the passed units are not available in locale data`, function()
+	it(`should return an empty string if the passed units are not available in locale data`, () =>
 	{
-		const time_ago = new JavascriptTimeAgo('en')
-		time_ago.format(Date.now(), { units: ['femtosecond'] }).should.equal('')
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(Date.now(), { units: ['femtosecond'] }).should.equal('')
 	})
 
-	it(`should return an empty string if no unit is suitable`, function()
+	it(`should return an empty string if no unit is suitable`, () =>
 	{
-		const time_ago = new JavascriptTimeAgo('en')
+		const timeAgo = new JavascriptTimeAgo('en')
 		const now = Date.now()
 
 		// Remove 'now' unit formatting rule temporarily
-		const just_now_formatter = JavascriptTimeAgo.locales.en.long.now
+		const justNowFormatter = JavascriptTimeAgo.locales.en.long.now
 		delete JavascriptTimeAgo.locales.en.long.now
 
-		time_ago.format(now, { now }).should.equal('')
+		timeAgo.format(now, { now }).should.equal('')
 
 		// Restore 'now' unit formating rule
-		JavascriptTimeAgo.locales.en.long.now = just_now_formatter
+		JavascriptTimeAgo.locales.en.long.now = justNowFormatter
 	})
 
-	it(`should format for a style with "custom" function`, function()
+	it(`should format for a style with "custom" function`, () =>
 	{
-		const time_ago = new JavascriptTimeAgo('en')
+		const timeAgo = new JavascriptTimeAgo('en')
 
 		// `custom` returns a string
-		time_ago.format(Date.now(),
+		timeAgo.format(Date.now(),
 		{
 			custom({ now, time, date, locale })
 			{
@@ -76,7 +76,7 @@ describe(`time ago`, function()
 		.should.equal('en')
 
 		// `custom` returns `undefined`
-		time_ago.format(Date.now(),
+		timeAgo.format(Date.now(),
 		{
 			custom({ now, time, date, locale })
 			{
@@ -86,9 +86,9 @@ describe(`time ago`, function()
 		.should.equal('now')
 	})
 
-	it(`should format time correctly for English language (short)`, function()
+	it(`should format time correctly for English language (short)`, () =>
 	{
-		convenient_gradation_test
+		convenientGradationTest
 		([
 			'now',
 			'1 min. ago',
@@ -151,9 +151,9 @@ describe(`time ago`, function()
 		{ flavour: 'short' })
 	})
 
-	it(`should format time correctly for English language (long)`, function()
+	it(`should format time correctly for English language (long)`, () =>
 	{
-		convenient_gradation_test
+		convenientGradationTest
 		([
 			'just now',
 			'a minute ago',
@@ -216,9 +216,9 @@ describe(`time ago`, function()
 		defaultStyle)
 	})
 
-	it(`should format time correctly for Russian language (short)`, function()
+	it(`should format time correctly for Russian language (short)`, () =>
 	{
-		convenient_gradation_test
+		convenientGradationTest
 		([
 			'сейчас',
 			'1 мин. назад',
@@ -281,9 +281,9 @@ describe(`time ago`, function()
 		{ flavour: 'short' })
 	})
 
-	it(`should format time correctly for Russian language (long)`, function()
+	it(`should format time correctly for Russian language (long)`, () =>
 	{
-		convenient_gradation_test
+		convenientGradationTest
 		([
 			'только что',
 			'1 минуту назад',
@@ -346,51 +346,51 @@ describe(`time ago`, function()
 		defaultStyle)
 	})
 
-	it(`should format future dates`, function()
+	it(`should format future dates`, () =>
 	{
 		new JavascriptTimeAgo('en').format(Date.now() + 60 * 60 * 1000).should.equal('in an hour')
 		new JavascriptTimeAgo('ru').format(Date.now() + 45.1 * 1000).should.equal('через 1 минуту')
 	})
 
-	it(`should have generated missing quantifier functions`, function()
+	it(`should have generated missing quantifier functions`, () =>
 	{
 		new JavascriptTimeAgo('ccp').format(Date.now() + 60 * 1000).should.equal('1 𑄟𑄨𑄚𑄨𑄘𑄬')
 	})
 
-	it(`should throw for non-existing locales`, function()
+	it(`should throw for non-existing locales`, () =>
 	{
 		(() => JavascriptTimeAgo.addLocale()).should.throw('Invalid locale data passed')
 	})
 })
 
-export function convenient_gradation_test(convenient_gradation_labels, time_ago, style = {})
+export function convenientGradationTest(convenientGradationLabels, timeAgo, style = {})
 {
-	if (typeof time_ago === 'string')
+	if (typeof timeAgo === 'string')
 	{
-		time_ago = new JavascriptTimeAgo(time_ago)
+		timeAgo = new JavascriptTimeAgo(timeAgo)
 	}
 
 	const now = Date.now()
-	const elapsed = time => time_ago.format(now - time * 1000, { now, ...style })
+	const elapsed = time => timeAgo.format(now - time * 1000, { now, ...style })
 
-	if (convenient_gradation.length !== convenient_gradation_labels.length)
+	if (convenientGradation.length !== convenientGradationLabels.length)
 	{
-		throw new Error(`Array length mismatch. Gradation steps: ${convenient_gradation.length}, labels: ${convenient_gradation_labels.length}`)
+		throw new Error(`Array length mismatch. Gradation steps: ${convenientGradation.length}, labels: ${convenientGradationLabels.length}`)
 	}
 
 	let i = 0
-	while (i < convenient_gradation.length)
+	while (i < convenientGradation.length)
 	{
-		for (let time of convenient_gradation[i])
+		for (let time of convenientGradation[i])
 		{
-			elapsed(time).should.equal(convenient_gradation_labels[i])
+			elapsed(time).should.equal(convenientGradationLabels[i])
 		}
 
 		i++
 	}
 }
 
-const convenient_gradation =
+const convenientGradation =
 [
 	// 'just now':
 	[

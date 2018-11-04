@@ -1,5 +1,5 @@
 import grade from './grade'
-import choose_locale from './locale'
+import chooseLocale from './locale'
 import { twitterStyle, timeStyle, defaultStyle } from './style'
 import RelativeTimeFormat from './RelativeTimeFormat'
 
@@ -19,16 +19,14 @@ export default class JavascriptTimeAgo
 	constructor(locales = [])
 	{
 		// Convert `locales` to an array.
-		if (typeof locales === 'string')
-		{
+		if (typeof locales === 'string') {
 			locales = [locales]
 		}
 
 		// Choose the most appropriate locale
 		// (one of the previously added ones)
 		// based on the list of preferred `locales` supplied by the user.
-		this.locale = choose_locale
-		(
+		this.locale = chooseLocale(
 			locales.concat(JavascriptTimeAgo.default_locale),
 			JavascriptTimeAgo.locales
 		)
@@ -83,10 +81,10 @@ export default class JavascriptTimeAgo
 			}
 		}
 
-		const { date, time } = get_date_and_time_being_formatted(input)
+		const { date, time } = getDateAndTimeBeingFormatted(input)
 
 		// Get locale messages for this formatting flavour
-		const { flavour, locale_data } = this.get_locale_data(style.flavour)
+		const { flavour, localeData } = this.getLocaleData(style.flavour)
 
 		// Can pass a custom `now`, e.g. for testing purposes.
 		// Technically it doesn't belong to `style`
@@ -110,8 +108,7 @@ export default class JavascriptTimeAgo
 		//
 		if (style.custom)
 		{
-			const custom = style.custom
-			({
+			const custom = style.custom({
 				now,
 				date,
 				time,
@@ -119,26 +116,23 @@ export default class JavascriptTimeAgo
 				locale : this.locale
 			})
 
-			if (custom !== undefined)
-			{
+			if (custom !== undefined) {
 				return custom
 			}
 		}
 
 		// Available time interval measurement units.
-		const units = get_time_interval_measurement_units(locale_data, style.units)
+		const units = getTimeIntervalMeasurementUnits(localeData, style.units)
 
 		// If no available time unit is suitable, just output an empty string.
-		if (units.length === 0)
-		{
+		if (units.length === 0) {
 			console.error(`Units "${units.join(', ')}" were not found in locale data for "${this.locale}".`)
 			return ''
 		}
 
 		// Choose the appropriate time measurement unit
 		// and get the corresponding rounded time amount.
-		const step = grade
-		(
+		const step = grade(
 			Math.abs(elapsed),
 			now,
 			units,
@@ -149,13 +143,11 @@ export default class JavascriptTimeAgo
 		// E.g. when "now" unit is not available
 		// and "second" has a threshold of `0.5`
 		// (e.g. the "canonical" grading scale).
-		if (!step)
-		{
+		if (!step) {
 			return ''
 		}
 
-		if (step.format)
-		{
+		if (step.format) {
 			return step.format(date || time, this.locale)
 		}
 
@@ -167,8 +159,7 @@ export default class JavascriptTimeAgo
 		// (and fallback to the previous step
 		//  if the first level of granularity
 		//  isn't met by this amount)
-		if (granularity)
-		{
+		if (granularity) {
 			// Recalculate the elapsed time amount based on granularity
 			amount = Math.round(amount / granularity) * granularity
 		}
@@ -187,11 +178,8 @@ export default class JavascriptTimeAgo
 		// return formatter.format(...)
 		// ```
 		//
-		return new RelativeTimeFormat(this.locale, { style: flavour }).format
-		(
-			-1 * Math.sign(elapsed) * Math.round(amount),
-			unit
-		)
+		return new RelativeTimeFormat(this.locale, { style: flavour })
+			.format(-1 * Math.sign(elapsed) * Math.round(amount), unit)
 	}
 
 	/**
@@ -200,12 +188,12 @@ export default class JavascriptTimeAgo
 	 * @param {(string|string[])} flavour - Relative date/time formatting flavour.
 	 *                                      If it's an array then all flavours are tried in order.
 	 *
-	 * @returns {Object} Returns an object of shape { flavour, locale_data }
+	 * @returns {Object} Returns an object of shape { flavour, localeData }
 	 */
-	get_locale_data(flavour = [])
+	getLocaleData(flavour = [])
 	{
 		// Get relative time formatting rules for this locale
-		const locale_data = JavascriptTimeAgo.locales[this.locale]
+		const localeData = JavascriptTimeAgo.locales[this.locale]
 
 		// Convert `flavour` to an array.
 		if (typeof flavour === 'string')
@@ -218,13 +206,11 @@ export default class JavascriptTimeAgo
 		flavour = flavour.concat('long')
 
 		// Find a suitable flavour.
-		for (const _ of flavour)
-		{
-			if (locale_data[_])
-			{
+		for (const _ of flavour) {
+			if (localeData[_]) {
 				return {
-					flavour     : _,
-					locale_data : locale_data[_]
+					flavour : _,
+					localeData : localeData[_]
 				}
 			}
 		}
@@ -245,29 +231,29 @@ JavascriptTimeAgo.setDefaultLocale = function(locale)
 
 /**
  * Adds locale data for a specific locale.
- * @param {Object} locale_data
+ * @param {Object} localeData
  */
-JavascriptTimeAgo.addLocale = function(locale_data)
+JavascriptTimeAgo.addLocale = function(localeData)
 {
-	if (!locale_data)
+	if (!localeData)
 	{
 		throw new Error('[javascript-time-ago] Invalid locale data passed.')
 	}
 	// This locale data is stored in a global variable
 	// and later used when calling `.format(time)`.
-	JavascriptTimeAgo.locales[locale_data.locale] = locale_data
+	JavascriptTimeAgo.locales[localeData.locale] = localeData
 }
 
 /**
  * (legacy alias)
  * Adds locale data for a specific locale.
- * @param {Object} locale_data
+ * @param {Object} localeData
  * @deprecated
  */
 JavascriptTimeAgo.locale = JavascriptTimeAgo.addLocale
 
 // Normalizes `.format()` `time` argument.
-function get_date_and_time_being_formatted(input)
+function getDateAndTimeBeingFormatted(input)
 {
 	if (input.constructor === Date)
 	{
@@ -293,18 +279,17 @@ function get_date_and_time_being_formatted(input)
 }
 
 // Get available time interval measurement units.
-function get_time_interval_measurement_units(locale_data, restricted_set_of_units)
+function getTimeIntervalMeasurementUnits(localeData, restrictedSetOfUnits)
 {
 	// All available time interval measurement units.
-	const units = Object.keys(locale_data)
+	const units = Object.keys(localeData)
 
 	// If only a specific set of available
 	// time measurement units can be used.
-	if (restricted_set_of_units)
-	{
+	if (restrictedSetOfUnits) {
 		// Reduce available time interval measurement units
 		// based on user's preferences.
-		return restricted_set_of_units.filter(_ => units.indexOf(_) >= 0)
+		return restrictedSetOfUnits.filter(_ => units.indexOf(_) >= 0)
 	}
 
 	return units

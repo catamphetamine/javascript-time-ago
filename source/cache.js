@@ -6,10 +6,8 @@ export default class Cache
 	get(...keys)
 	{
 		let cache = this.cache
-		for (const key of keys)
-		{
-			if (typeof cache !== 'object')
-			{
+		for (const key of keys) {
+			if (typeof cache !== 'object') {
 				return
 			}
 			cache = cache[key]
@@ -24,10 +22,8 @@ export default class Cache
 		const last_key = keys.pop()
 
 		let cache = this.cache
-		for (const key of keys)
-		{
-			if (typeof cache[key] !== 'object')
-			{
+		for (const key of keys) {
+			if (typeof cache[key] !== 'object') {
 				cache[key] = {}
 			}
 			cache = cache[key]

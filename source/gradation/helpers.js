@@ -16,12 +16,9 @@ export const year = (146097 / 400) * day // in seconds
  * @param  {string} unit
  * @return {?Object}
  */
-export function getStep(gradation, unit)
-{
-	for (const step of gradation)
-	{
-		if (step.unit === unit)
-		{
+export function getStep(gradation, unit) {
+	for (const step of gradation) {
+		if (step.unit === unit) {
 			return step
 		}
 	}
@@ -32,7 +29,6 @@ export function getStep(gradation, unit)
  * @param {(number|Date)} value
  * @return {Date}
  */
-export function getDate(value)
-{
+export function getDate(value) {
 	return value instanceof Date ? value : new Date(value)
 }

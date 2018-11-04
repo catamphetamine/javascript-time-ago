@@ -1,8 +1,8 @@
 import { getDate } from './helpers'
 
-describe('gradation helpers', function()
+describe('gradation helpers', () =>
 {
-	it('should convert value to Date', function()
+	it('should convert value to Date', () =>
 	{
 		const today = new Date()
 		getDate(today.getTime()).getTime().should.equal(today.getTime())

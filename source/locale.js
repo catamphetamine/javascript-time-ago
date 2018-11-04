@@ -3,22 +3,22 @@
 // based on the list of preferred `locales` supplied by the user.
 //
 // @param {string[]} locales - the list of preferable locales (in [IETF format](https://en.wikipedia.org/wiki/IETF_language_tag)).
-// @param {Object} registered_locales - a map of available locales.
+// @param {Object} availableLocales - a map of available locales.
 //
 // @returns {string} The most suitable locale
 //
 // @example
 // // Returns 'en'
-// choose_locale(['en-US'], undefined, { 'ru', 'en' })
+// chooseLocale(['en-US'], undefined, { 'ru', 'en' })
 //
-export default function choose_locale(locales, registered_locales)
+export default function chooseLocale(locales, availableLocales)
 {
 	// This is not an intelligent algorythm,
 	// but it will do for this library's case.
 	// `sr-Cyrl-BA` -> `sr-Cyrl` -> `sr`.
 	for (let locale of locales)
 	{
-		if (registered_locales[locale])
+		if (availableLocales[locale])
 		{
 			return locale
 		}
@@ -28,7 +28,7 @@ export default function choose_locale(locales, registered_locales)
 		{
 			parts.pop()
 			locale = parts.join('-')
-			if (registered_locales[locale])
+			if (availableLocales[locale])
 			{
 				return locale
 			}
@@ -61,7 +61,7 @@ export function intlDateTimeFormatSupported()
 	// Babel transforms `typeof` into some "branches"
 	// so istanbul will show this as "branch not covered".
 	/* istanbul ignore next */
-	const is_intl_available = typeof Intl === 'object'
+	const isIntlAvailable = typeof Intl === 'object'
 
-	return is_intl_available && typeof Intl.DateTimeFormat === 'function'
+	return isIntlAvailable && typeof Intl.DateTimeFormat === 'function'
 }
