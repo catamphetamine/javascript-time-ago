@@ -158,6 +158,7 @@ import { RelativeTimeFormat } from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
 
 RelativeTimeFormat.addLocale(en)
+
 // Returns "2 days ago"
 new RelativeTimeFormat('en').format(-2, 'day')
 ```
