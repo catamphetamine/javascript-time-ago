@@ -1,6 +1,7 @@
 import JavascriptTimeAgo from '../source/JavascriptTimeAgo'
 import { day, month, year } from '../source/gradation'
 import { defaultStyle } from '../source/style'
+import { getLocaleData } from '../source/LocaleDataStore'
 
 // Load locale specific relative date/time messages
 import english from '../locale/en'
@@ -52,13 +53,13 @@ describe(`time ago`, () =>
 		const now = Date.now()
 
 		// Remove 'now' unit formatting rule temporarily
-		const justNowFormatter = JavascriptTimeAgo.locales.en.long.now
-		delete JavascriptTimeAgo.locales.en.long.now
+		const justNowFormatter = getLocaleData('en').long.now
+		delete getLocaleData('en').long.now
 
 		timeAgo.format(now, { now }).should.equal('')
 
 		// Restore 'now' unit formating rule
-		JavascriptTimeAgo.locales.en.long.now = justNowFormatter
+		getLocaleData('en').long.now = justNowFormatter
 	})
 
 	it(`should format for a style with "custom" function`, () =>
@@ -359,7 +360,7 @@ describe(`time ago`, () =>
 
 	it(`should throw for non-existing locales`, () =>
 	{
-		(() => JavascriptTimeAgo.addLocale()).should.throw('Invalid locale data passed')
+		(() => JavascriptTimeAgo.addLocale()).should.throw('No locale data passed')
 	})
 })
 

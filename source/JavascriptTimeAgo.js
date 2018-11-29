@@ -1,18 +1,19 @@
 import grade from './grade'
 import chooseLocale from './locale'
 import { twitterStyle, timeStyle, defaultStyle } from './style'
+
 import RelativeTimeFormat from './RelativeTimeFormat'
+
+import {
+	getDefaultLocale,
+	setDefaultLocale,
+	getLocaleData,
+	addLocaleData,
+	isLocaleDataAvailable
+} from './LocaleDataStore'
 
 export default class JavascriptTimeAgo
 {
-	// Fallback locale
-	// (when not a single supplied preferred locale is available)
-	static default_locale = 'en'
-
-	// For all configured locales
-	// their relative time formatter messages will be stored here
-	static locales = {}
-
 	/**
 	 * @param {(string|string[])} locales=[] - Preferred locales (or locale).
 	 */
@@ -27,8 +28,8 @@ export default class JavascriptTimeAgo
 		// (one of the previously added ones)
 		// based on the list of preferred `locales` supplied by the user.
 		this.locale = chooseLocale(
-			locales.concat(JavascriptTimeAgo.default_locale),
-			JavascriptTimeAgo.locales
+			locales.concat(getDefaultLocale()),
+			isLocaleDataAvailable
 		)
 	}
 
@@ -193,7 +194,7 @@ export default class JavascriptTimeAgo
 	getLocaleData(flavour = [])
 	{
 		// Get relative time formatting rules for this locale
-		const localeData = JavascriptTimeAgo.locales[this.locale]
+		const localeData = getLocaleData(this.locale)
 
 		// Convert `flavour` to an array.
 		if (typeof flavour === 'string')
@@ -224,25 +225,13 @@ export default class JavascriptTimeAgo
  * Sets default locale.
  * @param  {string} locale
  */
-JavascriptTimeAgo.setDefaultLocale = function(locale)
-{
-	JavascriptTimeAgo.default_locale = locale
-}
+JavascriptTimeAgo.setDefaultLocale = setDefaultLocale
 
 /**
  * Adds locale data for a specific locale.
  * @param {Object} localeData
  */
-JavascriptTimeAgo.addLocale = function(localeData)
-{
-	if (!localeData)
-	{
-		throw new Error('[javascript-time-ago] Invalid locale data passed.')
-	}
-	// This locale data is stored in a global variable
-	// and later used when calling `.format(time)`.
-	JavascriptTimeAgo.locales[localeData.locale] = localeData
-}
+JavascriptTimeAgo.addLocale = addLocaleData
 
 /**
  * (legacy alias)

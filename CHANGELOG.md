@@ -1,3 +1,10 @@
+1.0.33 / 29.11.2018
+===================
+
+  * Resolved cyclic dependency between `JavascriptTimeAgo.js` and `RelativeTimeFormat.js`.
+
+  * `JavascriptTimeAgo.default_locale` variable no longer exists (it wasn't public or documented).
+
 1.0.32 / 04.11.2018
 ===================
 

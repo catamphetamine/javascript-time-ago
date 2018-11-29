@@ -1,4 +1,8 @@
-import JavascriptTimeAgo from './JavascriptTimeAgo'
+import {
+  getDefaultLocale,
+  getLocaleData,
+  addLocaleData
+} from './LocaleDataStore'
 
 /**
  * Polyfill for `Intl.RelativeTimeFormat` proposal.
@@ -111,7 +115,7 @@ export default class RelativeTimeFormat {
     // }
     // ```
     //
-    const unitRules = getLocales()[this.locale][this.style][unit]
+    const unitRules = getLocaleData(this.locale)[this.style][unit]
     if (typeof unitRules === "string") {
       return unitRules
     }
@@ -123,7 +127,7 @@ export default class RelativeTimeFormat {
       return quantifierRules
     }
     // Quantify `value`.
-    const quantify = getLocales()[this.locale].quantify
+    const quantify = getLocaleData(this.locale).quantify
     let quantifier = quantify && quantify(Math.abs(value))
     // There seems to be no such locale in CLDR
     // for which `quantify` is missing
@@ -179,7 +183,7 @@ RelativeTimeFormat.supportedLocalesOf = function(locales, options) {
  * @return {string}
  */
 function resolveLocale(locale) {
-  if (getLocales()[locale]) {
+  if (getLocaleData(locale)) {
     return locale
   }
   // `sr-Cyrl-BA` -> `sr-Cyrl` -> `sr`.
@@ -187,25 +191,13 @@ function resolveLocale(locale) {
   while (locale.length > 1) {
     parts.pop()
     locale = parts.join('-')
-    if (getLocales()[locale]) {
+    if (getLocaleData(locale)) {
       return locale
     }
   }
 }
 
-// Due to the cyclic `import` dependency the one-liner won't work.
-// RelativeTimeFormat.addLocale = JavascriptTimeAgo.addLocale
-RelativeTimeFormat.addLocale = function(localeData) {
-  JavascriptTimeAgo.addLocale(localeData)
-}
-
-function getLocales() {
-  return JavascriptTimeAgo.locales
-}
-
-function getDefaultLocale() {
-  return JavascriptTimeAgo.default_locale
-}
+RelativeTimeFormat.addLocale = addLocaleData
 
 /**
  * Extracts language from an IETF BCP 47 language tag.

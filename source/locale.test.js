@@ -25,7 +25,7 @@ describe('locale', function()
 				locale = [locale]
 			}
 			locale = locale.concat(defaultLocale)
-			return chooseLocale(locale, arrayToObject(locales))
+			return chooseLocale(locale, _ => locales.includes(_))
 		}
 
 		choose('ru-RU', ['en', 'ru']).should.equal('ru')
