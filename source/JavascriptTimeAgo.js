@@ -222,6 +222,12 @@ export default class JavascriptTimeAgo
 }
 
 /**
+ * Gets default locale.
+ * @return  {string} locale
+ */
+JavascriptTimeAgo.getDefaultLocale = getDefaultLocale
+
+/**
  * Sets default locale.
  * @param  {string} locale
  */
