@@ -4,6 +4,51 @@ import {
   addLocaleData
 } from './LocaleDataStore'
 
+// The specification is still a draft
+// which means that the API can change.
+// Use a specific version number so that the
+// code doesn't break when the API changes.
+let version = 1
+
+// Valid time units.
+const UNITS = [
+  "now",
+  "second",
+  "minute",
+  "hour",
+  "day",
+  "week",
+  "month",
+  "quarter",
+  "year"
+]
+
+// Valid values for the `numeric` option.
+const NUMERIC_VALUES = [
+  "auto",
+  "always"
+]
+
+// Valid values for the `style` option.
+const STYLE_VALUES = [
+  "long",
+  "short",
+  "narrow",
+  // Styles that are valid in Version 1
+  // and also used in `JavascriptTimeAgo`.
+  "long_time",
+  "long_convenient",
+  "short_time",
+  "short_convenient",
+  "tiny"
+]
+
+// Valid values for the `localeMatcher` option.
+const LOCALE_MATCHER_VALUES = [
+  "lookup",
+  "best-fit"
+]
+
 /**
  * Polyfill for `Intl.RelativeTimeFormat` proposal.
  * https://github.com/tc39/proposal-intl-relative-time
@@ -11,15 +56,41 @@ import {
  */
 export default class RelativeTimeFormat {
   /**
+   * Set the specification version (was introduced for backwards compatibility).
+   * @param {number} version — Is `1` by default.x
+   */
+  static useVersion(preferredVersion) {
+    version = preferredVersion
+  }
+
+  numeric = "always"
+  style = "long"
+
+  /**
    * @param {(string|string[])} [locales] - Preferred locales (or locale).
    * @param {Object} [options] - Formatting options.
    * @param {string} [options.style="long"] - One of: "long", "short", "narrow".
-   * @param {string} [options.type="numeric"] - One of: "numeric", "text".
+   * @param {string} [options.numeric="always"] - (Version >= 2) One of: "always", "auto".
    * @param {string} [options.localeMatcher="best fit"] - One of: "lookup", "best fit".
    */
   constructor(locales, options = {}) {
-    const { style } = options
-    this.style = style || 'long'
+    const { numeric, style } = options
+
+    // Set `numeric` option.
+    if (numeric) {
+      if (NUMERIC_VALUES.indexOf(numeric) < 0) {
+        throw new RangeError(`Invalid "numeric" option: ${numeric}`)
+      }
+      this.numeric = numeric
+    }
+
+    // Set `style` option.
+    if (style) {
+      if (STYLE_VALUES.indexOf(style) < 0) {
+        throw new RangeError(`Invalid "style" option: ${style}`)
+      }
+      this.style = style
+    }
 
     // Choose the most appropriate locale.
     // This could implement some kind of a "best-fit" algorythm.
@@ -52,16 +123,32 @@ export default class RelativeTimeFormat {
    * @return {Object[]} The parts (`{ type, value }`).
    * @throws {RangeError} If unit is not one of "second", "minute", "hour", "day", "week", "month", "quarter".
    * @example
+   * // Version 1.
    * // Returns [
-   * //   { type: "literal", value: "in "},
-   * //   { type: "day", value: "100"},
-   * //   { type: "literal", value: " days"}
+   * //   { type: "literal", value: "in " },
+   * //   { type: "day", value: "100" },
+   * //   { type: "literal", value: " days" }
+   * // ]
+   * rtf.formatToParts(100, "day")
+   * //
+   * // Version 2.
+   * // Returns [
+   * //   { type: "literal", value: "in " },
+   * //   { type: "integer", value: "100", unit: "day" },
+   * //   { type: "literal", value: " days" }
    * // ]
    * rtf.formatToParts(100, "day")
    */
   formatToParts(value, unit) {
     const rule = this.getRule(value, unit)
     const valueIndex = rule.indexOf("{0}")
+    // "yesterday"/"today"/"tomorrow".
+    if (valueIndex < 0) {
+      return [{
+        type: "literal",
+        value: rule
+      }]
+    }
     const parts = []
     if (valueIndex > 0) {
       parts.push({
@@ -69,10 +156,18 @@ export default class RelativeTimeFormat {
         value: rule.slice(0, valueIndex)
       })
     }
-    parts.push({
-      type: unit,
-      value: String(Math.abs(value))
-    })
+    if (version >= 2) {
+      parts.push({
+        unit,
+        type: 'integer',
+        value: String(Math.abs(value))
+      })
+    } else {
+      parts.push({
+        type: unit,
+        value: String(Math.abs(value))
+      })
+    }
     if (valueIndex + "{0}".length < rule.length - 1) {
       parts.push({
         type: "literal",
@@ -94,7 +189,7 @@ export default class RelativeTimeFormat {
    */
   getRule(value, unit) {
     // "now" is used in `javascript-time-ago`.
-    if (["now", "second", "minute", "hour", "day", "week", "month", "quarter", "year"].indexOf(unit) < 0) {
+    if (UNITS.indexOf(unit) < 0) {
       throw new RangeError(`Unknown time unit: ${unit}.`)
     }
     // Get locale-specific time interval formatting rules
@@ -118,6 +213,29 @@ export default class RelativeTimeFormat {
     const unitRules = getLocaleData(this.locale)[this.style][unit]
     if (typeof unitRules === "string") {
       return unitRules
+    }
+    // Special case for "yesterday"/"today"/"tomorrow".
+    if (version >= 2 && this.numeric === "auto" && unit === "day") {
+      switch (value) {
+        // "yesterday"
+        case -1:
+          if (unitRules.previous) {
+            return unitRules.previous
+          }
+          break
+        // "today"
+        case 0:
+          if (unitRules.current) {
+            return unitRules.current
+          }
+          break
+        // "tomorrow"
+        case 1:
+          if (unitRules.next) {
+            return unitRules.next
+          }
+          break
+      }
     }
     // Choose either "past" or "future" based on time `value` sign.
     // If "past" is same as "future" then they're stored as "other".

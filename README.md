@@ -157,6 +157,12 @@ There's a spec proposal called [`Intl.RelativeTimeFormat`](https://github.com/tc
 import { RelativeTimeFormat } from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
 
+// The specification is still a draft
+// which means that the API can change.
+// Use a specific version number so that the
+// code doesn't break when the API changes.
+RelativeTimeFormat.useVersion(2)
+
 RelativeTimeFormat.addLocale(en)
 
 // Returns "2 days ago"
