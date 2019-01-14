@@ -1,1 +1,0 @@
-module.exports=function(n){return 0==n||1==n?"one":"other"}

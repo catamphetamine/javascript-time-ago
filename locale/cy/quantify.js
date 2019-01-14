@@ -1,1 +1,0 @@
-module.exports=function(e){return 0==e?"zero":1==e?"one":2==e?"two":3==e?"few":6==e?"many":"other"}

@@ -1,1 +1,0 @@
-module.exports=function(n){var r=String(n).split(".")[0];return 0==r||1==r?"one":"other"}

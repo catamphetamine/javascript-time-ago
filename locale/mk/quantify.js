@@ -1,1 +1,0 @@
-module.exports=function(i){var e=String(i).split("."),n=e[0],r=e[1]||"",s=!e[1],t=n.slice(-1),c=r.slice(-1);return s&&1==t||1==c?"one":"other"}

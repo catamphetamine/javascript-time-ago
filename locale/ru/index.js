@@ -1,13 +1,17 @@
-module.exports =
-{
-	locale: 'ru',
-	long: require('./long.json'),
-	long_time: require('./long-time.json'),
-	long_convenient: require('./long-convenient.json'),
-	short: require('./short.json'),
-	short_time: require('./short-time.json'),
-	short_convenient: require('./short-convenient.json'),
-	narrow: require('./narrow.json'),
-	tiny: require('./tiny.json'),
-	quantify: require('./quantify')
+var locale = require('relative-time-format/locale/ru')
+
+module.exports = {
+	locale: locale.locale,
+	// Standard styles.
+	long: locale.long,
+	short: locale.short,
+	narrow: locale.narrow,
+	// Additional styles.
+	'short-time': require('../../locale-more-styles/ru/short-time.json'),
+	'short-convenient': require('../../locale-more-styles/ru/short-convenient.json'),
+	'long-time': require('../../locale-more-styles/ru/long-time.json'),
+	'long-convenient': require('../../locale-more-styles/ru/long-convenient.json'),
+	'tiny': require('../../locale-more-styles/ru/tiny.json'),
+	// Quantifier.
+	quantify: locale.quantify
 }

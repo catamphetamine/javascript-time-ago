@@ -1,1 +1,0 @@
-module.exports=function(t){var e=String(t).split("."),i=e[0],n=!e[1],r=i.slice(-2);return n&&1==r?"one":n&&2==r?"two":n&&(3==r||4==r)||!n?"few":"other"}

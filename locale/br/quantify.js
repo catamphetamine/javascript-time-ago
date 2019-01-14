@@ -1,1 +1,0 @@
-module.exports=function(e){var i=String(e).split("."),n=Number(i[0])==e,r=n&&i[0].slice(-1),s=n&&i[0].slice(-2),t=n&&i[0].slice(-6);return 1==r&&11!=s&&71!=s&&91!=s?"one":2==r&&12!=s&&72!=s&&92!=s?"two":(3==r||4==r||9==r)&&(s<10||s>19)&&(s<70||s>79)&&(s<90||s>99)?"few":0!=e&&n&&0==t?"many":"other"}

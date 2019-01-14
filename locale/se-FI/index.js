@@ -1,8 +1,11 @@
-module.exports =
-{
-	locale: 'se-FI',
-	long: require('./long.json'),
-	short: require('./short.json'),
-	narrow: require('./narrow.json'),
-	quantify: require('../se/quantify')
+var locale = require('relative-time-format/locale/se-FI')
+
+module.exports = {
+	locale: locale.locale,
+	// Standard styles.
+	long: locale.long,
+	short: locale.short,
+	narrow: locale.narrow,
+	// Quantifier.
+	quantify: locale.quantify
 }

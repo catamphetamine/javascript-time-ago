@@ -1,1 +1,0 @@
-module.exports=function(r){var n=String(r).split("."),t=n[0],e=Number(n[0])==r;return 1!=r&&(e||0!=t&&1!=t)?"other":"one"}
