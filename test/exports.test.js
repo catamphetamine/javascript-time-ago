@@ -1,19 +1,10 @@
-import TimeAgo,
-{
+import TimeAgo, {
 	intlDateTimeFormatSupported,
-	intlDateTimeFormatSupportedLocale,
-	RelativeTimeFormat
-}
-from '../index'
+	intlDateTimeFormatSupportedLocale
+} from '../index'
 
-import PropTypes from '../prop-types'
-import Cache from '../cache'
-import { canonical, convenient } from '../gradation'
-
-describe(`exports`, function()
-{
-	it(`should export ES6`, function()
-	{
+describe('exports', () => {
+	it('should export ES6', () => {
 		// Load locale specific relative date/time messages
 		TimeAgo.addLocale(require('../locale/en'))
 		new TimeAgo().format(new Date()).should.be.a('string')
@@ -26,11 +17,9 @@ describe(`exports`, function()
 		// gradation.time.should.be.an('object')
 		intlDateTimeFormatSupported().should.be.a('boolean')
 		intlDateTimeFormatSupportedLocale('en').should.be.a('string')
-		new RelativeTimeFormat('en').format(1, 'day').should.be.a('string')
 	})
 
-	it(`should export CommonJS`, function()
-	{
+	it(`should export CommonJS`, () => {
 		const Library = require('../index.commonjs')
 
 		// Load locale specific relative date/time messages
@@ -49,22 +38,5 @@ describe(`exports`, function()
 		// Library.gradation.time.should.be.an('object')
 		Library.intlDateTimeFormatSupported().should.be.a('boolean')
 		Library.intlDateTimeFormatSupportedLocale('en').should.be.a('string')
-		new Library.RelativeTimeFormat('en').format(1, 'day').should.be.a('string')
-	})
-
-	it(`should export PropTypes`, function()
-	{
-		PropTypes.style.should.be.a('function')
-	})
-
-	it(`should export Cache`, function()
-	{
-		new Cache().cache.should.be.an('object')
-	})
-
-	it(`should export gradation`, function()
-	{
-		canonical.should.be.an('array')
-		convenient.should.be.an('array')
 	})
 })

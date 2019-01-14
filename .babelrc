@@ -1,48 +1,21 @@
 {
-	"presets":
-	[
-		"env"
+	"presets": [
+		"@babel/preset-env"
 	],
 
-	"plugins":
-	[
-		["transform-es2015-for-of", { loose: true }],
-		"transform-object-rest-spread",
-		"transform-class-properties"
+	"plugins": [
+		["@babel/plugin-transform-for-of", { loose: true }],
+		"@babel/plugin-proposal-object-rest-spread",
+		"@babel/plugin-proposal-class-properties"
 	],
 
-	"env":
-	{
-		"commonjs":
-		{
-			"presets":
-			[
-				"env"
-			],
-
-			"plugins":
-			[
-				["transform-es2015-for-of", { loose: true }],
-				"transform-object-rest-spread",
-				"transform-class-properties"
+	"env": {
+		"es6": {
+			"presets": [
+				["@babel/preset-env", { modules: false }]
 			]
 		},
-		"es6":
-		{
-			"presets":
-			[
-				["env", { modules: false }]
-			],
-
-			"plugins":
-			[
-				["transform-es2015-for-of", { loose: true }],
-				"transform-object-rest-spread",
-				"transform-class-properties"
-			]
-		},
-		"test":
-		{
+		"test": {
 			"plugins": ["istanbul"]
 		}
 	}

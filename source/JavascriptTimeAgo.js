@@ -1,16 +1,36 @@
+import RelativeTimeFormat from 'relative-time-format'
+
+import Cache from './cache'
 import grade from './grade'
 import chooseLocale from './locale'
 import { twitterStyle, timeStyle, defaultStyle } from './style'
 
-import RelativeTimeFormat from './RelativeTimeFormat'
-
 import {
-	getDefaultLocale,
-	setDefaultLocale,
-	getLocaleData,
 	addLocaleData,
-	isLocaleDataAvailable
+	getLocaleData
 } from './LocaleDataStore'
+
+// const EXTRA_STYLES = [
+// 	'long-convenient',
+// 	'long-time',
+// 	'short-convenient',
+// 	'short-time',
+// 	'tiny'
+// ]
+
+// Valid time units.
+const UNITS = [
+	'now',
+	// The rest are the same as in `Intl.RelativeTimeFormat`.
+	'second',
+	'minute',
+	'hour',
+	'day',
+	'week',
+	'month',
+	'quarter',
+	'year'
+]
 
 export default class JavascriptTimeAgo
 {
@@ -28,9 +48,17 @@ export default class JavascriptTimeAgo
 		// (one of the previously added ones)
 		// based on the list of preferred `locales` supplied by the user.
 		this.locale = chooseLocale(
-			locales.concat(getDefaultLocale()),
-			isLocaleDataAvailable
+			locales.concat(RelativeTimeFormat.getDefaultLocale()),
+			getLocaleData
 		)
+
+		// Use `Intl.NumberFormat` for formatting numbers (when available).
+		if (typeof Intl !== 'undefined' && Intl.NumberFormat) {
+			this.numberFormat = new Intl.NumberFormat(this.locale)
+		}
+
+		// Cache `Intl.RelativeTimeFormat` instance.
+		this.relativeTimeFormatCache = new Cache()
 	}
 
 	// Formats the relative date/time.
@@ -124,7 +152,6 @@ export default class JavascriptTimeAgo
 
 		// Available time interval measurement units.
 		const units = getTimeIntervalMeasurementUnits(localeData, style.units)
-
 		// If no available time unit is suitable, just output an empty string.
 		if (units.length === 0) {
 			console.error(`Units "${units.join(', ')}" were not found in locale data for "${this.locale}".`)
@@ -165,22 +192,93 @@ export default class JavascriptTimeAgo
 			amount = Math.round(amount / granularity) * granularity
 		}
 
-		// Format the time elapsed.
-		// Using `Intl.RelativeTimeFormat` proposal polyfill.
-		//
-		// TODO: Should cache `Intl.RelativeTimeFormat` instances
-		// for given `this.locale` and `flavour`.
-		//
-		// ```js
-		// import Cache from './cache'
-		// const cache = new Cache()
-		// const formatter = this.cache.get(this.locale, flavour) ||
-		//   this.cache.put(this.locale, flavour, new Intl.RelativeTimeFormat(...))
-		// return formatter.format(...)
-		// ```
-		//
-		return new RelativeTimeFormat(this.locale, { style: flavour })
-			.format(-1 * Math.sign(elapsed) * Math.round(amount), unit)
+		// `Intl.RelativeTimeFormat` doesn't operate in "now" units.
+		if (unit === 'now') {
+			return getNowMessage(localeData, -1 * Math.sign(elapsed))
+		}
+
+		switch (flavour) {
+			case 'long':
+			case 'short':
+			case 'narrow':
+				// Format `value` using `Intl.RelativeTimeFormat`.
+				return this.getFormatter(flavour).format(-1 * Math.sign(elapsed) * Math.round(amount), unit)
+			default:
+				// Format `value`.
+				// (mimicks `Intl.RelativeTimeFormat` with the addition of extra styles)
+				return this.formatValue(-1 * Math.sign(elapsed) * Math.round(amount), unit, localeData)
+		}
+	}
+
+	/**
+	 * Mimicks what `Intl.RelativeTimeFormat` does for additional locale styles.
+	 * @param  {number} value
+	 * @param  {string} unit
+	 * @param  {object} localeData — Relative time messages for the flavor.
+	 * @return {string}
+	 */
+	formatValue(value, unit, localeData) {
+		return this.getRule(value, unit, localeData).replace('{0}', this.formatNumber(Math.abs(value)))
+	}
+
+	/**
+	 * Returns formatting rule for `value` in `units` (either in past or in future).
+	 * @param {number} value - Time interval value.
+	 * @param {string} unit - Time interval measurement unit.
+	 * @param  {object} localeData — Relative time messages for the flavor.
+	 * @return {string}
+	 * @example
+	 * // Returns "{0} days ago"
+	 * getRule(-2, "day")
+	 */
+	getRule(value, unit, localeData) {
+		const unitRules = localeData[unit]
+		// Bundle size optimization technique.
+		if (typeof unitRules === 'string') {
+			return unitRules
+		}
+		// Choose either "past" or "future" based on time `value` sign.
+		// If "past" is same as "future" then they're stored as "other".
+		// If there's only "other" then it's being collapsed.
+		const quantifierRules = unitRules[value <= 0 ? 'past' : 'future'] || unitRules
+		// Bundle size optimization technique.
+		if (typeof quantifierRules === 'string') {
+			return quantifierRules
+		}
+		// Quantify `value`.
+		const quantify = getLocaleData(this.locale).quantify
+		let quantifier = quantify && quantify(Math.abs(value))
+		// There seems to be no such locale in CLDR
+		// for which `quantify` is missing
+		// and still `past` and `future` messages
+		// contain something other than "other".
+		/* istanbul ignore next */
+		quantifier = quantifier || 'other'
+		// "other" rule is supposed to always be present.
+		// If only "other" rule is present then "rules" is not an object and is a string.
+		return quantifierRules[quantifier] || quantifierRules.other
+	}
+
+	/**
+	 * Formats a number into a string.
+	 * Uses `Intl.NumberFormat` when available.
+	 * @param  {number} number
+	 * @return {string}
+	 */
+	formatNumber(number) {
+		return this.numberFormat ? this.numberFormat.format(number) : String(number)
+	}
+
+	/**
+	 * Returns an `Intl.RelativeTimeFormat` for a given `flavor`.
+	 * @param {string} flavor
+	 * @return {object} `Intl.RelativeTimeFormat` instance
+	 */
+	getFormatter(flavor) {
+		// `Intl.RelativeTimeFormat` instance creation is assumed a
+		// lengthy operation so the instances are cached and reused.
+		return this.relativeTimeFormatCache.get(this.locale, flavor) ||
+			this.relativeTimeFormatCache.put(this.locale, flavor, new RelativeTimeFormat(this.locale, { style: flavor }))
 	}
 
 	/**
@@ -191,14 +289,12 @@ export default class JavascriptTimeAgo
 	 *
 	 * @returns {Object} Returns an object of shape { flavour, localeData }
 	 */
-	getLocaleData(flavour = [])
-	{
+	getLocaleData(flavour = []) {
 		// Get relative time formatting rules for this locale
 		const localeData = getLocaleData(this.locale)
 
 		// Convert `flavour` to an array.
-		if (typeof flavour === 'string')
-		{
+		if (typeof flavour === 'string') {
 			flavour = [flavour]
 		}
 
@@ -225,19 +321,22 @@ export default class JavascriptTimeAgo
  * Gets default locale.
  * @return  {string} locale
  */
-JavascriptTimeAgo.getDefaultLocale = getDefaultLocale
+JavascriptTimeAgo.getDefaultLocale = RelativeTimeFormat.getDefaultLocale
 
 /**
  * Sets default locale.
  * @param  {string} locale
  */
-JavascriptTimeAgo.setDefaultLocale = setDefaultLocale
+JavascriptTimeAgo.setDefaultLocale = RelativeTimeFormat.setDefaultLocale
 
 /**
  * Adds locale data for a specific locale.
  * @param {Object} localeData
  */
-JavascriptTimeAgo.addLocale = addLocaleData
+JavascriptTimeAgo.addLocale = function(localeData) {
+	addLocaleData(localeData)
+	RelativeTimeFormat.addLocale(localeData)
+}
 
 /**
  * (legacy alias)
@@ -277,15 +376,50 @@ function getDateAndTimeBeingFormatted(input)
 function getTimeIntervalMeasurementUnits(localeData, restrictedSetOfUnits)
 {
 	// All available time interval measurement units.
-	const units = Object.keys(localeData)
+	let units = Object.keys(localeData)
 
 	// If only a specific set of available
 	// time measurement units can be used.
 	if (restrictedSetOfUnits) {
 		// Reduce available time interval measurement units
 		// based on user's preferences.
-		return restrictedSetOfUnits.filter(_ => units.indexOf(_) >= 0)
+		units = restrictedSetOfUnits.filter(_ => units.indexOf(_) >= 0)
+	}
+
+	// Stock `Intl.RelativeTimeFormat` locale data doesn't have "now" units.
+	// So either "now" is present in extended locale data
+	// or it's taken from ".second.current".
+	if ((!restrictedSetOfUnits || restrictedSetOfUnits.indexOf('now') >= 0) &&
+		units.indexOf('now') < 0) {
+		if (localeData.second.current) {
+			units.unshift('now')
+		}
 	}
 
 	return units
+}
+
+function getNowMessage(localeData, value) {
+	// Specific "now" message form extended locale data (if present).
+	if (localeData.now) {
+		// Bundle size optimization technique.
+		if (typeof localeData.now === 'string') {
+			return localeData.now
+		}
+		// Not handling `value === 0` as `localeData.now.current` here
+		// because it wouldn't make sense: "now" is a moment,
+		// so one can't possibly differentiate between a
+		// "previous" moment, a "current" moment and a "next moment".
+		// It can only be differentiated between "past" and "future".
+		if (value <= 0) {
+			return localeData.now.past
+		} else {
+			return localeData.now.future
+		}
+	}
+	// Use ".second.current" as "now" message.
+	return localeData.second.current
+	// If this function was called then
+	// it means that either "now" unit messages are
+	// available or ".second.current" message is present.
 }

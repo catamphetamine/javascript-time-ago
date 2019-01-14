@@ -19,6 +19,8 @@ Formats a date/timestamp to:
 
 For React users there's also a [React component](https://github.com/catamphetamine/react-time-ago).
 
+This is a readme for version `2.x`. [See version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/MIGRATION.md) from version `1.x` to version `2.x`.
+
 ## Usage
 
 ```
@@ -143,30 +145,10 @@ Similar to the default style but with "ago" omitted:
 
 No locale data is loaded by default: a developer must manually choose which locales must be loaded. This is to reduce the resulting javascript bundle size.
 
-If the resulting bundle size is of no concern (e.g. a big enterprise application), or if the code is being run on server side (e.g. Server-Side Rendering), then use this helper to load all available locales:
+If the resulting bundle size is of no concern (for example, when building a big enterprise application), or if the code is being run on server side (Node.js), then one can use this helper to load all available locales:
 
 ```js
 require('javascript-time-ago/load-all-locales')
-```
-
-## RelativeTimeFormat
-
-There's a spec proposal called [`Intl.RelativeTimeFormat`](https://github.com/tc39/proposal-intl-relative-time) suggesting web browsers implement "time ago" formatting natively like they already do for dates and numbers. It's still a draft, and not officially accepted yet, but I guess at some point in time it will be accepted, in which case this library could serve as a polyfill for older browsers (iOS, Android).
-
-```js
-import { RelativeTimeFormat } from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en'
-
-// The specification is still a draft
-// which means that the API can change.
-// Use a specific version number so that the
-// code doesn't break when the API changes.
-RelativeTimeFormat.useVersion(2)
-
-RelativeTimeFormat.addLocale(en)
-
-// Returns "2 days ago"
-new RelativeTimeFormat('en').format(-2, 'day')
 ```
 
 # Advanced
@@ -249,36 +231,6 @@ import {
 } from 'javascript-time-ago/gradation'
 ```
 
-## Localization internals
-
-The localization resides in the [`locale`](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale) folder. The format of a localization is:
-
-```js
-{
-  …
-  "day":
-  {
-    "past":
-    {
-      "one": "{0} day ago",
-      "other": "{0} days ago"
-    },
-    "future":
-    {
-      "one": "in {0} day",
-      "other": "in {0} days"
-    }
-  },
-  …
-}
-```
-
-This can be reduced to just a string for cases when all variants are the same. E.g. `{ day: "{0}d" }` or `{ second: { past: "{0} sec. ago", future: "in {0} sec." } }`.
-
-The `past` and `future` can be defined by any of: `zero`, `one`, `two`, `few`, `many` and `other`. For more info on which is which read the [official Unicode CLDR documentation](http://cldr.unicode.org/index/cldr-spec/plural-rules). [Unicode CLDR](http://cldr.unicode.org/) (Common Locale Data Repository) is an industry standard and is basically a collection of formatting rules for all locales (date, time, currency, measurement units, numbers, etc).
-
-To determine whether a certain amount of time (number) is `one`, `few`, or something else, `javascript-time-ago` uses Unicode CLDR rules for formatting plurals. These rules are number quantifying functions (one for each locale) which can tell if a number should be treated as `zero`, `one`, `two`, `few`, `many` or `other`. Knowing how these pluralization rules work is not required but anyway here are some links for curious advanced readers: [rules explanation](http://cldr.unicode.org/index/cldr-spec/plural-rules), [list of rules for all locales](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html), [converting those rules to javascript functions](https://github.com/eemeli/make-plural.js). These quantifying functions can be found as `quantify` properties of a locale data.
-
 ## Future
 
 When given future dates `.format()` produces the corresponding output, e.g. "in 5 minutes", "in a year", etc.
@@ -287,19 +239,38 @@ When given future dates `.format()` produces the corresponding output, e.g. "in 
 
 The default locale is `en` and can be changed: `TimeAgo.setDefaultLocale('ru')`.
 
+<!--
+## Caching
+
+Constructing a new `JavascriptTimeAgo` class instance is assumed to be a potentially lengthy operation (even though in reality it isn't). One can use the exported `Cache` class for caching.
+
+```js
+import Cache from 'javascript-time-ago/Cache'
+
+const cache = new Cache()
+const object = cache.get('key1', 'key2', ...) || cache.put('key1', 'key2', ..., createObject())
+```
+-->
+
+## Localization internals
+
+This library is based on [`Intl.RelativeTimeFormat`](https://github.com/catamphetamine/relative-time-format).
+
 ## React
 
 There is also a [React component](https://catamphetamine.github.io/react-time-ago/) built upon this library which autorefreshes itself.
 
 ## Intl
 
-[`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object is not required for this library, but it may be required if you choose to use the built-in `twitter` style (though it will fall back to the default style if `Intl` is not available).
+(this is an "advanced" section)
 
-`Intl` is present in all modern web browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using `Intl` polyfill).
+[`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object is not required for this library, but, for example, if you choose to use the built-in `twitter` style then it will fall back to the default style if `Intl` is not available.
 
-Node.js starting from `0.12` has `Intl` built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side (e.g. Server-Side Rendering) then you'll need to use `Intl` polyfill.
+`Intl` is present in all modern web browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using [`Intl` polyfill](https://github.com/andyearnshaw/Intl.js)).
 
-Applying [`Intl` polyfill](https://github.com/andyearnshaw/Intl.js):
+Node.js starting from `0.12` has `Intl` built-in, but only includes English locale data by default. If your app needs to support more locales than English on server side (e.g. Server-Side Rendering) then you'll need to use [`Intl` polyfill](https://github.com/andyearnshaw/Intl.js).
+
+An example of applying [`Intl` polyfill](https://github.com/andyearnshaw/Intl.js):
 
 ```
 npm install intl@1.2.4 --save
@@ -316,8 +287,7 @@ if (typeof Intl === 'object') {
   if (!Intl.DateTimeFormat || Intl.DateTimeFormat.supportedLocalesOf(locales).length !== locales.length) {
     Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat
   }
-}
-else {
+} else {
   global.Intl = IntlPolyfill
 }
 ```

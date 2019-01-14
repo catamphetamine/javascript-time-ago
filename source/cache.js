@@ -1,10 +1,14 @@
-// A basic in-memory cache.
-export default class Cache
-{
+/**
+ * A basic in-memory cache.
+ *
+ * import Cache from 'javascript-time-ago/Cache'
+ * const cache = new Cache()
+ * const object = cache.get('key1', 'key2', ...) || cache.put('key1', 'key2', ..., createObject())
+ */
+export default class Cache {
 	cache = {}
 
-	get(...keys)
-	{
+	get(...keys) {
 		let cache = this.cache
 		for (const key of keys) {
 			if (typeof cache !== 'object') {
@@ -12,15 +16,12 @@ export default class Cache
 			}
 			cache = cache[key]
 		}
-
 		return cache
 	}
 
-	put(...keys)
-	{
+	put(...keys) {
 		const value = keys.pop()
-		const last_key = keys.pop()
-
+		const lastKey = keys.pop()
 		let cache = this.cache
 		for (const key of keys) {
 			if (typeof cache[key] !== 'object') {
@@ -28,7 +29,6 @@ export default class Cache
 			}
 			cache = cache[key]
 		}
-
-		return cache[last_key] = value
+		return cache[lastKey] = value
 	}
 }

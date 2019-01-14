@@ -26,7 +26,7 @@ import { convenient } from '../gradation'
 export default
 {
 	gradation: convenient,
-	flavour: 'long_time',
+	flavour: 'long-time',
 	units:
 	[
 		'now',

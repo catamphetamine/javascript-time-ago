@@ -88,7 +88,7 @@ export default
 
 	flavour: [
 		'tiny',
-		'short_time',
+		'short-time',
 		'narrow',
 		'short'
 	]

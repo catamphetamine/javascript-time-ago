@@ -6,18 +6,6 @@ let defaultLocale = 'en'
 // their relative time formatter messages will be stored here.
 const localesData = {}
 
-export function getDefaultLocale() {
-	return defaultLocale
-}
-
-export function setDefaultLocale(locale) {
-	defaultLocale = locale
-}
-
-export function isLocaleDataAvailable(locale) {
-	return localesData.hasOwnProperty(locale)
-}
-
 export function getLocaleData(locale) {
 	return localesData[locale]
 }

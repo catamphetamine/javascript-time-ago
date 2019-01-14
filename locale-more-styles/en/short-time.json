@@ -1,0 +1,13 @@
+ {
+	"year": "{0} yr.",
+	"month": "{0} mo.",
+	"week": "{0} wk.",
+	"day": {
+		"one": "{0} day",
+		"other": "{0} days"
+	},
+	"hour": "{0} hr.",
+	"minute": "{0} min.",
+	"second": "{0} sec.",
+	"now": "now"
+}

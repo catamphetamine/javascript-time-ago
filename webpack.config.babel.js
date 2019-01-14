@@ -1,24 +1,19 @@
-import webpack from 'webpack'
 import path from 'path'
 
-const library_name = 'javascript-time-ago'
+const libraryName = 'javascript-time-ago'
 
-module.exports =
-{
+module.exports = {
   entry: path.join(__dirname, '/index.js'),
   devtool: 'source-map',
-  output:
-  {
+  output: {
     path           : path.join(__dirname, '/bundle'),
-    filename       : `${library_name}.min.js`,
-    library        : library_name,
+    filename       : `${libraryName}.min.js`,
+    library        : libraryName,
     libraryTarget  : 'umd',
     umdNamedDefine : true
   },
-  module:
-  {
-    rules:
-    [{
+  module: {
+    rules: [{
       test    : /(\.js)$/,
       loader  : 'babel-loader',
       exclude : /node_modules/

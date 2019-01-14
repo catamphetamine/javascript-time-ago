@@ -6,12 +6,42 @@ import { getLocaleData } from '../source/LocaleDataStore'
 // Load locale specific relative date/time messages
 import english from '../locale/en'
 
+// Just so this function code is covered.
+JavascriptTimeAgo.setDefaultLocale('en')
+
 describe(`time ago`, () =>
 {
 	it(`should try various flavours if some are not found`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
 		timeAgo.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('now')
+	})
+
+	it(`should not use Intl.NumberFormat if it's not available`, () =>
+	{
+		const NumberFormat = Intl.NumberFormat
+		delete Intl.NumberFormat
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(Date.now() + 60 * 1000).should.equal('in a minute')
+		Intl.NumberFormat = NumberFormat
+	})
+
+	it(`should work when "past"/"future" messages are same for all quantifiers`, () =>
+	{
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(Date.now() + 365 * 24 * 60 * 60 * 1000, { flavour: ['short-convenient'] }).should.equal('in 1 yr.')
+	})
+
+	it(`should work when "now" is a string (doesn't differentiate between "past" and "future")`, () =>
+	{
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(Date.now(), { flavour: ['short-time'] }).should.equal('now')
+	})
+
+	it(`should format "now" for "past" time`, () =>
+	{
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(Date.now() + 10, { flavour: ['long-convenient'] }).should.equal('in a moment')
 	})
 
 	it(`should accept a string style argument`, () =>
@@ -54,12 +84,15 @@ describe(`time ago`, () =>
 
 		// Remove 'now' unit formatting rule temporarily
 		const justNowFormatter = getLocaleData('en').long.now
+		const currentSecondMessage = getLocaleData('en').long.second.current
 		delete getLocaleData('en').long.now
+		delete getLocaleData('en').long.second.current
 
 		timeAgo.format(now, { now }).should.equal('')
 
 		// Restore 'now' unit formating rule
 		getLocaleData('en').long.now = justNowFormatter
+		getLocaleData('en').long.second.current = currentSecondMessage
 	})
 
 	it(`should format for a style with "custom" function`, () =>

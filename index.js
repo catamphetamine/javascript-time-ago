@@ -1,10 +1,6 @@
 export { default } from './modules/JavascriptTimeAgo'
 
-export
-{
+export {
 	intlDateTimeFormatSupported as intlDateTimeFormatSupported,
 	intlDateTimeFormatSupportedLocale as intlDateTimeFormatSupportedLocale
-}
-from './modules/locale'
-
-export { default as RelativeTimeFormat } from './modules/RelativeTimeFormat'
+} from './modules/locale'

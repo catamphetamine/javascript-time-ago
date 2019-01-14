@@ -1,3 +1,16 @@
+2.0.0 / 14.01.2018
+==================
+
+  * Moved `RelativeTimeFormat` to a separate `relative-time-format` package.
+
+  * (breaking change) `flavour` property renamed in non-single-word cases: underscores (`_`) got replaced with dashes (`-`). Examples: `short_convenient` -> `short-convenient`, `long_convenient` -> `long-convenient`, `short_time` -> `short-time`, `long_time` -> `long-time`. The relevant keys in locale `index.js` files got renamed the same way.
+
+  * (breaking change) `RelativeTimeFormat` is no longer exported from this library.
+
+  * (could be a breaking change) Re-did `/prop-types`, `/gradation`, `/cache` exports as sub-packages. This could possibly change their import behavior. Maybe `/prop-types` did change — I changed some export strategies for it.
+
+  * (unlikely to be a breaking change) Removed handling for a case when "now" unit had "past"/"future" which is an object of quantifier messages instead of a string. The rationale that having "now" unit with "past"/"future" which are objects of quantifier messages wouldn't make sense because "now" is a moment and one can't differentiate between "past moment", "current moment" and "next moment" in real life.
+
 1.0.33 / 29.11.2018
 ===================
 

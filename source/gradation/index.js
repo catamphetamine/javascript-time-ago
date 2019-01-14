@@ -28,6 +28,10 @@
 //
 // A user can supply his own gradation.
 //
+// Don't name a gradation "default"
+// because that would conflict with the
+// CommonJS "interoperability" export layer.
+//
 export { default as canonical } from './canonical'
 export { default as convenient } from './convenient'
 export { minute, hour, day, month, year, getStep, getDate } from './helpers'
