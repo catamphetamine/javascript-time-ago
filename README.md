@@ -19,7 +19,7 @@ Formats a date/timestamp to:
 
 For React users there's also a [React component](https://github.com/catamphetamine/react-time-ago).
 
-This is a readme for version `2.x`. [See version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/MIGRATION.md) from version `1.x` to version `2.x`.
+This is a readme for version `2.x`. [See version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md) from version `1.x` to version `2.x`.
 
 ## Usage
 
