@@ -41,6 +41,3 @@ npm-debug.log
 
 # tests aren't needed for npm
 /test/
-
-# Extra locale data (is part of `locale` folder).
-/locale-more-styles/
