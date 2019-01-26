@@ -3,6 +3,8 @@
 
   * Moved `RelativeTimeFormat` to a separate `relative-time-format` package.
 
+  * (breaking change) Removed `.locale()` static function. Use `.addLocale()` instead.
+
   * (breaking change) `flavour` property renamed in non-single-word cases: underscores (`_`) got replaced with dashes (`-`). Examples: `short_convenient` -> `short-convenient`, `long_convenient` -> `long-convenient`, `short_time` -> `short-time`, `long_time` -> `long-time`. The relevant keys in locale `index.js` files got renamed the same way.
 
   * (breaking change) `RelativeTimeFormat` is no longer exported from this library.

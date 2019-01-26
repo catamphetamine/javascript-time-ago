@@ -1,5 +1,9 @@
 # Migration from version `1.x`
 
+### `.locale()` function removed.
+
+If there're any `.locale()` static function calls then replace them with `.addLocale()`.
+
 ### `flavour`s that got renamed.
 
 If any custom styles were defined replace the following `flavour`s in their definition:
