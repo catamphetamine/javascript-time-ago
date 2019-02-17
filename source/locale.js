@@ -13,7 +13,7 @@
 //
 export default function chooseLocale(locales, isLocaleDataAvailable)
 {
-	// This is not an intelligent algorythm,
+	// This is not an intelligent algorithm,
 	// but it will do for this library's case.
 	// `sr-Cyrl-BA` -> `sr-Cyrl` -> `sr`.
 	for (let locale of locales) {
