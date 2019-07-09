@@ -9,5 +9,5 @@ module.exports = {
 	// Additional styles.
 	'tiny': require('../../locale-more-styles/es/tiny.json'),
 	// Quantifier.
-	quantify: locale.quantify,
+	quantify: locale.quantify
 }
