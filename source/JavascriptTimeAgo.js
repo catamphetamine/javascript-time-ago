@@ -349,7 +349,7 @@ JavascriptTimeAgo.locale = JavascriptTimeAgo.addLocale
 // Normalizes `.format()` `time` argument.
 function getDateAndTimeBeingFormatted(input)
 {
-	if (input.constructor === Date)
+	if (Object.prototype.toString.call(input) === "[object Date]" && !isNaN(input.getTime()))
 	{
 		return {
 			date : input,
