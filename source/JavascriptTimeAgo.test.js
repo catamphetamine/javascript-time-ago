@@ -64,6 +64,13 @@ describe(`time ago`, () =>
 		timeAgo.format(new Date()).should.equal('just now')
 	})
 
+	it(`should accept mocked Dates when testing`, () =>
+	{
+		const timeAgo = new JavascriptTimeAgo('en')
+		const mockedDate = { getTime: () => Date.now() }
+		timeAgo.format(mockedDate).should.equal('just now')
+	})
+
 	it(`should not accept anything but Dates and timestamps`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')

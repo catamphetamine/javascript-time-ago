@@ -349,7 +349,7 @@ JavascriptTimeAgo.locale = JavascriptTimeAgo.addLocale
 // Normalizes `.format()` `time` argument.
 function getDateAndTimeBeingFormatted(input)
 {
-	if (input.constructor === Date)
+	if (input.constructor === Date || isMockedDate(input))
 	{
 		return {
 			date : input,
@@ -370,6 +370,12 @@ function getDateAndTimeBeingFormatted(input)
 	// For some weird reason istanbul doesn't see this `throw` covered.
 	/* istanbul ignore next */
 	throw new Error(`Unsupported relative time formatter input: ${typeof input}, ${input}`)
+}
+
+// During testing via some testing libraries `Date`s aren't actually `Date`s.
+// https://github.com/catamphetamine/javascript-time-ago/issues/22
+function isMockedDate(object) {
+	return typeof object === 'object' && typeof object.getTime === 'function'
 }
 
 // Get available time interval measurement units.
