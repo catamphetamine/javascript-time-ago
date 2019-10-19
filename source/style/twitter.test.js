@@ -1,6 +1,6 @@
 import twitterStyle from './twitter'
 import JavascriptTimeAgo from '../JavascriptTimeAgo'
-import { day, year } from '../gradation'
+import { day, month, year } from '../gradation'
 
 describe('"twitter" style', () =>
 {
@@ -35,7 +35,15 @@ describe('"twitter" style', () =>
 		elapsed(23.49 * 60 * 60).should.equal('23h')
 		elapsed(day + 2 * 60 + 60 * 60).should.equal('Apr 9')
 		// …
+		// "month" is an approximation.
+		elapsed(month * 3).should.equal('Jan 10')
+		elapsed(month * 4).should.equal('Dec 11, 2015')
 		elapsed(year).should.equal('Apr 11, 2015')
+
+		// Test future dates.
+		// "month" is an approximation.
+		elapsed(-1 * month * 8).should.equal('Dec 10')
+		elapsed(-1 * month * 9).should.equal('Jan 9, 2017')
 	})
 
 	it('should format Twitter style relative time (Russian)', () =>

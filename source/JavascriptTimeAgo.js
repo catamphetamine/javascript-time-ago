@@ -161,7 +161,7 @@ export default class JavascriptTimeAgo
 		// Choose the appropriate time measurement unit
 		// and get the corresponding rounded time amount.
 		const step = grade(
-			Math.abs(elapsed),
+			elapsed,
 			now,
 			units,
 			style.gradation

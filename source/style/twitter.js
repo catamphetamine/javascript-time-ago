@@ -53,10 +53,16 @@ export default
 		// If `date` and `now` happened in defferent years,
 		// then output day, month and year.
 		{
-			threshold(now) {
-				// Jan 1st of the next year.
-				const nextYear = new Date(new Date(now).getFullYear() + 1, 0)
-				return (nextYear.getTime() - now) / 1000
+			threshold(now, future) {
+				if (future) {
+					// Jan 1st 00:00 of the next year.
+					const nextYear = new Date(new Date(now).getFullYear() + 1, 0)
+					return (nextYear.getTime() - now) / 1000
+				} else {
+					// Jan 1st of the current year.
+					const thisYear = new Date(new Date(now).getFullYear(), 0)
+					return (now - thisYear.getTime()) / 1000
+				}
 			},
 			format(value, locale) {
 				// Whether can use `Intl.DateTimeFormat`.

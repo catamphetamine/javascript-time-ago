@@ -4,7 +4,7 @@ import { convenient } from './gradation'
  * Takes seconds `elapsed` and measures them against
  * `gradation` to return the suitable `gradation` step.
  *
- * @param {number} elapsed - Time interval (in seconds)
+ * @param {number} elapsed - Time interval (in seconds). Is < 0 for past dates and > 0 for future dates.
  *
  * @param {string[]} units - A list of allowed time units
  *                           (e.g. ['second', 'minute', 'hour', …])
@@ -50,7 +50,7 @@ export default function grade(elapsed, now, units, gradation = convenient)
 	//  isn't met by this amount)
 	if (step.granularity) {
 		// Recalculate the elapsed time amount based on granularity
-		const amount = Math.round((elapsed / step.factor) / step.granularity) * step.granularity
+		const amount = Math.round((Math.abs(elapsed) / step.factor) / step.granularity) * step.granularity
 		// If the granularity for this step
 		// is too high, then fallback
 		// to the previous step of gradation.
@@ -68,10 +68,11 @@ export default function grade(elapsed, now, units, gradation = convenient)
  * @param  {Object} fromStep - From step.
  * @param  {Object} next_step - To step.
  * @param  {number} now - The current timestamp.
+ * @param  {boolean} future - Is `true` for future dates ("in 5 minutes").
  * @return {number}
  * @throws Will throw if no threshold is found.
  */
-function getThreshold(fromStep, toStep, now)
+function getThreshold(fromStep, toStep, now, future)
 {
 	let threshold
 
@@ -89,7 +90,7 @@ function getThreshold(fromStep, toStep, now)
 
 	// Convert threshold to a number.
 	if (typeof threshold === 'function') {
-		threshold = threshold(now)
+		threshold = threshold(now, future)
 	}
 
 	// Throw if no threshold is found.
@@ -115,7 +116,7 @@ function findGradationStep(elapsed, now, gradation, i = 0)
 {
 	// If the threshold for moving from previous step
 	// to this step is too high then return the previous step.
-	if (elapsed < getThreshold(gradation[i - 1], gradation[i], now)) {
+	if (Math.abs(elapsed) < getThreshold(gradation[i - 1], gradation[i], now, elapsed < 0)) {
 		return i - 1
 	}
 	// If it's the last step of gradation then return it.
