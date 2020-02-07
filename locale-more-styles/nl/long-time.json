@@ -1,0 +1,34 @@
+{
+    "year": {
+        "one": "{0} jaar",
+        "other": "{0} jaar"
+    },
+    "month": {
+        "one": "{0} maand",
+        "other": "{0} maanden"
+    },
+    "week": {
+        "one": "{0} week",
+        "other": "{0} weken"
+    },
+    "day": {
+        "one": "{0} dag",
+        "other": "{0} dagen"
+    },
+    "hour": {
+        "one": "{0} uur",
+        "other": "{0} uur"
+    },
+    "minute": {
+        "one": "{0} minuut",
+        "other": "{0} minuten"
+    },
+    "second": {
+        "one": "{0} seconde",
+        "other": "{0} seconden"
+    },
+    "now": {
+        "future": "zometeen",
+        "past": "zojuist"
+    }
+}
