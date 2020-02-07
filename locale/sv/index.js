@@ -6,6 +6,8 @@ module.exports = {
 	long: locale.long,
 	short: locale.short,
 	narrow: locale.narrow,
+	// Additional styles.
+	'long-time': require('../../locale-more-styles/sv/long-time.json'),
 	// Quantifier.
 	quantify: locale.quantify
 }
