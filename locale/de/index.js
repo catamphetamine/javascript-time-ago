@@ -7,8 +7,9 @@ module.exports = {
 	short: locale.short,
 	narrow: locale.narrow,
 	// Additional styles.
-	'long-convenient': require('../../locale-more-styles/de/long-convenient.json'),
 	'long-time': require('../../locale-more-styles/de/long-time.json'),
+	'long-convenient': require('../../locale-more-styles/de/long-convenient.json'),
+	'tiny': require('../../locale-more-styles/de/tiny.json'),
 	// Quantifier.
 	quantify: locale.quantify
 }
