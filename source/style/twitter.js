@@ -17,10 +17,15 @@ export default
 		// Minutes
 		{
 			...getStep(canonical, 'minute'),
-			threshold: 45
+			// Starts showing `1m` after `59s`.
+			threshold: 59.5
 		},
 		// Hours
-		getStep(canonical, 'hour'),
+		{
+			...getStep(canonical, 'hour'),
+			// After `59m` it will show `1h`.
+			threshold: 59.5 * 60,
+		},
 		// If `date` and `now` happened the same year,
 		// then only output month and day.
 		{

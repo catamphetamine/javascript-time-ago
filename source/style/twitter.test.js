@@ -18,8 +18,8 @@ describe('"twitter" style', () =>
 		const elapsed = (time) => timeAgo.format(now - time * 1000, { now, ...twitterStyle })
 
 		elapsed(0).should.equal('')
-		elapsed(44.9).should.equal('')
-		elapsed(45.1).should.equal('1m')
+		elapsed(59.4).should.equal('')
+		elapsed(59.6).should.equal('1m')
 		elapsed(1.49 * 60).should.equal('1m')
 		elapsed(1.51 * 60).should.equal('2m')
 		elapsed(2.49 * 60).should.equal('2m')
@@ -53,8 +53,9 @@ describe('"twitter" style', () =>
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const elapsed = time => timeAgo.format(now - time * 1000, { now, ...twitterStyle })
 
-		elapsed(45.1).should.equal('1м')
-		elapsed(59.51 * 60).should.equal('1ч')
+		elapsed(0).should.equal('')
+		elapsed(59.51).should.equal('1 мин')
+		elapsed(59.51 * 60).should.equal('1 ч')
 		elapsed(day + 62 * 60).should.equal('9 апр.')
 		elapsed(year).should.equal('11 апр. 2015 г.')
 	})
@@ -66,7 +67,7 @@ describe('"twitter" style', () =>
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const elapsed = time => timeAgo.format(now - time * 1000, { now, ...twitterStyle })
 
-		elapsed(45.1).should.equal('1분')
+		elapsed(59.51).should.equal('1분')
 		elapsed(59.51 * 60).should.equal('1시간')
 		// elapsed(day + 62 * 60).should.equal('9 апр.')
 		// elapsed(year).should.equal('11 апр. 2015 г.')
