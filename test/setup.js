@@ -9,10 +9,12 @@ import * as en from '../locale/en'
 import * as ru from '../locale/ru'
 import * as de from '../locale/de'
 import * as fr from '../locale/fr'
+import * as es from '../locale/es'
+import * as it from '../locale/it'
 import * as ko from '../locale/ko'
 import * as ccp from '../locale/ccp'
 
-const locales = ['en', 'ru', 'de', 'fr', 'ko', 'ccp']
+const locales = ['en', 'ru', 'de', 'fr', 'es', 'it', 'ko', 'ccp']
 
 if (typeof Intl === 'object')
 {
@@ -45,6 +47,8 @@ JavascriptTimeAgo.addLocale(en)
 JavascriptTimeAgo.addLocale(ru)
 JavascriptTimeAgo.addLocale(de)
 JavascriptTimeAgo.addLocale(fr)
+JavascriptTimeAgo.addLocale(es)
+JavascriptTimeAgo.addLocale(it)
 JavascriptTimeAgo.addLocale(ko)
 JavascriptTimeAgo.addLocale(ccp)
 

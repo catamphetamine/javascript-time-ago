@@ -1,18 +1,9 @@
 {
-	"year": {
-		"many": "{0} Jahren",
-		"other": "{0} Jahr"
-	},
-	"month": {
-		"one": "{0} Monat",
-		"other": "{0} Monaten"
-	},
-	"week": {
-		"one": "{0} Woche",
-		"other": "{0} Wochen"
-	},
-	"day": "{0} Tg.",
+	"year": "{0} J.",
+	"month": "{0} Mt.",
+	"week": "{0} Wo.",
+	"day": "{0} T.",
 	"hour": "{0} Std.",
 	"minute": "{0} Min.",
-	"second": "{0} Sek."
+	"second": "{0} s"
 }
