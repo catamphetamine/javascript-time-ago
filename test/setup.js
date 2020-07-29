@@ -13,8 +13,9 @@ import * as es from '../locale/es'
 import * as it from '../locale/it'
 import * as ko from '../locale/ko'
 import * as ccp from '../locale/ccp'
+import * as zh from '../locale/zh'
 
-const locales = ['en', 'ru', 'de', 'fr', 'es', 'it', 'ko', 'ccp']
+const locales = ['en', 'ru', 'de', 'fr', 'es', 'it', 'ko', 'ccp', 'zh']
 
 if (typeof Intl === 'object')
 {
@@ -51,6 +52,7 @@ JavascriptTimeAgo.addLocale(es)
 JavascriptTimeAgo.addLocale(it)
 JavascriptTimeAgo.addLocale(ko)
 JavascriptTimeAgo.addLocale(ccp)
+JavascriptTimeAgo.addLocale(zh)
 
 chai.should()
 global.expect = expect

@@ -98,4 +98,17 @@ describe('"twitter" style', () =>
 		elapsed(day + 62 * 60).should.equal('9 avr.')
 		elapsed(year).should.equal('11 avr. 2015')
 	})
+
+	it('should format Twitter style relative time (Chinese)', () =>
+	{
+		const timeAgo = new JavascriptTimeAgo('zh')
+
+		const now = new Date(2016, 3, 10, 22, 59).getTime()
+		const elapsed = time => timeAgo.format(now - time * 1000, { now, ...twitterStyle })
+
+		elapsed(59.51).should.equal('1分钟')
+		elapsed(59.51 * 60).should.equal('1小时')
+		elapsed(day + 62 * 60).should.equal('4月9日')
+		elapsed(year).should.equal('2015年4月11日')
+	})
 })
