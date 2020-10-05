@@ -1,4 +1,4 @@
-2.0.14 / 05.10.2020
+2.1.0 / 05.10.2020
 ==================
 
 * (could be considered a breaking change, but it doesn't actually break any apps) `"twitter"` style now outputs something like `"1s"` in case of `"1 second ago"`. Previously it didn't output anything when the time difference was less than a minute. The rationale for the change is that Twitter actually does output seconds when the time difference is less than a minute. There's still a small difference from Twitter: Twitter outputs `"now"` in case of `"0 seconds ago"` while this library outputs `"0s"` — the rationale is that "now" could be too long is different languages, and also it would look too contrasty compared to its "sibling" `"Xs"` time labels.
