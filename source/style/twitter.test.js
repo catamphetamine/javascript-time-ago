@@ -17,8 +17,8 @@ describe('"twitter" style', () =>
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const elapsed = (time) => timeAgo.format(now - time * 1000, { now, ...twitterStyle })
 
-		elapsed(0).should.equal('')
-		elapsed(59.4).should.equal('')
+		elapsed(0).should.equal('0s')
+		elapsed(59.4).should.equal('59s')
 		elapsed(59.6).should.equal('1m')
 		elapsed(1.49 * 60).should.equal('1m')
 		elapsed(1.51 * 60).should.equal('2m')
@@ -53,7 +53,7 @@ describe('"twitter" style', () =>
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const elapsed = time => timeAgo.format(now - time * 1000, { now, ...twitterStyle })
 
-		elapsed(0).should.equal('')
+		elapsed(0).should.equal('0 с')
 		elapsed(59.51).should.equal('1 мин')
 		elapsed(59.51 * 60).should.equal('1 ч')
 		elapsed(day + 62 * 60).should.equal('9 апр.')

@@ -14,7 +14,20 @@ describe(`time ago`, () =>
 	it(`should try various flavours if some are not found`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('now')
+		timeAgo.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('just now')
+	})
+
+	it(`should fallback to "second.current" for "now" when "now" isn't defined`, () =>
+	{
+		const timeAgo = new JavascriptTimeAgo('en')
+		const englishNow = english.now
+		delete english.now
+		console.log(english)
+		JavascriptTimeAgo.addLocale(english)
+		english.now = undefined
+		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('now')
+		english.now = englishNow
+		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('just now')
 	})
 
 	it(`should not use Intl.NumberFormat if it's not available`, () =>
@@ -47,7 +60,9 @@ describe(`time ago`, () =>
 	it(`should accept a string style argument`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now(), 'twitter').should.equal('')
+		timeAgo.format(Date.now(), 'twitter').should.equal('0s')
+		timeAgo.format(Date.now(), 'approximate').should.equal('just now')
+		timeAgo.format(Date.now(), 'precise').should.equal('just now')
 		timeAgo.format(Date.now(), 'time').should.equal('just now')
 		timeAgo.format(Date.now(), 'exotic').should.equal('just now')
 	})
@@ -124,14 +139,14 @@ describe(`time ago`, () =>
 				return
 			}
 		})
-		.should.equal('now')
+		.should.equal('just now')
 	})
 
 	it(`should format time correctly for English language (short)`, () =>
 	{
 		convenientGradationTest
 		([
-			'now',
+			'just now',
 			'1 min. ago',
 			'2 min. ago',
 			'5 min. ago',
@@ -261,7 +276,7 @@ describe(`time ago`, () =>
 	{
 		convenientGradationTest
 		([
-			'сейчас',
+			'только что',
 			'1 мин. назад',
 			'2 мин. назад',
 			'5 мин. назад',
@@ -391,6 +406,35 @@ describe(`time ago`, () =>
 	{
 		new JavascriptTimeAgo('en').format(Date.now() + 60 * 60 * 1000).should.equal('in an hour')
 		new JavascriptTimeAgo('ru').format(Date.now() + 45.1 * 1000).should.equal('через 1 минуту')
+	})
+
+	it(`should accept "future" option`, () =>
+	{
+		// "now" unit.
+		new JavascriptTimeAgo('en').format(Date.now()).should.equal('just now')
+		new JavascriptTimeAgo('en').format(Date.now(), 'approximate', { future: true }).should.equal('in a moment')
+
+		// Non-"now" unit, "long" style.
+		// const preset = {
+		// 	gradation: [{
+		// 		factor: 1,
+		// 		unit: 'second'
+		// 	}],
+		// 	flavour: 'long'
+		// }
+		// new JavascriptTimeAgo('en').format(Date.now(), preset).should.equal('0 seconds ago')
+		// new JavascriptTimeAgo('en').format(Date.now(), preset, { future: true }).should.equal('in 0 seconds')
+
+		// Non-"now" unit, "tiny" style.
+		const preset2 = {
+			gradation: [{
+				factor: 1,
+				unit: 'year'
+			}],
+			flavour: 'tiny'
+		}
+		new JavascriptTimeAgo('ru').format(Date.now(), preset2).should.equal('0 л')
+		new JavascriptTimeAgo('ru').format(Date.now(), preset2, { future: true }).should.equal('0 л')
 	})
 
 	it(`should have generated missing quantifier functions`, () =>

@@ -9,19 +9,22 @@ International higly customizable relative date/time formatter (both for past and
 Formats a date/timestamp to:
 
   * just now
+  * 45s
   * 5m
-  * 15 min
-  * 25 minutes
+  * 3h
+  * 5 min ago
+  * 15 minutes ago
   * an hour ago
-  * 1 mo.
+  * in 5 hours
+  * in 1 month
   * 5 years ago
   * … or whatever else
 
 For React users there's also a [React component](https://github.com/catamphetamine/react-time-ago).
 
-This is a readme for version `2.x`. [See version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md) from version `1.x` to version `2.x`.
+This is a readme for version `2.x`. For older versions, [see version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md) for migrating from version `1.x` to version `2.x`.
 
-## Usage
+## Use
 
 ```
 npm install javascript-time-ago --save
@@ -30,10 +33,10 @@ npm install javascript-time-ago --save
 ```js
 import TimeAgo from 'javascript-time-ago'
 
-// Load locale-specific relative date/time formatting rules.
+// Load locale-specific relative date/time formatting rules and labels.
 import en from 'javascript-time-ago/locale/en'
 
-// Add locale-specific relative date/time formatting rules.
+// Add locale-specific relative date/time formatting rules and labels.
 TimeAgo.addLocale(en)
 
 // Create relative date/time formatter.
@@ -52,16 +55,30 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 // "a day ago"
 ```
 
-Russian
+## Locales
+
+This library includes date/time formatting rules and labels for any language.
+
+No languages are loaded default: a developer must manually choose which languages should be loaded. The languages should be imported from `javascript-time-ago/locale` and then added via `TimeAgo.addLocale(...)`. An example of using Russian language:
+
+<!--
+If the resulting bundle size is of no concern (for example, when building a big enterprise application), or if the code is being run on server side (Node.js), then one can use this helper to load all available locales:
+
+```js
+require('javascript-time-ago/load-all-locales')
+```
+-->
 
 ```js
 import TimeAgo from 'javascript-time-ago'
 
-// Load locale-specific relative date/time formatting rules.
+// Load locale-specific relative date/time formatting rules and labels.
 import en from 'javascript-time-ago/locale/en'
 import ru from 'javascript-time-ago/locale/ru'
 
-// Add locale-specific relative date/time formatting rules.
+// Add locale-specific relative date/time formatting rules and labels.
+// "en" is the default (fallback) locale.
+// (that could be changed via `TimeAgo.setDefaultLocale(...)`)
 TimeAgo.addLocale(en)
 TimeAgo.addLocale(ru)
 
@@ -81,13 +98,96 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 // "1 день назад"
 ```
 
-## Twitter style
+## Presets
 
-Mimics Twitter style of time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
+This library allows for any custom logic for formatting time difference labels:
+
+* What scale should be used for measuring the time difference: should it be precise down to the second, or should it only calculate it up to a minute, or should it start from being more precise at the start and then gradually decrease its precision as the time goes on.
+
+* What labels should be used: should it use the standard built-in labels for the languages (`"... minutes ago"`, `"... min. ago"`, `"...s"`), or should it use custom ones, or should it skip using relative time labels in some cases and instead output something like `"Dec 11, 2015"`.
+
+Such configuration comes under the name of "preset".
+
+While a completely [custom](#customization) preset could be supplied, this library comes with several built-in presets that some people might find useful.
+
+### Precise
 
 ```js
-timeAgo.format(new Date(), 'twitter')
-// ""
+timeAgo.format(Date.now() - 60 * 1000, 'precise')
+// "1 minute ago"
+```
+
+  * just now
+  * 1 second ago
+  * 2 seconds ago
+  * …
+  * 59 seconds ago
+  * 1 minute ago
+  * 2 minutes ago
+  * …
+  * 59 minutes ago
+  * 1 hour ago
+  * 2 hours ago
+  * …
+  * 59 hours ago
+  * 1 day ago
+  * 2 days ago
+  * …
+  * 6 days ago
+  * 1 week ago
+  * 2 weeks ago
+  * 3 weeks ago
+  * 1 month ago
+  * 2 months ago
+  * …
+  * 11 months ago
+  * 1 year ago
+  * 2 years ago
+  * …
+
+### Approximate
+
+The "approximate" preset is (historically) the default one.
+
+```js
+timeAgo.format(Date.now() - 60 * 1000)
+// "1 minute ago"
+```
+
+  * just now
+  * 1 minute ago
+  * 2 minutes ago
+  * …
+  * 5 minutes ago
+  * 10 minutes ago
+  * 15 minutes ago
+  * 20 minutes ago
+  * 1 hour ago
+  * 2 hours ago
+  * …
+  * 20 hours ago
+  * 1 day ago
+  * 2 days ago
+  * …
+  * 5 days ago
+  * 1 week ago
+  * 2 weeks ago
+  * 3 weeks ago
+  * 1 month ago
+  * 2 months ago
+  * …
+  * 10 months ago
+  * 1 year ago
+  * 2 years ago
+  * …
+
+### Twitter
+
+The "twitter" preset mimics [Twitter](https://twitter.com) style of time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
+
+```js
+timeAgo.format(new Date() - 1, 'twitter')
+// "1s"
 
 timeAgo.format(Date.now() - 60 * 1000, 'twitter')
 // "1m"
@@ -102,20 +202,23 @@ timeAgo.format(Date.now() - 365 * 24 * 60 * 60 * 1000, 'twitter')
 // "Mar 5, 2017"
 ```
 
-Twitter style uses [`Intl`](https://github.com/catamphetamine/javascript-time-ago#intl) for formatting `day/month/year` labels. If `Intl` is not available then it falls back to the default style.
+The "twitter" preset uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer) then it falls back to the default "precise" labels for months/years difference: `"1mo"`/`"1yr"`.
 
-## "Just time" style
+__Not all locales are applicable for this preset__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `tiny.json` time labels.
+
+### Approximate ("just time")
+
+Same as the "approximate" preset but without the "ago" part. I guess this preset should be considered a "legacy" one and will be removed in the next major version.
 
 ```js
 timeAgo.format(Date.now() - 60 * 1000, 'time')
 // "1 minute"
 ```
 
-Similar to the default style but with "ago" omitted:
-
   * just now
   * 1 minute
   * 2 minutes
+  * …
   * 5 minutes
   * 10 minutes
   * 15 minutes
@@ -126,30 +229,20 @@ Similar to the default style but with "ago" omitted:
   * 20 hours
   * 1 day
   * 2 days
-  * 3 days
-  * 4 days
+  * …
   * 5 days
   * 1 week
   * 2 weeks
   * 3 weeks
   * 1 month
   * 2 months
-  * 3 months
-  * 4 months
+  * …
+  * 10 months
   * 1 year
   * 2 years
-  * 3 years
   * …
 
-## Loading locales
-
-No locale data is loaded by default: a developer must manually choose which locales must be loaded. This is to reduce the resulting javascript bundle size.
-
-If the resulting bundle size is of no concern (for example, when building a big enterprise application), or if the code is being run on server side (Node.js), then one can use this helper to load all available locales:
-
-```js
-require('javascript-time-ago/load-all-locales')
-```
+__Not all locales are applicable for this preset__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `long-time.json`.
 
 # Advanced
 
@@ -159,17 +252,19 @@ This part of the documentation contains some advanced topics for those willing t
 
 ## Customization
 
-This library comes with three "styles" built-in: the default one, "twitter" style and "time" style. Each of these styles is an object defining its own `flavour` and `gradation`. If none of them suits a project then a custom "style" object may be passed as a second parameter to `.format(date, style)` having the following shape:
+This library comes with several ["presets"](#presets) built-in. Each of those presets is an object defining its own `flavour` (the name's historical) and `gradation`. A completely custom "preset" object may be passed as a second parameter to `.format(date, preset)`, having the following shape:
 
-  * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred labels variant. Is `"long"` by default. Can be either a string (e.g. `"short"`) or an array of preferred flavours in which case each one of them is tried until a match is found. E.g. `["tiny", "short"]` searches for `tiny` first and falls back to `short`. `short`, `long` and `narrow` are always present for each locale.
+  * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred time labels style. Is `"long"` by default. Can be either a string (e.g. `"short"`) or an array of preferred "flavours" in which case each one of them is tried until a supported one is found. For example, `["tiny", "short"]` will search for `tiny` time labels first and then fall back to `short` ones if `tiny` time labels aren't defined for the language. `short`, `long` and `narrow`time labels are always present for each language.
 
-  * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. Is [`convenient`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) by default. Another one available is [`canonical`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js). A developer may supply a custom `gradation` which must be an array of steps each of them having either a `unit : string` or a `format(value, locale) : string` function. See [Twitter style](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
+  * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. Is [`convenient`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) by default. Another one available is [`canonical`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js). A developer may supply a custom `gradation` which must be an array of steps each of them having either a `unit: string` or a `format(value, locale): string` function. See [Twitter preset](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
 
   * `units` – A list of time interval measurement units which can be used in the output. E.g. `["second", "minute", "hour", ...]`. By default all available units are used. This is only used to filter out some of the non-conventional time units like `"quarter"` which is present in CLDR data.
 
 ## Flavour
 
-Relative date/time labels come in various "flavours": `long`, `short`, `narrow` are the standard CLDR ones (always present) possibly accompanied by other ones like `tiny` which is defined for `en`, `ru` and `ko`. Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
+(the name's historical; will be renamed to "style" in the next major version)
+
+Relative date/time labels come in various styles: `long`, `short`, `narrow` are the standard CLDR ones (always present), possibly accompanied by other ones like `tiny` (`"1m"`, `"2h"`, ...). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
 ```js
 import english from 'javascript-time-ago/locale/en'
@@ -180,9 +275,12 @@ english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-* `tiny` is supposed to be the shortest one possible. It's not a CLDR-defined one and has been defined for `en`, `ru` and `ko` so far.
-* `narrow` is a CLDR-defined one and is supposed to be shorter than `short`, or at least no longer than it. I find `narrow` a weird one because for some locales it's the same as `short` and for other locales it's a really weird one (e.g. for Russian).
+* `tiny` is supposed to be the shortest one possible. It's not a CLDR-defined one and has been defined only for a small subset of languages (`en`, `ru`, `ko`, and several others).
+
+* `narrow` is a CLDR-defined one and is intended to be shorter than `short`, or at least no longer than it. I personally find `narrow` a weird one because for some locales it's the same as `short` and for other locales it's a really weird one (e.g. for Russian).
+
 * `short` is "short".
+
 * `long` is "regular".
 
 ## Gradation
@@ -310,6 +408,7 @@ async function initIntl() {
 initIntl().then(...)
 ```
 
+<!--
 ## Contributing
 
 After cloning this repo, ensure dependencies are installed by running:
@@ -345,6 +444,7 @@ It will `build`, `test` and then create a `.tgz` archive which you can then inst
 ```sh
 npm install [module name with version].tar.gz
 ```
+-->
 
 ## License
 

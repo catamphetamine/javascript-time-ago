@@ -16,7 +16,7 @@ import { day, month, year } from './helpers'
 // 1 day ago
 // 2 days ago
 // …
-// 7 days ago
+// 6 days ago
 // 1 week ago
 // 2 weeks ago
 // …
@@ -60,7 +60,8 @@ export default
 		unit: 'week'
 	},
 	{
-		threshold: 3.5 * 7 * day,
+		threshold: 29.5 * day,
+		threshold_for_week: 3.5 * 7 * day,
 		factor: month,
 		unit: 'month'
 	},

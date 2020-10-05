@@ -9,6 +9,7 @@ module.exports = {
 	// Additional styles.
 	'long-time': require('../../locale-more-styles/fr/long-time.json'),
 	'tiny': require('../../locale-more-styles/fr/tiny.json'),
+	'now': require('../../locale-more-styles/fr/now.json'),
 	// Quantifier.
 	quantify: locale.quantify
 }

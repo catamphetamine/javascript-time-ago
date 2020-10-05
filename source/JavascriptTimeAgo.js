@@ -3,7 +3,7 @@ import RelativeTimeFormat from 'relative-time-format'
 import Cache from './cache'
 import grade from './grade'
 import chooseLocale from './locale'
-import { twitterStyle, timeStyle, defaultStyle } from './style'
+import { twitterStyle, timeStyle, approximateStyle, preciseStyle } from './style'
 
 import {
 	addLocaleData,
@@ -93,7 +93,9 @@ export default class JavascriptTimeAgo
 	//                                                 There can also be specific `threshold_[unit]`
 	//                                                 thresholds for fine-tuning.
 	//
-	format(input, style = defaultStyle)
+	// @param  {boolean} [options.future] — Tells how to format value `0`: as "future" (`true`) or "past" (`false`). Is `false` by default, but should have been `true` actually.
+	//
+	format(input, style = approximateStyle, options = {})
 	{
 		if (typeof style === 'string')
 		{
@@ -105,8 +107,15 @@ export default class JavascriptTimeAgo
 				case 'time':
 					style = timeStyle
 					break
+				case 'precise':
+					style = preciseStyle
+					break
+				case 'approximate':
+					style = approximateStyle
+					break
 				default:
-					style = defaultStyle
+					// "Approximate" preset is (historically) the default one.
+					style = approximateStyle
 			}
 		}
 
@@ -194,19 +203,30 @@ export default class JavascriptTimeAgo
 
 		// `Intl.RelativeTimeFormat` doesn't operate in "now" units.
 		if (unit === 'now') {
-			return getNowMessage(localeData, -1 * Math.sign(elapsed))
+			return getNowMessage(
+				options.future || elapsed < 0,
+				localeData,
+				getLocaleData(this.locale).long,
+				getLocaleData(this.locale).now
+			)
 		}
 
 		switch (flavour) {
 			case 'long':
 			case 'short':
 			case 'narrow':
+				// By default, zero is formatted in "past" mode,
+				// unless `future: true` option is passed.
+				// `relative-time-format@0.1.x` doesn't differentiate between `0` and `-0`,
+				// so it won't format `0` values in "future" mode.
 				// Format `value` using `Intl.RelativeTimeFormat`.
 				return this.getFormatter(flavour).format(-1 * Math.sign(elapsed) * Math.round(amount), unit)
 			default:
 				// Format `value`.
 				// (mimicks `Intl.RelativeTimeFormat` with the addition of extra styles)
-				return this.formatValue(-1 * Math.sign(elapsed) * Math.round(amount), unit, localeData)
+				return this.formatValue(-1 * Math.sign(elapsed) * Math.round(amount), unit, localeData, {
+					future: options.future
+				})
 		}
 	}
 
@@ -215,10 +235,11 @@ export default class JavascriptTimeAgo
 	 * @param  {number} value
 	 * @param  {string} unit
 	 * @param  {object} localeData — Relative time messages for the flavor.
+	 * @param  {boolean} [options.future] — Tells how to format value `0`: as "future" (`true`) or "past" (`false`). Is `false` by default, but should have been `true` actually.
 	 * @return {string}
 	 */
-	formatValue(value, unit, localeData) {
-		return this.getRule(value, unit, localeData).replace('{0}', this.formatNumber(Math.abs(value)))
+	formatValue(value, unit, localeData, { future }) {
+		return this.getRule(value, unit, localeData, { future }).replace('{0}', this.formatNumber(Math.abs(value)))
 	}
 
 	/**
@@ -226,12 +247,13 @@ export default class JavascriptTimeAgo
 	 * @param {number} value - Time interval value.
 	 * @param {string} unit - Time interval measurement unit.
 	 * @param  {object} localeData — Relative time messages for the flavor.
+	 * @param  {boolean} [options.future] — Tells how to format value `0`: as "future" (`true`) or "past" (`false`). Is `false` by default, but should have been `true` actually.
 	 * @return {string}
 	 * @example
 	 * // Returns "{0} days ago"
 	 * getRule(-2, "day")
 	 */
-	getRule(value, unit, localeData) {
+	getRule(value, unit, localeData, { future }) {
 		const unitRules = localeData[unit]
 		// Bundle size optimization technique.
 		if (typeof unitRules === 'string') {
@@ -240,7 +262,8 @@ export default class JavascriptTimeAgo
 		// Choose either "past" or "future" based on time `value` sign.
 		// If "past" is same as "future" then they're stored as "other".
 		// If there's only "other" then it's being collapsed.
-		const quantifierRules = unitRules[value <= 0 ? 'past' : 'future'] || unitRules
+		const pastOrFuture = value === 0 ? (future ? 'future' : 'past') : (value < 0 ? 'past' : 'future')
+		const quantifierRules = unitRules[pastOrFuture] || unitRules
 		// Bundle size optimization technique.
 		if (typeof quantifierRules === 'string') {
 			return quantifierRules
@@ -405,26 +428,27 @@ function getTimeIntervalMeasurementUnits(localeData, restrictedSetOfUnits)
 	return units
 }
 
-function getNowMessage(localeData, value) {
+function getNowMessage(future, localeDataForStyle, localeDataLong, localeDataNow) {
+	const nowLabel = localeDataForStyle.now || (localeDataNow && localeDataNow.now)
 	// Specific "now" message form extended locale data (if present).
-	if (localeData.now) {
+	if (nowLabel) {
 		// Bundle size optimization technique.
-		if (typeof localeData.now === 'string') {
-			return localeData.now
+		if (typeof nowLabel === 'string') {
+			return nowLabel
 		}
 		// Not handling `value === 0` as `localeData.now.current` here
 		// because it wouldn't make sense: "now" is a moment,
 		// so one can't possibly differentiate between a
 		// "previous" moment, a "current" moment and a "next moment".
 		// It can only be differentiated between "past" and "future".
-		if (value <= 0) {
-			return localeData.now.past
+		if (future) {
+			return nowLabel.future
 		} else {
-			return localeData.now.future
+			return nowLabel.past
 		}
 	}
 	// Use ".second.current" as "now" message.
-	return localeData.second.current
+	return localeDataLong.second.current
 	// If this function was called then
 	// it means that either "now" unit messages are
 	// available or ".second.current" message is present.

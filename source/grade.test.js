@@ -30,8 +30,12 @@ describe('grade', () =>
 
 		// And if there's no previous step, then use the current one.
 
+		const firstStep = gradation[0]
 		gradation.splice(0, 1)
 
 		grade(1.49, null, ['now', 'second'], gradation).unit.should.equal('second')
+
+		gradation.unshift(firstStep)
+		delete gradation[1].granularity
 	})
 })

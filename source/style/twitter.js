@@ -14,6 +14,15 @@ export default
 	// Twitter gradation is derived from "canonical" gradation
 	// adjusting its "minute" `threshold` to be 45.
 	gradation: [
+		// Seconds
+		{
+			...getStep(canonical, 'second'),
+			// At `0` seconds Twitter shows "now",
+			// but in different languages "now" could be too long
+			// and too contrasty compared to all other "Xs" seconds.
+			// Therefore, it outputs "0s" in such case.
+			threshold: 0
+		},
 		// Minutes
 		{
 			...getStep(canonical, 'minute'),

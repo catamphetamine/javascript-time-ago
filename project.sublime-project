@@ -4,7 +4,7 @@
 		{
 			"follow_symlinks": true,
 			"path": ".",
-			"folder_exclude_patterns": [".nyc_output", "javascript-time-ago/bundle", "javascript-time-ago/node_modules", "javascript-time-ago/coverage", "javascript-time-ago/modules", "javascript-time-ago/commonjs", "project.sublime-workspace"]
+			"folder_exclude_patterns": [".nyc_output", "bundle", "node_modules", "coverage", "modules", "commonjs", "project.sublime-workspace"]
 		}
 	],
 	"settings":

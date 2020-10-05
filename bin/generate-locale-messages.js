@@ -13,7 +13,8 @@ for (const locale of listAllRelativeTimeFormatLocales())
 		'short-convenient',
 		'long-time',
 		'long-convenient',
-		'tiny'
+		'tiny',
+		'now'
 	]
 
 	const extraStyleDirectories = {}
