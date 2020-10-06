@@ -7,6 +7,8 @@ import { day, month, year } from './helpers'
 // 10 minutes ago
 // 15 minutes ago
 // 20 minutes ago
+// …
+// 50 minutes ago
 // an hour ago
 // 2 hours ago
 // …

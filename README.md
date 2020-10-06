@@ -120,7 +120,7 @@ While a completely [custom](#custom) preset could be supplied, this library come
 
 ### Default
 
-Historically it's not _the_ default preset, but it still goes under the name of "default".
+The default (and most sensible) preset to use.
 
 ```js
 timeAgo.format(Date.now() - 60 * 1000, 'default')
@@ -155,9 +155,21 @@ timeAgo.format(Date.now() - 60 * 1000, 'default')
   * 2 years ago
   * …
 
+For historical reasons, it's not the preset that's used when no `preset` argument is passed (this will be fixed in the next major version).
+
 ### Approximate
 
-The "approximate" preset is (historically) the default one.
+The "approximate" preset is the same as the "default" one with the difference that it rounds time intervals in some cases:
+
+* `40 seconds ago` -> `just now`
+* `45 seconds ago` -> `1 minute ago`
+* `5 minutes ago` -> `5 minutes ago`
+* `6 minutes ago` -> `5 minutes ago`
+* `7 minutes ago` -> `5 minutes ago`
+* `8 minutes ago` -> `10 minutes ago`
+* `9 minutes ago` -> `10 minutes ago`
+* `10 minutes ago` -> `10 minutes ago`
+* …
 
 ```js
 timeAgo.format(Date.now() - 60 * 1000, 'approximate')
@@ -172,6 +184,8 @@ timeAgo.format(Date.now() - 60 * 1000, 'approximate')
   * 10 minutes ago
   * 15 minutes ago
   * 20 minutes ago
+  * …
+  * 50 minutes ago
   * 1 hour ago
   * 2 hours ago
   * …
@@ -191,24 +205,26 @@ timeAgo.format(Date.now() - 60 * 1000, 'approximate')
   * 2 years ago
   * …
 
+For historical reasons, the "approximate" preset is the one that's used when no `preset` argument is passed (this will be fixed in the next major version).
+
 ### Twitter
 
-The "twitter" preset mimics [Twitter](https://twitter.com) style of "time ago" labels ("1m", "2h", "Mar 3", "Apr 4, 2012")
+The "twitter" preset mimics [Twitter](https://twitter.com) style of "time ago" labels ("1s", "2m", "3h", "Mar 4", "Apr 5, 2012")
 
 ```js
 timeAgo.format(new Date() - 1, 'twitter')
 // "1s"
 
-timeAgo.format(Date.now() - 60 * 1000, 'twitter')
-// "1m"
+timeAgo.format(Date.now() - 2 * 60 * 1000, 'twitter')
+// "2m"
 
-timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'twitter')
-// "2h"
+timeAgo.format(Date.now() - 3 * 60 * 60 * 1000, 'twitter')
+// "3h"
 
-timeAgo.format(Date.now() - 2 * 24 * 60 * 60 * 1000, 'twitter')
-// "Mar 3"
+timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'twitter')
+// "Mar 4"
 
-timeAgo.format(Date.now() - 365 * 24 * 60 * 60 * 1000, 'twitter')
+timeAgo.format(Date.now() - 364 * 24 * 60 * 60 * 1000, 'twitter')
 // "Mar 5, 2017"
 ```
 
@@ -233,6 +249,8 @@ timeAgo.format(Date.now() - 60 * 1000, 'time')
   * 10 minutes
   * 15 minutes
   * 20 minutes
+  * …
+  * 50 minutes
   * 1 hour
   * 2 hours
   * …
