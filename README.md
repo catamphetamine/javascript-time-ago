@@ -350,7 +350,7 @@ This library comes with several built-in ["styles"](#styles). Each of those styl
 
 ### Flavour
 
-(the name's historical; will be renamed to "style" in the next major version)
+(the name's historical; will be renamed to "labels" in the next major version)
 
 Relative date/time labels come in various styles: `long`, `short`, `narrow` (these three are the standard [CLDR](http://cldr.unicode.org/) ones that're always present), possibly accompanied by others like `mini-time` (`"1m"`, `"2h"`, ...). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
