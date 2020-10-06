@@ -1,13 +1,13 @@
-import preciseStyle from './precise'
+import defaultStyle from './default'
 import JavascriptTimeAgo from '../JavascriptTimeAgo'
 import { day, month, year } from '../gradation'
 
-describe('"precise" preset', () => {
-	it('should format "precise" preset relative time (English)', () => {
+describe('"default" preset', () => {
+	it('should format "default" preset relative time (English)', () => {
 		const timeAgo = new JavascriptTimeAgo('en')
 
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = (time) => timeAgo.format(now - time * 1000, { now, ...preciseStyle })
+		const elapsed = (time) => timeAgo.format(now - time * 1000, { now, ...defaultStyle })
 
 		elapsed(0).should.equal('just now')
 		elapsed(59.4).should.equal('59 seconds ago')

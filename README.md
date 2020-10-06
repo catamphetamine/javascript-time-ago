@@ -110,10 +110,12 @@ Such configuration comes under the name of "preset".
 
 While a completely [custom](#customization) preset could be supplied, this library comes with several built-in presets that some people might find useful.
 
-### Precise
+### Default
+
+Historically it's not _the_ default preset, but it goes under the name of "default".
 
 ```js
-timeAgo.format(Date.now() - 60 * 1000, 'precise')
+timeAgo.format(Date.now() - 60 * 1000, 'default')
 // "1 minute ago"
 ```
 
@@ -202,7 +204,7 @@ timeAgo.format(Date.now() - 365 * 24 * 60 * 60 * 1000, 'twitter')
 // "Mar 5, 2017"
 ```
 
-The "twitter" preset uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer) then it falls back to the default "precise" labels for months/years difference: `"1mo"`/`"1yr"`.
+The "twitter" preset uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to the default labels for months/years intervals: `"1 mo. ago"`/`"1 yr. ago"`.
 
 __Not all locales are applicable for this preset__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `tiny.json` time labels.
 

@@ -1,6 +1,6 @@
 import JavascriptTimeAgo from '../source/JavascriptTimeAgo'
 import { day, month, year } from '../source/gradation'
-import { defaultStyle } from '../source/style'
+import { approximateStyle } from '../source/style'
 import { getLocaleData } from '../source/LocaleDataStore'
 
 // Load locale specific relative date/time messages
@@ -22,7 +22,6 @@ describe(`time ago`, () =>
 		const timeAgo = new JavascriptTimeAgo('en')
 		const englishNow = english.now
 		delete english.now
-		console.log(english)
 		JavascriptTimeAgo.addLocale(english)
 		english.now = undefined
 		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('now')
@@ -62,7 +61,7 @@ describe(`time ago`, () =>
 		const timeAgo = new JavascriptTimeAgo('en')
 		timeAgo.format(Date.now(), 'twitter').should.equal('0s')
 		timeAgo.format(Date.now(), 'approximate').should.equal('just now')
-		timeAgo.format(Date.now(), 'precise').should.equal('just now')
+		timeAgo.format(Date.now(), 'default').should.equal('just now')
 		timeAgo.format(Date.now(), 'time').should.equal('just now')
 		timeAgo.format(Date.now(), 'exotic').should.equal('just now')
 	})
@@ -269,7 +268,7 @@ describe(`time ago`, () =>
 			'100 years ago'
 		],
 		'en',
-		defaultStyle)
+		approximateStyle)
 	})
 
 	it(`should format time correctly for Russian language (short)`, () =>
@@ -399,7 +398,7 @@ describe(`time ago`, () =>
 			'100 лет назад'
 		],
 		'ru',
-		defaultStyle)
+		approximateStyle)
 	})
 
 	it(`should format future dates`, () =>

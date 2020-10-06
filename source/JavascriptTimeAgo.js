@@ -3,7 +3,7 @@ import RelativeTimeFormat from 'relative-time-format'
 import Cache from './cache'
 import grade from './grade'
 import chooseLocale from './locale'
-import { twitterStyle, timeStyle, approximateStyle, preciseStyle } from './style'
+import { twitterStyle, timeStyle, approximateStyle, defaultStyle } from './style'
 
 import {
 	addLocaleData,
@@ -107,8 +107,8 @@ export default class JavascriptTimeAgo
 				case 'time':
 					style = timeStyle
 					break
-				case 'precise':
-					style = preciseStyle
+				case 'default':
+					style = defaultStyle
 					break
 				case 'approximate':
 					style = approximateStyle

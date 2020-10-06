@@ -5,5 +5,5 @@
 //
 export { default as timeStyle } from './time'
 export { default as twitterStyle } from './twitter'
-export { default as defaultStyle, default as approximateStyle } from './approximate'
-export { default as preciseStyle } from './precise'
+export { default as approximateStyle } from './approximate'
+export { default as defaultStyle } from './default'

@@ -5,7 +5,7 @@
 
 * README: renamed "style" to "preset".
 
-* Added "precise" preset (`long` time labels + `canonical` gradation).
+* Added "default" preset (`long` time labels + `canonical` gradation).
 
 * Added `future` option on `.format(value, preset, options)` function: it determines, whether to use the `"future"` variant of `"now"` when formatting `0` time difference. By default, it uses the `"past"` variant of `"now"` when formatting `0` time difference: `"just now"` instead of `"in a moment"`.
 
