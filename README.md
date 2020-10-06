@@ -47,14 +47,17 @@ const timeAgo = new TimeAgo('en-US')
 timeAgo.format(new Date(), 'default')
 // "just now"
 
+timeAgo.format(Date.now() - 15 * 1000, 'default')
+// "15 seconds ago"
+
 timeAgo.format(Date.now() - 60 * 1000, 'default')
-// "a minute ago"
+// "1 minute ago"
 
 timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'default')
 // "2 hours ago"
 
 timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'default')
-// "a day ago"
+// "1 day ago"
 ```
 
 ## Locales
@@ -89,6 +92,9 @@ const timeAgo = new TimeAgo('ru-RU')
 
 timeAgo.format(new Date(), 'default')
 // "только что"
+
+timeAgo.format(Date.now() - 15 * 1000, 'default')
+// "15 секунд назад"
 
 timeAgo.format(Date.now() - 60 * 1000, 'default')
 // "1 минуту назад"
