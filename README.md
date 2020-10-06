@@ -104,9 +104,9 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 
 This library allows for any custom logic for formatting time interval labels:
 
-* What scale should be used for measuring time intervals: should it be precise down to the second, or should it only calculate it up to a minute, or should it start from being more precise at the start and then gradually decrease its precision as the time goes on.
+* What scale should be used for measuring time intervals: should it be precise down to the second, or should it only measure it up to a minute, or should it start from being more precise when time intervals are small and then gradually decrease its precision as time intervals get larger.
 
-* What labels should be used: should it use the standard built-in labels for the languages (`"... minutes ago"`, `"... min. ago"`, `"...s"`), or should it use custom ones, or should it skip using relative time labels in some cases and instead output something like `"Dec 11, 2015"`.
+* What labels should be used: should it use the standard built-in labels for the languages (`"... minutes ago"`, `"... min. ago"`, `"...m"`), or should it use custom ones, or should it skip using relative time labels in some cases and instead output something like `"Dec 11, 2015"`.
 
 Such configuration comes under the name of "preset".
 
@@ -114,7 +114,7 @@ While a completely [custom](#custom) preset could be supplied, this library come
 
 ### Default
 
-Historically it's not _the_ default preset, but it goes under the name of "default".
+Historically it's not _the_ default preset, but it still goes under the name of "default".
 
 ```js
 timeAgo.format(Date.now() - 60 * 1000, 'default')
@@ -187,7 +187,7 @@ timeAgo.format(Date.now() - 60 * 1000)
 
 ### Twitter
 
-The "twitter" preset mimics [Twitter](https://twitter.com) style of time ago ("1m", "2h", "Mar 3", "Apr 4, 2012")
+The "twitter" preset mimics [Twitter](https://twitter.com) style of "time ago" labels ("1m", "2h", "Mar 3", "Apr 4, 2012")
 
 ```js
 timeAgo.format(new Date() - 1, 'twitter')
@@ -206,13 +206,13 @@ timeAgo.format(Date.now() - 365 * 24 * 60 * 60 * 1000, 'twitter')
 // "Mar 5, 2017"
 ```
 
-The "twitter" preset uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to the default labels for months/years intervals: `"1 mo. ago"`/`"1 yr. ago"`.
+The "twitter" preset uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to the default labels for month/year intervals: `"1 mo. ago"`/`"1 yr. ago"`.
 
 __Not all locales are applicable for this preset__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `tiny.json` time labels.
 
 ### Approximate ("just time")
 
-Same as the "approximate" preset but without the "ago" part. I guess this preset should be considered a "legacy" one and will be removed in the next major version.
+Same as the "approximate" preset but without the "ago" part. I guess this preset is obsolete and will be removed in the next major version.
 
 ```js
 timeAgo.format(Date.now() - 60 * 1000, 'time')
@@ -248,27 +248,21 @@ timeAgo.format(Date.now() - 60 * 1000, 'time')
 
 __Not all locales are applicable for this preset__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `long-time.json`.
 
-# Advanced
-
-The above sections explained all the basics required for using this library in a project.
-
-This part of the documentation contains some advanced topics for those willing to have a better understanding of how this library works internally.
-
 ## Custom
 
-This library comes with several ["presets"](#presets) built-in. Each of those presets is an object defining its own `flavour` (the name's historical) and `gradation`. A completely custom "preset" object may be passed as a second parameter to `.format(date, preset)`, having the following shape:
+This library comes with several built-in ["presets"](#presets). Each of those presets is an object defining its own `flavour` (the name's historical), `gradation` and `units`. A completely custom "preset" object may be passed as a second parameter to `.format(date, preset)`, having the following shape:
 
-  * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred time labels style. Is `"long"` by default. Can be either a string (e.g. `"short"`) or an array of preferred "flavours" in which case each one of them is tried until a supported one is found. For example, `["tiny", "short"]` will search for `tiny` time labels first and then fall back to `short` ones if `tiny` time labels aren't defined for the language. `short`, `long` and `narrow`time labels are always present for each language.
+  * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred time labels style. Is `"long"` by default. Can be either a string (e.g. `"short"`) or an array of preferred "flavours" in which case each one of them is tried until a supported one is found. For example, `["tiny", "short"]` will search for `tiny` time labels first and then fall back to `short` ones if `tiny` time labels aren't defined for the language. `short`, `long` and `narrow`time labels are always present for every language.
 
-  * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. Is [`convenient`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) by default. Another one available is [`canonical`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js). A developer may supply a custom `gradation` which must be an array of steps each of them having either a `unit: string` or a `format(value, locale): string` function. See [Twitter preset](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
+  * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. The default gradation is, historically, the [`"convenient"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) one. Another one available is [`"canonical"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js) (this is a more "conventional" one). A developer may also supply a custom `gradation` which must be an array of "steps" each of them having either a `unit: string`/`factor: number` or a `format(value, locale): string` function. See [Twitter preset](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
 
-  * `units` – A list of time interval measurement units which can be used in the output. E.g. `["second", "minute", "hour", ...]`. By default all available units are used. This is only used to filter out some of the non-conventional time units like `"quarter"` which is present in CLDR data.
+  * `units` – A list of allowed time interval measurement units. Example: `["second", "minute", "hour", ...]`. By default, all available units are allowed. This property is only used to filter out some of the non-conventional time units like `"quarter"` which is present in [CLDR](http://cldr.unicode.org/) data.
 
-## Flavour
+### Flavour
 
 (the name's historical; will be renamed to "style" in the next major version)
 
-Relative date/time labels come in various styles: `long`, `short`, `narrow` are the standard CLDR ones (always present), possibly accompanied by other ones like `tiny` (`"1m"`, `"2h"`, ...). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
+Relative date/time labels come in various styles: `long`, `short`, `narrow` (these three are the standard [CLDR](http://cldr.unicode.org/) ones that're always present), possibly accompanied by others like `tiny` (`"1m"`, `"2h"`, ...). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
 ```js
 import english from 'javascript-time-ago/locale/en'
@@ -285,9 +279,9 @@ english.long  // '1 second ago', '2 minutes ago', …
 
 * `short` is "short".
 
-* `long` is "regular".
+* `long` is the normal one.
 
-## Gradation
+### Gradation
 
 A `gradation` is a list of time interval measurement steps.
 
@@ -295,6 +289,7 @@ A `gradation` is a list of time interval measurement steps.
 [
   {
     unit: 'second',
+    factor: 1
   },
   {
     unit: 'minute',
@@ -312,15 +307,19 @@ A `gradation` is a list of time interval measurement steps.
 
 Each step is described by:
 
-  * `unit` — a localized time measurement unit: `second`, `minute`, `hour`, `day`, `month`, `year` are the standardized CLDR ones.
-  * `factor` — a divider for the supplied time interval (in seconds).
-  * `threshold` — a minimum time interval value (in seconds) required for this gradation step. Each step must have a `threshold` defined except for the first one. Can a `number` or a `function(now: number, future: boolean)` returning a `number`. Some advanced `threshold` customization is possible like `threshold_for_[prev-unit]` (see `./source/gradation/convenient.js`).
-  * `granularity` — for example, `5` for `minute` to allow only 5-minute intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc.
+  * `unit` — A time measurement unit: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year` are the standardized CLDR ones.
 
-If a gradation step should output not simply a time interval of a certain time unit but something different instead then it may be described by:
+  * `factor` — A divider for the supplied time interval, which is in seconds. For example, if `unit` is `"seconds"` then `factor` should be `1`, and if `unit` is `"minutes"` then `factor` should be `60` because to get the amount of minutes one should divide the amout of seconds by `60`. This `factor` property is actually a redundant one and can be derived from `unit` so it will be removed in the next major version.
 
- * `threshold` — same as above.
- * `format` — a `function(value, locale)` returning a `string`. `value` argument is the date/time being formatted as passed to `TimeAgo.format(value)`: either a `number` or a `Date`. `locale` argument is the selected locale (aka "BCP 47 language tag", e.g. `ru-RU`). For example, the built-in Twitter gradation has regular `minute` and `hour` steps followed by a custom one formatting a date as "day/month/year", e.g. `Jan 24, 2018`.
+  * `threshold` — A minimum time interval value (in seconds) required for this gradation step to apply. For example, for seconds it could be `0` and for minutes it could be `59.5` so that when it's `59` seconds then it's still output as seconds but as soon as it reaches `59.5` seconds then it's output as minutes. So, `threshold` controls the progression from a previous gradation step to the next one. Each step must have a `threshold` defined, except for the first one. Can a `number` or a `function(now: number, future: boolean)` returning a `number`. Some advanced `threshold` customization is possible like `threshold_for_[prev-unit]` (see `./source/gradation/convenient.js`).
+
+  * `granularity` — Time interval value "granularity". For example, it could be set to `5` for minutes to allow only 5-minute increments when formatting time intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc.
+
+It's also possible for a gradation step to not just output a time interval in certain time units but instead return any custom output, in which case it should be defined using:
+
+ * `threshold` — Same as above.
+
+ * `format` — A `function(value: Date/number, locale: string)` returning a `string`. The `value` argument is the date/time being formatted, as passed to `timeAgo.format(value)` function: either a `number` or a `Date`. The `locale` argument is the selected locale (aka "BCP 47 language tag", like `"ru-RU"`). For example, the built-in Twitter gradation has generic `second`, `minute` and `hour` gradation steps, followed by a custom one formatting a date as `"day/month/year"`, like `Jan 24, 2018`, which is returned from its `format()` function.
 
 For more gradation examples see [`source/gradation`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation) folder.
 
@@ -335,7 +334,7 @@ import {
 
 ## Future
 
-When given future dates `.format()` produces the corresponding output, e.g. "in 5 minutes", "in a year", etc.
+When given future dates, `.format()` produces the corresponding output, e.g. "in 5 minutes", "in a year", etc.
 
 ## Default
 
