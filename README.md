@@ -24,11 +24,13 @@ For React users there's also a [React component](https://github.com/catamphetami
 
 This is a readme for version `2.x`. For older versions, [see version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md) for migrating from version `1.x` to version `2.x`.
 
-## Use
+## Install
 
 ```
 npm install javascript-time-ago --save
 ```
+
+## Use
 
 ```js
 import TimeAgo from 'javascript-time-ago'
@@ -108,7 +110,7 @@ This library allows for any custom logic for formatting time difference labels:
 
 Such configuration comes under the name of "preset".
 
-While a completely [custom](#customization) preset could be supplied, this library comes with several built-in presets that some people might find useful.
+While a completely [custom](#custom) preset could be supplied, this library comes with several built-in presets that some people might find useful.
 
 ### Default
 
@@ -252,7 +254,7 @@ The above sections explained all the basics required for using this library in a
 
 This part of the documentation contains some advanced topics for those willing to have a better understanding of how this library works internally.
 
-## Customization
+## Custom
 
 This library comes with several ["presets"](#presets) built-in. Each of those presets is an object defining its own `flavour` (the name's historical) and `gradation`. A completely custom "preset" object may be passed as a second parameter to `.format(date, preset)`, having the following shape:
 
