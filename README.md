@@ -44,16 +44,16 @@ TimeAgo.addLocale(en)
 // Create relative date/time formatter.
 const timeAgo = new TimeAgo('en-US')
 
-timeAgo.format(new Date())
+timeAgo.format(new Date(), 'default')
 // "just now"
 
-timeAgo.format(Date.now() - 60 * 1000)
+timeAgo.format(Date.now() - 60 * 1000, 'default')
 // "a minute ago"
 
-timeAgo.format(Date.now() - 2 * 60 * 60 * 1000)
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'default')
 // "2 hours ago"
 
-timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
+timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'default')
 // "a day ago"
 ```
 
@@ -87,16 +87,16 @@ TimeAgo.addLocale(ru)
 // cyka blyat
 const timeAgo = new TimeAgo('ru-RU')
 
-timeAgo.format(new Date())
+timeAgo.format(new Date(), 'default')
 // "только что"
 
-timeAgo.format(Date.now() - 60 * 1000)
+timeAgo.format(Date.now() - 60 * 1000, 'default')
 // "1 минуту назад"
 
-timeAgo.format(Date.now() - 2 * 60 * 60 * 1000)
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'default')
 // "2 часа назад"
 
-timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
+timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'default')
 // "1 день назад"
 ```
 
@@ -154,7 +154,7 @@ timeAgo.format(Date.now() - 60 * 1000, 'default')
 The "approximate" preset is (historically) the default one.
 
 ```js
-timeAgo.format(Date.now() - 60 * 1000)
+timeAgo.format(Date.now() - 60 * 1000, 'approximate')
 // "1 minute ago"
 ```
 
