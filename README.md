@@ -4,23 +4,22 @@
 [![npm downloads](https://img.shields.io/npm/dm/javascript-time-ago.svg?style=flat-square)](https://www.npmjs.com/package/javascript-time-ago)
 [![coverage](https://img.shields.io/coveralls/catamphetamine/javascript-time-ago/master.svg?style=flat-square)](https://coveralls.io/r/catamphetamine/javascript-time-ago?branch=master)
 
-International higly customizable relative date/time formatter (both for past and future dates).
+Intelligent, international, higly customizable relative date/time formatter (both for past and future dates).
 
-Formats a date/timestamp to:
+Automatically chooses the right units (seconds, minutes, etc) to format a time interval.
+
+Examples:
 
   * just now
   * 45s
   * 5m
-  * 3h
-  * 5 min ago
   * 15 minutes ago
-  * an hour ago
-  * in 5 hours
-  * in 1 month
-  * 5 years ago
-  * … or whatever else
+  * 3 hours ago
+  * in 2 months
+  * in 5 years
+  * …
 
-For React users there's also a [React component](https://github.com/catamphetamine/react-time-ago).
+For React users, there's a [React component](https://github.com/catamphetamine/react-time-ago).
 
 This is a readme for version `2.x`. For older versions, [see version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md) for migrating from version `1.x` to version `2.x`.
 

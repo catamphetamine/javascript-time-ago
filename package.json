@@ -1,7 +1,7 @@
 {
   "name": "javascript-time-ago",
   "version": "2.1.3",
-  "description": "International highly customizable relative date/time formatting",
+  "description": "Intelligent, international, higly customizable relative date/time formatter (both for past and future dates).",
   "main": "index.commonjs.js",
   "module": "index.js",
   "sideEffects": false,
