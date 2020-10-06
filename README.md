@@ -161,14 +161,14 @@ For historical reasons, it's not the preset that's used when no `preset` argumen
 
 The "approximate" preset is the same as the "default" one with the difference that it rounds time intervals in some cases:
 
-* `40 seconds ago` -> `just now`
-* `45 seconds ago` -> `1 minute ago`
-* `5 minutes ago` -> `5 minutes ago`
-* `6 minutes ago` -> `5 minutes ago`
-* `7 minutes ago` -> `5 minutes ago`
-* `8 minutes ago` -> `10 minutes ago`
-* `9 minutes ago` -> `10 minutes ago`
-* `10 minutes ago` -> `10 minutes ago`
+* `40 seconds ago` → `just now`
+* `45 seconds ago` → `1 minute ago`
+* `5 minutes ago` → `5 minutes ago`
+* `6 minutes ago` → `5 minutes ago`
+* `7 minutes ago` → `5 minutes ago`
+* `8 minutes ago` → `10 minutes ago`
+* `9 minutes ago` → `10 minutes ago`
+* `10 minutes ago` → `10 minutes ago`
 * …
 
 ```js
