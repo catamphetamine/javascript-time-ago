@@ -29,7 +29,7 @@
     "intl": "^1.2.4",
     "intl-locales-supported": "^1.0.0",
     "mkdirp": "^0.5.1",
-    "mocha": "^5.0.5",
+    "mocha": "^8.1.3",
     "npm-run-all": "^1.4.0",
     "nyc": "^14.1.1",
     "prop-types": "^15.6.0",
