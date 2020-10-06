@@ -24,7 +24,7 @@
     "babel-plugin-istanbul": "^5.1.1",
     "chai": "^3.5.0",
     "cross-env": "^5.1.4",
-    "esm": "^3.0.84",
+    "esm": "^3.2.25",
     "fs-extra": "^5.0.0",
     "intl": "^1.2.4",
     "intl-locales-supported": "^1.0.0",
