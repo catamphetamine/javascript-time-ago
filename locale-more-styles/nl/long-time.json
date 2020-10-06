@@ -26,9 +26,5 @@
     "second": {
         "one": "{0} seconde",
         "other": "{0} seconden"
-    },
-    "now": {
-        "future": "zometeen",
-        "past": "zojuist"
     }
 }

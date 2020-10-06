@@ -26,9 +26,5 @@
     "second": {
         "one": "{0} sekund",
         "other": "{0} sekunder"
-    },
-    "now": {
-        "future": "om ett ögonblick",
-        "past": "alldeles nyss"
     }
 }

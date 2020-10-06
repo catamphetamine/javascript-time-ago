@@ -8,6 +8,5 @@
 	},
 	"hour": "{0} hr.",
 	"minute": "{0} min.",
-	"second": "{0} sec.",
-	"now": "now"
+	"second": "{0} sec."
 }

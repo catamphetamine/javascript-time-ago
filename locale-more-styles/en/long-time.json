@@ -26,9 +26,5 @@
 	"second": {
 		"one": "{0} second",
 		"other": "{0} seconds"
-	},
-	"now": {
-		"future": "in a moment",
-		"past": "just now"
 	}
 }

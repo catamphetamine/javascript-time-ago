@@ -1,13 +1,44 @@
+<!--
+TO DO: Rename `gradation` to `scale` ("time scale"). Rename `flavour` to `labels`. Rename `factor` to `denominator`. `denominator` should be derived from `unit` (default: 1). Rename `threshold` to `min` (default: 0). Rename `threshold_for_xxx` to `minForXxx`. `min` should be calculated in units already divided by `denominator`. Rename `granularity` to `step`.
+
+TO DO: Change default style to "round".
+
+TO DO: Maybe remove `style.units` parameter by replacing it with `exceptUnits: ['quarter', ...]`.
+
+TO DO: "time" style should use "round" scale instead of "approximate".
+
+TO DO: if `style` is passed as an object then it should be passed as `options.style`.
+-->
+
+2.1.4 / 06.10.2020
+==================
+
+* Renamed `"default"` style to `"round"`. The older name still works but is considered deprecated.
+
+* Added `"round-minute"` style: same as `"round"` but without seconds.
+
+* Renamed `"time"` style to `"approximate-time"`. The older name still works but is considered deprecated.
+
+* Renamed `"canonical"` gradation to `"round"`. The older name still works but is considered deprecated.
+
+* Renamed `"tiny"` time labels style to `"mini-time"`. `"tiny"` time labels style still works but is considered deprecated.
+
+* (internals) Renamed `tiny.json` locale files to `mini-time.json`. Removed `now` unit from `mini-time.json`.
+
+* (internals) `"approximate"` (previously `"convenient"`) style now uses `long` labels instead of `long-convenient.json`.
+
+* (internals) Removed `now` unit from `mini-time.json` files.
+
+* (internals) Removed `long-convenient.json` and `short-convenient.json` files: `long.json` and `short.json` in combination with `now.json` are used instead.
+
 2.1.0 / 05.10.2020
 ==================
 
 * (could be considered a breaking change, but it doesn't actually break any apps) `"twitter"` style now outputs something like `"1s"` in case of `"1 second ago"`. Previously it didn't output anything when the time difference was less than a minute. The rationale for the change is that Twitter actually does output seconds when the time difference is less than a minute. There's still a small difference from Twitter: Twitter outputs `"now"` in case of `"0 seconds ago"` while this library outputs `"0s"` — the rationale is that "now" could be too long is different languages, and also it would look too contrasty compared to its "sibling" `"Xs"` time labels.
 
-* README: renamed "style" to "preset".
+* Added `"default"` style (`long` time labels + `canonical` gradation). Update: it's now called `"round"` instead of `"default"`.
 
-* Added "default" preset (`long` time labels + `canonical` gradation).
-
-* Added `future` option on `.format(value, preset, options)` function: it determines, whether to use the `"future"` variant of `"now"` when formatting `0` time difference. By default, it uses the `"past"` variant of `"now"` when formatting `0` time difference: `"just now"` instead of `"in a moment"`.
+* Added `future` option on `.format(value, style, options)` function: it determines, whether to use the `"future"` variant of `"now"` when formatting `0` time difference. By default, it uses the `"past"` variant of `"now"` when formatting `0` time difference: `"just now"` instead of `"in a moment"`.
 
 * (miscellaneous) Added dedicated `"now.json"` labels for `"now"` time unit.
 

@@ -1,4 +1,5 @@
-import { canonical, day, hour, getStep, getDate } from '../gradation'
+import round from '../gradation/round'
+import { day, hour, getStep, getDate } from '../gradation'
 import { intlDateTimeFormatSupported } from '../locale'
 
 // A cache for `Intl.DateTimeFormat` twitter formatters
@@ -11,12 +12,11 @@ const formatters = {}
 // and other intervals can be shown using full date format.
 export default
 {
-	// Twitter gradation is derived from "canonical" gradation
-	// adjusting its "minute" `threshold` to be 45.
+	// Twitter gradation is derived from "round" gradation.
 	gradation: [
 		// Seconds
 		{
-			...getStep(canonical, 'second'),
+			...getStep(round, 'second'),
 			// At `0` seconds Twitter shows "now",
 			// but in different languages "now" could be too long
 			// and too contrasty compared to all other "Xs" seconds.
@@ -25,13 +25,13 @@ export default
 		},
 		// Minutes
 		{
-			...getStep(canonical, 'minute'),
+			...getStep(round, 'minute'),
 			// Starts showing `1m` after `59s`.
 			threshold: 59.5
 		},
 		// Hours
 		{
-			...getStep(canonical, 'hour'),
+			...getStep(round, 'hour'),
 			// After `59m` it will show `1h`.
 			threshold: 59.5 * 60,
 		},
@@ -107,7 +107,7 @@ export default
 	],
 
 	flavour: [
-		'tiny',
+		'mini-time',
 		'short-time',
 		'narrow',
 		'short'

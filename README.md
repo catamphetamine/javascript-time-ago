@@ -43,19 +43,21 @@ TimeAgo.addLocale(en)
 // Create relative date/time formatter.
 const timeAgo = new TimeAgo('en-US')
 
-timeAgo.format(new Date(), 'default')
+// Format relative date/time using "round" style.
+
+timeAgo.format(new Date(), 'round')
 // "just now"
 
-timeAgo.format(Date.now() - 15 * 1000, 'default')
+timeAgo.format(Date.now() - 15 * 1000, 'round')
 // "15 seconds ago"
 
-timeAgo.format(Date.now() - 60 * 1000, 'default')
+timeAgo.format(Date.now() - 60 * 1000, 'round')
 // "1 minute ago"
 
-timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'default')
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'round')
 // "2 hours ago"
 
-timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'default')
+timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'round')
 // "1 day ago"
 ```
 
@@ -89,23 +91,23 @@ TimeAgo.addLocale(ru)
 // cyka blyat
 const timeAgo = new TimeAgo('ru-RU')
 
-timeAgo.format(new Date(), 'default')
+timeAgo.format(new Date(), 'round')
 // "только что"
 
-timeAgo.format(Date.now() - 15 * 1000, 'default')
+timeAgo.format(Date.now() - 15 * 1000, 'round')
 // "15 секунд назад"
 
-timeAgo.format(Date.now() - 60 * 1000, 'default')
+timeAgo.format(Date.now() - 60 * 1000, 'round')
 // "1 минуту назад"
 
-timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'default')
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'round')
 // "2 часа назад"
 
-timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'default')
+timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'round')
 // "1 день назад"
 ```
 
-## Presets
+## Styles
 
 This library allows for any custom logic for formatting time interval labels:
 
@@ -113,17 +115,23 @@ This library allows for any custom logic for formatting time interval labels:
 
 * What labels should be used: should it use the standard built-in labels for the languages (`"... minutes ago"`, `"... min. ago"`, `"...m"`), or should it use custom ones, or should it skip using relative time labels in some cases and instead output something like `"Dec 11, 2015"`.
 
-Such configuration comes under the name of "preset".
+Such configuration comes under the name of "style".
 
-While a completely [custom](#custom) preset could be supplied, this library comes with several built-in presets that some people might find useful.
+While a completely [custom](#custom) style could be supplied, this library comes with several built-in styles that some people might find useful.
 
-### Default
+### Round
 
-The default (and most sensible) preset to use.
+Rounds the time up to the closest time measurement unit (second, minute, hour, etc).
 
 ```js
-timeAgo.format(Date.now() - 60 * 1000, 'default')
-// "1 minute ago"
+timeAgo.format(Date.now(), 'round')
+// 0 seconds ago → "just now"
+
+timeAgo.format(Date.now() - 15 * 1000, 'round')
+// 15 seconds ago → "15 seconds ago"
+
+timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round')
+// 1.5 minutes ago → "2 minutes ago"
 ```
 
   * just now
@@ -154,12 +162,52 @@ timeAgo.format(Date.now() - 60 * 1000, 'default')
   * 2 years ago
   * …
 
-For historical reasons, it's not the preset that's used when no `preset` argument is passed (this will be fixed in the next major version).
+<!-- For historical reasons, it's not the style that's used when no `style` argument is passed (this will be changed in the next major version). -->
+
+### Round (minute)
+
+Same as `"round"` but without seconds.
+
+```js
+timeAgo.format(Date.now(), 'round-minute')
+// 0 seconds ago → "just now"
+
+timeAgo.format(Date.now() - 15 * 1000, 'round-minute')
+// 15 seconds ago → "just now"
+
+timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
+// 1.5 minutes ago → "2 minutes ago"
+```
+
+  * just now
+  * 1 minute ago
+  * 2 minutes ago
+  * …
+  * 59 minutes ago
+  * 1 hour ago
+  * 2 hours ago
+  * …
+  * 59 hours ago
+  * 1 day ago
+  * 2 days ago
+  * …
+  * 6 days ago
+  * 1 week ago
+  * 2 weeks ago
+  * 3 weeks ago
+  * 1 month ago
+  * 2 months ago
+  * …
+  * 11 months ago
+  * 1 year ago
+  * 2 years ago
+  * …
 
 ### Approximate
 
-The "approximate" preset is the same as the "default" one with the difference that it rounds time intervals in some cases:
+`"approximate"` style is the same as `"round"` with the difference that it rounds time in some cases:
 
+* `just now` → `just now`
 * `40 seconds ago` → `just now`
 * `45 seconds ago` → `1 minute ago`
 * `5 minutes ago` → `5 minutes ago`
@@ -171,14 +219,22 @@ The "approximate" preset is the same as the "default" one with the difference th
 * …
 
 ```js
-timeAgo.format(Date.now() - 60 * 1000, 'approximate')
-// "1 minute ago"
+timeAgo.format(Date.now(), 'approximate')
+// 0 seconds ago → "just now"
+
+timeAgo.format(Date.now() - 15 * 1000, 'approximate')
+// 15 seconds ago → "just now"
+
+timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'approximate')
+// 1.5 minutes ago → "2 minutes ago"
+
+timeAgo.format(Date.now() - 3 * 60 * 1000, 'approximate')
+// 3 minutes ago → "5 minutes ago"
 ```
 
   * just now
   * 1 minute ago
   * 2 minutes ago
-  * …
   * 5 minutes ago
   * 10 minutes ago
   * 15 minutes ago
@@ -204,46 +260,29 @@ timeAgo.format(Date.now() - 60 * 1000, 'approximate')
   * 2 years ago
   * …
 
-For historical reasons, the "approximate" preset is the one that's used when no `preset` argument is passed (this will be fixed in the next major version).
+For historical reasons, the `"approximate"` style is the one that's used when no `style` argument is passed (this will be changed in the next major version: `round` or `round-minute` will be the default one).
 
-### Twitter
+### Approximate (time)
 
-The "twitter" preset mimics [Twitter](https://twitter.com) style of "time ago" labels ("1s", "2m", "3h", "Mar 4", "Apr 5, 2012")
-
-```js
-timeAgo.format(new Date() - 1, 'twitter')
-// "1s"
-
-timeAgo.format(Date.now() - 2 * 60 * 1000, 'twitter')
-// "2m"
-
-timeAgo.format(Date.now() - 3 * 60 * 60 * 1000, 'twitter')
-// "3h"
-
-timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'twitter')
-// "Mar 4"
-
-timeAgo.format(Date.now() - 364 * 24 * 60 * 60 * 1000, 'twitter')
-// "Mar 5, 2017"
-```
-
-The "twitter" preset uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to the default labels for month/year intervals: `"1 mo. ago"`/`"1 yr. ago"`.
-
-__Not all locales are applicable for this preset__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `tiny.json` time labels.
-
-### Approximate ("just time")
-
-Same as the "approximate" preset but without the "ago" part. I guess this preset is obsolete and will be removed in the next major version.
+Same as the `"approximate"` but without the "ago" part.
 
 ```js
-timeAgo.format(Date.now() - 60 * 1000, 'time')
-// "1 minute"
+timeAgo.format(Date.now(), 'approximate-time')
+// 0 seconds ago → "just now"
+
+timeAgo.format(Date.now() - 15 * 1000, 'approximate-time')
+// 15 seconds ago → "just now"
+
+timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'approximate-time')
+// 1.5 minutes ago → "2 minutes"
+
+timeAgo.format(Date.now() - 3 * 60 * 1000, 'approximate-time')
+// 3 minutes ago → "5 minutes"
 ```
 
   * just now
   * 1 minute
   * 2 minutes
-  * …
   * 5 minutes
   * 10 minutes
   * 15 minutes
@@ -269,15 +308,43 @@ timeAgo.format(Date.now() - 60 * 1000, 'time')
   * 2 years
   * …
 
-__Not all locales are applicable for this preset__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `long-time.json`.
+__Not all locales are applicable for this style__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `long-time.json`.
+
+### Twitter
+
+`"twitter"` mimics [Twitter](https://twitter.com) style of "time ago" labels ("1s", "2m", "3h", "Mar 4", "Apr 5, 2012")
+
+```js
+timeAgo.format(new Date(), 'twitter')
+// 0 seconds ago → "0s"
+
+timeAgo.format(new Date() - 1, 'twitter')
+// 1 second ago → "1s"
+
+timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'twitter')
+// 1.5 minutes ago → "2m"
+
+timeAgo.format(Date.now() - 3.5 * 60 * 60 * 1000, 'twitter')
+// 3.5 hours ago → "4h"
+
+timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'twitter')
+// More than 24 hours ago → month and date ("Mar 4")
+
+timeAgo.format(Date.now() - 364 * 24 * 60 * 60 * 1000, 'twitter')
+// Another year → year, month and date ("Mar 5, 2017")
+```
+
+`"twitter"` style uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to the default labels for month/year intervals: `"1 mo. ago"`/`"1 yr. ago"`.
+
+__Not all locales are applicable for this style__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `mini-time.json` time labels.
 
 ## Custom
 
-This library comes with several built-in ["presets"](#presets). Each of those presets is an object defining its own `flavour` (the name's historical), `gradation` and `units`. A completely custom "preset" object may be passed as a second parameter to `.format(date, preset)`, having the following shape:
+This library comes with several built-in ["styles"](#styles). Each of those styles is an object defining its own `flavour` (the name's historical), `gradation` and `units`. A completely custom "style" object may be passed as a second parameter to `.format(date, style)`, having the following shape:
 
-  * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred time labels style. Is `"long"` by default. Can be either a string (e.g. `"short"`) or an array of preferred "flavours" in which case each one of them is tried until a supported one is found. For example, `["tiny", "short"]` will search for `tiny` time labels first and then fall back to `short` ones if `tiny` time labels aren't defined for the language. `short`, `long` and `narrow`time labels are always present for every language.
+  * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred time labels style. Is `"long"` by default. Can be either a string (e.g. `"short"`) or an array of preferred "flavours" in which case each one of them is tried until a supported one is found. For example, `["mini-time", "short"]` will search for `mini-time` time labels first and then fall back to `short` ones if `mini-time` time labels aren't defined for the language. `short`, `long` and `narrow`time labels are always present for every language.
 
-  * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. The default gradation is, historically, the [`"convenient"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/convenient.js) one. Another one available is [`"canonical"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/canonical.js) (this is a more "conventional" one). A developer may also supply a custom `gradation` which must be an array of "steps" each of them having either a `unit: string`/`factor: number` or a `format(value, locale): string` function. See [Twitter preset](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) for such an advanced example.
+  * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. The default gradation is, historically, the [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/approximate.js) one. Another one available is [`"round"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/round.js) (this is a more "conventional" one). A developer may also supply a custom `gradation` which must be an array of "steps" each of them having either a `unit: string`/`factor: number` or a `format(value, locale): string` function. See [`"twitter"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) style for such an advanced example.
 
   * `units` – A list of allowed time interval measurement units. Example: `["second", "minute", "hour", ...]`. By default, all available units are allowed. This property is only used to filter out some of the non-conventional time units like `"quarter"` which is present in [CLDR](http://cldr.unicode.org/) data.
 
@@ -285,18 +352,18 @@ This library comes with several built-in ["presets"](#presets). Each of those pr
 
 (the name's historical; will be renamed to "style" in the next major version)
 
-Relative date/time labels come in various styles: `long`, `short`, `narrow` (these three are the standard [CLDR](http://cldr.unicode.org/) ones that're always present), possibly accompanied by others like `tiny` (`"1m"`, `"2h"`, ...). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
+Relative date/time labels come in various styles: `long`, `short`, `narrow` (these three are the standard [CLDR](http://cldr.unicode.org/) ones that're always present), possibly accompanied by others like `mini-time` (`"1m"`, `"2h"`, ...). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
 ```js
 import english from 'javascript-time-ago/locale/en'
 
-english.tiny  // '1s', '2m', '3h', '4d', …
+english['mini-time']  // '1s', '2m', '3h', '4d', …
 english.narrow // '1 sec. ago', '2 min. ago', …
 english.short // '1 sec. ago', '2 min. ago', …
 english.long  // '1 second ago', '2 minutes ago', …
 ```
 
-* `tiny` is supposed to be the shortest one possible. It's not a CLDR-defined one and has been defined only for a small subset of languages (`en`, `ru`, `ko`, and several others).
+* `mini-time` is supposed to be the shortest one possible. It's not a CLDR-defined one and has been defined only for a small subset of languages (`en`, `ru`, `ko`, and several others).
 
 * `narrow` is a CLDR-defined one and is intended to be shorter than `short`, or at least no longer than it. I personally find `narrow` a weird one because for some locales it's the same as `short` and for other locales it's a really weird one (e.g. for Russian).
 
@@ -334,7 +401,7 @@ Each step is described by:
 
   * `factor` — A divider for the supplied time interval, which is in seconds. For example, if `unit` is `"seconds"` then `factor` should be `1`, and if `unit` is `"minutes"` then `factor` should be `60` because to get the amount of minutes one should divide the amout of seconds by `60`. This `factor` property is actually a redundant one and can be derived from `unit` so it will be removed in the next major version.
 
-  * `threshold` — A minimum time interval value (in seconds) required for this gradation step to apply. For example, for seconds it could be `0` and for minutes it could be `59.5` so that when it's `59` seconds then it's still output as seconds but as soon as it reaches `59.5` seconds then it's output as minutes. So, `threshold` controls the progression from a previous gradation step to the next one. Each step must have a `threshold` defined, except for the first one. Can a `number` or a `function(now: number, future: boolean)` returning a `number`. Some advanced `threshold` customization is possible like `threshold_for_[prev-unit]` (see `./source/gradation/convenient.js`).
+  * `threshold` — A minimum time interval value (in seconds) required for this gradation step to apply. For example, for seconds it could be `0` and for minutes it could be `59.5` so that when it's `59` seconds then it's still output as seconds but as soon as it reaches `59.5` seconds then it's output as minutes. So, `threshold` controls the progression from a previous gradation step to the next one. Each step must have a `threshold` defined, except for the first one. Can a `number` or a `function(now: number, future: boolean)` returning a `number`. Some advanced `threshold` customization is possible like `threshold_for_[prev-unit]` (see [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/approximate.js) gradation).
 
   * `granularity` — Time interval value "granularity". For example, it could be set to `5` for minutes to allow only 5-minute increments when formatting time intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc.
 
@@ -350,8 +417,8 @@ Built-in gradations:
 
 ```js
 import {
-  canonical, // '1 second ago', '2 minutes ago', …
-  convenient // 'just now', '5 minutes ago', …
+  round, // '1 second ago', '2 minutes ago', …
+  approximate // Same as "round" but without seconds and sometimes with values rounded.
 } from 'javascript-time-ago/gradation'
 ```
 

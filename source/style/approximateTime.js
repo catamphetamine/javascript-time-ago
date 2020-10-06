@@ -1,4 +1,4 @@
-import { convenient } from '../gradation'
+import approximate from '../gradation/approximate'
 
 // Similar to the default style but with "ago" omitted.
 //
@@ -23,12 +23,12 @@ import { convenient } from '../gradation'
 // a year
 // 2 years
 //
-export default
-{
-	gradation: convenient,
+export default {
+	// For historical reasons, the gradation is "approximate".
+	// I guess it will be changed to "round" in the next major version.
+	gradation: approximate,
 	flavour: 'long-time',
-	units:
-	[
+	units: [
 		'now',
 		'minute',
 		'hour',

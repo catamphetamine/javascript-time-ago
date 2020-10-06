@@ -33,12 +33,13 @@ export default
 	},
 	{
 		threshold: 1,
-		threshold_for_now: 45,
+		// `threshold_for_now` should be the same as `threshold` on minutes.
+		threshold_for_now: 45.5,
 		factor: 1,
 		unit: 'second'
 	},
 	{
-		threshold: 45,
+		threshold: 45.5,
 		factor: 60,
 		unit: 'minute'
 	},

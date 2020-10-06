@@ -1,9 +1,9 @@
-import timeStyle from './time'
+import approximateTime from './approximateTime'
 import { convenientGradationTest } from '../JavascriptTimeAgo.test'
 
-describe('"time" style', () =>
+describe('style/approximate-time', () =>
 {
-	it('should format "time" style relative time (English)', () =>
+	it('should format relative time (English)', () =>
 	{
 		convenientGradationTest([
 			'just now',
@@ -64,10 +64,10 @@ describe('"time" style', () =>
 			'100 years'
 		],
 		'en-US',
-		timeStyle)
+		approximateTime)
 	})
 
-	it('should format "time" style relative time (Russian)', () =>
+	it('should format relative time (Russian)', () =>
 	{
 		convenientGradationTest([
 			'только что',
@@ -128,6 +128,6 @@ describe('"time" style', () =>
 			'100 лет'
 		],
 		'ru-RU',
-		timeStyle)
+		approximateTime)
 	})
 })

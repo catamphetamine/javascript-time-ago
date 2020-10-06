@@ -32,6 +32,8 @@
 // because that would conflict with the
 // CommonJS "interoperability" export layer.
 //
-export { default as canonical } from './canonical'
-export { default as convenient } from './convenient'
+// "convenient" is a legacy name of "approximate" gradation.
+export { default as approximate, default as convenient } from './approximate'
+// "canonical" gradation name is a legacy one.
+export { default as round, default as canonical } from './round'
 export { minute, hour, day, month, year, getStep, getDate } from './helpers'

@@ -1,11 +1,9 @@
-import { convenient } from '../gradation'
+import approximate from '../gradation/approximate'
 
-export default
-{
-	gradation: convenient,
-	flavour: ['long-convenient', 'long'],
-	units:
-	[
+export default {
+	gradation: approximate,
+	flavour: 'long',
+	units: [
 		'now',
 		'minute',
 		'hour',

@@ -7,9 +7,10 @@ module.exports = {
 	short: locale.short,
 	narrow: locale.narrow,
 	// Additional styles.
+	// "tiny" is a legacy name of "mini".
 	'long-time': require('../../locale-more-styles/de/long-time.json'),
-	'long-convenient': require('../../locale-more-styles/de/long-convenient.json'),
-	'tiny': require('../../locale-more-styles/de/tiny.json'),
+	'mini-time': require('../../locale-more-styles/de/mini-time.json'),
+	'tiny': require('../../locale-more-styles/de/mini-time.json'),
 	'now': require('../../locale-more-styles/de/now.json'),
 	// Quantifier.
 	quantify: locale.quantify

@@ -26,9 +26,5 @@
 	"second": {
 		"one": "{0} secondo",
 		"other": "{0} secondi"
-	},
-	"now": {
-		"future": "tra poco",
-		"past": "proprio ora"
 	}
 }

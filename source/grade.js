@@ -1,4 +1,4 @@
-import { convenient } from './gradation'
+import { approximate } from './gradation'
 
 /**
  * Takes seconds `elapsed` and measures them against
@@ -21,7 +21,7 @@ import { convenient } from './gradation'
  *
  * @return {?Object} `gradation` step.
  */
-export default function grade(elapsed, now, units, gradation = convenient)
+export default function grade(elapsed, now, units, gradation = approximate)
 {
 	// Leave only allowed time measurement units.
 	// E.g. omit "quarter" unit.

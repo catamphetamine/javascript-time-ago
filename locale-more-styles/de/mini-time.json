@@ -5,6 +5,5 @@
 	"day": "{0} T.",
 	"hour": "{0} Std.",
 	"minute": "{0} Min.",
-	"second": "{0} s",
-	"now": "jetzt"
+	"second": "{0} s"
 }

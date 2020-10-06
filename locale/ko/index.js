@@ -7,5 +7,7 @@ module.exports = {
 	short: locale.short,
 	narrow: locale.narrow,
 	// Additional styles.
-	'tiny': require('../../locale-more-styles/ko/tiny.json')
+	// "tiny" is a legacy name of "mini".
+	'mini-time': require('../../locale-more-styles/ko/mini-time.json'),
+	'tiny': require('../../locale-more-styles/ko/mini-time.json')
 }

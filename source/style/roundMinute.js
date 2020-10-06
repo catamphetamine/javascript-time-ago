@@ -1,4 +1,4 @@
-import { canonical } from '../gradation'
+import round from './round'
 
 // just now
 // 1 minute ago
@@ -30,16 +30,6 @@ import { canonical } from '../gradation'
 // …
 //
 export default {
-	gradation: canonical,
-	flavour: 'long',
-	units: [
-		'now',
-		'second',
-		'minute',
-		'hour',
-		'day',
-		'week',
-		'month',
-		'year'
-	]
+	...round,
+	gradation: round.gradation.filter(_ => _.unit !== 'second')
 }

@@ -10,10 +10,8 @@ for (const locale of listAllRelativeTimeFormatLocales())
 	// Extra flavors.
 	const EXTRA_STYLES = [
 		'short-time',
-		'short-convenient',
 		'long-time',
-		'long-convenient',
-		'tiny',
+		'mini-time',
 		'now'
 	]
 
@@ -23,6 +21,10 @@ for (const locale of listAllRelativeTimeFormatLocales())
 		const directory = findFlavorDirectory(locale, style)
 		if (directory) {
 			extraStyleDirectories[style] = directory
+			if (style === 'mini-time') {
+				// "tiny" is a legacy name of "mini-time".
+				extraStyleDirectories['tiny'] = directory
+			}
 		}
 	}
 
@@ -40,7 +42,8 @@ module.exports = {
 		'short: locale.short',
 		'narrow: locale.narrow',
 		Object.keys(extraStyleDirectories).length > 0 && '// Additional styles.',
-		...Object.keys(extraStyleDirectories).map(style => "'" + style + "': require('" + extraStyleDirectories[style] + "/" + style + ".json')"),
+		extraStyleDirectories.tiny && '// "tiny" is a legacy name of "mini".',
+		...Object.keys(extraStyleDirectories).map(style => "'" + style + "': require('" + extraStyleDirectories[style] + "/" + (style === 'tiny' ? 'mini-time' : style) + ".json')"),
 		localeData.quantify && "// Quantifier.",
 		localeData.quantify && "quantify: locale.quantify",
 	]

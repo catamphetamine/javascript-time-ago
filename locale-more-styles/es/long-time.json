@@ -26,9 +26,5 @@
     "second": {
         "one": "{0} segundo",
         "other": "{0} segundos"
-    },
-    "now": {
-        "future": "enseguida",
-        "past": "ahora mismo"
     }
 }

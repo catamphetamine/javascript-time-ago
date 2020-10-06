@@ -1,9 +1,9 @@
 import grade from '../grade'
-import gradation from './canonical'
+import gradation from './round'
 
 // Perhaps this should be part of `grade.test.js` instead.
 
-describe('canonical gradation', () =>
+describe('"round" gradation', () =>
 {
 	it('should grade correctly', () =>
 	{

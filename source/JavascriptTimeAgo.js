@@ -3,19 +3,20 @@ import RelativeTimeFormat from 'relative-time-format'
 import Cache from './cache'
 import grade from './grade'
 import chooseLocale from './locale'
-import { twitterStyle, timeStyle, approximateStyle, defaultStyle } from './style'
 
 import {
 	addLocaleData,
 	getLocaleData
 } from './LocaleDataStore'
 
+// For historical reasons, "approximate" is the default style.
+import defaultStyle from './style/approximate'
+import getStyleByName from './style/getStyleByName'
+
 // const EXTRA_STYLES = [
-// 	'long-convenient',
 // 	'long-time',
-// 	'short-convenient',
 // 	'short-time',
-// 	'tiny'
+// 	'mini-time'
 // ]
 
 // Valid time units.
@@ -75,7 +76,7 @@ export default class JavascriptTimeAgo
 	//                                    the `.format()` call will return that value.
 	//                                    Otherwise it has no effect.
 	//
-	// @param {string} [style.flavour] - e.g. "long", "short", "tiny", etc.
+	// @param {string} [style.flavour] - e.g. "long", "short", "mini-time", etc.
 	//
 	// @param {Object[]} [style.gradation] - Time scale gradation steps.
 	//
@@ -95,28 +96,9 @@ export default class JavascriptTimeAgo
 	//
 	// @param  {boolean} [options.future] — Tells how to format value `0`: as "future" (`true`) or "past" (`false`). Is `false` by default, but should have been `true` actually.
 	//
-	format(input, style = approximateStyle, options = {})
-	{
-		if (typeof style === 'string')
-		{
-			switch (style)
-			{
-				case 'twitter':
-					style = twitterStyle
-					break
-				case 'time':
-					style = timeStyle
-					break
-				case 'default':
-					style = defaultStyle
-					break
-				case 'approximate':
-					style = approximateStyle
-					break
-				default:
-					// "Approximate" preset is (historically) the default one.
-					style = approximateStyle
-			}
+	format(input, style = defaultStyle, options = {}) {
+		if (typeof style === 'string') {
+			style = getStyleByName(style)
 		}
 
 		const { date, time } = getDateAndTimeBeingFormatted(input)
@@ -133,6 +115,15 @@ export default class JavascriptTimeAgo
 		// how much time elapsed (in seconds)
 		const elapsed = (now - time) / 1000 // in seconds
 
+		const _getNowMessage = () => {
+			return getNowMessage(
+				options.future || elapsed < 0,
+				localeData,
+				getLocaleData(this.locale).long,
+				getLocaleData(this.locale).now
+			)
+		}
+
 		// `custom` – A function of `{ elapsed, time, date, now, locale }`.
 		// If this function returns a value, then the `.format()` call will return that value.
 		// Otherwise the relative date/time is formatted as usual.
@@ -144,23 +135,26 @@ export default class JavascriptTimeAgo
 		// I guess `custom` is deprecated and will be removed
 		// in some future major version release.
 		//
-		if (style.custom)
-		{
+		if (style.custom) {
 			const custom = style.custom({
 				now,
 				date,
 				time,
 				elapsed,
-				locale : this.locale
+				locale: this.locale
 			})
-
 			if (custom !== undefined) {
 				return custom
 			}
 		}
 
 		// Available time interval measurement units.
-		const units = getTimeIntervalMeasurementUnits(localeData, style.units)
+		const units = getTimeIntervalMeasurementUnits(
+			style.units,
+			localeData,
+			_getNowMessage
+		)
+
 		// If no available time unit is suitable, just output an empty string.
 		if (units.length === 0) {
 			console.error(`Units "${units.join(', ')}" were not found in locale data for "${this.locale}".`)
@@ -203,12 +197,7 @@ export default class JavascriptTimeAgo
 
 		// `Intl.RelativeTimeFormat` doesn't operate in "now" units.
 		if (unit === 'now') {
-			return getNowMessage(
-				options.future || elapsed < 0,
-				localeData,
-				getLocaleData(this.locale).long,
-				getLocaleData(this.locale).now
-			)
+			return _getNowMessage()
 		}
 
 		switch (flavour) {
@@ -385,7 +374,7 @@ function getDateAndTimeBeingFormatted(input)
 		return {
 			time : input,
 			// `date` is not required for formatting
-			// relative times unless "twitter" preset is used.
+			// relative times unless "twitter" style is used.
 			// date : new Date(input)
 		}
 	}
@@ -402,28 +391,37 @@ function isMockedDate(object) {
 }
 
 // Get available time interval measurement units.
-function getTimeIntervalMeasurementUnits(localeData, restrictedSetOfUnits)
-{
-	// All available time interval measurement units.
-	let units = Object.keys(localeData)
+function getTimeIntervalMeasurementUnits(allowedUnits, localeDataForStyle, _getNowMessage) {
+	// Get all time interval measurement units that're available
+	// in locale data for a given time labels style.
+	let units = Object.keys(localeDataForStyle)
 
-	// If only a specific set of available
-	// time measurement units can be used.
-	if (restrictedSetOfUnits) {
-		// Reduce available time interval measurement units
-		// based on user's preferences.
-		units = restrictedSetOfUnits.filter(_ => units.indexOf(_) >= 0)
+	// `now` unit is handled separately and is shipped in its own `now.json` file.
+	// `now.json` isn't present for all locales, so it could be substituted with
+	// ".second.current".
+	// Add `now` unit if it's available in locale data.
+	if (_getNowMessage()) {
+		units.push('now')
 	}
 
-	// Stock `Intl.RelativeTimeFormat` locale data doesn't have "now" units.
-	// So either "now" is present in extended locale data
-	// or it's taken from ".second.current".
-	if ((!restrictedSetOfUnits || restrictedSetOfUnits.indexOf('now') >= 0) &&
-		units.indexOf('now') < 0) {
-		if (localeData.second.current) {
-			units.unshift('now')
-		}
+	// If only a specific set of available time measurement units can be used
+	// then only those units are allowed (if they're present in locale data).
+	if (allowedUnits) {
+		units = allowedUnits.filter(unit => unit === 'now' || units.indexOf(unit) >= 0)
 	}
+
+	// `now` unit is handled separately and is shipped in its own `now.json` file.
+	// // Stock `Intl.RelativeTimeFormat` locale data doesn't have "now" units.
+	// // So either "now" is present in extended locale data
+	// // or it's taken from ".second.current".
+	// // If "now" unit isn't explicitly allowed, then don't allow it
+	// // unless `second` label doesn't provide "current"
+	// if ((!allowedUnits || allowedUnits.indexOf('now') >= 0) &&
+	// 	units.indexOf('now') < 0) {
+	// 	if (localeData.second.current) {
+	// 		units.unshift('now')
+	// 	}
+	// }
 
 	return units
 }
@@ -448,8 +446,8 @@ function getNowMessage(future, localeDataForStyle, localeDataLong, localeDataNow
 		}
 	}
 	// Use ".second.current" as "now" message.
+	// If this function was called then it means that
+	// either "now" unit messages are available or
+	// ".second.current" message is present.
 	return localeDataLong.second.current
-	// If this function was called then
-	// it means that either "now" unit messages are
-	// available or ".second.current" message is present.
 }

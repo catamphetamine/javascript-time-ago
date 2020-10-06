@@ -1,13 +1,13 @@
-import defaultStyle from './default'
+import round from './round'
 import JavascriptTimeAgo from '../JavascriptTimeAgo'
 import { day, month, year } from '../gradation'
 
-describe('"default" preset', () => {
-	it('should format "default" preset relative time (English)', () => {
+describe('style/round', () => {
+	it('should format relative time (English)', () => {
 		const timeAgo = new JavascriptTimeAgo('en')
 
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = (time) => timeAgo.format(now - time * 1000, { now, ...defaultStyle })
+		const elapsed = (time) => timeAgo.format(now - time * 1000, { now, ...round })
 
 		elapsed(0).should.equal('just now')
 		elapsed(59.4).should.equal('59 seconds ago')

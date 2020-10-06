@@ -1,9 +1,9 @@
 import grade from '../grade'
-import gradation from './convenient'
+import gradation from './approximate'
 
 // Perhaps this should be part of `grade.test.js` instead.
 
-describe('convenient gradation', () =>
+describe('"approximate" gradation', () =>
 {
 	it('should grade correctly', () =>
 	{
@@ -21,12 +21,12 @@ describe('convenient gradation', () =>
 		expect(test(1).unit).to.equal('second')
 		expect(test(1).factor).to.equal(1)
 
-		expect(test(44).unit).to.equal('second')
-		expect(test(44).factor).to.equal(1)
+		expect(test(45).unit).to.equal('second')
+		expect(test(45).factor).to.equal(1)
 
-		expect(test(45).unit).to.equal('minute')
-		expect(test(45).factor).to.equal(60)
-		expect(test(45).granularity).to.be.undefined
+		expect(test(46).unit).to.equal('minute')
+		expect(test(46).factor).to.equal(60)
+		expect(test(46).granularity).to.be.undefined
 
 		expect(test(2.5 * 60 - 1).unit).to.equal('minute')
 		expect(test(2.5 * 60 - 1).factor).to.equal(60)

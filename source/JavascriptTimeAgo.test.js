@@ -1,6 +1,6 @@
 import JavascriptTimeAgo from '../source/JavascriptTimeAgo'
 import { day, month, year } from '../source/gradation'
-import { approximateStyle } from '../source/style'
+import approximateStyle from '../source/style/approximate'
 import { getLocaleData } from '../source/LocaleDataStore'
 
 // Load locale specific relative date/time messages
@@ -34,35 +34,64 @@ describe(`time ago`, () =>
 		const NumberFormat = Intl.NumberFormat
 		delete Intl.NumberFormat
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now() + 60 * 1000).should.equal('in a minute')
+		timeAgo.format(Date.now() + 60 * 1000, { flavour: 'long-time' }).should.equal('1 minute')
 		Intl.NumberFormat = NumberFormat
 	})
 
 	it(`should work when "past"/"future" messages are same for all quantifiers`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now() + 365 * 24 * 60 * 60 * 1000, { flavour: ['short-convenient'] }).should.equal('in 1 yr.')
+		timeAgo.format(Date.now() + 365 * 24 * 60 * 60 * 1000, { flavour: 'short' }).should.equal('in 1 yr.')
 	})
 
 	it(`should work when "now" is a string (doesn't differentiate between "past" and "future")`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now(), { flavour: ['short-time'] }).should.equal('now')
+		const englishNow = english.now
+		english.now = { now: 'now' }
+		JavascriptTimeAgo.addLocale(english)
+		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('now')
+		english.now = englishNow
+		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('just now')
+	})
+
+	it('should work when a unit has formatting rules for "past" and "future" which are strings (style: not "long", not "short", not "narrow")', () => {
+		const timeAgo = new JavascriptTimeAgo('en')
+		const englishLongTimeMinute = english['long-time'].minute
+		english['long-time'].minute = {
+			past: '{0} minute(s) ago',
+			future: 'in {0} minute(s)'
+		}
+		JavascriptTimeAgo.addLocale(english)
+		// Past.
+		timeAgo.format(Date.now() - 60 * 1000, { flavour: 'long-time' }).should.equal('1 minute(s) ago')
+		// Future (covers an "else" branch).
+		timeAgo.format(Date.now() + 60 * 1000, { flavour: 'long-time' }).should.equal('in 1 minute(s)')
+		// Undo.
+		english['long-time'].minute = englishLongTimeMinute
+		timeAgo.format(Date.now() - 60 * 1000, { flavour: 'long-time' }).should.equal('1 minute')
 	})
 
 	it(`should format "now" for "past" time`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now() + 10, { flavour: ['long-convenient'] }).should.equal('in a moment')
+		timeAgo.format(Date.now() + 10, { flavour: ['long'] }).should.equal('in a moment')
 	})
 
 	it(`should accept a string style argument`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
 		timeAgo.format(Date.now(), 'twitter').should.equal('0s')
-		timeAgo.format(Date.now(), 'approximate').should.equal('just now')
-		timeAgo.format(Date.now(), 'default').should.equal('just now')
-		timeAgo.format(Date.now(), 'time').should.equal('just now')
+		timeAgo.format(Date.now() - 45 * 1000, 'approximate').should.equal('just now')
+		// "convenient" style was renamed to "approximate".
+		timeAgo.format(Date.now() - 45 * 1000, 'convenient').should.equal('just now')
+		timeAgo.format(Date.now() - 45 * 1000, 'round').should.equal('45 seconds ago')
+		// "default" style was renamed to "round".
+		timeAgo.format(Date.now() - 45 * 1000, 'default').should.equal('45 seconds ago')
+		timeAgo.format(Date.now() - 45 * 1000, 'round-minute').should.equal('just now')
+		// "time" style was renamed to "approximate-time".
+		timeAgo.format(Date.now() - 2 * 60 * 1000, 'time').should.equal('2 minutes')
+		timeAgo.format(Date.now() - 2 * 60 * 1000, 'approximate-time').should.equal('2 minutes')
 		timeAgo.format(Date.now(), 'exotic').should.equal('just now')
 	})
 
@@ -104,15 +133,15 @@ describe(`time ago`, () =>
 		const now = Date.now()
 
 		// Remove 'now' unit formatting rule temporarily
-		const justNowFormatter = getLocaleData('en').long.now
+		const justNowFormatter = getLocaleData('en').now
 		const currentSecondMessage = getLocaleData('en').long.second.current
-		delete getLocaleData('en').long.now
+		delete getLocaleData('en').now
 		delete getLocaleData('en').long.second.current
 
 		timeAgo.format(now, { now }).should.equal('')
 
 		// Restore 'now' unit formating rule
-		getLocaleData('en').long.now = justNowFormatter
+		getLocaleData('en').now = justNowFormatter
 		getLocaleData('en').long.second.current = currentSecondMessage
 	})
 
@@ -211,7 +240,7 @@ describe(`time ago`, () =>
 		convenientGradationTest
 		([
 			'just now',
-			'a minute ago',
+			'1 minute ago',
 			'2 minutes ago',
 			'5 minutes ago',
 			'10 minutes ago',
@@ -223,7 +252,7 @@ describe(`time ago`, () =>
 			'40 minutes ago',
 			'45 minutes ago',
 			'50 minutes ago',
-			'an hour ago',
+			'1 hour ago',
 			'2 hours ago',
 			'3 hours ago',
 			'4 hours ago',
@@ -243,15 +272,15 @@ describe(`time ago`, () =>
 			'18 hours ago',
 			'19 hours ago',
 			'20 hours ago',
-			'a day ago',
+			'1 day ago',
 			'2 days ago',
 			'3 days ago',
 			'4 days ago',
 			'5 days ago',
-			'a week ago',
+			'1 week ago',
 			'2 weeks ago',
 			'3 weeks ago',
-			'a month ago',
+			'1 month ago',
 			'2 months ago',
 			'3 months ago',
 			'4 months ago',
@@ -262,7 +291,7 @@ describe(`time ago`, () =>
 			'9 months ago',
 			'9 months ago',
 			'10 months ago',
-			'a year ago',
+			'1 year ago',
 			'2 years ago',
 			'3 years ago',
 			'100 years ago'
@@ -378,7 +407,7 @@ describe(`time ago`, () =>
 			'3 дня назад',
 			'4 дня назад',
 			'5 дней назад',
-			'Неделю назад',
+			'1 неделю назад',
 			'2 недели назад',
 			'3 недели назад',
 			'1 месяц назад',
@@ -403,8 +432,8 @@ describe(`time ago`, () =>
 
 	it(`should format future dates`, () =>
 	{
-		new JavascriptTimeAgo('en').format(Date.now() + 60 * 60 * 1000).should.equal('in an hour')
-		new JavascriptTimeAgo('ru').format(Date.now() + 45.1 * 1000).should.equal('через 1 минуту')
+		new JavascriptTimeAgo('en').format(Date.now() + 60 * 60 * 1000).should.equal('in 1 hour')
+		new JavascriptTimeAgo('ru').format(Date.now() + 45.5 * 1000).should.equal('через 1 минуту')
 	})
 
 	it(`should accept "future" option`, () =>
@@ -414,26 +443,26 @@ describe(`time ago`, () =>
 		new JavascriptTimeAgo('en').format(Date.now(), 'approximate', { future: true }).should.equal('in a moment')
 
 		// Non-"now" unit, "long" style.
-		// const preset = {
+		// const style = {
 		// 	gradation: [{
 		// 		factor: 1,
 		// 		unit: 'second'
 		// 	}],
 		// 	flavour: 'long'
 		// }
-		// new JavascriptTimeAgo('en').format(Date.now(), preset).should.equal('0 seconds ago')
-		// new JavascriptTimeAgo('en').format(Date.now(), preset, { future: true }).should.equal('in 0 seconds')
+		// new JavascriptTimeAgo('en').format(Date.now(), style).should.equal('0 seconds ago')
+		// new JavascriptTimeAgo('en').format(Date.now(), style, { future: true }).should.equal('in 0 seconds')
 
 		// Non-"now" unit, "tiny" style.
-		const preset2 = {
+		const style2 = {
 			gradation: [{
 				factor: 1,
 				unit: 'year'
 			}],
 			flavour: 'tiny'
 		}
-		new JavascriptTimeAgo('ru').format(Date.now(), preset2).should.equal('0 л')
-		new JavascriptTimeAgo('ru').format(Date.now(), preset2, { future: true }).should.equal('0 л')
+		new JavascriptTimeAgo('ru').format(Date.now(), style2).should.equal('0 л')
+		new JavascriptTimeAgo('ru').format(Date.now(), style2, { future: true }).should.equal('0 л')
 	})
 
 	it(`should have generated missing quantifier functions`, () =>
@@ -479,11 +508,11 @@ const convenientGradation =
 	// 'just now':
 	[
 		0,
-		44.9
+		40.49
 	],
-	// 'a minute ago':
+	// '1 minute ago':
 	[
-		45.1,
+		45.5,
 		1.49 * 60
 	],
 	// '2 minutes ago':
@@ -541,7 +570,7 @@ const convenientGradation =
 		47.51 * 60,
 		52.49 * 60
 	],
-	// 'an hour ago':
+	// '1 hour ago':
 	[
 		55.01 * 60,
 		1.49  * 60 * 60
@@ -641,7 +670,7 @@ const convenientGradation =
 		19.51 * 60 * 60,
 		20.49 * 60 * 60
 	],
-	// 'a day ago':
+	// '1 day ago':
 	[
 		20.51 * 60 * 60,
 		1.49  * day
@@ -666,7 +695,7 @@ const convenientGradation =
 		4.51  * day,
 		5.49  * day
 	],
-	// 'a week ago':
+	// '1 week ago':
 	[
 		5.51  * day,
 		1.49  * 7 * day
@@ -681,7 +710,7 @@ const convenientGradation =
 		2.51  * 7 * day,
 		3.49  * 7 * day
 	],
-	// 'a month ago':
+	// '1 month ago':
 	[
 		3.51  * 7 * day,
 		1.49  * month
@@ -736,7 +765,7 @@ const convenientGradation =
 		9.51  * month,
 		10.49  * month
 	],
-	// 'a year ago':
+	// '1 year ago':
 	[
 		10.51 * month,
 		1.49  * year
