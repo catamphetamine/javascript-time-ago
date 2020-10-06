@@ -102,9 +102,9 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 
 ## Presets
 
-This library allows for any custom logic for formatting time difference labels:
+This library allows for any custom logic for formatting time interval labels:
 
-* What scale should be used for measuring the time difference: should it be precise down to the second, or should it only calculate it up to a minute, or should it start from being more precise at the start and then gradually decrease its precision as the time goes on.
+* What scale should be used for measuring a time interval: should it be precise down to the second, or should it only calculate it up to a minute, or should it start from being more precise at the start and then gradually decrease its precision as the time goes on.
 
 * What labels should be used: should it use the standard built-in labels for the languages (`"... minutes ago"`, `"... min. ago"`, `"...s"`), or should it use custom ones, or should it skip using relative time labels in some cases and instead output something like `"Dec 11, 2015"`.
 
