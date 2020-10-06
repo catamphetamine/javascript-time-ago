@@ -19,7 +19,7 @@ Examples:
   * in 5 years
   * …
 
-For React users, there's a [React component](https://github.com/catamphetamine/react-time-ago).
+For React users, there's a [React component](https://catamphetamine.gitlab.io/react-time-ago/).
 
 This is a readme for version `2.x`. For older versions, [see version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md) for migrating from version `1.x` to version `2.x`.
 
@@ -205,7 +205,7 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
 
 ### Approximate
 
-`"approximate"` style is the same as `"round"` with the difference that it rounds time in some cases:
+`"approximate"` style is a legacy one that has been introduced in the early versions of this library. It's the same as `"round"` with the difference that it rounds time in some cases:
 
 * `just now` → `just now`
 * `40 seconds ago` → `just now`
@@ -260,11 +260,11 @@ timeAgo.format(Date.now() - 3 * 60 * 1000, 'approximate')
   * 2 years ago
   * …
 
-For historical reasons, the `"approximate"` style is the one that's used when no `style` argument is passed (this will be changed in the next major version: `round` or `round-minute` will be the default one).
+For historical reasons, `"approximate"` style is the one that's used when no `style` argument is passed (this will be changed in the next major version: `round` or `round-minute` will be the default one).
 
 ### Approximate (time)
 
-Same as the `"approximate"` but without the "ago" part.
+`"approximate-time"` style is a legacy one that has been introduced in the early versions of this library. It's the same as the `"approximate"` but without the "ago" part.
 
 ```js
 timeAgo.format(Date.now(), 'approximate-time')
@@ -312,7 +312,7 @@ __Not all locales are applicable for this style__: only [those](https://github.c
 
 ### Twitter
 
-`"twitter"` mimics [Twitter](https://twitter.com) style of "time ago" labels ("1s", "2m", "3h", "Mar 4", "Apr 5, 2012")
+Mimics [Twitter](https://twitter.com) style of "time ago" labels (`"1s"`, `"2m"`, `"3h"`, `"Mar 4"`, `"Apr 5, 2012"`)
 
 ```js
 timeAgo.format(new Date(), 'twitter')
@@ -328,10 +328,10 @@ timeAgo.format(Date.now() - 3.5 * 60 * 60 * 1000, 'twitter')
 // 3.5 hours ago → "4h"
 
 timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'twitter')
-// More than 24 hours ago → month and date ("Mar 4")
+// More than 24 hours ago → `month/day` ("Mar 4")
 
 timeAgo.format(Date.now() - 364 * 24 * 60 * 60 * 1000, 'twitter')
-// Another year → year, month and date ("Mar 5, 2017")
+// Another year → `month/day/year` ("Mar 5, 2017")
 ```
 
 `"twitter"` style uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to the default labels for month/year intervals: `"1 mo. ago"`/`"1 yr. ago"`.
@@ -449,7 +449,7 @@ This library is based on [`Intl.RelativeTimeFormat`](https://github.com/catamphe
 
 ## React
 
-There is also a [React component](https://catamphetamine.github.io/react-time-ago/) built upon this library which autorefreshes itself.
+There is also a [React component](https://catamphetamine.gitlab.io/react-time-ago/) built upon this library which autorefreshes itself.
 
 ## Intl
 
