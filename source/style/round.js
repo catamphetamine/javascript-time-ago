@@ -1,4 +1,4 @@
-import round from '../gradation/round'
+import round from '../steps/round'
 
 // just now
 // 1 second ago
@@ -34,16 +34,6 @@ import round from '../gradation/round'
 // …
 //
 export default {
-	gradation: round,
-	flavour: 'long',
-	units: [
-		'now',
-		'second',
-		'minute',
-		'hour',
-		'day',
-		'week',
-		'month',
-		'year'
-	]
+	steps: round,
+	labels: 'long'
 }

@@ -12,32 +12,40 @@ const threshold = oneOfType([
 	func
 ])
 
-const gradation = arrayOf(oneOfType([
+const steps = arrayOf(oneOfType([
 	shape({
-		unit        : string.isRequired,
-		factor      : number,
-		granularity : number,
+		unit: string.isRequired,
+		// `factor` is a legacy property.
+		factor: number,
+		// `granularity` is a legacy property.
+		granularity: number,
 		threshold
-		// Specific `threshold_[unit]` properties may also be defined
+		// Specific `threshold_[unit]` properties may also be defined.
 	}),
 	shape({
-		format : func.isRequired,
+		format: func.isRequired,
 		threshold
-		// Specific `threshold_[unit]` properties may also be defined
+		// Specific `threshold_[unit]` properties may also be defined.
 	})
 ]))
 
 // Date/time formatting style.
-// E.g. 'twitter', 'fuzzy', or custom (`{ gradation: […], units: […], flavour: 'long', custom: function }`)
 export const style = oneOfType([
 	string,
 	shape({
-		gradation,
-		units   : arrayOf(string),
-		flavour : oneOfType([
+		// "gradation" is a legacy name for "steps".
+		gradation: steps,
+		steps,
+		units: arrayOf(string),
+		labels: oneOfType([
 			string,
 			arrayOf(string)
 		]),
-		custom : func
+		// "flavour" is a legacy name for "labels".
+		flavour: oneOfType([
+			string,
+			arrayOf(string)
+		]),
+		custom: func
 	})
 ])

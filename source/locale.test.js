@@ -1,26 +1,21 @@
 import chooseLocale, { intlDateTimeFormatSupportedLocale } from '../source/locale'
 
-describe('locale', function()
-{
-	it(`should tell if can use Intl for date formatting`, function()
-	{
+describe('locale', () => {
+	it(`should tell if can use Intl for date formatting`, () => {
 		intlDateTimeFormatSupportedLocale('en').should.equal('en')
 		intlDateTimeFormatSupportedLocale('en-XX').should.equal('en-XX')
 		intlDateTimeFormatSupportedLocale(['en', 'ru']).should.equal('en')
 	})
 
-	it(`should choose the most appropriate locale`, function()
-	{
-		function arrayToObject(array)
-		{
+	it(`should choose the most appropriate locale`, () => {
+		function arrayToObject(array) {
 			return array.reduce((object, locale) => {
 				object[locale] = true
 				return object
 			}, {})
 		}
 
-		function choose(locale, locales, defaultLocale = 'en')
-		{
+		function choose(locale, locales, defaultLocale = 'en') {
 			if (typeof locale === 'string') {
 				locale = [locale]
 			}

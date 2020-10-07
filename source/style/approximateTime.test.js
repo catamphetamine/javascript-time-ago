@@ -1,11 +1,9 @@
 import approximateTime from './approximateTime'
-import { convenientGradationTest } from '../JavascriptTimeAgo.test'
+import { approximateScaleStepsTest } from '../JavascriptTimeAgo.test'
 
-describe('style/approximate-time', () =>
-{
-	it('should format relative time (English)', () =>
-	{
-		convenientGradationTest([
+describe('style/approximate-time', () => {
+	it('should format relative time (English)', () => {
+		approximateScaleStepsTest([
 			'just now',
 			'1 minute',
 			'2 minutes',
@@ -67,9 +65,8 @@ describe('style/approximate-time', () =>
 		approximateTime)
 	})
 
-	it('should format relative time (Russian)', () =>
-	{
-		convenientGradationTest([
+	it('should format relative time (Russian)', () => {
+		approximateScaleStepsTest([
 			'только что',
 			'1 минута',
 			'2 минуты',

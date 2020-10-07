@@ -1,14 +1,23 @@
 <!--
 TO DO: Rename `gradation` to `scale` ("time scale"). Rename `flavour` to `labels`. Rename `factor` to `denominator`. `denominator` should be derived from `unit` (default: 1). Rename `threshold` to `min` (default: 0). Rename `threshold_for_xxx` to `minForXxx`. `min` should be calculated in units already divided by `denominator`. Rename `granularity` to `step`.
 
+TO DO: Maybe remove `granularity` property of steps ("Perhaps this feature will be removed because there seem to be no use cases of it in the real world" in the readme).
+
 TO DO: Change default style to "round".
 
 TO DO: Maybe remove `style.units` parameter by replacing it with `exceptUnits: ['quarter', ...]`.
 
 TO DO: "time" style should use "round" scale instead of "approximate".
 
-TO DO: if `style` is passed as an object then it should be passed as `options.style`.
+TO DO: if `style` is passed as an object then it should be passed as `options.style` (and update the "Custom" section of the readme.
 -->
+
+2.1.5 / 07.10.2020
+==================
+
+* Custom styles: renamed `gradation` to `steps` and `flavour` to `labels`. The older names still work but are considered deprecated.
+
+* `factor` property of a "step" is now not required: if not present, it's assumed equal to the `unit` in seconds (for example, the default `factor` is `60 * 60` for `unit: "hour"`).
 
 2.1.4 / 06.10.2020
 ==================

@@ -1,5 +1,5 @@
 import JavascriptTimeAgo from '../source/JavascriptTimeAgo'
-import { day, month, year } from '../source/gradation'
+import { day, month, year } from '../source/steps'
 import approximateStyle from '../source/style/approximate'
 import { getLocaleData } from '../source/LocaleDataStore'
 
@@ -9,24 +9,26 @@ import english from '../locale/en'
 // Just so this function code is covered.
 JavascriptTimeAgo.setDefaultLocale('en')
 
-describe(`time ago`, () =>
-{
-	it(`should try various flavours if some are not found`, () =>
-	{
+describe(`javascript-time-ago`, () => {
+	it('should try various label types until an appropriate one is found', () => {
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now(), { flavour: ['exotic', 'short'] }).should.equal('just now')
+		timeAgo.format(Date.now(), { labels: ['exotic', 'short'] }).should.equal('just now')
 	})
 
-	it(`should fallback to "second.current" for "now" when "now" isn't defined`, () =>
-	{
+	it('should support the legacy name "flavour" of "labels"', () => {
+		const timeAgo = new JavascriptTimeAgo('en')
+		timeAgo.format(Date.now(), { labels: ['exotic', 'short'] }).should.equal('just now')
+	})
+
+	it('should fallback to "second.current" for "now" when "now" is not defined', () => {
 		const timeAgo = new JavascriptTimeAgo('en')
 		const englishNow = english.now
 		delete english.now
 		JavascriptTimeAgo.addLocale(english)
 		english.now = undefined
-		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('now')
+		timeAgo.format(Date.now(), { labels: 'long' }).should.equal('now')
 		english.now = englishNow
-		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('just now')
+		timeAgo.format(Date.now(), { labels: 'long' }).should.equal('just now')
 	})
 
 	it(`should not use Intl.NumberFormat if it's not available`, () =>
@@ -34,14 +36,14 @@ describe(`time ago`, () =>
 		const NumberFormat = Intl.NumberFormat
 		delete Intl.NumberFormat
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now() + 60 * 1000, { flavour: 'long-time' }).should.equal('1 minute')
+		timeAgo.format(Date.now() + 60 * 1000, { labels: 'long-time' }).should.equal('1 minute')
 		Intl.NumberFormat = NumberFormat
 	})
 
 	it(`should work when "past"/"future" messages are same for all quantifiers`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now() + 365 * 24 * 60 * 60 * 1000, { flavour: 'short' }).should.equal('in 1 yr.')
+		timeAgo.format(Date.now() + 365 * 24 * 60 * 60 * 1000, { labels: 'short' }).should.equal('in 1 yr.')
 	})
 
 	it(`should work when "now" is a string (doesn't differentiate between "past" and "future")`, () =>
@@ -50,9 +52,9 @@ describe(`time ago`, () =>
 		const englishNow = english.now
 		english.now = { now: 'now' }
 		JavascriptTimeAgo.addLocale(english)
-		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('now')
+		timeAgo.format(Date.now(), { labels: 'long' }).should.equal('now')
 		english.now = englishNow
-		timeAgo.format(Date.now(), { flavour: 'long' }).should.equal('just now')
+		timeAgo.format(Date.now(), { labels: 'long' }).should.equal('just now')
 	})
 
 	it('should work when a unit has formatting rules for "past" and "future" which are strings (style: not "long", not "short", not "narrow")', () => {
@@ -64,18 +66,18 @@ describe(`time ago`, () =>
 		}
 		JavascriptTimeAgo.addLocale(english)
 		// Past.
-		timeAgo.format(Date.now() - 60 * 1000, { flavour: 'long-time' }).should.equal('1 minute(s) ago')
+		timeAgo.format(Date.now() - 60 * 1000, { labels: 'long-time' }).should.equal('1 minute(s) ago')
 		// Future (covers an "else" branch).
-		timeAgo.format(Date.now() + 60 * 1000, { flavour: 'long-time' }).should.equal('in 1 minute(s)')
+		timeAgo.format(Date.now() + 60 * 1000, { labels: 'long-time' }).should.equal('in 1 minute(s)')
 		// Undo.
 		english['long-time'].minute = englishLongTimeMinute
-		timeAgo.format(Date.now() - 60 * 1000, { flavour: 'long-time' }).should.equal('1 minute')
+		timeAgo.format(Date.now() - 60 * 1000, { labels: 'long-time' }).should.equal('1 minute')
 	})
 
 	it(`should format "now" for "past" time`, () =>
 	{
 		const timeAgo = new JavascriptTimeAgo('en')
-		timeAgo.format(Date.now() + 10, { flavour: ['long'] }).should.equal('in a moment')
+		timeAgo.format(Date.now() + 10, { labels: ['long'] }).should.equal('in a moment')
 	})
 
 	it(`should accept a string style argument`, () =>
@@ -172,7 +174,7 @@ describe(`time ago`, () =>
 
 	it(`should format time correctly for English language (short)`, () =>
 	{
-		convenientGradationTest
+		approximateScaleStepsTest
 		([
 			'just now',
 			'1 min. ago',
@@ -232,12 +234,12 @@ describe(`time ago`, () =>
 			'100 yr. ago'
 		],
 		'en',
-		{ flavour: 'short' })
+		{ labels: 'short' })
 	})
 
 	it(`should format time correctly for English language (long)`, () =>
 	{
-		convenientGradationTest
+		approximateScaleStepsTest
 		([
 			'just now',
 			'1 minute ago',
@@ -302,7 +304,7 @@ describe(`time ago`, () =>
 
 	it(`should format time correctly for Russian language (short)`, () =>
 	{
-		convenientGradationTest
+		approximateScaleStepsTest
 		([
 			'только что',
 			'1 мин. назад',
@@ -362,12 +364,12 @@ describe(`time ago`, () =>
 			'100 л. назад'
 		],
 		'ru',
-		{ flavour: 'short' })
+		{ labels: 'short' })
 	})
 
 	it(`should format time correctly for Russian language (long)`, () =>
 	{
-		convenientGradationTest
+		approximateScaleStepsTest
 		([
 			'только что',
 			'1 минуту назад',
@@ -448,62 +450,95 @@ describe(`time ago`, () =>
 		// 		factor: 1,
 		// 		unit: 'second'
 		// 	}],
-		// 	flavour: 'long'
+		// 	labels: 'long'
 		// }
 		// new JavascriptTimeAgo('en').format(Date.now(), style).should.equal('0 seconds ago')
 		// new JavascriptTimeAgo('en').format(Date.now(), style, { future: true }).should.equal('in 0 seconds')
 
-		// Non-"now" unit, "tiny" style.
+		// Non-"now" unit, "mini-time" style.
 		const style2 = {
-			gradation: [{
-				factor: 1,
+			style: [{
 				unit: 'year'
 			}],
-			flavour: 'tiny'
+			labels: 'mini-time'
 		}
-		new JavascriptTimeAgo('ru').format(Date.now(), style2).should.equal('0 л')
-		new JavascriptTimeAgo('ru').format(Date.now(), style2, { future: true }).should.equal('0 л')
+		new JavascriptTimeAgo('ru').format(Date.now() - 5 * 365 * 24 * 60 * 60 * 1000, style2).should.equal('5 л')
+		new JavascriptTimeAgo('ru').format(Date.now() - 5 * 365 * 24 * 60 * 60 * 1000, style2, { future: true }).should.equal('5 л')
 	})
 
-	it(`should have generated missing quantifier functions`, () =>
-	{
+	it('should support the legacy properties: "gradation", "flavour", "factor", "\'tiny\'" labels style', () => {
+		// Non-"now" unit, "tiny" style.
+		const style = {
+			gradation: [{
+				factor: 5,
+				unit: 'year'
+			}],
+			labels: 'tiny'
+		}
+		new JavascriptTimeAgo('ru').format(Date.now() - 10 * 1000, style).should.equal('2 г')
+		new JavascriptTimeAgo('ru').format(Date.now() - 10 * 1000, style, { future: true }).should.equal('2 г')
+	})
+
+	it('should have generated missing quantifier functions for locales that do not have it in CLDR data', () => {
 		new JavascriptTimeAgo('ccp').format(Date.now() + 60 * 1000).should.equal('1 𑄟𑄨𑄚𑄨𑄘𑄬')
 	})
 
-	it(`should throw for non-existing locales`, () =>
-	{
+	it('should throw for non-existing locales', () => {
 		(() => JavascriptTimeAgo.addLocale()).should.throw('No locale data passed')
+	})
+
+	it('should choose "future" variant of a label for `0` if "future: true" option is passed', () => {
+		JavascriptTimeAgo.addLocale(english)
+		const secondLabels = english['mini-time'].second
+		english['mini-time'].second = {
+			past: '{0} seconds ago',
+			future: 'in {0} seconds'
+		}
+
+		new JavascriptTimeAgo('en').format(Date.now(), {
+			steps: [{
+				unit: 'second'
+			}],
+			// Uses "mini-time" labels so that it doesn't use `Intl.RelativeTimeFormat`.
+			labels: 'mini-time'
+		}).should.equal('0 seconds ago')
+
+		new JavascriptTimeAgo('en').format(Date.now(), {
+			steps: [{
+				unit: 'second'
+			}],
+			// Uses "mini-time" labels so that it doesn't use `Intl.RelativeTimeFormat`.
+			labels: 'mini-time'
+		}, {
+			future: true
+		}).should.equal('in 0 seconds')
+
+		english['mini-time'].second = secondLabels
 	})
 })
 
-export function convenientGradationTest(convenientGradationLabels, timeAgo, style = {})
-{
-	if (typeof timeAgo === 'string')
-	{
+export function approximateScaleStepsTest(labels, timeAgo, style = {}) {
+	if (typeof timeAgo === 'string') {
 		timeAgo = new JavascriptTimeAgo(timeAgo)
 	}
 
 	const now = Date.now()
 	const elapsed = time => timeAgo.format(now - time * 1000, { now, ...style })
 
-	if (convenientGradation.length !== convenientGradationLabels.length)
-	{
-		throw new Error(`Array length mismatch. Gradation steps: ${convenientGradation.length}, labels: ${convenientGradationLabels.length}`)
+	if (approximateScaleSteps.length !== labels.length) {
+		throw new Error(`Array length mismatch. Steps: ${approximateScaleSteps.length}, labels: ${labels.length}`)
 	}
 
 	let i = 0
-	while (i < convenientGradation.length)
-	{
-		for (let time of convenientGradation[i])
-		{
-			elapsed(time).should.equal(convenientGradationLabels[i])
+	while (i < approximateScaleSteps.length) {
+		for (let time of approximateScaleSteps[i]) {
+			elapsed(time).should.equal(labels[i])
 		}
-
 		i++
 	}
 }
 
-const convenientGradation =
+const approximateScaleSteps =
 [
 	// 'just now':
 	[

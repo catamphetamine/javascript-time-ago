@@ -117,7 +117,7 @@ This library allows for any custom logic for formatting time interval labels:
 
 Such configuration comes under the name of "style".
 
-While a completely [custom](#custom) style could be supplied, this library comes with several built-in styles that some people might find useful.
+While a completely [custom](#custom) style could be supplied, this library comes with several [built-in ](https://github.com/catamphetamine/javascript-time-ago/tree/master/source/style) styles that some people might find useful.
 
 ### Round
 
@@ -340,17 +340,11 @@ __Not all locales are applicable for this style__: only [those](https://github.c
 
 ## Custom
 
-This library comes with several built-in ["styles"](#styles). Each of those styles is an object defining its own `flavour` (the name's historical), `gradation` and `units`. A completely custom "style" object may be passed as a second parameter to `.format(date, style)`, having the following shape:
+This library comes with several built-in ["styles"](#styles), a "style" being an object defining `labels` and `steps`. A custom "style" object may be passed as a second parameter to `.format(date, style)` function.
 
-  * [`flavour`](https://github.com/catamphetamine/javascript-time-ago#flavour) – Preferred time labels style. Is `"long"` by default. Can be either a string (e.g. `"short"`) or an array of preferred "flavours" in which case each one of them is tried until a supported one is found. For example, `["mini-time", "short"]` will search for `mini-time` time labels first and then fall back to `short` ones if `mini-time` time labels aren't defined for the language. `short`, `long` and `narrow`time labels are always present for every language.
+### Labels
 
-  * [`gradation`](https://github.com/catamphetamine/javascript-time-ago#gradation) – Time interval measurement units scale. The default gradation is, historically, the [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/approximate.js) one. Another one available is [`"round"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/round.js) (this is a more "conventional" one). A developer may also supply a custom `gradation` which must be an array of "steps" each of them having either a `unit: string`/`factor: number` or a `format(value, locale): string` function. See [`"twitter"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) style for such an advanced example.
-
-  * `units` – A list of allowed time interval measurement units. Example: `["second", "minute", "hour", ...]`. By default, all available units are allowed. This property is only used to filter out some of the non-conventional time units like `"quarter"` which is present in [CLDR](http://cldr.unicode.org/) data.
-
-### Flavour
-
-(the name's historical; will be renamed to "labels" in the next major version)
+The time labels variant used for generating output. Is `"long"` by default (`"1 minute ago"`). Can be either a string, or an array of strings, in which case each one of them is tried until a supported one is found. For example, `["mini-time", "short"]` will search for `"mini-time"` labels first and then fall back to `"short"` labels if `"mini-time"` labels aren't defined for the language. `"long"`, `"short"` and `"narrow"` time labels are always present for each language. Other time label variants like `"mini-time"` are only defined for a [small subset](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) of languages.
 
 Relative date/time labels come in various styles: `long`, `short`, `narrow` (these three are the standard [CLDR](http://cldr.unicode.org/) ones that're always present), possibly accompanied by others like `mini-time` (`"1m"`, `"2h"`, ...). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
 
@@ -371,24 +365,30 @@ english.long  // '1 second ago', '2 minutes ago', …
 
 * `long` is the normal one.
 
-### Gradation
+### Steps
 
-A `gradation` is a list of time interval measurement steps.
+Time interval measurement "steps".
+
+Each "step"'s `threshold` (in seconds) is tested until the farthest eligible step is found, and that "step" is then used to generate output. If no eligible `step` is found, then an empty string is returned.
+
+`"round"` style `steps` example:
 
 ```js
 [
   {
-    unit: 'second',
-    factor: 1
+    // "second" labels are used for formatting the output.
+    unit: 'second'
   },
   {
-    unit: 'minute',
-    factor: 60,
+    // "minute" labels are used for formatting the output.
+    unit: 'minute'
+    // This step is effective starting from 59.5 seconds.
     threshold: 59.5
   },
   {
+    // "hour" labels are used for formatting the output.
     unit: 'hour',
-    factor: 60 * 60,
+    // This step is effective starting from 59.5 minutes.
     threshold: 59.5 * 60
   },
   …
@@ -397,30 +397,46 @@ A `gradation` is a list of time interval measurement steps.
 
 Each step is described by:
 
-  * `unit` — A time measurement unit: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year` are the standardized CLDR ones.
+  * `unit` — A time measurement unit the labels for which are used to generate the output of this step. If the `unit` isn't supported by the language, then the step is ignored. The time units supported in all languages are: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year`. For [some languages](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles), this library also defines `now` unit (`"just now"`).
 
-  * `factor` — A divider for the supplied time interval, which is in seconds. For example, if `unit` is `"seconds"` then `factor` should be `1`, and if `unit` is `"minutes"` then `factor` should be `60` because to get the amount of minutes one should divide the amout of seconds by `60`. This `factor` property is actually a redundant one and can be derived from `unit` so it will be removed in the next major version.
+  <!-- * `factor` — A divider for the time interval value which is in seconds. For example, if `unit` is `"seconds"` then `factor` should be `1`, and if `unit` is `"minutes"` then `factor` should be `60` because to get the amount of minutes one should divide the amout of seconds by `60`. This `factor` property is actually a redundant one and can be derived from `unit` so it will be removed in the next major version. -->
 
-  * `threshold` — A minimum time interval value (in seconds) required for this gradation step to apply. For example, for seconds it could be `0` and for minutes it could be `59.5` so that when it's `59` seconds then it's still output as seconds but as soon as it reaches `59.5` seconds then it's output as minutes. So, `threshold` controls the progression from a previous gradation step to the next one. Each step must have a `threshold` defined, except for the first one. Can a `number` or a `function(now: number, future: boolean)` returning a `number`. Some advanced `threshold` customization is possible like `threshold_for_[prev-unit]` (see [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation/approximate.js) gradation).
+  * `threshold` — A minimum time interval (in seconds) required for this step, meaning that `threshold` controls the progression from one step to another. Each step must have a `threshold` defined, except for the first one. It can be a `number` or a `function(now: number, future: boolean): number`. In some advanced cases, like when using `now` unit (which is only defined for a few languages), one could use a `threshold_for_[unit]` override that would take priority over `threshold` when the previous step's `unit` is `[unit]` (see [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/approximate.js) steps for an example).
 
-  * `granularity` — Time interval value "granularity". For example, it could be set to `5` for minutes to allow only 5-minute increments when formatting time intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc.
+  <!--   * `granularity` — (advanced) Time interval value "granularity". For example, it could be set to `5` for minutes to allow only 5-minute increments when formatting time intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc. Perhaps this feature will be removed because there seem to be no use cases of it in the real world. -->
 
-It's also possible for a gradation step to not just output a time interval in certain time units but instead return any custom output, in which case it should be defined using:
+It's also possible for a step to not just output a time interval in certain time units but instead return any custom output, in which case it should be defined using:
 
  * `threshold` — Same as above.
 
- * `format` — A `function(value: Date/number, locale: string)` returning a `string`. The `value` argument is the date/time being formatted, as passed to `timeAgo.format(value)` function: either a `number` or a `Date`. The `locale` argument is the selected locale (aka "BCP 47 language tag", like `"ru-RU"`). For example, the built-in Twitter gradation has generic `second`, `minute` and `hour` gradation steps, followed by a custom one formatting a date as `"day/month/year"`, like `Jan 24, 2018`, which is returned from its `format()` function.
+ * `format` — A `function(value: Date/number, locale: string)` returning a `string`. The `value` argument is the date/time being formatted, as passed to `timeAgo.format(value)` function: either a `number` or a `Date`. The `locale` argument is the selected locale (aka "BCP 47 language tag", like `"ru-RU"`). For example, `"twitter"` style "steps" consists of generic `second`, `minute` and `hour` steps, followed by a step with a `format()` function that formats a date as `"day/month/year"` (like `Jan 24, 2018`).
 
-For more gradation examples see [`source/gradation`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/gradation) folder.
-
-Built-in gradations:
+Built-in `steps`:
 
 ```js
-import {
-  round, // '1 second ago', '2 minutes ago', …
-  approximate // Same as "round" but without seconds and sometimes with values rounded.
-} from 'javascript-time-ago/gradation'
+import { round, approximate } from 'javascript-time-ago/steps'
 ```
+
+* [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/approximate.js) — These're, for historical reasons, the default `steps`. Are used in [`"approximate"`] style.
+
+* [`"round"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/round.js) — Are used in [`"round"`] style.
+
+The `/steps` export also provides some utility time unit values that can be used in `threshold`s of custom `steps`:
+
+```js
+import { minute, hour, day, week, month, year } from 'javascript-time-ago/steps'
+
+// in seconds
+minute === 60
+hour === 60 * 60
+day === 24 * 60 * 60
+...
+```
+
+<!--
+### Units
+
+A list of allowed time interval measurement units. Example: `["second", "minute", "hour", ...]`. By default, all available units are defined. This property can be used to filter out some of the non-conventional time units like `"quarter"` which is present in [CLDR](http://cldr.unicode.org/) data. -->
 
 ## Future
 
@@ -445,11 +461,11 @@ const object = cache.get('key1', 'key2', ...) || cache.put('key1', 'key2', ..., 
 
 ## Localization internals
 
-This library is based on [`Intl.RelativeTimeFormat`](https://github.com/catamphetamine/relative-time-format).
+This library uses a [`Intl.RelativeTimeFormat`](https://github.com/catamphetamine/relative-time-format) polyfill under the hood.
 
 ## React
 
-There is also a [React component](https://catamphetamine.gitlab.io/react-time-ago/) built upon this library which autorefreshes itself.
+There is also a [React component](https://catamphetamine.gitlab.io/react-time-ago/) built upon this library, that autorefreshes itself.
 
 ## Intl
 

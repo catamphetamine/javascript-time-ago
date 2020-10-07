@@ -1,6 +1,14 @@
-import round from '../gradation/round'
-import { day, hour, getStep, getDate } from '../gradation'
+import round from '../steps/round'
+import { minute, day, hour, getStepForUnit, getDate } from '../steps'
 import { intlDateTimeFormatSupported } from '../locale'
+
+// "gradation" is a legacy name for "steps".
+// It's here just for legacy compatibility.
+// Use "steps" name instead.
+
+// "flavour" is a legacy name for "labels".
+// It's here just for legacy compatibility.
+// Use "labels" name instead.
 
 // A cache for `Intl.DateTimeFormat` twitter formatters
 // for various locales (is a global variable).
@@ -12,11 +20,13 @@ const formatters = {}
 // and other intervals can be shown using full date format.
 export default
 {
-	// Twitter gradation is derived from "round" gradation.
+	// Twitter `steps` is derived from "round" `steps`.
+	// "gradation" is a legacy name for "steps":
+	// it will be renamed in the next major version.
 	gradation: [
 		// Seconds
 		{
-			...getStep(round, 'second'),
+			...getStepForUnit(round, 'second'),
 			// At `0` seconds Twitter shows "now",
 			// but in different languages "now" could be too long
 			// and too contrasty compared to all other "Xs" seconds.
@@ -25,15 +35,15 @@ export default
 		},
 		// Minutes
 		{
-			...getStep(round, 'minute'),
+			...getStepForUnit(round, 'minute'),
 			// Starts showing `1m` after `59s`.
 			threshold: 59.5
 		},
 		// Hours
 		{
-			...getStep(round, 'hour'),
+			...getStepForUnit(round, 'hour'),
 			// After `59m` it will show `1h`.
-			threshold: 59.5 * 60,
+			threshold: 59.5 * minute,
 		},
 		// If `date` and `now` happened the same year,
 		// then only output month and day.

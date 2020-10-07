@@ -1,7 +1,7 @@
 import RelativeTimeFormat from 'relative-time-format'
 
 import Cache from './cache'
-import grade from './grade'
+import getStep, { getStepDenominator } from './getStep'
 import chooseLocale from './locale'
 
 import {
@@ -12,12 +12,6 @@ import {
 // For historical reasons, "approximate" is the default style.
 import defaultStyle from './style/approximate'
 import getStyleByName from './style/getStyleByName'
-
-// const EXTRA_STYLES = [
-// 	'long-time',
-// 	'short-time',
-// 	'mini-time'
-// ]
 
 // Valid time units.
 const UNITS = [
@@ -33,13 +27,11 @@ const UNITS = [
 	'year'
 ]
 
-export default class JavascriptTimeAgo
-{
+export default class JavascriptTimeAgo {
 	/**
 	 * @param {(string|string[])} locales=[] - Preferred locales (or locale).
 	 */
-	constructor(locales = [])
-	{
+	constructor(locales = []) {
 		// Convert `locales` to an array.
 		if (typeof locales === 'string') {
 			locales = [locales]
@@ -62,40 +54,17 @@ export default class JavascriptTimeAgo
 		this.relativeTimeFormatCache = new Cache()
 	}
 
-	// Formats the relative date/time.
-	//
-	// @return {string} Returns the formatted relative date/time.
-	//
-	// @param {(Object|string)} [style] - Relative date/time formatting style.
-	//
-	// @param {string[]} [style.units] - A list of allowed time units
-	//                                  (e.g. ['second', 'minute', 'hour', …])
-	//
-	// @param {Function} [style.custom] - `function ({ elapsed, time, date, now })`.
-	//                                    If this function returns a value, then
-	//                                    the `.format()` call will return that value.
-	//                                    Otherwise it has no effect.
-	//
-	// @param {string} [style.flavour] - e.g. "long", "short", "mini-time", etc.
-	//
-	// @param {Object[]} [style.gradation] - Time scale gradation steps.
-	//
-	// @param {string} style.gradation[].unit - Time interval measurement unit.
-	//                                          (e.g. ['second', 'minute', 'hour', …])
-	//
-	// @param {Number} style.gradation[].factor - Time interval measurement unit factor.
-	//                                            (e.g. `60` for 'minute')
-	//
-	// @param {Number} [style.gradation[].granularity] - A step for the unit's "amount" value.
-	//                                                   (e.g. `5` for '0 minutes', '5 minutes', etc)
-	//
-	// @param {Number} [style.gradation[].threshold] - Time interval measurement unit threshold.
-	//                                                 (e.g. `45` seconds for 'minute').
-	//                                                 There can also be specific `threshold_[unit]`
-	//                                                 thresholds for fine-tuning.
-	//
-	// @param  {boolean} [options.future] — Tells how to format value `0`: as "future" (`true`) or "past" (`false`). Is `false` by default, but should have been `true` actually.
-	//
+	/**
+	 * Formats relative date/time.
+	 *
+	 * @param  {boolean} [options.future] — Tells how to format value `0`:
+	 *         as "future" (`true`) or "past" (`false`).
+	 *         Is `false` by default, but should have been `true` actually,
+	 *         in order to correspond to `Intl.RelativeTimeFormat`
+	 *         that uses `future` formatting for `0` unless `-0` is passed.
+	 *
+	 * @return {string} The formatted relative date/time. If no eligible `step` is found, then an empty string is returned.
+	 */
 	format(input, style = defaultStyle, options = {}) {
 		if (typeof style === 'string') {
 			style = getStyleByName(style)
@@ -103,8 +72,9 @@ export default class JavascriptTimeAgo
 
 		const { date, time } = getDateAndTimeBeingFormatted(input)
 
-		// Get locale messages for this formatting flavour
-		const { flavour, localeData } = this.getLocaleData(style.flavour)
+		// Get locale messages for this type of labels.
+		// "flavour" is a legacy name for "labels".
+		const { labels, localeData } = this.getLocaleData(style.labels || style.flavour)
 
 		// Can pass a custom `now`, e.g. for testing purposes.
 		// Technically it doesn't belong to `style`
@@ -130,7 +100,7 @@ export default class JavascriptTimeAgo
 		// This feature is currently not used anywhere and is here
 		// just for providing the ultimate customization point
 		// in case anyone would ever need that. Prefer using
-		// `gradation[step].format(value, locale)` instead.
+		// `steps[step].format(value, locale)` instead.
 		//
 		// I guess `custom` is deprecated and will be removed
 		// in some future major version release.
@@ -163,11 +133,12 @@ export default class JavascriptTimeAgo
 
 		// Choose the appropriate time measurement unit
 		// and get the corresponding rounded time amount.
-		const step = grade(
+		const step = getStep(
 			elapsed,
 			now,
 			units,
-			style.gradation
+			// "gradation" is a legacy name for "steps".
+			style.steps || style.gradation
 		)
 
 		// If no time unit is suitable, just output an empty string.
@@ -182,14 +153,22 @@ export default class JavascriptTimeAgo
 			return step.format(date || time, this.locale)
 		}
 
-		const { unit, factor, granularity } = step
+		const { unit, granularity } = step
+		const denominator = getStepDenominator(step)
 
-		let amount = Math.abs(elapsed) / factor
+		let amount = Math.abs(elapsed) / denominator
 
 		// Apply granularity to the time amount
 		// (and fallback to the previous step
 		//  if the first level of granularity
 		//  isn't met by this amount)
+		//
+		// `granularity` — (advanced) Time interval value "granularity".
+		// For example, it could be set to `5` for minutes to allow only 5-minute increments
+		// when formatting time intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc.
+		// Perhaps this feature will be removed because there seem to be no use cases
+		// of it in the real world.
+		//
 		if (granularity) {
 			// Recalculate the elapsed time amount based on granularity
 			amount = Math.round(amount / granularity) * granularity
@@ -200,7 +179,7 @@ export default class JavascriptTimeAgo
 			return _getNowMessage()
 		}
 
-		switch (flavour) {
+		switch (labels) {
 			case 'long':
 			case 'short':
 			case 'narrow':
@@ -209,7 +188,7 @@ export default class JavascriptTimeAgo
 				// `relative-time-format@0.1.x` doesn't differentiate between `0` and `-0`,
 				// so it won't format `0` values in "future" mode.
 				// Format `value` using `Intl.RelativeTimeFormat`.
-				return this.getFormatter(flavour).format(-1 * Math.sign(elapsed) * Math.round(amount), unit)
+				return this.getFormatter(labels).format(-1 * Math.sign(elapsed) * Math.round(amount), unit)
 			default:
 				// Format `value`.
 				// (mimicks `Intl.RelativeTimeFormat` with the addition of extra styles)
@@ -294,38 +273,36 @@ export default class JavascriptTimeAgo
 	}
 
 	/**
-	 * Gets locale messages for this formatting flavour
+	 * Gets locale messages for this type of labels.
 	 *
-	 * @param {(string|string[])} flavour - Relative date/time formatting flavour.
-	 *                                      If it's an array then all flavours are tried in order.
+	 * @param {(string|string[])} labels - Relative date/time labels type.
+	 *                                     If it's an array then all label types are tried
+	 *                                     until a suitable one is found.
 	 *
-	 * @returns {Object} Returns an object of shape { flavour, localeData }
+	 * @returns {Object} Returns an object of shape { labels, localeData }
 	 */
-	getLocaleData(flavour = []) {
+	getLocaleData(labels = []) {
 		// Get relative time formatting rules for this locale
 		const localeData = getLocaleData(this.locale)
 
-		// Convert `flavour` to an array.
-		if (typeof flavour === 'string') {
-			flavour = [flavour]
+		// Convert `labels` to an array.
+		if (typeof labels === 'string') {
+			labels = [labels]
 		}
 
-		// "long" flavour is the default one.
-		// (it's always present)
-		flavour = flavour.concat('long')
+		// "long" labels are the default ones.
+		// (they're always present)
+		labels = labels.concat('long')
 
-		// Find a suitable flavour.
-		for (const _ of flavour) {
-			if (localeData[_]) {
+		// Find a suitable labels style.
+		for (const labelsStyle of labels) {
+			if (localeData[labelsStyle]) {
 				return {
-					flavour : _,
-					localeData : localeData[_]
+					labels: labelsStyle,
+					localeData: localeData[labelsStyle]
 				}
 			}
 		}
-
-		// Can't happen - "long" flavour is always present.
-		// throw new Error(`None of the flavours - ${flavour.join(', ')} - was found for locale "${this.locale}".`)
 	}
 }
 

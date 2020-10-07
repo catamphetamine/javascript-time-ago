@@ -1,4 +1,4 @@
-import { day, month, year } from './helpers'
+import { minute, hour, day, week, month, year } from './units'
 
 // just now
 // 1 second ago
@@ -28,46 +28,42 @@ import { day, month, year } from './helpers'
 // 1 year ago
 // 2 years ago
 // …
-export default
-[
+export default [
 	{
-		factor: 1,
 		unit: 'now'
 	},
 	{
+		// If "now" units aren't available or allowed,
+		// then it'll simply output an empty string for
+		// time intervals under 0.5 seconds.
 		threshold: 0.5,
-		factor: 1,
 		unit: 'second'
 	},
 	{
 		threshold: 59.5,
-		factor: 60,
 		unit: 'minute'
 	},
 	{
-		threshold: 59.5 * 60,
-		factor: 60 * 60,
+		threshold: 59.5 * minute,
 		unit: 'hour'
 	},
 	{
-		threshold: 23.5 * 60 * 60,
-		factor: day,
+		threshold: 23.5 * hour,
 		unit: 'day'
 	},
 	{
 		threshold: 6.5 * day,
-		factor: 7 * day,
 		unit: 'week'
 	},
 	{
+		// In case "week" units aren't available or allowed.
 		threshold: 29.5 * day,
-		threshold_for_week: 3.5 * 7 * day,
-		factor: month,
+		// In case "week" units are available and allowed.
+		threshold_for_week: 3.5 * week,
 		unit: 'month'
 	},
 	{
 		threshold: 11.5 * month,
-		factor: year,
 		unit: 'year'
 	}
 ]

@@ -1,9 +1,7 @@
 import Cache from './cache'
 
-describe('cache', () =>
-{
-	it('should cache', () =>
-	{
+describe('cache', () => {
+	it('should cache', () => {
 		const cache = new Cache()
 
 		const value = {}

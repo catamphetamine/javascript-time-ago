@@ -1,2 +1,2 @@
-exports = module.exports = require('../commonjs/gradation')
-exports['default'] = require('../commonjs/gradation')
+exports = module.exports = require('../commonjs/steps')
+exports['default'] = require('../commonjs/steps')

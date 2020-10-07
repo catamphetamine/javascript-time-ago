@@ -31,5 +31,5 @@ import round from './round'
 //
 export default {
 	...round,
-	gradation: round.gradation.filter(_ => _.unit !== 'second')
+	steps: round.steps.filter(_ => _.unit !== 'second')
 }

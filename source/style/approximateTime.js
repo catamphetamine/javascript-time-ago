@@ -1,4 +1,16 @@
-import approximate from '../gradation/approximate'
+import approximate from '../steps/approximate'
+
+// "gradation" is a legacy name for "steps".
+// It's here just for legacy compatibility.
+// Use "steps" name instead.
+
+// "flavour" is a legacy name for "labels".
+// It's here just for legacy compatibility.
+// Use "labels" name instead.
+
+// "units" is a legacy property.
+// It's here just for legacy compatibility.
+// Developers shouldn't need to use it in their custom styles.
 
 // Similar to the default style but with "ago" omitted.
 //
@@ -24,8 +36,6 @@ import approximate from '../gradation/approximate'
 // 2 years
 //
 export default {
-	// For historical reasons, the gradation is "approximate".
-	// I guess it will be changed to "round" in the next major version.
 	gradation: approximate,
 	flavour: 'long-time',
 	units: [

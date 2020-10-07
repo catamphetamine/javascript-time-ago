@@ -1,20 +1,16 @@
-import grade from '../grade'
-import gradation from './approximate'
+import getStep from '../getStep'
+import steps from './approximate'
 
-// Perhaps this should be part of `grade.test.js` instead.
-
-describe('"approximate" gradation', () =>
-{
-	it('should grade correctly', () =>
-	{
-		const test = (elapsed) => grade(elapsed, null, [
+describe('steps/approximate', () => {
+	it('should get step correctly', () => {
+		const test = (elapsed) => getStep(elapsed, null, [
 			'second',
 			'minute',
 			'hour',
 			'day',
 			'month',
 			'year'
-		], gradation)
+		], steps)
 
 		expect(test(0)).to.be.undefined
 

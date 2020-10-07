@@ -1,3 +1,5 @@
+// Deprecated: `gradation` is a legacy name of `steps`. Use `/steps` subpackage instead.
+
 import { day, canonical } from '../gradation/index'
 
 describe('exports/gradation', () => {

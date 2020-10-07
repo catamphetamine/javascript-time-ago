@@ -1,6 +1,6 @@
 import round from './round'
 import JavascriptTimeAgo from '../JavascriptTimeAgo'
-import { day, month, year } from '../gradation'
+import { day, month, year } from '../steps'
 
 describe('style/round', () => {
 	it('should format relative time (English)', () => {
