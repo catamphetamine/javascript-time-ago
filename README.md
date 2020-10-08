@@ -21,7 +21,7 @@ Examples:
 
 For React users, there's a [React component](https://catamphetamine.gitlab.io/react-time-ago/).
 
-This is a readme for version `2.x`. For older versions, [see version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). See a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md) for migrating from version `1.x` to version `2.x`.
+This is a readme for version `2.x`. For older versions, [see version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). For migrating from version `1.x` to version `2.x`, see a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md).
 
 ## Install
 
@@ -34,16 +34,15 @@ npm install javascript-time-ago --save
 ```js
 import TimeAgo from 'javascript-time-ago'
 
-// Load locale-specific relative date/time formatting rules and labels.
+// English.
 import en from 'javascript-time-ago/locale/en'
 
-// Add locale-specific relative date/time formatting rules and labels.
 TimeAgo.addLocale(en)
 
-// Create relative date/time formatter.
+// Create formatter.
 const timeAgo = new TimeAgo('en-US')
 
-// Format relative date/time using "round" style.
+// Format dates using "round" style.
 
 timeAgo.format(new Date(), 'round')
 // "just now"
@@ -65,7 +64,7 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'round')
 
 This library includes date/time formatting rules and labels for any language.
 
-No languages are loaded default: a developer must manually choose which languages should be loaded. The languages should be imported from `javascript-time-ago/locale` and then added via `TimeAgo.addLocale(...)`. An example of using Russian language:
+No languages are loaded default: a developer must manually choose which languages should be loaded. The languages should be imported from [`javascript-time-ago/locale`](https://unpkg.com/browse/javascript-time-ago/locale/) and then added via `TimeAgo.addLocale(...)`. An example of using Russian language:
 
 <!--
 If the resulting bundle size is of no concern (for example, when building a big enterprise application), or if the code is being run on server side (Node.js), then one can use this helper to load all available locales:
@@ -78,18 +77,14 @@ require('javascript-time-ago/load-all-locales')
 ```js
 import TimeAgo from 'javascript-time-ago'
 
-// Load locale-specific relative date/time formatting rules and labels.
-import en from 'javascript-time-ago/locale/en'
+// Russian.
 import ru from 'javascript-time-ago/locale/ru'
 
-// Add locale-specific relative date/time formatting rules and labels.
-// "en" is the default (fallback) locale.
-// (that could be changed via `TimeAgo.setDefaultLocale(...)`)
-TimeAgo.addLocale(en)
 TimeAgo.addLocale(ru)
 
-// cyka blyat
 const timeAgo = new TimeAgo('ru-RU')
+
+// Format dates using "round" style.
 
 timeAgo.format(new Date(), 'round')
 // "только что"
@@ -109,15 +104,17 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'round')
 
 ## Styles
 
-This library allows for any custom logic for formatting time interval labels:
+This library allows for any custom logic for formatting time intervals:
 
-* What scale should be used for measuring time intervals: should it be precise down to the second, or should it only measure it up to a minute, or should it start from being more precise when time intervals are small and then gradually decrease its precision as time intervals get larger.
+* What scale should be used for measuring time intervals: should it be precise down to the second, or should it only measure it up to a minute, or should it start from being more precise when time intervals are small and then gradually decrease its precision as time intervals get longer.
 
 * What labels should be used: should it use the standard built-in labels for the languages (`"... minutes ago"`, `"... min. ago"`, `"...m"`), or should it use custom ones, or should it skip using relative time labels in some cases and instead output something like `"Dec 11, 2015"`.
 
 Such configuration comes under the name of "style".
 
-While a completely [custom](#custom) style could be supplied, this library comes with several [built-in ](https://github.com/catamphetamine/javascript-time-ago/tree/master/source/style) styles that some people might find useful.
+While a completely [custom](#custom) "style" could be supplied, this library comes with several [built-in ](https://github.com/catamphetamine/javascript-time-ago/tree/master/source/style) "styles" that some people might find useful.
+
+Following is the list of built-in "styles".
 
 ### Round
 
@@ -173,7 +170,10 @@ timeAgo.format(Date.now(), 'round-minute')
 // 0 seconds ago → "just now"
 
 timeAgo.format(Date.now() - 15 * 1000, 'round-minute')
-// 15 seconds ago → "just now"
+// 45 seconds ago → "just now"
+
+timeAgo.format(Date.now() - 15 * 1000, 'round-minute')
+// 46 seconds ago → "1 minute ago"
 
 timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
 // 1.5 minutes ago → "2 minutes ago"
@@ -205,7 +205,7 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
 
 ### Approximate
 
-`"approximate"` style is a legacy one that has been introduced in the early versions of this library. It's the same as `"round"` with the difference that it rounds time in some cases:
+`"approximate"` style is a legacy one that has been introduced in the early versions of this library. It's basically the same as `"round-minute"` with the difference that it rounds time in some cases:
 
 * `just now` → `just now`
 * `40 seconds ago` → `just now`
@@ -264,7 +264,7 @@ For historical reasons, `"approximate"` style is the one that's used when no `st
 
 ### Approximate (time)
 
-`"approximate-time"` style is a legacy one that has been introduced in the early versions of this library. It's the same as the `"approximate"` but without the "ago" part.
+`"approximate-time"` style is a legacy one that has been introduced in the early versions of this library. It's the same as the `"approximate"` style but without the "ago" part.
 
 ```js
 timeAgo.format(Date.now(), 'approximate-time')
@@ -308,7 +308,7 @@ timeAgo.format(Date.now() - 3 * 60 * 1000, 'approximate-time')
   * 2 years
   * …
 
-__Not all locales are applicable for this style__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `long-time.json`.
+Not all locales support this style: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `long-time.json`.
 
 ### Twitter
 
@@ -334,104 +334,225 @@ timeAgo.format(Date.now() - 364 * 24 * 60 * 60 * 1000, 'twitter')
 // Another year → `month/day/year` ("Mar 5, 2017")
 ```
 
-`"twitter"` style uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to the default labels for month/year intervals: `"1 mo. ago"`/`"1 yr. ago"`.
+`"twitter"` style uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to day/month/year labels: `"1d"`, `"1mo"`, `"1yr"`.
 
-__Not all locales are applicable for this style__: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `mini-time.json` time labels.
+For best compatibility, `mini-time.json` labels should be defined for a [locale](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles). Send pull requests for the missing ones.
+
+### Twitter (first minute)
+
+Same as `"twitter"` style but doesn't output anything before the first minute.
+
+```js
+timeAgo.format(new Date(), 'twitter-first-minute')
+// 0 seconds ago → ""
+
+timeAgo.format(new Date() - 1, 'twitter-first-minute')
+// 45 seconds ago → ""
+
+timeAgo.format(new Date() - 1, 'twitter-first-minute')
+// 46 seconds ago → "1m"
+
+// The rest is same as "twitter" style.
+```
+
+`"twitter-first-minute"` style uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to day/month/year labels: `"1d"`, `"1mo"`, `"1yr"`.
+
+For best compatibility, `mini-time.json` labels should be defined for a [locale](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles). Send pull requests for the missing ones.
 
 ## Custom
 
-This library comes with several built-in ["styles"](#styles), a "style" being an object defining `labels` and `steps`. A custom "style" object may be passed as a second parameter to `.format(date, style)` function.
+A custom "style" object may be passed as a second parameter to `.format(date, style)`, a `style` being an object defining `labels` and `steps`.
 
 ### Labels
 
-The time labels variant used for generating output. Is `"long"` by default (`"1 minute ago"`). Can be either a string, or an array of strings, in which case each one of them is tried until a supported one is found. For example, `["mini-time", "short"]` will search for `"mini-time"` labels first and then fall back to `"short"` labels if `"mini-time"` labels aren't defined for the language. `"long"`, `"short"` and `"narrow"` time labels are always present for each language. Other time label variants like `"mini-time"` are only defined for a [small subset](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) of languages.
+`labels` should be the name of the time labels variant that will be used for generating output. When not defined, is set to [`"long"`](#labels) by default.
 
-Relative date/time labels come in various styles: `long`, `short`, `narrow` (these three are the standard [CLDR](http://cldr.unicode.org/) ones that're always present), possibly accompanied by others like `mini-time` (`"1m"`, `"2h"`, ...). Refer to [`locale/en`](https://github.com/catamphetamine/javascript-time-ago/blob/master/locale/en) for an example.
+`labels` can also be an array of such time label variant names, in which case each one of them is tried until a supported one is found. For example, for `labels: ["mini-time", "short"]` it will search for `"mini-time"` labels first and then fall back to `"short"` labels if `"mini-time"` labels aren't defined for the language.
+
+[`"long"`, `"short"` and `"narrow"`](https://unpkg.com/browse/relative-time-format/locale/en.json) time labels are always present for each language, because they're provided by [CLDR](http://cldr.unicode.org/). `long` is the normal one, `short` is an abbreviated version of `long`, `narrow` is supposed to be shorter than `short` but ends up just being weird: it's either equal to `short` or is, for example, `"-1 d."` for `"1 day ago"` in Russian.
+
+Other time labels like `"now"` and `"mini-time"` are only defined for a [small subset](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) of languages. Send your pull requests for the missing ones.
+
+New labels can be added by calling `TimeAgo.addLabels()` function.
 
 ```js
-import english from 'javascript-time-ago/locale/en'
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
+import { round } from 'javascript-time-ago/locale/steps'
 
-english['mini-time']  // '1s', '2m', '3h', '4d', …
-english.narrow // '1 sec. ago', '2 min. ago', …
-english.short // '1 sec. ago', '2 min. ago', …
-english.long  // '1 second ago', '2 minutes ago', …
+TimeAgo.addLocale(en)
+
+const customLabels = {
+  second: {
+    past: {
+      one: "{0} second earlier",
+      other: "{0} seconds earlier"
+    },
+    future: {
+      one: "{0} second later",
+      other: "{0} seconds later"
+    }
+  },
+  ...
+}
+
+TimeAgo.addLabels(customLabels, 'custom', 'en')
+
+const timeAgo = new TimeAgo('en-US')
+
+const customStyle = {
+  steps: round,
+  labels: 'custom'
+}
+
+timeAgo.format(Date.now() - 10 * 1000, customStyle)
+// "10 seconds earlier"
 ```
-
-* `mini-time` is supposed to be the shortest one possible. It's not a CLDR-defined one and has been defined only for a small subset of languages (`en`, `ru`, `ko`, and several others).
-
-* `narrow` is a CLDR-defined one and is intended to be shorter than `short`, or at least no longer than it. I personally find `narrow` a weird one because for some locales it's the same as `short` and for other locales it's a really weird one (e.g. for Russian).
-
-* `short` is "short".
-
-* `long` is the normal one.
 
 ### Steps
 
 Time interval measurement "steps".
 
-Each "step"'s `threshold` (in seconds) is tested until the farthest eligible step is found, and that "step" is then used to generate output. If no eligible `step` is found, then an empty string is returned.
+Each "step" is tried until the last matching one is found, and that "step" is then used to generate the output. If no matching `step` was found, then an empty string is returned.
 
-`"round"` style `steps` example:
+An example of `"round"` style `steps`:
 
 ```js
 [
   {
     // "second" labels are used for formatting the output.
-    unit: 'second'
+    formatAs: 'second'
   },
   {
-    // "minute" labels are used for formatting the output.
-    unit: 'minute'
     // This step is effective starting from 59.5 seconds.
-    threshold: 59.5
+    minTime: 59.5,
+    // "minute" labels are used for formatting the output.
+    formatAs: 'minute'
   },
   {
-    // "hour" labels are used for formatting the output.
-    unit: 'hour',
     // This step is effective starting from 59.5 minutes.
-    threshold: 59.5 * 60
+    minTime: 59.5 * 60,
+    // "hour" labels are used for formatting the output.
+    formatAs: 'hour'
   },
   …
 ]
 ```
 
-Each step is described by:
+A basic step is described by:
 
-  * `unit` — A time measurement unit the labels for which are used to generate the output of this step. If the `unit` isn't supported by the language, then the step is ignored. The time units supported in all languages are: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year`. For [some languages](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles), this library also defines `now` unit (`"just now"`).
+  * `minTime: number` — A minimum time interval (in seconds) required for this step, meaning that `minTime` controls the progression from one step to another. The first step's `minTime` is `0` by default.
+
+  <!-- In some cases, when using `unit`s that may or may not be defined for a language, a developer could support both cases: when the `unit` is available and when it's not. For that, they'd use a special `minTime: { [stepId]: minTime, ..., default: minTime }` property that overrides `min` when the previous eligible step's `id` is `[stepId]`. -->
+
+  * `formatAs: string` — A time measurement unit, the labels for which are used to generate the output of this step. If the time unit isn't supported by the language, then the step is ignored. The time units supported in all languages are: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year`. For [some languages](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles), this library also defines `now` unit (`"just now"`).
 
   <!-- * `factor` — A divider for the time interval value which is in seconds. For example, if `unit` is `"seconds"` then `factor` should be `1`, and if `unit` is `"minutes"` then `factor` should be `60` because to get the amount of minutes one should divide the amout of seconds by `60`. This `factor` property is actually a redundant one and can be derived from `unit` so it will be removed in the next major version. -->
 
-  * `threshold` — A minimum time interval (in seconds) required for this step, meaning that `threshold` controls the progression from one step to another. Each step must have a `threshold` defined, except for the first one. It can be a `number` or a `function(now: number, future: boolean): number`. In some advanced cases, like when using `now` unit (which is only defined for a few languages), one could use a `threshold_for_[unit]` override that would take priority over `threshold` when the previous step's `unit` is `[unit]` (see [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/approximate.js) steps for an example).
-
   <!--   * `granularity` — (advanced) Time interval value "granularity". For example, it could be set to `5` for minutes to allow only 5-minute increments when formatting time intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc. Perhaps this feature will be removed because there seem to be no use cases of it in the real world. -->
 
-It's also possible for a step to not just output a time interval in certain time units but instead return any custom output, in which case it should be defined using:
+Alternatively to `minTime`, a step may specify a `test()` function:
 
- * `threshold` — Same as above.
+```js
+test(
+  date: Date, // The date that was passed to `.format()`, converted to `Date`.
+  {
+    now: Date, // The current `Date`.
+    future: boolean // Is `true` if `date > now`, or if `date === now`
+                    // and `future: true` option was passed to `.format()`.
+  }
+): boolean
+```
 
- * `format` — A `function(value: Date/number, locale: string)` returning a `string`. The `value` argument is the date/time being formatted, as passed to `timeAgo.format(value)` function: either a `number` or a `Date`. The `locale` argument is the selected locale (aka "BCP 47 language tag", like `"ru-RU"`). For example, `"twitter"` style "steps" consists of generic `second`, `minute` and `hour` steps, followed by a step with a `format()` function that formats a date as `"day/month/year"` (like `Jan 24, 2018`).
+Alternatively to `formatAs`, a step may specify a `format()` function:
 
-Built-in `steps`:
+```js
+format(
+  date: (Date|number), // The date argument as it has been passed to `.format()`:
+                       // either a `Date` or a `number`.
+                       // It's not converted to a `Date` for legacy compatibility
+                       // with the old versions of this library.
+                       // It will be converted to `Date` in the next major version.
+                       // For now, use something like this:
+                       // `date = typeof date === 'number' ? new Date(date) : date`
+
+  locale: string, // The currently selected language. Example: "en".
+
+  {
+    formatAs(unit: string, value: number): string, // A function that could be used
+                                                   // to format `value` in `unit`s.
+                                                   // Example: `formatAs('second', -2)`
+                                                   // Outputs: "2 seconds ago"
+
+    future: boolean // Is `true` if `date > now`, or if `date === now`
+                    // and `future: true` option was passed to `.format()`.
+  }
+): string?
+```
+
+#### Built-in `steps`
+
+`/steps` export provides a couple of built-in "steps" that can be used when creating custom styles.
 
 ```js
 import { round, approximate } from 'javascript-time-ago/steps'
 ```
 
-* [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/approximate.js) — These're, for historical reasons, the default `steps`. Are used in [`"approximate"`] style.
+* [`"round"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/round.js) — The `steps` used in the [`"round"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/round.js) style.
 
-* [`"round"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/round.js) — Are used in [`"round"`] style.
+* [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/approximate.js) — (legacy) The `steps` used in the [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/approximate.js) style.
 
-The `/steps` export also provides some utility time unit values that can be used in `threshold`s of custom `steps`:
+#### Time unit constants
+
+<!-- The `/steps` export provides a few utility time unit constants.  --><!-- and functions. -->
+
+`/steps` export provides some utility time unit constants that could be used to calculate `minTime` values when defining custom `steps`:
 
 ```js
 import { minute, hour, day, week, month, year } from 'javascript-time-ago/steps'
 
-// in seconds
+// In seconds
 minute === 60
 hour === 60 * 60
 day === 24 * 60 * 60
 ...
+
+const customSteps = [{
+  minTime: 5 * minute,
+  ...
+}]
 ```
+
+<!--
+The `/steps` export also provides a utility function:
+
+##### `getStepForUnit(steps: object[], unit: string): object?`
+
+Finds a step of `steps` corresponding to a `unit`.
+
+```js
+import { round, getStepForUnit } from 'javascript-time-ago/steps'
+
+getStepForUnit(round, 'minute') === {
+  min: 59.5,
+  unit: 'minute'
+}
+```
+-->
+
+<!--
+##### `getDate(dateOrTimestamp: (number|Date)): Date`
+
+Converts a `timestamp: number` or a `date: Date` to a `Date`.
+
+Can be used in a step's `format(interval)` function when formatting
+
+```js
+import { getDate } from 'javascript-time-ago/steps'
+
+getDate(1500000000000) === getDate(new Date('2017-07-14'))
+```
+-->
 
 <!--
 ### Units
@@ -440,16 +561,45 @@ A list of allowed time interval measurement units. Example: `["second", "minute"
 
 ## Future
 
-When given future dates, `.format()` produces the corresponding output, e.g. "in 5 minutes", "in a year", etc.
+When given future dates, `.format()` produces the corresponding output.
 
-## Default
+```js
+timeAgo.format(Date.now() + 5 * 60 * 1000, 'round')
+// "in 5 minutes"
+```
 
-The default locale is `en` and can be changed: `TimeAgo.setDefaultLocale('ru')`.
+Zero time interval is a special case: by default, it's formatted in past time. To format zero time interval in future time, pass `future: true` option to `.format()`.
+
+```js
+// Without `future: true` option:
+
+timeAgo.format(Date.now(), 'round')
+// "just now"
+
+timeAgo.format(Date.now() + 5 * 60 * 1000, 'round')
+// "in 5 minutes"
+
+// With `future: true` option:
+
+timeAgo.format(Date.now(), 'round', { future: true })
+// "in a moment"
+
+timeAgo.format(Date.now() + 5 * 60 * 1000, 'round', { future: true })
+// "in 5 minutes" (no difference)
+```
+
+## Default Locale
+
+The "default locale" is the locale used when none of the locales passed to `new TimeAgo()` constructor are supported. By default, the "default locale" is `"en"`.
+
+```js
+TimeAgo.setDefaultLocale('ru')
+```
 
 <!--
 ## Caching
 
-Constructing a new `JavascriptTimeAgo` class instance is assumed to be a potentially lengthy operation (even though in reality it isn't). One can use the exported `Cache` class for caching.
+Constructing a new `TimeAgo` class instance is assumed to be a potentially lengthy operation (even though in reality it isn't). One can use the exported `Cache` class for caching.
 
 ```js
 import Cache from 'javascript-time-ago/Cache'
@@ -461,7 +611,7 @@ const object = cache.get('key1', 'key2', ...) || cache.put('key1', 'key2', ..., 
 
 ## Localization internals
 
-This library uses a [`Intl.RelativeTimeFormat`](https://github.com/catamphetamine/relative-time-format) polyfill under the hood.
+This library uses an [`Intl.RelativeTimeFormat`](https://www.npmjs.com/package/relative-time-format) polyfill under the hood.
 
 ## React
 

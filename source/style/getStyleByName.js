@@ -1,13 +1,12 @@
-import twitter from './twitter'
-import approximateTime from './approximateTime'
-import approximate from './approximate'
 import round from './round'
 import roundMinute from './roundMinute'
+import approximate from './approximate'
+import approximateTime from './approximateTime'
+import twitter from './twitter'
+import twitterFirstMinute from './twitterFirstMinute'
 
 export default function getStyleByName(style) {
 	switch (style) {
-		case 'twitter':
-			return twitter
 		// "default" style name is deprecated.
 		case 'default':
 		case 'round':
@@ -20,6 +19,10 @@ export default function getStyleByName(style) {
 		case 'time':
 		case 'approximate-time':
 			return approximateTime
+		case 'twitter':
+			return twitter
+		case 'twitter-first-minute':
+			return twitterFirstMinute
 		default:
 			// For historical reasons, the default style is "approximate".
 			return approximate

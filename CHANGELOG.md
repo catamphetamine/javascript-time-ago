@@ -1,16 +1,41 @@
 <!--
-TO DO: Rename `gradation` to `scale` ("time scale"). Rename `flavour` to `labels`. Rename `factor` to `denominator`. `denominator` should be derived from `unit` (default: 1). Rename `threshold` to `min` (default: 0). Rename `threshold_for_xxx` to `minForXxx`. `min` should be calculated in units already divided by `denominator`. Rename `granularity` to `step`.
+TO DO: Steps' `format()` function now always receives a `Date` as the first argument.
 
 TO DO: Maybe remove `granularity` property of steps ("Perhaps this feature will be removed because there seem to be no use cases of it in the real world" in the readme).
 
 TO DO: Change default style to "round".
 
-TO DO: Maybe remove `style.units` parameter by replacing it with `exceptUnits: ['quarter', ...]`.
+TO DO: Maybe remove `style.units` parameter.
 
 TO DO: "time" style should use "round" scale instead of "approximate".
 
-TO DO: if `style` is passed as an object then it should be passed as `options.style` (and update the "Custom" section of the readme.
+TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
+
+2.1.6 / 08.10.2020
+==================
+
+* Renamed steps' `unit` to `formatAs`. The older name still works. Maybe it will be renamed to something else in some future.
+
+* Renamed steps' `threshold` to `minTime`. The older name still works but is considered deprecated.
+
+* Renamed steps' `threshold_for_idOrUnit: value` to `minTime: { id: value }`. The older way still works but is considered deprecated. Maybe `minTime: {}` object will be deprecated too in some future.
+
+* Added `test(date, { now, future })` function to steps: it can be an alternative to `minTime`. See "twitter" style for an example.
+
+* Added a third argument to steps' `format()` function: an object having shape `{ formatAs(unit, value): string, future: boolean }`.
+
+* Added `TimeAgo.addLabels(locale, labels)` function, that can be used to expand localized time labels.
+
+* Added `"twitter-first-minute"` style: same as `"twitter"` but doesn't output anything before the first minute. This is how `"twitter"` style worked initially.
+
+
+
+* Updated `relative-time-format` to the latest version.
+
+* Added the ability to use native `Intl.RelativeTimeFormat` instead of the polyfill.
+
+Брать quantify из relative-time-format
 
 2.1.5 / 07.10.2020
 ==================

@@ -1,30 +1,35 @@
 import {
 	oneOfType,
 	arrayOf,
+	objectOf,
 	string,
 	number,
 	shape,
 	func
 } from 'prop-types'
 
-const threshold = oneOfType([
+const min = oneOfType([
 	number,
 	func
 ])
 
 const steps = arrayOf(oneOfType([
 	shape({
+		min: oneOfType([objectOf(min), min]),
+		// "threshold" has been renamed to "min".
+		threshold: min,
 		unit: string.isRequired,
 		// `factor` is a legacy property.
 		factor: number,
 		// `granularity` is a legacy property.
 		granularity: number,
-		threshold
-		// Specific `threshold_[unit]` properties may also be defined.
+		// Specific `threshold_for_[unit]` properties may also be defined.
 	}),
 	shape({
+		min: oneOfType([objectOf(min), min]),
+		// "threshold" has been renamed to "min".
+		threshold: min,
 		format: func.isRequired,
-		threshold
 		// Specific `threshold_[unit]` properties may also be defined.
 	})
 ]))
@@ -46,6 +51,7 @@ export const style = oneOfType([
 			string,
 			arrayOf(string)
 		]),
+		// `custom` property seems deprecated.
 		custom: func
 	})
 ])

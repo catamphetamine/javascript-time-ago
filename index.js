@@ -1,4 +1,4 @@
-export { default } from './modules/JavascriptTimeAgo'
+export { default } from './modules/TimeAgo'
 
 export {
 	intlDateTimeFormatSupported as intlDateTimeFormatSupported,

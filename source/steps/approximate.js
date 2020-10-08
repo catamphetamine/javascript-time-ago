@@ -3,6 +3,12 @@ import { minute, hour, day, week, month, year } from './units'
 // "factor" is a legacy property.
 // Developers shouldn't need to use it in their custom steps.
 
+// "threshold" is a legacy name of "min".
+// Developers should use "min" property name instead of "threshold".
+
+// "threshold_for_idOrUnit: value" is a legacy way of specifying "min: { id: value }".
+// Developers should use "min" property instead of "threshold".
+
 // just now
 // 1 minute ago
 // 2 minutes ago
@@ -49,6 +55,7 @@ export default [
 		unit: 'second'
 	},
 	{
+		// `threshold` should be the same as `threshold_for_now` on seconds.
 		threshold: 45.5,
 		// Return the amount of minutes by dividing the amount
 		// of seconds by the amount of seconds in a minute.

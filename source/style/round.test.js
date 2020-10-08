@@ -1,54 +1,54 @@
 import round from './round'
-import JavascriptTimeAgo from '../JavascriptTimeAgo'
+import TimeAgo from '../TimeAgo'
 import { day, month, year } from '../steps'
 
 describe('style/round', () => {
 	it('should format relative time (English)', () => {
-		const timeAgo = new JavascriptTimeAgo('en')
+		const timeAgo = new TimeAgo('en')
 
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
-		const elapsed = (time) => timeAgo.format(now - time * 1000, { now, ...round })
+		const formatInterval = (secondsPassed) => timeAgo.format(now - secondsPassed * 1000, { now, ...round })
 
-		elapsed(0).should.equal('just now')
-		elapsed(59.4).should.equal('59 seconds ago')
-		elapsed(59.6).should.equal('1 minute ago')
-		elapsed(1.49 * 60).should.equal('1 minute ago')
-		elapsed(1.51 * 60).should.equal('2 minutes ago')
-		elapsed(2.49 * 60).should.equal('2 minutes ago')
-		elapsed(2.51 * 60).should.equal('3 minutes ago')
+		formatInterval(0).should.equal('just now')
+		formatInterval(59.4).should.equal('59 seconds ago')
+		formatInterval(59.6).should.equal('1 minute ago')
+		formatInterval(1.49 * 60).should.equal('1 minute ago')
+		formatInterval(1.51 * 60).should.equal('2 minutes ago')
+		formatInterval(2.49 * 60).should.equal('2 minutes ago')
+		formatInterval(2.51 * 60).should.equal('3 minutes ago')
 		// …
-		elapsed(59.49 * 60).should.equal('59 minutes ago')
-		elapsed(59.51 * 60).should.equal('1 hour ago')
-		elapsed(1.49 * 60 * 60).should.equal('1 hour ago')
-		elapsed(1.51 * 60 * 60).should.equal('2 hours ago')
-		elapsed(2.49 * 60 * 60).should.equal('2 hours ago')
-		elapsed(2.51 * 60 * 60).should.equal('3 hours ago')
+		formatInterval(59.49 * 60).should.equal('59 minutes ago')
+		formatInterval(59.51 * 60).should.equal('1 hour ago')
+		formatInterval(1.49 * 60 * 60).should.equal('1 hour ago')
+		formatInterval(1.51 * 60 * 60).should.equal('2 hours ago')
+		formatInterval(2.49 * 60 * 60).should.equal('2 hours ago')
+		formatInterval(2.51 * 60 * 60).should.equal('3 hours ago')
 		// …
-		elapsed(23.49 * 60 * 60).should.equal('23 hours ago')
-		elapsed(23.51 * 60 * 60).should.equal('1 day ago')
-		elapsed(1.49 * day).should.equal('1 day ago')
-		elapsed(1.51 * day).should.equal('2 days ago')
-		elapsed(2.49 * day).should.equal('2 days ago')
-		elapsed(2.51 * day).should.equal('3 days ago')
+		formatInterval(23.49 * 60 * 60).should.equal('23 hours ago')
+		formatInterval(23.51 * 60 * 60).should.equal('1 day ago')
+		formatInterval(1.49 * day).should.equal('1 day ago')
+		formatInterval(1.51 * day).should.equal('2 days ago')
+		formatInterval(2.49 * day).should.equal('2 days ago')
+		formatInterval(2.51 * day).should.equal('3 days ago')
 		// …
-		elapsed(6.49 * day).should.equal('6 days ago')
-		elapsed(6.51 * day).should.equal('1 week ago')
+		formatInterval(6.49 * day).should.equal('6 days ago')
+		formatInterval(6.51 * day).should.equal('1 week ago')
 		// …
-		elapsed(3.49 * 7 * day).should.equal('3 weeks ago')
-		elapsed(30.51 * day).should.equal('1 month ago')
-		elapsed(1.49 * month).should.equal('1 month ago')
-		elapsed(1.51 * month).should.equal('2 months ago')
-		elapsed(2.49 * month).should.equal('2 months ago')
-		elapsed(2.51 * month).should.equal('3 months ago')
+		formatInterval(3.49 * 7 * day).should.equal('3 weeks ago')
+		formatInterval(30.51 * day).should.equal('1 month ago')
+		formatInterval(1.49 * month).should.equal('1 month ago')
+		formatInterval(1.51 * month).should.equal('2 months ago')
+		formatInterval(2.49 * month).should.equal('2 months ago')
+		formatInterval(2.51 * month).should.equal('3 months ago')
 		// …
-		elapsed(11.49 * month).should.equal('11 months ago')
-		elapsed(11.51 * month).should.equal('1 year ago')
-		elapsed(1.49 * year).should.equal('1 year ago')
-		elapsed(1.51 * year).should.equal('2 years ago')
+		formatInterval(11.49 * month).should.equal('11 months ago')
+		formatInterval(11.51 * month).should.equal('1 year ago')
+		formatInterval(1.49 * year).should.equal('1 year ago')
+		formatInterval(1.51 * year).should.equal('2 years ago')
 		// …
 
 		// Test future dates.
-		elapsed(-1 * 3).should.equal('in 3 seconds')
-		elapsed(-1 * month * 8).should.equal('in 8 months')
+		formatInterval(-1 * 3).should.equal('in 3 seconds')
+		formatInterval(-1 * month * 8).should.equal('in 8 months')
 	})
 })

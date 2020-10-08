@@ -3,7 +3,7 @@ import intlLocalesSupported from 'intl-locales-supported'
 
 import chai, { expect } from 'chai'
 
-import JavascriptTimeAgo from '../source/JavascriptTimeAgo'
+import TimeAgo from '../source/TimeAgo'
 
 import * as en from '../locale/en'
 import * as ru from '../locale/ru'
@@ -44,15 +44,15 @@ else
 // }
 
 // Load localization data for Node.js
-JavascriptTimeAgo.addLocale(en)
-JavascriptTimeAgo.addLocale(ru)
-JavascriptTimeAgo.addLocale(de)
-JavascriptTimeAgo.addLocale(fr)
-JavascriptTimeAgo.addLocale(es)
-JavascriptTimeAgo.addLocale(it)
-JavascriptTimeAgo.addLocale(ko)
-JavascriptTimeAgo.addLocale(ccp)
-JavascriptTimeAgo.addLocale(zh)
+TimeAgo.addLocale(en)
+TimeAgo.addLocale(ru)
+TimeAgo.addLocale(de)
+TimeAgo.addLocale(fr)
+TimeAgo.addLocale(es)
+TimeAgo.addLocale(it)
+TimeAgo.addLocale(ko)
+TimeAgo.addLocale(ccp)
+TimeAgo.addLocale(zh)
 
 chai.should()
 global.expect = expect

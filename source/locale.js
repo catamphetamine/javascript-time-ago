@@ -1,18 +1,18 @@
-// Chooses the most appropriate locale
-// (one of the registered ones)
-// based on the list of preferred `locales` supplied by the user.
-//
-// @param {string[]} locales - the list of preferable locales (in [IETF format](https://en.wikipedia.org/wiki/IETF_language_tag)).
-// @param {Function} isLocaleDataAvailable - tests if a locale is available.
-//
-// @returns {string} The most suitable locale
-//
-// @example
-// // Returns 'en'
-// chooseLocale(['en-US'], undefined, (locale) => locale === 'ru' || locale === 'en')
-//
-export default function chooseLocale(locales, isLocaleDataAvailable)
-{
+/**
+ * Chooses the most appropriate locale
+ * (one of the registered ones)
+ * based on the list of preferred `locales` supplied by the user.
+ *
+ * @param {string[]} locales - the list of preferable locales (in [IETF format](https://en.wikipedia.org/wiki/IETF_language_tag)).
+ * @param {Function} isLocaleDataAvailable - tests if a locale is available.
+ *
+ * @returns {string} The most suitable locale.
+ *
+ * @example
+ * // Returns 'en'
+ * chooseLocale(['en-US'], undefined, (locale) => locale === 'ru' || locale === 'en')
+ */
+export default function chooseLocale(locales, isLocaleDataAvailable) {
 	// This is not an intelligent algorithm,
 	// but it will do for this library's case.
 	// `sr-Cyrl-BA` -> `sr-Cyrl` -> `sr`.
@@ -45,6 +45,7 @@ export function intlDateTimeFormatSupportedLocale(locales) {
 		return Intl.DateTimeFormat.supportedLocalesOf(locales)[0]
 	}
 }
+
 /**
  * Whether can use `Intl.DateTimeFormat`.
  * @return {boolean}

@@ -1,42 +1,61 @@
-import getStep from '../getStep'
+import getStep from './getStep'
 import steps from './approximate'
 
 describe('steps/approximate', () => {
 	it('should get step correctly', () => {
-		const test = (elapsed) => getStep(elapsed, null, [
-			'second',
-			'minute',
-			'hour',
-			'day',
-			'month',
-			'year'
-		], steps)
+		const getStepFor = (secondsPassed) => getStep(steps, secondsPassed, {
+			units: [
+				'now',
+				'second',
+				'minute',
+				'hour',
+				'day',
+				'week',
+				'month',
+				'year'
+			]
+		})
 
-		expect(test(0)).to.be.undefined
+		expect(getStepFor(0).unit).to.equal('now')
+		expect(getStepFor(1).unit).to.equal('now')
+		expect(getStepFor(45).unit).to.equal('now')
 
-		expect(test(1).unit).to.equal('second')
-		expect(test(1).factor).to.equal(1)
+		expect(getStepFor(46).unit).to.equal('minute')
+		expect(getStepFor(46).factor).to.equal(60)
+		expect(getStepFor(46).granularity).to.be.undefined
 
-		expect(test(45).unit).to.equal('second')
-		expect(test(45).factor).to.equal(1)
+		expect(getStepFor(2.5 * 60 - 1).unit).to.equal('minute')
+		expect(getStepFor(2.5 * 60 - 1).factor).to.equal(60)
+		expect(getStepFor(2.5 * 60 - 1).granularity).to.be.undefined
 
-		expect(test(46).unit).to.equal('minute')
-		expect(test(46).factor).to.equal(60)
-		expect(test(46).granularity).to.be.undefined
+		expect(getStepFor(2.5 * 60).unit).to.equal('minute')
+		expect(getStepFor(2.5 * 60).factor).to.equal(60)
+		expect(getStepFor(2.5 * 60).granularity).to.equal(5)
 
-		expect(test(2.5 * 60 - 1).unit).to.equal('minute')
-		expect(test(2.5 * 60 - 1).factor).to.equal(60)
-		expect(test(2.5 * 60 - 1).granularity).to.be.undefined
+		expect(getStepFor(52.5 * 60 - 1).unit).to.equal('minute')
+		expect(getStepFor(52.5 * 60 - 1).factor).to.equal(60)
+		expect(getStepFor(52.5 * 60 - 1).granularity).to.equal(5)
 
-		expect(test(2.5 * 60).unit).to.equal('minute')
-		expect(test(2.5 * 60).factor).to.equal(60)
-		expect(test(2.5 * 60).granularity).to.equal(5)
+		expect(getStepFor(52.5 * 60).unit).to.equal('hour')
+		expect(getStepFor(52.5 * 60).factor).to.equal(60 * 60)
+	})
 
-		expect(test(52.5 * 60 - 1).unit).to.equal('minute')
-		expect(test(52.5 * 60 - 1).factor).to.equal(60)
-		expect(test(52.5 * 60 - 1).granularity).to.equal(5)
+	it('should get step correctly ("now" unit not allowed)', () => {
+		const getStepFor = (secondsPassed) => getStep(steps, secondsPassed, {
+			units: [
+				'second',
+				'minute',
+				'hour',
+				'day',
+				'week',
+				'month',
+				'year'
+			]
+		})
 
-		expect(test(52.5 * 60).unit).to.equal('hour')
-		expect(test(52.5 * 60).factor).to.equal(60 * 60)
+		expect(getStepFor(0)).to.be.undefined
+		expect(getStepFor(1).unit).to.equal('second')
+		expect(getStepFor(45).unit).to.equal('second')
+		expect(getStepFor(46).unit).to.equal('minute')
 	})
 })

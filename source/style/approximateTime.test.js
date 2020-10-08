@@ -1,5 +1,5 @@
 import approximateTime from './approximateTime'
-import { approximateScaleStepsTest } from '../JavascriptTimeAgo.test'
+import { approximateScaleStepsTest } from '../TimeAgo.test'
 
 describe('style/approximate-time', () => {
 	it('should format relative time (English)', () => {

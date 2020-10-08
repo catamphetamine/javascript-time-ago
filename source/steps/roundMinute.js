@@ -1,10 +1,6 @@
 import { minute, hour, day, week, month, year } from './units'
 
 // just now
-// 1 second ago
-// 2 seconds ago
-// …
-// 59 seconds ago
 // 1 minute ago
 // 2 minutes ago
 // …
@@ -30,23 +26,19 @@ import { minute, hour, day, week, month, year } from './units'
 // …
 export default [
 	{
-		// Start with outputting "second"s.
-		formatAs: 'second'
+		// Start with outputting "minute"s.
+		formatAs: 'minute'
 	},
 	{
 		// If "now" units are available,
-		// then output "now" instead of "second"s
+		// then output "now" instead of "minute"s
 		minTime: 0,
 		formatAs: 'now'
 	},
 	{
-		// As soon as 0.5 seconds have passed,
-		// output "second"s.
-		minTime: 0.5,
-		formatAs: 'second'
-	},
-	{
-		minTime: minute - 0.5,
+		// As soon as 45.5 seconds have passed,
+		// output "minute"s.
+		minTime: 45.5,
 		formatAs: 'minute'
 	},
 	{
