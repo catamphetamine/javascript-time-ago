@@ -434,7 +434,7 @@ describe(`javascript-time-ago`, () => {
 
 	it('should format future dates', () => {
 		new TimeAgo('en').format(Date.now() + 60 * 60 * 1000).should.equal('in 1 hour')
-		new TimeAgo('ru').format(Date.now() + 45.5 * 1000).should.equal('через 1 минуту')
+		new TimeAgo('ru').format(Date.now() + 60 * 1000).should.equal('через 1 минуту')
 	})
 
 	it('should accept "future" option', () => {

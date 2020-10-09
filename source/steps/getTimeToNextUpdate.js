@@ -55,10 +55,12 @@ export default function getTimeToNextUpdate(dateOrTimestamp, step, { nextStep, n
 		}
 	}
 
-	if (timeToNextUpdate !== undefined) {
-		if (nextStepMinTimestamp !== undefined) {
-			return Math.min(timeToNextUpdate, nextStepMinTimestamp)
+	if (timeToNextUpdate === undefined) {
+		return nextStepMinTimestamp
+	} else {
+		if (nextStepMinTimestamp === undefined) {
+			return timeToNextUpdate
 		}
-		return timeToNextUpdate
+		return Math.min(timeToNextUpdate, nextStepMinTimestamp)
 	}
 }

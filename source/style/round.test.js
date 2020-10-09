@@ -10,6 +10,7 @@ describe('style/round', () => {
 		const formatInterval = (secondsPassed) => timeAgo.format(now - secondsPassed * 1000, { now, ...round })
 
 		formatInterval(0).should.equal('just now')
+		formatInterval(1).should.equal('1 second ago')
 		formatInterval(59.4).should.equal('59 seconds ago')
 		formatInterval(59.6).should.equal('1 minute ago')
 		formatInterval(1.49 * 60).should.equal('1 minute ago')
@@ -50,5 +51,17 @@ describe('style/round', () => {
 		// Test future dates.
 		formatInterval(-1 * 3).should.equal('in 3 seconds')
 		formatInterval(-1 * month * 8).should.equal('in 8 months')
+	})
+
+	it('should return correct update interval', () => {
+		const timeAgo = new TimeAgo('en')
+		const [
+			formattedDate,
+			timeToNextUpdate
+		] = timeAgo.format(0, round, {
+			now: 0,
+			getTimeToNextUpdate: true
+		})
+		timeToNextUpdate.should.equal(0.5 * 1000)
 	})
 })
