@@ -19,7 +19,7 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
-2.1.6 / 08.10.2020
+2.2.0 / 09.10.2020
 ==================
 
 * Renamed steps' `unit` to `formatAs`. The older name still works. Maybe it will be renamed to something else in some future.
