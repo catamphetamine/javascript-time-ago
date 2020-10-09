@@ -54,6 +54,9 @@ export default class TimeAgo {
 
 		// Cache `Intl.RelativeTimeFormat` instance.
 		this.relativeTimeFormatCache = new Cache()
+
+		// Cache `Intl.PluralRules` instance.
+		this.pluralRulesCache = new Cache()
 	}
 
 	/**
@@ -304,14 +307,7 @@ export default class TimeAgo {
 			return quantifierRules
 		}
 		// Quantify `value`.
-		const quantify = getLocaleData(locale).quantify
-		let quantifier = quantify && quantify(Math.abs(value))
-		// There seems to be no such locale in CLDR
-		// for which `quantify` is missing
-		// and still `past` and `future` messages
-		// contain something other than "other".
-		/* istanbul ignore next */
-		quantifier = quantifier || 'other'
+		const quantifier = this.getPluralRules().select(Math.abs(value))
 		// "other" rule is supposed to always be present.
 		// If only "other" rule is present then "rules" is not an object and is a string.
 		return quantifierRules[quantifier] || quantifierRules.other
@@ -328,16 +324,28 @@ export default class TimeAgo {
 	}
 
 	/**
-	 * Returns an `Intl.RelativeTimeFormat` for a given `flavor`.
-	 * @param {string} flavor
+	 * Returns an `Intl.RelativeTimeFormat` for a given `labelsType`.
+	 * @param {string} labelsType
 	 * @return {object} `Intl.RelativeTimeFormat` instance
 	 */
-	getFormatter(flavor) {
-		// `Intl.RelativeTimeFormat` instance creation is assumed a
-		// lengthy operation so the instances are cached and reused.
-		return this.relativeTimeFormatCache.get(this.locale, flavor) ||
-			this.relativeTimeFormatCache.put(this.locale, flavor, new RelativeTimeFormat(this.locale, { style: flavor }))
+	getFormatter(labelsType) {
+		// `Intl.RelativeTimeFormat` instance creation is (hypothetically) assumed
+		// a lengthy operation so the instances are cached and reused.
+		return this.relativeTimeFormatCache.get(this.locale, labelsType) ||
+			this.relativeTimeFormatCache.put(this.locale, labelsType, new RelativeTimeFormat(this.locale, { style: labelsType }))
 	}
+
+	/**
+	 * Returns an `Intl.PluralRules` instance.
+	 * @return {object} `Intl.PluralRules` instance
+	 */
+	getPluralRules() {
+		// `Intl.PluralRules` instance creation is (hypothetically) assumed
+		// a lengthy operation so the instances are cached and reused.
+		return this.pluralRulesCache.get(this.locale) ||
+			this.pluralRulesCache.put(this.locale, new RelativeTimeFormat.PluralRules(this.locale))
+	}
+
 
 	/**
 	 * Gets localized labels for this type of labels.

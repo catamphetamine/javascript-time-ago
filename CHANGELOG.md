@@ -1,4 +1,7 @@
 <!--
+TO DO: Add the ability to use the native `Intl.RelativeTimeFormat` and `Intl.PluralRules` and not import any locale data (except for maybe doing `TimeAgo.addLabels('en', 'now', require('javascript-time-ago/locale/en/now.json')`).
+https://github.com/catamphetamine/javascript-time-ago/issues/21
+
 TO DO: Maybe create a "dummy" `time-ago-js` package that would simply re-export `javascript-time-ago`.
 
 TO DO: Added the ability to use native `Intl.RelativeTimeFormat` instead of the polyfill.
@@ -35,14 +38,7 @@ TO DO: if `style` is passed as an object then maybe it should be passed as part 
 
 * Added `getTimeToNextUpdate` feature (see README).
 
-
-
-
 * Updated `relative-time-format` to the latest version: `0.1.x` -> `1.0.0`.
-
-
-
-
 
 2.1.5 / 07.10.2020
 ==================

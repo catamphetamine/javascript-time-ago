@@ -43,9 +43,7 @@ module.exports = {
 		'narrow: locale.narrow',
 		Object.keys(extraStyleDirectories).length > 0 && '// Additional styles.',
 		extraStyleDirectories.tiny && '// "tiny" is a legacy name of "mini".',
-		...Object.keys(extraStyleDirectories).map(style => "'" + style + "': require('" + extraStyleDirectories[style] + "/" + (style === 'tiny' ? 'mini-time' : style) + ".json')"),
-		localeData.quantify && "// Quantifier.",
-		localeData.quantify && "quantify: locale.quantify",
+		...Object.keys(extraStyleDirectories).map(style => "'" + style + "': require('" + extraStyleDirectories[style] + "/" + (style === 'tiny' ? 'mini-time' : style) + ".json')")
 	]
 	.filter(_ => _)
 	.join(',\n\t')

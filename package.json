@@ -6,7 +6,7 @@
   "module": "index.js",
   "sideEffects": false,
   "dependencies": {
-    "relative-time-format": "^0.1.3"
+    "relative-time-format": "^1.0.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
