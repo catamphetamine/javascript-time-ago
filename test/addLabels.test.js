@@ -19,7 +19,7 @@ describe('TimeAgo.addLocale', () => {
       }
     }
 
-    TimeAgo.addLabels(customLabels, 'custom', 'en')
+    TimeAgo.addLabels('en', 'custom', customLabels)
 
     const timeAgo = new TimeAgo('en-US')
 
@@ -32,6 +32,6 @@ describe('TimeAgo.addLocale', () => {
   })
 
   it('should throw when locale has not been added', () => {
-    expect(() => TimeAgo.addLabels({}, 'custom', 'exotic')).to.throw('No data for locale "exotic"')
+    expect(() => TimeAgo.addLabels('exotic', 'custom', {})).to.throw('No data for locale "exotic"')
   })
 })

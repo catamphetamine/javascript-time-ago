@@ -31,7 +31,7 @@ TO DO: if `style` is passed as an object then maybe it should be passed as part 
 
 * Added a third argument to steps' `format()` function: an object having shape `{ formatAs(unit, value): string, future: boolean }`.
 
-* Added `TimeAgo.addLabels(locale, labels)` function, that can be used to expand localized time labels.
+* Added `TimeAgo.addLabels(locale, name, labels)` function, that can be used to expand localized time labels.
 
 * Added `"twitter-first-minute"` style: same as `"twitter"` but doesn't output anything before the first minute. This is how `"twitter"` style worked initially.
 

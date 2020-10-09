@@ -396,7 +396,7 @@ const customLabels = {
   ...
 }
 
-TimeAgo.addLabels(customLabels, 'custom', 'en')
+TimeAgo.addLabels('en', 'custom', customLabels)
 
 const timeAgo = new TimeAgo('en-US')
 

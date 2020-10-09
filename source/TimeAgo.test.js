@@ -552,6 +552,24 @@ describe(`javascript-time-ago`, () => {
 		timeAgo.format(Date.now() + 1000, 'round').should.equal('in 1 second')
 		global.Intl = Intl
 	})
+
+	it('should format `0` in past mode by default', () => {
+		new TimeAgo('en').format(0, {
+			labels: 'long',
+			steps: [{
+				formatAs: 'second'
+			}]
+		}, { now: 0 }).should.equal('0 seconds ago')
+	})
+
+	it('should format `0` in future mode when `future: true` option was passed', () => {
+		new TimeAgo('en').format(0, {
+			labels: 'long',
+			steps: [{
+				formatAs: 'second'
+			}]
+		}, { now: 0, future: true }).should.equal('in 0 seconds')
+	})
 })
 
 export function approximateScaleStepsTest(labels, timeAgo, style = {}) {

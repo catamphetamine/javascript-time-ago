@@ -255,16 +255,27 @@ export default class TimeAgo {
 			amount = Math.round(amount / step.granularity) * step.granularity
 		}
 
-		const valueForFormatting = -1 * Math.sign(secondsPassed) * Math.round(amount)
+		let valueForFormatting = -1 * Math.sign(secondsPassed) * Math.round(amount)
+
+		// By default, this library formats a `0` in "past" mode,
+		// unless `future: true` option is passed.
+		// This is different to `relative-time-format`'s behavior
+		// which formats a `0` in "future" mode by default, unless it's a `-0`.
+		// So, convert `0` to `-0` if `future: true` option wasn't passed.
+		// `=== 0` matches both `0` and `-0`.
+		if (valueForFormatting === 0) {
+			if (future) {
+				valueForFormatting = 0
+			} else {
+				valueForFormatting = -0
+			}
+		}
 
 		switch (labelsType) {
 			case 'long':
 			case 'short':
 			case 'narrow':
 				// Format the amount using `Intl.RelativeTimeFormat`.
-				// By default, `0` is formatted in "past" mode, unless `future: true` option is passed.
-				// `relative-time-format@0.1.x` doesn't differentiate between `0` and `-0`,
-				// so it won't format `0` values in "future" mode.
 				return this.getFormatter(labelsType).format(valueForFormatting, unit)
 			default:
 				// Format the amount.
@@ -442,11 +453,11 @@ TimeAgo.locale = TimeAgo.addLocale
 
 /**
  * Adds custom labels to locale data.
- * @param {object} labels
- * @param {string} name
  * @param {string} locale
+ * @param {string} name
+ * @param {object} labels
  */
-TimeAgo.addLabels = (labels, name, locale) => {
+TimeAgo.addLabels = (locale, name, labels) => {
 	const localeData = getLocaleData(locale)
 	if (!localeData) {
 		throw new Error(`[javascript-time-ago] No data for locale "${locale}"`)
