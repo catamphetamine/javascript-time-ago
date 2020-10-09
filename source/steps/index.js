@@ -16,8 +16,5 @@ export {
 } from './units'
 
 export {
-	getStepForUnit,
-	// `getStep` is a legacy name for `getStepForUnit`.
-	getStepForUnit as getStep,
 	getDate
 } from './helpers'
