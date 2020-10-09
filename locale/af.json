@@ -1,0 +1,213 @@
+{
+	"locale": "af",
+	"long": {
+		"year": {
+			"previous": "verlede jaar",
+			"current": "hierdie jaar",
+			"next": "volgende jaar",
+			"past": "{0} jaar gelede",
+			"future": "oor {0} jaar"
+		},
+		"quarter": {
+			"previous": "verlede kwartaal",
+			"current": "hierdie kwartaal",
+			"next": "volgende kwartaal",
+			"past": {
+				"one": "{0} kwartaal gelede",
+				"other": "{0} kwartale gelede"
+			},
+			"future": {
+				"one": "oor {0} kwartaal",
+				"other": "oor {0} kwartale"
+			}
+		},
+		"month": {
+			"previous": "verlede maand",
+			"current": "vandeesmaand",
+			"next": "volgende maand",
+			"past": {
+				"one": "{0} maand gelede",
+				"other": "{0} maande gelede"
+			},
+			"future": {
+				"one": "oor {0} maand",
+				"other": "oor {0} maande"
+			}
+		},
+		"week": {
+			"previous": "verlede week",
+			"current": "hierdie week",
+			"next": "volgende week",
+			"past": {
+				"one": "{0} week gelede",
+				"other": "{0} weke gelede"
+			},
+			"future": {
+				"one": "oor {0} week",
+				"other": "oor {0} weke"
+			}
+		},
+		"day": {
+			"previous": "gister",
+			"previous-2": "eergister",
+			"current": "vandag",
+			"next": "môre",
+			"next-2": "oormôre",
+			"past": {
+				"one": "{0} dag gelede",
+				"other": "{0} dae gelede"
+			},
+			"future": {
+				"one": "oor {0} dag",
+				"other": "oor {0} dae"
+			}
+		},
+		"hour": {
+			"current": "hierdie uur",
+			"past": "{0} uur gelede",
+			"future": "oor {0} uur"
+		},
+		"minute": {
+			"current": "hierdie minuut",
+			"past": {
+				"one": "{0} minuut gelede",
+				"other": "{0} minute gelede"
+			},
+			"future": {
+				"one": "oor {0} minuut",
+				"other": "oor {0} minute"
+			}
+		},
+		"second": {
+			"current": "nou",
+			"past": {
+				"one": "{0} sekonde gelede",
+				"other": "{0} sekondes gelede"
+			},
+			"future": {
+				"one": "oor {0} sekonde",
+				"other": "oor {0} sekondes"
+			}
+		}
+	},
+	"short": {
+		"year": {
+			"previous": "verlede jaar",
+			"current": "hierdie jaar",
+			"next": "volgende jaar",
+			"past": "{0} j. gelede",
+			"future": "oor {0} j."
+		},
+		"quarter": {
+			"previous": "verlede kwartaal",
+			"current": "hierdie kwartaal",
+			"next": "volgende kwartaal",
+			"past": "{0} kw. gelede",
+			"future": "oor {0} kw."
+		},
+		"month": {
+			"previous": "verlede maand",
+			"current": "vandeesmaand",
+			"next": "volgende maand",
+			"past": "{0} md. gelede",
+			"future": "oor {0} md."
+		},
+		"week": {
+			"previous": "verlede week",
+			"current": "hierdie week",
+			"next": "volgende week",
+			"past": "{0} w. gelede",
+			"future": "oor {0} w."
+		},
+		"day": {
+			"previous": "gister",
+			"previous-2": "eergister",
+			"current": "vandag",
+			"next": "môre",
+			"next-2": "oormôre",
+			"past": {
+				"one": "{0} dag gelede",
+				"other": "{0} dae gelede"
+			},
+			"future": {
+				"one": "oor {0} dag",
+				"other": "oor {0} dae"
+			}
+		},
+		"hour": {
+			"current": "hierdie uur",
+			"past": "{0} u. gelede",
+			"future": "oor {0} u."
+		},
+		"minute": {
+			"current": "hierdie minuut",
+			"past": "{0} min. gelede",
+			"future": "oor {0} min."
+		},
+		"second": {
+			"current": "nou",
+			"past": "{0} s. gelede",
+			"future": "oor {0} s."
+		}
+	},
+	"narrow": {
+		"year": {
+			"previous": "verlede jaar",
+			"current": "hierdie jaar",
+			"next": "volgende jaar",
+			"past": "{0} j. gelede",
+			"future": "oor {0} j."
+		},
+		"quarter": {
+			"previous": "verlede kwartaal",
+			"current": "hierdie kwartaal",
+			"next": "volgende kwartaal",
+			"past": "{0} kw. gelede",
+			"future": "oor {0} kw."
+		},
+		"month": {
+			"previous": "verlede maand",
+			"current": "vandeesmaand",
+			"next": "volgende maand",
+			"past": "{0} md. gelede",
+			"future": "oor {0} md."
+		},
+		"week": {
+			"previous": "verlede week",
+			"current": "hierdie week",
+			"next": "volgende week",
+			"past": "{0} w. gelede",
+			"future": "oor {0} w."
+		},
+		"day": {
+			"previous": "gister",
+			"previous-2": "eergister",
+			"current": "vandag",
+			"next": "môre",
+			"next-2": "oormôre",
+			"past": {
+				"one": "{0} dag gelede",
+				"other": "{0} dae gelede"
+			},
+			"future": {
+				"one": "oor {0} dag",
+				"other": "oor {0} dae"
+			}
+		},
+		"hour": {
+			"current": "hierdie uur",
+			"past": "{0} u. gelede",
+			"future": "oor {0} u."
+		},
+		"minute": {
+			"current": "hierdie minuut",
+			"past": "{0} min. gelede",
+			"future": "oor {0} min."
+		},
+		"second": {
+			"current": "nou",
+			"past": "{0} s. gelede",
+			"future": "oor {0} s."
+		}
+	}
+}

@@ -1,0 +1,159 @@
+{
+	"locale": "az",
+	"long": {
+		"year": {
+			"previous": "keçən il",
+			"current": "bu il",
+			"next": "gələn il",
+			"past": "{0} il öncə",
+			"future": "{0} il ərzində"
+		},
+		"quarter": {
+			"previous": "keçən rüb",
+			"current": "bu rüb",
+			"next": "gələn rüb",
+			"past": "{0} rüb öncə",
+			"future": "{0} rüb ərzində"
+		},
+		"month": {
+			"previous": "keçən ay",
+			"current": "bu ay",
+			"next": "gələn ay",
+			"past": "{0} ay öncə",
+			"future": "{0} ay ərzində"
+		},
+		"week": {
+			"previous": "keçən həftə",
+			"current": "bu həftə",
+			"next": "gələn həftə",
+			"past": "{0} həftə öncə",
+			"future": "{0} həftə ərzində"
+		},
+		"day": {
+			"previous": "dünən",
+			"current": "bu gün",
+			"next": "sabah",
+			"past": "{0} gün öncə",
+			"future": "{0} gün ərzində"
+		},
+		"hour": {
+			"current": "bu saat",
+			"past": "{0} saat öncə",
+			"future": "{0} saat ərzində"
+		},
+		"minute": {
+			"current": "bu dəqiqə",
+			"past": "{0} dəqiqə öncə",
+			"future": "{0} dəqiqə ərzində"
+		},
+		"second": {
+			"current": "indi",
+			"past": "{0} saniyə öncə",
+			"future": "{0} saniyə ərzində"
+		}
+	},
+	"short": {
+		"year": {
+			"previous": "keçən il",
+			"current": "bu il",
+			"next": "gələn il",
+			"past": "{0} il öncə",
+			"future": "{0} il ərzində"
+		},
+		"quarter": {
+			"previous": "keçən rüb",
+			"current": "bu rüb",
+			"next": "gələn rüb",
+			"past": "{0} rüb öncə",
+			"future": "{0} rüb ərzində"
+		},
+		"month": {
+			"previous": "keçən ay",
+			"current": "bu ay",
+			"next": "gələn ay",
+			"past": "{0} ay öncə",
+			"future": "{0} ay ərzində"
+		},
+		"week": {
+			"previous": "keçən həftə",
+			"current": "bu həftə",
+			"next": "gələn həftə",
+			"past": "{0} həftə öncə",
+			"future": "{0} həftə ərzində"
+		},
+		"day": {
+			"previous": "dünən",
+			"current": "bu gün",
+			"next": "sabah",
+			"past": "{0} gün öncə",
+			"future": "{0} gün ərzində"
+		},
+		"hour": {
+			"current": "bu saat",
+			"past": "{0} saat öncə",
+			"future": "{0} saat ərzində"
+		},
+		"minute": {
+			"current": "bu dəqiqə",
+			"past": "{0} dəqiqə öncə",
+			"future": "{0} dəqiqə ərzində"
+		},
+		"second": {
+			"current": "indi",
+			"past": "{0} saniyə öncə",
+			"future": "{0} saniyə ərzində"
+		}
+	},
+	"narrow": {
+		"year": {
+			"previous": "keçən il",
+			"current": "bu il",
+			"next": "gələn il",
+			"past": "{0} il öncə",
+			"future": "{0} il ərzində"
+		},
+		"quarter": {
+			"previous": "keçən rüb",
+			"current": "bu rüb",
+			"next": "gələn rüb",
+			"past": "{0} rüb öncə",
+			"future": "{0} rüb ərzində"
+		},
+		"month": {
+			"previous": "keçən ay",
+			"current": "bu ay",
+			"next": "gələn ay",
+			"past": "{0} ay öncə",
+			"future": "{0} ay ərzində"
+		},
+		"week": {
+			"previous": "keçən həftə",
+			"current": "bu həftə",
+			"next": "gələn həftə",
+			"past": "{0} həftə öncə",
+			"future": "{0} həftə ərzində"
+		},
+		"day": {
+			"previous": "dünən",
+			"current": "bu gün",
+			"next": "sabah",
+			"past": "{0} gün öncə",
+			"future": "{0} gün ərzində"
+		},
+		"hour": {
+			"current": "bu saat",
+			"past": "{0} saat öncə",
+			"future": "{0} saat ərzində"
+		},
+		"minute": {
+			"current": "bu dəqiqə",
+			"past": "{0} dəqiqə öncə",
+			"future": "{0} dəqiqə ərzində"
+		},
+		"second": {
+			"current": "indi",
+			"past": "{0} saniyə öncə",
+			"future": "{0} saniyə ərzində"
+		}
+	}
+}

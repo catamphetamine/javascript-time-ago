@@ -1,0 +1,159 @@
+{
+	"locale": "mzn",
+	"long": {
+		"year": {
+			"previous": "پارسال",
+			"current": "امسال",
+			"next": "سال دیگه",
+			"past": "{0} سال پیش",
+			"future": "{0} سال دله"
+		},
+		"quarter": {
+			"previous": "last quarter",
+			"current": "this quarter",
+			"next": "next quarter",
+			"past": "{0} ربع پیش",
+			"future": "{0} ربع دله"
+		},
+		"month": {
+			"previous": "ماه قبل",
+			"current": "این ماه",
+			"next": "ماه ِبعد",
+			"past": "{0} ماه پیش",
+			"future": "{0} ماه دله"
+		},
+		"week": {
+			"previous": "قبلی هفته",
+			"current": "این هفته",
+			"next": "بعدی هفته",
+			"past": "{0} هفته پیش",
+			"future": "{0} هفته دله"
+		},
+		"day": {
+			"previous": "دیروز",
+			"current": "اَمروز",
+			"next": "فِردا",
+			"past": "{0} روز پیش",
+			"future": "{0} روز دله"
+		},
+		"hour": {
+			"current": "this hour",
+			"past": "{0} ساعِت پیش",
+			"future": "{0} ساعِت دله"
+		},
+		"minute": {
+			"current": "this minute",
+			"past": "{0} دَقه پیش",
+			"future": "{0} دقیقه دله"
+		},
+		"second": {
+			"current": "now",
+			"past": "{0} ثانیه پیش",
+			"future": "{0} ثانیه دله"
+		}
+	},
+	"short": {
+		"year": {
+			"previous": "پارسال",
+			"current": "امسال",
+			"next": "سال دیگه",
+			"past": "{0} سال پیش",
+			"future": "{0} سال دله"
+		},
+		"quarter": {
+			"previous": "last quarter",
+			"current": "this quarter",
+			"next": "next quarter",
+			"past": "{0} ربع پیش",
+			"future": "{0} ربع دله"
+		},
+		"month": {
+			"previous": "ماه قبل",
+			"current": "این ماه",
+			"next": "ماه ِبعد",
+			"past": "{0} ماه پیش",
+			"future": "{0} ماه دله"
+		},
+		"week": {
+			"previous": "قبلی هفته",
+			"current": "این هفته",
+			"next": "بعدی هفته",
+			"past": "{0} هفته پیش",
+			"future": "{0} هفته دله"
+		},
+		"day": {
+			"previous": "دیروز",
+			"current": "اَمروز",
+			"next": "فِردا",
+			"past": "{0} روز پیش",
+			"future": "{0} روز دله"
+		},
+		"hour": {
+			"current": "this hour",
+			"past": "{0} ساعت پیش",
+			"future": "{0} ساعت دله"
+		},
+		"minute": {
+			"current": "this minute",
+			"past": "{0} دَقه پیش",
+			"future": "{0} دَقه دله"
+		},
+		"second": {
+			"current": "now",
+			"past": "{0} ثانیه پیش",
+			"future": "{0} ثانیه دله"
+		}
+	},
+	"narrow": {
+		"year": {
+			"previous": "پارسال",
+			"current": "امسال",
+			"next": "سال دیگه",
+			"past": "{0} سال پیش",
+			"future": "{0} سال دله"
+		},
+		"quarter": {
+			"previous": "last quarter",
+			"current": "this quarter",
+			"next": "next quarter",
+			"past": "{0} ربع پیش",
+			"future": "{0} ربع دله"
+		},
+		"month": {
+			"previous": "ماه قبل",
+			"current": "این ماه",
+			"next": "ماه ِبعد",
+			"past": "{0} ماه پیش",
+			"future": "{0} ماه دله"
+		},
+		"week": {
+			"previous": "قبلی هفته",
+			"current": "این هفته",
+			"next": "بعدی هفته",
+			"past": "{0} هفته پیش",
+			"future": "{0} هفته دله"
+		},
+		"day": {
+			"previous": "دیروز",
+			"current": "اَمروز",
+			"next": "فِردا",
+			"past": "{0} روز پیش",
+			"future": "{0} روز دله"
+		},
+		"hour": {
+			"current": "this hour",
+			"past": "{0} ساعت پیش",
+			"future": "{0} ساعت دله"
+		},
+		"minute": {
+			"current": "this minute",
+			"past": "{0} دَقه پیش",
+			"future": "{0} دَقه دله"
+		},
+		"second": {
+			"current": "now",
+			"past": "{0} ثانیه پیش",
+			"future": "{0} ثانیه دله"
+		}
+	}
+}
