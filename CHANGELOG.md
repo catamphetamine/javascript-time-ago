@@ -1,5 +1,9 @@
 <!--
-TO DO: Steps' `format()` function now always receives a `Date` as the first argument.
+TO DO: Maybe create a "dummy" `time-ago-js` package that would simply re-export `javascript-time-ago`.
+
+TO DO: Added the ability to use native `Intl.RelativeTimeFormat` instead of the polyfill.
+
+TO DO: (maybe, or maybe not) Steps' `format()` function now always receives a `Date` as the first argument (or maybe a `number` timestamp is better for most cases).
 
 TO DO: Maybe remove `granularity` property of steps ("Perhaps this feature will be removed because there seem to be no use cases of it in the real world" in the readme).
 
@@ -29,13 +33,16 @@ TO DO: if `style` is passed as an object then maybe it should be passed as part 
 
 * Added `"twitter-first-minute"` style: same as `"twitter"` but doesn't output anything before the first minute. This is how `"twitter"` style worked initially.
 
+* Added `getTimeToNextUpdate` feature (see README).
 
 
-* Updated `relative-time-format` to the latest version.
 
-* Added the ability to use native `Intl.RelativeTimeFormat` instead of the polyfill.
 
-Брать quantify из relative-time-format
+* Updated `relative-time-format` to the latest version: `0.1.x` -> `1.0.0`.
+
+
+
+
 
 2.1.5 / 07.10.2020
 ==================

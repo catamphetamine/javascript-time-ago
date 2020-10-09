@@ -513,6 +513,30 @@ describe(`javascript-time-ago`, () => {
 
 		english['mini-time'].second = secondLabels
 	})
+
+	it('should get time to next update', () => {
+		const timeAgo = new TimeAgo('en')
+		const now = Date.now()
+		timeAgo.format(now + 1000, 'twitter', {
+			getTimeToNextUpdate: true,
+			now
+		}).should.deep.equal([
+			'1s',
+			500
+		])
+	})
+
+	it('should pass `formatAs()` in `step.format()`', () => {
+		const timeAgo = new TimeAgo('en')
+		timeAgo.format(Date.now(), {
+			labels: 'long',
+			steps: [{
+				format(date, locale, { formatAs }) {
+					return formatAs('second', 1)
+				}
+			}]
+		}).should.equal('in 1 second')
+	})
 })
 
 export function approximateScaleStepsTest(labels, timeAgo, style = {}) {

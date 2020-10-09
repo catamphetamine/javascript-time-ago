@@ -4,6 +4,7 @@ import Cache from './cache'
 import chooseLocale from './locale'
 import getStep from './steps/getStep'
 import getStepDenominator from './steps/getStepDenominator'
+import getTimeToNextUpdate from './steps/getTimeToNextUpdate'
 
 import {
 	addLocaleData,
@@ -58,11 +59,15 @@ export default class TimeAgo {
 	/**
 	 * Formats relative date/time.
 	 *
+	 * @param {number} [options.now] - Sets the current date timestamp.
+	 *
 	 * @param  {boolean} [options.future] — Tells how to format value `0`:
 	 *         as "future" (`true`) or "past" (`false`).
 	 *         Is `false` by default, but should have been `true` actually,
 	 *         in order to correspond to `Intl.RelativeTimeFormat`
 	 *         that uses `future` formatting for `0` unless `-0` is passed.
+	 *
+	 * @param {boolean} [options.getTimeToNextUpdate] — Pass `true` to return `[formattedDate, timeToNextUpdate]` instead of just `formattedDate`.
 	 *
 	 * @return {string} The formatted relative date/time. If no eligible `step` is found, then an empty string is returned.
 	 */
@@ -77,18 +82,28 @@ export default class TimeAgo {
 		// "flavour" is a legacy name for "labels".
 		const { labels, labelsType } = this.getLabels(style.flavour || style.labels)
 
+		let now
 		// Can pass a custom `now`, e.g. for testing purposes.
-		// Technically it doesn't belong to `style`
-		// but since this is an undocumented internal feature,
-		// taking it from the `style` argument will do (for now).
-		const now = style.now === undefined ? Date.now() : style.now
+		//
+		// Legacy way was passing `now` in `style`.
+		// That way is deprecated.
+		if (style.now !== undefined) {
+			now = style.now
+		}
+		// The new way is passing `now` option to `.format()`.
+		if (now === undefined && options.now !== undefined) {
+			now = options.now
+		}
+		if (now === undefined) {
+			now = Date.now()
+		}
 
 		// how much time has passed (in seconds)
 		const secondsPassed = (now - time) / 1000 // in seconds
 
 		const future = options.future || secondsPassed < 0
 
-		const nowMessage = getNowMessage(
+		const nowLabel = getNowLabel(
 			labels,
 			getLocaleData(this.locale).now,
 			getLocaleData(this.locale).long,
@@ -116,41 +131,82 @@ export default class TimeAgo {
 				locale: this.locale
 			})
 			if (custom !== undefined) {
+				// Won't return `timeToNextUpdate` here
+				// because `custom()` seems deprecated.
 				return custom
 			}
 		}
 
-		// Available time interval measurement units.
+		// Get the list of available time interval units.
 		const units = getTimeIntervalMeasurementUnits(
+			// Controlling `style.steps` through `style.units` seems to be deprecated:
+			// create a new custom `style` instead.
 			style.units,
 			labels,
-			nowMessage
+			nowLabel
 		)
 
-		// If no available time unit is suitable, just output an empty string.
-		if (units.length === 0) {
-			console.error(`Units "${units.join(', ')}" were not found in locale data for "${this.locale}".`)
-			return ''
-		}
+		// // If no available time unit is suitable, just output an empty string.
+		// if (units.length === 0) {
+		// 	console.error(`None of the "${units.join(', ')}" time units have been found in "${labelsType}" labels for "${this.locale}" locale.`)
+		// 	return ''
+		// }
 
 		// Choose the appropriate time measurement unit
 		// and get the corresponding rounded time amount.
-		const step = getStep(
+		const [step, nextStep] = getStep(
 			// "gradation" is a legacy name for "steps".
 			// For historical reasons, "approximate" steps are used by default.
 			// In the next major version, there'll be no default for `steps`.
 			style.gradation || style.steps || defaultStyle.gradation,
 			secondsPassed,
-			{ now, units, future }
+			{ now, units, future, getNextStep: true }
 		)
 
+		const formattedDate = this.formatDateForStep(date || time, step, secondsPassed, {
+			labels,
+			labelsType,
+			nowLabel,
+			now,
+			future
+		}) || ''
+
+		if (options.getTimeToNextUpdate) {
+			const timeToNextUpdate = step && getTimeToNextUpdate(date || time, step, {
+				nextStep,
+				now,
+				future
+			})
+			return [formattedDate, timeToNextUpdate]
+		}
+
+		return formattedDate
+	}
+
+	formatDateForStep(dateOrTimestamp, step, secondsPassed, {
+		labels,
+		labelsType,
+		nowLabel,
+		now,
+		future
+	}) {
 		// If no step matches, then output an empty string.
 		if (!step) {
-			return ''
+			return
 		}
 
 		if (step.format) {
-			return step.format(date || time, this.locale)
+			return step.format(dateOrTimestamp, this.locale, {
+				formatAs: (unit, value) => {
+					// Mimicks `Intl.RelativeTimeFormat.format()`.
+					return this.formatValue(value, unit, {
+						labels,
+						future
+					})
+				},
+				now,
+				future
+			})
 		}
 
 		// "unit" is now called "formatAs".
@@ -159,7 +215,7 @@ export default class TimeAgo {
 		// `Intl.RelativeTimeFormat` doesn't operate in "now" units.
 		// Therefore, threat "now" as a special case.
 		if (unit === 'now') {
-			return nowMessage
+			return nowLabel
 		}
 
 		// Amount in units.
@@ -388,7 +444,7 @@ function isMockedDate(object) {
 }
 
 // Get available time interval measurement units.
-function getTimeIntervalMeasurementUnits(allowedUnits, labels, nowMessage) {
+function getTimeIntervalMeasurementUnits(allowedUnits, labels, nowLabel) {
 	// Get all time interval measurement units that're available
 	// in locale data for a given time labels style.
 	let units = Object.keys(labels)
@@ -397,7 +453,7 @@ function getTimeIntervalMeasurementUnits(allowedUnits, labels, nowMessage) {
 	// `now.json` isn't present for all locales, so it could be substituted with
 	// ".second.current".
 	// Add `now` unit if it's available in locale data.
-	if (nowMessage) {
+	if (nowLabel) {
 		units.push('now')
 	}
 
@@ -423,7 +479,7 @@ function getTimeIntervalMeasurementUnits(allowedUnits, labels, nowMessage) {
 	return units
 }
 
-function getNowMessage(labels, nowLabels, longLabels, future) {
+function getNowLabel(labels, nowLabels, longLabels, future) {
 	const nowLabel = labels.now || (nowLabels && nowLabels.now)
 	// Specific "now" message form extended locale data (if present).
 	if (nowLabel) {

@@ -56,23 +56,27 @@ const monthAndDay = {
 		}
 		// Output month and day.
 		return formatters[locale].this_year.format(getDate(value))
+	},
+	getTimeToNextUpdate(date, { now, future }) {
+		const nextYear = new Date(new Date(now).getFullYear() + 1, 0)
+		return nextYear.getTime() - now
 	}
 }
 
 // If the `date` happened/happens outside of current year,
 // then output day, month and year.
 const yearMonthAndDay = {
-	test(date, { now, future }) {
+	test(timestamp, { now, future }) {
 		if (future) {
 			// Jan 1st 00:00 of the next year.
-			const nextYear = new Date(now.getFullYear() + 1, 0)
+			const nextYear = new Date(new Date(now).getFullYear() + 1, 0)
 			// If the `date` is future year.
-			return date.getTime() > nextYear.getTime()
+			return timestamp > nextYear.getTime()
 		} else {
 			// Jan 1st 00:00 of the this year.
-			const thisYear = new Date(now.getFullYear(), 0)
+			const thisYear = new Date(new Date(now).getFullYear(), 0)
 			// If the `date` is past year.
-			return date.getTime() < thisYear.getTime()
+			return timestamp < thisYear.getTime()
 		}
 	},
 	format(value, locale) {
@@ -91,6 +95,10 @@ const yearMonthAndDay = {
 		}
 		// Output day, month and year.
 		return formatters[locale].other.format(getDate(value))
+	},
+	getTimeToNextUpdate() {
+		// Doesn't need to be updated.
+		return 1000 * year
 	}
 }
 

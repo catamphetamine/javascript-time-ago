@@ -1,0 +1,32 @@
+export type StyleName = 'round' | 'round-minute' | 'approximate' | 'time' | 'twitter' | 'twitter-first-minute'
+
+export interface Step {
+	formatAs?: string,
+	minTime?: number,
+	format?(date: typeof Date | number, locale: string, {
+		formatAs(unit: string, value: number): string,
+		now: number,
+		future: boolean
+	}): string?,
+	getTimeToNextUpdate?(date: typeof Date | number, {
+		getTimeToNextUpdateForUnit(unit: string): number,
+		now: number,
+		future: boolean
+	}): number
+}
+
+export interface Style {
+	steps: Step[],
+	labels: string | string[]
+}
+
+interface FormatOptions {
+	now?: number,
+	future?: boolean,
+	getTimeToNextUpdate?: boolean
+}
+
+export default class TimeAgo {
+  constructor(locale: string | string[]);
+  format(date: typeof Date | number, style?: StyleName | Style, options?: FormatOptions): string | [string, number?];
+}

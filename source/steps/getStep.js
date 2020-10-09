@@ -16,13 +16,26 @@ import getStepDenominator from './getStepDenominator'
  * @param {string[]} [options.units] - A list of allowed time units.
  *                                     (Example: ['second', 'minute', 'hour', …])
  *
- * @return {Object} [step]
+ * @param {boolean} [options.getNextStep] - Pass true to return `[step, nextStep]` instead of just `step`.
+ *
+ * @return {Object|Object[]} [step] — Either a `step` or `[step, nextStep]`.
  */
-export default function getStep(steps, secondsPassed, { now, future, units }) {
+export default function getStep(steps, secondsPassed, { now, future, units, getNextStep }) {
 	// Leave only allowed time measurement units.
 	// E.g. omit "quarter" unit.
 	steps = filterStepsByUnits(steps, units)
+	const step = _getStep(steps, secondsPassed, { now, future })
+	if (getNextStep) {
+		if (step) {
+			const nextStep = steps[steps.indexOf(step) + 1]
+			return [step, nextStep]
+		}
+		return []
+	}
+	return step
+}
 
+function _getStep(steps, secondsPassed, { now, future }) {
 	// If no steps fit the conditions then return nothing.
 	if (steps.length === 0) {
 		return
@@ -111,9 +124,8 @@ function getThresholdForTransition(fromStep, toStep, secondsPassed, options) {
 	if (threshold === undefined) {
 		if (toStep.test) {
 			const { now, future } = options
-			const date = new Date(now - secondsPassed * 1000)
-			if (toStep.test(date, {
-				now: new Date(now),
+			if (toStep.test(now - secondsPassed * 1000, {
+				now,
 				future
 			})) {
 				// `0` threshold always passes.

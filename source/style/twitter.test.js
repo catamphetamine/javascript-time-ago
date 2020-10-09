@@ -116,4 +116,22 @@ describe('style/twitter', () => {
 	//
 	// 	Intl.DateTimeFormat = DateTimeFormat
 	// })
+
+	it('should support timestamp argument on `yearMonthAndDay.test()`', () => {
+		const timeAgo = new TimeAgo('en')
+		timeAgo.format(0, 'twitter').should.equal('Jan 1, 1970')
+	})
+
+	it('should return time to next update', () => {
+		const timeAgo = new TimeAgo('en')
+		const now = new Date(2016, 3, 10, 22, 59).getTime()
+		timeAgo.format(now + day * 1000, 'twitter', { now, getTimeToNextUpdate: true }).should.deep.equal([
+			'Apr 11',
+			22899660000 // The next update is in about 265 days.
+		])
+		timeAgo.format(0, 'twitter', { getTimeToNextUpdate: true }).should.deep.equal([
+			'Jan 1, 1970',
+			1000 * year // The next update is practically "never".
+		])
+	})
 })

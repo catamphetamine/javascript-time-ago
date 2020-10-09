@@ -19,7 +19,7 @@ Examples:
   * in 5 years
   * …
 
-For React users, there's a [React component](https://catamphetamine.gitlab.io/react-time-ago/).
+For React users, there's a [React component](https://www.npmjs.com/package/react-time-ago).
 
 This is a readme for version `2.x`. For older versions, [see version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). For migrating from version `1.x` to version `2.x`, see a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md).
 
@@ -455,11 +455,13 @@ Alternatively to `minTime`, a step may specify a `test()` function:
 
 ```js
 test(
-  date: Date, // The date that was passed to `.format()`, converted to `Date`.
+  date: number, // The date argument, converted to a timestamp.
+
   {
-    now: Date, // The current `Date`.
-    future: boolean // Is `true` if `date > now`, or if `date === now`
-                    // and `future: true` option was passed to `.format()`.
+    now: number,     // The current date timestamp.
+
+    future: boolean  // Is `true` if `date > now`, or if `date === now`
+                     // and `future: true` option was passed to `.format()`.
   }
 ): boolean
 ```
@@ -468,24 +470,25 @@ Alternatively to `formatAs`, a step may specify a `format()` function:
 
 ```js
 format(
-  date: (Date|number), // The date argument as it has been passed to `.format()`:
+  date: (Date|number), // The date argument, as it has been passed to `.format()`:
                        // either a `Date` or a `number`.
-                       // It's not converted to a `Date` for legacy compatibility
-                       // with the old versions of this library.
-                       // It will be converted to `Date` in the next major version.
-                       // For now, use something like this:
+                       // Converting it to `Date`:
                        // `date = typeof date === 'number' ? new Date(date) : date`
+                       // Converting it to timestamp:
+                       // `const timestamp = date.getTime ? date.getTime() : date`
 
-  locale: string, // The currently selected language. Example: "en".
+  locale: string,      // The currently selected language. Example: "en".
 
   {
-    formatAs(unit: string, value: number): string, // A function that could be used
-                                                   // to format `value` in `unit`s.
-                                                   // Example: `formatAs('second', -2)`
-                                                   // Outputs: "2 seconds ago"
+    formatAs(unit: string, value: number): string,
+                       // A function that could be used to format `value` in `unit`s.
+                       // Example: `formatAs('second', -2)`
+                       // Outputs: "2 seconds ago"
 
-    future: boolean // Is `true` if `date > now`, or if `date === now`
-                    // and `future: true` option was passed to `.format()`.
+    now: number,       // The current date timestamp.
+
+    future: boolean    // Is `true` if `date > now`, or if `date === now`
+                       // and `future: true` option was passed to `.format()`.
   }
 ): string?
 ```
@@ -588,6 +591,66 @@ timeAgo.format(Date.now() + 5 * 60 * 1000, 'round', { future: true })
 // "in 5 minutes" (no difference)
 ```
 
+## Now
+
+The `.format()` function accepts an optional `now: number` option: this can be used to specify the exact time interval when running tests.
+
+```js
+timeAgo.format(60 * 1000, 'round', { now: 0 })
+// "1 minute ago"
+```
+
+## Update Interval
+
+When speaking of good User Experience ("UX"), a formatted relative date, once rendered, should be constantly refreshed. And for that, the application should know how often should it refresh the formatted date. For that, each `step` should provide an update interval.
+
+When a `step` has `formatAs` configured, then `getTimeToNextUpdate()` function is created automatically for it. Otherwise, a developer should supply their own `getTimeToNextUpdate()` function for a `step`.
+
+```js
+getTimeToNextUpdate(
+  date: (Date|number), // The date argument, as it has been passed to `.format()`:
+                       // either a `Date` or a `number`.
+                       // Converting it to `Date`:
+                       // `date = typeof date === 'number' ? new Date(date) : date`
+                       // Converting it to timestamp:
+                       // `const timestamp = date.getTime ? date.getTime() : date`
+
+  {
+    getTimeToNextUpdateForUnit(unit: string): number,
+                       // Returns an update interval for a time unit.
+                       // This is what the library calls internally
+                       // when `formatAs` is configured for a `step`.
+                       // Example: `getTimeToNextUpdateForUnit('minute')`
+
+    now: number,       // The current date timestamp.
+
+    future: boolean    // Is `true` if `date > now`, or if `date === now`
+                       // and `future: true` option was passed to `.format()`.
+  }
+): number?
+```
+
+The application can then call the exported `getTimeToNextUpdate()` function to determine the best time to update the relative date label.
+
+```js
+import TimeAgo, { getTimeToNextUpdate } from 'javascript-time-ago'
+
+const timeAgo = new TimeAgo('en-US')
+
+let output
+let updateTimer
+
+function render() {
+  const [formattedDate, timeToNextUpdate] = timeAgo.format(date, 'round', {
+    getTimeToNextUpdate: true
+  })
+  output = formattedDate
+  // The returned `timeToNextUpdate` may be `undefined`,
+  // so provide a sensible default.
+  updateTimer = setTimeout(render, timeToNextUpdate || 60 * 1000)
+}
+```
+
 ## Default Locale
 
 The "default locale" is the locale used when none of the locales passed to `new TimeAgo()` constructor are supported. By default, the "default locale" is `"en"`.
@@ -615,7 +678,7 @@ This library uses an [`Intl.RelativeTimeFormat`](https://www.npmjs.com/package/r
 
 ## React
 
-There is also a [React component](https://catamphetamine.gitlab.io/react-time-ago/) built upon this library, that autorefreshes itself.
+There is also a [React component](https://www.npmjs.com/package/react-time-ago) built upon this library, that autorefreshes itself.
 
 ## Intl
 
