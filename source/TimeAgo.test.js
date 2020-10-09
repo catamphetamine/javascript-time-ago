@@ -537,6 +537,21 @@ describe(`javascript-time-ago`, () => {
 			}]
 		}).should.equal('in 1 second')
 	})
+
+	it('should support `polyfill: false` option', () => {
+		const timeAgo = new TimeAgo('en', { polyfill: false })
+		// Still uses "now" labels, even when not polyfilled.
+		timeAgo.format(Date.now(), 'round').should.equal('just now')
+		timeAgo.format(Date.now() + 1000, 'round').should.equal('in 1 second')
+	})
+
+	it('should not use Intl.NumberFormat if it is not available', () => {
+		const Intl = global.Intl
+		global.Intl = undefined
+		const timeAgo = new TimeAgo('en')
+		timeAgo.format(Date.now() + 1000, 'round').should.equal('in 1 second')
+		global.Intl = Intl
+	})
 })
 
 export function approximateScaleStepsTest(labels, timeAgo, style = {}) {

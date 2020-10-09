@@ -1,4 +1,4 @@
-import RelativeTimeFormat from 'relative-time-format'
+import RelativeTimeFormatPolyfill from 'relative-time-format'
 
 import Cache from './cache'
 import chooseLocale from './locale'
@@ -32,8 +32,9 @@ const UNITS = [
 export default class TimeAgo {
 	/**
 	 * @param {(string|string[])} locales=[] - Preferred locales (or locale).
+	 * @param {boolean} [polyfill] — Pass `false` to use native `Intl.RelativeTimeFormat` and `Intl.PluralRules` instead of the polyfills.
 	 */
-	constructor(locales = []) {
+	constructor(locales = [], { polyfill } = {}) {
 		// Convert `locales` to an array.
 		if (typeof locales === 'string') {
 			locales = [locales]
@@ -43,13 +44,27 @@ export default class TimeAgo {
 		// from the list of `locales` added by the user.
 		// For example, new TimeAgo("en-US") -> "en".
 		this.locale = chooseLocale(
-			locales.concat(RelativeTimeFormat.getDefaultLocale()),
+			locales.concat(TimeAgo.getDefaultLocale()),
 			getLocaleData
 		)
 
-		// Use `Intl.NumberFormat` for formatting numbers (when available).
-		if (typeof Intl !== 'undefined' && Intl.NumberFormat) {
-			this.numberFormat = new Intl.NumberFormat(this.locale)
+		if (typeof Intl !== 'undefined') {
+			// Use `Intl.NumberFormat` for formatting numbers (when available).
+			if (Intl.NumberFormat) {
+				this.numberFormat = new Intl.NumberFormat(this.locale)
+			}
+		}
+
+		// Some people have requested the ability to use native
+		// `Intl.RelativeTimeFormat` and `Intl.PluralRules`
+		// instead of the polyfills.
+		// https://github.com/catamphetamine/javascript-time-ago/issues/21
+		if (polyfill === false) {
+			this.IntlRelativeTimeFormat = Intl.RelativeTimeFormat
+			this.IntlPluralRules = Intl.PluralRules
+		} else {
+			this.IntlRelativeTimeFormat = RelativeTimeFormatPolyfill
+			this.IntlPluralRules = RelativeTimeFormatPolyfill.PluralRules
 		}
 
 		// Cache `Intl.RelativeTimeFormat` instance.
@@ -332,7 +347,7 @@ export default class TimeAgo {
 		// `Intl.RelativeTimeFormat` instance creation is (hypothetically) assumed
 		// a lengthy operation so the instances are cached and reused.
 		return this.relativeTimeFormatCache.get(this.locale, labelsType) ||
-			this.relativeTimeFormatCache.put(this.locale, labelsType, new RelativeTimeFormat(this.locale, { style: labelsType }))
+			this.relativeTimeFormatCache.put(this.locale, labelsType, new this.IntlRelativeTimeFormat(this.locale, { style: labelsType }))
 	}
 
 	/**
@@ -343,7 +358,7 @@ export default class TimeAgo {
 		// `Intl.PluralRules` instance creation is (hypothetically) assumed
 		// a lengthy operation so the instances are cached and reused.
 		return this.pluralRulesCache.get(this.locale) ||
-			this.pluralRulesCache.put(this.locale, new RelativeTimeFormat.PluralRules(this.locale))
+			this.pluralRulesCache.put(this.locale, new this.IntlPluralRules(this.locale))
 	}
 
 
@@ -383,13 +398,13 @@ export default class TimeAgo {
  * Gets default locale.
  * @return  {string} locale
  */
-TimeAgo.getDefaultLocale = RelativeTimeFormat.getDefaultLocale
+TimeAgo.getDefaultLocale = RelativeTimeFormatPolyfill.getDefaultLocale
 
 /**
  * Sets default locale.
  * @param  {string} locale
  */
-TimeAgo.setDefaultLocale = RelativeTimeFormat.setDefaultLocale
+TimeAgo.setDefaultLocale = RelativeTimeFormatPolyfill.setDefaultLocale
 
 /**
  * Adds locale data for a specific locale.
@@ -397,7 +412,7 @@ TimeAgo.setDefaultLocale = RelativeTimeFormat.setDefaultLocale
  */
 TimeAgo.addLocale = function(localeData) {
 	addLocaleData(localeData)
-	RelativeTimeFormat.addLocale(localeData)
+	RelativeTimeFormatPolyfill.addLocale(localeData)
 }
 
 /**

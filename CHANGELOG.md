@@ -1,7 +1,4 @@
 <!--
-TO DO: Add the ability to use the native `Intl.RelativeTimeFormat` and `Intl.PluralRules` and not import any locale data (except for maybe doing `TimeAgo.addLabels('en', 'now', require('javascript-time-ago/locale/en/now.json')`).
-https://github.com/catamphetamine/javascript-time-ago/issues/21
-
 TO DO: Change the export of the bundle: current — `new window['javascript-time-ago'].default()`, a more appropriate one — `new TimeAgo()`. Actually, would it even work in a browser? And will also including `relative-time-format` be required. Maybe add a "CDN" secition in the README (and a note in the "Install" section).
 
 TO DO: Maybe create a "dummy" `time-ago-js` package that would simply re-export `javascript-time-ago`.

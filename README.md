@@ -676,6 +676,12 @@ const object = cache.get('key1', 'key2', ...) || cache.put('key1', 'key2', ..., 
 
 This library uses an [`Intl.RelativeTimeFormat`](https://www.npmjs.com/package/relative-time-format) polyfill under the hood.
 
+Some people have [requested](https://github.com/catamphetamine/javascript-time-ago/issues/21) the ability to use native [`Intl.RelativeTimeFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) and [`Intl.PluralRules`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules) instead of the polyfills: in this case, pass `polyfill: false` option when creating a `TimeAgo` instance.
+
+```js
+new TimeAgo('en-US', { polyfill: false })
+```
+
 ## React
 
 There is also a [React component](https://www.npmjs.com/package/react-time-ago) built upon this library, that autorefreshes itself.
