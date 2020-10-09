@@ -635,19 +635,30 @@ The application can then pass `getTimeToNextUpdate: true` option to `.format()` 
 ```js
 const timeAgo = new TimeAgo('en-US')
 
-let output
 let updateTimer
 
 function render() {
+  // Format the date.
   const [formattedDate, timeToNextUpdate] = timeAgo.format(date, 'round', {
     getTimeToNextUpdate: true
   })
-  output = formattedDate
-  // The returned `timeToNextUpdate` may be `undefined`,
-  // so provide a sensible default.
-  updateTimer = setTimeout(render, timeToNextUpdate || 60 * 1000)
+  // Update the label.
+  setFormattedDate(formattedDate)
+  // Schedule next render.
+  // `timeToNextUpdate` may be `undefined`, so provide a sensible default.
+  updateTimer = setTimeout(render, getSafeTimeoutInterval(timeToNextUpdate || 60 * 1000))
+}
+
+// `setTimeout()` has a bug where it fires immediately
+// when the interval is longer than about `24.85` days.
+// https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values
+const SET_TIMEOUT_MAX_SAFE_INTERVAL = 2147483647
+function getSafeTimeoutInterval(interval) {
+  return Math.min(interval, SET_TIMEOUT_MAX_SAFE_INTERVAL)
 }
 ```
+
+Notice that `setTimeout()` has a bug where it [fires immediately](https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values) when the interval is longer than about `24.85` days, so the interval should not exceed that number. Otherwise, it will result in an infinite recursion.
 
 ## Default Locale
 
