@@ -689,7 +689,7 @@ There is also a [React component](https://www.npmjs.com/package/react-time-ago) 
 
 (this is an "advanced" section)
 
-[`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object is not required for this library, but, for example, if you choose to use the built-in `twitter` style then it will fall back to the default style if `Intl` is not available.
+[`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) global object is not required for this library, but, for example, if you choose to use the built-in `twitter` style then it will format longer intervals as `1d`, `1mo`, `1yr` instead of `Apr 10` or `Apr 10, 2019` if `Intl` is not available: that's because it uses `Intl.DateTimeFormat` for formatting absolute dates.
 
 `Intl` is present in all modern web browsers and is absent from some of the old ones: [Internet Explorer 10, Safari 9 and iOS Safari 9.x](http://caniuse.com/#search=intl) (which can be solved using [`Intl` polyfill](https://github.com/andyearnshaw/Intl.js)).
 
