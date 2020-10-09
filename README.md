@@ -593,7 +593,7 @@ timeAgo.format(Date.now() + 5 * 60 * 1000, 'round', { future: true })
 
 ## Now
 
-The `.format()` function accepts an optional `now: number` option: this can be used to specify the exact time interval when running tests.
+The `.format()` function accepts an optional `now: number` option: it can be used in tests to specify the exact "base" timestamp relative to which the time interval will be calculated.
 
 ```js
 timeAgo.format(60 * 1000, 'round', { now: 0 })
@@ -617,7 +617,7 @@ getTimeToNextUpdate(
 
   {
     getTimeToNextUpdateForUnit(unit: string): number,
-                       // Returns an update interval for a time unit.
+                       // Returns "time to next update" for a time unit.
                        // This is what the library calls internally
                        // when `formatAs` is configured for a `step`.
                        // Example: `getTimeToNextUpdateForUnit('minute')`
@@ -630,11 +630,9 @@ getTimeToNextUpdate(
 ): number?
 ```
 
-The application can then call the exported `getTimeToNextUpdate()` function to determine the best time to update the relative date label.
+The application can then pass `getTimeToNextUpdate: true` option to `.format()` to get the best time to update the relative date label.
 
 ```js
-import TimeAgo, { getTimeToNextUpdate } from 'javascript-time-ago'
-
 const timeAgo = new TimeAgo('en-US')
 
 let output
@@ -676,7 +674,8 @@ const object = cache.get('key1', 'key2', ...) || cache.put('key1', 'key2', ..., 
 
 This library uses an [`Intl.RelativeTimeFormat`](https://www.npmjs.com/package/relative-time-format) polyfill under the hood.
 
-Some people have [requested](https://github.com/catamphetamine/javascript-time-ago/issues/21) the ability to use native [`Intl.RelativeTimeFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) and [`Intl.PluralRules`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules) instead of the polyfills: in this case, pass `polyfill: false` option when creating a `TimeAgo` instance.
+Some people have
+ [requested](https://github.com/catamphetamine/javascript-time-ago/issues/21) the ability to use native [`Intl.RelativeTimeFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) and [`Intl.PluralRules`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules) instead of the polyfills: in this case, pass `polyfill: false` option when creating a `TimeAgo` instance.
 
 ```js
 new TimeAgo('en-US', { polyfill: false })

@@ -395,16 +395,33 @@ export default class TimeAgo {
 }
 
 /**
+ * Default locale global variable.
+ */
+// In some future major version, when importing the polyfill will be optional,
+// the default locale will be stored in the global variable.
+// let defaultLocale = RelativeTimeFormatPolyfill.getDefaultLocale()
+
+/**
  * Gets default locale.
  * @return  {string} locale
  */
-TimeAgo.getDefaultLocale = RelativeTimeFormatPolyfill.getDefaultLocale
+TimeAgo.getDefaultLocale = () => {
+	// In some future major version, when importing the polyfill will be optional,
+	// the default locale will be stored in the global variable.
+	// return defaultLocale
+	return RelativeTimeFormatPolyfill.getDefaultLocale()
+}
 
 /**
  * Sets default locale.
  * @param  {string} locale
  */
-TimeAgo.setDefaultLocale = RelativeTimeFormatPolyfill.setDefaultLocale
+TimeAgo.setDefaultLocale = (locale) => {
+	// In some future major version, when importing the polyfill will be optional,
+	// the default locale will be stored in the global variable.
+	// defaultLocale = locale
+	RelativeTimeFormatPolyfill.setDefaultLocale(locale)
+}
 
 /**
  * Adds locale data for a specific locale.
