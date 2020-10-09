@@ -672,7 +672,7 @@ const object = cache.get('key1', 'key2', ...) || cache.put('key1', 'key2', ..., 
 
 ## Localization internals
 
-This library uses an [`Intl.RelativeTimeFormat`](https://www.npmjs.com/package/relative-time-format) polyfill under the hood.
+This library uses an [`Intl.RelativeTimeFormat`](https://www.npmjs.com/package/relative-time-format) polyfill under the hood. The polyfill is only [`3.5 kB`](https://github.com/tc39/proposal-intl-relative-time#polyfills) in size so it won't affect the total bundle size.
 
 Some people have
  [requested](https://github.com/catamphetamine/javascript-time-ago/issues/21) the ability to use native [`Intl.RelativeTimeFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) and [`Intl.PluralRules`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules) instead of the polyfills: in this case, pass `polyfill: false` option when creating a `TimeAgo` instance.
