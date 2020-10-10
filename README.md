@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/javascript-time-ago.svg?style=flat-square)](https://www.npmjs.com/package/javascript-time-ago)
 [![coverage](https://img.shields.io/coveralls/catamphetamine/javascript-time-ago/master.svg?style=flat-square)](https://coveralls.io/r/catamphetamine/javascript-time-ago?branch=master)
 
-Intelligent, international, higly customizable relative date/time formatter (both for past and future dates).
+Localized relative date/time formatting (both for past and future dates).
 
 Automatically chooses the right units (seconds, minutes, etc) to format a time interval.
 
@@ -19,7 +19,7 @@ Examples:
   * in 5 years
   * …
 
-For React users, there's a [React component](https://www.npmjs.com/package/react-time-ago).
+For React users, there's a [React version](https://www.npmjs.com/package/react-time-ago) — [See Demo](https://catamphetamine.gitlab.io/react-time-ago/)
 
 This is a readme for version `2.x`. For older versions, [see version `1.x` readme](https://github.com/catamphetamine/javascript-time-ago/tree/1.x). For migrating from version `1.x` to version `2.x`, see a [migration guide](https://github.com/catamphetamine/javascript-time-ago/blob/master/MIGRATION.md).
 
@@ -39,7 +39,7 @@ import en from 'javascript-time-ago/locale/en'
 
 TimeAgo.addLocale(en)
 
-// Create formatter.
+// Create formatter (English).
 const timeAgo = new TimeAgo('en-US')
 
 // Format dates using "round" style.
@@ -64,7 +64,25 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'round')
 
 This library includes date/time formatting rules and labels for any language.
 
-No languages are loaded default: a developer must manually choose which languages should be loaded. The languages should be imported from [`javascript-time-ago/locale`](https://unpkg.com/browse/javascript-time-ago/locale/) and then added via `TimeAgo.addLocale(...)`. An example of using Russian language:
+No languages are loaded default: a developer must manually choose which languages should be loaded. Languages should be imported from [`javascript-time-ago/locale`](https://unpkg.com/browse/javascript-time-ago/locale/) and then added via `TimeAgo.addLocale(...)`.
+
+The `locale` argument of `new TimeAgo(locale)` constructor is matched against the list of added languages, and the first matching one is used. For example, locales `"en-US"` and `"en-GB"` both match `"en"` language. If none of the added languages match the `locale`, the "default language" is used. If the "default language" hasn't been added, an error is thrown.
+
+The "default language" is `"en"` by default, and can be set like:
+
+```js
+TimeAgo.setDefaultLocale('ru')
+```
+
+In some cases, a developer might prefer to specify a list of `locales` to choose from rather than a single `locale`:
+
+```js
+TimeAgo.addLocale(en)
+TimeAgo.addLocale(de)
+
+// "de" language will be used, as it's the first one to match.
+new TimeAgo(['ru-RU', 'de-DE', 'en-US'])
+```
 
 <!--
 If the resulting bundle size is of no concern (for example, when building a big enterprise application), or if the code is being run on server side (Node.js), then one can use this helper to load all available locales:
@@ -73,6 +91,8 @@ If the resulting bundle size is of no concern (for example, when building a big 
 require('javascript-time-ago/load-all-locales')
 ```
 -->
+
+An example of using Russian language:
 
 ```js
 import TimeAgo from 'javascript-time-ago'
@@ -203,6 +223,7 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
   * 2 years ago
   * …
 
+<!--
 ### Approximate
 
 `"approximate"` style is a legacy one that has been introduced in the early versions of this library. It's basically the same as `"round-minute"` with the difference that it rounds time in some cases:
@@ -309,6 +330,7 @@ timeAgo.format(Date.now() - 3 * 60 * 1000, 'approximate-time')
   * …
 
 Not all locales support this style: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `long-time.json`.
+ -->
 
 ### Twitter
 
@@ -493,19 +515,21 @@ format(
 ): string?
 ```
 
-#### Built-in `steps`
+<!--
+##### Built-in `steps`
 
-`/steps` export provides a couple of built-in "steps" that can be used when creating custom styles.
+`/steps` export provides some built-in "steps" that can be used when creating custom styles.
 
 ```js
-import { round, approximate } from 'javascript-time-ago/steps'
+import { round } from 'javascript-time-ago/steps'
 ```
 
 * [`"round"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/round.js) — The `steps` used in the [`"round"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/round.js) style.
+-->
 
-* [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/approximate.js) — (legacy) The `steps` used in the [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/approximate.js) style.
+<!-- * [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/steps/approximate.js) — (legacy) The `steps` used in the [`"approximate"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/approximate.js) style. -->
 
-#### Time unit constants
+##### Time unit constants
 
 <!-- The `/steps` export provides a few utility time unit constants.  --><!-- and functions. -->
 
@@ -660,14 +684,6 @@ function getSafeTimeoutInterval(interval) {
 
 Notice that `setTimeout()` has a bug where it [fires immediately](https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values) when the interval is longer than about `24.85` days, so the interval should not exceed that number. Otherwise, it will result in an infinite recursion.
 
-## Default Locale
-
-The "default locale" is the locale used when none of the locales passed to `new TimeAgo()` constructor are supported. By default, the "default locale" is `"en"`.
-
-```js
-TimeAgo.setDefaultLocale('ru')
-```
-
 <!--
 ## Caching
 
@@ -694,7 +710,7 @@ new TimeAgo('en-US', { polyfill: false })
 
 ## React
 
-There is also a [React component](https://www.npmjs.com/package/react-time-ago) built upon this library, that autorefreshes itself.
+For React users, there's a [React version](https://www.npmjs.com/package/react-time-ago) — [See Demo](https://catamphetamine.gitlab.io/react-time-ago/).
 
 ## Intl
 
