@@ -1,6 +1,4 @@
 <!--
-TO DO: Change the export of the bundle: current — `new window['javascript-time-ago'].default()`, a more appropriate one — `new TimeAgo()`. Actually, would it even work in a browser? And will also including `relative-time-format` be required. Maybe add a "CDN" secition in the README (and a note in the "Install" section). Also remove the ".min" postfix.
-
 TO DO: Maybe create a "dummy" `time-ago-js` package that would simply re-export `javascript-time-ago`.
 
 TO DO: Added the ability to use native `Intl.RelativeTimeFormat` instead of the polyfill.

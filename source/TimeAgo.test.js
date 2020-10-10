@@ -31,8 +31,7 @@ describe(`javascript-time-ago`, () => {
 		timeAgo.format(Date.now(), { labels: 'long' }).should.equal('just now')
 	})
 
-	it(`should not use Intl.NumberFormat if it's not available`, () =>
-	{
+	it('should not use Intl.NumberFormat if it is not available', () => {
 		const NumberFormat = Intl.NumberFormat
 		delete Intl.NumberFormat
 		const timeAgo = new TimeAgo('en')
@@ -40,14 +39,12 @@ describe(`javascript-time-ago`, () => {
 		Intl.NumberFormat = NumberFormat
 	})
 
-	it(`should work when "past"/"future" messages are same for all quantifiers`, () =>
-	{
+	it('should work when "past"/"future" messages are same for all quantifiers', () => {
 		const timeAgo = new TimeAgo('en')
 		timeAgo.format(Date.now() + 365 * 24 * 60 * 60 * 1000, { labels: 'short' }).should.equal('in 1 yr.')
 	})
 
-	it(`should work when "now" is a string (doesn't differentiate between "past" and "future")`, () =>
-	{
+	it('should work when "now" is a string (does not differentiate between "past" and "future")', () => {
 		const timeAgo = new TimeAgo('en')
 		const englishNow = english.now
 		english.now = { now: 'now' }
@@ -302,7 +299,7 @@ describe(`javascript-time-ago`, () => {
 		approximateStyle)
 	})
 
-	it(`should format time correctly for Russian language (short)`, () =>
+	it('should format time correctly for Russian language (short)', () =>
 	{
 		approximateScaleStepsTest
 		([
@@ -367,7 +364,7 @@ describe(`javascript-time-ago`, () => {
 		{ labels: 'short' })
 	})
 
-	it(`should format time correctly for Russian language (long)`, () =>
+	it('should format time correctly for Russian language (long)', () =>
 	{
 		approximateScaleStepsTest
 		([
@@ -569,6 +566,14 @@ describe(`javascript-time-ago`, () => {
 				formatAs: 'second'
 			}]
 		}, { now: 0, future: true }).should.equal('in 0 seconds')
+	})
+
+	it('should throw if a step does not define `formatAs` or `format()`', () => {
+		const timeAgo = new TimeAgo('en')
+		expect(() => timeAgo.format(Date.now() + 1000, {
+			labels: 'long',
+			steps: [{}]
+		})).to.throw('Each step must define either `formatAs` or `format()`.')
 	})
 })
 

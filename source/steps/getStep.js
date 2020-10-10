@@ -153,7 +153,7 @@ function getThresholdForTransition(fromStep, toStep, secondsPassed, options) {
 		// so istanbul will show this as "branch not covered".
 		/* istanbul ignore next */
 		const type = typeof threshold
-		throw new Error(`Each step must have a \`minTime\` or \`test()\` defined except for the first one. Got "${threshold}", ${type}. Step: ${JSON.stringify(toStep)}`)
+		throw new Error(`[javascript-time-ago] Each step must define either \`minTime\` or \`test()\`, except for the first one. Got "${threshold}", ${type}. Step: ${JSON.stringify(toStep)}`)
 	}
 
 	return threshold

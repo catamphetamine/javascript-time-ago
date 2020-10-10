@@ -230,6 +230,10 @@ export default class TimeAgo {
 		// "unit" is now called "formatAs".
 		const unit = step.unit || step.formatAs
 
+		if (!unit) {
+			throw new Error(`[javascript-time-ago] Each step must define either \`formatAs\` or \`format()\`. Step: ${JSON.stringify(step)}`)
+		}
+
 		// `Intl.RelativeTimeFormat` doesn't operate in "now" units.
 		// Therefore, threat "now" as a special case.
 		if (unit === 'now') {
@@ -408,7 +412,7 @@ export default class TimeAgo {
 /**
  * Default locale global variable.
  */
-let defaultLocale
+let defaultLocale = 'en'
 
 /**
  * Gets default locale.

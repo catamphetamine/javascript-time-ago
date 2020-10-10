@@ -12,7 +12,7 @@ describe('getStep', () => {
 		expect(() => {
 			getStep([{ unit: 'second' }, { unit: 'minute' }], 2, { units: ['second', 'minute'] })
 		}).to.throw(
-			'Each step must have a `minTime` or `test()` defined except for the first one. Got "undefined", undefined. Step: {"unit":"minute"}'
+			'Each step must define either `minTime` or `test()`, except for the first one. Got "undefined", undefined. Step: {"unit":"minute"}'
 		)
 	})
 

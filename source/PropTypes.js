@@ -1,57 +1,45 @@
+// Deprecated: I think this should be moved to `react-time-ago`.
+
 import {
 	oneOfType,
 	arrayOf,
-	objectOf,
 	string,
 	number,
 	shape,
 	func
 } from 'prop-types'
 
-const min = oneOfType([
-	number,
-	func
-])
-
-const steps = arrayOf(oneOfType([
+// The first step isn't required to define `minTime` or `test()`.
+const step = oneOfType([
 	shape({
-		min: oneOfType([objectOf(min), min]),
-		// "threshold" has been renamed to "min".
-		threshold: min,
-		unit: string.isRequired,
-		// `factor` is a legacy property.
-		factor: number,
-		// `granularity` is a legacy property.
-		granularity: number,
-		// Specific `threshold_for_[unit]` properties may also be defined.
+		minTime: number,
+		formatAs: string.isRequired
 	}),
 	shape({
-		min: oneOfType([objectOf(min), min]),
-		// "threshold" has been renamed to "min".
-		threshold: min,
-		format: func.isRequired,
-		// Specific `threshold_[unit]` properties may also be defined.
+		test: func,
+		formatAs: string.isRequired
+	}),
+	shape({
+		minTime: number,
+		format: func.isRequired
+	}),
+	shape({
+		test: func,
+		format: func.isRequired
 	})
-]))
+])
 
-// Date/time formatting style.
+// Formatting style.
 export const style = oneOfType([
+	// Not using `oneOf()` here, because that way
+	// this package wouldn't support some hypothetical
+	// new styles added to `javascript-time-ago` in some future.
 	string,
 	shape({
-		// "gradation" is a legacy name for "steps".
-		gradation: steps,
-		steps,
-		units: arrayOf(string),
+		steps: arrayOf(step).isRequired,
 		labels: oneOfType([
 			string,
 			arrayOf(string)
-		]),
-		// "flavour" is a legacy name for "labels".
-		flavour: oneOfType([
-			string,
-			arrayOf(string)
-		]),
-		// `custom` property seems deprecated.
-		custom: func
+		]).isRequired
 	})
 ])

@@ -29,6 +29,8 @@ This is a readme for version `2.x`. For older versions, [see version `1.x` readm
 npm install javascript-time-ago --save
 ```
 
+If you're not using a bundler then use a [standalone version from a CDN](#cdn).
+
 ## Use
 
 ```js
@@ -711,6 +713,20 @@ new TimeAgo('en-US', { polyfill: false })
 ## React
 
 For React users, there's a [React version](https://www.npmjs.com/package/react-time-ago) — [See Demo](https://catamphetamine.gitlab.io/react-time-ago/).
+
+## CDN
+
+One can use any npm CDN service, e.g. [unpkg.com](https://unpkg.com) or [jsdelivr.com](https://jsdelivr.com)
+
+```html
+<script src="https://unpkg.com/javascript-time-ago@[version]/bundle/javascript-time-ago.js"></script>
+
+<script>
+  alert(new TimeAgo('en-US').format(new Date(), 'round'))
+</script>
+```
+
+where `[version]` is an npm package version range (for example, `2.x` or `^2.2.5`).
 
 ## Intl
 
