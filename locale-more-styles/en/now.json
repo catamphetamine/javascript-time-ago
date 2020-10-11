@@ -1,5 +1,6 @@
 {
 	"now": {
+		"current": "now",
 		"future": "in a moment",
 		"past": "just now"
 	}

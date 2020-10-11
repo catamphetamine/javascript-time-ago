@@ -15,7 +15,8 @@ describe('style/twitter', () => {
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const formatInterval = (secondsPassed) => timeAgo.format(now - secondsPassed * 1000, { now, ...twitter })
 
-		formatInterval(0).should.equal('0s')
+		formatInterval(0).should.equal('now')
+		formatInterval(0.5).should.equal('1s')
 		formatInterval(59.4).should.equal('59s')
 		formatInterval(59.6).should.equal('1m')
 		formatInterval(1.49 * 60).should.equal('1m')
@@ -50,7 +51,8 @@ describe('style/twitter', () => {
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const formatInterval = (secondsPassed) => timeAgo.format(now - secondsPassed * 1000, { now, ...twitter })
 
-		formatInterval(0).should.equal('0 с')
+		formatInterval(0).should.equal('сейчас')
+		formatInterval(0.5).should.equal('1 с')
 		formatInterval(59.51).should.equal('1 мин')
 		formatInterval(59.51 * 60).should.equal('1 ч')
 		formatInterval(day + 62 * 60).should.equal('9 апр.')

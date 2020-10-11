@@ -25,6 +25,8 @@ TO DO: if `style` is passed as an object then maybe it should be passed as part 
 
 * Added `addDefaultLocale()` static function (similar to `addLocale()` but also calls `setDefaultLocale()`).
 
+* `"twitter"` style used to output `"now"` for 0 seconds. Then it was changed to `"0s"`. Now it has been [changed](https://github.com/catamphetamine/javascript-time-ago/issues/38) to `"now"` again.
+
 2.2.0 / 09.10.2020
 ==================
 

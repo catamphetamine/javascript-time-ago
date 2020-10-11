@@ -3,43 +3,48 @@ import fs from 'fs-extra'
 
 const localesDirectory = path.join(__dirname, '../locale')
 
-for (const locale of listAllRelativeTimeFormatLocales()) {
-	const localeData = require('relative-time-format/locale/' + locale)
+const ADDITIONAL_STYLES = [
+	// 'now' should come before 'mini-time'.
+	'now',
+	'short-time',
+	'long-time',
+	'mini-time'
+]
 
-	// Extra flavors.
-	const EXTRA_STYLES = [
-		'short-time',
-		'long-time',
-		'mini-time',
-		'now'
-	]
+for (const locale of getAllLocales()) {
+	// CLDR locale data: "long", "short", "narrow" labels.
+	const baseLocaleData = require('relative-time-format/locale/' + locale)
 
-	const extraStyleDirectories = {}
-
-	for (const style of EXTRA_STYLES) {
-		const directory = findLabelsStyleDirectory(locale, style)
-		if (directory) {
-			extraStyleDirectories[style] = directory
-			if (style === 'mini-time') {
-				// "tiny" is a legacy name of "mini-time".
-				extraStyleDirectories['tiny'] = directory
-			}
-		}
-	}
-
-	const extendedLocaleData = {
-		...localeData,
+	const localeData = {
+		...baseLocaleData,
 		locale
 	}
 
-	for (const style of Object.keys(extraStyleDirectories)) {
-		extendedLocaleData[style] = require(extraStyleDirectories[style]  + '/' + (style === 'tiny' ? 'mini-time' : style) + '.json')
+	for (const style of ADDITIONAL_STYLES) {
+		const labelsFilePath = path.join(__dirname, '../locale-more-styles', locale, `${style}.json`)
+		if (fs.existsSync(labelsFilePath)) {
+			const labels = require(labelsFilePath)
+			localeData[style] = labels
+			if (style === 'mini-time') {
+				if (!labels.now) {
+					const nowLabel = getNowLabel(localeData)
+					if (nowLabel) {
+						labels.now = nowLabel
+					}
+				}
+				// "tiny" is a legacy name of "mini-time".
+				localeData.tiny = {
+					deprecated: true,
+					...localeData[style]
+				}
+			}
+		}
 	}
 
 	// Create the locale *.json file.
 	fs.outputFileSync(
 		path.join(localesDirectory, `${locale}.json`),
-		JSON.stringify(extendedLocaleData, null, '\t')
+		JSON.stringify(localeData, null, '\t')
 	)
 
 	// Create the legacy-compatibility `index.js` file.
@@ -55,33 +60,18 @@ for (const locale of listAllRelativeTimeFormatLocales()) {
  * Returns a list of all locales supported by `relative-time-format`.
  * @return {string[]}
  */
-export function listAllRelativeTimeFormatLocales() {
+export function getAllLocales() {
 	const LOCALE_FILE_NAME_REG_EXP = /([^\/]+)\.json$/
 	return fs.readdirSync(path.join(__dirname, '../node_modules/relative-time-format/locale/'))
 		.filter(_ => fs.statSync(path.join(__dirname, '../node_modules/relative-time-format/locale', _)).isFile() && LOCALE_FILE_NAME_REG_EXP.test(_))
 		.map(_ => _.match(LOCALE_FILE_NAME_REG_EXP)[1])
 }
 
-/**
- * Returns the relative path to a directory where
- * a given labels "style" (short, long, narrow) labels file
- * resides for a given locale.
- * @param  {string} locale
- * @param  {string} labelsStyle
- * @return {string} [directory]
- */
-function findLabelsStyleDirectory(locale, labelsStyle) {
-	if (fs.existsSync(path.join(__dirname, '../locale-more-styles', locale, `${labelsStyle}.json`))) {
-		return `../locale-more-styles/${locale}`
+function getNowLabel(localeData) {
+	if (localeData.now) {
+		if (localeData.now.now.current) {
+			return localeData.now.now.current
+		}
 	}
+	return localeData.long.second.current
 }
-
-// /**
-//  * "long-convenient" -> "longConvenient".
-//  * @param  {string} string
-//  * @return {string}
-//  */
-// function toCamelCase(string) {
-// 	string = string.split('-').map(_ => _[0].toUpperCase() + _.slice(1)).join('')
-// 	return string[0].toLowerCase() + string.slice(1)
-// }
