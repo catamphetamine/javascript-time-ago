@@ -77,10 +77,9 @@ describe(`javascript-time-ago`, () => {
 		timeAgo.format(Date.now() + 10, { labels: ['long'] }).should.equal('in a moment')
 	})
 
-	it(`should accept a string style argument`, () =>
-	{
+	it('should accept a string style argument', () => {
 		const timeAgo = new TimeAgo('en')
-		timeAgo.format(Date.now(), 'twitter').should.equal('0s')
+		timeAgo.format(Date.now() - 1 * 1000, 'twitter').should.equal('1s')
 		timeAgo.format(Date.now() - 45 * 1000, 'approximate').should.equal('just now')
 		// "convenient" style was renamed to "approximate".
 		timeAgo.format(Date.now() - 45 * 1000, 'convenient').should.equal('just now')
@@ -94,40 +93,29 @@ describe(`javascript-time-ago`, () => {
 		timeAgo.format(Date.now(), 'exotic').should.equal('just now')
 	})
 
-	it(`should accept empty constructor parameters`, () =>
-	{
+	it('should accept empty constructor parameters', () => {
 		const timeAgo = new TimeAgo()
 		timeAgo.format(new Date()).should.equal('just now')
 	})
 
-	it(`should accept Dates`, () =>
-	{
-		const timeAgo = new TimeAgo('en')
-		timeAgo.format(new Date()).should.equal('just now')
-	})
-
-	it(`should accept mocked Dates when testing`, () =>
-	{
+	it('should accept "mocked" Dates when testing', () => {
 		const timeAgo = new TimeAgo('en')
 		const mockedDate = { getTime: () => Date.now() }
 		timeAgo.format(mockedDate).should.equal('just now')
 	})
 
-	it(`should not accept anything but Dates and timestamps`, () =>
-	{
+	it('should not accept anything but Dates and timestamps', () => {
 		const timeAgo = new TimeAgo('en')
 		const thrower = () => timeAgo.format('Jan 14, 2017')
 		thrower.should.throw('Unsupported relative time formatter input: string, Jan 14, 2017')
 	})
 
-	it(`should return an empty string if the passed units are not available in locale data`, () =>
-	{
+	it('should return an empty string if the specified units are not available in locale data', () => {
 		const timeAgo = new TimeAgo('en')
 		timeAgo.format(Date.now(), { units: ['femtosecond'] }).should.equal('')
 	})
 
-	it(`should return an empty string if no unit is suitable`, () =>
-	{
+	it('should return an empty string if no unit is suitable', () => {
 		const timeAgo = new TimeAgo('en')
 		const now = Date.now()
 
@@ -144,25 +132,20 @@ describe(`javascript-time-ago`, () => {
 		getLocaleData('en').long.second.current = currentSecondMessage
 	})
 
-	it(`should format for a style with "custom" function`, () =>
-	{
+	it('should format for a style with "custom" function', () => {
 		const timeAgo = new TimeAgo('en')
 
 		// `custom` returns a string
-		timeAgo.format(Date.now(),
-		{
-			custom({ now, time, date, locale })
-			{
+		timeAgo.format(Date.now(), {
+			custom({ now, time, date, locale }) {
 				return locale
 			}
 		})
 		.should.equal('en')
 
 		// `custom` returns `undefined`
-		timeAgo.format(Date.now(),
-		{
-			custom({ now, time, date, locale })
-			{
+		timeAgo.format(Date.now(), {
+			custom({ now, time, date, locale }) {
 				return
 			}
 		})
@@ -574,6 +557,20 @@ describe(`javascript-time-ago`, () => {
 			labels: 'long',
 			steps: [{}]
 		})).to.throw('Each step must define either `formatAs` or `format()`.')
+	})
+
+	it('should add default locale', () => {
+		TimeAgo.getDefaultLocale().should.equal('en')
+		TimeAgo.addDefaultLocale({
+			locale: 'el'
+		})
+		TimeAgo.getDefaultLocale().should.equal('el')
+		expect(() => {
+			TimeAgo.addDefaultLocale({
+				locale: 'el'
+			})
+		}).to.throw('`TimeAgo.addDefaultLocale()` can only be called once')
+		TimeAgo.setDefaultLocale('en')
 	})
 })
 

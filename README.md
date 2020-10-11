@@ -39,7 +39,7 @@ import TimeAgo from 'javascript-time-ago'
 // English.
 import en from 'javascript-time-ago/locale/en'
 
-TimeAgo.addLocale(en)
+TimeAgo.addDefaultLocale(en)
 
 // Create formatter (English).
 const timeAgo = new TimeAgo('en-US')
@@ -66,20 +66,40 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'round')
 
 This library includes date/time formatting rules and labels for any language.
 
-No languages are loaded default: a developer must manually choose which languages should be loaded. Languages should be imported from [`javascript-time-ago/locale`](https://unpkg.com/browse/javascript-time-ago/locale/) and then added via `TimeAgo.addLocale(...)`.
+No languages are loaded default: a developer must manually choose which languages should be loaded. Languages should be imported from [`javascript-time-ago/locale`](https://unpkg.com/browse/javascript-time-ago/locale/) and then added via `TimeAgo.addLocale()` or `TimeAgo.addDefaultLocale()`.
 
 The `locale` argument of `new TimeAgo(locale)` constructor is matched against the list of added languages, and the first matching one is used. For example, locales `"en-US"` and `"en-GB"` both match `"en"` language. If none of the added languages match the `locale`, the "default language" is used. If the "default language" hasn't been added, an error is thrown.
 
-The "default language" is `"en"` by default, and can be set like:
+The "default language" is `"en"` by default, and can be set either by calling `addDefaultLocale()`:
 
 ```js
-TimeAgo.setDefaultLocale('ru')
+import ru from 'javascript-time-ago/locale/ru'
+import de from 'javascript-time-ago/locale/de'
+import es from 'javascript-time-ago/locale/es'
+
+TimeAgo.addLocale(ru)
+TimeAgo.addLocale(de)
+TimeAgo.addDefaultLocale(es)
+```
+
+or by calling `setDefaultLocale()`:
+
+```js
+import ru from 'javascript-time-ago/locale/ru'
+import de from 'javascript-time-ago/locale/de'
+import es from 'javascript-time-ago/locale/es'
+
+TimeAgo.addLocale(ru)
+TimeAgo.addLocale(de)
+TimeAgo.addLocale(es)
+
+TimeAgo.setDefaultLocale('es')
 ```
 
 In some cases, a developer might prefer to specify a list of `locales` to choose from rather than a single `locale`:
 
 ```js
-TimeAgo.addLocale(en)
+TimeAgo.addDefaultLocale(en)
 TimeAgo.addLocale(de)
 
 // "de" language will be used, as it's the first one to match.
@@ -102,7 +122,7 @@ import TimeAgo from 'javascript-time-ago'
 // Russian.
 import ru from 'javascript-time-ago/locale/ru'
 
-TimeAgo.addLocale(ru)
+TimeAgo.addDefaultLocale(ru)
 
 const timeAgo = new TimeAgo('ru-RU')
 
@@ -336,11 +356,11 @@ Not all locales support this style: only [those](https://github.com/catamphetami
 
 ### Twitter
 
-Mimics [Twitter](https://twitter.com) style of "time ago" labels (`"1s"`, `"2m"`, `"3h"`, `"Mar 4"`, `"Apr 5, 2012"`)
+Mimics [Twitter](https://twitter.com) style of "time ago" labels (`"now"`, `"1s"`, `"2m"`, `"3h"`, `"Mar 4"`, `"Apr 5, 2012"`)
 
 ```js
 timeAgo.format(new Date(), 'twitter')
-// 0 seconds ago → "0s"
+// 0 seconds ago → "now"
 
 timeAgo.format(new Date() - 1, 'twitter')
 // 1 second ago → "1s"
@@ -404,7 +424,7 @@ import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
 import { round } from 'javascript-time-ago/locale/steps'
 
-TimeAgo.addLocale(en)
+TimeAgo.addDefaultLocale(en)
 
 const customLabels = {
   second: {
@@ -719,14 +739,13 @@ For React users, there's a [React version](https://www.npmjs.com/package/react-t
 One can use any npm CDN service, e.g. [unpkg.com](https://unpkg.com) or [jsdelivr.com](https://jsdelivr.com)
 
 ```html
+<!-- Example `[version]`: `2.x` -->
 <script src="https://unpkg.com/javascript-time-ago@[version]/bundle/javascript-time-ago.js"></script>
 
 <script>
   alert(new TimeAgo('en-US').format(new Date(), 'round'))
 </script>
 ```
-
-where `[version]` is an npm package version range (for example, `2.x` or `^2.2.5`).
 
 ## Intl
 

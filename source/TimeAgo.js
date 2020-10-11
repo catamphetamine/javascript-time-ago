@@ -430,6 +430,21 @@ TimeAgo.setDefaultLocale = (locale) => defaultLocale = locale
  * Adds locale data for a specific locale.
  * @param {Object} localeData
  */
+TimeAgo.addDefaultLocale = function(localeData) {
+	if (defaultLocaleHasBeenSpecified) {
+		throw new Error('[javascript-time-ago] `TimeAgo.addDefaultLocale()` can only be called once. To add other locales, use `TimeAgo.addLocale()`.')
+	}
+	defaultLocaleHasBeenSpecified = true
+	TimeAgo.setDefaultLocale(localeData.locale)
+	TimeAgo.addLocale(localeData)
+}
+
+let defaultLocaleHasBeenSpecified
+
+/**
+ * Adds locale data for a specific locale.
+ * @param {Object} localeData
+ */
 TimeAgo.addLocale = function(localeData) {
 	addLocaleData(localeData)
 	RelativeTimeFormatPolyfill.addLocale(localeData)
@@ -505,19 +520,6 @@ function getTimeIntervalMeasurementUnits(allowedUnits, labels, nowLabel) {
 	if (allowedUnits) {
 		units = allowedUnits.filter(unit => unit === 'now' || units.indexOf(unit) >= 0)
 	}
-
-	// `now` unit is handled separately and is shipped in its own `now.json` file.
-	// // Stock `Intl.RelativeTimeFormat` locale data doesn't have "now" units.
-	// // So either "now" is present in extended locale data
-	// // or it's taken from ".second.current".
-	// // If "now" unit isn't explicitly allowed, then don't allow it
-	// // unless `second` label doesn't provide "current"
-	// if ((!allowedUnits || allowedUnits.indexOf('now') >= 0) &&
-	// 	units.indexOf('now') < 0) {
-	// 	if (localeData.second.current) {
-	// 		units.unshift('now')
-	// 	}
-	// }
 
 	return units
 }
