@@ -27,6 +27,8 @@ TO DO: if `style` is passed as an object then maybe it should be passed as part 
 
 * `"twitter"` style used to output `"now"` for 0 seconds. Then it was changed to `"0s"`. Now it has been [changed](https://github.com/catamphetamine/javascript-time-ago/issues/38) to `"now"` again.
 
+* Added "CDN" section in the readme that documents using the library with `<script/>` tags (without a bundler).
+
 2.2.0 / 09.10.2020
 ==================
 
