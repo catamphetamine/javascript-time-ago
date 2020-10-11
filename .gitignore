@@ -35,3 +35,6 @@ NUL
 
 # browser builds
 /bundle/
+
+# locale data files
+/locale/
