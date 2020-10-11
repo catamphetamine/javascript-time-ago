@@ -1,1 +1,0 @@
-module.exports = require('../uz-Cyrl.json')

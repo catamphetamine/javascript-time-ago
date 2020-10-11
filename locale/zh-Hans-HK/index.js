@@ -1,1 +1,0 @@
-module.exports = require('../zh-Hans-HK.json')

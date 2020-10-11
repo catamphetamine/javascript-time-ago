@@ -1,1 +1,0 @@
-module.exports = require('../pl.json')
