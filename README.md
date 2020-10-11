@@ -743,6 +743,32 @@ One can use any npm CDN service, e.g. [unpkg.com](https://unpkg.com) or [jsdeliv
 <script src="https://unpkg.com/javascript-time-ago@[version]/bundle/javascript-time-ago.js"></script>
 
 <script>
+  TimeAgo.addDefaultLocale({
+    locale: 'en',
+    now: {
+      now: {
+        current: "now",
+        future: "in a moment",
+        past: "just now"
+      }
+    },
+    long: {
+      year: {
+        past: {
+          one: "{0} year ago",
+          other: "{0} years ago"
+        },
+        future: {
+          one: "in {0} year",
+          other: "in {0} years"
+        }
+      },
+      ...
+    }
+  })
+</script>
+
+<script>
   alert(new TimeAgo('en-US').format(new Date(), 'round'))
 </script>
 ```
