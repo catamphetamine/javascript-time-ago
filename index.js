@@ -1,6 +1,6 @@
 export { default } from './modules/TimeAgo'
 
-// These two are used in `react-time-ago`.
+// I guess these two are deprecated.
 export {
 	intlDateTimeFormatSupported as intlDateTimeFormatSupported,
 	intlDateTimeFormatSupportedLocale as intlDateTimeFormatSupportedLocale

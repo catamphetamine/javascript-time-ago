@@ -1,7 +1,3 @@
-// Fallback locale.
-// (when not a single one of the supplied "preferred" locales is available)
-let defaultLocale = 'en'
-
 // For all locales added
 // their relative time formatter messages will be stored here.
 const localesData = {}

@@ -1,4 +1,4 @@
-import chooseLocale, { intlDateTimeFormatSupportedLocale } from '../source/locale'
+import chooseLocale, { intlDateTimeFormatSupportedLocale } from './locale'
 
 describe('locale', () => {
 	it(`should tell if can use Intl for date formatting`, () => {

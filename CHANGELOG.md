@@ -1,4 +1,8 @@
 <!--
+TO DO: Remove deprecated `tiny` locale labels.
+
+TO DO: Remove "defaultLocale = 'en'": a developer will have to specify their own default locale.
+
 TO DO: Maybe create a "dummy" `time-ago-js` package that would simply re-export `javascript-time-ago`.
 
 TO DO: Added the ability to use native `Intl.RelativeTimeFormat` instead of the polyfill.
@@ -15,6 +19,11 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
+
+2.2.5 / 11.10.2020
+==================
+
+* Added `addDefaultLocale()` static function (similar to `addLocale()` but also calls `setDefaultLocale()`).
 
 2.2.0 / 09.10.2020
 ==================

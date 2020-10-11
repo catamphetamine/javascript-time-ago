@@ -1,2 +1,2 @@
-// `Cache` is used in `react-time-ago` to cache `Intl.DateTimeFormat` instances.
+// I guess this export is deprecated.
 export { default } from '../modules/cache'

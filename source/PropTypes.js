@@ -1,4 +1,4 @@
-// Deprecated: I think this should be moved to `react-time-ago`.
+// Deprecated: Moved to `react-time-ago`.
 
 import {
 	oneOfType,

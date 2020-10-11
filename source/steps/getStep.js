@@ -21,8 +21,7 @@ import getStepDenominator from './getStepDenominator'
  * @return {Object|Object[]} [step] — Either a `step` or `[step, nextStep]`.
  */
 export default function getStep(steps, secondsPassed, { now, future, units, getNextStep }) {
-	// Leave only allowed time measurement units.
-	// E.g. omit "quarter" unit.
+	// Ignore steps having not-supported time units in `formatAs`.
 	steps = filterStepsByUnits(steps, units)
 	const step = _getStep(steps, secondsPassed, { now, future })
 	if (getNextStep) {
