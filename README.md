@@ -373,10 +373,10 @@ For best compatibility, `mini-time.json` labels should be defined for a [locale]
 Same as `"twitter"` style but outputs `"now"` instead of `"0s"`.
 
 ```js
-timeAgo.format(new Date(), 'twitter')
+timeAgo.format(new Date(), 'twitter-now')
 // 0 seconds ago → "now"
 
-timeAgo.format(new Date() - 1 * 1000, 'twitter')
+timeAgo.format(new Date() - 1 * 1000, 'twitter-now')
 // 1 second ago → "1s"
 
 // The rest is same as "twitter" style.
