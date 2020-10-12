@@ -208,17 +208,17 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round')
 
 ### Round (minute)
 
-Same as `"round"` but without seconds.
+Same as `"round"` style but without seconds.
 
 ```js
 timeAgo.format(Date.now(), 'round-minute')
 // 0 seconds ago → "just now"
 
-timeAgo.format(Date.now() - 39 * 1000, 'round-minute')
-// 39 seconds ago → "just now"
+timeAgo.format(Date.now() - 29 * 1000, 'round-minute')
+// 29 seconds ago → "just now"
 
-timeAgo.format(Date.now() - 40 * 1000, 'round-minute')
-// 40 seconds ago → "1 minute ago"
+timeAgo.format(Date.now() - 30 * 1000, 'round-minute')
+// 30 seconds ago → "1 minute ago"
 
 timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
 // 1.5 minutes ago → "2 minutes ago"
@@ -230,115 +230,6 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
   * 1 minute ago
   * 2 minutes ago
   * …
-
-<!--
-### Approximate
-
-`"approximate"` style is a legacy one that has been introduced in the early versions of this library. It's basically the same as `"round-minute"` with the difference that it rounds time in some cases:
-
-* `just now` → `just now`
-* `40 seconds ago` → `just now`
-* `45 seconds ago` → `1 minute ago`
-* `5 minutes ago` → `5 minutes ago`
-* `6 minutes ago` → `5 minutes ago`
-* `7 minutes ago` → `5 minutes ago`
-* `8 minutes ago` → `10 minutes ago`
-* `9 minutes ago` → `10 minutes ago`
-* `10 minutes ago` → `10 minutes ago`
-* …
-
-```js
-timeAgo.format(Date.now(), 'approximate')
-// 0 seconds ago → "just now"
-
-timeAgo.format(Date.now() - 15 * 1000, 'approximate')
-// 15 seconds ago → "just now"
-
-timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'approximate')
-// 1.5 minutes ago → "2 minutes ago"
-
-timeAgo.format(Date.now() - 3 * 60 * 1000, 'approximate')
-// 3 minutes ago → "5 minutes ago"
-```
-
-  * just now
-  * 1 minute ago
-  * 2 minutes ago
-  * 5 minutes ago
-  * 10 minutes ago
-  * 15 minutes ago
-  * 20 minutes ago
-  * …
-  * 50 minutes ago
-  * 1 hour ago
-  * 2 hours ago
-  * …
-  * 20 hours ago
-  * 1 day ago
-  * 2 days ago
-  * …
-  * 5 days ago
-  * 1 week ago
-  * 2 weeks ago
-  * 3 weeks ago
-  * 1 month ago
-  * 2 months ago
-  * …
-  * 10 months ago
-  * 1 year ago
-  * 2 years ago
-  * …
-
-For historical reasons, `"approximate"` style is the one that's used when no `style` argument is passed (this will be changed in the next major version: `round` or `round-minute` will be the default one).
-
-### Approximate (time)
-
-`"approximate-time"` style is a legacy one that has been introduced in the early versions of this library. It's the same as the `"approximate"` style but without the "ago" part.
-
-```js
-timeAgo.format(Date.now(), 'approximate-time')
-// 0 seconds ago → "just now"
-
-timeAgo.format(Date.now() - 15 * 1000, 'approximate-time')
-// 15 seconds ago → "just now"
-
-timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'approximate-time')
-// 1.5 minutes ago → "2 minutes"
-
-timeAgo.format(Date.now() - 3 * 60 * 1000, 'approximate-time')
-// 3 minutes ago → "5 minutes"
-```
-
-  * just now
-  * 1 minute
-  * 2 minutes
-  * 5 minutes
-  * 10 minutes
-  * 15 minutes
-  * 20 minutes
-  * …
-  * 50 minutes
-  * 1 hour
-  * 2 hours
-  * …
-  * 20 hours
-  * 1 day
-  * 2 days
-  * …
-  * 5 days
-  * 1 week
-  * 2 weeks
-  * 3 weeks
-  * 1 month
-  * 2 months
-  * …
-  * 10 months
-  * 1 year
-  * 2 years
-  * …
-
-Not all locales support this style: only [those](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) having `long-time.json`.
- -->
 
 ### Twitter
 
@@ -382,6 +273,40 @@ timeAgo.format(new Date() - 1 * 1000, 'twitter-now')
 // The rest is same as "twitter" style.
 ```
 
+### Twitter (minute)
+
+Same as `"twitter"` style but without seconds (starts with minutes).
+
+```js
+timeAgo.format(new Date(), 'twitter-minute')
+// 0 seconds ago → "0m"
+
+timeAgo.format(new Date() - 29 * 1000, 'twitter-minute')
+// 29 seconds ago → "0m"
+
+timeAgo.format(new Date() - 30 * 1000, 'twitter-minute')
+// 30 seconds ago → "1m"
+
+// The rest is same as "twitter" style.
+```
+
+### Twitter (minute-now)
+
+Same as `"twitter-minute"` style but outputs `"now"` instead of `"0m"`.
+
+```js
+timeAgo.format(new Date(), 'twitter-minute-now')
+// 0 seconds ago → "now"
+
+timeAgo.format(new Date() - 29 * 1000, 'twitter-minute-now')
+// 29 seconds ago → "now"
+
+timeAgo.format(new Date() - 30 * 1000, 'twitter-minute-now')
+// 30 seconds ago → "1m"
+
+// The rest is same as "twitter-minute" style.
+```
+
 ### Twitter (first minute)
 
 Same as `"twitter"` style but doesn't output anything before the first minute.
@@ -390,11 +315,11 @@ Same as `"twitter"` style but doesn't output anything before the first minute.
 timeAgo.format(new Date(), 'twitter-first-minute')
 // 0 seconds ago → ""
 
-timeAgo.format(new Date() - 39 * 1000, 'twitter-first-minute')
-// 39 seconds ago → ""
+timeAgo.format(new Date() - 29 * 1000, 'twitter-first-minute')
+// 29 seconds ago → ""
 
-timeAgo.format(new Date() - 40 * 1000, 'twitter-first-minute')
-// 40 seconds ago → "1m"
+timeAgo.format(new Date() - 30 * 1000, 'twitter-first-minute')
+// 30 seconds ago → "1m"
 
 // The rest is same as "twitter" style.
 ```

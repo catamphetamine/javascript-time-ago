@@ -1,6 +1,6 @@
 import twitter from './twitterFirstMinute'
 import TimeAgo from '../TimeAgo'
-import { day, month, year } from '../steps'
+import { hour, minute, day, month, year } from '../steps'
 
 describe('style/twitterFirstMinute', () => {
 	it('should work with string name of the style', () => {
@@ -16,22 +16,22 @@ describe('style/twitterFirstMinute', () => {
 
 		formatInterval(0).should.equal('')
 		formatInterval(0).should.equal('')
-		formatInterval(39.9).should.equal('')
-		formatInterval(40.0).should.equal('1m')
-		formatInterval(1.49 * 60).should.equal('1m')
-		formatInterval(1.51 * 60).should.equal('2m')
-		formatInterval(2.49 * 60).should.equal('2m')
-		formatInterval(2.51 * 60).should.equal('3m')
+		formatInterval(29.9).should.equal('')
+		formatInterval(30.0).should.equal('1m')
+		formatInterval(1.49 * minute).should.equal('1m')
+		formatInterval(1.51 * minute).should.equal('2m')
+		formatInterval(2.49 * minute).should.equal('2m')
+		formatInterval(2.51 * minute).should.equal('3m')
 		// …
-		formatInterval(59.49 * 60).should.equal('59m')
-		formatInterval(59.51 * 60).should.equal('1h')
-		formatInterval(1.49 * 60 * 60).should.equal('1h')
-		formatInterval(1.51 * 60 * 60).should.equal('2h')
-		formatInterval(2.49 * 60 * 60).should.equal('2h')
-		formatInterval(2.51 * 60 * 60).should.equal('3h')
+		formatInterval(59.49 * minute).should.equal('59m')
+		formatInterval(59.51 * minute).should.equal('1h')
+		formatInterval(1.49 * hour).should.equal('1h')
+		formatInterval(1.51 * hour).should.equal('2h')
+		formatInterval(2.49 * hour).should.equal('2h')
+		formatInterval(2.51 * hour).should.equal('3h')
 		// …
-		formatInterval(23.49 * 60 * 60).should.equal('23h')
-		formatInterval(day + 2 * 60 + 60 * 60).should.equal('Apr 9')
+		formatInterval(23.49 * hour).should.equal('23h')
+		formatInterval(day + 2 * minute + hour).should.equal('Apr 9')
 		// …
 		// `month` is about 30.5 days.
 		formatInterval(month * 3).should.equal('Jan 10')

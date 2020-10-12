@@ -1,12 +1,12 @@
 import { style } from './twitter'
 
-// Skip "seconds".
+// Skip seconds.
 const steps = style.steps.slice(1)
 
-// Starts showing `1m` after 30 seconds.
+// Remove `minTime` from minutes.
 steps[0] = {
 	...steps[0],
-	minTime: 30
+	minTime: undefined
 }
 
 export default {

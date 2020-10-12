@@ -41,6 +41,11 @@ for (const locale of getAllLocales()) {
 		}
 	}
 
+	// Locales are guaranteed to have a "now" label.
+	if (!getNowLabel(localeData)) {
+		throw new Error(`"now" label not found for locale "${locale}"`)
+	}
+
 	// Create the locale *.json file.
 	fs.outputFileSync(
 		path.join(localesDirectory, `${locale}.json`),

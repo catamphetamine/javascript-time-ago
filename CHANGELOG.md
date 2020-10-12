@@ -1,4 +1,13 @@
 <!--
+TO DO: Remove the legacy compatibility of getting "now" label from "long.second.current" in runtime code (not in locale generation code — that one's as intended).
+
+TO DO: Obtaining "now" label in runtime when not using the polyfill:
+
+```js
+new Intl.RelativeTimeFormat("en", { numeric: "auto" }).format(0, 'second')
+// Outputs "now".
+```
+
 TO DO: Remove deprecated `tiny` locale labels.
 
 TO DO: Remove "defaultLocale = 'en'": a developer will have to specify their own default locale.
@@ -19,6 +28,13 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
+
+2.2.8 / 12.10.2020
+==================
+
+* Added `"twitter-minute-now"` style.
+
+* The threshold for `"now"` -> `"1m"`/`"1 minute ago"` is now 30 seconds rather than 40 seconds.
 
 2.2.6 / 12.10.2020
 ==================

@@ -1,12 +1,13 @@
 import { style } from './twitter'
 
-let steps = style.steps.slice()
+// Skip seconds.
+let steps = style.steps.slice(1)
 
-// Seconds.
-// Format time in seconds starting from 0.5 seconds.
+// Minutes.
+// Format time in minutes starting from 30 seconds.
 steps[0] = {
 	...steps[0],
-	minTime: 0.5
+	minTime: 30
 }
 
 steps = [
