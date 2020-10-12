@@ -3,6 +3,9 @@ import roundMinute from './roundMinute'
 import approximate from './approximate'
 import approximateTime from './approximateTime'
 import twitter from './twitter'
+import twitterNow from './twitterNow'
+import twitterMinute from './twitterMinute'
+import twitterMinuteNow from './twitterMinuteNow'
 import twitterFirstMinute from './twitterFirstMinute'
 
 export default function getStyleByName(style) {
@@ -21,6 +24,12 @@ export default function getStyleByName(style) {
 			return approximateTime
 		case 'twitter':
 			return twitter
+		case 'twitter-now':
+			return twitterNow
+		case 'twitter-minute':
+			return twitterMinute
+		case 'twitter-minute-now':
+			return twitterMinuteNow
 		case 'twitter-first-minute':
 			return twitterFirstMinute
 		default:
