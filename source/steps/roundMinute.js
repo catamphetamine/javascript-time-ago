@@ -36,9 +36,9 @@ export default [
 		formatAs: 'now'
 	},
 	{
-		// As soon as 45.5 seconds have passed,
+		// As soon as 40 seconds have passed,
 		// output "minute"s.
-		minTime: 45.5,
+		minTime: 40,
 		formatAs: 'minute'
 	},
 	{

@@ -166,8 +166,11 @@ Rounds the time up to the closest time measurement unit (second, minute, hour, e
 timeAgo.format(Date.now(), 'round')
 // 0 seconds ago → "just now"
 
-timeAgo.format(Date.now() - 15 * 1000, 'round')
-// 15 seconds ago → "15 seconds ago"
+timeAgo.format(Date.now() - 1 * 1000, 'round')
+// 1 second ago → "1 second ago"
+
+timeAgo.format(Date.now() - 59 * 1000, 'round')
+// 59 seconds ago → "59 seconds ago"
 
 timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round')
 // 1.5 minutes ago → "2 minutes ago"
@@ -211,38 +214,21 @@ Same as `"round"` but without seconds.
 timeAgo.format(Date.now(), 'round-minute')
 // 0 seconds ago → "just now"
 
-timeAgo.format(Date.now() - 15 * 1000, 'round-minute')
-// 45 seconds ago → "just now"
+timeAgo.format(Date.now() - 39 * 1000, 'round-minute')
+// 39 seconds ago → "just now"
 
-timeAgo.format(Date.now() - 15 * 1000, 'round-minute')
-// 46 seconds ago → "1 minute ago"
+timeAgo.format(Date.now() - 40 * 1000, 'round-minute')
+// 40 seconds ago → "1 minute ago"
 
 timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
 // 1.5 minutes ago → "2 minutes ago"
+
+// The rest is same as "round" style.
 ```
 
   * just now
   * 1 minute ago
   * 2 minutes ago
-  * …
-  * 59 minutes ago
-  * 1 hour ago
-  * 2 hours ago
-  * …
-  * 59 hours ago
-  * 1 day ago
-  * 2 days ago
-  * …
-  * 6 days ago
-  * 1 week ago
-  * 2 weeks ago
-  * 3 weeks ago
-  * 1 month ago
-  * 2 months ago
-  * …
-  * 11 months ago
-  * 1 year ago
-  * 2 years ago
   * …
 
 <!--
@@ -356,13 +342,13 @@ Not all locales support this style: only [those](https://github.com/catamphetami
 
 ### Twitter
 
-Mimics [Twitter](https://twitter.com) style of "time ago" labels (`"now"`, `"1s"`, `"2m"`, `"3h"`, `"Mar 4"`, `"Apr 5, 2012"`)
+Mimics [Twitter](https://twitter.com) style of "time ago" labels (`"1s"`, `"2m"`, `"3h"`, `"Mar 4"`, `"Apr 5, 2012"`)
 
 ```js
 timeAgo.format(new Date(), 'twitter')
-// 0 seconds ago → "now"
+// 0 seconds ago → "0s"
 
-timeAgo.format(new Date() - 1, 'twitter')
+timeAgo.format(new Date() - 1 * 1000, 'twitter')
 // 1 second ago → "1s"
 
 timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'twitter')
@@ -382,6 +368,20 @@ timeAgo.format(Date.now() - 364 * 24 * 60 * 60 * 1000, 'twitter')
 
 For best compatibility, `mini-time.json` labels should be defined for a [locale](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles). Send pull requests for the missing ones.
 
+### Twitter (now)
+
+Same as `"twitter"` style but outputs `"now"` instead of `"0s"`.
+
+```js
+timeAgo.format(new Date(), 'twitter')
+// 0 seconds ago → "now"
+
+timeAgo.format(new Date() - 1 * 1000, 'twitter')
+// 1 second ago → "1s"
+
+// The rest is same as "twitter" style.
+```
+
 ### Twitter (first minute)
 
 Same as `"twitter"` style but doesn't output anything before the first minute.
@@ -390,18 +390,14 @@ Same as `"twitter"` style but doesn't output anything before the first minute.
 timeAgo.format(new Date(), 'twitter-first-minute')
 // 0 seconds ago → ""
 
-timeAgo.format(new Date() - 1, 'twitter-first-minute')
-// 45 seconds ago → ""
+timeAgo.format(new Date() - 39 * 1000, 'twitter-first-minute')
+// 39 seconds ago → ""
 
-timeAgo.format(new Date() - 1, 'twitter-first-minute')
-// 46 seconds ago → "1m"
+timeAgo.format(new Date() - 40 * 1000, 'twitter-first-minute')
+// 40 seconds ago → "1m"
 
 // The rest is same as "twitter" style.
 ```
-
-`"twitter-first-minute"` style uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to day/month/year labels: `"1d"`, `"1mo"`, `"1yr"`.
-
-For best compatibility, `mini-time.json` labels should be defined for a [locale](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles). Send pull requests for the missing ones.
 
 ## Custom
 

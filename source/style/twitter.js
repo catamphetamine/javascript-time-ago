@@ -14,20 +14,7 @@ import renameLegacyProperties from './renameLegacyProperties'
 const steps = [
 	// Seconds
 	{
-		// If "now" labels are not available, will show "0s".
-		formatAs: 'second'
-	},
-	// Now
-	{
-		// If "now" labels are available, will show "now".
-		// At `0` seconds, Twitter shows "now".
-		minTime: 0,
-		formatAs: 'now'
-	},
-	// Seconds
-	{
-		// Format time in seconds after 0.5 seconds.
-		minTime: 0.5,
+		// Format time in seconds.
 		formatAs: 'second'
 	},
 	// Minutes

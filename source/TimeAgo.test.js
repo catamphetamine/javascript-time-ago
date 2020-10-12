@@ -86,7 +86,7 @@ describe(`javascript-time-ago`, () => {
 		timeAgo.format(Date.now() - 45 * 1000, 'round').should.equal('45 seconds ago')
 		// "default" style was renamed to "round".
 		timeAgo.format(Date.now() - 45 * 1000, 'default').should.equal('45 seconds ago')
-		timeAgo.format(Date.now() - 45 * 1000, 'round-minute').should.equal('just now')
+		timeAgo.format(Date.now() - 39 * 1000, 'round-minute').should.equal('just now')
 		// "time" style was renamed to "approximate-time".
 		timeAgo.format(Date.now() - 2 * 60 * 1000, 'time').should.equal('2 minutes')
 		timeAgo.format(Date.now() - 2 * 60 * 1000, 'approximate-time').should.equal('2 minutes')

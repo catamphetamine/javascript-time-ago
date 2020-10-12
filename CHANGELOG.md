@@ -20,6 +20,13 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.2.6 / 12.10.2020
+==================
+
+* Changed `"twitter"` style: doesn't output `"now"` for 0 seconds.
+
+* Added `"twitter-now"` style that outputs `"now"` for 0 seconds.
+
 2.2.5 / 11.10.2020
 ==================
 

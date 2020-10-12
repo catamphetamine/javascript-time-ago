@@ -10,8 +10,8 @@ describe('style/round-minute', () => {
 		const formatInterval = (secondsPassed) => timeAgo.format(now - secondsPassed * 1000, { now, ...roundMinute })
 
 		formatInterval(0).should.equal('just now')
-		formatInterval(45.4).should.equal('just now')
-		formatInterval(45.6).should.equal('1 minute ago')
+		formatInterval(39.9).should.equal('just now')
+		formatInterval(40).should.equal('1 minute ago')
 		formatInterval(1.49 * 60).should.equal('1 minute ago')
 		formatInterval(1.51 * 60).should.equal('2 minutes ago')
 		formatInterval(2.49 * 60).should.equal('2 minutes ago')

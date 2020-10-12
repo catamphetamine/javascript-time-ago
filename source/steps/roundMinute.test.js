@@ -19,8 +19,8 @@ describe('steps/roundMinute', () => {
 		// expect(getStepFor(0)).to.be.undefined
 		expect(getStepFor(0).formatAs).to.equal('now')
 		expect(getStepFor(0.5).formatAs).to.equal('now')
-		expect(getStepFor(45.4).formatAs).to.equal('now')
-		expect(getStepFor(45.5).formatAs).to.equal('minute')
+		expect(getStepFor(39.9).formatAs).to.equal('now')
+		expect(getStepFor(40).formatAs).to.equal('minute')
 		expect(getStepFor(59.5 * 60 - 1).formatAs).to.equal('minute')
 		expect(getStepFor(59.5 * 60).formatAs).to.equal('hour')
 		expect(getStepFor(24 * 60 * 60).formatAs).to.equal('day')
