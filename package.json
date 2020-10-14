@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Localized relative date/time formatting",
   "main": "index.commonjs.js",
   "module": "index.js",
