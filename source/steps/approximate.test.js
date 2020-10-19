@@ -4,6 +4,7 @@ import steps from './approximate'
 describe('steps/approximate', () => {
 	it('should get step correctly', () => {
 		const getStepFor = (secondsPassed) => getStep(steps, secondsPassed, {
+			now: 0,
 			units: [
 				'now',
 				'second',
@@ -42,6 +43,7 @@ describe('steps/approximate', () => {
 
 	it('should get step correctly ("now" unit not allowed)', () => {
 		const getStepFor = (secondsPassed) => getStep(steps, secondsPassed, {
+			now: 0,
 			units: [
 				'second',
 				'minute',

@@ -169,8 +169,11 @@ timeAgo.format(Date.now(), 'round')
 timeAgo.format(Date.now() - 1 * 1000, 'round')
 // 1 second ago → "1 second ago"
 
-timeAgo.format(Date.now() - 59 * 1000, 'round')
-// 59 seconds ago → "59 seconds ago"
+timeAgo.format(Date.now() - 29 * 1000, 'round')
+// 29 seconds ago → "29 seconds ago"
+
+timeAgo.format(Date.now() - 30 * 1000, 'round')
+// 30 seconds ago → "1 minute ago"
 
 timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round')
 // 1.5 minutes ago → "2 minutes ago"
@@ -220,9 +223,6 @@ timeAgo.format(Date.now() - 29 * 1000, 'round-minute')
 timeAgo.format(Date.now() - 30 * 1000, 'round-minute')
 // 30 seconds ago → "1 minute ago"
 
-timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
-// 1.5 minutes ago → "2 minutes ago"
-
 // The rest is same as "round" style.
 ```
 
@@ -230,6 +230,102 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round-minute')
   * 1 minute ago
   * 2 minutes ago
   * …
+
+### Mini
+
+Same as `"round"` style but as short as possible and without `" ago"`.
+
+```js
+timeAgo.format(new Date(), 'mini')
+// 0 seconds ago → "0s"
+
+timeAgo.format(new Date() - 1 * 1000, 'mini')
+// 1 second ago → "1s"
+
+timeAgo.format(Date.now() - 2 * 60 * 1000, 'mini')
+// 2 minutes ago → "2m"
+
+timeAgo.format(Date.now() - 3 * 60 * 60 * 1000, 'mini')
+// 3 hours ago → "3h"
+
+timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'mini')
+// 4 days ago → "4d"
+
+timeAgo.format(Date.now() - 5 * 30 * 24 * 60 * 60 * 1000, 'mini')
+// 5 months ago → "5mo"
+
+timeAgo.format(Date.now() - 12 * 30 * 24 * 60 * 60 * 1000, 'mini')
+// 1 year ago → "1yr"
+```
+
+For best compatibility, `mini.json` labels should be defined for a [locale](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles). Send pull requests for the missing ones.
+
+### Mini (now)
+
+Same as `"mini"` style but outputs `"now"` instead of `"0s"`.
+
+```js
+timeAgo.format(new Date(), 'mini-now')
+// 0 seconds ago → "now"
+
+timeAgo.format(new Date() - 1 * 1000, 'mini-now')
+// 1 second ago → "1s"
+
+// The rest is same as "mini" style.
+```
+
+### Mini (minute)
+
+Same as `"mini"` style but without seconds (starts with minutes).
+
+```js
+timeAgo.format(new Date(), 'mini-minute')
+// 0 seconds ago → "0m"
+
+timeAgo.format(new Date() - 29 * 1000, 'mini-minute')
+// 29 seconds ago → "0m"
+
+timeAgo.format(new Date() - 30 * 1000, 'mini-minute')
+// 30 seconds ago → "1m"
+
+// The rest is same as "mini" style.
+```
+
+### Mini (minute-now)
+
+Same as `"mini-minute"` style but outputs `"now"` instead of `"0m"`.
+
+```js
+timeAgo.format(new Date(), 'mini-minute-now')
+// 0 seconds ago → "now"
+
+timeAgo.format(new Date() - 29 * 1000, 'mini-minute-now')
+// 29 seconds ago → "now"
+
+timeAgo.format(new Date() - 30 * 1000, 'mini-minute-now')
+// 30 seconds ago → "1m"
+
+// The rest is same as "mini" style.
+```
+
+<!--
+### Mini (first minute)
+
+Same as `"twitter"` style but doesn't output anything before the first minute.
+
+```js
+timeAgo.format(new Date(), 'twitter-first-minute')
+// 0 seconds ago → ""
+
+timeAgo.format(new Date() - 59 * 1000, 'twitter-first-minute')
+// 59 seconds ago → ""
+
+timeAgo.format(new Date() - 60 * 1000, 'twitter-first-minute')
+// 1 minute ago → "1m"
+
+// The rest is same as "twitter" style.
+```
+-->
 
 ### Twitter
 
@@ -242,11 +338,11 @@ timeAgo.format(new Date(), 'twitter')
 timeAgo.format(new Date() - 1 * 1000, 'twitter')
 // 1 second ago → "1s"
 
-timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'twitter')
-// 1.5 minutes ago → "2m"
+timeAgo.format(Date.now() - 2 * 60 * 1000, 'twitter')
+// 2 minutes ago → "2m"
 
-timeAgo.format(Date.now() - 3.5 * 60 * 60 * 1000, 'twitter')
-// 3.5 hours ago → "4h"
+timeAgo.format(Date.now() - 3 * 60 * 60 * 1000, 'twitter')
+// 3 hours ago → "3h"
 
 timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'twitter')
 // More than 24 hours ago → `month/day` ("Mar 4")
@@ -257,7 +353,7 @@ timeAgo.format(Date.now() - 364 * 24 * 60 * 60 * 1000, 'twitter')
 
 `"twitter"` style uses [`Intl`](https://gitlab.com/catamphetamine/relative-time-format#intl) for formatting `day/month/year` labels. If `Intl` is not available (for example, in Internet Explorer), it falls back to day/month/year labels: `"1d"`, `"1mo"`, `"1yr"`.
 
-For best compatibility, `mini-time.json` labels should be defined for a [locale](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles). Send pull requests for the missing ones.
+For best compatibility, `mini.json` labels should be defined for a [locale](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles). Send pull requests for the missing ones.
 
 ### Twitter (now)
 
@@ -304,7 +400,7 @@ timeAgo.format(new Date() - 29 * 1000, 'twitter-minute-now')
 timeAgo.format(new Date() - 30 * 1000, 'twitter-minute-now')
 // 30 seconds ago → "1m"
 
-// The rest is same as "twitter-minute" style.
+// The rest is same as "twitter" style.
 ```
 
 ### Twitter (first minute)
@@ -332,11 +428,11 @@ A custom "style" object may be passed as a second parameter to `.format(date, st
 
 `labels` should be the name of the time labels variant that will be used for generating output. When not defined, is set to [`"long"`](#labels) by default.
 
-`labels` can also be an array of such time label variant names, in which case each one of them is tried until a supported one is found. For example, for `labels: ["mini-time", "short"]` it will search for `"mini-time"` labels first and then fall back to `"short"` labels if `"mini-time"` labels aren't defined for the language.
+`labels` can also be an array of such time label variant names, in which case each one of them is tried until a supported one is found. For example, for `labels: ["mini", "short"]` it will search for `"mini"` labels first and then fall back to `"short"` labels if `"mini"` labels aren't defined for the language.
 
 [`"long"`, `"short"` and `"narrow"`](https://unpkg.com/browse/relative-time-format/locale/en.json) time labels are always present for each language, because they're provided by [CLDR](http://cldr.unicode.org/). `long` is the normal one, `short` is an abbreviated version of `long`, `narrow` is supposed to be shorter than `short` but ends up just being weird: it's either equal to `short` or is, for example, `"-1 d."` for `"1 day ago"` in Russian.
 
-Other time labels like `"now"` and `"mini-time"` are only defined for a [small subset](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) of languages. Send your pull requests for the missing ones.
+Other time labels like `"now"` and `"mini"` are only defined for a [small subset](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) of languages. Send your pull requests for the missing ones.
 
 New labels can be added by calling `TimeAgo.addLabels()` function.
 
@@ -390,13 +486,13 @@ An example of `"round"` style `steps`:
   },
   {
     // This step is effective starting from 59.5 seconds.
-    minTime: 59.5,
+    minTime: 60,
     // "minute" labels are used for formatting the output.
     formatAs: 'minute'
   },
   {
     // This step is effective starting from 59.5 minutes.
-    minTime: 59.5 * 60,
+    minTime: 60 * 60,
     // "hour" labels are used for formatting the output.
     formatAs: 'hour'
   },
@@ -404,46 +500,53 @@ An example of `"round"` style `steps`:
 ]
 ```
 
-A basic step is described by:
+A step can be described by:
 
-  * `minTime: number` — A minimum time interval (in seconds) required for this step, meaning that `minTime` controls the progression from one step to another. The first step's `minTime` is `0` by default.
+  <!-- * `minTime: number` — A minimum time interval (in seconds) required for this step, meaning that `minTime` controls the progression from one step to another. The first step's `minTime` is `0` by default. -->
 
   <!-- In some cases, when using `unit`s that may or may not be defined for a language, a developer could support both cases: when the `unit` is available and when it's not. For that, they'd use a special `minTime: { [stepId]: minTime, ..., default: minTime }` property that overrides `min` when the previous eligible step's `id` is `[stepId]`. -->
 
-  * `formatAs: string` — A time measurement unit, the labels for which are used to generate the output of this step. If the time unit isn't supported by the language, then the step is ignored. The time units supported in all languages are: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year`. For [some languages](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles), this library also defines `now` unit (`"just now"`).
+  <!-- * `formatAs: string` — A time measurement unit, the labels for which are used to generate the output of this step. If the time unit isn't supported by the language, then the step is ignored. The time units supported in all languages are: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year`. For [some languages](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles), this library also defines `now` unit (`"just now"`). -->
 
   <!-- * `factor` — A divider for the time interval value which is in seconds. For example, if `unit` is `"seconds"` then `factor` should be `1`, and if `unit` is `"minutes"` then `factor` should be `60` because to get the amount of minutes one should divide the amout of seconds by `60`. This `factor` property is actually a redundant one and can be derived from `unit` so it will be removed in the next major version. -->
 
   <!--   * `granularity` — (advanced) Time interval value "granularity". For example, it could be set to `5` for minutes to allow only 5-minute increments when formatting time intervals: `0 minutes`, `5 minutes`, `10 minutes`, etc. Perhaps this feature will be removed because there seem to be no use cases of it in the real world. -->
 
-Alternatively to `minTime`, a step may specify a `test()` function:
+##### `minTime`
+
+A minimum time interval (in seconds) required for a step, meaning that `minTime` controls the progression from one step to another. The first step's `minTime` is `0` by default.
+
+While `minTime` is usually a number, it could also be a `function` returning a number in order to support unusual cases like absolute date formatting in [`"twitter"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) style.
 
 ```js
-test(
-  date: number, // The date argument, converted to a timestamp.
-
+minTime(
+  date: number,        // The date argument, converted to a timestamp.
   {
-    now: number,     // The current date timestamp.
+    future: boolean,   // Is `true` if `date > now`, or if `date === now`
+                       // and `future: true` option was passed to `.format()`.
 
-    future: boolean  // Is `true` if `date > now`, or if `date === now`
-                     // and `future: true` option was passed to `.format()`.
+    getMinTimeToFrom(toUnit: string, fromUnit: string): number?
+                       // Returns the `minTime` for a transition to `toUnit`
+                       // from `fromUnit`. For example, the `minTime` for a
+                       // transition to "minute" from "second" is `59.5`
+                       // when `round` is "round" and `60` when `round` is "floor".
+                       // Returns `undefined` if `toUnit` or `fromUnit` are not supported.
   }
-): boolean
+): number
 ```
+
+##### `formatAs`
+
+A time measurement unit, the labels for which are used to generate the output of a step. If the time unit isn't supported by the language, then the step is ignored. The time units supported in all languages are: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year`. For [some languages](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles), this library also defines `now` unit (`"just now"`).
+
+##### `format()`
 
 Alternatively to `formatAs`, a step may specify a `format()` function:
 
 ```js
 format(
-  date: (Date|number), // The date argument, as it has been passed to `.format()`:
-                       // either a `Date` or a `number`.
-                       // Converting it to `Date`:
-                       // `date = typeof date === 'number' ? new Date(date) : date`
-                       // Converting it to timestamp:
-                       // `const timestamp = date.getTime ? date.getTime() : date`
-
+  date: number,        // The date argument, converted to a timestamp.
   locale: string,      // The currently selected language. Example: "en".
-
   {
     formatAs(unit: string, value: number): string,
                        // A function that could be used to format `value` in `unit`s.
@@ -529,6 +632,28 @@ getDate(1500000000000) === getDate(new Date('2017-07-14'))
 
 A list of allowed time interval measurement units. Example: `["second", "minute", "hour", ...]`. By default, all available units are defined. This property can be used to filter out some of the non-conventional time units like `"quarter"` which is present in [CLDR](http://cldr.unicode.org/) data. -->
 
+### Rounding
+
+Controls the rounding of an amount of time units.
+
+The default `round` is `"round"` which equals to `Math.round()`.
+
+* `0.1` sec. ago → `"0 sec. ago"`
+* `0.4` sec. ago → `"0 sec. ago"`
+* `0.5` sec. ago → `"1 sec. ago"`
+* `0.9` sec. ago → `"1 sec. ago"`
+* `1.0` sec. ago → `"1 sec. ago"`
+
+Some people [asked](https://github.com/catamphetamine/javascript-time-ago/issues/38#issuecomment-707094043) for an alternative rounding method, so there's also `round: "floor"` which equals to `Math.floor()`.
+
+* `0.1` sec. ago → `"0 sec. ago"`
+* `0.4` sec. ago → `"0 sec. ago"`
+* `0.5` sec. ago → `"0 sec. ago"`
+* `0.9` sec. ago → `"0 sec. ago"`
+* `1.0` sec. ago → `"1 sec. ago"`
+
+A developer can choose the rounding method by passing `round` option to `timeAgo.format(date, style, options)`. The default rounding can also be set for a [style](#styles) by setting its `round` property.
+
 ## Future
 
 When given future dates, `.format()` produces the corresponding output.
@@ -575,13 +700,7 @@ When a `step` has `formatAs` configured, then `getTimeToNextUpdate()` function i
 
 ```js
 getTimeToNextUpdate(
-  date: (Date|number), // The date argument, as it has been passed to `.format()`:
-                       // either a `Date` or a `number`.
-                       // Converting it to `Date`:
-                       // `date = typeof date === 'number' ? new Date(date) : date`
-                       // Converting it to timestamp:
-                       // `const timestamp = date.getTime ? date.getTime() : date`
-
+  date: number, // The date argument, converted to a timestamp.
   {
     getTimeToNextUpdateForUnit(unit: string): number,
                        // Returns "time to next update" for a time unit.

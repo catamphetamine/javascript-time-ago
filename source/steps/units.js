@@ -30,3 +30,22 @@ export function getSecondsInUnit(unit) {
 			return year
 	}
 }
+
+// export function getPreviousUnitFor(unit) {
+// 	switch (unit) {
+// 		case 'second':
+// 			return 'now'
+// 		case 'minute':
+// 			return 'second'
+// 		case 'hour':
+// 			return 'minute'
+// 		case 'day':
+// 			return 'hour'
+// 		case 'week':
+// 			return 'day'
+// 		case 'month':
+// 			return 'week'
+// 		case 'year':
+// 			return 'month'
+// 	}
+// }

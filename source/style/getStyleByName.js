@@ -7,6 +7,10 @@ import twitterNow from './twitterNow'
 import twitterMinute from './twitterMinute'
 import twitterMinuteNow from './twitterMinuteNow'
 import twitterFirstMinute from './twitterFirstMinute'
+import mini from './mini'
+import miniNow from './miniNow'
+import miniMinute from './miniMinute'
+import miniMinuteNow from './miniMinuteNow'
 
 export default function getStyleByName(style) {
 	switch (style) {
@@ -22,6 +26,14 @@ export default function getStyleByName(style) {
 		case 'time':
 		case 'approximate-time':
 			return approximateTime
+		case 'mini':
+			return mini
+		case 'mini-now':
+			return miniNow
+		case 'mini-minute':
+			return miniMinute
+		case 'mini-minute-now':
+			return miniMinuteNow
 		case 'twitter':
 			return twitter
 		case 'twitter-now':

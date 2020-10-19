@@ -1,4 +1,4 @@
-import roundMinute from '../steps/roundMinute'
+import round from './round'
 
 // just now
 // 1 minute ago
@@ -30,6 +30,7 @@ import roundMinute from '../steps/roundMinute'
 // …
 //
 export default {
-	steps: roundMinute,
-	labels: 'long'
+	...round,
+	// Skip "seconds".
+	steps: round.steps.filter(step => step.formatAs !== 'second')
 }

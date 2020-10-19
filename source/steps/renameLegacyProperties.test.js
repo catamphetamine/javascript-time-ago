@@ -11,6 +11,14 @@ describe('steps/renameLegacyProperties', () => {
 		})
 	})
 
+	it('should rename legacy properties (minTime: undefined)', () => {
+		renameLegacyProperties({
+			formatAs: 'now'
+		}).should.deep.equal({
+			unit: 'now'
+		})
+	})
+
 	it('should rename legacy properties (`minTime` is an object)', () => {
 		renameLegacyProperties({
 			formatAs: 'now',

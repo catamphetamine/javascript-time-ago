@@ -1,15 +1,10 @@
-import { style } from './twitter'
-
-// Skip "seconds".
-const steps = style.steps.slice(1)
-
-// Starts showing `1m` after 30 seconds.
-steps[0] = {
-	...steps[0],
-	minTime: 30
-}
+import { minute } from '../steps/units'
+import twitter from './twitter'
 
 export default {
-	...style,
-	steps
+	...twitter,
+	// Skip "seconds".
+	steps: twitter.steps.filter(step => step.formatAs !== 'second')
+		// Start showing `1m` from the first minute.
+		.map(step => step.formatAs === 'minute' ? { ...step, minTime: minute } : step)
 }

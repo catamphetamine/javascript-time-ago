@@ -1,6 +1,6 @@
 import TimeAgo from '../source/TimeAgo'
 import en from '../locale/en'
-import { round } from '../steps'
+import round from '../source/style/round'
 
 describe('TimeAgo.addLocale', () => {
   it('should add and use custom labels', () => {
@@ -24,14 +24,36 @@ describe('TimeAgo.addLocale', () => {
     const timeAgo = new TimeAgo('en-US')
 
     const customStyle = {
-      steps: round,
+      ...round,
       labels: 'custom'
     }
 
     timeAgo.format(Date.now() - 10 * 1000, customStyle).should.equal('10 seconds earlier')
   })
 
-  it('should throw when locale has not been added', () => {
-    expect(() => TimeAgo.addLabels('exotic', 'custom', {})).to.throw('No data for locale "exotic"')
+  it('should work when no locale data has been added before for the locale', () => {
+    const locale = 'xxx'
+    let timeAgo = new TimeAgo(locale)
+    timeAgo.locale.should.equal(TimeAgo.getDefaultLocale())
+    TimeAgo.addLabels(locale, 'custom', {
+      "second": {
+        "past": "about {0} seconds ago",
+        "future": "in about {0} seconds"
+      }
+    })
+    timeAgo = new TimeAgo(locale)
+    timeAgo.locale.should.equal(locale)
+    timeAgo.format(Date.now() - 10 * 1000, {
+      labels: 'custom',
+      steps: [{
+        formatAs: 'second'
+      }, {
+        // This step will be filtered out
+        // because "now" unit labels aren't available.
+        formatAs: 'now',
+        minTime: 0
+      }]
+    }).should.equal('about 10 seconds ago')
+    // expect(() => TimeAgo.addLabels('exotic', 'custom', {})).to.throw('No data for locale "exotic"')
   })
 })

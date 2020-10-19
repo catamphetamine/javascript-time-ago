@@ -1,5 +1,4 @@
-import round from '../steps/round'
-import { minute, hour, day, week, month, year, getDate } from '../steps'
+import { day, getDate } from '../steps'
 import { intlDateTimeFormatSupported } from '../locale'
 
 // For compatibility with the old versions of this library.
@@ -12,21 +11,13 @@ import renameLegacyProperties from './renameLegacyProperties'
 // and longer intervals are formatted using full date format.
 
 const steps = [
-	// Seconds
 	{
-		// Format time in seconds.
 		formatAs: 'second'
 	},
-	// Minutes
 	{
-		// Starts showing `1m` after `59s`.
-		minTime: minute - 0.5,
 		formatAs: 'minute'
 	},
-	// Hours
 	{
-		// After `59m` it will show `1h`.
-		minTime: hour - 0.5 * minute,
 		formatAs: 'hour'
 	}
 ]
@@ -37,43 +28,52 @@ const formatters = {}
 
 // Starting from day intervals, output month and day.
 const monthAndDay = {
-	minTime: day - 0.5 * hour,
+	minTime(timestamp, { future, getMinTimeToFrom }) {
+		return getMinTimeToFrom('day', 'hour')
+	},
 	format(value, locale) {
 		/* istanbul ignore else */
 		if (!formatters[locale]) {
 			formatters[locale] = {}
 		}
 		/* istanbul ignore else */
-		if (!formatters[locale].this_year) {
+		if (!formatters[locale].dayMonth) {
 			// "Apr 11" (MMMd)
-			formatters[locale].this_year = new Intl.DateTimeFormat(locale, {
+			formatters[locale].dayMonth = new Intl.DateTimeFormat(locale, {
 				month: 'short',
 				day: 'numeric'
 			})
 		}
 		// Output month and day.
-		return formatters[locale].this_year.format(getDate(value))
-	},
-	getTimeToNextUpdate(date, { now, future }) {
-		const nextYear = new Date(new Date(now).getFullYear() + 1, 0)
-		return nextYear.getTime() - now
+		return formatters[locale].dayMonth.format(getDate(value))
 	}
 }
 
 // If the `date` happened/happens outside of current year,
 // then output day, month and year.
+// The interval should be such that the `date` lies outside of the current year.
 const yearMonthAndDay = {
-	test(timestamp, { now, future }) {
+	minTime(timestamp, { future }) {
 		if (future) {
-			// Jan 1st 00:00 of the next year.
-			const nextYear = new Date(new Date(now).getFullYear() + 1, 0)
-			// If the `date` is future year.
-			return timestamp > nextYear.getTime()
+			// January 1, 00:00, of the `date`'s year is right after
+			// the maximum `now` for formatting a future date:
+			// When `now` is before that date, the `date` is formatted as "day/month/year" (this step),
+			// When `now` is equal to or after that date, the `date` is formatted as "day/month" (another step).
+			// After that, it's hours, minutes, seconds, and after that it's no longer `future`.
+			// The date is right after the maximum `now` for formatting a future date,
+			// so subtract 1 millisecond from it.
+			const maxFittingNow = new Date(new Date(timestamp).getFullYear(), 0).getTime() - 1
+			// Return `minTime` (in seconds).
+			return (timestamp - maxFittingNow) / 1000
 		} else {
-			// Jan 1st 00:00 of the this year.
-			const thisYear = new Date(new Date(now).getFullYear(), 0)
-			// If the `date` is past year.
-			return timestamp < thisYear.getTime()
+			// January 1, 00:00, of the year following the `date`'s year
+			// is the minimum `now` for formatting a past date:
+			// When `now` is before that date, the `date` is formatted as "day/month" (another step),
+			// When `now` is equal to or after that date, the `date` is formatted as "day/month/year" (this step).
+			// After that, it's hours, minutes, seconds, and after that it's no longer `future`.
+			const minFittingNow = new Date(new Date(timestamp).getFullYear() + 1, 0).getTime()
+			// Return `minTime` (in seconds).
+			return (minFittingNow - timestamp) / 1000
 		}
 	},
 	format(value, locale) {
@@ -82,20 +82,16 @@ const yearMonthAndDay = {
 			formatters[locale] = {}
 		}
 		/* istanbul ignore else */
-		if (!formatters[locale].other) {
+		if (!formatters[locale].dayMonthYear) {
 			// "Apr 11, 2017" (yMMMd)
-			formatters[locale].other = new Intl.DateTimeFormat(locale, {
+			formatters[locale].dayMonthYear = new Intl.DateTimeFormat(locale, {
 				year: 'numeric',
 				month: 'short',
 				day: 'numeric'
 			})
 		}
 		// Output day, month and year.
-		return formatters[locale].other.format(getDate(value))
-	},
-	getTimeToNextUpdate() {
-		// Doesn't need to be updated.
-		return 1000 * year
+		return formatters[locale].dayMonthYear.format(getDate(value))
 	}
 }
 
@@ -111,29 +107,25 @@ if (intlDateTimeFormatSupported()) {
 else {
 	steps.push(
 		{
-			minTime: day - 0.5 * hour,
 			formatAs: 'day'
 		},
 		{
-			minTime: week - 0.5 * day,
 			formatAs: 'week'
 		},
 		{
-			minTime: 3.5 * week,
 			formatAs: 'month'
 		},
 		{
-			minTime: year - 0.5 * month,
 			formatAs: 'year'
 		}
 	)
 }
 
-export const style = {
+export default {
 	steps,
 	labels: [
-		// "mini-time" labels are only defined for a few languages.
-		'mini-time',
+		// "mini" labels are only defined for a few languages.
+		'mini',
 		// "short-time" labels are only defined for a few languages.
 		'short-time',
 		// "narrow" and "short" labels are defined for all languages.
@@ -148,6 +140,3 @@ export const style = {
 		'short'
 	]
 }
-
-// For compatibility with the old versions of this library.
-export default renameLegacyProperties(style)

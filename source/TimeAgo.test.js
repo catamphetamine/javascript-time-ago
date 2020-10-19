@@ -77,9 +77,36 @@ describe(`javascript-time-ago`, () => {
 		timeAgo.format(Date.now() + 10, { labels: ['long'] }).should.equal('in a moment')
 	})
 
-	it('should accept a string style argument', () => {
+	it('should accept a string style name argument', () => {
 		const timeAgo = new TimeAgo('en')
+		// "mini".
+		timeAgo.format(Date.now() - 0 * 1000, 'mini').should.equal('0s')
+		timeAgo.format(Date.now() - 1 * 1000, 'mini').should.equal('1s')
+		// "mini-now".
+		timeAgo.format(Date.now() - 0 * 1000, 'mini-now').should.equal('now')
+		timeAgo.format(Date.now() - 1 * 1000, 'mini-now').should.equal('1s')
+		// "mini-minute-now".
+		timeAgo.format(Date.now() - 29 * 1000, 'mini-minute-now').should.equal('now')
+		timeAgo.format(Date.now() - 60 * 1000, 'mini-minute-now').should.equal('1m')
+		// "mini-minute".
+		timeAgo.format(Date.now() - 29 * 1000, 'mini-minute').should.equal('0m')
+		timeAgo.format(Date.now() - 60 * 1000, 'mini-minute').should.equal('1m')
+		// "twitter".
+		timeAgo.format(Date.now() - 0 * 1000, 'twitter').should.equal('0s')
 		timeAgo.format(Date.now() - 1 * 1000, 'twitter').should.equal('1s')
+		// "twitter-now".
+		timeAgo.format(Date.now() - 0 * 1000, 'twitter-now').should.equal('now')
+		timeAgo.format(Date.now() - 1 * 1000, 'twitter-now').should.equal('1s')
+		// "twitter-minute-now".
+		timeAgo.format(Date.now() - 29 * 1000, 'twitter-minute-now').should.equal('now')
+		timeAgo.format(Date.now() - 60 * 1000, 'twitter-minute-now').should.equal('1m')
+		// "twitter-minute".
+		timeAgo.format(Date.now() - 29 * 1000, 'twitter-minute').should.equal('0m')
+		timeAgo.format(Date.now() - 60 * 1000, 'twitter-minute').should.equal('1m')
+		// "twitter-first-minute".
+		timeAgo.format(Date.now() - 29 * 1000, 'twitter-first-minute').should.equal('')
+		timeAgo.format(Date.now() - 60 * 1000, 'twitter-first-minute').should.equal('1m')
+		// "approximate".
 		timeAgo.format(Date.now() - 45 * 1000, 'approximate').should.equal('just now')
 		// "convenient" style was renamed to "approximate".
 		timeAgo.format(Date.now() - 45 * 1000, 'convenient').should.equal('just now')
@@ -433,12 +460,12 @@ describe(`javascript-time-ago`, () => {
 		// new TimeAgo('en').format(Date.now(), style).should.equal('0 seconds ago')
 		// new TimeAgo('en').format(Date.now(), style, { future: true }).should.equal('in 0 seconds')
 
-		// Non-"now" unit, "mini-time" style.
+		// Non-"now" unit, "mini" style.
 		const style2 = {
 			style: [{
 				unit: 'year'
 			}],
-			labels: 'mini-time'
+			labels: 'mini'
 		}
 		new TimeAgo('ru').format(Date.now() - 5 * 365 * 24 * 60 * 60 * 1000, style2).should.equal('5 л')
 		new TimeAgo('ru').format(Date.now() - 5 * 365 * 24 * 60 * 60 * 1000, style2, { future: true }).should.equal('5 л')
@@ -467,8 +494,8 @@ describe(`javascript-time-ago`, () => {
 
 	it('should choose "future" variant of a label for `0` if "future: true" option is passed', () => {
 		TimeAgo.addLocale(english)
-		const secondLabels = english['mini-time'].second
-		english['mini-time'].second = {
+		const secondLabels = english['mini'].second
+		english['mini'].second = {
 			past: '{0} seconds ago',
 			future: 'in {0} seconds'
 		}
@@ -477,32 +504,343 @@ describe(`javascript-time-ago`, () => {
 			steps: [{
 				unit: 'second'
 			}],
-			// Uses "mini-time" labels so that it doesn't use `Intl.RelativeTimeFormat`.
-			labels: 'mini-time'
+			// Uses "mini" labels so that it doesn't use `Intl.RelativeTimeFormat`.
+			labels: 'mini'
 		}).should.equal('0 seconds ago')
 
 		new TimeAgo('en').format(Date.now(), {
 			steps: [{
 				unit: 'second'
 			}],
-			// Uses "mini-time" labels so that it doesn't use `Intl.RelativeTimeFormat`.
-			labels: 'mini-time'
+			// Uses "mini" labels so that it doesn't use `Intl.RelativeTimeFormat`.
+			labels: 'mini'
 		}, {
 			future: true
 		}).should.equal('in 0 seconds')
 
-		english['mini-time'].second = secondLabels
+		english['mini'].second = secondLabels
 	})
 
-	it('should get time to next update', () => {
+	it('should get time to next update (round: "floor")', () => {
 		const timeAgo = new TimeAgo('en')
-		const now = Date.now()
-		timeAgo.format(now + 1000, 'twitter', {
+		// in 1 second -> in 0 seconds.
+		timeAgo.format(1000, 'twitter', {
 			getTimeToNextUpdate: true,
-			now
+			now: 0,
+			round: 'floor'
 		}).should.deep.equal([
 			'1s',
+			1
+		])
+	})
+
+	it('should get time to next update (round: "round")', () => {
+		const timeAgo = new TimeAgo('en')
+		// in 1 second -> in 0 seconds.
+		timeAgo.format(1000, 'twitter', {
+			getTimeToNextUpdate: true,
+			now: 0
+		}).should.deep.equal([
+			'1s',
+			501
+		])
+	})
+
+	it('should get time to next update ("mini-now" style) (round: "floor")', () => {
+		const timeAgo = new TimeAgo('en')
+		// In 1 minute.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 0,
+			round: 'floor'
+		}).should.deep.equal([
+			'1m',
+			1
+		])
+		// Almost in 1 minute.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 1,
+			round: 'floor'
+		}).should.deep.equal([
+			'59s',
+			1000
+		])
+		// In 1 second.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 59 * 1000,
+			round: 'floor'
+		}).should.deep.equal([
+			'1s',
+			1
+		])
+		// Almost in 1 second.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 59 * 1000 + 1,
+			round: 'floor'
+		}).should.deep.equal([
+			'now',
+			// Right after zero point.
+			1000
+		])
+		// Zero point (future to past).
+		// `future: true`.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000,
+			future: true,
+			round: 'floor'
+		}).should.deep.equal([
+			'now',
+			1
+		])
+		// Zero point (future to past).
+		// `future: false`.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000,
+			round: 'floor'
+		}).should.deep.equal([
+			'now',
+			1000
+		])
+		// Right after zero point (past).
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000 + 1,
+			round: 'floor'
+		}).should.deep.equal([
+			'now',
+			1000 - 1
+		])
+		// 1 second ago.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000 + 1000,
+			round: 'floor'
+		}).should.deep.equal([
+			'1s',
+			1000
+		])
+	})
+
+	it('should get time to next update ("mini-now" style) (round: "round")', () => {
+		const timeAgo = new TimeAgo('en')
+		// In 1 minute.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 0
+		}).should.deep.equal([
+			'1m',
+			500 + 1
+		])
+		// Almost in 1 minute.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 500 + 1
+		}).should.deep.equal([
+			'59s',
+			1000
+		])
+		// In 1 second.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 59.5 * 1000
+		}).should.deep.equal([
+			'1s',
+			1
+		])
+		// Almost in 1 second.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 59.5 * 1000 + 1
+		}).should.deep.equal([
+			'now',
+			// Right after zero point.
 			500
+		])
+		// Zero point (future to past).
+		// `future: true`.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000,
+			future: true
+		}).should.deep.equal([
+			'now',
+			1
+		])
+		// Zero point (future to past).
+		// `future: false`.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000
+		}).should.deep.equal([
+			'now',
+			500
+		])
+		// Right after zero point (past).
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000 + 1
+		}).should.deep.equal([
+			'now',
+			500 - 1
+		])
+		// 1 second ago.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000 + 500
+		}).should.deep.equal([
+			'1s',
+			1000
+		])
+	})
+
+	it('should get time to next update (first step has non-zero "minTime") (round: "floor")', () => {
+		const timeAgo = new TimeAgo('en')
+
+		// Future.
+		// Inside the first step.
+		// Updates soon.
+		timeAgo.format(60 * 1000, {
+			steps: [{
+				formatAs: 'minute',
+				minTime: 60
+			}],
+			labels: 'mini',
+			round: 'floor'
+		}, {
+			getTimeToNextUpdate: true,
+			now: -0.5 * 1000
+		}).should.deep.equal([
+			'1m',
+			0.5 * 1000 + 1
+		])
+
+		// Future.
+		// Outside of the first step.
+		// Updates right after zero point.
+		timeAgo.format(60 * 1000, {
+			steps: [{
+				formatAs: 'minute',
+				minTime: 60 * 1000
+			}],
+			labels: 'mini',
+			round: 'floor'
+		}, {
+			getTimeToNextUpdate: true,
+			now: 1 * 1000
+		}).should.deep.equal([
+			'',
+			59 * 1000 + 1
+		])
+
+		// Zero point.
+		// Outside of the first step.
+		// Updates at the first step's `minTime`.
+		timeAgo.format(60 * 1000, {
+			steps: [{
+				formatAs: 'minute',
+				minTime: 60
+			}],
+			labels: 'mini',
+			round: 'floor'
+		}, {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000
+		}).should.deep.equal([
+			'',
+			60 * 1000
+		])
+
+		// Past.
+		// Inside the first step.
+		// Updates at the next minute.
+		timeAgo.format(60 * 1000, {
+			steps: [{
+				formatAs: 'minute',
+				minTime: 60
+			}],
+			labels: 'mini',
+			round: 'floor'
+		}, {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000 + 60 * 1000
+		}).should.deep.equal([
+			'1m',
+			60 * 1000
+		])
+
+		// Almost in 1 minute.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 1,
+			round: 'floor'
+		}).should.deep.equal([
+			'59s',
+			1000
+		])
+		// In 1 second.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 59 * 1000,
+			round: 'floor'
+		}).should.deep.equal([
+			'1s',
+			1
+		])
+		// Almost in 1 second.
+		// Updates right after the zero point.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 59 * 1000 + 1,
+			round: 'floor'
+		}).should.deep.equal([
+			'now',
+			1000
+		])
+		// Zero point (future to past).
+		// `future: true`.
+		// Updates right after zero point.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000,
+			future: true,
+			round: 'floor'
+		}).should.deep.equal([
+			'now',
+			1
+		])
+		// Zero point (future to past).
+		// `future: false`.
+		// Updates at the next second.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000,
+			round: 'floor'
+		}).should.deep.equal([
+			'now',
+			1000
+		])
+		// Right after zero point (past).
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000 + 1,
+			round: 'floor'
+		}).should.deep.equal([
+			'now',
+			1000 - 1
+		])
+		// 1 second ago.
+		timeAgo.format(60 * 1000, 'mini-now', {
+			getTimeToNextUpdate: true,
+			now: 60 * 1000 + 1000,
+			round: 'floor'
+		}).should.deep.equal([
+			'1s',
+			1000
 		])
 	})
 
@@ -521,15 +859,15 @@ describe(`javascript-time-ago`, () => {
 	it('should support `polyfill: false` option', () => {
 		const timeAgo = new TimeAgo('en', { polyfill: false })
 		// Still uses "now" labels, even when not polyfilled.
-		timeAgo.format(Date.now(), 'round').should.equal('just now')
-		timeAgo.format(Date.now() + 1000, 'round').should.equal('in 1 second')
+		timeAgo.format(0, 'round', { now: 0 }).should.equal('just now')
+		timeAgo.format(1000, 'round', { now: 0 }).should.equal('in 1 second')
 	})
 
 	it('should not use Intl.NumberFormat if it is not available', () => {
 		const Intl = global.Intl
 		global.Intl = undefined
 		const timeAgo = new TimeAgo('en')
-		timeAgo.format(Date.now() + 1000, 'round').should.equal('in 1 second')
+		timeAgo.format(1000, 'round', { now: 0 }).should.equal('in 1 second')
 		global.Intl = Intl
 	})
 
@@ -571,6 +909,16 @@ describe(`javascript-time-ago`, () => {
 			})
 		}).to.throw('`TimeAgo.addDefaultLocale()` can only be called once')
 		TimeAgo.setDefaultLocale('en')
+	})
+
+	it('should support "floor" rounding', () => {
+		const timeAgo = new TimeAgo('en')
+		timeAgo.format(0.9 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('0s')
+		timeAgo.format(1 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('1s')
+		timeAgo.format(1.9 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('1s')
+		timeAgo.format(2 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('2s')
+		timeAgo.format(1.9 * 60 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('1m')
+		timeAgo.format(2 * 60 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('2m')
 	})
 })
 

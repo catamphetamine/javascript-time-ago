@@ -1,27 +1,44 @@
 import { getSecondsInUnit } from './units'
+import { getRoundFunction, getDiffRatioToNextRoundedNumber } from '../round'
 
 /**
  * Gets the time to next update for a step with a time unit defined.
  * @param  {string} unit
- * @param  {(Date|number)} date — The date, as it was passed to `.format()`.
+ * @param  {number} date — The date passed to `.format()`, converted to a timestamp.
  * @param  {number} options.now
- * @param  {boolean} options.future
+ * @param  {string} [options.round] — (undocumented) Rounding mechanism.
  * @return {number} [timeToNextUpdate]
  */
-export default function getTimeToNextUpdateForUnit(unit, date, { now, future }) {
+export default function getTimeToNextUpdateForUnit(unit, timestamp, { now, round }) {
 	// For some units, like "now", there's no defined amount of seconds in them.
 	if (!getSecondsInUnit(unit)) {
 		// If there's no amount of seconds defined for this unit
 		// then the update interval can't be determined reliably.
 		return
 	}
-	const timestamp = date.getTime ? date.getTime() : date
 	const unitDenominator = getSecondsInUnit(unit) * 1000
-	const preciseAmount = timestamp - now
-	const roundedAmount = Math.round(preciseAmount / unitDenominator) * unitDenominator
-	const timeToNextUpdate = 0.5 * unitDenominator - (future ? 1 : -1) * (preciseAmount - roundedAmount)
-	if (timeToNextUpdate === 0) {
-		return unitDenominator
+	const future = timestamp > now
+	const preciseAmount = Math.abs(timestamp - now)
+	const roundedAmount = getRoundFunction(round)(preciseAmount / unitDenominator) * unitDenominator
+	if (future) {
+		if (roundedAmount > 0) {
+			// Amount decreases with time.
+			return (preciseAmount - roundedAmount) +
+				getDiffToPreviousRoundedNumber(round, unitDenominator)
+		} else {
+			// Refresh right after the zero point,
+			// when "future" changes to "past".
+			return (preciseAmount - roundedAmount) + 1
+		}
 	}
-	return timeToNextUpdate
+ 	// Amount increases with time.
+	return -(preciseAmount - roundedAmount) + getDiffToNextRoundedNumber(round, unitDenominator)
+}
+
+function getDiffToNextRoundedNumber(round, unitDenominator) {
+	return getDiffRatioToNextRoundedNumber(round) * unitDenominator
+}
+
+function getDiffToPreviousRoundedNumber(round, unitDenominator) {
+	return (1 - getDiffRatioToNextRoundedNumber(round)) * unitDenominator + 1
 }

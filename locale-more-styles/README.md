@@ -8,7 +8,7 @@ These are the additional localized time interval labels.
 * `"just now"` (past) — A moment ago.
 * `"in a moment"` (future) — In a moment.
 
-## `mini-time`
+## `mini`
 
 (previoiusly called `"tiny"`)
 
@@ -20,7 +20,7 @@ The shortest ones available, without the `" ago"`/`"in "` part.
 * `4yr`
 * …
 
-These're the ones used in `"twitter"` style.
+These're the ones used in `"mini"` and `"twitter"` styles.
 
 ## `long-time`
 

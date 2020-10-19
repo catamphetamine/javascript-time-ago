@@ -1,22 +1,7 @@
-import { style } from './twitter'
-
-let steps = style.steps.slice()
-
-// Seconds.
-// Format time in seconds starting from 0.5 seconds.
-steps[0] = {
-	...steps[0],
-	minTime: 0.5
-}
-
-steps = [
-	{
-		formatAs: 'now'
-	},
-	...steps
-]
+import twitter from './twitter'
 
 export default {
-	...style,
-	steps
+	...twitter,
+	// Add "now".
+	steps: [{ formatAs: 'now' }].concat(twitter.steps)
 }

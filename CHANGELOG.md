@@ -1,4 +1,8 @@
 <!--
+TO DO: Maybe change from string style names to configurable style options. Example: twitter-minute-now -> "twitter", { startFrom: 'minute', now: true }. twitter-first-minute -> "twitter", { startFrom: 'minute', startFromValue: 1 }.
+
+TO DO: Maybe require `minTime` on all steps (except the first one).
+
 TO DO: Remove the legacy compatibility of getting "now" label from "long.second.current" in runtime code (not in locale generation code — that one's as intended).
 
 TO DO: Obtaining "now" label in runtime when not using the polyfill:
@@ -28,6 +32,26 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
+
+2.3.0 / 14.10.2020
+==================
+
+* `test(timestamp)` function of a step is now deprecated. Use `minTime(timestamp)` function instead.
+
+* Fixed `getTimeToNextUpdate()`.
+
+* Renamed `"mini-time"` labels to `"mini"`.
+
+* Added styles: `"mini"`, `"mini-now"`, `"mini-minute"`, `"mini-minute-now"`.
+
+* Added a new `round` property (described in the readme): it can be `"round"` or `"floor"`. The default is `"round"`.
+
+* (Could be a breaking change for those who read `"tiny"` from JSON files directly) Removed "tiny" labels from JSON files. `"tiny"` labels type name still works.
+
+2.2.9 / 14.10.2020
+==================
+
+* Fixed `"twitter-..."` styles.
 
 2.2.8 / 12.10.2020
 ==================

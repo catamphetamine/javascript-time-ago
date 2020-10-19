@@ -4,11 +4,12 @@ import fs from 'fs-extra'
 const localesDirectory = path.join(__dirname, '../locale')
 
 const ADDITIONAL_STYLES = [
-	// 'now' should come before 'mini-time'.
+	// 'now' should come before 'mini' because `now.current`
+	// is the default for `mini.now`.
 	'now',
+	'mini',
 	'short-time',
-	'long-time',
-	'mini-time'
+	'long-time'
 ]
 
 for (const locale of getAllLocales()) {
@@ -25,17 +26,12 @@ for (const locale of getAllLocales()) {
 		if (fs.existsSync(labelsFilePath)) {
 			const labels = require(labelsFilePath)
 			localeData[style] = labels
-			if (style === 'mini-time') {
+			if (style === 'mini') {
 				if (!labels.now) {
 					const nowLabel = getNowLabel(localeData)
 					if (nowLabel) {
 						labels.now = nowLabel
 					}
-				}
-				// "tiny" is a legacy name of "mini-time".
-				localeData.tiny = {
-					deprecated: true,
-					...localeData[style]
 				}
 			}
 		}

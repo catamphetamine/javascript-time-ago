@@ -15,6 +15,8 @@ import {
 import defaultStyle from './style/approximate'
 import getStyleByName from './style/getStyleByName'
 
+import { getRoundFunction } from './round'
+
 // Valid time units.
 const UNITS = [
 	'now',
@@ -85,6 +87,8 @@ export default class TimeAgo {
 	 *         in order to correspond to `Intl.RelativeTimeFormat`
 	 *         that uses `future` formatting for `0` unless `-0` is passed.
 	 *
+	 * @param {string} [options.round] — Rounding method. Overrides the style's one.
+	 *
 	 * @param {boolean} [options.getTimeToNextUpdate] — Pass `true` to return `[formattedDate, timeToNextUpdate]` instead of just `formattedDate`.
 	 *
 	 * @return {string} The formatted relative date/time. If no eligible `step` is found, then an empty string is returned.
@@ -94,7 +98,7 @@ export default class TimeAgo {
 			style = getStyleByName(style)
 		}
 
-		const { date, time } = getDateAndTimeBeingFormatted(input)
+		const timestamp = getTimestamp(input)
 
 		// Get locale messages for this type of labels.
 		// "flavour" is a legacy name for "labels".
@@ -117,7 +121,7 @@ export default class TimeAgo {
 		}
 
 		// how much time has passed (in seconds)
-		const secondsPassed = (now - time) / 1000 // in seconds
+		const secondsPassed = (now - timestamp) / 1000 // in seconds
 
 		const future = options.future || secondsPassed < 0
 
@@ -143,8 +147,8 @@ export default class TimeAgo {
 		if (style.custom) {
 			const custom = style.custom({
 				now,
-				date,
-				time,
+				date: new Date(timestamp),
+				time: timestamp,
 				elapsed: secondsPassed,
 				locale: this.locale
 			})
@@ -170,30 +174,35 @@ export default class TimeAgo {
 		// 	return ''
 		// }
 
+		const round = options.round || style.round
+
 		// Choose the appropriate time measurement unit
 		// and get the corresponding rounded time amount.
-		const [step, nextStep] = getStep(
+		const [prevStep, step, nextStep] = getStep(
 			// "gradation" is a legacy name for "steps".
 			// For historical reasons, "approximate" steps are used by default.
 			// In the next major version, there'll be no default for `steps`.
 			style.gradation || style.steps || defaultStyle.gradation,
 			secondsPassed,
-			{ now, units, future, getNextStep: true }
+			{ now, units, round, future, getNextStep: true }
 		)
 
-		const formattedDate = this.formatDateForStep(date || time, step, secondsPassed, {
+		const formattedDate = this.formatDateForStep(timestamp, step, secondsPassed, {
 			labels,
 			labelsType,
 			nowLabel,
 			now,
-			future
+			future,
+			round
 		}) || ''
 
 		if (options.getTimeToNextUpdate) {
-			const timeToNextUpdate = step && getTimeToNextUpdate(date || time, step, {
+			const timeToNextUpdate = getTimeToNextUpdate(timestamp, step, {
 				nextStep,
+				prevStep,
 				now,
-				future
+				future,
+				round
 			})
 			return [formattedDate, timeToNextUpdate]
 		}
@@ -201,12 +210,13 @@ export default class TimeAgo {
 		return formattedDate
 	}
 
-	formatDateForStep(dateOrTimestamp, step, secondsPassed, {
+	formatDateForStep(timestamp, step, secondsPassed, {
 		labels,
 		labelsType,
 		nowLabel,
 		now,
-		future
+		future,
+		round
 	}) {
 		// If no step matches, then output an empty string.
 		if (!step) {
@@ -214,7 +224,7 @@ export default class TimeAgo {
 		}
 
 		if (step.format) {
-			return step.format(dateOrTimestamp, this.locale, {
+			return step.format(timestamp, this.locale, {
 				formatAs: (unit, value) => {
 					// Mimicks `Intl.RelativeTimeFormat.format()`.
 					return this.formatValue(value, unit, {
@@ -256,10 +266,10 @@ export default class TimeAgo {
 		//
 		if (step.granularity) {
 			// Recalculate the amount of seconds passed based on granularity
-			amount = Math.round(amount / step.granularity) * step.granularity
+			amount = getRoundFunction(round)(amount / step.granularity) * step.granularity
 		}
 
-		let valueForFormatting = -1 * Math.sign(secondsPassed) * Math.round(amount)
+		let valueForFormatting = -1 * Math.sign(secondsPassed) * getRoundFunction(round)(amount)
 
 		// By default, this library formats a `0` in "past" mode,
 		// unless `future: true` option is passed.
@@ -392,6 +402,17 @@ export default class TimeAgo {
 			labelsType = [labelsType]
 		}
 
+		// Supports legacy "tiny" and "mini-time" label styles.
+		labelsType = labelsType.map((labelsType) => {
+			switch (labelsType) {
+				case 'tiny':
+				case 'mini-time':
+					return 'mini'
+				default:
+					return labelsType
+			}
+		})
+
 		// "long" labels type is the default one.
 		// (it's always present for all languages)
 		labelsType = labelsType.concat('long')
@@ -465,29 +486,25 @@ TimeAgo.locale = TimeAgo.addLocale
  * @param {object} labels
  */
 TimeAgo.addLabels = (locale, name, labels) => {
-	const localeData = getLocaleData(locale)
+	let localeData = getLocaleData(locale)
 	if (!localeData) {
-		throw new Error(`[javascript-time-ago] No data for locale "${locale}"`)
+		addLocaleData({
+			locale
+		})
+		localeData = getLocaleData(locale)
+		// throw new Error(`[javascript-time-ago] No data for locale "${locale}"`)
 	}
 	localeData[name] = labels
 }
 
 // Normalizes `.format()` `time` argument.
-function getDateAndTimeBeingFormatted(input) {
+function getTimestamp(input) {
 	if (input.constructor === Date || isMockedDate(input)) {
-		return {
-			date : input,
-			time : input.getTime()
-		}
+		return input.getTime()
 	}
 
 	if (typeof input === 'number') {
-		return {
-			time : input,
-			// `date` is not required for formatting
-			// relative times unless "twitter" style is used.
-			// date : new Date(input)
-		}
+		return input
 	}
 
 	// For some weird reason istanbul doesn't see this `throw` covered.
@@ -544,8 +561,7 @@ function getNowLabel(labels, nowLabels, longLabels, future) {
 		}
 	}
 	// Use ".second.current" as "now" message.
-	// If this function was called then it means that
-	// either "now" unit messages are available or
-	// ".second.current" message is present.
-	return longLabels.second.current
+	if (longLabels && longLabels.second && longLabels.second.current) {
+		return longLabels.second.current
+	}
 }
