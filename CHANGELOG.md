@@ -33,6 +33,11 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.3.1 / 20.10.2020
+==================
+
+* (advanced) Renamed `getMinTimeToFrom()` to `getMinTimeForUnit()`.
+
 2.3.0 / 14.10.2020
 ==================
 

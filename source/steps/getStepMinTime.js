@@ -42,8 +42,12 @@ export default function getStepMinTime(step, {
 	if (typeof minTime === 'function') {
 		minTime = minTime(timestamp, {
 			future,
-			getMinTimeToFrom(toUnit, fromUnit) {
-				return getMinTimeToFrom(toUnit, fromUnit, { round })
+			getMinTimeForUnit(toUnit, fromUnit) {
+				return getMinTimeForUnit(
+					toUnit,
+					fromUnit || prevStep && prevStep.formatAs,
+					{ round }
+				)
 			}
 		})
 	}
@@ -66,7 +70,7 @@ export default function getStepMinTime(step, {
 	if (minTime === undefined) {
 		if (prevStep) {
 			if (step.formatAs && prevStep.formatAs) {
-				minTime = getMinTimeToFrom(step.formatAs, prevStep.formatAs, { round })
+				minTime = getMinTimeForUnit(step.formatAs, prevStep.formatAs, { round })
 			}
 		} else {
 			// The first step's `minTime` is `0` by default.
@@ -80,7 +84,7 @@ export default function getStepMinTime(step, {
 	return minTime
 }
 
-function getMinTimeToFrom(toUnit, fromUnit, { round }) {
+function getMinTimeForUnit(toUnit, fromUnit, { round }) {
 	const toUnitAmount = getSecondsInUnit(toUnit)
 	// if (!fromUnit) {
 	// 	return toUnitAmount;

@@ -525,12 +525,16 @@ minTime(
     future: boolean,   // Is `true` if `date > now`, or if `date === now`
                        // and `future: true` option was passed to `.format()`.
 
-    getMinTimeToFrom(toUnit: string, fromUnit: string): number?
-                       // Returns the `minTime` for a transition to `toUnit`
-                       // from `fromUnit`. For example, the `minTime` for a
-                       // transition to "minute" from "second" is `59.5`
-                       // when `round` is "round" and `60` when `round` is "floor".
-                       // Returns `undefined` if `toUnit` or `fromUnit` are not supported.
+    getMinTimeForUnit(unit: string, prevUnit: string?): number?
+                       // Returns the `minTime` for a transition from a
+                       // previous step with `formatAs: prevUnit` to a
+                       // step with `formatAs: unit`.
+                       // For example, if the previous step is `formatAs: "second"`,
+                       // then `getMinTimeForUnit('minute')` returns `59.5`
+                       // when `round` is "round", and `60` when `round` is "floor".
+                       // A developer can also explicitly specify the previous step's unit:
+                       // `getMinTimeForUnit('minute', 'second')`.
+                       // Returns `undefined` if `unit` or `prevUnit` are not supported.
   }
 ): number
 ```

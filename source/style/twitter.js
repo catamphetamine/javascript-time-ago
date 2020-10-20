@@ -28,8 +28,10 @@ const formatters = {}
 
 // Starting from day intervals, output month and day.
 const monthAndDay = {
-	minTime(timestamp, { future, getMinTimeToFrom }) {
-		return getMinTimeToFrom('day', 'hour')
+	minTime(timestamp, { future, getMinTimeForUnit }) {
+		// Returns `23.5 * 60 * 60` when `round` is "round",
+		// and `24 * 60 * 60` when `round` is "floor".
+		return getMinTimeForUnit('day')
 	},
 	format(value, locale) {
 		/* istanbul ignore else */
