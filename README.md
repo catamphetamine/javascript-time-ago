@@ -514,7 +514,9 @@ A step can be described by:
 
 ##### `minTime`
 
-A minimum time interval (in seconds) required for a step, meaning that `minTime` controls the progression from one step to another. The first step's `minTime` is `0` by default.
+A minimum time interval (in seconds) required for a step, meaning that `minTime` controls the progression from one step to another. Every step must define a `minTime` in one way or another. The first step's `minTime` is `0` by default.
+
+If a step is defined by [`formatAs`](#formatas), and its previous step is also defined by `formatAs`, then such step's `minTime`, if not specified, is calculated automatically according to the selected ["rounding"](#rounding). For example, if the previous step is `{ formatAs: 'second' }` and the current step is `{ formatAs: 'minute' }` then the current step's `minTime` is automatically calculated as `59.5` when `round` is "round" (default), and `60` when `round` is "floor".
 
 While `minTime` is usually a number, it could also be a `function` returning a number in order to support unusual cases like absolute date formatting in [`"twitter"`](https://github.com/catamphetamine/javascript-time-ago/blob/master/source/style/twitter.js) style.
 
