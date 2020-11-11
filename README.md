@@ -44,21 +44,16 @@ TimeAgo.addDefaultLocale(en)
 // Create formatter (English).
 const timeAgo = new TimeAgo('en-US')
 
-// Format dates using "round" style.
-
-timeAgo.format(new Date(), 'round')
+timeAgo.format(new Date())
 // "just now"
 
-timeAgo.format(Date.now() - 15 * 1000, 'round')
-// "15 seconds ago"
-
-timeAgo.format(Date.now() - 60 * 1000, 'round')
+timeAgo.format(Date.now() - 60 * 1000)
 // "1 minute ago"
 
-timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'round')
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000)
 // "2 hours ago"
 
-timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'round')
+timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 // "1 day ago"
 ```
 
@@ -126,21 +121,16 @@ TimeAgo.addDefaultLocale(ru)
 
 const timeAgo = new TimeAgo('ru-RU')
 
-// Format dates using "round" style.
-
-timeAgo.format(new Date(), 'round')
+timeAgo.format(new Date())
 // "только что"
 
-timeAgo.format(Date.now() - 15 * 1000, 'round')
-// "15 секунд назад"
-
-timeAgo.format(Date.now() - 60 * 1000, 'round')
+timeAgo.format(Date.now() - 60 * 1000)
 // "1 минуту назад"
 
-timeAgo.format(Date.now() - 2 * 60 * 60 * 1000, 'round')
+timeAgo.format(Date.now() - 2 * 60 * 60 * 1000)
 // "2 часа назад"
 
-timeAgo.format(Date.now() - 24 * 60 * 60 * 1000, 'round')
+timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 // "1 день назад"
 ```
 
@@ -211,7 +201,7 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round')
 
 ### Round (minute)
 
-Same as `"round"` style but without seconds.
+Same as `"round"` style but without seconds. This is the default style.
 
 ```js
 timeAgo.format(Date.now(), 'round-minute')
@@ -658,14 +648,14 @@ Some people [asked](https://github.com/catamphetamine/javascript-time-ago/issues
 * `0.9` sec. ago → `"0 sec. ago"`
 * `1.0` sec. ago → `"1 sec. ago"`
 
-A developer can choose the rounding method by passing `round` option to `timeAgo.format(date, style, options)`. The default rounding can also be set for a [style](#styles) by setting its `round` property.
+A developer can choose the rounding method by passing `round` option to `timeAgo.format(date, [style], options)`. The default rounding can also be set for a [style](#styles) by setting its `round` property.
 
 ## Future
 
 When given future dates, `.format()` produces the corresponding output.
 
 ```js
-timeAgo.format(Date.now() + 5 * 60 * 1000, 'round')
+timeAgo.format(Date.now() + 5 * 60 * 1000)
 // "in 5 minutes"
 ```
 
@@ -674,18 +664,18 @@ Zero time interval is a special case: by default, it's formatted in past time. T
 ```js
 // Without `future: true` option:
 
-timeAgo.format(Date.now(), 'round')
+timeAgo.format(Date.now())
 // "just now"
 
-timeAgo.format(Date.now() + 5 * 60 * 1000, 'round')
+timeAgo.format(Date.now() + 5 * 60 * 1000)
 // "in 5 minutes"
 
 // With `future: true` option:
 
-timeAgo.format(Date.now(), 'round', { future: true })
+timeAgo.format(Date.now(), { future: true })
 // "in a moment"
 
-timeAgo.format(Date.now() + 5 * 60 * 1000, 'round', { future: true })
+timeAgo.format(Date.now() + 5 * 60 * 1000, { future: true })
 // "in 5 minutes" (no difference)
 ```
 
@@ -694,7 +684,7 @@ timeAgo.format(Date.now() + 5 * 60 * 1000, 'round', { future: true })
 The `.format()` function accepts an optional `now: number` option: it can be used in tests to specify the exact "base" timestamp relative to which the time interval will be calculated.
 
 ```js
-timeAgo.format(60 * 1000, 'round', { now: 0 })
+timeAgo.format(60 * 1000, { now: 0 })
 // "1 minute ago"
 ```
 
@@ -731,7 +721,7 @@ let updateTimer
 
 function render() {
   // Format the date.
-  const [formattedDate, timeToNextUpdate] = timeAgo.format(date, 'round', {
+  const [formattedDate, timeToNextUpdate] = timeAgo.format(date, {
     getTimeToNextUpdate: true
   })
   // Update the label.
@@ -815,7 +805,7 @@ One can use any npm CDN service, e.g. [unpkg.com](https://unpkg.com) or [jsdeliv
 </script>
 
 <script>
-  alert(new TimeAgo('en-US').format(new Date(), 'round'))
+  alert(new TimeAgo('en-US').format(new Date()))
 </script>
 ```
 

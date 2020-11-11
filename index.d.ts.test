@@ -1,4 +1,15 @@
-export type StyleName = 'round' | 'round-minute' | 'approximate' | 'time' | 'twitter' | 'twitter-first-minute'
+export type StyleName =
+	'round' |
+	'round-minute' |
+	'mini' |
+	'mini-now' |
+	'mini-minute' |
+	'mini-minute-now' |
+	'twitter' |
+	'twitter-now' |
+	'twitter-minute' |
+	'twitter-minute-now' |
+	'twitter-first-minute'
 
 export interface Step {
 	formatAs?: string,
@@ -20,10 +31,13 @@ export interface Style {
 	labels: string | string[]
 }
 
+export type Rounding = 'round' | 'floor'
+
 interface FormatOptions {
 	now?: number,
 	future?: boolean,
-	getTimeToNextUpdate?: boolean
+	getTimeToNextUpdate?: boolean,
+	round: Rounding
 }
 
 export default class TimeAgo {

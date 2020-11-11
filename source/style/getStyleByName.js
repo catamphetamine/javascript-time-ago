@@ -1,6 +1,8 @@
 import round from './round'
 import roundMinute from './roundMinute'
+// `approximate` style is deprecated.
 import approximate from './approximate'
+// `approximateTime` style is deprecated.
 import approximateTime from './approximateTime'
 import twitter from './twitter'
 import twitterNow from './twitterNow'

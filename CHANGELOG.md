@@ -33,6 +33,11 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.3.3 / 11.11.2020
+==================
+
+* Changed the default `style` from `"approximate"` (legacy) to `"round-minute"`. This isn't a "breaking change" because no application would be "broken" by something like that, and relative time would still be shown in a similar way, only without too much approximation.
+
 2.3.1 / 20.10.2020
 ==================
 

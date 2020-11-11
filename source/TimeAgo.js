@@ -11,8 +11,7 @@ import {
 	getLocaleData
 } from './LocaleDataStore'
 
-// For historical reasons, "approximate" is the default style.
-import defaultStyle from './style/approximate'
+import defaultStyle from './style/roundMinute'
 import getStyleByName from './style/getStyleByName'
 
 import { getRoundFunction } from './round'
@@ -93,7 +92,20 @@ export default class TimeAgo {
 	 *
 	 * @return {string} The formatted relative date/time. If no eligible `step` is found, then an empty string is returned.
 	 */
-	format(input, style = defaultStyle, options = {}) {
+	format(input, style, options) {
+		if (!options) {
+			if (style && !isStyle(style)) {
+				options = style
+				style = undefined
+			} else {
+				options = {}
+			}
+		}
+
+		if (!style) {
+			style = defaultStyle
+		}
+
 		if (typeof style === 'string') {
 			style = getStyleByName(style)
 		}
@@ -182,7 +194,7 @@ export default class TimeAgo {
 			// "gradation" is a legacy name for "steps".
 			// For historical reasons, "approximate" steps are used by default.
 			// In the next major version, there'll be no default for `steps`.
-			style.gradation || style.steps || defaultStyle.gradation,
+			style.gradation || style.steps || defaultStyle.steps,
 			secondsPassed,
 			{ now, units, round, future, getNextStep: true }
 		)
@@ -564,4 +576,30 @@ function getNowLabel(labels, nowLabels, longLabels, future) {
 	if (longLabels && longLabels.second && longLabels.second.current) {
 		return longLabels.second.current
 	}
+}
+
+const OBJECT_CONSTRUCTOR = {}.constructor
+function isObject(object) {
+	return typeof object !== undefined && object !== null && object.constructor === OBJECT_CONSTRUCTOR
+}
+
+function isStyle(variable) {
+	return typeof variable === 'string' || isStyleObject(variable)
+}
+
+export function isStyleObject(object) {
+	return isObject(object) && (
+		Array.isArray(object.steps) ||
+		// `gradation` property is deprecated: it has been renamed to `steps`.
+		Array.isArray(object.gradation) ||
+		// `flavour` property is deprecated: it has been renamed to `labels`.
+		Array.isArray(object.flavour) ||
+		typeof object.flavour === 'string' ||
+		Array.isArray(object.labels) ||
+		typeof object.labels === 'string' ||
+		// `units` property is deprecated.
+		Array.isArray(object.units) ||
+		// `custom` property is deprecated.
+		typeof object.custom === 'function'
+	)
 }
