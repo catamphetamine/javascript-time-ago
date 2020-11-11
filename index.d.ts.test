@@ -37,10 +37,11 @@ interface FormatOptions {
 	now?: number,
 	future?: boolean,
 	getTimeToNextUpdate?: boolean,
-	round: Rounding
+	round?: Rounding
 }
 
 export default class TimeAgo {
   constructor(locale: string | string[]);
   format(date: typeof Date | number, style?: StyleName | Style, options?: FormatOptions): string | [string, number?];
+  format(date: typeof Date | number, options: FormatOptions): string | [string, number?];
 }
