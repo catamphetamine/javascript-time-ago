@@ -223,7 +223,7 @@ timeAgo.format(Date.now() - 30 * 1000, 'round-minute')
 
 ### Mini
 
-Same as `"round"` style but as short as possible and without `" ago"`.
+Same as `"round"` style but as short as possible and without `" ago"`. Also, [doesn't include](https://github.com/catamphetamine/javascript-time-ago/issues/40) "weeks".
 
 ```js
 timeAgo.format(new Date(), 'mini')
@@ -240,6 +240,9 @@ timeAgo.format(Date.now() - 3 * 60 * 60 * 1000, 'mini')
 
 timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'mini')
 // 4 days ago → "4d"
+
+timeAgo.format(Date.now() - 23 * 24 * 60 * 60 * 1000, 'mini')
+// 23 days ago → "23d"
 
 timeAgo.format(Date.now() - 5 * 30 * 24 * 60 * 60 * 1000, 'mini')
 // 5 months ago → "5mo"
