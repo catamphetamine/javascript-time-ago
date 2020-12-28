@@ -1,0 +1,9 @@
+{
+	"year": "{0}thn",
+	"month": "{0}bln",
+	"week": "{0}mg",
+	"day": "{0}hr",
+	"hour": "{0}jam",
+	"minute": "{0}mnt",
+	"second": "{0}dtk"
+}
