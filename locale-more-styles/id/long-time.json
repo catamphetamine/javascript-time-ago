@@ -1,0 +1,30 @@
+{
+	"year": {
+		"one": "{0} tahun",
+		"other": "{0} tahun"
+	},
+	"month": {
+		"one": "{0} bulan",
+		"other": "{0} bulan"
+	},
+	"week": {
+		"one": "{0} minggu",
+		"other": "{0} minggu"
+	},
+	"day": {
+		"one": "{0} hari",
+		"other": "{0} hari"
+	},
+	"hour": {
+		"one": "{0} jam",
+		"other": "{0} jam"
+	},
+	"minute": {
+		"one": "{0} menit",
+		"other": "{0} menit"
+	},
+	"second": {
+		"one": "{0} detik",
+		"other": "{0} detik"
+	}
+}
