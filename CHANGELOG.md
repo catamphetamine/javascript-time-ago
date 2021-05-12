@@ -33,6 +33,11 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.3.5 / 12.05.2021
+==================
+
+* Added [additional `pt` locale styles](https://github.com/catamphetamine/javascript-time-ago/pull/45) by [Victor Biasibetti](https://github.com/victorbiasibetti).
+
 2.3.3 / 11.11.2020
 ==================
 
