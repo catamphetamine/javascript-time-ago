@@ -4,8 +4,8 @@ import { hour, minute, day, month, year } from '../steps'
 
 describe('style/twitter', () => {
 	it('should fallback from "mini" to "narrow"', () => {
-		const timeAgo = new TimeAgo('it')
-		timeAgo.format(Date.now() - 3 * hour * 1000, 'twitter').should.equal('3 h fa')
+		const timeAgo = new TimeAgo('ccp')
+		timeAgo.format(Date.now() - 3 * hour * 1000, 'twitter').should.equal('3 𑄊𑄮𑄚𑄴𑄓 𑄃𑄉𑄬')
 	})
 
 	it('should format Twitter style relative time (English) (round: "round")', () => {
@@ -117,7 +117,7 @@ describe('style/twitter', () => {
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const formatDatePastBy = (secondsPassed) => timeAgo.format(now - secondsPassed * 1000, { now, ...twitter })
 
-		formatDatePastBy(minute).should.equal('1 min')
+		formatDatePastBy(minute).should.equal('1 min.')
 		formatDatePastBy(hour).should.equal('1 h')
 		formatDatePastBy(day + 62 * minute).should.equal('9 avr.')
 		formatDatePastBy(year).should.equal('11 avr. 2015')
