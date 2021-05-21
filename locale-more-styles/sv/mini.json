@@ -1,0 +1,12 @@
+{
+  "year": "{0} år",
+  "month": "{0} mån.",
+  "week": "{0} v.",
+  "day": {
+    "one": "{0} dag",
+    "other": "{0} dagar"
+  },
+  "hour": "{0} tim.",
+  "minute": "{0} min",
+  "second": "{0} sek."
+}
