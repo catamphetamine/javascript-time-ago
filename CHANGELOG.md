@@ -33,6 +33,11 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.3.6 / 25.05.2021
+==================
+
+* [Added](https://github.com/catamphetamine/javascript-time-ago/pull/47) `mini` style (aka `twitter` style) for some locales: `da`, `sv`, `nl`, `it`, `fr`, `es`. By [@trustpilot](https://github.com/trustpilot).
+
 2.3.5 / 12.05.2021
 ==================
 
