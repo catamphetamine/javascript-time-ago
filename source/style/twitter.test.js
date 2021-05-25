@@ -117,7 +117,7 @@ describe('style/twitter', () => {
 		const now = new Date(2016, 3, 10, 22, 59).getTime()
 		const formatDatePastBy = (secondsPassed) => timeAgo.format(now - secondsPassed * 1000, { now, ...twitter })
 
-		formatDatePastBy(minute).should.equal('1 min.')
+		formatDatePastBy(minute).should.equal('1 min')
 		formatDatePastBy(hour).should.equal('1 h')
 		formatDatePastBy(day + 62 * minute).should.equal('9 avr.')
 		formatDatePastBy(year).should.equal('11 avr. 2015')
