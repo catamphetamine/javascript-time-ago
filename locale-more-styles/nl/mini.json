@@ -1,0 +1,15 @@
+{
+  "year": "{0} jr.",
+  "month": "{0} mnd.",
+  "week": {
+    "one": "{0} week",
+    "other": "{0} wkn."
+  },
+  "day": {
+    "one": "{0} dag",
+    "other": "{0} dgn."
+  },
+  "hour": "{0} uur",
+  "minute": "{0} min.",
+  "second": "{0} sec."
+}

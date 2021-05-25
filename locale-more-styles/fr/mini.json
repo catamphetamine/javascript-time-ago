@@ -1,9 +1,15 @@
 {
-	"year": "{0} a",
-	"month": "{0} m.",
+	"year": {
+		"one": "{0} an",
+		"other": "{0} ans"
+	},
+	"month": "{0} mois",
 	"week": "{0} sem.",
-	"day": "{0} j",
+	"day": {
+		"one": "{0} jour",
+		"other": "{0} jours"
+	},
 	"hour": "{0} h",
-	"minute": "{0} min",
-	"second": "{0} s"
+	"minute": "{0} min.",
+	"second": "{0} sec."
 }

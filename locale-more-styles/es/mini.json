@@ -1,9 +1,21 @@
 {
-	"year": "{0}año",
-	"month": "{0}mes",
-	"week": "{0}sem.",
-	"day": "{0}d",
-	"hour": "{0}h",
-	"minute": "{0}m",
-	"second": "{0}s"
+	"year": {
+		"one": "{0} año",
+		"other": "{0} años"
+	},
+	"month": {
+		"one": "{0} mes",
+		"other": "{0} meses"
+	},
+	"week": "{0} sem.",
+	"day": {
+		"one": "{0} día",
+		"other": "{0} días"
+	},
+	"hour": {
+		"one": "{0} hora",
+		"other": "{0} horas"
+	},
+	"minute": "{0} min.",
+	"second": "{0} seg."
 }
