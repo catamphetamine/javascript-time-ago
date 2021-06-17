@@ -251,7 +251,7 @@ timeAgo.format(Date.now() - 12 * 30 * 24 * 60 * 60 * 1000, 'mini')
 // 1 year ago → "1yr"
 ```
 
-For best compatibility, `mini.json` labels should be defined for a [locale](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles). Send pull requests for the missing ones.
+For best compatibility, `mini.json` labels should be [defined](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) for a locale, otherwise you might [end up with](https://github.com/catamphetamine/javascript-time-ago/issues/49) labels like `"-1m"` for "one minute ago" for some languages. Send `mini.json` pull requests for the missing languages if you speak those.
 
 ### Mini (now)
 
