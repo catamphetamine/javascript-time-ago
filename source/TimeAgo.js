@@ -465,7 +465,7 @@ TimeAgo.setDefaultLocale = (locale) => defaultLocale = locale
  */
 TimeAgo.addDefaultLocale = function(localeData) {
 	if (defaultLocaleHasBeenSpecified) {
-		throw new Error('[javascript-time-ago] `TimeAgo.addDefaultLocale()` can only be called once. To add other locales, use `TimeAgo.addLocale()`.')
+		return console.error('[javascript-time-ago] `TimeAgo.addDefaultLocale()` can only be called once. To add other locales, use `TimeAgo.addLocale()`.')
 	}
 	defaultLocaleHasBeenSpecified = true
 	TimeAgo.setDefaultLocale(localeData.locale)
