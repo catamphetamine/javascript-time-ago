@@ -864,6 +864,10 @@ async function initIntl() {
 initIntl().then(...)
 ```
 
+## TypeScript
+
+This library comes with TypeScript "typings". If you happen to find any bugs in those, create an issue.
+
 <!--
 ## Contributing
 
