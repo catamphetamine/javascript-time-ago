@@ -52,7 +52,11 @@ for (const locale of getAllLocales()) {
 	const localeDirectory = path.join(localesDirectory, locale)
 	fs.outputFileSync(
 		path.join(localeDirectory, 'index.js'),
-		`module.exports = require('../${locale}.json')`
+		`
+var localeData = require('../${locale}.json')
+exports = module.exports = localeData
+exports['default'] = localeData
+		`.trim()
 	)
 }
 
