@@ -536,7 +536,7 @@ minTime(
 
 ##### `formatAs`
 
-A time measurement unit, the labels for which are used to generate the output of a step. If the time unit isn't supported by the language, then the step is ignored. The time units supported in all languages are: `second`, `minute`, `hour`, `day`, `week`, `quarter`, `month`, `year`. For [some languages](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles), this library also defines `now` unit (`"just now"`).
+A time measurement unit, the labels for which are used to generate the output of a step. If the time unit isn't supported by the language, then the step is ignored. The time units supported in all languages are: `second`, `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`. For [some languages](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles), this library also defines `now` unit (`"just now"`).
 
 ##### `format()`
 
@@ -701,11 +701,13 @@ When a `step` has `formatAs` configured, then `getTimeToNextUpdate()` function i
 getTimeToNextUpdate(
   date: number, // The date argument, converted to a timestamp.
   {
-    getTimeToNextUpdateForUnit(unit: string): number,
+    getTimeToNextUpdateForUnit(unit: string): number?,
                        // Returns "time to next update" for a time unit.
                        // This is what the library calls internally
                        // when `formatAs` is configured for a `step`.
-                       // Example: `getTimeToNextUpdateForUnit('minute')`
+                       // Example: `getTimeToNextUpdateForUnit('minute')`.
+                       // Can return `undefined` in edge cases:
+                       // for example, when `unit` is "now".
 
     now: number,       // The current date timestamp.
 
