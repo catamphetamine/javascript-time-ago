@@ -37,7 +37,7 @@ If you're not using a bundler then use a [standalone version from a CDN](#cdn).
 import TimeAgo from 'javascript-time-ago'
 
 // English.
-import en from 'javascript-time-ago/locale/en'
+import en from 'javascript-time-ago/locale/en.json'
 
 TimeAgo.addDefaultLocale(en)
 
@@ -68,9 +68,9 @@ The `locale` argument of `new TimeAgo(locale)` constructor is matched against th
 The "default language" is `"en"` by default, and can be set either by calling `addDefaultLocale()`:
 
 ```js
-import ru from 'javascript-time-ago/locale/ru'
-import de from 'javascript-time-ago/locale/de'
-import es from 'javascript-time-ago/locale/es'
+import ru from 'javascript-time-ago/locale/ru.json'
+import de from 'javascript-time-ago/locale/de.json'
+import es from 'javascript-time-ago/locale/es.json'
 
 TimeAgo.addLocale(ru)
 TimeAgo.addLocale(de)
@@ -80,9 +80,9 @@ TimeAgo.addDefaultLocale(es)
 or by calling `setDefaultLocale()`:
 
 ```js
-import ru from 'javascript-time-ago/locale/ru'
-import de from 'javascript-time-ago/locale/de'
-import es from 'javascript-time-ago/locale/es'
+import ru from 'javascript-time-ago/locale/ru.json'
+import de from 'javascript-time-ago/locale/de.json'
+import es from 'javascript-time-ago/locale/es.json'
 
 TimeAgo.addLocale(ru)
 TimeAgo.addLocale(de)
@@ -115,7 +115,7 @@ An example of using Russian language:
 import TimeAgo from 'javascript-time-ago'
 
 // Russian.
-import ru from 'javascript-time-ago/locale/ru'
+import ru from 'javascript-time-ago/locale/ru.json'
 
 TimeAgo.addDefaultLocale(ru)
 
@@ -431,7 +431,7 @@ New labels can be added by calling `TimeAgo.addLabels()` function.
 
 ```js
 import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en'
+import en from 'javascript-time-ago/locale/en.json'
 import { round } from 'javascript-time-ago/locale/steps'
 
 TimeAgo.addDefaultLocale(en)
