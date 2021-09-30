@@ -460,7 +460,7 @@ TimeAgo.getDefaultLocale = () => defaultLocale
 TimeAgo.setDefaultLocale = (locale) => defaultLocale = locale
 
 /**
- * Adds locale data for a specific locale.
+ * Adds locale data for a specific locale and marks the locale as default.
  * @param {Object} localeData
  */
 TimeAgo.addDefaultLocale = function(localeData) {
