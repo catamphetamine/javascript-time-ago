@@ -125,5 +125,5 @@ export default class TimeAgo {
   static addLocale(localeData: LocaleData): void;
   static addDefaultLocale(localeData: LocaleData): void;
   static setDefaultLocale(locale: Locale): void;
-  static addLabels(locale: Locale, name: LabelStyleName, labels: Labels);
+  static addLabels(locale: Locale, name: LabelStyleName, labels: Labels): void;
 }
