@@ -108,6 +108,7 @@ export interface Step {
 export interface Style {
 	steps: Step[];
 	labels: LabelStyleName | LabelStyleName[];
+	round?: Rounding;
 }
 
 interface FormatOptions {
