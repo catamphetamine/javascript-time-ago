@@ -1,4 +1,4 @@
-import TimeAgo, { isStyleObject } from '../source/TimeAgo'
+import TimeAgo from './TimeAgo'
 import { getLocaleData } from '../source/LocaleDataStore'
 
 // Load locale specific relative date/time messages
@@ -662,38 +662,5 @@ describe(`javascript-time-ago`, () => {
 		timeAgo.format(2 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('2s')
 		timeAgo.format(1.9 * 60 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('1m')
 		timeAgo.format(2 * 60 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('2m')
-	})
-})
-
-describe('isStyleObject', () => {
-	it('should detect a style object', () => {
-		isStyleObject({
-			gradation: []
-		}).should.equal(true)
-		isStyleObject({
-			steps: []
-		}).should.equal(true)
-		isStyleObject({
-			flavour: 'long'
-		}).should.equal(true)
-		isStyleObject({
-			flavour: ['long']
-		}).should.equal(true)
-		isStyleObject({
-			labels: 'long'
-		}).should.equal(true)
-		isStyleObject({
-			labels: ['long']
-		}).should.equal(true)
-		isStyleObject({
-			units: ['now']
-		}).should.equal(true)
-		isStyleObject({
-			future: true,
-			round: 'floor',
-			now: 0,
-			getTimeToNextUpdate: true
-		}).should.equal(false)
-		isStyleObject('round').should.equal(false)
 	})
 })

@@ -37,7 +37,7 @@ export default [
       format: 'umd',
       name: 'TimeAgo',
       file: 'bundle/javascript-time-ago.js',
-      // exports: 'default',
+      exports: 'default',
       sourcemap: true
     }
   }

@@ -33,6 +33,11 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.3.13 / 11.02.2022
+==================
+
+[Fixed](https://github.com/catamphetamine/javascript-time-ago/issues/60) the CDN bundle `javascript-time-ago.js` when it exported the `TimeAgo` class as a `default` property instead of exporting the `TimeAgo` class itself.
+
 2.3.6 / 25.05.2021
 ==================
 

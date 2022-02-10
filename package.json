@@ -1,12 +1,12 @@
 {
   "name": "javascript-time-ago",
-  "version": "2.3.11",
+  "version": "2.3.13",
   "description": "Localized relative date/time formatting",
   "main": "index.commonjs.js",
   "module": "index.js",
   "sideEffects": false,
   "dependencies": {
-    "relative-time-format": "^1.0.6"
+    "relative-time-format": "^1.0.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
