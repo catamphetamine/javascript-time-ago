@@ -1,4 +1,4 @@
-import renameLegacyProperties from './renameLegacyProperties'
+import renameLegacyProperties from './renameLegacyProperties.js'
 
 describe('steps/renameLegacyProperties', () => {
 	it('should rename legacy properties', () => {

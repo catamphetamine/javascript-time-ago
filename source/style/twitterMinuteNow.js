@@ -1,4 +1,4 @@
-import twitterMinute from './twitterMinute'
+import twitterMinute from './twitterMinute.js'
 
 export default {
 	...twitterMinute,

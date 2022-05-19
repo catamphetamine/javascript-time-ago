@@ -1,22 +1,22 @@
 import RelativeTimeFormatPolyfill from 'relative-time-format'
 
-import Cache from './cache'
-import chooseLocale from './locale'
-import isStyleObject from './isStyleObject'
+import Cache from './cache.js'
+import chooseLocale from './locale.js'
+import isStyleObject from './isStyleObject.js'
 
-import getStep from './steps/getStep'
-import getStepDenominator from './steps/getStepDenominator'
-import getTimeToNextUpdate from './steps/getTimeToNextUpdate'
+import getStep from './steps/getStep.js'
+import getStepDenominator from './steps/getStepDenominator.js'
+import getTimeToNextUpdate from './steps/getTimeToNextUpdate.js'
 
 import {
 	addLocaleData,
 	getLocaleData
-} from './LocaleDataStore'
+} from './LocaleDataStore.js'
 
-import defaultStyle from './style/roundMinute'
-import getStyleByName from './style/getStyleByName'
+import defaultStyle from './style/roundMinute.js'
+import getStyleByName from './style/getStyleByName.js'
 
-import { getRoundFunction } from './round'
+import { getRoundFunction } from './round.js'
 
 // Valid time units.
 const UNITS = [

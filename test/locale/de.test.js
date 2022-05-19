@@ -1,5 +1,5 @@
-import TimeAgo from '../..'
-import de from '../../locale/de'
+import TimeAgo from '../../source/TimeAgo.js'
+import de from '../../locale/de.json'
 
 TimeAgo.addLocale(de)
 

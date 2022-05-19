@@ -1,4 +1,4 @@
-import isStyleObject from './isStyleObject'
+import isStyleObject from './isStyleObject.js'
 
 describe('isStyleObject', () => {
 	it('should detect a style object', () => {

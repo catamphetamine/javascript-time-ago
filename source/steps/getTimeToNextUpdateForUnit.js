@@ -1,5 +1,5 @@
-import { getSecondsInUnit } from './units'
-import { getRoundFunction, getDiffRatioToNextRoundedNumber } from '../round'
+import { getSecondsInUnit } from './units.js'
+import { getRoundFunction, getDiffRatioToNextRoundedNumber } from '../round.js'
 
 /**
  * Gets the time to next update for a step with a time unit defined.

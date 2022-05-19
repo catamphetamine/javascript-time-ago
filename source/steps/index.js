@@ -1,8 +1,8 @@
 // "convenient" is a legacy name of "approximate" steps.
-export { default as approximate, default as convenient } from './approximate'
+export { default as approximate, default as convenient } from './approximate.js'
 
 // "canonical" is a legacy name of "round" steps.
-export { default as round, default as canonical } from './round'
+export { default as round, default as canonical } from './round.js'
 
 export {
 	minute,
@@ -11,8 +11,8 @@ export {
 	week,
 	month,
 	year
-} from './units'
+} from './units.js'
 
 export {
 	getDate
-} from './helpers'
+} from './helpers.js'

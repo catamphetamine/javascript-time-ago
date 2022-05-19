@@ -1,6 +1,6 @@
-import getStepDenominator from './getStepDenominator'
-import getStepMinTime from './getStepMinTime'
-import { getRoundFunction } from '../round'
+import getStepDenominator from './getStepDenominator.js'
+import getStepMinTime from './getStepMinTime.js'
+import { getRoundFunction } from '../round.js'
 
 /**
  * Finds an appropriate `step` of `steps` for the time interval (in seconds).

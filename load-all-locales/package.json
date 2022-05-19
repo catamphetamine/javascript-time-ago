@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "javascript-time-ago/load-all-locales",
+  "main": "index.cjs",
+  "module": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs"
+    }
+  },
+  "sideEffects": [
+    "./index.js",
+    "./index.cjs",
+    "./index.cjs.js"
+  ]
+}

@@ -1,6 +1,6 @@
-import round from './round'
-import TimeAgo from '../TimeAgo'
-import { day, month, year } from '../steps'
+import round from './round.js'
+import TimeAgo from '../TimeAgo.js'
+import { day, month, year } from '../steps/index.js'
 
 describe('style/round', () => {
 	it('should format relative time (English) (round: "floor")', () => {

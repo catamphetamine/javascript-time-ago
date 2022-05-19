@@ -1,6 +1,6 @@
-import _getTimeToNextUpdateForUnit from './getTimeToNextUpdateForUnit'
-import getStepMinTime from './getStepMinTime'
-import { getRoundFunction } from '../round'
+import _getTimeToNextUpdateForUnit from './getTimeToNextUpdateForUnit.js'
+import getStepMinTime from './getStepMinTime.js'
+import { getRoundFunction } from '../round.js'
 
 // A thousand years is practically a metaphor for "infinity".
 const YEAR = 365 * 24 * 60 * 60 * 1000

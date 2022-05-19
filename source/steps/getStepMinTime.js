@@ -1,5 +1,5 @@
-import { getSecondsInUnit } from './units'
-import { getDiffRatioToNextRoundedNumber } from '../round'
+import { getSecondsInUnit } from './units.js'
+import { getDiffRatioToNextRoundedNumber } from '../round.js'
 
 export default function getStepMinTime(step, {
 	prevStep,

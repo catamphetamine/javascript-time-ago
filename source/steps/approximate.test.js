@@ -1,5 +1,5 @@
-import getStep from './getStep'
-import steps from './approximate'
+import getStep from './getStep.js'
+import steps from './approximate.js'
 
 describe('steps/approximate', () => {
 	it('should get step correctly', () => {

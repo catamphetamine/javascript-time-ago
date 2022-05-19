@@ -1,5 +1,5 @@
-import getStep from './getStep'
-import round from './round'
+import getStep from './getStep.js'
+import round from './round.js'
 
 describe('getStep', () => {
 	it('should return nothing if no time units are supported', () => {

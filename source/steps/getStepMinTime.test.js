@@ -1,4 +1,4 @@
-import getStepMinTime from './getStepMinTime'
+import getStepMinTime from './getStepMinTime.js'
 
 describe('getStepMinTime', () => {
 	it('should support `step.test()` function (returns true)', () => {

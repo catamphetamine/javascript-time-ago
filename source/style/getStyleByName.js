@@ -1,18 +1,18 @@
-import round from './round'
-import roundMinute from './roundMinute'
+import round from './round.js'
+import roundMinute from './roundMinute.js'
 // `approximate` style is deprecated.
-import approximate from './approximate'
+import approximate from './approximate.js'
 // `approximateTime` style is deprecated.
-import approximateTime from './approximateTime'
-import twitter from './twitter'
-import twitterNow from './twitterNow'
-import twitterMinute from './twitterMinute'
-import twitterMinuteNow from './twitterMinuteNow'
-import twitterFirstMinute from './twitterFirstMinute'
-import mini from './mini'
-import miniNow from './miniNow'
-import miniMinute from './miniMinute'
-import miniMinuteNow from './miniMinuteNow'
+import approximateTime from './approximateTime.js'
+import twitter from './twitter.js'
+import twitterNow from './twitterNow.js'
+import twitterMinute from './twitterMinute.js'
+import twitterMinuteNow from './twitterMinuteNow.js'
+import twitterFirstMinute from './twitterFirstMinute.js'
+import mini from './mini.js'
+import miniNow from './miniNow.js'
+import miniMinute from './miniMinute.js'
+import miniMinuteNow from './miniMinuteNow.js'
 
 export default function getStyleByName(style) {
 	switch (style) {

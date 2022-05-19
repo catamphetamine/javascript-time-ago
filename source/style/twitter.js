@@ -1,8 +1,8 @@
-import { day, getDate } from '../steps'
-import { intlDateTimeFormatSupported } from '../locale'
+import { day, getDate } from '../steps/index.js'
+import { intlDateTimeFormatSupported } from '../locale.js'
 
 // For compatibility with the old versions of this library.
-import renameLegacyProperties from './renameLegacyProperties'
+import renameLegacyProperties from './renameLegacyProperties.js'
 
 // Twitter-style relative date/time formatting.
 // ("1m", "2h", "Mar 3", "Apr 4, 2012").

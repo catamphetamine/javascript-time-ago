@@ -1,4 +1,4 @@
-import { getSecondsInUnit } from './units'
+import { getSecondsInUnit } from './units.js'
 
 export default function getStepDenominator(step) {
 	// `factor` is a legacy property.

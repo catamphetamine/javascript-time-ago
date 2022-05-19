@@ -1,6 +1,6 @@
-import roundMinute from './roundMinute'
-import TimeAgo from '../TimeAgo'
-import { day, month, year } from '../steps'
+import roundMinute from './roundMinute.js'
+import TimeAgo from '../TimeAgo.js'
+import { day, month, year } from '../steps/index.js'
 
 describe('style/round-minute', () => {
 	it('should format relative time (English) (round: "floor")', () => {

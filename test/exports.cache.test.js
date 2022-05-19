@@ -1,4 +1,6 @@
-import Cache from '../cache/index'
+import Cache from '../cache/index.js'
+
+import Library from '../cache/index.cjs'
 
 describe('exports/cache', () => {
 	it('should export ES6', () => {
@@ -6,7 +8,6 @@ describe('exports/cache', () => {
 	})
 
 	it('should export CommonJS', () => {
-		const Library = require('../cache/index.commonjs')
 		new Library().cache.should.be.an('object')
 		new Library.default().cache.should.be.an('object')
 	})

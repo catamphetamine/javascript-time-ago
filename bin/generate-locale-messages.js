@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs-extra'
 
-const localesDirectory = path.join(__dirname, '../locale')
+const localesDirectory = path.resolve('./locale')
 
 const ADDITIONAL_STYLES = [
 	// 'now' should come before 'mini' because `now.current`
@@ -12,9 +12,42 @@ const ADDITIONAL_STYLES = [
 	'long-time'
 ]
 
-for (const locale of getAllLocales()) {
+const ALL_LOCALES = getAllLocales()
+
+for (const locale of ALL_LOCALES) {
+	writeLocaleDataFile(locale)
+	createLegacyCompatibilityLocaleFolder(locale)
+}
+
+addLocaleExports(ALL_LOCALES)
+
+/**
+ * Returns a list of all locales supported by `relative-time-format`.
+ * @return {string[]}
+ */
+export function getAllLocales() {
+	const LOCALE_FILE_NAME_REG_EXP = /([^\/]+)\.json$/
+	return fs.readdirSync(path.join('./node_modules/relative-time-format/locale/'))
+		.filter(_ => fs.statSync(path.join('./node_modules/relative-time-format/locale', _)).isFile() && LOCALE_FILE_NAME_REG_EXP.test(_))
+		.map(_ => _.match(LOCALE_FILE_NAME_REG_EXP)[1])
+}
+
+function getNowLabel(localeData) {
+	if (localeData.now) {
+		if (localeData.now.now.current) {
+			return localeData.now.now.current
+		}
+	}
+	return localeData.long.second.current
+}
+
+function readJsonFromFile(path) {
+	return JSON.parse(fs.readFileSync(path, 'utf8'))
+}
+
+function writeLocaleDataFile(locale) {
 	// CLDR locale data: "long", "short", "narrow" labels.
-	const baseLocaleData = require('relative-time-format/locale/' + locale)
+	const baseLocaleData = readJsonFromFile('./node_modules/relative-time-format/locale/' + locale + '.json')
 
 	const localeData = {
 		...baseLocaleData,
@@ -22,9 +55,9 @@ for (const locale of getAllLocales()) {
 	}
 
 	for (const style of ADDITIONAL_STYLES) {
-		const labelsFilePath = path.join(__dirname, '../locale-more-styles', locale, `${style}.json`)
+		const labelsFilePath = path.join('./locale-more-styles', locale, `${style}.json`)
 		if (fs.existsSync(labelsFilePath)) {
-			const labels = require(labelsFilePath)
+			const labels = readJsonFromFile(labelsFilePath)
 			localeData[style] = labels
 			if (style === 'mini') {
 				if (!labels.now) {
@@ -47,36 +80,88 @@ for (const locale of getAllLocales()) {
 		path.join(localesDirectory, `${locale}.json`),
 		JSON.stringify(localeData, null, '\t')
 	)
+}
 
-	// Create the legacy-compatibility `index.js` file.
+// (deprecated)
+// Creates a legacy-compatibility locale directory export.
+function createLegacyCompatibilityLocaleFolder(locale) {
 	const localeDirectory = path.join(localesDirectory, locale)
+
+	// Create a legacy-compatibility `index.js` file.
 	fs.outputFileSync(
 		path.join(localeDirectory, 'index.js'),
+		`
+export { default } from '../${locale}.json'
+		`.trim()
+	)
+
+	// Create a legacy-compatibility `index.cjs` file.
+	fs.outputFileSync(
+		path.join(localeDirectory, 'index.cjs'),
 		`
 var localeData = require('../${locale}.json')
 exports = module.exports = localeData
 exports['default'] = localeData
 		`.trim()
 	)
+
+	// Create a legacy-compatibility `index.cjs.js` file.
+	// It's the same as `index.cjs`, just with an added `.js` file extension.
+	// It only exists for compatibility with the software that doesn't like `*.cjs` file extension.
+	// https://gitlab.com/catamphetamine/libphonenumber-js/-/issues/61#note_950728292
+	fs.outputFileSync(
+		path.join(localeDirectory, 'index.cjs.js'),
+		`
+var localeData = require('../${locale}.json')
+exports = module.exports = localeData
+exports['default'] = localeData
+		`.trim()
+	)
+
+	// Create `package.json` for the legacy-compatibility locale directory.
+	fs.outputFileSync(
+		path.join(localeDirectory, 'package.json'),
+		`
+{
+	"name": "javascript-time-ago/locale/${locale}",
+	"private": true,
+	"main": "index.cjs",
+	"module": "index.js",
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./index.js",
+			"require": "./index.cjs"
+		}
+	},
+	"sideEffects": false
+}
+		`.trim()
+	)
 }
 
+// Add `export` entries in `package.json`.
+function addLocaleExports(ALL_LOCALES) {
+	// Read `package.json` file.
+	const packageJson = readJsonFromFile('./package.json')
 
-/**
- * Returns a list of all locales supported by `relative-time-format`.
- * @return {string[]}
- */
-export function getAllLocales() {
-	const LOCALE_FILE_NAME_REG_EXP = /([^\/]+)\.json$/
-	return fs.readdirSync(path.join(__dirname, '../node_modules/relative-time-format/locale/'))
-		.filter(_ => fs.statSync(path.join(__dirname, '../node_modules/relative-time-format/locale', _)).isFile() && LOCALE_FILE_NAME_REG_EXP.test(_))
-		.map(_ => _.match(LOCALE_FILE_NAME_REG_EXP)[1])
-}
-
-function getNowLabel(localeData) {
-	if (localeData.now) {
-		if (localeData.now.now.current) {
-			return localeData.now.now.current
+	// Remove all locale exports.
+	for (const path of Object.keys(packageJson.exports)) {
+		if (path.startsWith('./locale/')) {
+			delete packageJson.exports[path]
 		}
 	}
-	return localeData.long.second.current
+
+	// Re-add all locale exports.
+	packageJson.exports = {
+		...packageJson.exports,
+		...ALL_LOCALES.reduce((all, locale) => {
+			all[`./locale/${locale}`] = `./locale/${locale}.json`
+			all[`./locale/${locale}.json`] = `./locale/${locale}.json`
+			return all
+		}, {})
+	}
+
+	// Save `package.json` file.
+	fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8')
 }

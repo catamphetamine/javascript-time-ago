@@ -1,4 +1,4 @@
-import getTimeToNextUpdateForUnit from './getTimeToNextUpdateForUnit'
+import getTimeToNextUpdateForUnit from './getTimeToNextUpdateForUnit.js'
 
 describe('getTimeToNextUpdateForUnit', () => {
 	it('should return undefined for unknown units', () => {

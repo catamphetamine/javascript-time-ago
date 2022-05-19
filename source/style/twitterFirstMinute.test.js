@@ -1,6 +1,6 @@
-import twitter from './twitterFirstMinute'
-import TimeAgo from '../TimeAgo'
-import { hour, minute, day, month, year } from '../steps'
+import twitter from './twitterFirstMinute.js'
+import TimeAgo from '../TimeAgo.js'
+import { hour, minute, day, month, year } from '../steps/index.js'
 
 describe('style/twitterFirstMinute', () => {
 	it('should work with string name of the style', () => {

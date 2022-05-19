@@ -1,4 +1,4 @@
-import renameLegacyProperties from '../steps/renameLegacyProperties'
+import renameLegacyProperties from '../steps/renameLegacyProperties.js'
 
 // This function is only used for backwards compatibility
 // with legacy code that uses the older versions of this library.

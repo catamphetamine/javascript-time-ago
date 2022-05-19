@@ -1,6 +1,5 @@
-import TimeAgo from '../source/TimeAgo'
-import en from '../locale/en'
-import round from '../source/style/round'
+import TimeAgo from './TimeAgo.js'
+import en from '../locale/en.json'
 
 describe('TimeAgo.addLocale', () => {
   it('should add and use custom labels', () => {
@@ -24,7 +23,32 @@ describe('TimeAgo.addLocale', () => {
     const timeAgo = new TimeAgo('en-US')
 
     const customStyle = {
-      ...round,
+      steps: [
+        {
+          formatAs: 'now'
+        },
+        {
+          formatAs: 'second'
+        },
+        {
+          formatAs: 'minute'
+        },
+        {
+          formatAs: 'hour'
+        },
+        {
+          formatAs: 'day'
+        },
+        {
+          formatAs: 'week'
+        },
+        {
+          formatAs: 'month'
+        },
+        {
+          formatAs: 'year'
+        }
+      ],
       labels: 'custom'
     }
 

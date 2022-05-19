@@ -1,6 +1,8 @@
 // Deprecated: `gradation` is a legacy name of `steps`. Use `/steps` subpackage instead.
 
-import { day, canonical } from '../gradation/index'
+import { day, canonical } from '../gradation/index.js'
+
+import Library from '../gradation/index.cjs'
 
 describe('exports/gradation', () => {
 	it('should export ES6', () => {
@@ -9,7 +11,6 @@ describe('exports/gradation', () => {
 	})
 
 	it('should export CommonJS', () => {
-		const Library = require('../gradation/index.commonjs')
 		Library.day.should.be.a('number')
 		Library.default.day.should.be.a('number')
 		Library.canonical.should.be.an('array')

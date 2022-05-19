@@ -120,6 +120,12 @@ interface FormatOptions {
 
 export default class TimeAgo {
   constructor(locale: Locale | Locale[], options?: { polyfill?: boolean });
+	// When `getTimeToNextUpdate: true` option is passed to `.format()`,
+	// it returns an array containing the formatted time and the "time to next update" interval.
+	// https://gitlab.com/catamphetamine/javascript-time-ago#update-interval
+	// Perhaps it's not the best solution, and it would be better to introduce a new function called
+	// `.formatAndGetTimeToNextUpdate()`. But at this stage that would require a "major" version number update,
+	// and I wouldn't prefer doing that for such an insignificant change.
   format(date: DateInput, style?: FormatStyleName | Style, options?: FormatOptions): string | [string, number?];
   format(date: DateInput, options: FormatOptions): string | [string, number?];
   getLabels(labelsType: LabelStyleName | LabelStyleName[]): Labels;

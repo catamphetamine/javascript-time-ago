@@ -1,6 +1,6 @@
-import twitter from './twitterMinuteNow'
-import TimeAgo from '../TimeAgo'
-import { hour, minute, day, month, year } from '../steps'
+import twitter from './twitterMinuteNow.js'
+import TimeAgo from '../TimeAgo.js'
+import { hour, minute, day, month, year } from '../steps/index.js'
 
 describe('style/twitterNow', () => {
 	it('should format Twitter style relative time (English) (round: "floor")', () => {

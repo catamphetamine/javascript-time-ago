@@ -1,5 +1,5 @@
-import getStep from './getStep'
-import steps from './round'
+import getStep from './getStep.js'
+import steps from './round.js'
 
 describe('steps/round', () => {
 	it('should get step correctly (round: "floor")', () => {

@@ -1,4 +1,4 @@
-import twitter from './twitter'
+import twitter from './twitter.js'
 
 export default {
 	...twitter,

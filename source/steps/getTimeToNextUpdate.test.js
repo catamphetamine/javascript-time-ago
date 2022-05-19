@@ -1,4 +1,4 @@
-import getTimeToNextUpdate, { INFINITY, getStepChangesAt, getTimeToStepChange } from './getTimeToNextUpdate'
+import getTimeToNextUpdate, { INFINITY, getStepChangesAt, getTimeToStepChange } from './getTimeToNextUpdate.js'
 
 describe('getTimeToNextUpdate', () => {
 	it('should return infinity when there are no more steps, and it does not format as a unit (past)', () => {

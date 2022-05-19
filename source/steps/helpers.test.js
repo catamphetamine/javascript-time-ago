@@ -1,4 +1,4 @@
-import { getDate } from './helpers'
+import { getDate } from './helpers.js'
 
 describe('steps/helpers', () => {
 	it('should convert value to Date', () => {

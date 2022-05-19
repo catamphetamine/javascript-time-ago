@@ -1,4 +1,4 @@
-import mini from './mini'
+import mini from './mini.js'
 
 export default {
 	...mini,

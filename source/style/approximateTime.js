@@ -1,4 +1,4 @@
-import approximate from '../steps/approximate'
+import approximate from '../steps/approximate.js'
 
 // "gradation" is a legacy name for "steps".
 // It's here just for legacy compatibility.

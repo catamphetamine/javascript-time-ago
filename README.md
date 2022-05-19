@@ -432,7 +432,7 @@ New labels can be added by calling `TimeAgo.addLabels()` function.
 ```js
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
-import { round } from 'javascript-time-ago/locale/steps'
+import { round } from 'javascript-time-ago/steps'
 
 TimeAgo.addDefaultLocale(en)
 

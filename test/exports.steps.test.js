@@ -1,4 +1,5 @@
-import { day, approximate, round } from '../steps/index'
+import { day, approximate, round } from '../steps/index.js'
+import Library from '../steps/index.cjs'
 
 describe('exports/steps', () => {
 	it('should export ES6', () => {
@@ -8,7 +9,6 @@ describe('exports/steps', () => {
 	})
 
 	it('should export CommonJS', () => {
-		const Library = require('../steps/index.commonjs')
 		Library.day.should.be.a('number')
 		Library.approximate.should.be.an('array')
 		Library.round.should.be.an('array')

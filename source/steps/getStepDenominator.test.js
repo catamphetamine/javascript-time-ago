@@ -1,4 +1,4 @@
-import getStepDenominator from './getStepDenominator'
+import getStepDenominator from './getStepDenominator.js'
 
 describe('getStepDenominator', () => {
 	it('should support the older "unit" name', () => {

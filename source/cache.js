@@ -6,7 +6,9 @@
  * const object = cache.get('key1', 'key2', ...) || cache.put('key1', 'key2', ..., createObject())
  */
 export default class Cache {
-	cache = {}
+	constructor() {
+		this.cache = {}
+	}
 
 	get(...keys) {
 		let cache = this.cache

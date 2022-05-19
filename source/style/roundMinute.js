@@ -1,4 +1,4 @@
-import round from './round'
+import round from './round.js'
 
 // just now
 // 1 minute ago

@@ -1,4 +1,4 @@
-import miniMinute from './miniMinute'
+import miniMinute from './miniMinute.js'
 
 export default {
 	...miniMinute,

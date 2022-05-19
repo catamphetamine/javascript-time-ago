@@ -1,5 +1,5 @@
-import { minute } from '../steps/units'
-import twitter from './twitter'
+import { minute } from '../steps/units.js'
+import twitter from './twitter.js'
 
 export default {
 	...twitter,

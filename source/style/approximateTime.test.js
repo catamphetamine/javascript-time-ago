@@ -1,6 +1,6 @@
-import TimeAgo from '../TimeAgo'
-import approximateTime from './approximateTime'
-import { day, month, year } from '../steps/units'
+import TimeAgo from '../TimeAgo.js'
+import approximateTime from './approximateTime.js'
+import { day, month, year } from '../steps/units.js'
 
 describe('style/approximate-time', () => {
 	it('should format relative time (English)', () => {

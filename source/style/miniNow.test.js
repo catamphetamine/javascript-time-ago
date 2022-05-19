@@ -1,6 +1,6 @@
-import style from './miniNow'
-import TimeAgo from '../TimeAgo'
-import { hour, minute, day, month, year } from '../steps'
+import style from './miniNow.js'
+import TimeAgo from '../TimeAgo.js'
+import { hour, minute, day, month, year } from '../steps/index.js'
 
 describe('style/mini-now', () => {
 	it('should format relative date/time (round: "floor")', () => {

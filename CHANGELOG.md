@@ -33,6 +33,11 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.4.0 / 19.05.2022
+==================
+
+* Moved the package to use "ES Modules" exports.
+
 2.3.13 / 11.02.2022
 ==================
 

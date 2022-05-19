@@ -1,1 +1,1 @@
-export * from '../modules/PropTypes'
+export * from '../modules/PropTypes.js'

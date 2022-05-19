@@ -1,8 +1,14 @@
 {
   "private": true,
-  "name": "javascript-time-ago-cache",
-  "version": "1.0.0",
-  "main": "index.commonjs.js",
+  "name": "javascript-time-ago/cache",
+  "main": "index.cjs",
   "module": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs"
+    }
+  },
   "sideEffects": false
 }
