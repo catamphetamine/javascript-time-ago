@@ -906,6 +906,32 @@ npm install [module name with version].tar.gz
 ```
 -->
 
+## Tests
+
+This component comes with a 100% code coverage.
+
+To run tests:
+
+```
+npm test
+```
+
+To generate a code coverage report:
+
+```
+npm run test-coverage
+```
+
+The code coverage report can be viewed by opening `./coverage/lcov-report/index.html`.
+
+The `handlebars@4.5.3` [work](https://github.com/handlebars-lang/handlebars.js/issues/1646#issuecomment-578306544)[around](https://github.com/facebook/jest/issues/9396#issuecomment-573328488) in `devDependencies` is for the test coverage to not produce empty reports:
+
+```
+Handlebars: Access has been denied to resolve the property "statements" because it is not an "own property" of its parent.
+You can add a runtime option to disable the check or this warning:
+See https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access for details
+```
+
 ## GitHub
 
 On March 9th, 2020, GitHub, Inc. silently [banned](https://medium.com/@catamphetamine/how-github-blocked-me-and-all-my-libraries-c32c61f061d3) my account (erasing all my repos, issues and comments, even in my employer's private repos) without any notice or explanation. Because of that, all source codes had to be promptly moved to GitLab. The [GitHub repo](https://github.com/catamphetamine/javascript-time-ago) is now only used as a backup (you can star the repo there too), and the primary repo is now the [GitLab one](https://gitlab.com/catamphetamine/javascript-time-ago). Issues can be reported in any repo.
