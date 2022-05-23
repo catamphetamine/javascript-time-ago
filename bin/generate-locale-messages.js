@@ -75,10 +75,21 @@ function writeLocaleDataFile(locale) {
 		throw new Error(`"now" label not found for locale "${locale}"`)
 	}
 
-	// Create the locale *.json file.
+	// Create the locale `*.json` file.
 	fs.outputFileSync(
 		path.join(localesDirectory, `${locale}.json`),
 		JSON.stringify(localeData, null, '\t')
+	)
+
+	// Create the locale `*.json.js` file.
+	//
+	// Stupid Node.js can't even `import` JSON files.
+	// https://stackoverflow.com/questions/72348042/typeerror-err-unknown-file-extension-unknown-file-extension-json-for-node
+	// Using a `*.json.js` duplicate file workaround.
+	//
+	fs.outputFileSync(
+		path.join(localesDirectory, `${locale}.json.js`),
+		'export default ' + JSON.stringify(localeData, null, '\t')
 	)
 }
 
@@ -91,7 +102,7 @@ function createLegacyCompatibilityLocaleFolder(locale) {
 	fs.outputFileSync(
 		path.join(localeDirectory, 'index.js'),
 		`
-export { default } from '../${locale}.json'
+export { default } from '../${locale}.json.js'
 		`.trim()
 	)
 
@@ -156,8 +167,14 @@ function addLocaleExports(ALL_LOCALES) {
 	packageJson.exports = {
 		...packageJson.exports,
 		...ALL_LOCALES.reduce((all, locale) => {
-			all[`./locale/${locale}`] = `./locale/${locale}.json`
-			all[`./locale/${locale}.json`] = `./locale/${locale}.json`
+			all[`./locale/${locale}`] = {
+				import: `./locale/${locale}.json.js`,
+				require: `./locale/${locale}.json`
+			}
+			all[`./locale/${locale}.json`] = {
+				import: `./locale/${locale}.json.js`,
+				require: `./locale/${locale}.json`
+			}
 			return all
 		}, {})
 	}
