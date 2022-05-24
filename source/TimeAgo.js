@@ -80,6 +80,10 @@ export default class TimeAgo {
 	/**
 	 * Formats relative date/time.
 	 *
+	 * @param {(number|Date)} input — A `Date` or a javascript timestamp.
+	 *
+	 * @param {(string|object)} style — Date/time formatting style. Either one of the built-in style names or a "custom" style definition object having `steps: object[]` and `labels: string[]`.
+	 *
 	 * @param {number} [options.now] - Sets the current date timestamp.
 	 *
 	 * @param  {boolean} [options.future] — Tells how to format value `0`:

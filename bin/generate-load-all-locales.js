@@ -6,7 +6,7 @@ const locales = []
 fs.readdirSync(path.resolve('./locale')).forEach((locale) => {
 	const localePath = path.resolve('./locale', locale)
 	if (fs.statSync(localePath).isDirectory()) {
-		if (fs.existsSync(path.resolve('./locale', locale, 'index.js'))) {
+		if (fs.existsSync(path.resolve('./locale', locale, 'package.json'))) {
 			locales.push(locale)
 		}
 	}

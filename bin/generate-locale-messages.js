@@ -91,6 +91,17 @@ function writeLocaleDataFile(locale) {
 		path.join(localesDirectory, `${locale}.json.js`),
 		'export default ' + JSON.stringify(localeData, null, '\t')
 	)
+
+	// Create the locale `*.json.d.ts` file.
+	fs.outputFileSync(
+		path.join(localesDirectory, `${locale}.json.d.ts`),
+		`
+import { LocaleData } from '../index';
+
+declare const localeData: LocaleData;
+export default localeData;
+		`.trim()
+	)
 }
 
 // (deprecated)
@@ -98,56 +109,56 @@ function writeLocaleDataFile(locale) {
 function createLegacyCompatibilityLocaleFolder(locale) {
 	const localeDirectory = path.join(localesDirectory, locale)
 
-	// Create a legacy-compatibility `index.js` file.
-	fs.outputFileSync(
-		path.join(localeDirectory, 'index.js'),
-		`
-export { default } from '../${locale}.json.js'
-		`.trim()
-	)
+// 	// Create a legacy-compatibility `index.js` file.
+// 	fs.outputFileSync(
+// 		path.join(localeDirectory, 'index.js'),
+// 		`
+// export { default } from '../${locale}.json.js'
+// 		`.trim()
+// 	)
 
-	// Create a legacy-compatibility `index.cjs` file.
-	fs.outputFileSync(
-		path.join(localeDirectory, 'index.cjs'),
-		`
-var localeData = require('../${locale}.json')
-exports = module.exports = localeData
-exports['default'] = localeData
-		`.trim()
-	)
+// 	// Create a legacy-compatibility `index.cjs` file.
+// 	fs.outputFileSync(
+// 		path.join(localeDirectory, 'index.cjs'),
+// 		`
+// var localeData = require('../${locale}.json')
+// exports = module.exports = localeData
+// exports['default'] = localeData
+// 		`.trim()
+// 	)
 
-	// Create a legacy-compatibility `index.cjs.js` file.
-	// It's the same as `index.cjs`, just with an added `.js` file extension.
-	// It only exists for compatibility with the software that doesn't like `*.cjs` file extension.
-	// https://gitlab.com/catamphetamine/libphonenumber-js/-/issues/61#note_950728292
-	fs.outputFileSync(
-		path.join(localeDirectory, 'index.cjs.js'),
-		`
-var localeData = require('../${locale}.json')
-exports = module.exports = localeData
-exports['default'] = localeData
-		`.trim()
-	)
+// 	// Create a legacy-compatibility `index.cjs.js` file.
+// 	// It's the same as `index.cjs`, just with an added `.js` file extension.
+// 	// It only exists for compatibility with the software that doesn't like `*.cjs` file extension.
+// 	// https://gitlab.com/catamphetamine/libphonenumber-js/-/issues/61#note_950728292
+// 	fs.outputFileSync(
+// 		path.join(localeDirectory, 'index.cjs.js'),
+// 		`
+// var localeData = require('../${locale}.json')
+// exports = module.exports = localeData
+// exports['default'] = localeData
+// 		`.trim()
+// 	)
 
 	// Create `package.json` for the legacy-compatibility locale directory.
 	fs.outputFileSync(
 		path.join(localeDirectory, 'package.json'),
-		`
-{
-	"name": "javascript-time-ago/locale/${locale}",
-	"private": true,
-	"main": "index.cjs",
-	"module": "index.js",
-	"type": "module",
-	"exports": {
-		".": {
-			"import": "./index.js",
-			"require": "./index.cjs"
-		}
-	},
-	"sideEffects": false
-}
-		`.trim()
+		JSON.stringify({
+			private: true,
+			name: `javascript-time-ago/locale/${locale}`,
+			main: `../${locale}.json`,
+			module: `../${locale}.json.js`,
+			types: `../${locale}.json.d.ts`,
+			type: 'module',
+			exports: {
+				'.': {
+					types: `../${locale}.json.d.ts`,
+					import: `../${locale}.json.js`,
+					require: `../${locale}.json`
+				}
+			},
+			sideEffects: false
+		}, null, '\t')
 	)
 }
 
