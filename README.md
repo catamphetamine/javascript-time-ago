@@ -181,7 +181,7 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round')
   * 1 hour ago
   * 2 hours ago
   * …
-  * 59 hours ago
+  * 23 hours ago
   * 1 day ago
   * 2 days ago
   * …
