@@ -2,7 +2,11 @@ export type DateInput = Date | number;
 
 export type Locale = string;
 
-export type LabelStyleName = 'long' | 'short' | 'narrow' | 'mini' | 'now';
+// Users can add custom styles via `TimeAgo.addLabels(locale, styleName, labels)`.
+export type CustomLabelStyleName = string;
+// There're also "legacy" label styles like "time" or "long-time" that have been deprecated.
+// Users can still use those by adding them manually via `TimeAgo.addLabels()`.
+export type LabelStyleName = 'long' | 'short' | 'narrow' | 'mini' | 'now' | CustomLabelStyleName;
 
 export type Rounding = 'round' | 'floor';
 
