@@ -131,7 +131,7 @@ export default class TimeAgo {
 	// `.formatAndGetTimeToNextUpdate()`. But at this stage that would require a "major" version number update,
 	// and I wouldn't prefer doing that for such an insignificant change.
   format(date: DateInput, style?: FormatStyleName | Style, options?: FormatOptions): FormatOptions['getTimeToNextUpdate'] extends true ? [string, number?] : string;
-  format(date: DateInput, options: FormatOptions): FormatOptions['getTimeToNextUpdate'] extends true ? [string, number?] : string;
+  format<Options extends FormatOptions>(date: DateInput, options: Options): Options['getTimeToNextUpdate'] extends true ? [string, number?] : string;
   getLabels(labelsType: LabelStyleName | LabelStyleName[]): Labels;
   static addLocale(localeData: LocaleData): void;
   static addDefaultLocale(localeData: LocaleData): void;
