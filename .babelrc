@@ -4,7 +4,8 @@
 	],
 
 	"plugins": [
-		["@babel/plugin-transform-for-of", { loose: true }]
+		["@babel/plugin-transform-for-of", { loose: true }],
+		"@babel/plugin-syntax-import-assertions"
 	],
 
 	"env": {

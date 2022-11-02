@@ -9,6 +9,7 @@ import ast from "javascript-time-ago/locale/ast.json"
 import az from "javascript-time-ago/locale/az.json"
 import be from "javascript-time-ago/locale/be.json"
 import bg from "javascript-time-ago/locale/bg.json"
+import bgc from "javascript-time-ago/locale/bgc.json"
 import bn from "javascript-time-ago/locale/bn.json"
 import br from "javascript-time-ago/locale/br.json"
 import brx from "javascript-time-ago/locale/brx.json"
@@ -20,6 +21,7 @@ import ce from "javascript-time-ago/locale/ce.json"
 import ceb from "javascript-time-ago/locale/ceb.json"
 import chr from "javascript-time-ago/locale/chr.json"
 import cs from "javascript-time-ago/locale/cs.json"
+import cv from "javascript-time-ago/locale/cv.json"
 import cy from "javascript-time-ago/locale/cy.json"
 import da from "javascript-time-ago/locale/da.json"
 import de from "javascript-time-ago/locale/de.json"
@@ -123,6 +125,7 @@ import en_WS from "javascript-time-ago/locale/en-WS.json"
 import en_ZA from "javascript-time-ago/locale/en-ZA.json"
 import en_ZM from "javascript-time-ago/locale/en-ZM.json"
 import en_ZW from "javascript-time-ago/locale/en-ZW.json"
+import eo from "javascript-time-ago/locale/eo.json"
 import es from "javascript-time-ago/locale/es.json"
 import es_419 from "javascript-time-ago/locale/es-419.json"
 import es_AR from "javascript-time-ago/locale/es-AR.json"
@@ -187,6 +190,7 @@ import km from "javascript-time-ago/locale/km.json"
 import kn from "javascript-time-ago/locale/kn.json"
 import ko from "javascript-time-ago/locale/ko.json"
 import kok from "javascript-time-ago/locale/kok.json"
+import ks from "javascript-time-ago/locale/ks.json"
 import ksh from "javascript-time-ago/locale/ksh.json"
 import ku from "javascript-time-ago/locale/ku.json"
 import ky from "javascript-time-ago/locale/ky.json"
@@ -195,6 +199,8 @@ import lkt from "javascript-time-ago/locale/lkt.json"
 import lo from "javascript-time-ago/locale/lo.json"
 import lt from "javascript-time-ago/locale/lt.json"
 import lv from "javascript-time-ago/locale/lv.json"
+import mai from "javascript-time-ago/locale/mai.json"
+import mi from "javascript-time-ago/locale/mi.json"
 import mk from "javascript-time-ago/locale/mk.json"
 import ml from "javascript-time-ago/locale/ml.json"
 import mn from "javascript-time-ago/locale/mn.json"
@@ -228,6 +234,7 @@ import pt_PT from "javascript-time-ago/locale/pt-PT.json"
 import pt_ST from "javascript-time-ago/locale/pt-ST.json"
 import pt_TL from "javascript-time-ago/locale/pt-TL.json"
 import qu from "javascript-time-ago/locale/qu.json"
+import raj from "javascript-time-ago/locale/raj.json"
 import rm from "javascript-time-ago/locale/rm.json"
 import ro from "javascript-time-ago/locale/ro.json"
 import ru from "javascript-time-ago/locale/ru.json"
@@ -266,6 +273,7 @@ import uz_Cyrl from "javascript-time-ago/locale/uz-Cyrl.json"
 import vi from "javascript-time-ago/locale/vi.json"
 import wae from "javascript-time-ago/locale/wae.json"
 import wo from "javascript-time-ago/locale/wo.json"
+import xh from "javascript-time-ago/locale/xh.json"
 import yi from "javascript-time-ago/locale/yi.json"
 import yo from "javascript-time-ago/locale/yo.json"
 import yo_BJ from "javascript-time-ago/locale/yo-BJ.json"
@@ -290,6 +298,7 @@ TimeAgo.addLocale(ast)
 TimeAgo.addLocale(az)
 TimeAgo.addLocale(be)
 TimeAgo.addLocale(bg)
+TimeAgo.addLocale(bgc)
 TimeAgo.addLocale(bn)
 TimeAgo.addLocale(br)
 TimeAgo.addLocale(brx)
@@ -301,6 +310,7 @@ TimeAgo.addLocale(ce)
 TimeAgo.addLocale(ceb)
 TimeAgo.addLocale(chr)
 TimeAgo.addLocale(cs)
+TimeAgo.addLocale(cv)
 TimeAgo.addLocale(cy)
 TimeAgo.addLocale(da)
 TimeAgo.addLocale(de)
@@ -404,6 +414,7 @@ TimeAgo.addLocale(en_WS)
 TimeAgo.addLocale(en_ZA)
 TimeAgo.addLocale(en_ZM)
 TimeAgo.addLocale(en_ZW)
+TimeAgo.addLocale(eo)
 TimeAgo.addLocale(es)
 TimeAgo.addLocale(es_419)
 TimeAgo.addLocale(es_AR)
@@ -468,6 +479,7 @@ TimeAgo.addLocale(km)
 TimeAgo.addLocale(kn)
 TimeAgo.addLocale(ko)
 TimeAgo.addLocale(kok)
+TimeAgo.addLocale(ks)
 TimeAgo.addLocale(ksh)
 TimeAgo.addLocale(ku)
 TimeAgo.addLocale(ky)
@@ -476,6 +488,8 @@ TimeAgo.addLocale(lkt)
 TimeAgo.addLocale(lo)
 TimeAgo.addLocale(lt)
 TimeAgo.addLocale(lv)
+TimeAgo.addLocale(mai)
+TimeAgo.addLocale(mi)
 TimeAgo.addLocale(mk)
 TimeAgo.addLocale(ml)
 TimeAgo.addLocale(mn)
@@ -509,6 +523,7 @@ TimeAgo.addLocale(pt_PT)
 TimeAgo.addLocale(pt_ST)
 TimeAgo.addLocale(pt_TL)
 TimeAgo.addLocale(qu)
+TimeAgo.addLocale(raj)
 TimeAgo.addLocale(rm)
 TimeAgo.addLocale(ro)
 TimeAgo.addLocale(ru)
@@ -547,6 +562,7 @@ TimeAgo.addLocale(uz_Cyrl)
 TimeAgo.addLocale(vi)
 TimeAgo.addLocale(wae)
 TimeAgo.addLocale(wo)
+TimeAgo.addLocale(xh)
 TimeAgo.addLocale(yi)
 TimeAgo.addLocale(yo)
 TimeAgo.addLocale(yo_BJ)

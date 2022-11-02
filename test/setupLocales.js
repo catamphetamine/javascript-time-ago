@@ -1,14 +1,14 @@
 import TimeAgo from './TimeAgo.js'
 
-import en from '../locale/en.json'
-import ru from '../locale/ru.json'
-import de from '../locale/de.json'
-import fr from '../locale/fr.json'
-import es from '../locale/es.json'
-import it from '../locale/it.json'
-import ko from '../locale/ko.json'
-import ccp from '../locale/ccp.json'
-import zh from '../locale/zh.json'
+import en from '../locale/en.json' assert { type: 'json' }
+import ru from '../locale/ru.json' assert { type: 'json' }
+import de from '../locale/de.json' assert { type: 'json' }
+import fr from '../locale/fr.json' assert { type: 'json' }
+import es from '../locale/es.json' assert { type: 'json' }
+import it from '../locale/it.json' assert { type: 'json' }
+import ko from '../locale/ko.json' assert { type: 'json' }
+import ccp from '../locale/ccp.json' assert { type: 'json' }
+import zh from '../locale/zh.json' assert { type: 'json' }
 
 TimeAgo.addLocale(en)
 TimeAgo.addLocale(ru)

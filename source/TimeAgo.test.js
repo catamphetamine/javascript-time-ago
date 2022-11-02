@@ -2,7 +2,7 @@ import TimeAgo from './TimeAgo.js'
 import { getLocaleData } from './LocaleDataStore.js'
 
 // Load locale specific relative date/time messages
-import english from '../locale/en.json'
+import english from '../locale/en.json' assert { type: 'json' }
 
 // Just so this function code is covered.
 TimeAgo.setDefaultLocale('en')

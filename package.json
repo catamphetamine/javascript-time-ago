@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "2.5.7",
+  "version": "2.5.9",
   "description": "Localized relative date/time formatting",
   "main": "index.cjs",
   "module": "index.js",
@@ -104,6 +104,14 @@
       "import": "./locale/bg.json.js",
       "require": "./locale/bg.json"
     },
+    "./locale/bgc": {
+      "import": "./locale/bgc.json.js",
+      "require": "./locale/bgc.json"
+    },
+    "./locale/bgc.json": {
+      "import": "./locale/bgc.json.js",
+      "require": "./locale/bgc.json"
+    },
     "./locale/bn": {
       "import": "./locale/bn.json.js",
       "require": "./locale/bn.json"
@@ -191,6 +199,14 @@
     "./locale/cs.json": {
       "import": "./locale/cs.json.js",
       "require": "./locale/cs.json"
+    },
+    "./locale/cv": {
+      "import": "./locale/cv.json.js",
+      "require": "./locale/cv.json"
+    },
+    "./locale/cv.json": {
+      "import": "./locale/cv.json.js",
+      "require": "./locale/cv.json"
     },
     "./locale/cy": {
       "import": "./locale/cy.json.js",
@@ -1016,6 +1032,14 @@
       "import": "./locale/en.json.js",
       "require": "./locale/en.json"
     },
+    "./locale/eo": {
+      "import": "./locale/eo.json.js",
+      "require": "./locale/eo.json"
+    },
+    "./locale/eo.json": {
+      "import": "./locale/eo.json.js",
+      "require": "./locale/eo.json"
+    },
     "./locale/es-419": {
       "import": "./locale/es-419.json.js",
       "require": "./locale/es-419.json"
@@ -1528,6 +1552,14 @@
       "import": "./locale/kok.json.js",
       "require": "./locale/kok.json"
     },
+    "./locale/ks": {
+      "import": "./locale/ks.json.js",
+      "require": "./locale/ks.json"
+    },
+    "./locale/ks.json": {
+      "import": "./locale/ks.json.js",
+      "require": "./locale/ks.json"
+    },
     "./locale/ksh": {
       "import": "./locale/ksh.json.js",
       "require": "./locale/ksh.json"
@@ -1591,6 +1623,22 @@
     "./locale/lv.json": {
       "import": "./locale/lv.json.js",
       "require": "./locale/lv.json"
+    },
+    "./locale/mai": {
+      "import": "./locale/mai.json.js",
+      "require": "./locale/mai.json"
+    },
+    "./locale/mai.json": {
+      "import": "./locale/mai.json.js",
+      "require": "./locale/mai.json"
+    },
+    "./locale/mi": {
+      "import": "./locale/mi.json.js",
+      "require": "./locale/mi.json"
+    },
+    "./locale/mi.json": {
+      "import": "./locale/mi.json.js",
+      "require": "./locale/mi.json"
     },
     "./locale/mk": {
       "import": "./locale/mk.json.js",
@@ -1855,6 +1903,14 @@
     "./locale/qu.json": {
       "import": "./locale/qu.json.js",
       "require": "./locale/qu.json"
+    },
+    "./locale/raj": {
+      "import": "./locale/raj.json.js",
+      "require": "./locale/raj.json"
+    },
+    "./locale/raj.json": {
+      "import": "./locale/raj.json.js",
+      "require": "./locale/raj.json"
     },
     "./locale/rm": {
       "import": "./locale/rm.json.js",
@@ -2160,6 +2216,14 @@
       "import": "./locale/wo.json.js",
       "require": "./locale/wo.json"
     },
+    "./locale/xh": {
+      "import": "./locale/xh.json.js",
+      "require": "./locale/xh.json"
+    },
+    "./locale/xh.json": {
+      "import": "./locale/xh.json.js",
+      "require": "./locale/xh.json"
+    },
     "./locale/yi": {
       "import": "./locale/yi.json.js",
       "require": "./locale/yi.json"
@@ -2279,12 +2343,13 @@
     "./load-all-locales/index.cjs.js"
   ],
   "dependencies": {
-    "relative-time-format": "^1.1.4"
+    "relative-time-format": "^1.1.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.12",
     "@babel/node": "^7.17.10",
+    "@babel/plugin-syntax-import-assertions": "^7.20.0",
     "@babel/plugin-transform-destructuring": "^7.17.12",
     "@babel/plugin-transform-for-of": "^7.17.12",
     "@babel/polyfill": "^7.0.0",

@@ -5,7 +5,7 @@ import TimeAgo, {
 
 import Library from '../index.cjs'
 
-import en from '../locale/en.json'
+import en from '../locale/en.json' assert { type: 'json' }
 
 describe('exports', () => {
 	it('should export ES6', () => {
