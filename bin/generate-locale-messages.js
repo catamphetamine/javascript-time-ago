@@ -96,7 +96,7 @@ function writeLocaleDataFile(locale) {
 	fs.outputFileSync(
 		path.join(localesDirectory, `${locale}.json.d.ts`),
 		`
-import { LocaleData } from '../index';
+import { LocaleData } from '../index.d.js';
 
 declare const localeData: LocaleData;
 export default localeData;
