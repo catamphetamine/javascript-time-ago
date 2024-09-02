@@ -1,0 +1,30 @@
+{
+  "year": {
+    "one": "{0} rok",
+    "other": "{0} lata"
+  },
+  "month": {
+    "one": "{0} miesiąc",
+    "other": "{0} miesiące"
+  },
+  "week": {
+    "one": "{0} tydzień",
+    "other": "{0} tygodnie"
+  },
+  "day": {
+    "one": "{0} dzień",
+    "other": "{0} dni"
+  },
+  "hour": {
+    "one": "{0} godzina",
+    "other": "{0} godziny"
+  },
+  "minute": {
+    "one": "{0} minuta",
+    "other": "{0} minuty"
+  },
+  "second": {
+    "one": "{0} sekunda",
+    "other": "{0} sekundy"
+  }
+}
