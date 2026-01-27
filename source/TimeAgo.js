@@ -231,12 +231,15 @@ export default class TimeAgo {
 					// when the delay is longer than about `24.85` days.
 					// https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values
 					//
-					// To not burden the end user of this library with manually working around that bug,
-					// this library automatically caps the returned delay to a maximum value that
-					// still works with `setTimeout()` and doesn't break it.
+					// In order to not burden the end users of this library with manually working around that bug,
+					// this library automatically caps the returned delay to a maximum value of about `24.85` days
+					// which still works correctly with `setTimeout()` function and doesn't break it.
 					//
-					// The end user of this library could still opt out of this auto-workaround feature
-					// by passing a `getTimeToNextUpdateUncapped: true` option.
+					// The end user of this library could still disable this automatic workaround
+					// by passing a `getTimeToNextUpdateUncapped: true` parameter.
+					// In that case, it will return the original non-modified uncapped delay
+					// which can be longer than `24.85` days and should be manually capped
+					// by the developer if it's going to be used in a `setTimeout()` call.
 					//
 					if (options.getTimeToNextUpdateUncapped) {
 						return timeToNextUpdate
