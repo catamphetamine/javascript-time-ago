@@ -492,7 +492,7 @@ import en from 'javascript-time-ago/locale/en'
 // Steps from the built-in "round" style can be reused in custom styles.
 import { round } from 'javascript-time-ago/steps'
 
-TimeAgo.addDefaultLocale(en)
+TimeAgo.addLocale(en)
 
 // Define custom labels.
 const customLabels = {
@@ -1020,7 +1020,7 @@ To include this library directly via a `<script/>` tag on a page, one can use an
 <script src="https://unpkg.com/javascript-time-ago@[version]/bundle/javascript-time-ago.js"></script>
 
 <script>
-  TimeAgo.addDefaultLocale({
+  TimeAgo.addLocale({
     locale: 'en',
     now: {
       now: {
