@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "2.5.11",
+  "version": "2.6.0",
   "description": "Localized relative date/time formatting",
   "main": "index.cjs",
   "module": "index.js",
@@ -31,6 +31,11 @@
       "import": "./prop-types/index.js",
       "require": "./prop-types/index.cjs"
     },
+    "./full-date-formatter": {
+      "types": "./full-date-formatter/index.d.ts",
+      "import": "./full-date-formatter/index.js",
+      "require": "./full-date-formatter/index.cjs"
+    },
     "./package.json": "./package.json",
     "./locale/af": {
       "import": "./locale/af.json.js",
@@ -39,6 +44,14 @@
     "./locale/af.json": {
       "import": "./locale/af.json.js",
       "require": "./locale/af.json"
+    },
+    "./locale/ak": {
+      "import": "./locale/ak.json.js",
+      "require": "./locale/ak.json"
+    },
+    "./locale/ak.json": {
+      "import": "./locale/ak.json.js",
+      "require": "./locale/ak.json"
     },
     "./locale/am": {
       "import": "./locale/am.json.js",
@@ -88,6 +101,22 @@
       "import": "./locale/az.json.js",
       "require": "./locale/az.json"
     },
+    "./locale/bal-Latn": {
+      "import": "./locale/bal-Latn.json.js",
+      "require": "./locale/bal-Latn.json"
+    },
+    "./locale/bal-Latn.json": {
+      "import": "./locale/bal-Latn.json.js",
+      "require": "./locale/bal-Latn.json"
+    },
+    "./locale/be-tarask": {
+      "import": "./locale/be-tarask.json.js",
+      "require": "./locale/be-tarask.json"
+    },
+    "./locale/be-tarask.json": {
+      "import": "./locale/be-tarask.json.js",
+      "require": "./locale/be-tarask.json"
+    },
     "./locale/be": {
       "import": "./locale/be.json.js",
       "require": "./locale/be.json"
@@ -111,6 +140,14 @@
     "./locale/bgc.json": {
       "import": "./locale/bgc.json.js",
       "require": "./locale/bgc.json"
+    },
+    "./locale/blo": {
+      "import": "./locale/blo.json.js",
+      "require": "./locale/blo.json"
+    },
+    "./locale/blo.json": {
+      "import": "./locale/blo.json.js",
+      "require": "./locale/blo.json"
     },
     "./locale/bn": {
       "import": "./locale/bn.json.js",
@@ -200,6 +237,14 @@
       "import": "./locale/cs.json.js",
       "require": "./locale/cs.json"
     },
+    "./locale/csw": {
+      "import": "./locale/csw.json.js",
+      "require": "./locale/csw.json"
+    },
+    "./locale/csw.json": {
+      "import": "./locale/csw.json.js",
+      "require": "./locale/csw.json"
+    },
     "./locale/cv": {
       "import": "./locale/cv.json.js",
       "require": "./locale/cv.json"
@@ -231,6 +276,14 @@
     "./locale/de.json": {
       "import": "./locale/de.json.js",
       "require": "./locale/de.json"
+    },
+    "./locale/doi": {
+      "import": "./locale/doi.json.js",
+      "require": "./locale/doi.json"
+    },
+    "./locale/doi.json": {
+      "import": "./locale/doi.json.js",
+      "require": "./locale/doi.json"
     },
     "./locale/dsb": {
       "import": "./locale/dsb.json.js",
@@ -416,6 +469,14 @@
       "import": "./locale/en-CY.json.js",
       "require": "./locale/en-CY.json"
     },
+    "./locale/en-CZ": {
+      "import": "./locale/en-CZ.json.js",
+      "require": "./locale/en-CZ.json"
+    },
+    "./locale/en-CZ.json": {
+      "import": "./locale/en-CZ.json.js",
+      "require": "./locale/en-CZ.json"
+    },
     "./locale/en-DE": {
       "import": "./locale/en-DE.json.js",
       "require": "./locale/en-DE.json"
@@ -456,6 +517,14 @@
       "import": "./locale/en-ER.json.js",
       "require": "./locale/en-ER.json"
     },
+    "./locale/en-ES": {
+      "import": "./locale/en-ES.json.js",
+      "require": "./locale/en-ES.json"
+    },
+    "./locale/en-ES.json": {
+      "import": "./locale/en-ES.json.js",
+      "require": "./locale/en-ES.json"
+    },
     "./locale/en-FI": {
       "import": "./locale/en-FI.json.js",
       "require": "./locale/en-FI.json"
@@ -487,6 +556,14 @@
     "./locale/en-FM.json": {
       "import": "./locale/en-FM.json.js",
       "require": "./locale/en-FM.json"
+    },
+    "./locale/en-FR": {
+      "import": "./locale/en-FR.json.js",
+      "require": "./locale/en-FR.json"
+    },
+    "./locale/en-FR.json": {
+      "import": "./locale/en-FR.json.js",
+      "require": "./locale/en-FR.json"
     },
     "./locale/en-GB": {
       "import": "./locale/en-GB.json.js",
@@ -536,6 +613,14 @@
       "import": "./locale/en-GM.json.js",
       "require": "./locale/en-GM.json"
     },
+    "./locale/en-GS": {
+      "import": "./locale/en-GS.json.js",
+      "require": "./locale/en-GS.json"
+    },
+    "./locale/en-GS.json": {
+      "import": "./locale/en-GS.json.js",
+      "require": "./locale/en-GS.json"
+    },
     "./locale/en-GY": {
       "import": "./locale/en-GY.json.js",
       "require": "./locale/en-GY.json"
@@ -551,6 +636,22 @@
     "./locale/en-HK.json": {
       "import": "./locale/en-HK.json.js",
       "require": "./locale/en-HK.json"
+    },
+    "./locale/en-HU": {
+      "import": "./locale/en-HU.json.js",
+      "require": "./locale/en-HU.json"
+    },
+    "./locale/en-HU.json": {
+      "import": "./locale/en-HU.json.js",
+      "require": "./locale/en-HU.json"
+    },
+    "./locale/en-ID": {
+      "import": "./locale/en-ID.json.js",
+      "require": "./locale/en-ID.json"
+    },
+    "./locale/en-ID.json": {
+      "import": "./locale/en-ID.json.js",
+      "require": "./locale/en-ID.json"
     },
     "./locale/en-IE": {
       "import": "./locale/en-IE.json.js",
@@ -591,6 +692,14 @@
     "./locale/en-IO.json": {
       "import": "./locale/en-IO.json.js",
       "require": "./locale/en-IO.json"
+    },
+    "./locale/en-IT": {
+      "import": "./locale/en-IT.json.js",
+      "require": "./locale/en-IT.json"
+    },
+    "./locale/en-IT.json": {
+      "import": "./locale/en-IT.json.js",
+      "require": "./locale/en-IT.json"
     },
     "./locale/en-JE": {
       "import": "./locale/en-JE.json.js",
@@ -760,6 +869,14 @@
       "import": "./locale/en-NL.json.js",
       "require": "./locale/en-NL.json"
     },
+    "./locale/en-NO": {
+      "import": "./locale/en-NO.json.js",
+      "require": "./locale/en-NO.json"
+    },
+    "./locale/en-NO.json": {
+      "import": "./locale/en-NO.json.js",
+      "require": "./locale/en-NO.json"
+    },
     "./locale/en-NR": {
       "import": "./locale/en-NR.json.js",
       "require": "./locale/en-NR.json"
@@ -800,6 +917,14 @@
       "import": "./locale/en-PK.json.js",
       "require": "./locale/en-PK.json"
     },
+    "./locale/en-PL": {
+      "import": "./locale/en-PL.json.js",
+      "require": "./locale/en-PL.json"
+    },
+    "./locale/en-PL.json": {
+      "import": "./locale/en-PL.json.js",
+      "require": "./locale/en-PL.json"
+    },
     "./locale/en-PN": {
       "import": "./locale/en-PN.json.js",
       "require": "./locale/en-PN.json"
@@ -808,6 +933,14 @@
       "import": "./locale/en-PN.json.js",
       "require": "./locale/en-PN.json"
     },
+    "./locale/en-PT": {
+      "import": "./locale/en-PT.json.js",
+      "require": "./locale/en-PT.json"
+    },
+    "./locale/en-PT.json": {
+      "import": "./locale/en-PT.json.js",
+      "require": "./locale/en-PT.json"
+    },
     "./locale/en-PW": {
       "import": "./locale/en-PW.json.js",
       "require": "./locale/en-PW.json"
@@ -815,6 +948,14 @@
     "./locale/en-PW.json": {
       "import": "./locale/en-PW.json.js",
       "require": "./locale/en-PW.json"
+    },
+    "./locale/en-RO": {
+      "import": "./locale/en-RO.json.js",
+      "require": "./locale/en-RO.json"
+    },
+    "./locale/en-RO.json": {
+      "import": "./locale/en-RO.json.js",
+      "require": "./locale/en-RO.json"
     },
     "./locale/en-RW": {
       "import": "./locale/en-RW.json.js",
@@ -879,6 +1020,14 @@
     "./locale/en-SI.json": {
       "import": "./locale/en-SI.json.js",
       "require": "./locale/en-SI.json"
+    },
+    "./locale/en-SK": {
+      "import": "./locale/en-SK.json.js",
+      "require": "./locale/en-SK.json"
+    },
+    "./locale/en-SK.json": {
+      "import": "./locale/en-SK.json.js",
+      "require": "./locale/en-SK.json"
     },
     "./locale/en-SL": {
       "import": "./locale/en-SL.json.js",
@@ -1400,6 +1549,14 @@
       "import": "./locale/hsb.json.js",
       "require": "./locale/hsb.json"
     },
+    "./locale/ht": {
+      "import": "./locale/ht.json.js",
+      "require": "./locale/ht.json"
+    },
+    "./locale/ht.json": {
+      "import": "./locale/ht.json.js",
+      "require": "./locale/ht.json"
+    },
     "./locale/hu": {
       "import": "./locale/hu.json.js",
       "require": "./locale/hu.json"
@@ -1432,6 +1589,14 @@
       "import": "./locale/id.json.js",
       "require": "./locale/id.json"
     },
+    "./locale/ie": {
+      "import": "./locale/ie.json.js",
+      "require": "./locale/ie.json"
+    },
+    "./locale/ie.json": {
+      "import": "./locale/ie.json.js",
+      "require": "./locale/ie.json"
+    },
     "./locale/ig": {
       "import": "./locale/ig.json.js",
       "require": "./locale/ig.json"
@@ -1439,6 +1604,14 @@
     "./locale/ig.json": {
       "import": "./locale/ig.json.js",
       "require": "./locale/ig.json"
+    },
+    "./locale/ii": {
+      "import": "./locale/ii.json.js",
+      "require": "./locale/ii.json"
+    },
+    "./locale/ii.json": {
+      "import": "./locale/ii.json.js",
+      "require": "./locale/ii.json"
     },
     "./locale/is": {
       "import": "./locale/is.json.js",
@@ -1487,6 +1660,14 @@
     "./locale/ka.json": {
       "import": "./locale/ka.json.js",
       "require": "./locale/ka.json"
+    },
+    "./locale/kaa": {
+      "import": "./locale/kaa.json.js",
+      "require": "./locale/kaa.json"
+    },
+    "./locale/kaa.json": {
+      "import": "./locale/kaa.json.js",
+      "require": "./locale/kaa.json"
     },
     "./locale/kea": {
       "import": "./locale/kea.json.js",
@@ -1544,6 +1725,14 @@
       "import": "./locale/ko.json.js",
       "require": "./locale/ko.json"
     },
+    "./locale/kok-Latn": {
+      "import": "./locale/kok-Latn.json.js",
+      "require": "./locale/kok-Latn.json"
+    },
+    "./locale/kok-Latn.json": {
+      "import": "./locale/kok-Latn.json.js",
+      "require": "./locale/kok-Latn.json"
+    },
     "./locale/kok": {
       "import": "./locale/kok.json.js",
       "require": "./locale/kok.json"
@@ -1599,6 +1788,14 @@
     "./locale/lkt.json": {
       "import": "./locale/lkt.json.js",
       "require": "./locale/lkt.json"
+    },
+    "./locale/lld": {
+      "import": "./locale/lld.json.js",
+      "require": "./locale/lld.json"
+    },
+    "./locale/lld.json": {
+      "import": "./locale/lld.json.js",
+      "require": "./locale/lld.json"
     },
     "./locale/lo": {
       "import": "./locale/lo.json.js",
@@ -1680,6 +1877,14 @@
       "import": "./locale/mr.json.js",
       "require": "./locale/mr.json"
     },
+    "./locale/ms-Arab": {
+      "import": "./locale/ms-Arab.json.js",
+      "require": "./locale/ms-Arab.json"
+    },
+    "./locale/ms-Arab.json": {
+      "import": "./locale/ms-Arab.json.js",
+      "require": "./locale/ms-Arab.json"
+    },
     "./locale/ms": {
       "import": "./locale/ms.json.js",
       "require": "./locale/ms.json"
@@ -1751,6 +1956,22 @@
     "./locale/no.json": {
       "import": "./locale/no.json.js",
       "require": "./locale/no.json"
+    },
+    "./locale/nqo": {
+      "import": "./locale/nqo.json.js",
+      "require": "./locale/nqo.json"
+    },
+    "./locale/nqo.json": {
+      "import": "./locale/nqo.json.js",
+      "require": "./locale/nqo.json"
+    },
+    "./locale/om": {
+      "import": "./locale/om.json.js",
+      "require": "./locale/om.json"
+    },
+    "./locale/om.json": {
+      "import": "./locale/om.json.js",
+      "require": "./locale/om.json"
     },
     "./locale/or": {
       "import": "./locale/or.json.js",
@@ -1912,6 +2133,14 @@
       "import": "./locale/raj.json.js",
       "require": "./locale/raj.json"
     },
+    "./locale/rhg": {
+      "import": "./locale/rhg.json.js",
+      "require": "./locale/rhg.json"
+    },
+    "./locale/rhg.json": {
+      "import": "./locale/rhg.json.js",
+      "require": "./locale/rhg.json"
+    },
     "./locale/rm": {
       "import": "./locale/rm.json.js",
       "require": "./locale/rm.json"
@@ -2072,6 +2301,14 @@
       "import": "./locale/sw.json.js",
       "require": "./locale/sw.json"
     },
+    "./locale/syr": {
+      "import": "./locale/syr.json.js",
+      "require": "./locale/syr.json"
+    },
+    "./locale/syr.json": {
+      "import": "./locale/syr.json.js",
+      "require": "./locale/syr.json"
+    },
     "./locale/ta": {
       "import": "./locale/ta.json.js",
       "require": "./locale/ta.json"
@@ -2119,6 +2356,14 @@
     "./locale/tk.json": {
       "import": "./locale/tk.json.js",
       "require": "./locale/tk.json"
+    },
+    "./locale/tn": {
+      "import": "./locale/tn.json.js",
+      "require": "./locale/tn.json"
+    },
+    "./locale/tn.json": {
+      "import": "./locale/tn.json.js",
+      "require": "./locale/tn.json"
     },
     "./locale/to": {
       "import": "./locale/to.json.js",
@@ -2192,6 +2437,14 @@
       "import": "./locale/uz.json.js",
       "require": "./locale/uz.json"
     },
+    "./locale/vec": {
+      "import": "./locale/vec.json.js",
+      "require": "./locale/vec.json"
+    },
+    "./locale/vec.json": {
+      "import": "./locale/vec.json.js",
+      "require": "./locale/vec.json"
+    },
     "./locale/vi": {
       "import": "./locale/vi.json.js",
       "require": "./locale/vi.json"
@@ -2223,6 +2476,14 @@
     "./locale/xh.json": {
       "import": "./locale/xh.json.js",
       "require": "./locale/xh.json"
+    },
+    "./locale/xnr": {
+      "import": "./locale/xnr.json.js",
+      "require": "./locale/xnr.json"
+    },
+    "./locale/xnr.json": {
+      "import": "./locale/xnr.json.js",
+      "require": "./locale/xnr.json"
     },
     "./locale/yi": {
       "import": "./locale/yi.json.js",
@@ -2343,12 +2604,13 @@
     "./load-all-locales/index.cjs.js"
   ],
   "dependencies": {
-    "relative-time-format": "^1.1.6"
+    "relative-time-format": "^1.1.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.12",
     "@babel/node": "^7.17.10",
+    "@babel/plugin-proposal-import-attributes-to-assertions": "^7.27.1",
     "@babel/plugin-syntax-import-assertions": "^7.20.0",
     "@babel/plugin-transform-destructuring": "^7.17.12",
     "@babel/plugin-transform-for-of": "^7.17.12",
@@ -2356,17 +2618,17 @@
     "@babel/preset-env": "^7.17.12",
     "@babel/register": "^7.17.7",
     "babel-eslint": "^9.0.0",
-    "babel-loader": "^8.2.5",
-    "babel-plugin-istanbul": "^6.1.1",
-    "chai": "^4.3.6",
+    "babel-loader": "^10.0.0",
+    "babel-plugin-istanbul": "^7.0.1",
+    "chai": "^6.0.1",
     "cross-env": "^7.0.3",
     "fs-extra": "^10.1.0",
     "handlebars": "^4.5.3",
     "istanbul": "^1.1.0-alpha.1",
     "mkdirp": "^1.0.4",
-    "mocha": "^10.0.0",
+    "mocha": "^11.7.2",
     "npm-run-all": "^4.1.5",
-    "nyc": "^15.1.0",
+    "nyc": "^17.1.0",
     "prop-types": "^15.8.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.74.0",
@@ -2375,11 +2637,11 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "scripts": {
-    "test": "node --experimental-json-modules node_modules/mocha/bin/_mocha --bail --require ./test/setup.js --require ./test/setupLocales.js \"source/**/*.test.js\" \"test/**/*.test.js\"",
+    "test": "node --experimental-json-modules node_modules/mocha/bin/_mocha --bail --require ./test/globals.js --require ./test/addLocales.js \"source/**/*.test.js\" \"test/**/*.test.js\"",
     "test-coverage": "npm-run-all build-commonjs build-commonjs-test-coverage-setup test-coverage-commonjs",
-    "test-coverage-commonjs": "node --experimental-json-modules node_modules/istanbul/lib/cli.js cover -x \"*.test.js\" node_modules/mocha/bin/_mocha -- --colors --reporter dot --require ./test/setup.js ./commonjs/setupLocales.js \"commonjs/**/*.test.js\" --recursive",
-    "build-commonjs-test-coverage-setup": "cross-env babel ./test/setupLocales.js ./test/addLabels.test.js --out-dir ./commonjs --source-maps",
-    "test-coverage--does-not-work": "cross-env NODE_ENV=test nyc node --experimental-json-modules node_modules/mocha/bin/_mocha --bail --require ./test/setup.js ./test/setupLocales.js \"source/**/*.test.js\" \"test/**/*.test.js\"",
+    "test-coverage-commonjs": "node --experimental-json-modules node_modules/istanbul/lib/cli.js cover -x \"*.test.js\" node_modules/mocha/bin/_mocha -- --colors --reporter dot --require ./test/globals.js ./commonjs/addLocales.js \"commonjs/**/*.test.js\" --recursive",
+    "build-commonjs-test-coverage-setup": "cross-env babel ./test/addLocales.js ./test/addLabels.test.js --out-dir ./commonjs --source-maps",
+    "test-coverage--does-not-work": "cross-env NODE_ENV=test nyc node --experimental-json-modules node_modules/mocha/bin/_mocha --bail --require ./test/globals.js ./test/addLocales.js \"source/**/*.test.js\" \"test/**/*.test.js\"",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "browser-build": "rollup --config rollup.config.mjs",
     "clean-for-build": "rimraf ./commonjs/**/* ./modules/**/*",
@@ -2393,8 +2655,8 @@
     "update-relative-time-format": "npm install relative-time-format@latest --save",
     "delete-locales": "rimraf ./locale/**/*",
     "create-locales-directory": "mkdirp locale",
-    "generate-locale-messages": "babel-node bin/generate-locale-messages",
-    "generate-load-all-locales": "babel-node bin/generate-load-all-locales",
+    "generate-locale-messages": "node bin/generate-locale-messages",
+    "generate-load-all-locales": "node bin/generate-load-all-locales",
     "generate-locales": "npm-run-all update-relative-time-format delete-locales create-locales-directory generate-locale-messages generate-load-all-locales"
   },
   "repository": {

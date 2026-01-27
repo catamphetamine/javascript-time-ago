@@ -4,10 +4,12 @@ import { getRoundFunction } from '../round.js'
 
 // A thousand years is practically a metaphor for "infinity".
 const YEAR = 365 * 24 * 60 * 60 * 1000
+// It can't really return `Infinity` in order to not screw any potential calculations performed with it.
+// Hence, it emulates `Infinity` with a really large number that is "practically infinite".
 export const INFINITY = 1000 * YEAR
 
 /**
- * Gets the time to next update for a date and a step.
+ * Returns the time (in milliseconds) after which the formatted date label should be refreshed.
  * @param  {number} date — The date passed to `.format()`, converted to a timestamp.
  * @param  {object} step
  * @param  {object} [options.previousStep]
@@ -15,7 +17,7 @@ export const INFINITY = 1000 * YEAR
  * @param  {number} options.now
  * @param  {boolean} options.future
  * @param  {string} [options.round] - (undocumented) Rounding mechanism.
- * @return {number} [timeToNextUpdate]
+ * @return {number} [timeToNextUpdate] Returns the time to next update. Returns `undefined` when it can't determine time to next update. That could only happen when the "style" doesn't meet the minimum requirements for `getTimeToNextUpdate: true` feature (see README).
  */
 export default function getTimeToNextUpdate(date, step, { prevStep, nextStep, now, future, round }) {
 	const timestamp = date.getTime ? date.getTime() : date
@@ -44,6 +46,8 @@ export default function getTimeToNextUpdate(date, step, { prevStep, nextStep, no
 		// isFirstStep: future && isFirstStep
 	})
 
+	// If the "style" doesn't meet the minimum requirements for `getTimeToNextUpdate: true` feature (see README)
+	// then `timeToStepChange` will be `undefined`. In that case, just return `undefined`.
 	if (timeToStepChange === undefined) {
 		// Can't reliably determine "time to next update"
 		// if not all of the steps provide `minTime`.
@@ -83,6 +87,8 @@ export default function getTimeToNextUpdate(date, step, { prevStep, nextStep, no
 	return Math.min(timeToNextUpdate, timeToStepChange)
 }
 
+// Returns the timestamp at which it'll move to the next step.
+// Returns `undefined` when it can't determine when it'll move to the next stemp. That could only happen when the "style" doesn't meet the minimum requirements for `getTimeToNextUpdate: true` feature (see README).
 export function getStepChangesAt(currentOrNextStep, timestamp, { now, future, round, prevStep }) {
 	// The first step's `minTime` is `0` by default.
 	// It doesn't "change" steps at zero point

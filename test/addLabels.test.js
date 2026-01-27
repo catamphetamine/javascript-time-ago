@@ -1,5 +1,5 @@
 import TimeAgo from './TimeAgo.js'
-import en from '../locale/en.json' assert { type: 'json' }
+import en from '../locale/en.json' with { type: 'json' }
 
 describe('TimeAgo.addLocale', () => {
   it('should add and use custom labels', () => {

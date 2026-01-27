@@ -18,20 +18,6 @@ import getStyleByName from './style/getStyleByName.js'
 
 import { getRoundFunction } from './round.js'
 
-// Valid time units.
-const UNITS = [
-	'now',
-	// The rest are the same as in `Intl.RelativeTimeFormat`.
-	'second',
-	'minute',
-	'hour',
-	'day',
-	'week',
-	'month',
-	'quarter',
-	'year'
-]
-
 export default class TimeAgo {
 	/**
 	 * @param {(string|string[])} locales=[] - Preferred locales (or locale).
@@ -96,6 +82,10 @@ export default class TimeAgo {
 	 *
 	 * @param {boolean} [options.getTimeToNextUpdate] — Pass `true` to return `[formattedDate, timeToNextUpdate]` instead of just `formattedDate`.
 	 *
+	 * @param {boolean} [options.getTimeToNextUpdateUncapped] — Pass `true` to not apply the workaround for `setTimeout()` bug. https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values
+	 *
+	 * @param {function} [options.refresh] — When `refresh` function is passed, it will be automatically called with a new text when it's time to refresh the label.
+	 *
 	 * @return {string} The formatted relative date/time. If no eligible `step` is found, then an empty string is returned.
 	 */
 	format(input, style, options) {
@@ -122,110 +112,181 @@ export default class TimeAgo {
 		// "flavour" is a legacy name for "labels".
 		const { labels, labelsType } = this.getLabels(style.flavour || style.labels)
 
+		// `round` setting could be passed as a parameter to `.format()` function
+		// or be configured globally for a style.
+		const round = options.round || style.round
+
+		// A developer can pass a custom `now`, e.g. for testing purposes.
 		let now
-		// Can pass a custom `now`, e.g. for testing purposes.
-		//
+		const nowRealWhenCalled = Date.now()
+		// (deprecated)
 		// Legacy way was passing `now` in `style`.
-		// That way is deprecated.
 		if (style.now !== undefined) {
 			now = style.now
 		}
-		// The new way is passing `now` option to `.format()`.
+		// One could pass `now` option to `.format()`.
 		if (now === undefined && options.now !== undefined) {
 			now = options.now
 		}
+		// The default `now` is `Date.now()`.
 		if (now === undefined) {
-			now = Date.now()
+			now = nowRealWhenCalled
 		}
 
-		// how much time has passed (in seconds)
-		const secondsPassed = (now - timestamp) / 1000 // in seconds
+		const getTextAndTextRefreshDelayGetterFunctions = ({ now }) => {
+			// how much time has passed (in seconds)
+			const secondsPassed = (now - timestamp) / 1000 // in seconds
 
-		const future = options.future || secondsPassed < 0
+			const future = options.future || secondsPassed < 0
 
-		const nowLabel = getNowLabel(
-			labels,
-			getLocaleData(this.locale).now,
-			getLocaleData(this.locale).long,
-			future
-		)
+			const nowLabel = getNowLabel(
+				labels,
+				getLocaleData(this.locale).now,
+				getLocaleData(this.locale).long,
+				future
+			)
 
-		// `custom` – A function of `{ elapsed, time, date, now, locale }`.
-		//
-		// Looks like `custom` function is deprecated and will be removed
-		// in the next major version.
-		//
-		// If this function returns a value, then the `.format()` call will return that value.
-		// Otherwise the relative date/time is formatted as usual.
-		// This feature is currently not used anywhere and is here
-		// just for providing the ultimate customization point
-		// in case anyone would ever need that. Prefer using
-		// `steps[step].format(value, locale)` instead.
-		//
-		if (style.custom) {
-			const custom = style.custom({
-				now,
-				date: new Date(timestamp),
-				time: timestamp,
-				elapsed: secondsPassed,
-				locale: this.locale
-			})
-			if (custom !== undefined) {
-				// Won't return `timeToNextUpdate` here
-				// because `custom()` seems deprecated.
-				return custom
+			// (deprecated)
+			//
+			// `custom` – A function of `{ elapsed, time, date, now, locale }`.
+			//
+			// If this function returns a value, then the `.format()` call will return that value.
+			// Otherwise the relative date/time is formatted as usual.
+			// This feature is currently not used anywhere and is here
+			// just for providing the ultimate customization point
+			// in case anyone would ever need that. Prefer using
+			// `steps[step].format(value, locale)` instead.
+			//
+			if (style.custom) {
+				const text = style.custom({
+					now,
+					date: new Date(timestamp),
+					time: timestamp,
+					elapsed: secondsPassed,
+					locale: this.locale
+				})
+				if (text !== undefined) {
+					// Won't return `timeToNextUpdate` here
+					// because `custom()` seems deprecated.
+					return {
+						getText: () => text,
+						getTextRefreshDelay: () => {
+							throw new Error('`getTimeToNextUpdate: true` feature is not supported by legacy "styles" that have a `custom` function')
+						}
+					}
+				}
 			}
+
+			// Get the list of available time interval units.
+			const units = getTimeIntervalMeasurementUnits(
+				// Controlling `style.steps` through `style.units` seems to be deprecated:
+				// create a new custom `style` instead.
+				style.units,
+				labels,
+				nowLabel
+			)
+
+			// Choose the appropriate time measurement unit
+			// and get the corresponding rounded time amount.
+			const [prevStep, step, nextStep] = getStep(
+				// "gradation" is a legacy name for "steps".
+				// For historical reasons, "approximate" steps are used by default.
+				// In the next major version, there'll be no default for `steps`.
+				style.gradation || style.steps || defaultStyle.steps,
+				secondsPassed,
+				{ now, units, round, future, getNextStep: true }
+			)
+
+			const getText = () => {
+				return this.formatDateForStep(timestamp, step, secondsPassed, {
+					labels,
+					labelsType,
+					nowLabel,
+					now,
+					future,
+					round
+				}) || ''
+			}
+
+			// Returns the time (in milliseconds) after which the formatted date label should be refreshed.
+			//
+			// It will return `undefined` for a custom style
+			// that doesn't meet the minimum requirements for this feature.
+			// See the README for more details.
+			//
+			const getTextRefreshDelay = () => {
+				const timeToNextUpdate = getTimeToNextUpdate(timestamp, step, {
+					nextStep,
+					prevStep,
+					now,
+					future,
+					round
+				})
+
+				// `timeToNextUpdate` could be `undefined` for a custom style
+				// that doesn't meet the minimum requirements for this feature.
+				// See the README for more details.
+				if (typeof timeToNextUpdate === 'number') {
+					// `setTimeout()` function has a bug when it fires immediately
+					// when the delay is longer than about `24.85` days.
+					// https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values
+					//
+					// To not burden the end user of this library with manually working around that bug,
+					// this library automatically caps the returned delay to a maximum value that
+					// still works with `setTimeout()` and doesn't break it.
+					//
+					// The end user of this library could still opt out of this auto-workaround feature
+					// by passing a `getTimeToNextUpdateUncapped: true` option.
+					//
+					if (options.getTimeToNextUpdateUncapped) {
+						return timeToNextUpdate
+					}
+					return getSafeTimeoutDelay(timeToNextUpdate)
+				}
+			}
+
+			return { getText, getTextRefreshDelay }
 		}
 
-		// Get the list of available time interval units.
-		const units = getTimeIntervalMeasurementUnits(
-			// Controlling `style.steps` through `style.units` seems to be deprecated:
-			// create a new custom `style` instead.
-			style.units,
-			labels,
-			nowLabel
-		)
-
-		// // If no available time unit is suitable, just output an empty string.
-		// if (units.length === 0) {
-		// 	console.error(`None of the "${units.join(', ')}" time units have been found in "${labelsType}" labels for "${this.locale}" locale.`)
-		// 	return ''
-		// }
-
-		const round = options.round || style.round
-
-		// Choose the appropriate time measurement unit
-		// and get the corresponding rounded time amount.
-		const [prevStep, step, nextStep] = getStep(
-			// "gradation" is a legacy name for "steps".
-			// For historical reasons, "approximate" steps are used by default.
-			// In the next major version, there'll be no default for `steps`.
-			style.gradation || style.steps || defaultStyle.steps,
-			secondsPassed,
-			{ now, units, round, future, getNextStep: true }
-		)
-
-		const formattedDate = this.formatDateForStep(timestamp, step, secondsPassed, {
-			labels,
-			labelsType,
-			nowLabel,
-			now,
-			future,
-			round
-		}) || ''
+		const { getText, getTextRefreshDelay } = getTextAndTextRefreshDelayGetterFunctions({ now })
 
 		if (options.getTimeToNextUpdate) {
-			const timeToNextUpdate = getTimeToNextUpdate(timestamp, step, {
-				nextStep,
-				prevStep,
-				now,
-				future,
-				round
-			})
-			return [formattedDate, timeToNextUpdate]
+			return [getText(), getTextRefreshDelay()]
 		}
 
-		return formattedDate
+		if (options.refresh) {
+			// `getTextRefreshDelay()` will return `undefined` for a custom style
+			// that doesn't meet the minimum requirements for this feature.
+			// See the README for more details.
+			//
+			// This is a "sensible default" interval for refreshing time labels
+			// that use such custom style.
+			//
+			const defaultRefreshInterval = 60 * 1000
+
+			// If `refresh` function was passed, schedule it to be called when the time comes,
+			// after which schedule the next refresh.
+			let refreshTimer
+			const scheduleRefresh = (delay = defaultRefreshInterval) => {
+				refreshTimer = setTimeoutSafe(() => {
+					const { getText, getTextRefreshDelay } = getTextAndTextRefreshDelayGetterFunctions({
+						now: now + (Date.now() - nowRealWhenCalled)
+					})
+					options.refresh(getText())
+					scheduleRefresh(getTextRefreshDelay())
+				}, delay)
+			}
+
+			scheduleRefresh(getTextRefreshDelay())
+
+			const stopRefreshing = () => {
+				clearTimeout(refreshTimer)
+			}
+
+			return [getText(), stopRefreshing]
+		}
+
+		return getText()
 	}
 
 	formatDateForStep(timestamp, step, secondsPassed, {
@@ -243,9 +304,9 @@ export default class TimeAgo {
 
 		if (step.format) {
 			return step.format(timestamp, this.locale, {
-				formatAs: (unit, value) => {
+				formatAs: (unit, amount) => {
 					// Mimicks `Intl.RelativeTimeFormat.format()`.
-					return this.formatValue(value, unit, {
+					return this.formatValue(amount, unit, {
 						labels,
 						future
 					})
@@ -463,22 +524,29 @@ TimeAgo.getDefaultLocale = () => defaultLocale
  * Sets default locale.
  * @param  {string} locale
  */
-TimeAgo.setDefaultLocale = (locale) => defaultLocale = locale
+TimeAgo.setDefaultLocale = (locale) => {
+	defaultLocale = locale
+}
 
 /**
  * Adds locale data for a specific locale and marks the locale as default.
  * @param {Object} localeData
  */
 TimeAgo.addDefaultLocale = function(localeData) {
+	// Warn the user if they've previously already added a default locale (a different one).
 	if (defaultLocaleHasBeenSpecified) {
-		return console.error('[javascript-time-ago] `TimeAgo.addDefaultLocale()` can only be called once. To add other locales, use `TimeAgo.addLocale()`.')
+		if (TimeAgo.getDefaultLocale() !== localeData.locale) {
+			console.warn(`[javascript-time-ago] You're adding "${localeData.locale}" as the default locale but you have already added "${TimeAgo.getDefaultLocale()}" as the default locale. "${localeData.locale}" is the default locale now.`)
+		}
 	}
 	defaultLocaleHasBeenSpecified = true
-	TimeAgo.setDefaultLocale(localeData.locale)
+
+	// `addDefaultLocale()` is just a shortcut to `addLocale()` + `setDefaultLocale()`.
 	TimeAgo.addLocale(localeData)
+	TimeAgo.setDefaultLocale(localeData.locale)
 }
 
-let defaultLocaleHasBeenSpecified
+let defaultLocaleHasBeenSpecified = false
 
 /**
  * Adds locale data for a specific locale.
@@ -587,3 +655,21 @@ function getNowLabel(labels, nowLabels, longLabels, future) {
 function isStyle(variable) {
 	return typeof variable === 'string' || isStyleObject(variable)
 }
+
+// `setTimeout()` function has a bug when it fires immediately
+// when the delay is longer than about `24.85` days.
+// https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values
+//
+// Since `renderLabel()` function uses `setTimeout()` for recursion,
+// that would mean infinite recursion.
+//
+// `setTimeoutSafe()` function works around that bug
+// by capping the delay at the maximum allowed value.
+//
+function setTimeoutSafe(func, delay) {
+  return setTimeout(func, getSafeTimeoutDelay(delay))
+}
+function getSafeTimeoutDelay(delay) {
+  return Math.min(delay, SET_TIMEOUT_MAX_SAFE_DELAY)
+}
+const SET_TIMEOUT_MAX_SAFE_DELAY = 2147483647

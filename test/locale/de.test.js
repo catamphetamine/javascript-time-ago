@@ -1,5 +1,5 @@
 import TimeAgo from '../../source/TimeAgo.js'
-import de from '../../locale/de.json' assert { type: 'json' }
+import de from '../../locale/de.json' with { type: 'json' }
 
 TimeAgo.addLocale(de)
 

@@ -187,7 +187,8 @@ describe('style/twitter', () => {
 			'twitter',
 			{
 				now,
-				getTimeToNextUpdate: true
+				getTimeToNextUpdate: true,
+				getTimeToNextUpdateUncapped: true
 			}
 		).should.deep.equal([
 			'Apr 10, 2018',
@@ -204,6 +205,7 @@ describe('style/twitter', () => {
 			{
 				now,
 				getTimeToNextUpdate: true,
+				getTimeToNextUpdateUncapped: true,
 				round: 'floor'
 			}
 		).should.deep.equal([
@@ -246,7 +248,8 @@ describe('style/twitter', () => {
 			'twitter',
 			{
 				now,
-				getTimeToNextUpdate: true
+				getTimeToNextUpdate: true,
+				getTimeToNextUpdateUncapped: true
 			}
 		).should.deep.equal([
 			'Apr 10',

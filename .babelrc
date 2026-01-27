@@ -4,14 +4,15 @@
 	],
 
 	"plugins": [
-		["@babel/plugin-transform-for-of", { loose: true }],
+		["@babel/plugin-transform-for-of", { "loose": true }],
+		"@babel/plugin-proposal-import-attributes-to-assertions",
 		"@babel/plugin-syntax-import-assertions"
 	],
 
 	"env": {
 		"es6": {
 			"presets": [
-				["@babel/preset-env", { modules: false }]
+				["@babel/preset-env", { "modules": false }]
 			]
 		},
 		"test": {

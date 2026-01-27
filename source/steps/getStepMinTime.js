@@ -10,14 +10,20 @@ export default function getStepMinTime(step, {
 	round
 }) {
 	let minTime
-	// "threshold_for_xxx" is a legacy property.
+
+	// (deprecated)
+	// Get `minTime` from "threshold_for_xxx" property of the `step`.
+	// "threshold_for_xxx" property of a `step` is deprecated.
 	if (prevStep) {
 		if (prevStep.id || prevStep.unit) {
 			minTime = step[`threshold_for_${prevStep.id || prevStep.unit}`]
 		}
 	}
+
+	// (deprecated)
+	// Get `minTime` from "threshold" property of the `step`.
+	// "threshold" property of a `step` is deprecated.
 	if (minTime === undefined) {
-		// "threshold" is a legacy property.
 		if (step.threshold !== undefined) {
 			// "threshold" is a legacy name for "minTime".
 			minTime = step.threshold
@@ -27,11 +33,15 @@ export default function getStepMinTime(step, {
 			}
 		}
 	}
+
+	// Get `minTime` from `minTime` property of the `step`.
+	// This is the only non-deprecated source for the `minTime` property.
 	if (minTime === undefined) {
 		minTime = step.minTime
 	}
-	// A deprecated way of specifying a different threshold
-	// depending on the previous step's unit.
+
+	// (deprecated)
+	// If `minTime` is an object, calculate `minTime` from the previous step's `unit`.
 	if (typeof minTime === 'object') {
 		if (prevStep && prevStep.id && minTime[prevStep.id] !== undefined) {
 			minTime = minTime[prevStep.id]
@@ -39,6 +49,8 @@ export default function getStepMinTime(step, {
 			minTime = minTime.default
 		}
 	}
+
+	// If `minTime` is a function, call it with certain arguments.
 	if (typeof minTime === 'function') {
 		minTime = minTime(timestamp, {
 			future,
@@ -51,8 +63,10 @@ export default function getStepMinTime(step, {
 			}
 		})
 	}
-	// Evaluate the `test()` function.
-	// `test()` function is deprecated.
+
+	// (deprecated)
+	// Get `minTime` from `step.test()` function property.
+	// `step.test` property is deprecated.
 	if (minTime === undefined) {
 		if (step.test) {
 			if (step.test(timestamp, {
@@ -67,6 +81,9 @@ export default function getStepMinTime(step, {
 			}
 		}
 	}
+
+	// If `minTime` is `undefined`, calculate it from the previous `step`.
+	// If it's the first step and there's no previous one, the `minTime` is assumed `0`.
 	if (minTime === undefined) {
 		if (prevStep) {
 			if (step.formatAs && prevStep.formatAs) {
@@ -77,27 +94,18 @@ export default function getStepMinTime(step, {
 			minTime = 0
 		}
 	}
-	// Warn if no `minTime` was defined or could be deduced.
+
+	// Warn if no `minTime` is defined for this step.
 	if (minTime === undefined) {
 		console.warn('[javascript-time-ago] A step should specify `minTime`:\n' + JSON.stringify(step, null, 2))
 	}
+
 	return minTime
 }
 
 function getMinTimeForUnit(toUnit, fromUnit, { round }) {
 	const toUnitAmount = getSecondsInUnit(toUnit)
-	// if (!fromUnit) {
-	// 	return toUnitAmount;
-	// }
-	// if (!fromUnit) {
-	// 	fromUnit = getPreviousUnitFor(toUnit)
-	// }
-	let fromUnitAmount
-	if (fromUnit === 'now') {
-		fromUnitAmount = getSecondsInUnit(toUnit)
-	} else {
-		fromUnitAmount = getSecondsInUnit(fromUnit)
-	}
+	const fromUnitAmount = fromUnit === 'now' ? getSecondsInUnit(toUnit) : getSecondsInUnit(fromUnit)
 	if (toUnitAmount !== undefined && fromUnitAmount !== undefined) {
 		return toUnitAmount - fromUnitAmount * (1 - getDiffRatioToNextRoundedNumber(round))
 	}

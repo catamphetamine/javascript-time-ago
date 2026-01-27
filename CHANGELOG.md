@@ -33,6 +33,15 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.6.0 / 28.09.2025
+==================
+
+* Rewrote README.
+* Added `refresh` parameter.
+* `getTimeToNextUpdate: true` now returns a "capped" `timeToNextUpdate` by default — this is to work around `setTimeout()` [bug](https://stackoverflow.com/questions/3468607/why-does-settimeout-break-for-large-millisecond-delay-values) when the delay is longer than about `24.85` days.
+  * The new "capping" behavior could be disabled by passing `getTimeToNextUpdateUncapped: true` option.
+* Added `javascript-time-ago/full-date-formatter` export — it can be used to get the value for the `title` attribute of a `<time/>` HTML tag.
+
 2.4.0 / 19.05.2022
 ==================
 
@@ -117,7 +126,7 @@ TO DO: if `style` is passed as an object then maybe it should be passed as part 
 
 * Added `test(date, { now, future })` function to steps: it can be an alternative to `minTime`. See "twitter" style for an example.
 
-* Added a third argument to steps' `format()` function: an object having shape `{ formatAs(unit, value): string, future: boolean }`.
+* Added a third argument to steps' `format()` function: an object having shape `{ formatAs(unit, amount): string, future: boolean }`.
 
 * Added `TimeAgo.addLabels(locale, name, labels)` function, that can be used to expand localized time labels.
 

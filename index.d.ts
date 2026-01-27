@@ -97,7 +97,7 @@ export interface Step {
 	minTime?: number | MinTimeFunction;
 
 	format?(date: DateInput, locale: Locale, options: {
-		formatAs: (unit: Unit, value: number) => string,
+		formatAs: (unit: Unit, amount: number) => string,
 		now: number,
 		future: boolean
 	}): string | void;
@@ -118,8 +118,16 @@ export interface Style {
 interface FormatOptions {
 	now?: number;
 	future?: boolean;
-	getTimeToNextUpdate?: boolean;
 	round?: Rounding;
+}
+
+interface FormatOptionsWithGetTimeToNextUpdate extends FormatOptions {
+	getTimeToNextUpdate: boolean;
+	getTimeToNextUpdateUncapped?: boolean;
+}
+
+interface FormatOptionsWithRefresh extends FormatOptions {
+	refresh: (text: string) => void;
 }
 
 export default class TimeAgo {
@@ -130,11 +138,13 @@ export default class TimeAgo {
 	// Perhaps it's not the best solution, and it would be better to introduce a new function called
 	// `.formatAndGetTimeToNextUpdate()`. But at this stage that would require a "major" version number update,
 	// and I wouldn't prefer doing that for such an insignificant change.
-  format(date: DateInput, style?: FormatStyleName | Style, options?: FormatOptions): FormatOptions['getTimeToNextUpdate'] extends true ? [string, number?] : string;
-  format<Options extends FormatOptions>(date: DateInput, options: Options): Options['getTimeToNextUpdate'] extends true ? [string, number?] : string;
+  format(date: DateInput, style?: FormatStyleName | Style, options?: FormatOptions): string;
+  format(date: DateInput, options: FormatOptionsWithGetTimeToNextUpdate): [string, number?];
+  format(date: DateInput, options: FormatOptionsWithRefresh): [string, () => void];
   getLabels(labelsType: LabelStyleName | LabelStyleName[]): Labels;
   static addLocale(localeData: LocaleData): void;
   static addDefaultLocale(localeData: LocaleData): void;
+  static getDefaultLocale(): Locale;
   static setDefaultLocale(locale: Locale): void;
   static addLabels(locale: Locale, name: LabelStyleName, labels: Labels): void;
 }

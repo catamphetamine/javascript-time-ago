@@ -2,7 +2,7 @@ import TimeAgo from './TimeAgo.js'
 import { getLocaleData } from './LocaleDataStore.js'
 
 // Load locale specific relative date/time messages
-import english from '../locale/en.json' assert { type: 'json' }
+import english from '../locale/en.json' with { type: 'json' }
 
 // Just so this function code is covered.
 TimeAgo.setDefaultLocale('en')
@@ -165,21 +165,36 @@ describe(`javascript-time-ago`, () => {
 	it('should format for a style with "custom" function', () => {
 		const timeAgo = new TimeAgo('en')
 
-		// `custom` returns a string
 		timeAgo.format(Date.now(), {
+			// `custom` returns a string
 			custom({ now, time, date, locale }) {
 				return locale
 			}
 		})
 		.should.equal('en')
 
-		// `custom` returns `undefined`
 		timeAgo.format(Date.now(), {
+			// `custom` returns `undefined`
 			custom({ now, time, date, locale }) {
 				return
 			}
 		})
 		.should.equal('just now')
+	})
+
+	it('should throw an error when formating for a style with "custom" function and `getTimeToNextUpdate: true` parameter is passed', () => {
+		const timeAgo = new TimeAgo('en')
+
+		expect(() => {
+			timeAgo.format(Date.now(), {
+				// `custom` returns a string.
+				custom({ now, time, date, locale }) {
+					return locale
+				}
+			}, {
+				getTimeToNextUpdate: true
+			})
+		}).to.throw('not supported')
 	})
 
 	it('should format future dates', () => {
@@ -262,6 +277,72 @@ describe(`javascript-time-ago`, () => {
 		}).should.equal('in 0 seconds')
 
 		english['mini'].second = secondLabels
+	})
+
+	it('should refresh the label when `refresh` parameter is passed', () => {
+		let refreshedTimes = 0
+		const timeAgo = new TimeAgo('en')
+		// in 1 second -> in 0 seconds.
+		const [text, cancelRefresh] = timeAgo.format(1000, 'twitter', {
+			refresh: (text) => {
+				if (refreshedTimes === 0) {
+					expect(text).to.equal('0s')
+				} else {
+					throw new Error('Refresh should have been cancelled')
+				}
+				refreshedTimes++
+			},
+			now: 0,
+			round: 'floor'
+		})
+		expect(text).to.equal('1s')
+		expect(cancelRefresh).to.be.a('function')
+		// Sidenote: `timeToNextUpdate` is `1`.
+		const timeToNextUpdate = 1
+		return delay(timeToNextUpdate + 1).then(() => {
+			expect(refreshedTimes).to.equal(1)
+			cancelRefresh()
+		})
+	})
+
+	it('should get time to next update (capped)', () => {
+		const timeAgo = new TimeAgo('en')
+		// in 1 second -> in 0 seconds.
+		timeAgo.format(0.5 * 365 * 24 * 60 * 60 * 1000, 'twitter', {
+			getTimeToNextUpdate: true,
+			now: 0,
+			round: 'floor'
+		}).should.deep.equal([
+			'Jul 2',
+			2147483647
+		])
+	})
+
+	it('should get time to next update (capped)', () => {
+		const timeAgo = new TimeAgo('en')
+		// in 1 second -> in 0 seconds.
+		timeAgo.format(0.5 * 365 * 24 * 60 * 60 * 1000, 'twitter', {
+			getTimeToNextUpdate: true,
+			getTimeToNextUpdateUncapped: true,
+			now: 0,
+			round: 'floor'
+		}).should.deep.equal([
+			'Jul 2',
+			15681600001
+		])
+	})
+
+	it('should get time to next update (uncapped)', () => {
+		const timeAgo = new TimeAgo('en')
+		// in 1 second -> in 0 seconds.
+		timeAgo.format(1000, 'twitter', {
+			getTimeToNextUpdate: true,
+			now: 0,
+			round: 'floor'
+		}).should.deep.equal([
+			'1s',
+			1
+		])
 	})
 
 	it('should get time to next update (round: "floor")', () => {
@@ -646,11 +727,16 @@ describe(`javascript-time-ago`, () => {
 			locale: 'el'
 		})
 		TimeAgo.getDefaultLocale().should.equal('el')
+		// Doesn't throw an error because the same locale is already specified as default.
+		TimeAgo.addDefaultLocale({
+			locale: 'el'
+		})
+		// Could throw an error or output an error message because another locale is already specified as default.
 		// expect(() => {
 			TimeAgo.addDefaultLocale({
-				locale: 'el'
+				locale: 'es'
 			})
-		// }).to.throw('`TimeAgo.addDefaultLocale()` can only be called once')
+		// }).to.throw('but you have already added "el" as the default locale.')
 		TimeAgo.setDefaultLocale('en')
 	})
 
@@ -664,3 +750,9 @@ describe(`javascript-time-ago`, () => {
 		timeAgo.format(2 * 60 * 1000, 'twitter', { now: 0, round: 'floor' }).should.equal('2m')
 	})
 })
+
+function delay(delayTime) {
+	return new Promise((resolve) => {
+		setTimeout(resolve, delayTime)
+	})
+}
