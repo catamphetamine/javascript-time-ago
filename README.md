@@ -63,6 +63,8 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 // "1 day ago"
 ```
 
+To change the output style, see the list of available [formatting styles](#formatting-styles).
+
 P.S. After rendering a label, don't forget to [refresh](#refreshing) it as the time goes by.
 
 ## Languages
@@ -161,32 +163,13 @@ timeAgo.format(Date.now() - 24 * 60 * 60 * 1000)
 
 ## Formatting Styles
 
-The time range (in seconds) spans from `-∞` to `+∞`, with "now" at `0` point. This entire range gets split into intervals, each with its own label. Example:
+A "formatting style" defines how a date should be formatted relative to the current time.
 
-* Interval from `0` to `-1 second` is assigned `"just now"` label.
-* Interval from `-1 second` to `-1 minute` is assigned `"{0} second(s) ago"` label.
-* Interval from `-1 minute` to `-1 hour` is assigned `"{0} minute(s) ago"` label.
-* ...
-* Interval from `0` to `+1 second` is assigned `"in a moment"` label.
-* Interval from `+1 second` to `+1 minute` is assigned `"in {0} second(s)"` label.
-* Interval from `+1 minute` to `+1 hour` is assigned `"in {0} minute(s)"` label.
-* ...
+It could be precise up to a second with `"1 second ago"`, `"2 seconds ago"`, `"3 seconds ago"`, etc labels, or it could prefer to combine all those under a single `"less than a minute ago"` label.
 
-Intervals follow each other without any gaps, so the entire time range is divided into such intervals.
+It could use verbose labels like `"1 minute ago"` or it could prefer shorter variants like `"1 min. ago"` or even `"1m"`. Or it could prefer to output a full date like `"Dec 11, 2015"` for dates that're older than 1 year from now.
 
-Now the job of the `format(date)` function is simple: it calculates the time difference (in seconds) between `date` and "now", and then maps that number onto the time range to see what interval it falls into. Then it returns the label for that interval, replacing `{0}` with the time difference number converted to the unit of time used by the interval.
-
-For example, for `const date = new Date(Date.now() - 2 * 60 * 1000)`, `format(date)` first calculates the difference between the `date` and `Date.now()`, which is `-2 * 60` seconds, and then maps those `-2 * 60` seconds onto the time range and finds that it falls into the `-1 min … -1 hour` interval. So it returns the label for that interval, which is `"{0} minute(s) ago"`, replacing `{0}` with `2` because the unit of time used by the interval is `"minute"` which is equal to `60` seconds, so `-2 * 60 / 60 === -2`.
-
-As one can see, with this approach, there can be an infinite amount of formatting styles, and any possible formatting style can be expressed with this simple logic.
-
-It could be precise up to a second with `"1 second ago"`, `"2 seconds ago"`, `"3 seconds ago"`, etc labels, or it could hide the amount of seconds under a `"less than minute ago"` label.
-
-It could use verbose labels like `"1 minute ago"` or it could prefer shorter variants like `"1 min. ago"` or even `"1m"`. Or it could choose to output a full date like `"Dec 11, 2015"` starting from `-1 year` threshold.
-
-The possibilities are endless, and it's all defined by a formatting "style".
-
-While one could implement their own [custom](#custom-style) formatting "style" from scratch, most developers will find exactly what they're looking for in one of the few built-in styles that're described below.
+While one could certainly implement their own [custom](#custom-style) formatting "style" from scratch, most applications would be totally fine with one of the few already-available styles that're described below.
 
 ### Round
 
@@ -194,19 +177,19 @@ While one could implement their own [custom](#custom-style) formatting "style" f
 
 ```js
 timeAgo.format(Date.now(), 'round')
-// 0 seconds ago → "just now"
+// 0 seconds ago: "just now"
 
 timeAgo.format(Date.now() - 1 * 1000, 'round')
-// 1 second ago → "1 second ago"
+// 1 second ago: "1 second ago"
 
 timeAgo.format(Date.now() - 29 * 1000, 'round')
-// 29 seconds ago → "29 seconds ago"
+// 29 seconds ago: "29 seconds ago"
 
 timeAgo.format(Date.now() - 30 * 1000, 'round')
-// 30 seconds ago → "1 minute ago"
+// 30 seconds ago: "1 minute ago"
 
 timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round')
-// 1.5 minutes ago → "2 minutes ago"
+// 1.5 minutes ago: "2 minutes ago"
 ```
 
   * just now
@@ -241,17 +224,17 @@ timeAgo.format(Date.now() - 1.5 * 60 * 1000, 'round')
 
 ### Round (minute)
 
-`"round-minute"` style is same as `"round"` style but without seconds. This is the default style.
+`"round-minute"` style is same as `"round"` style but without seconds. This is the default style that is used when no custom style is specified.
 
 ```js
 timeAgo.format(Date.now(), 'round-minute')
-// 0 seconds ago → "just now"
+// 0 seconds ago: "just now"
 
 timeAgo.format(Date.now() - 29 * 1000, 'round-minute')
-// 29 seconds ago → "just now"
+// 29 seconds ago: "just now"
 
 timeAgo.format(Date.now() - 30 * 1000, 'round-minute')
-// 30 seconds ago → "1 minute ago"
+// 30 seconds ago: "1 minute ago"
 
 // The rest is same as "round" style.
 ```
@@ -267,28 +250,28 @@ timeAgo.format(Date.now() - 30 * 1000, 'round-minute')
 
 ```js
 timeAgo.format(new Date(), 'mini')
-// 0 seconds ago → "0s"
+// 0 seconds ago: "0s"
 
 timeAgo.format(new Date() - 1 * 1000, 'mini')
-// 1 second ago → "1s"
+// 1 second ago: "1s"
 
 timeAgo.format(Date.now() - 2 * 60 * 1000, 'mini')
-// 2 minutes ago → "2m"
+// 2 minutes ago: "2m"
 
 timeAgo.format(Date.now() - 3 * 60 * 60 * 1000, 'mini')
-// 3 hours ago → "3h"
+// 3 hours ago: "3h"
 
 timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'mini')
-// 4 days ago → "4d"
+// 4 days ago: "4d"
 
 timeAgo.format(Date.now() - 23 * 24 * 60 * 60 * 1000, 'mini')
-// 23 days ago → "23d"
+// 23 days ago: "23d"
 
 timeAgo.format(Date.now() - 5 * 30 * 24 * 60 * 60 * 1000, 'mini')
-// 5 months ago → "5mo"
+// 5 months ago: "5mo"
 
 timeAgo.format(Date.now() - 12 * 30 * 24 * 60 * 60 * 1000, 'mini')
-// 1 year ago → "1yr"
+// 1 year ago: "1yr"
 ```
 
 For best compatibility, `mini.json` labels should be [defined](https://github.com/catamphetamine/javascript-time-ago/tree/master/locale-more-styles) for a locale, otherwise you might [end up with](https://github.com/catamphetamine/javascript-time-ago/issues/49) labels like `"-1m"` for "one minute ago" for some languages. Send `mini.json` pull requests for the missing languages if you speak those.
@@ -299,10 +282,10 @@ For best compatibility, `mini.json` labels should be [defined](https://github.co
 
 ```js
 timeAgo.format(new Date(), 'mini-now')
-// 0 seconds ago → "now"
+// 0 seconds ago: "now"
 
 timeAgo.format(new Date() - 1 * 1000, 'mini-now')
-// 1 second ago → "1s"
+// 1 second ago: "1s"
 
 // The rest is same as "mini" style.
 ```
@@ -313,13 +296,13 @@ timeAgo.format(new Date() - 1 * 1000, 'mini-now')
 
 ```js
 timeAgo.format(new Date(), 'mini-minute')
-// 0 seconds ago → "0m"
+// 0 seconds ago: "0m"
 
 timeAgo.format(new Date() - 29 * 1000, 'mini-minute')
-// 29 seconds ago → "0m"
+// 29 seconds ago: "0m"
 
 timeAgo.format(new Date() - 30 * 1000, 'mini-minute')
-// 30 seconds ago → "1m"
+// 30 seconds ago: "1m"
 
 // The rest is same as "mini" style.
 ```
@@ -330,13 +313,13 @@ timeAgo.format(new Date() - 30 * 1000, 'mini-minute')
 
 ```js
 timeAgo.format(new Date(), 'mini-minute-now')
-// 0 seconds ago → "now"
+// 0 seconds ago: "now"
 
 timeAgo.format(new Date() - 29 * 1000, 'mini-minute-now')
-// 29 seconds ago → "now"
+// 29 seconds ago: "now"
 
 timeAgo.format(new Date() - 30 * 1000, 'mini-minute-now')
-// 30 seconds ago → "1m"
+// 30 seconds ago: "1m"
 
 // The rest is same as "mini" style.
 ```
@@ -348,13 +331,13 @@ Same as `"twitter"` style but doesn't output anything before the first minute.
 
 ```js
 timeAgo.format(new Date(), 'twitter-first-minute')
-// 0 seconds ago → ""
+// 0 seconds ago: ""
 
 timeAgo.format(new Date() - 59 * 1000, 'twitter-first-minute')
-// 59 seconds ago → ""
+// 59 seconds ago: ""
 
 timeAgo.format(new Date() - 60 * 1000, 'twitter-first-minute')
-// 1 minute ago → "1m"
+// 1 minute ago: "1m"
 
 // The rest is same as "twitter" style.
 ```
@@ -366,16 +349,16 @@ timeAgo.format(new Date() - 60 * 1000, 'twitter-first-minute')
 
 ```js
 timeAgo.format(new Date(), 'twitter')
-// 0 seconds ago → "0s"
+// 0 seconds ago: "0s"
 
 timeAgo.format(new Date() - 1 * 1000, 'twitter')
-// 1 second ago → "1s"
+// 1 second ago: "1s"
 
 timeAgo.format(Date.now() - 2 * 60 * 1000, 'twitter')
-// 2 minutes ago → "2m"
+// 2 minutes ago: "2m"
 
 timeAgo.format(Date.now() - 3 * 60 * 60 * 1000, 'twitter')
-// 3 hours ago → "3h"
+// 3 hours ago: "3h"
 
 timeAgo.format(Date.now() - 4 * 24 * 60 * 60 * 1000, 'twitter')
 // More than 24 hours ago → `month/day` ("Mar 4")
@@ -394,10 +377,10 @@ For best compatibility, `mini.json` labels should be [defined](https://github.co
 
 ```js
 timeAgo.format(new Date(), 'twitter-now')
-// 0 seconds ago → "now"
+// 0 seconds ago: "now"
 
 timeAgo.format(new Date() - 1 * 1000, 'twitter-now')
-// 1 second ago → "1s"
+// 1 second ago: "1s"
 
 // The rest is same as "twitter" style.
 ```
@@ -408,13 +391,13 @@ timeAgo.format(new Date() - 1 * 1000, 'twitter-now')
 
 ```js
 timeAgo.format(new Date(), 'twitter-minute')
-// 0 seconds ago → "0m"
+// 0 seconds ago: "0m"
 
 timeAgo.format(new Date() - 29 * 1000, 'twitter-minute')
-// 29 seconds ago → "0m"
+// 29 seconds ago: "0m"
 
 timeAgo.format(new Date() - 30 * 1000, 'twitter-minute')
-// 30 seconds ago → "1m"
+// 30 seconds ago: "1m"
 
 // The rest is same as "twitter" style.
 ```
@@ -425,13 +408,13 @@ timeAgo.format(new Date() - 30 * 1000, 'twitter-minute')
 
 ```js
 timeAgo.format(new Date(), 'twitter-minute-now')
-// 0 seconds ago → "now"
+// 0 seconds ago: "now"
 
 timeAgo.format(new Date() - 29 * 1000, 'twitter-minute-now')
-// 29 seconds ago → "now"
+// 29 seconds ago: "now"
 
 timeAgo.format(new Date() - 30 * 1000, 'twitter-minute-now')
-// 30 seconds ago → "1m"
+// 30 seconds ago: "1m"
 
 // The rest is same as "twitter" style.
 ```
@@ -442,13 +425,13 @@ timeAgo.format(new Date() - 30 * 1000, 'twitter-minute-now')
 
 ```js
 timeAgo.format(new Date(), 'twitter-first-minute')
-// 0 seconds ago → ""
+// 0 seconds ago: ""
 
 timeAgo.format(new Date() - 29 * 1000, 'twitter-first-minute')
-// 29 seconds ago → ""
+// 29 seconds ago: ""
 
 timeAgo.format(new Date() - 30 * 1000, 'twitter-first-minute')
-// 30 seconds ago → "1m"
+// 30 seconds ago: "1m"
 
 // The rest is same as "twitter" style.
 ```
@@ -458,6 +441,31 @@ timeAgo.format(new Date() - 30 * 1000, 'twitter-first-minute')
 A custom "style" object may be passed as a second argument to `.format(date, style)` function. A `style` object should have two properties: `labels` and `steps`.
 
 Refer to the definition of the [built-in styles](https://github.com/catamphetamine/javascript-time-ago/tree/master/source/style) for an example.
+
+<details>
+<summary>How does a formatting style work</summary>
+
+######
+
+The time range (in seconds) spans from `-∞` to `+∞`, with "now" at `0` point. This entire range gets split into intervals, each with its own label. Example:
+
+* Interval from `0` to `-1 second` is assigned `"just now"` label.
+* Interval from `-1 second` to `-1 minute` is assigned `"{0} second(s) ago"` label.
+* Interval from `-1 minute` to `-1 hour` is assigned `"{0} minute(s) ago"` label.
+* ...
+* Interval from `0` to `+1 second` is assigned `"in a moment"` label.
+* Interval from `+1 second` to `+1 minute` is assigned `"in {0} second(s)"` label.
+* Interval from `+1 minute` to `+1 hour` is assigned `"in {0} minute(s)"` label.
+* ...
+
+Intervals follow each other without any gaps, so the entire time range is divided into such intervals.
+
+Now the job of the `format(date)` function is simple: it calculates the time difference (in seconds) between `date` and "now", and then maps that number onto the time range to see what interval it falls into. Then it returns the label for that interval, replacing `{0}` with the time difference number converted to the unit of time used by the interval.
+
+For example, for `const date = new Date(Date.now() - 2 * 60 * 1000)`, `format(date)` first calculates the difference between the `date` and `Date.now()`, which is `-2 * 60` seconds, and then maps those `-2 * 60` seconds onto the time range and finds that it falls into the `-1 min … -1 hour` interval. So it returns the label for that interval, which is `"{0} minute(s) ago"`, replacing `{0}` with `2` because the unit of time used by the interval is `"minute"` which is equal to `60` seconds, so `-2 * 60 / 60 === -2`.
+
+As one can see, with this approach, there could be an infinite amount of all kinds of formatting styles, and any possible formatting style could be expressed with this simple logic.
+</details>
 
 ### Labels
 
@@ -844,7 +852,7 @@ Some people [asked](https://github.com/catamphetamine/javascript-time-ago/issues
 
 A developer can specify the preferred rounding by passing a `round` parameter to `timeAgo.format(date, [style,] options)`.
 
-The default rounding method could also be specified "globally" for a given [style](#styles) by specifying a `round` property in the style object.
+The default rounding method could also be specified "globally" for a given [style](#formatting-styles) by specifying a `round` property in the style object.
 
 ## Past vs Future
 

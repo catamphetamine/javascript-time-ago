@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "Localized relative date/time formatting",
   "main": "index.cjs",
   "module": "index.js",
@@ -2648,15 +2648,15 @@
     "build-commonjs": "npm-run-all build-commonjs-modules-with-tests build-commonjs-package.json",
     "build-commonjs-modules": "cross-env babel ./source --out-dir ./commonjs --source-maps --ignore *.test.js",
     "build-commonjs-modules-with-tests": "cross-env babel ./source --out-dir ./commonjs --source-maps",
-    "build-commonjs-package.json": "node bin/create-commonjs-package-json.js",
+    "build-commonjs-package.json": "node scripts/create-commonjs-package-json.js",
     "build-es6-modules": "cross-env BABEL_ENV=es6 babel ./source --out-dir ./modules --source-maps --ignore *.test.js",
     "build": "npm-run-all clean-for-build build-commonjs build-es6-modules browser-build",
     "prepublishOnly": "npm-run-all generate-locales build test",
     "update-relative-time-format": "npm install relative-time-format@latest --save",
     "delete-locales": "rimraf ./locale/**/*",
     "create-locales-directory": "mkdirp locale",
-    "generate-locale-messages": "node bin/generate-locale-messages",
-    "generate-load-all-locales": "node bin/generate-load-all-locales",
+    "generate-locale-messages": "node scripts/generate-locale-messages",
+    "generate-load-all-locales": "node scripts/generate-load-all-locales",
     "generate-locales": "npm-run-all update-relative-time-format delete-locales create-locales-directory generate-locale-messages generate-load-all-locales"
   },
   "repository": {
