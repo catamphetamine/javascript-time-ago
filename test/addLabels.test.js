@@ -1,3 +1,6 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import TimeAgo from './TimeAgo.js'
 import en from '../locale/en.json' with { type: 'json' }
 
@@ -52,13 +55,13 @@ describe('TimeAgo.addLocale', () => {
       labels: 'custom'
     }
 
-    timeAgo.format(Date.now() - 10 * 1000, customStyle).should.equal('10 seconds earlier')
+    expect(timeAgo.format(Date.now() - 10 * 1000, customStyle)).to.equal('10 seconds earlier')
   })
 
   it('should work when no locale data has been added before for the locale', () => {
     const locale = 'xxx'
     let timeAgo = new TimeAgo(locale)
-    timeAgo.locale.should.equal(TimeAgo.getDefaultLocale())
+    expect(timeAgo.locale).to.equal(TimeAgo.getDefaultLocale())
     TimeAgo.addLabels(locale, 'custom', {
       "second": {
         "past": "about {0} seconds ago",
@@ -66,8 +69,8 @@ describe('TimeAgo.addLocale', () => {
       }
     })
     timeAgo = new TimeAgo(locale)
-    timeAgo.locale.should.equal(locale)
-    timeAgo.format(Date.now() - 10 * 1000, {
+    expect(timeAgo.locale).to.equal(locale)
+    expect(timeAgo.format(Date.now() - 10 * 1000, {
       labels: 'custom',
       steps: [{
         formatAs: 'second'
@@ -77,7 +80,7 @@ describe('TimeAgo.addLocale', () => {
         formatAs: 'now',
         minTime: 0
       }]
-    }).should.equal('about 10 seconds ago')
+    })).to.equal('about 10 seconds ago')
     // expect(() => TimeAgo.addLabels('exotic', 'custom', {})).to.throw('No data for locale "exotic"')
   })
 })

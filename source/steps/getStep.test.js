@@ -1,3 +1,6 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import getStep from './getStep.js'
 import round from './round.js'
 
@@ -19,17 +22,17 @@ describe('getStep', () => {
 	it('should fall back to previous step if granularity is too high for the next step', () => {
 		const steps = round.slice()
 
-		steps[1].formatAs.should.equal('second')
+		expect(steps[1].formatAs).to.equal('second')
 		steps[1].granularity = 3
 
-		getStep(steps, 1.49, { now: 0, units: ['now', 'second'] }).formatAs.should.equal('now')
+		expect(getStep(steps, 1.49, { now: 0, units: ['now', 'second'] }).formatAs).to.equal('now')
 
 		// And if there's no previous step, then use the current one.
 
 		const firstStep = steps[0]
 		steps.splice(0, 1)
 
-		getStep(steps, 1.49, { now: 0, units: ['now', 'second'] }).formatAs.should.equal('second')
+		expect(getStep(steps, 1.49, { now: 0, units: ['now', 'second'] }).formatAs).to.equal('second')
 
 		steps.unshift(firstStep)
 

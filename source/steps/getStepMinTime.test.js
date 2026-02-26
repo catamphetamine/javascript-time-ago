@@ -1,19 +1,22 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import getStepMinTime from './getStepMinTime.js'
 
 describe('getStepMinTime', () => {
 	it('should support `step.test()` function (returns true)', () => {
-		getStepMinTime({
+		expect(getStepMinTime({
 			test: () => true
 		}, {
 			prevStep: { minTime: 1 }
-		}).should.equal(0)
+		})).to.equal(0)
 	})
 
 	it('should support `step.test()` function (returns false)', () => {
-		getStepMinTime({
+		expect(getStepMinTime({
 			test: () => false
 		}, {
 			prevStep: { minTime: 1 }
-		}).should.equal(9007199254740991)
+		})).to.equal(9007199254740991)
 	})
 })

@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "Localized relative date/time formatting",
   "main": "index.cjs",
   "module": "index.js",
@@ -101,6 +101,14 @@
       "import": "./locale/az.json.js",
       "require": "./locale/az.json"
     },
+    "./locale/ba": {
+      "import": "./locale/ba.json.js",
+      "require": "./locale/ba.json"
+    },
+    "./locale/ba.json": {
+      "import": "./locale/ba.json.js",
+      "require": "./locale/ba.json"
+    },
     "./locale/bal-Latn": {
       "import": "./locale/bal-Latn.json.js",
       "require": "./locale/bal-Latn.json"
@@ -188,6 +196,14 @@
     "./locale/bs.json": {
       "import": "./locale/bs.json.js",
       "require": "./locale/bs.json"
+    },
+    "./locale/bua": {
+      "import": "./locale/bua.json.js",
+      "require": "./locale/bua.json"
+    },
+    "./locale/bua.json": {
+      "import": "./locale/bua.json.js",
+      "require": "./locale/bua.json"
     },
     "./locale/ca": {
       "import": "./locale/ca.json.js",
@@ -509,6 +525,14 @@
       "import": "./locale/en-DM.json.js",
       "require": "./locale/en-DM.json"
     },
+    "./locale/en-EE": {
+      "import": "./locale/en-EE.json.js",
+      "require": "./locale/en-EE.json"
+    },
+    "./locale/en-EE.json": {
+      "import": "./locale/en-EE.json.js",
+      "require": "./locale/en-EE.json"
+    },
     "./locale/en-ER": {
       "import": "./locale/en-ER.json.js",
       "require": "./locale/en-ER.json"
@@ -580,6 +604,14 @@
     "./locale/en-GD.json": {
       "import": "./locale/en-GD.json.js",
       "require": "./locale/en-GD.json"
+    },
+    "./locale/en-GE": {
+      "import": "./locale/en-GE.json.js",
+      "require": "./locale/en-GE.json"
+    },
+    "./locale/en-GE.json": {
+      "import": "./locale/en-GE.json.js",
+      "require": "./locale/en-GE.json"
     },
     "./locale/en-GG": {
       "import": "./locale/en-GG.json.js",
@@ -772,6 +804,22 @@
     "./locale/en-LS.json": {
       "import": "./locale/en-LS.json.js",
       "require": "./locale/en-LS.json"
+    },
+    "./locale/en-LT": {
+      "import": "./locale/en-LT.json.js",
+      "require": "./locale/en-LT.json"
+    },
+    "./locale/en-LT.json": {
+      "import": "./locale/en-LT.json.js",
+      "require": "./locale/en-LT.json"
+    },
+    "./locale/en-LV": {
+      "import": "./locale/en-LV.json.js",
+      "require": "./locale/en-LV.json"
+    },
+    "./locale/en-LV.json": {
+      "import": "./locale/en-LV.json.js",
+      "require": "./locale/en-LV.json"
     },
     "./locale/en-MG": {
       "import": "./locale/en-MG.json.js",
@@ -1108,6 +1156,14 @@
     "./locale/en-TZ.json": {
       "import": "./locale/en-TZ.json.js",
       "require": "./locale/en-TZ.json"
+    },
+    "./locale/en-UA": {
+      "import": "./locale/en-UA.json.js",
+      "require": "./locale/en-UA.json"
+    },
+    "./locale/en-UA.json": {
+      "import": "./locale/en-UA.json.js",
+      "require": "./locale/en-UA.json"
     },
     "./locale/en-UG": {
       "import": "./locale/en-UG.json.js",
@@ -1685,6 +1741,14 @@
       "import": "./locale/kgp.json.js",
       "require": "./locale/kgp.json"
     },
+    "./locale/kk-Arab": {
+      "import": "./locale/kk-Arab.json.js",
+      "require": "./locale/kk-Arab.json"
+    },
+    "./locale/kk-Arab.json": {
+      "import": "./locale/kk-Arab.json.js",
+      "require": "./locale/kk-Arab.json"
+    },
     "./locale/kk": {
       "import": "./locale/kk.json.js",
       "require": "./locale/kk.json"
@@ -1965,6 +2029,14 @@
       "import": "./locale/nqo.json.js",
       "require": "./locale/nqo.json"
     },
+    "./locale/nso": {
+      "import": "./locale/nso.json.js",
+      "require": "./locale/nso.json"
+    },
+    "./locale/nso.json": {
+      "import": "./locale/nso.json.js",
+      "require": "./locale/nso.json"
+    },
     "./locale/om": {
       "import": "./locale/om.json.js",
       "require": "./locale/om.json"
@@ -2165,6 +2237,14 @@
       "import": "./locale/ru.json.js",
       "require": "./locale/ru.json"
     },
+    "./locale/rw": {
+      "import": "./locale/rw.json.js",
+      "require": "./locale/rw.json"
+    },
+    "./locale/rw.json": {
+      "import": "./locale/rw.json.js",
+      "require": "./locale/rw.json"
+    },
     "./locale/sah": {
       "import": "./locale/sah.json.js",
       "require": "./locale/sah.json"
@@ -2180,6 +2260,22 @@
     "./locale/sc.json": {
       "import": "./locale/sc.json.js",
       "require": "./locale/sc.json"
+    },
+    "./locale/scn": {
+      "import": "./locale/scn.json.js",
+      "require": "./locale/scn.json"
+    },
+    "./locale/scn.json": {
+      "import": "./locale/scn.json.js",
+      "require": "./locale/scn.json"
+    },
+    "./locale/sd-Deva": {
+      "import": "./locale/sd-Deva.json.js",
+      "require": "./locale/sd-Deva.json"
+    },
+    "./locale/sd-Deva.json": {
+      "import": "./locale/sd-Deva.json.js",
+      "require": "./locale/sd-Deva.json"
     },
     "./locale/sd": {
       "import": "./locale/sd.json.js",
@@ -2204,6 +2300,14 @@
     "./locale/se.json": {
       "import": "./locale/se.json.js",
       "require": "./locale/se.json"
+    },
+    "./locale/shn": {
+      "import": "./locale/shn.json.js",
+      "require": "./locale/shn.json"
+    },
+    "./locale/shn.json": {
+      "import": "./locale/shn.json.js",
+      "require": "./locale/shn.json"
     },
     "./locale/si": {
       "import": "./locale/si.json.js",
@@ -2373,6 +2477,14 @@
       "import": "./locale/to.json.js",
       "require": "./locale/to.json"
     },
+    "./locale/tok": {
+      "import": "./locale/tok.json.js",
+      "require": "./locale/tok.json"
+    },
+    "./locale/tok.json": {
+      "import": "./locale/tok.json.js",
+      "require": "./locale/tok.json"
+    },
     "./locale/tr": {
       "import": "./locale/tr.json.js",
       "require": "./locale/tr.json"
@@ -2388,6 +2500,14 @@
     "./locale/tt.json": {
       "import": "./locale/tt.json.js",
       "require": "./locale/tt.json"
+    },
+    "./locale/tyv": {
+      "import": "./locale/tyv.json.js",
+      "require": "./locale/tyv.json"
+    },
+    "./locale/tyv.json": {
+      "import": "./locale/tyv.json.js",
+      "require": "./locale/tyv.json"
     },
     "./locale/ug": {
       "import": "./locale/ug.json.js",
@@ -2604,7 +2724,7 @@
     "./load-all-locales/index.cjs.js"
   ],
   "dependencies": {
-    "relative-time-format": "^1.1.11"
+    "relative-time-format": "^1.1.12"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -2637,7 +2757,8 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "scripts": {
-    "test": "node --experimental-json-modules node_modules/mocha/bin/_mocha --bail --require ./test/globals.js --require ./test/addLocales.js \"source/**/*.test.js\" \"test/**/*.test.js\"",
+    "test": "mocha --require ./test/addLocales.js --bail \"source/**/*.test.js\" \"test/*.test.js\" \"test/!(exports)/**/*.test.js\"",
+    "test:exports": "mocha --bail \"test/exports/**/*.test.js\"",
     "test-coverage": "npm-run-all build-commonjs build-commonjs-test-coverage-setup test-coverage-commonjs",
     "test-coverage-commonjs": "node --experimental-json-modules node_modules/istanbul/lib/cli.js cover -x \"*.test.js\" node_modules/mocha/bin/_mocha -- --colors --reporter dot --require ./test/globals.js ./commonjs/addLocales.js \"commonjs/**/*.test.js\" --recursive",
     "build-commonjs-test-coverage-setup": "cross-env babel ./test/addLocales.js ./test/addLabels.test.js --out-dir ./commonjs --source-maps",
@@ -2651,13 +2772,13 @@
     "build-commonjs-package.json": "node scripts/create-commonjs-package-json.js",
     "build-es6-modules": "cross-env BABEL_ENV=es6 babel ./source --out-dir ./modules --source-maps --ignore *.test.js",
     "build": "npm-run-all clean-for-build build-commonjs build-es6-modules browser-build",
-    "prepublishOnly": "npm-run-all generate-locales build test",
     "update-relative-time-format": "npm install relative-time-format@latest --save",
     "delete-locales": "rimraf ./locale/**/*",
     "create-locales-directory": "mkdirp locale",
     "generate-locale-messages": "node scripts/generate-locale-messages",
     "generate-load-all-locales": "node scripts/generate-load-all-locales",
-    "generate-locales": "npm-run-all update-relative-time-format delete-locales create-locales-directory generate-locale-messages generate-load-all-locales"
+    "generate-locales": "npm-run-all update-relative-time-format delete-locales create-locales-directory generate-locale-messages generate-load-all-locales",
+    "prepublishOnly": "npm-run-all generate-locales build test test:exports"
   },
   "repository": {
     "type": "git",

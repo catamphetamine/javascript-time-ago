@@ -1,3 +1,6 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import getTimeToNextUpdateForUnit from './getTimeToNextUpdateForUnit.js'
 
 describe('getTimeToNextUpdateForUnit', () => {
@@ -6,18 +9,18 @@ describe('getTimeToNextUpdateForUnit', () => {
 	})
 
 	it('should support Date argument', () => {
-		getTimeToNextUpdateForUnit('second', new Date(0), {
+		expect(getTimeToNextUpdateForUnit('second', new Date(0), {
 			// future: false,
 			now: 0
-		}).should.equal(500)
+		})).to.equal(500)
 	})
 
 	it('should get time to next update for unit (future)', () => {
 		const test = (seconds, expected, addOneMs = true) => {
-			getTimeToNextUpdateForUnit('second', seconds * 1000, {
+			expect(getTimeToNextUpdateForUnit('second', seconds * 1000, {
 				// future: true,
 				now: 0
-			}).should.equal(expected * 1000 + (addOneMs ? 1 : 0))
+			})).to.equal(expected * 1000 + (addOneMs ? 1 : 0))
 		}
 
 		test(9, 0.5)
@@ -37,10 +40,10 @@ describe('getTimeToNextUpdateForUnit', () => {
 
 	it('should get time to next update for unit (past)', () => {
 		const test = (seconds, expected, addOneMs = true) => {
-			getTimeToNextUpdateForUnit('second', -1 * seconds * 1000, {
+			expect(getTimeToNextUpdateForUnit('second', -1 * seconds * 1000, {
 				// future: false,
 				now: 0
-			}).should.equal(expected * 1000)
+			})).to.equal(expected * 1000)
 		}
 
 		test(10, 0.5)
@@ -59,11 +62,11 @@ describe('getTimeToNextUpdateForUnit', () => {
 
 	it('should support "floor" rounding (future)', () => {
 		const test = (seconds, expected, addOneMs = true) => {
-			getTimeToNextUpdateForUnit('second', seconds * 1000, {
+			expect(getTimeToNextUpdateForUnit('second', seconds * 1000, {
 				// future: true,
 				now: 0,
 				round: 'floor'
-			}).should.equal(expected * 1000 + (addOneMs ? 1 : 0))
+			})).to.equal(expected * 1000 + (addOneMs ? 1 : 0))
 		}
 
 		test(9, 0)
@@ -83,11 +86,11 @@ describe('getTimeToNextUpdateForUnit', () => {
 
 	it('should support "floor" rounding (past)', () => {
 		const test = (seconds, expected) => {
-			getTimeToNextUpdateForUnit('second', -1 * seconds * 1000, {
+			expect(getTimeToNextUpdateForUnit('second', -1 * seconds * 1000, {
 				// future: false,
 				now: 0,
 				round: 'floor'
-			}).should.equal(expected * 1000)
+			})).to.equal(expected * 1000)
 		}
 
 		test(10, 1)

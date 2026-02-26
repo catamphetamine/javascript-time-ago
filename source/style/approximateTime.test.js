@@ -1,5 +1,7 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import TimeAgo from '../TimeAgo.js'
-import approximateTime from './approximateTime.js'
 import { day, month, year } from '../steps/units.js'
 
 describe('style/approximate-time', () => {
@@ -143,7 +145,7 @@ function approximateScaleStepsTest(labels, timeAgo) {
 	let i = 0
 	while (i < approximateScaleSteps.length) {
 		for (let time of approximateScaleSteps[i]) {
-			elapsed(time).should.equal(labels[i])
+			expect(elapsed(time)).to.equal(labels[i])
 		}
 		i++
 	}

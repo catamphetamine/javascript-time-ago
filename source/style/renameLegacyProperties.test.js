@@ -1,8 +1,11 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import renameLegacyProperties from './renameLegacyProperties.js'
 
 describe('style/renameLegacyProperties', () => {
 	it('should rename legacy properties', () => {
-		renameLegacyProperties({
+		expect(renameLegacyProperties({
 			steps: [{
 				unit: 'now',
 				minTime: {
@@ -11,7 +14,7 @@ describe('style/renameLegacyProperties', () => {
 				}
 			}],
 			labels: 'long'
-		}).should.deep.equal({
+		})).to.deep.equal({
 			gradation: [{
 				unit: 'now',
 				threshold: 1,
@@ -23,9 +26,9 @@ describe('style/renameLegacyProperties', () => {
 
 	it('should cover edge cases', () => {
 		const custom = () => {}
-		renameLegacyProperties({
+		expect(renameLegacyProperties({
 			custom
-		}).should.deep.equal({
+		})).to.deep.equal({
 			custom
 		})
 	})

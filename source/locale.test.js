@@ -1,10 +1,13 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import chooseLocale, { intlDateTimeFormatSupportedLocale } from './locale.js'
 
 describe('locale', () => {
 	it(`should tell if can use Intl for date formatting`, () => {
-		intlDateTimeFormatSupportedLocale('en').should.equal('en')
-		intlDateTimeFormatSupportedLocale('en-XX').should.equal('en-XX')
-		intlDateTimeFormatSupportedLocale(['en', 'ru']).should.equal('en')
+		expect(intlDateTimeFormatSupportedLocale('en')).to.equal('en')
+		expect(intlDateTimeFormatSupportedLocale('en-XX')).to.equal('en-XX')
+		expect(intlDateTimeFormatSupportedLocale(['en', 'ru'])).to.equal('en')
 	})
 
 	it(`should choose the most appropriate locale`, () => {
@@ -23,13 +26,13 @@ describe('locale', () => {
 			return chooseLocale(locale, _ => locales.includes(_))
 		}
 
-		choose('ru-RU', ['en', 'ru']).should.equal('ru')
-		choose('en-GB', ['en', 'ru']).should.equal('en')
-		choose('fr-FR', ['en', 'ru']).should.equal('en')
-		choose(['fr-FR', 'de-DE'], ['en', 'ru']).should.equal('en')
-		choose(['fr-FR', 'de-DE'], ['en', 'de']).should.equal('de')
-		choose(['fr-FR', 'de-DE'], ['en', 'de', 'fr']).should.equal('fr')
-		choose('fr-FR', ['en', 'fr-FR']).should.equal('fr-FR')
+		expect(choose('ru-RU', ['en', 'ru'])).to.equal('ru')
+		expect(choose('en-GB', ['en', 'ru'])).to.equal('en')
+		expect(choose('fr-FR', ['en', 'ru'])).to.equal('en')
+		expect(choose(['fr-FR', 'de-DE'], ['en', 'ru'])).to.equal('en')
+		expect(choose(['fr-FR', 'de-DE'], ['en', 'de'])).to.equal('de')
+		expect(choose(['fr-FR', 'de-DE'], ['en', 'de', 'fr'])).to.equal('fr')
+		expect(choose('fr-FR', ['en', 'fr-FR'])).to.equal('fr-FR')
 
 		expect(() => choose('fr-FR', ['de', 'ru'])).to.throw(
 			'No locale data has been registered for any of the locales: fr-FR'

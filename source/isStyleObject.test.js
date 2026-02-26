@@ -1,34 +1,37 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import isStyleObject from './isStyleObject.js'
 
 describe('isStyleObject', () => {
 	it('should detect a style object', () => {
-		isStyleObject({
+		expect(isStyleObject({
 			gradation: []
-		}).should.equal(true)
-		isStyleObject({
+		})).to.equal(true)
+		expect(isStyleObject({
 			steps: []
-		}).should.equal(true)
-		isStyleObject({
+		})).to.equal(true)
+		expect(isStyleObject({
 			flavour: 'long'
-		}).should.equal(true)
-		isStyleObject({
+		})).to.equal(true)
+		expect(isStyleObject({
 			flavour: ['long']
-		}).should.equal(true)
-		isStyleObject({
+		})).to.equal(true)
+		expect(isStyleObject({
 			labels: 'long'
-		}).should.equal(true)
-		isStyleObject({
+		})).to.equal(true)
+		expect(isStyleObject({
 			labels: ['long']
-		}).should.equal(true)
-		isStyleObject({
+		})).to.equal(true)
+		expect(isStyleObject({
 			units: ['now']
-		}).should.equal(true)
-		isStyleObject({
+		})).to.equal(true)
+		expect(isStyleObject({
 			future: true,
 			round: 'floor',
 			now: 0,
 			getTimeToNextUpdate: true
-		}).should.equal(false)
-		isStyleObject('round').should.equal(false)
+		})).to.equal(false)
+		expect(isStyleObject('round')).to.equal(false)
 	})
 })

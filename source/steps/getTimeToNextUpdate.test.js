@@ -1,3 +1,6 @@
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
 import getTimeToNextUpdate, { INFINITY, getStepChangesAt, getTimeToStepChange } from './getTimeToNextUpdate.js'
 
 describe('getTimeToNextUpdate', () => {
@@ -52,29 +55,29 @@ describe('getTimeToNextUpdate', () => {
 	})
 
 	it('should get time to next update (no next step) (past)', () => {
-		getTimeToNextUpdate(-4 * 60 * 1000, {
+		expect(getTimeToNextUpdate(-4 * 60 * 1000, {
 			formatAs: 'minute',
 			minTime: 59.5
 		}, {
 			now: 0,
 			future: false,
 			isFirstStep: true
-		}).should.equal(0.5 * 60 * 1000)
+		})).to.equal(0.5 * 60 * 1000)
 	})
 
 	it('should get time to next update (no next step) (future)', () => {
-		getTimeToNextUpdate(4 * 60 * 1000, {
+		expect(getTimeToNextUpdate(4 * 60 * 1000, {
 			formatAs: 'minute',
 			minTime: 59.5
 		}, {
 			now: 0,
 			future: true,
 			isFirstStep: true
-		}).should.equal(0.5 * 60 * 1000 + 1)
+		})).to.equal(0.5 * 60 * 1000 + 1)
 	})
 
 	it('should get time to next update (has prev/next step without `minTime`) (future)', () => {
-		getTimeToNextUpdate(4 * 60 * 1000, {
+		expect(getTimeToNextUpdate(4 * 60 * 1000, {
 			formatAs: 'minute',
 			minTime: 59.5
 		}, {
@@ -85,11 +88,11 @@ describe('getTimeToNextUpdate', () => {
 				formatAs: 'hour',
 				test: () => false
 			}
-		}).should.equal(0.5 * 60 * 1000 + 1)
+		})).to.equal(0.5 * 60 * 1000 + 1)
 	})
 
 	it('should get time to next update (has `getTimeToNextUpdate`) (past)', () => {
-		getTimeToNextUpdate(-4 * 60 * 1000, {
+		expect(getTimeToNextUpdate(-4 * 60 * 1000, {
 			formatAs: 'minute',
 			minTime: 59.5,
 			getTimeToNextUpdate: () => 0.25 * 60 * 1000
@@ -97,11 +100,11 @@ describe('getTimeToNextUpdate', () => {
 			now: 0,
 			future: false,
 			isFirstStep: true
-		}).should.equal(0.25 * 60 * 1000)
+		})).to.equal(0.25 * 60 * 1000)
 	})
 
 	it('should get time to next update (has `getTimeToNextUpdate`) (future)', () => {
-		getTimeToNextUpdate(4 * 60 * 1000, {
+		expect(getTimeToNextUpdate(4 * 60 * 1000, {
 			formatAs: 'minute',
 			minTime: 59.5,
 			getTimeToNextUpdate: () => 0.25 * 60 * 1000
@@ -109,11 +112,11 @@ describe('getTimeToNextUpdate', () => {
 			now: 0,
 			future: true,
 			isFirstStep: true
-		}).should.equal(0.25 * 60 * 1000)
+		})).to.equal(0.25 * 60 * 1000)
 	})
 
 	it('should get time to next update (has both unit and prev/next steps with `minTime`) (returns time to "minTime" of next step) (past)', () => {
-		getTimeToNextUpdate(-59 * 60 * 1000, {
+		expect(getTimeToNextUpdate(-59 * 60 * 1000, {
 			formatAs: 'minute',
 			minTime: 59.5
 		}, {
@@ -124,11 +127,11 @@ describe('getTimeToNextUpdate', () => {
 				formatAs: 'hour',
 				minTime: 59.5 * 60
 			}
-		}).should.equal(0.5 * 60 * 1000)
+		})).to.equal(0.5 * 60 * 1000)
 	})
 
 	it('should get time to next update (has no unit but has prev/next step with `minTime`) (returns time to "minTime" of next step) (past)', () => {
-		getTimeToNextUpdate(-59 * 60 * 1000, {
+		expect(getTimeToNextUpdate(-59 * 60 * 1000, {
 			format: () => {},
 			minTime: 59.5
 		}, {
@@ -139,18 +142,18 @@ describe('getTimeToNextUpdate', () => {
 				formatAs: 'hour',
 				minTime: 59.5 * 60
 			}
-		}).should.equal(0.5 * 60 * 1000)
+		})).to.equal(0.5 * 60 * 1000)
 	})
 
 	it('should get time to next update (will be outside of the first step) (future)', () => {
-		getTimeToNextUpdate(60 * 60 * 1000, {
+		expect(getTimeToNextUpdate(60 * 60 * 1000, {
 			formatAs: 'hour',
 			minTime: 60 * 60
 		}, {
 			now: 0,
 			future: true,
 			isFirstStep: true
-		}).should.equal(1)
+		})).to.equal(1)
 	})
 })
 
@@ -161,47 +164,47 @@ describe('getStepChangesAt', () => {
 		// No next step.
 		// No tickable unit.
 		// Doesn't update.
-		getStepChangesAt({
+		expect(getStepChangesAt({
 			unit: 'now'
 		}, 0, {
 			now: 0,
 			future: false,
 			prevStep: undefined
-		}).should.equal(INFINITY)
+		})).to.equal(INFINITY)
 
 		// Past.
 		// Is at zero point.
 		// The next step is seconds.
 		// Updates at the next step.
-		getStepChangesAt({
+		expect(getStepChangesAt({
 			unit: 'second',
 			minTime: 1
 		}, 0, {
 			now: 0,
 			future: false,
 			prevStep: {}
-		}).should.equal(1 * 1000)
+		})).to.equal(1 * 1000)
 
 		// Future.
 		// Inside the first step.
 		// Updates after zero point.
-		getStepChangesAt({
+		expect(getStepChangesAt({
 			unit: 'now'
 		}, 0.9 * 1000, {
 			now: 0,
 			future: true,
 			prevStep: undefined
-		}).should.equal(0.9 * 1000 + 1)
+		})).to.equal(0.9 * 1000 + 1)
 
 		// Future.
 		// The first step doesn't start at 0.
 		// Outside of the first step.
 		// Updates right after zero point.
-		getTimeToStepChange(undefined, 0.9 * 1000, {
+		expect(getTimeToStepChange(undefined, 0.9 * 1000, {
 			now: 0,
 			future: true,
 			prevStep: undefined
-		}).should.equal(0.9 * 1000 + 1)
+		})).to.equal(0.9 * 1000 + 1)
 
 		// Past.
 		// The current step is `undefined`.
@@ -209,26 +212,26 @@ describe('getStepChangesAt', () => {
 		// The first step doesn't start at 0.
 		// Outside of the first step.
 		// Updates at entering the first step.
-		getStepChangesAt({
+		expect(getStepChangesAt({
 			minTime: 1,
 			unit: 'second'
 		}, -0.9 * 1000, {
 			now: 0,
 			future: false,
 			prevStep: {}
-		}).should.equal(0.1 * 1000)
+		})).to.equal(0.1 * 1000)
 
 		// Future.
 		// The first step doesn't start at 0.
 		// Will output empty string after it exits the current step.
-		getStepChangesAt({
+		expect(getStepChangesAt({
 			minTime: 1,
 			unit: 'second'
 		}, 1.1 * 1000, {
 			now: 0,
 			future: true,
 			prevStep: undefined
-		}).should.equal(0.1 * 1000 + 1)
+		})).to.equal(0.1 * 1000 + 1)
 
 		// Past.
 		// Next step is seconds.
@@ -245,33 +248,33 @@ describe('getStepChangesAt', () => {
 		// Past.
 		// No next step.
 		// The last step never changes.
-		getTimeToStepChange(undefined, 0, {
+		expect(getTimeToStepChange(undefined, 0, {
 			now: 0,
 			future: false,
 			isFirstStep: undefined
-		}).should.equal(INFINITY)
+		})).to.equal(INFINITY)
 
 		// Future.
 		// Current step is seconds.
 		// Updates after zero point.
-		getStepChangesAt({
+		expect(getStepChangesAt({
 			unit: 'second'
 		}, 0, {
 			now: 0,
 			future: true,
 			prevStep: undefined
-		}).should.equal(1)
+		})).to.equal(1)
 
 		// Past.
 		// Next step is minutes.
 		// Already at zero point, so no need to update at zero point.
-		getStepChangesAt({
+		expect(getStepChangesAt({
 			minTime: 60,
 			formatAs: 'minute'
 		}, 0, {
 			now: 0,
 			future: false,
 			prevStep: {}
-		}).should.equal(60 * 1000)
+		})).to.equal(60 * 1000)
 	})
 })
