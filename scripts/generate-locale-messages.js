@@ -12,14 +12,16 @@ const ADDITIONAL_STYLES = [
 	'long-time'
 ]
 
-const ALL_LOCALES = getAllLocales()
+function generateLocaleMessages() {
+	const ALL_LOCALES = getAllLocales()
 
-for (const locale of ALL_LOCALES) {
-	writeLocaleDataFile(locale)
-	createLegacyCompatibilityLocaleFolder(locale)
+	for (const locale of ALL_LOCALES) {
+		writeLocaleDataFile(locale)
+		createLocaleFolder(locale)
+	}
+
+	addLocaleExports(ALL_LOCALES)
 }
-
-addLocaleExports(ALL_LOCALES)
 
 /**
  * Returns a list of all locales supported by `relative-time-format`.
@@ -104,41 +106,34 @@ export default localeData;
 	)
 }
 
-// (deprecated)
-// Creates a legacy-compatibility locale directory export.
-function createLegacyCompatibilityLocaleFolder(locale) {
+// For legacy compatibility reasons, `{locale}/index.js` file exports locale data.
+// In some potential future major version increment, it could drop that behavior
+// and not return anything from `{locale}/index.js` file.
+// In that case, also an empty `{locale}/index.d.ts` file should be used.
+const LOCALE_INDEX_DTS = ''
+
+const LOCALE_INDEX_JS = `
+import TimeAgo from "javascript-time-ago"
+import localeData from "../{LOCALE}.json.js"
+
+TimeAgo.addLocale(localeData)
+
+export default localeData
+`.trim()
+
+const LOCALE_INDEX_CJS = `
+var TimeAgo = require("javascript-time-ago")
+var localeData = require("../{LOCALE}.json")
+
+TimeAgo.addLocale(localeData)
+
+exports = module.exports = localeData
+exports['default'] = localeData
+`.trim()
+
+// Creates a locale folder for the locale export.
+function createLocaleFolder(locale) {
 	const localeDirectory = path.join(localesDirectory, locale)
-
-// 	// Create a legacy-compatibility `index.js` file.
-// 	fs.outputFileSync(
-// 		path.join(localeDirectory, 'index.js'),
-// 		`
-// export { default } from '../${locale}.json.js'
-// 		`.trim()
-// 	)
-
-// 	// Create a legacy-compatibility `index.cjs` file.
-// 	fs.outputFileSync(
-// 		path.join(localeDirectory, 'index.cjs'),
-// 		`
-// var localeData = require('../${locale}.json')
-// exports = module.exports = localeData
-// exports['default'] = localeData
-// 		`.trim()
-// 	)
-
-// 	// Create a legacy-compatibility `index.cjs.js` file.
-// 	// It's the same as `index.cjs`, just with an added `.js` file extension.
-// 	// It only exists for compatibility with the software that doesn't like `*.cjs` file extension.
-// 	// https://gitlab.com/catamphetamine/libphonenumber-js/-/issues/61#note_950728292
-// 	fs.outputFileSync(
-// 		path.join(localeDirectory, 'index.cjs.js'),
-// 		`
-// var localeData = require('../${locale}.json')
-// exports = module.exports = localeData
-// exports['default'] = localeData
-// 		`.trim()
-// 	)
 
 	// Create `package.json` for the legacy-compatibility locale directory.
 	fs.outputFileSync(
@@ -146,19 +141,37 @@ function createLegacyCompatibilityLocaleFolder(locale) {
 		JSON.stringify({
 			private: true,
 			name: `javascript-time-ago/locale/${locale}`,
-			main: `../${locale}.json`,
-			module: `../${locale}.json.js`,
 			types: `../${locale}.json.d.ts`,
+			module: `./index.js`,
+			main: `./index.cjs`,
 			type: 'module',
 			exports: {
 				'.': {
 					types: `../${locale}.json.d.ts`,
-					import: `../${locale}.json.js`,
-					require: `../${locale}.json`
+					import: `./index.js`,
+					require: `./index.cjs`
 				}
 			},
-			sideEffects: false
+			sideEffects: true
 		}, null, '\t')
+	)
+
+	// // Create `index.d.ts` file.
+	// fs.outputFileSync(
+	// 	path.join(localeDirectory, 'index.d.ts'),
+	// 	LOCALE_INDEX_DTS
+	// )
+
+	// Create `index.js` file.
+	fs.outputFileSync(
+		path.join(localeDirectory, 'index.js'),
+		LOCALE_INDEX_JS.replaceAll('{LOCALE}', locale)
+	)
+
+	// Create `index.cjs` file.
+	fs.outputFileSync(
+		path.join(localeDirectory, 'index.cjs'),
+		LOCALE_INDEX_CJS.replaceAll('{LOCALE}', locale)
 	)
 }
 
@@ -179,10 +192,17 @@ function addLocaleExports(ALL_LOCALES) {
 		...packageJson.exports,
 		...ALL_LOCALES.reduce((all, locale) => {
 			all[`./locale/${locale}`] = {
-				import: `./locale/${locale}.json.js`,
-				require: `./locale/${locale}.json`
+				// For legacy compatibility reasons, `{locale}/index.js` file exports locale data.
+				// In some potential future major version increment, it could drop that behavior
+				// and not return anything from `{locale}/index.js` file.
+				// In that case, also create an empty `{locale}/index.d.ts` file
+				// and set path to it as the `types` property value here.
+				types: `./locale/${locale}.json.d.ts`,
+				import: `./locale/${locale}/index.js`,
+				require: `./locale/${locale}/index.cjs`
 			}
 			all[`./locale/${locale}.json`] = {
+				types: `./locale/${locale}.json.d.ts`,
 				import: `./locale/${locale}.json.js`,
 				require: `./locale/${locale}.json`
 			}
@@ -193,3 +213,5 @@ function addLocaleExports(ALL_LOCALES) {
 	// Save `package.json` file.
 	fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8')
 }
+
+generateLocaleMessages()

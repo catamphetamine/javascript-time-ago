@@ -33,6 +33,11 @@ TO DO: "time" style should use "round" scale instead of "approximate".
 TO DO: if `style` is passed as an object then maybe it should be passed as part of `options` (and document that in the "Custom" section of the readme).
 -->
 
+2.6.4 / 28.02.2026
+==================
+
+* Instead of performing two steps when adding a language — `import en from "javascript-time-ago/locale/en"` and then `TimeAgo.addLocale(en)` — only one step is required now — `import "javascript-time-ago/locale/en"`. As a result, the code for adding languages is a bit shorter now. The older way with `.addLocale()` still works.
+
 2.6.0 / 28.09.2025
 ==================
 

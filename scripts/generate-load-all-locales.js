@@ -44,6 +44,9 @@ ${locales.map(locale => 'TimeAgo.addLocale(require("javascript-time-ago/locale/'
 `
 .trim())
 
+// Write `index.d.ts` file.
+fs.writeFileSync(path.resolve('./load-all-locales/index.d.ts'), '')
+
 // ES6
 // `
 // import TimeAgo from "javascript-time-ago"

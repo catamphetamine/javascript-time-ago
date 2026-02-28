@@ -528,6 +528,7 @@ TimeAgo.getDefaultLocale = () => defaultLocale
  * @param  {string} locale
  */
 TimeAgo.setDefaultLocale = (locale) => {
+	defaultLocaleHasBeenSpecified = true
 	defaultLocale = locale
 }
 

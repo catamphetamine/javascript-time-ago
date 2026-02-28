@@ -288,6 +288,18 @@ describe(`javascript-time-ago`, () => {
 		const [text, cancelRefresh] = timeAgo.format(1000, 'twitter', {
 			refresh: (text) => {
 				if (refreshedTimes === 0) {
+					// This test sometimes throws an error for an unknown weird reason:
+					//
+					// "AssertionError: expected '1s' to equal '0s'".
+					//
+					// "Error: done() called multiple times in test <javascript-time-ago
+					// should refresh the label when `refresh` parameter is passed> of file
+					// c:\dev\javascript-time-ago\source\TimeAgo.test.js; in addition,
+					// done() received error: AssertionError: expected +0 to equal 1"
+					//
+					// In case it does that, just re-run the tests and somehow the error is gone.
+					// I didn't bother debugging the error because it's not clear how it's reproduced.
+					//
 					expect(text).to.equal('0s')
 				} else {
 					throw new Error('Refresh should have been cancelled')

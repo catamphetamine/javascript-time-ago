@@ -1,6 +1,6 @@
 {
   "name": "javascript-time-ago",
-  "version": "2.6.3",
+  "version": "2.6.4",
   "description": "Localized relative date/time formatting",
   "main": "index.cjs",
   "module": "index.js",
@@ -20,10 +20,12 @@
       "require": "./gradation/index.cjs"
     },
     "./steps": {
+      "types": "./steps/index.d.ts",
       "import": "./steps/index.js",
       "require": "./steps/index.cjs"
     },
     "./load-all-locales": {
+      "types": "./load-all-locales/index.d.ts",
       "import": "./load-all-locales/index.js",
       "require": "./load-all-locales/index.cjs"
     },
@@ -38,2690 +40,3361 @@
     },
     "./package.json": "./package.json",
     "./locale/af": {
-      "import": "./locale/af.json.js",
-      "require": "./locale/af.json"
+      "types": "./locale/af.json.d.ts",
+      "import": "./locale/af/index.js",
+      "require": "./locale/af/index.cjs"
     },
     "./locale/af.json": {
+      "types": "./locale/af.json.d.ts",
       "import": "./locale/af.json.js",
       "require": "./locale/af.json"
     },
     "./locale/ak": {
-      "import": "./locale/ak.json.js",
-      "require": "./locale/ak.json"
+      "types": "./locale/ak.json.d.ts",
+      "import": "./locale/ak/index.js",
+      "require": "./locale/ak/index.cjs"
     },
     "./locale/ak.json": {
+      "types": "./locale/ak.json.d.ts",
       "import": "./locale/ak.json.js",
       "require": "./locale/ak.json"
     },
     "./locale/am": {
-      "import": "./locale/am.json.js",
-      "require": "./locale/am.json"
+      "types": "./locale/am.json.d.ts",
+      "import": "./locale/am/index.js",
+      "require": "./locale/am/index.cjs"
     },
     "./locale/am.json": {
+      "types": "./locale/am.json.d.ts",
       "import": "./locale/am.json.js",
       "require": "./locale/am.json"
     },
     "./locale/ar-AE": {
-      "import": "./locale/ar-AE.json.js",
-      "require": "./locale/ar-AE.json"
+      "types": "./locale/ar-AE.json.d.ts",
+      "import": "./locale/ar-AE/index.js",
+      "require": "./locale/ar-AE/index.cjs"
     },
     "./locale/ar-AE.json": {
+      "types": "./locale/ar-AE.json.d.ts",
       "import": "./locale/ar-AE.json.js",
       "require": "./locale/ar-AE.json"
     },
     "./locale/ar": {
-      "import": "./locale/ar.json.js",
-      "require": "./locale/ar.json"
+      "types": "./locale/ar.json.d.ts",
+      "import": "./locale/ar/index.js",
+      "require": "./locale/ar/index.cjs"
     },
     "./locale/ar.json": {
+      "types": "./locale/ar.json.d.ts",
       "import": "./locale/ar.json.js",
       "require": "./locale/ar.json"
     },
     "./locale/as": {
-      "import": "./locale/as.json.js",
-      "require": "./locale/as.json"
+      "types": "./locale/as.json.d.ts",
+      "import": "./locale/as/index.js",
+      "require": "./locale/as/index.cjs"
     },
     "./locale/as.json": {
+      "types": "./locale/as.json.d.ts",
       "import": "./locale/as.json.js",
       "require": "./locale/as.json"
     },
     "./locale/ast": {
-      "import": "./locale/ast.json.js",
-      "require": "./locale/ast.json"
+      "types": "./locale/ast.json.d.ts",
+      "import": "./locale/ast/index.js",
+      "require": "./locale/ast/index.cjs"
     },
     "./locale/ast.json": {
+      "types": "./locale/ast.json.d.ts",
       "import": "./locale/ast.json.js",
       "require": "./locale/ast.json"
     },
     "./locale/az": {
-      "import": "./locale/az.json.js",
-      "require": "./locale/az.json"
+      "types": "./locale/az.json.d.ts",
+      "import": "./locale/az/index.js",
+      "require": "./locale/az/index.cjs"
     },
     "./locale/az.json": {
+      "types": "./locale/az.json.d.ts",
       "import": "./locale/az.json.js",
       "require": "./locale/az.json"
     },
     "./locale/ba": {
-      "import": "./locale/ba.json.js",
-      "require": "./locale/ba.json"
+      "types": "./locale/ba.json.d.ts",
+      "import": "./locale/ba/index.js",
+      "require": "./locale/ba/index.cjs"
     },
     "./locale/ba.json": {
+      "types": "./locale/ba.json.d.ts",
       "import": "./locale/ba.json.js",
       "require": "./locale/ba.json"
     },
     "./locale/bal-Latn": {
-      "import": "./locale/bal-Latn.json.js",
-      "require": "./locale/bal-Latn.json"
+      "types": "./locale/bal-Latn.json.d.ts",
+      "import": "./locale/bal-Latn/index.js",
+      "require": "./locale/bal-Latn/index.cjs"
     },
     "./locale/bal-Latn.json": {
+      "types": "./locale/bal-Latn.json.d.ts",
       "import": "./locale/bal-Latn.json.js",
       "require": "./locale/bal-Latn.json"
     },
     "./locale/be-tarask": {
-      "import": "./locale/be-tarask.json.js",
-      "require": "./locale/be-tarask.json"
+      "types": "./locale/be-tarask.json.d.ts",
+      "import": "./locale/be-tarask/index.js",
+      "require": "./locale/be-tarask/index.cjs"
     },
     "./locale/be-tarask.json": {
+      "types": "./locale/be-tarask.json.d.ts",
       "import": "./locale/be-tarask.json.js",
       "require": "./locale/be-tarask.json"
     },
     "./locale/be": {
-      "import": "./locale/be.json.js",
-      "require": "./locale/be.json"
+      "types": "./locale/be.json.d.ts",
+      "import": "./locale/be/index.js",
+      "require": "./locale/be/index.cjs"
     },
     "./locale/be.json": {
+      "types": "./locale/be.json.d.ts",
       "import": "./locale/be.json.js",
       "require": "./locale/be.json"
     },
     "./locale/bg": {
-      "import": "./locale/bg.json.js",
-      "require": "./locale/bg.json"
+      "types": "./locale/bg.json.d.ts",
+      "import": "./locale/bg/index.js",
+      "require": "./locale/bg/index.cjs"
     },
     "./locale/bg.json": {
+      "types": "./locale/bg.json.d.ts",
       "import": "./locale/bg.json.js",
       "require": "./locale/bg.json"
     },
     "./locale/bgc": {
-      "import": "./locale/bgc.json.js",
-      "require": "./locale/bgc.json"
+      "types": "./locale/bgc.json.d.ts",
+      "import": "./locale/bgc/index.js",
+      "require": "./locale/bgc/index.cjs"
     },
     "./locale/bgc.json": {
+      "types": "./locale/bgc.json.d.ts",
       "import": "./locale/bgc.json.js",
       "require": "./locale/bgc.json"
     },
     "./locale/blo": {
-      "import": "./locale/blo.json.js",
-      "require": "./locale/blo.json"
+      "types": "./locale/blo.json.d.ts",
+      "import": "./locale/blo/index.js",
+      "require": "./locale/blo/index.cjs"
     },
     "./locale/blo.json": {
+      "types": "./locale/blo.json.d.ts",
       "import": "./locale/blo.json.js",
       "require": "./locale/blo.json"
     },
     "./locale/bn": {
-      "import": "./locale/bn.json.js",
-      "require": "./locale/bn.json"
+      "types": "./locale/bn.json.d.ts",
+      "import": "./locale/bn/index.js",
+      "require": "./locale/bn/index.cjs"
     },
     "./locale/bn.json": {
+      "types": "./locale/bn.json.d.ts",
       "import": "./locale/bn.json.js",
       "require": "./locale/bn.json"
     },
     "./locale/br": {
-      "import": "./locale/br.json.js",
-      "require": "./locale/br.json"
+      "types": "./locale/br.json.d.ts",
+      "import": "./locale/br/index.js",
+      "require": "./locale/br/index.cjs"
     },
     "./locale/br.json": {
+      "types": "./locale/br.json.d.ts",
       "import": "./locale/br.json.js",
       "require": "./locale/br.json"
     },
     "./locale/brx": {
-      "import": "./locale/brx.json.js",
-      "require": "./locale/brx.json"
+      "types": "./locale/brx.json.d.ts",
+      "import": "./locale/brx/index.js",
+      "require": "./locale/brx/index.cjs"
     },
     "./locale/brx.json": {
+      "types": "./locale/brx.json.d.ts",
       "import": "./locale/brx.json.js",
       "require": "./locale/brx.json"
     },
     "./locale/bs-Cyrl": {
-      "import": "./locale/bs-Cyrl.json.js",
-      "require": "./locale/bs-Cyrl.json"
+      "types": "./locale/bs-Cyrl.json.d.ts",
+      "import": "./locale/bs-Cyrl/index.js",
+      "require": "./locale/bs-Cyrl/index.cjs"
     },
     "./locale/bs-Cyrl.json": {
+      "types": "./locale/bs-Cyrl.json.d.ts",
       "import": "./locale/bs-Cyrl.json.js",
       "require": "./locale/bs-Cyrl.json"
     },
     "./locale/bs": {
-      "import": "./locale/bs.json.js",
-      "require": "./locale/bs.json"
+      "types": "./locale/bs.json.d.ts",
+      "import": "./locale/bs/index.js",
+      "require": "./locale/bs/index.cjs"
     },
     "./locale/bs.json": {
+      "types": "./locale/bs.json.d.ts",
       "import": "./locale/bs.json.js",
       "require": "./locale/bs.json"
     },
     "./locale/bua": {
-      "import": "./locale/bua.json.js",
-      "require": "./locale/bua.json"
+      "types": "./locale/bua.json.d.ts",
+      "import": "./locale/bua/index.js",
+      "require": "./locale/bua/index.cjs"
     },
     "./locale/bua.json": {
+      "types": "./locale/bua.json.d.ts",
       "import": "./locale/bua.json.js",
       "require": "./locale/bua.json"
     },
     "./locale/ca": {
-      "import": "./locale/ca.json.js",
-      "require": "./locale/ca.json"
+      "types": "./locale/ca.json.d.ts",
+      "import": "./locale/ca/index.js",
+      "require": "./locale/ca/index.cjs"
     },
     "./locale/ca.json": {
+      "types": "./locale/ca.json.d.ts",
       "import": "./locale/ca.json.js",
       "require": "./locale/ca.json"
     },
     "./locale/ccp": {
-      "import": "./locale/ccp.json.js",
-      "require": "./locale/ccp.json"
+      "types": "./locale/ccp.json.d.ts",
+      "import": "./locale/ccp/index.js",
+      "require": "./locale/ccp/index.cjs"
     },
     "./locale/ccp.json": {
+      "types": "./locale/ccp.json.d.ts",
       "import": "./locale/ccp.json.js",
       "require": "./locale/ccp.json"
     },
     "./locale/ce": {
-      "import": "./locale/ce.json.js",
-      "require": "./locale/ce.json"
+      "types": "./locale/ce.json.d.ts",
+      "import": "./locale/ce/index.js",
+      "require": "./locale/ce/index.cjs"
     },
     "./locale/ce.json": {
+      "types": "./locale/ce.json.d.ts",
       "import": "./locale/ce.json.js",
       "require": "./locale/ce.json"
     },
     "./locale/ceb": {
-      "import": "./locale/ceb.json.js",
-      "require": "./locale/ceb.json"
+      "types": "./locale/ceb.json.d.ts",
+      "import": "./locale/ceb/index.js",
+      "require": "./locale/ceb/index.cjs"
     },
     "./locale/ceb.json": {
+      "types": "./locale/ceb.json.d.ts",
       "import": "./locale/ceb.json.js",
       "require": "./locale/ceb.json"
     },
     "./locale/chr": {
-      "import": "./locale/chr.json.js",
-      "require": "./locale/chr.json"
+      "types": "./locale/chr.json.d.ts",
+      "import": "./locale/chr/index.js",
+      "require": "./locale/chr/index.cjs"
     },
     "./locale/chr.json": {
+      "types": "./locale/chr.json.d.ts",
       "import": "./locale/chr.json.js",
       "require": "./locale/chr.json"
     },
     "./locale/cs": {
-      "import": "./locale/cs.json.js",
-      "require": "./locale/cs.json"
+      "types": "./locale/cs.json.d.ts",
+      "import": "./locale/cs/index.js",
+      "require": "./locale/cs/index.cjs"
     },
     "./locale/cs.json": {
+      "types": "./locale/cs.json.d.ts",
       "import": "./locale/cs.json.js",
       "require": "./locale/cs.json"
     },
     "./locale/csw": {
-      "import": "./locale/csw.json.js",
-      "require": "./locale/csw.json"
+      "types": "./locale/csw.json.d.ts",
+      "import": "./locale/csw/index.js",
+      "require": "./locale/csw/index.cjs"
     },
     "./locale/csw.json": {
+      "types": "./locale/csw.json.d.ts",
       "import": "./locale/csw.json.js",
       "require": "./locale/csw.json"
     },
     "./locale/cv": {
-      "import": "./locale/cv.json.js",
-      "require": "./locale/cv.json"
+      "types": "./locale/cv.json.d.ts",
+      "import": "./locale/cv/index.js",
+      "require": "./locale/cv/index.cjs"
     },
     "./locale/cv.json": {
+      "types": "./locale/cv.json.d.ts",
       "import": "./locale/cv.json.js",
       "require": "./locale/cv.json"
     },
     "./locale/cy": {
-      "import": "./locale/cy.json.js",
-      "require": "./locale/cy.json"
+      "types": "./locale/cy.json.d.ts",
+      "import": "./locale/cy/index.js",
+      "require": "./locale/cy/index.cjs"
     },
     "./locale/cy.json": {
+      "types": "./locale/cy.json.d.ts",
       "import": "./locale/cy.json.js",
       "require": "./locale/cy.json"
     },
     "./locale/da": {
-      "import": "./locale/da.json.js",
-      "require": "./locale/da.json"
+      "types": "./locale/da.json.d.ts",
+      "import": "./locale/da/index.js",
+      "require": "./locale/da/index.cjs"
     },
     "./locale/da.json": {
+      "types": "./locale/da.json.d.ts",
       "import": "./locale/da.json.js",
       "require": "./locale/da.json"
     },
     "./locale/de": {
-      "import": "./locale/de.json.js",
-      "require": "./locale/de.json"
+      "types": "./locale/de.json.d.ts",
+      "import": "./locale/de/index.js",
+      "require": "./locale/de/index.cjs"
     },
     "./locale/de.json": {
+      "types": "./locale/de.json.d.ts",
       "import": "./locale/de.json.js",
       "require": "./locale/de.json"
     },
     "./locale/doi": {
-      "import": "./locale/doi.json.js",
-      "require": "./locale/doi.json"
+      "types": "./locale/doi.json.d.ts",
+      "import": "./locale/doi/index.js",
+      "require": "./locale/doi/index.cjs"
     },
     "./locale/doi.json": {
+      "types": "./locale/doi.json.d.ts",
       "import": "./locale/doi.json.js",
       "require": "./locale/doi.json"
     },
     "./locale/dsb": {
-      "import": "./locale/dsb.json.js",
-      "require": "./locale/dsb.json"
+      "types": "./locale/dsb.json.d.ts",
+      "import": "./locale/dsb/index.js",
+      "require": "./locale/dsb/index.cjs"
     },
     "./locale/dsb.json": {
+      "types": "./locale/dsb.json.d.ts",
       "import": "./locale/dsb.json.js",
       "require": "./locale/dsb.json"
     },
     "./locale/dz": {
-      "import": "./locale/dz.json.js",
-      "require": "./locale/dz.json"
+      "types": "./locale/dz.json.d.ts",
+      "import": "./locale/dz/index.js",
+      "require": "./locale/dz/index.cjs"
     },
     "./locale/dz.json": {
+      "types": "./locale/dz.json.d.ts",
       "import": "./locale/dz.json.js",
       "require": "./locale/dz.json"
     },
     "./locale/ee": {
-      "import": "./locale/ee.json.js",
-      "require": "./locale/ee.json"
+      "types": "./locale/ee.json.d.ts",
+      "import": "./locale/ee/index.js",
+      "require": "./locale/ee/index.cjs"
     },
     "./locale/ee.json": {
+      "types": "./locale/ee.json.d.ts",
       "import": "./locale/ee.json.js",
       "require": "./locale/ee.json"
     },
     "./locale/el": {
-      "import": "./locale/el.json.js",
-      "require": "./locale/el.json"
+      "types": "./locale/el.json.d.ts",
+      "import": "./locale/el/index.js",
+      "require": "./locale/el/index.cjs"
     },
     "./locale/el.json": {
+      "types": "./locale/el.json.d.ts",
       "import": "./locale/el.json.js",
       "require": "./locale/el.json"
     },
     "./locale/en-001": {
-      "import": "./locale/en-001.json.js",
-      "require": "./locale/en-001.json"
+      "types": "./locale/en-001.json.d.ts",
+      "import": "./locale/en-001/index.js",
+      "require": "./locale/en-001/index.cjs"
     },
     "./locale/en-001.json": {
+      "types": "./locale/en-001.json.d.ts",
       "import": "./locale/en-001.json.js",
       "require": "./locale/en-001.json"
     },
     "./locale/en-150": {
-      "import": "./locale/en-150.json.js",
-      "require": "./locale/en-150.json"
+      "types": "./locale/en-150.json.d.ts",
+      "import": "./locale/en-150/index.js",
+      "require": "./locale/en-150/index.cjs"
     },
     "./locale/en-150.json": {
+      "types": "./locale/en-150.json.d.ts",
       "import": "./locale/en-150.json.js",
       "require": "./locale/en-150.json"
     },
     "./locale/en-AG": {
-      "import": "./locale/en-AG.json.js",
-      "require": "./locale/en-AG.json"
+      "types": "./locale/en-AG.json.d.ts",
+      "import": "./locale/en-AG/index.js",
+      "require": "./locale/en-AG/index.cjs"
     },
     "./locale/en-AG.json": {
+      "types": "./locale/en-AG.json.d.ts",
       "import": "./locale/en-AG.json.js",
       "require": "./locale/en-AG.json"
     },
     "./locale/en-AI": {
-      "import": "./locale/en-AI.json.js",
-      "require": "./locale/en-AI.json"
+      "types": "./locale/en-AI.json.d.ts",
+      "import": "./locale/en-AI/index.js",
+      "require": "./locale/en-AI/index.cjs"
     },
     "./locale/en-AI.json": {
+      "types": "./locale/en-AI.json.d.ts",
       "import": "./locale/en-AI.json.js",
       "require": "./locale/en-AI.json"
     },
     "./locale/en-AT": {
-      "import": "./locale/en-AT.json.js",
-      "require": "./locale/en-AT.json"
+      "types": "./locale/en-AT.json.d.ts",
+      "import": "./locale/en-AT/index.js",
+      "require": "./locale/en-AT/index.cjs"
     },
     "./locale/en-AT.json": {
+      "types": "./locale/en-AT.json.d.ts",
       "import": "./locale/en-AT.json.js",
       "require": "./locale/en-AT.json"
     },
     "./locale/en-AU": {
-      "import": "./locale/en-AU.json.js",
-      "require": "./locale/en-AU.json"
+      "types": "./locale/en-AU.json.d.ts",
+      "import": "./locale/en-AU/index.js",
+      "require": "./locale/en-AU/index.cjs"
     },
     "./locale/en-AU.json": {
+      "types": "./locale/en-AU.json.d.ts",
       "import": "./locale/en-AU.json.js",
       "require": "./locale/en-AU.json"
     },
     "./locale/en-BB": {
-      "import": "./locale/en-BB.json.js",
-      "require": "./locale/en-BB.json"
+      "types": "./locale/en-BB.json.d.ts",
+      "import": "./locale/en-BB/index.js",
+      "require": "./locale/en-BB/index.cjs"
     },
     "./locale/en-BB.json": {
+      "types": "./locale/en-BB.json.d.ts",
       "import": "./locale/en-BB.json.js",
       "require": "./locale/en-BB.json"
     },
     "./locale/en-BE": {
-      "import": "./locale/en-BE.json.js",
-      "require": "./locale/en-BE.json"
+      "types": "./locale/en-BE.json.d.ts",
+      "import": "./locale/en-BE/index.js",
+      "require": "./locale/en-BE/index.cjs"
     },
     "./locale/en-BE.json": {
+      "types": "./locale/en-BE.json.d.ts",
       "import": "./locale/en-BE.json.js",
       "require": "./locale/en-BE.json"
     },
     "./locale/en-BM": {
-      "import": "./locale/en-BM.json.js",
-      "require": "./locale/en-BM.json"
+      "types": "./locale/en-BM.json.d.ts",
+      "import": "./locale/en-BM/index.js",
+      "require": "./locale/en-BM/index.cjs"
     },
     "./locale/en-BM.json": {
+      "types": "./locale/en-BM.json.d.ts",
       "import": "./locale/en-BM.json.js",
       "require": "./locale/en-BM.json"
     },
     "./locale/en-BS": {
-      "import": "./locale/en-BS.json.js",
-      "require": "./locale/en-BS.json"
+      "types": "./locale/en-BS.json.d.ts",
+      "import": "./locale/en-BS/index.js",
+      "require": "./locale/en-BS/index.cjs"
     },
     "./locale/en-BS.json": {
+      "types": "./locale/en-BS.json.d.ts",
       "import": "./locale/en-BS.json.js",
       "require": "./locale/en-BS.json"
     },
     "./locale/en-BW": {
-      "import": "./locale/en-BW.json.js",
-      "require": "./locale/en-BW.json"
+      "types": "./locale/en-BW.json.d.ts",
+      "import": "./locale/en-BW/index.js",
+      "require": "./locale/en-BW/index.cjs"
     },
     "./locale/en-BW.json": {
+      "types": "./locale/en-BW.json.d.ts",
       "import": "./locale/en-BW.json.js",
       "require": "./locale/en-BW.json"
     },
     "./locale/en-BZ": {
-      "import": "./locale/en-BZ.json.js",
-      "require": "./locale/en-BZ.json"
+      "types": "./locale/en-BZ.json.d.ts",
+      "import": "./locale/en-BZ/index.js",
+      "require": "./locale/en-BZ/index.cjs"
     },
     "./locale/en-BZ.json": {
+      "types": "./locale/en-BZ.json.d.ts",
       "import": "./locale/en-BZ.json.js",
       "require": "./locale/en-BZ.json"
     },
     "./locale/en-CA": {
-      "import": "./locale/en-CA.json.js",
-      "require": "./locale/en-CA.json"
+      "types": "./locale/en-CA.json.d.ts",
+      "import": "./locale/en-CA/index.js",
+      "require": "./locale/en-CA/index.cjs"
     },
     "./locale/en-CA.json": {
+      "types": "./locale/en-CA.json.d.ts",
       "import": "./locale/en-CA.json.js",
       "require": "./locale/en-CA.json"
     },
     "./locale/en-CC": {
-      "import": "./locale/en-CC.json.js",
-      "require": "./locale/en-CC.json"
+      "types": "./locale/en-CC.json.d.ts",
+      "import": "./locale/en-CC/index.js",
+      "require": "./locale/en-CC/index.cjs"
     },
     "./locale/en-CC.json": {
+      "types": "./locale/en-CC.json.d.ts",
       "import": "./locale/en-CC.json.js",
       "require": "./locale/en-CC.json"
     },
     "./locale/en-CH": {
-      "import": "./locale/en-CH.json.js",
-      "require": "./locale/en-CH.json"
+      "types": "./locale/en-CH.json.d.ts",
+      "import": "./locale/en-CH/index.js",
+      "require": "./locale/en-CH/index.cjs"
     },
     "./locale/en-CH.json": {
+      "types": "./locale/en-CH.json.d.ts",
       "import": "./locale/en-CH.json.js",
       "require": "./locale/en-CH.json"
     },
     "./locale/en-CK": {
-      "import": "./locale/en-CK.json.js",
-      "require": "./locale/en-CK.json"
+      "types": "./locale/en-CK.json.d.ts",
+      "import": "./locale/en-CK/index.js",
+      "require": "./locale/en-CK/index.cjs"
     },
     "./locale/en-CK.json": {
+      "types": "./locale/en-CK.json.d.ts",
       "import": "./locale/en-CK.json.js",
       "require": "./locale/en-CK.json"
     },
     "./locale/en-CM": {
-      "import": "./locale/en-CM.json.js",
-      "require": "./locale/en-CM.json"
+      "types": "./locale/en-CM.json.d.ts",
+      "import": "./locale/en-CM/index.js",
+      "require": "./locale/en-CM/index.cjs"
     },
     "./locale/en-CM.json": {
+      "types": "./locale/en-CM.json.d.ts",
       "import": "./locale/en-CM.json.js",
       "require": "./locale/en-CM.json"
     },
     "./locale/en-CX": {
-      "import": "./locale/en-CX.json.js",
-      "require": "./locale/en-CX.json"
+      "types": "./locale/en-CX.json.d.ts",
+      "import": "./locale/en-CX/index.js",
+      "require": "./locale/en-CX/index.cjs"
     },
     "./locale/en-CX.json": {
+      "types": "./locale/en-CX.json.d.ts",
       "import": "./locale/en-CX.json.js",
       "require": "./locale/en-CX.json"
     },
     "./locale/en-CY": {
-      "import": "./locale/en-CY.json.js",
-      "require": "./locale/en-CY.json"
+      "types": "./locale/en-CY.json.d.ts",
+      "import": "./locale/en-CY/index.js",
+      "require": "./locale/en-CY/index.cjs"
     },
     "./locale/en-CY.json": {
+      "types": "./locale/en-CY.json.d.ts",
       "import": "./locale/en-CY.json.js",
       "require": "./locale/en-CY.json"
     },
     "./locale/en-CZ": {
-      "import": "./locale/en-CZ.json.js",
-      "require": "./locale/en-CZ.json"
+      "types": "./locale/en-CZ.json.d.ts",
+      "import": "./locale/en-CZ/index.js",
+      "require": "./locale/en-CZ/index.cjs"
     },
     "./locale/en-CZ.json": {
+      "types": "./locale/en-CZ.json.d.ts",
       "import": "./locale/en-CZ.json.js",
       "require": "./locale/en-CZ.json"
     },
     "./locale/en-DE": {
-      "import": "./locale/en-DE.json.js",
-      "require": "./locale/en-DE.json"
+      "types": "./locale/en-DE.json.d.ts",
+      "import": "./locale/en-DE/index.js",
+      "require": "./locale/en-DE/index.cjs"
     },
     "./locale/en-DE.json": {
+      "types": "./locale/en-DE.json.d.ts",
       "import": "./locale/en-DE.json.js",
       "require": "./locale/en-DE.json"
     },
     "./locale/en-DG": {
-      "import": "./locale/en-DG.json.js",
-      "require": "./locale/en-DG.json"
+      "types": "./locale/en-DG.json.d.ts",
+      "import": "./locale/en-DG/index.js",
+      "require": "./locale/en-DG/index.cjs"
     },
     "./locale/en-DG.json": {
+      "types": "./locale/en-DG.json.d.ts",
       "import": "./locale/en-DG.json.js",
       "require": "./locale/en-DG.json"
     },
     "./locale/en-DK": {
-      "import": "./locale/en-DK.json.js",
-      "require": "./locale/en-DK.json"
+      "types": "./locale/en-DK.json.d.ts",
+      "import": "./locale/en-DK/index.js",
+      "require": "./locale/en-DK/index.cjs"
     },
     "./locale/en-DK.json": {
+      "types": "./locale/en-DK.json.d.ts",
       "import": "./locale/en-DK.json.js",
       "require": "./locale/en-DK.json"
     },
     "./locale/en-DM": {
-      "import": "./locale/en-DM.json.js",
-      "require": "./locale/en-DM.json"
+      "types": "./locale/en-DM.json.d.ts",
+      "import": "./locale/en-DM/index.js",
+      "require": "./locale/en-DM/index.cjs"
     },
     "./locale/en-DM.json": {
+      "types": "./locale/en-DM.json.d.ts",
       "import": "./locale/en-DM.json.js",
       "require": "./locale/en-DM.json"
     },
     "./locale/en-EE": {
-      "import": "./locale/en-EE.json.js",
-      "require": "./locale/en-EE.json"
+      "types": "./locale/en-EE.json.d.ts",
+      "import": "./locale/en-EE/index.js",
+      "require": "./locale/en-EE/index.cjs"
     },
     "./locale/en-EE.json": {
+      "types": "./locale/en-EE.json.d.ts",
       "import": "./locale/en-EE.json.js",
       "require": "./locale/en-EE.json"
     },
     "./locale/en-ER": {
-      "import": "./locale/en-ER.json.js",
-      "require": "./locale/en-ER.json"
+      "types": "./locale/en-ER.json.d.ts",
+      "import": "./locale/en-ER/index.js",
+      "require": "./locale/en-ER/index.cjs"
     },
     "./locale/en-ER.json": {
+      "types": "./locale/en-ER.json.d.ts",
       "import": "./locale/en-ER.json.js",
       "require": "./locale/en-ER.json"
     },
     "./locale/en-ES": {
-      "import": "./locale/en-ES.json.js",
-      "require": "./locale/en-ES.json"
+      "types": "./locale/en-ES.json.d.ts",
+      "import": "./locale/en-ES/index.js",
+      "require": "./locale/en-ES/index.cjs"
     },
     "./locale/en-ES.json": {
+      "types": "./locale/en-ES.json.d.ts",
       "import": "./locale/en-ES.json.js",
       "require": "./locale/en-ES.json"
     },
     "./locale/en-FI": {
-      "import": "./locale/en-FI.json.js",
-      "require": "./locale/en-FI.json"
+      "types": "./locale/en-FI.json.d.ts",
+      "import": "./locale/en-FI/index.js",
+      "require": "./locale/en-FI/index.cjs"
     },
     "./locale/en-FI.json": {
+      "types": "./locale/en-FI.json.d.ts",
       "import": "./locale/en-FI.json.js",
       "require": "./locale/en-FI.json"
     },
     "./locale/en-FJ": {
-      "import": "./locale/en-FJ.json.js",
-      "require": "./locale/en-FJ.json"
+      "types": "./locale/en-FJ.json.d.ts",
+      "import": "./locale/en-FJ/index.js",
+      "require": "./locale/en-FJ/index.cjs"
     },
     "./locale/en-FJ.json": {
+      "types": "./locale/en-FJ.json.d.ts",
       "import": "./locale/en-FJ.json.js",
       "require": "./locale/en-FJ.json"
     },
     "./locale/en-FK": {
-      "import": "./locale/en-FK.json.js",
-      "require": "./locale/en-FK.json"
+      "types": "./locale/en-FK.json.d.ts",
+      "import": "./locale/en-FK/index.js",
+      "require": "./locale/en-FK/index.cjs"
     },
     "./locale/en-FK.json": {
+      "types": "./locale/en-FK.json.d.ts",
       "import": "./locale/en-FK.json.js",
       "require": "./locale/en-FK.json"
     },
     "./locale/en-FM": {
-      "import": "./locale/en-FM.json.js",
-      "require": "./locale/en-FM.json"
+      "types": "./locale/en-FM.json.d.ts",
+      "import": "./locale/en-FM/index.js",
+      "require": "./locale/en-FM/index.cjs"
     },
     "./locale/en-FM.json": {
+      "types": "./locale/en-FM.json.d.ts",
       "import": "./locale/en-FM.json.js",
       "require": "./locale/en-FM.json"
     },
     "./locale/en-FR": {
-      "import": "./locale/en-FR.json.js",
-      "require": "./locale/en-FR.json"
+      "types": "./locale/en-FR.json.d.ts",
+      "import": "./locale/en-FR/index.js",
+      "require": "./locale/en-FR/index.cjs"
     },
     "./locale/en-FR.json": {
+      "types": "./locale/en-FR.json.d.ts",
       "import": "./locale/en-FR.json.js",
       "require": "./locale/en-FR.json"
     },
     "./locale/en-GB": {
-      "import": "./locale/en-GB.json.js",
-      "require": "./locale/en-GB.json"
+      "types": "./locale/en-GB.json.d.ts",
+      "import": "./locale/en-GB/index.js",
+      "require": "./locale/en-GB/index.cjs"
     },
     "./locale/en-GB.json": {
+      "types": "./locale/en-GB.json.d.ts",
       "import": "./locale/en-GB.json.js",
       "require": "./locale/en-GB.json"
     },
     "./locale/en-GD": {
-      "import": "./locale/en-GD.json.js",
-      "require": "./locale/en-GD.json"
+      "types": "./locale/en-GD.json.d.ts",
+      "import": "./locale/en-GD/index.js",
+      "require": "./locale/en-GD/index.cjs"
     },
     "./locale/en-GD.json": {
+      "types": "./locale/en-GD.json.d.ts",
       "import": "./locale/en-GD.json.js",
       "require": "./locale/en-GD.json"
     },
     "./locale/en-GE": {
-      "import": "./locale/en-GE.json.js",
-      "require": "./locale/en-GE.json"
+      "types": "./locale/en-GE.json.d.ts",
+      "import": "./locale/en-GE/index.js",
+      "require": "./locale/en-GE/index.cjs"
     },
     "./locale/en-GE.json": {
+      "types": "./locale/en-GE.json.d.ts",
       "import": "./locale/en-GE.json.js",
       "require": "./locale/en-GE.json"
     },
     "./locale/en-GG": {
-      "import": "./locale/en-GG.json.js",
-      "require": "./locale/en-GG.json"
+      "types": "./locale/en-GG.json.d.ts",
+      "import": "./locale/en-GG/index.js",
+      "require": "./locale/en-GG/index.cjs"
     },
     "./locale/en-GG.json": {
+      "types": "./locale/en-GG.json.d.ts",
       "import": "./locale/en-GG.json.js",
       "require": "./locale/en-GG.json"
     },
     "./locale/en-GH": {
-      "import": "./locale/en-GH.json.js",
-      "require": "./locale/en-GH.json"
+      "types": "./locale/en-GH.json.d.ts",
+      "import": "./locale/en-GH/index.js",
+      "require": "./locale/en-GH/index.cjs"
     },
     "./locale/en-GH.json": {
+      "types": "./locale/en-GH.json.d.ts",
       "import": "./locale/en-GH.json.js",
       "require": "./locale/en-GH.json"
     },
     "./locale/en-GI": {
-      "import": "./locale/en-GI.json.js",
-      "require": "./locale/en-GI.json"
+      "types": "./locale/en-GI.json.d.ts",
+      "import": "./locale/en-GI/index.js",
+      "require": "./locale/en-GI/index.cjs"
     },
     "./locale/en-GI.json": {
+      "types": "./locale/en-GI.json.d.ts",
       "import": "./locale/en-GI.json.js",
       "require": "./locale/en-GI.json"
     },
     "./locale/en-GM": {
-      "import": "./locale/en-GM.json.js",
-      "require": "./locale/en-GM.json"
+      "types": "./locale/en-GM.json.d.ts",
+      "import": "./locale/en-GM/index.js",
+      "require": "./locale/en-GM/index.cjs"
     },
     "./locale/en-GM.json": {
+      "types": "./locale/en-GM.json.d.ts",
       "import": "./locale/en-GM.json.js",
       "require": "./locale/en-GM.json"
     },
     "./locale/en-GS": {
-      "import": "./locale/en-GS.json.js",
-      "require": "./locale/en-GS.json"
+      "types": "./locale/en-GS.json.d.ts",
+      "import": "./locale/en-GS/index.js",
+      "require": "./locale/en-GS/index.cjs"
     },
     "./locale/en-GS.json": {
+      "types": "./locale/en-GS.json.d.ts",
       "import": "./locale/en-GS.json.js",
       "require": "./locale/en-GS.json"
     },
     "./locale/en-GY": {
-      "import": "./locale/en-GY.json.js",
-      "require": "./locale/en-GY.json"
+      "types": "./locale/en-GY.json.d.ts",
+      "import": "./locale/en-GY/index.js",
+      "require": "./locale/en-GY/index.cjs"
     },
     "./locale/en-GY.json": {
+      "types": "./locale/en-GY.json.d.ts",
       "import": "./locale/en-GY.json.js",
       "require": "./locale/en-GY.json"
     },
     "./locale/en-HK": {
-      "import": "./locale/en-HK.json.js",
-      "require": "./locale/en-HK.json"
+      "types": "./locale/en-HK.json.d.ts",
+      "import": "./locale/en-HK/index.js",
+      "require": "./locale/en-HK/index.cjs"
     },
     "./locale/en-HK.json": {
+      "types": "./locale/en-HK.json.d.ts",
       "import": "./locale/en-HK.json.js",
       "require": "./locale/en-HK.json"
     },
     "./locale/en-HU": {
-      "import": "./locale/en-HU.json.js",
-      "require": "./locale/en-HU.json"
+      "types": "./locale/en-HU.json.d.ts",
+      "import": "./locale/en-HU/index.js",
+      "require": "./locale/en-HU/index.cjs"
     },
     "./locale/en-HU.json": {
+      "types": "./locale/en-HU.json.d.ts",
       "import": "./locale/en-HU.json.js",
       "require": "./locale/en-HU.json"
     },
     "./locale/en-ID": {
-      "import": "./locale/en-ID.json.js",
-      "require": "./locale/en-ID.json"
+      "types": "./locale/en-ID.json.d.ts",
+      "import": "./locale/en-ID/index.js",
+      "require": "./locale/en-ID/index.cjs"
     },
     "./locale/en-ID.json": {
+      "types": "./locale/en-ID.json.d.ts",
       "import": "./locale/en-ID.json.js",
       "require": "./locale/en-ID.json"
     },
     "./locale/en-IE": {
-      "import": "./locale/en-IE.json.js",
-      "require": "./locale/en-IE.json"
+      "types": "./locale/en-IE.json.d.ts",
+      "import": "./locale/en-IE/index.js",
+      "require": "./locale/en-IE/index.cjs"
     },
     "./locale/en-IE.json": {
+      "types": "./locale/en-IE.json.d.ts",
       "import": "./locale/en-IE.json.js",
       "require": "./locale/en-IE.json"
     },
     "./locale/en-IL": {
-      "import": "./locale/en-IL.json.js",
-      "require": "./locale/en-IL.json"
+      "types": "./locale/en-IL.json.d.ts",
+      "import": "./locale/en-IL/index.js",
+      "require": "./locale/en-IL/index.cjs"
     },
     "./locale/en-IL.json": {
+      "types": "./locale/en-IL.json.d.ts",
       "import": "./locale/en-IL.json.js",
       "require": "./locale/en-IL.json"
     },
     "./locale/en-IM": {
-      "import": "./locale/en-IM.json.js",
-      "require": "./locale/en-IM.json"
+      "types": "./locale/en-IM.json.d.ts",
+      "import": "./locale/en-IM/index.js",
+      "require": "./locale/en-IM/index.cjs"
     },
     "./locale/en-IM.json": {
+      "types": "./locale/en-IM.json.d.ts",
       "import": "./locale/en-IM.json.js",
       "require": "./locale/en-IM.json"
     },
     "./locale/en-IN": {
-      "import": "./locale/en-IN.json.js",
-      "require": "./locale/en-IN.json"
+      "types": "./locale/en-IN.json.d.ts",
+      "import": "./locale/en-IN/index.js",
+      "require": "./locale/en-IN/index.cjs"
     },
     "./locale/en-IN.json": {
+      "types": "./locale/en-IN.json.d.ts",
       "import": "./locale/en-IN.json.js",
       "require": "./locale/en-IN.json"
     },
     "./locale/en-IO": {
-      "import": "./locale/en-IO.json.js",
-      "require": "./locale/en-IO.json"
+      "types": "./locale/en-IO.json.d.ts",
+      "import": "./locale/en-IO/index.js",
+      "require": "./locale/en-IO/index.cjs"
     },
     "./locale/en-IO.json": {
+      "types": "./locale/en-IO.json.d.ts",
       "import": "./locale/en-IO.json.js",
       "require": "./locale/en-IO.json"
     },
     "./locale/en-IT": {
-      "import": "./locale/en-IT.json.js",
-      "require": "./locale/en-IT.json"
+      "types": "./locale/en-IT.json.d.ts",
+      "import": "./locale/en-IT/index.js",
+      "require": "./locale/en-IT/index.cjs"
     },
     "./locale/en-IT.json": {
+      "types": "./locale/en-IT.json.d.ts",
       "import": "./locale/en-IT.json.js",
       "require": "./locale/en-IT.json"
     },
     "./locale/en-JE": {
-      "import": "./locale/en-JE.json.js",
-      "require": "./locale/en-JE.json"
+      "types": "./locale/en-JE.json.d.ts",
+      "import": "./locale/en-JE/index.js",
+      "require": "./locale/en-JE/index.cjs"
     },
     "./locale/en-JE.json": {
+      "types": "./locale/en-JE.json.d.ts",
       "import": "./locale/en-JE.json.js",
       "require": "./locale/en-JE.json"
     },
     "./locale/en-JM": {
-      "import": "./locale/en-JM.json.js",
-      "require": "./locale/en-JM.json"
+      "types": "./locale/en-JM.json.d.ts",
+      "import": "./locale/en-JM/index.js",
+      "require": "./locale/en-JM/index.cjs"
     },
     "./locale/en-JM.json": {
+      "types": "./locale/en-JM.json.d.ts",
       "import": "./locale/en-JM.json.js",
       "require": "./locale/en-JM.json"
     },
     "./locale/en-KE": {
-      "import": "./locale/en-KE.json.js",
-      "require": "./locale/en-KE.json"
+      "types": "./locale/en-KE.json.d.ts",
+      "import": "./locale/en-KE/index.js",
+      "require": "./locale/en-KE/index.cjs"
     },
     "./locale/en-KE.json": {
+      "types": "./locale/en-KE.json.d.ts",
       "import": "./locale/en-KE.json.js",
       "require": "./locale/en-KE.json"
     },
     "./locale/en-KI": {
-      "import": "./locale/en-KI.json.js",
-      "require": "./locale/en-KI.json"
+      "types": "./locale/en-KI.json.d.ts",
+      "import": "./locale/en-KI/index.js",
+      "require": "./locale/en-KI/index.cjs"
     },
     "./locale/en-KI.json": {
+      "types": "./locale/en-KI.json.d.ts",
       "import": "./locale/en-KI.json.js",
       "require": "./locale/en-KI.json"
     },
     "./locale/en-KN": {
-      "import": "./locale/en-KN.json.js",
-      "require": "./locale/en-KN.json"
+      "types": "./locale/en-KN.json.d.ts",
+      "import": "./locale/en-KN/index.js",
+      "require": "./locale/en-KN/index.cjs"
     },
     "./locale/en-KN.json": {
+      "types": "./locale/en-KN.json.d.ts",
       "import": "./locale/en-KN.json.js",
       "require": "./locale/en-KN.json"
     },
     "./locale/en-KY": {
-      "import": "./locale/en-KY.json.js",
-      "require": "./locale/en-KY.json"
+      "types": "./locale/en-KY.json.d.ts",
+      "import": "./locale/en-KY/index.js",
+      "require": "./locale/en-KY/index.cjs"
     },
     "./locale/en-KY.json": {
+      "types": "./locale/en-KY.json.d.ts",
       "import": "./locale/en-KY.json.js",
       "require": "./locale/en-KY.json"
     },
     "./locale/en-LC": {
-      "import": "./locale/en-LC.json.js",
-      "require": "./locale/en-LC.json"
+      "types": "./locale/en-LC.json.d.ts",
+      "import": "./locale/en-LC/index.js",
+      "require": "./locale/en-LC/index.cjs"
     },
     "./locale/en-LC.json": {
+      "types": "./locale/en-LC.json.d.ts",
       "import": "./locale/en-LC.json.js",
       "require": "./locale/en-LC.json"
     },
     "./locale/en-LR": {
-      "import": "./locale/en-LR.json.js",
-      "require": "./locale/en-LR.json"
+      "types": "./locale/en-LR.json.d.ts",
+      "import": "./locale/en-LR/index.js",
+      "require": "./locale/en-LR/index.cjs"
     },
     "./locale/en-LR.json": {
+      "types": "./locale/en-LR.json.d.ts",
       "import": "./locale/en-LR.json.js",
       "require": "./locale/en-LR.json"
     },
     "./locale/en-LS": {
-      "import": "./locale/en-LS.json.js",
-      "require": "./locale/en-LS.json"
+      "types": "./locale/en-LS.json.d.ts",
+      "import": "./locale/en-LS/index.js",
+      "require": "./locale/en-LS/index.cjs"
     },
     "./locale/en-LS.json": {
+      "types": "./locale/en-LS.json.d.ts",
       "import": "./locale/en-LS.json.js",
       "require": "./locale/en-LS.json"
     },
     "./locale/en-LT": {
-      "import": "./locale/en-LT.json.js",
-      "require": "./locale/en-LT.json"
+      "types": "./locale/en-LT.json.d.ts",
+      "import": "./locale/en-LT/index.js",
+      "require": "./locale/en-LT/index.cjs"
     },
     "./locale/en-LT.json": {
+      "types": "./locale/en-LT.json.d.ts",
       "import": "./locale/en-LT.json.js",
       "require": "./locale/en-LT.json"
     },
     "./locale/en-LV": {
-      "import": "./locale/en-LV.json.js",
-      "require": "./locale/en-LV.json"
+      "types": "./locale/en-LV.json.d.ts",
+      "import": "./locale/en-LV/index.js",
+      "require": "./locale/en-LV/index.cjs"
     },
     "./locale/en-LV.json": {
+      "types": "./locale/en-LV.json.d.ts",
       "import": "./locale/en-LV.json.js",
       "require": "./locale/en-LV.json"
     },
     "./locale/en-MG": {
-      "import": "./locale/en-MG.json.js",
-      "require": "./locale/en-MG.json"
+      "types": "./locale/en-MG.json.d.ts",
+      "import": "./locale/en-MG/index.js",
+      "require": "./locale/en-MG/index.cjs"
     },
     "./locale/en-MG.json": {
+      "types": "./locale/en-MG.json.d.ts",
       "import": "./locale/en-MG.json.js",
       "require": "./locale/en-MG.json"
     },
     "./locale/en-MO": {
-      "import": "./locale/en-MO.json.js",
-      "require": "./locale/en-MO.json"
+      "types": "./locale/en-MO.json.d.ts",
+      "import": "./locale/en-MO/index.js",
+      "require": "./locale/en-MO/index.cjs"
     },
     "./locale/en-MO.json": {
+      "types": "./locale/en-MO.json.d.ts",
       "import": "./locale/en-MO.json.js",
       "require": "./locale/en-MO.json"
     },
     "./locale/en-MS": {
-      "import": "./locale/en-MS.json.js",
-      "require": "./locale/en-MS.json"
+      "types": "./locale/en-MS.json.d.ts",
+      "import": "./locale/en-MS/index.js",
+      "require": "./locale/en-MS/index.cjs"
     },
     "./locale/en-MS.json": {
+      "types": "./locale/en-MS.json.d.ts",
       "import": "./locale/en-MS.json.js",
       "require": "./locale/en-MS.json"
     },
     "./locale/en-MT": {
-      "import": "./locale/en-MT.json.js",
-      "require": "./locale/en-MT.json"
+      "types": "./locale/en-MT.json.d.ts",
+      "import": "./locale/en-MT/index.js",
+      "require": "./locale/en-MT/index.cjs"
     },
     "./locale/en-MT.json": {
+      "types": "./locale/en-MT.json.d.ts",
       "import": "./locale/en-MT.json.js",
       "require": "./locale/en-MT.json"
     },
     "./locale/en-MU": {
-      "import": "./locale/en-MU.json.js",
-      "require": "./locale/en-MU.json"
+      "types": "./locale/en-MU.json.d.ts",
+      "import": "./locale/en-MU/index.js",
+      "require": "./locale/en-MU/index.cjs"
     },
     "./locale/en-MU.json": {
+      "types": "./locale/en-MU.json.d.ts",
       "import": "./locale/en-MU.json.js",
       "require": "./locale/en-MU.json"
     },
     "./locale/en-MV": {
-      "import": "./locale/en-MV.json.js",
-      "require": "./locale/en-MV.json"
+      "types": "./locale/en-MV.json.d.ts",
+      "import": "./locale/en-MV/index.js",
+      "require": "./locale/en-MV/index.cjs"
     },
     "./locale/en-MV.json": {
+      "types": "./locale/en-MV.json.d.ts",
       "import": "./locale/en-MV.json.js",
       "require": "./locale/en-MV.json"
     },
     "./locale/en-MW": {
-      "import": "./locale/en-MW.json.js",
-      "require": "./locale/en-MW.json"
+      "types": "./locale/en-MW.json.d.ts",
+      "import": "./locale/en-MW/index.js",
+      "require": "./locale/en-MW/index.cjs"
     },
     "./locale/en-MW.json": {
+      "types": "./locale/en-MW.json.d.ts",
       "import": "./locale/en-MW.json.js",
       "require": "./locale/en-MW.json"
     },
     "./locale/en-MY": {
-      "import": "./locale/en-MY.json.js",
-      "require": "./locale/en-MY.json"
+      "types": "./locale/en-MY.json.d.ts",
+      "import": "./locale/en-MY/index.js",
+      "require": "./locale/en-MY/index.cjs"
     },
     "./locale/en-MY.json": {
+      "types": "./locale/en-MY.json.d.ts",
       "import": "./locale/en-MY.json.js",
       "require": "./locale/en-MY.json"
     },
     "./locale/en-NA": {
-      "import": "./locale/en-NA.json.js",
-      "require": "./locale/en-NA.json"
+      "types": "./locale/en-NA.json.d.ts",
+      "import": "./locale/en-NA/index.js",
+      "require": "./locale/en-NA/index.cjs"
     },
     "./locale/en-NA.json": {
+      "types": "./locale/en-NA.json.d.ts",
       "import": "./locale/en-NA.json.js",
       "require": "./locale/en-NA.json"
     },
     "./locale/en-NF": {
-      "import": "./locale/en-NF.json.js",
-      "require": "./locale/en-NF.json"
+      "types": "./locale/en-NF.json.d.ts",
+      "import": "./locale/en-NF/index.js",
+      "require": "./locale/en-NF/index.cjs"
     },
     "./locale/en-NF.json": {
+      "types": "./locale/en-NF.json.d.ts",
       "import": "./locale/en-NF.json.js",
       "require": "./locale/en-NF.json"
     },
     "./locale/en-NG": {
-      "import": "./locale/en-NG.json.js",
-      "require": "./locale/en-NG.json"
+      "types": "./locale/en-NG.json.d.ts",
+      "import": "./locale/en-NG/index.js",
+      "require": "./locale/en-NG/index.cjs"
     },
     "./locale/en-NG.json": {
+      "types": "./locale/en-NG.json.d.ts",
       "import": "./locale/en-NG.json.js",
       "require": "./locale/en-NG.json"
     },
     "./locale/en-NL": {
-      "import": "./locale/en-NL.json.js",
-      "require": "./locale/en-NL.json"
+      "types": "./locale/en-NL.json.d.ts",
+      "import": "./locale/en-NL/index.js",
+      "require": "./locale/en-NL/index.cjs"
     },
     "./locale/en-NL.json": {
+      "types": "./locale/en-NL.json.d.ts",
       "import": "./locale/en-NL.json.js",
       "require": "./locale/en-NL.json"
     },
     "./locale/en-NO": {
-      "import": "./locale/en-NO.json.js",
-      "require": "./locale/en-NO.json"
+      "types": "./locale/en-NO.json.d.ts",
+      "import": "./locale/en-NO/index.js",
+      "require": "./locale/en-NO/index.cjs"
     },
     "./locale/en-NO.json": {
+      "types": "./locale/en-NO.json.d.ts",
       "import": "./locale/en-NO.json.js",
       "require": "./locale/en-NO.json"
     },
     "./locale/en-NR": {
-      "import": "./locale/en-NR.json.js",
-      "require": "./locale/en-NR.json"
+      "types": "./locale/en-NR.json.d.ts",
+      "import": "./locale/en-NR/index.js",
+      "require": "./locale/en-NR/index.cjs"
     },
     "./locale/en-NR.json": {
+      "types": "./locale/en-NR.json.d.ts",
       "import": "./locale/en-NR.json.js",
       "require": "./locale/en-NR.json"
     },
     "./locale/en-NU": {
-      "import": "./locale/en-NU.json.js",
-      "require": "./locale/en-NU.json"
+      "types": "./locale/en-NU.json.d.ts",
+      "import": "./locale/en-NU/index.js",
+      "require": "./locale/en-NU/index.cjs"
     },
     "./locale/en-NU.json": {
+      "types": "./locale/en-NU.json.d.ts",
       "import": "./locale/en-NU.json.js",
       "require": "./locale/en-NU.json"
     },
     "./locale/en-NZ": {
-      "import": "./locale/en-NZ.json.js",
-      "require": "./locale/en-NZ.json"
+      "types": "./locale/en-NZ.json.d.ts",
+      "import": "./locale/en-NZ/index.js",
+      "require": "./locale/en-NZ/index.cjs"
     },
     "./locale/en-NZ.json": {
+      "types": "./locale/en-NZ.json.d.ts",
       "import": "./locale/en-NZ.json.js",
       "require": "./locale/en-NZ.json"
     },
     "./locale/en-PG": {
-      "import": "./locale/en-PG.json.js",
-      "require": "./locale/en-PG.json"
+      "types": "./locale/en-PG.json.d.ts",
+      "import": "./locale/en-PG/index.js",
+      "require": "./locale/en-PG/index.cjs"
     },
     "./locale/en-PG.json": {
+      "types": "./locale/en-PG.json.d.ts",
       "import": "./locale/en-PG.json.js",
       "require": "./locale/en-PG.json"
     },
     "./locale/en-PK": {
-      "import": "./locale/en-PK.json.js",
-      "require": "./locale/en-PK.json"
+      "types": "./locale/en-PK.json.d.ts",
+      "import": "./locale/en-PK/index.js",
+      "require": "./locale/en-PK/index.cjs"
     },
     "./locale/en-PK.json": {
+      "types": "./locale/en-PK.json.d.ts",
       "import": "./locale/en-PK.json.js",
       "require": "./locale/en-PK.json"
     },
     "./locale/en-PL": {
-      "import": "./locale/en-PL.json.js",
-      "require": "./locale/en-PL.json"
+      "types": "./locale/en-PL.json.d.ts",
+      "import": "./locale/en-PL/index.js",
+      "require": "./locale/en-PL/index.cjs"
     },
     "./locale/en-PL.json": {
+      "types": "./locale/en-PL.json.d.ts",
       "import": "./locale/en-PL.json.js",
       "require": "./locale/en-PL.json"
     },
     "./locale/en-PN": {
-      "import": "./locale/en-PN.json.js",
-      "require": "./locale/en-PN.json"
+      "types": "./locale/en-PN.json.d.ts",
+      "import": "./locale/en-PN/index.js",
+      "require": "./locale/en-PN/index.cjs"
     },
     "./locale/en-PN.json": {
+      "types": "./locale/en-PN.json.d.ts",
       "import": "./locale/en-PN.json.js",
       "require": "./locale/en-PN.json"
     },
     "./locale/en-PT": {
-      "import": "./locale/en-PT.json.js",
-      "require": "./locale/en-PT.json"
+      "types": "./locale/en-PT.json.d.ts",
+      "import": "./locale/en-PT/index.js",
+      "require": "./locale/en-PT/index.cjs"
     },
     "./locale/en-PT.json": {
+      "types": "./locale/en-PT.json.d.ts",
       "import": "./locale/en-PT.json.js",
       "require": "./locale/en-PT.json"
     },
     "./locale/en-PW": {
-      "import": "./locale/en-PW.json.js",
-      "require": "./locale/en-PW.json"
+      "types": "./locale/en-PW.json.d.ts",
+      "import": "./locale/en-PW/index.js",
+      "require": "./locale/en-PW/index.cjs"
     },
     "./locale/en-PW.json": {
+      "types": "./locale/en-PW.json.d.ts",
       "import": "./locale/en-PW.json.js",
       "require": "./locale/en-PW.json"
     },
     "./locale/en-RO": {
-      "import": "./locale/en-RO.json.js",
-      "require": "./locale/en-RO.json"
+      "types": "./locale/en-RO.json.d.ts",
+      "import": "./locale/en-RO/index.js",
+      "require": "./locale/en-RO/index.cjs"
     },
     "./locale/en-RO.json": {
+      "types": "./locale/en-RO.json.d.ts",
       "import": "./locale/en-RO.json.js",
       "require": "./locale/en-RO.json"
     },
     "./locale/en-RW": {
-      "import": "./locale/en-RW.json.js",
-      "require": "./locale/en-RW.json"
+      "types": "./locale/en-RW.json.d.ts",
+      "import": "./locale/en-RW/index.js",
+      "require": "./locale/en-RW/index.cjs"
     },
     "./locale/en-RW.json": {
+      "types": "./locale/en-RW.json.d.ts",
       "import": "./locale/en-RW.json.js",
       "require": "./locale/en-RW.json"
     },
     "./locale/en-SB": {
-      "import": "./locale/en-SB.json.js",
-      "require": "./locale/en-SB.json"
+      "types": "./locale/en-SB.json.d.ts",
+      "import": "./locale/en-SB/index.js",
+      "require": "./locale/en-SB/index.cjs"
     },
     "./locale/en-SB.json": {
+      "types": "./locale/en-SB.json.d.ts",
       "import": "./locale/en-SB.json.js",
       "require": "./locale/en-SB.json"
     },
     "./locale/en-SC": {
-      "import": "./locale/en-SC.json.js",
-      "require": "./locale/en-SC.json"
+      "types": "./locale/en-SC.json.d.ts",
+      "import": "./locale/en-SC/index.js",
+      "require": "./locale/en-SC/index.cjs"
     },
     "./locale/en-SC.json": {
+      "types": "./locale/en-SC.json.d.ts",
       "import": "./locale/en-SC.json.js",
       "require": "./locale/en-SC.json"
     },
     "./locale/en-SD": {
-      "import": "./locale/en-SD.json.js",
-      "require": "./locale/en-SD.json"
+      "types": "./locale/en-SD.json.d.ts",
+      "import": "./locale/en-SD/index.js",
+      "require": "./locale/en-SD/index.cjs"
     },
     "./locale/en-SD.json": {
+      "types": "./locale/en-SD.json.d.ts",
       "import": "./locale/en-SD.json.js",
       "require": "./locale/en-SD.json"
     },
     "./locale/en-SE": {
-      "import": "./locale/en-SE.json.js",
-      "require": "./locale/en-SE.json"
+      "types": "./locale/en-SE.json.d.ts",
+      "import": "./locale/en-SE/index.js",
+      "require": "./locale/en-SE/index.cjs"
     },
     "./locale/en-SE.json": {
+      "types": "./locale/en-SE.json.d.ts",
       "import": "./locale/en-SE.json.js",
       "require": "./locale/en-SE.json"
     },
     "./locale/en-SG": {
-      "import": "./locale/en-SG.json.js",
-      "require": "./locale/en-SG.json"
+      "types": "./locale/en-SG.json.d.ts",
+      "import": "./locale/en-SG/index.js",
+      "require": "./locale/en-SG/index.cjs"
     },
     "./locale/en-SG.json": {
+      "types": "./locale/en-SG.json.d.ts",
       "import": "./locale/en-SG.json.js",
       "require": "./locale/en-SG.json"
     },
     "./locale/en-SH": {
-      "import": "./locale/en-SH.json.js",
-      "require": "./locale/en-SH.json"
+      "types": "./locale/en-SH.json.d.ts",
+      "import": "./locale/en-SH/index.js",
+      "require": "./locale/en-SH/index.cjs"
     },
     "./locale/en-SH.json": {
+      "types": "./locale/en-SH.json.d.ts",
       "import": "./locale/en-SH.json.js",
       "require": "./locale/en-SH.json"
     },
     "./locale/en-SI": {
-      "import": "./locale/en-SI.json.js",
-      "require": "./locale/en-SI.json"
+      "types": "./locale/en-SI.json.d.ts",
+      "import": "./locale/en-SI/index.js",
+      "require": "./locale/en-SI/index.cjs"
     },
     "./locale/en-SI.json": {
+      "types": "./locale/en-SI.json.d.ts",
       "import": "./locale/en-SI.json.js",
       "require": "./locale/en-SI.json"
     },
     "./locale/en-SK": {
-      "import": "./locale/en-SK.json.js",
-      "require": "./locale/en-SK.json"
+      "types": "./locale/en-SK.json.d.ts",
+      "import": "./locale/en-SK/index.js",
+      "require": "./locale/en-SK/index.cjs"
     },
     "./locale/en-SK.json": {
+      "types": "./locale/en-SK.json.d.ts",
       "import": "./locale/en-SK.json.js",
       "require": "./locale/en-SK.json"
     },
     "./locale/en-SL": {
-      "import": "./locale/en-SL.json.js",
-      "require": "./locale/en-SL.json"
+      "types": "./locale/en-SL.json.d.ts",
+      "import": "./locale/en-SL/index.js",
+      "require": "./locale/en-SL/index.cjs"
     },
     "./locale/en-SL.json": {
+      "types": "./locale/en-SL.json.d.ts",
       "import": "./locale/en-SL.json.js",
       "require": "./locale/en-SL.json"
     },
     "./locale/en-SS": {
-      "import": "./locale/en-SS.json.js",
-      "require": "./locale/en-SS.json"
+      "types": "./locale/en-SS.json.d.ts",
+      "import": "./locale/en-SS/index.js",
+      "require": "./locale/en-SS/index.cjs"
     },
     "./locale/en-SS.json": {
+      "types": "./locale/en-SS.json.d.ts",
       "import": "./locale/en-SS.json.js",
       "require": "./locale/en-SS.json"
     },
     "./locale/en-SX": {
-      "import": "./locale/en-SX.json.js",
-      "require": "./locale/en-SX.json"
+      "types": "./locale/en-SX.json.d.ts",
+      "import": "./locale/en-SX/index.js",
+      "require": "./locale/en-SX/index.cjs"
     },
     "./locale/en-SX.json": {
+      "types": "./locale/en-SX.json.d.ts",
       "import": "./locale/en-SX.json.js",
       "require": "./locale/en-SX.json"
     },
     "./locale/en-SZ": {
-      "import": "./locale/en-SZ.json.js",
-      "require": "./locale/en-SZ.json"
+      "types": "./locale/en-SZ.json.d.ts",
+      "import": "./locale/en-SZ/index.js",
+      "require": "./locale/en-SZ/index.cjs"
     },
     "./locale/en-SZ.json": {
+      "types": "./locale/en-SZ.json.d.ts",
       "import": "./locale/en-SZ.json.js",
       "require": "./locale/en-SZ.json"
     },
     "./locale/en-TC": {
-      "import": "./locale/en-TC.json.js",
-      "require": "./locale/en-TC.json"
+      "types": "./locale/en-TC.json.d.ts",
+      "import": "./locale/en-TC/index.js",
+      "require": "./locale/en-TC/index.cjs"
     },
     "./locale/en-TC.json": {
+      "types": "./locale/en-TC.json.d.ts",
       "import": "./locale/en-TC.json.js",
       "require": "./locale/en-TC.json"
     },
     "./locale/en-TK": {
-      "import": "./locale/en-TK.json.js",
-      "require": "./locale/en-TK.json"
+      "types": "./locale/en-TK.json.d.ts",
+      "import": "./locale/en-TK/index.js",
+      "require": "./locale/en-TK/index.cjs"
     },
     "./locale/en-TK.json": {
+      "types": "./locale/en-TK.json.d.ts",
       "import": "./locale/en-TK.json.js",
       "require": "./locale/en-TK.json"
     },
     "./locale/en-TO": {
-      "import": "./locale/en-TO.json.js",
-      "require": "./locale/en-TO.json"
+      "types": "./locale/en-TO.json.d.ts",
+      "import": "./locale/en-TO/index.js",
+      "require": "./locale/en-TO/index.cjs"
     },
     "./locale/en-TO.json": {
+      "types": "./locale/en-TO.json.d.ts",
       "import": "./locale/en-TO.json.js",
       "require": "./locale/en-TO.json"
     },
     "./locale/en-TT": {
-      "import": "./locale/en-TT.json.js",
-      "require": "./locale/en-TT.json"
+      "types": "./locale/en-TT.json.d.ts",
+      "import": "./locale/en-TT/index.js",
+      "require": "./locale/en-TT/index.cjs"
     },
     "./locale/en-TT.json": {
+      "types": "./locale/en-TT.json.d.ts",
       "import": "./locale/en-TT.json.js",
       "require": "./locale/en-TT.json"
     },
     "./locale/en-TV": {
-      "import": "./locale/en-TV.json.js",
-      "require": "./locale/en-TV.json"
+      "types": "./locale/en-TV.json.d.ts",
+      "import": "./locale/en-TV/index.js",
+      "require": "./locale/en-TV/index.cjs"
     },
     "./locale/en-TV.json": {
+      "types": "./locale/en-TV.json.d.ts",
       "import": "./locale/en-TV.json.js",
       "require": "./locale/en-TV.json"
     },
     "./locale/en-TZ": {
-      "import": "./locale/en-TZ.json.js",
-      "require": "./locale/en-TZ.json"
+      "types": "./locale/en-TZ.json.d.ts",
+      "import": "./locale/en-TZ/index.js",
+      "require": "./locale/en-TZ/index.cjs"
     },
     "./locale/en-TZ.json": {
+      "types": "./locale/en-TZ.json.d.ts",
       "import": "./locale/en-TZ.json.js",
       "require": "./locale/en-TZ.json"
     },
     "./locale/en-UA": {
-      "import": "./locale/en-UA.json.js",
-      "require": "./locale/en-UA.json"
+      "types": "./locale/en-UA.json.d.ts",
+      "import": "./locale/en-UA/index.js",
+      "require": "./locale/en-UA/index.cjs"
     },
     "./locale/en-UA.json": {
+      "types": "./locale/en-UA.json.d.ts",
       "import": "./locale/en-UA.json.js",
       "require": "./locale/en-UA.json"
     },
     "./locale/en-UG": {
-      "import": "./locale/en-UG.json.js",
-      "require": "./locale/en-UG.json"
+      "types": "./locale/en-UG.json.d.ts",
+      "import": "./locale/en-UG/index.js",
+      "require": "./locale/en-UG/index.cjs"
     },
     "./locale/en-UG.json": {
+      "types": "./locale/en-UG.json.d.ts",
       "import": "./locale/en-UG.json.js",
       "require": "./locale/en-UG.json"
     },
     "./locale/en-VC": {
-      "import": "./locale/en-VC.json.js",
-      "require": "./locale/en-VC.json"
+      "types": "./locale/en-VC.json.d.ts",
+      "import": "./locale/en-VC/index.js",
+      "require": "./locale/en-VC/index.cjs"
     },
     "./locale/en-VC.json": {
+      "types": "./locale/en-VC.json.d.ts",
       "import": "./locale/en-VC.json.js",
       "require": "./locale/en-VC.json"
     },
     "./locale/en-VG": {
-      "import": "./locale/en-VG.json.js",
-      "require": "./locale/en-VG.json"
+      "types": "./locale/en-VG.json.d.ts",
+      "import": "./locale/en-VG/index.js",
+      "require": "./locale/en-VG/index.cjs"
     },
     "./locale/en-VG.json": {
+      "types": "./locale/en-VG.json.d.ts",
       "import": "./locale/en-VG.json.js",
       "require": "./locale/en-VG.json"
     },
     "./locale/en-VU": {
-      "import": "./locale/en-VU.json.js",
-      "require": "./locale/en-VU.json"
+      "types": "./locale/en-VU.json.d.ts",
+      "import": "./locale/en-VU/index.js",
+      "require": "./locale/en-VU/index.cjs"
     },
     "./locale/en-VU.json": {
+      "types": "./locale/en-VU.json.d.ts",
       "import": "./locale/en-VU.json.js",
       "require": "./locale/en-VU.json"
     },
     "./locale/en-WS": {
-      "import": "./locale/en-WS.json.js",
-      "require": "./locale/en-WS.json"
+      "types": "./locale/en-WS.json.d.ts",
+      "import": "./locale/en-WS/index.js",
+      "require": "./locale/en-WS/index.cjs"
     },
     "./locale/en-WS.json": {
+      "types": "./locale/en-WS.json.d.ts",
       "import": "./locale/en-WS.json.js",
       "require": "./locale/en-WS.json"
     },
     "./locale/en-ZA": {
-      "import": "./locale/en-ZA.json.js",
-      "require": "./locale/en-ZA.json"
+      "types": "./locale/en-ZA.json.d.ts",
+      "import": "./locale/en-ZA/index.js",
+      "require": "./locale/en-ZA/index.cjs"
     },
     "./locale/en-ZA.json": {
+      "types": "./locale/en-ZA.json.d.ts",
       "import": "./locale/en-ZA.json.js",
       "require": "./locale/en-ZA.json"
     },
     "./locale/en-ZM": {
-      "import": "./locale/en-ZM.json.js",
-      "require": "./locale/en-ZM.json"
+      "types": "./locale/en-ZM.json.d.ts",
+      "import": "./locale/en-ZM/index.js",
+      "require": "./locale/en-ZM/index.cjs"
     },
     "./locale/en-ZM.json": {
+      "types": "./locale/en-ZM.json.d.ts",
       "import": "./locale/en-ZM.json.js",
       "require": "./locale/en-ZM.json"
     },
     "./locale/en-ZW": {
-      "import": "./locale/en-ZW.json.js",
-      "require": "./locale/en-ZW.json"
+      "types": "./locale/en-ZW.json.d.ts",
+      "import": "./locale/en-ZW/index.js",
+      "require": "./locale/en-ZW/index.cjs"
     },
     "./locale/en-ZW.json": {
+      "types": "./locale/en-ZW.json.d.ts",
       "import": "./locale/en-ZW.json.js",
       "require": "./locale/en-ZW.json"
     },
     "./locale/en": {
-      "import": "./locale/en.json.js",
-      "require": "./locale/en.json"
+      "types": "./locale/en.json.d.ts",
+      "import": "./locale/en/index.js",
+      "require": "./locale/en/index.cjs"
     },
     "./locale/en.json": {
+      "types": "./locale/en.json.d.ts",
       "import": "./locale/en.json.js",
       "require": "./locale/en.json"
     },
     "./locale/eo": {
-      "import": "./locale/eo.json.js",
-      "require": "./locale/eo.json"
+      "types": "./locale/eo.json.d.ts",
+      "import": "./locale/eo/index.js",
+      "require": "./locale/eo/index.cjs"
     },
     "./locale/eo.json": {
+      "types": "./locale/eo.json.d.ts",
       "import": "./locale/eo.json.js",
       "require": "./locale/eo.json"
     },
     "./locale/es-419": {
-      "import": "./locale/es-419.json.js",
-      "require": "./locale/es-419.json"
+      "types": "./locale/es-419.json.d.ts",
+      "import": "./locale/es-419/index.js",
+      "require": "./locale/es-419/index.cjs"
     },
     "./locale/es-419.json": {
+      "types": "./locale/es-419.json.d.ts",
       "import": "./locale/es-419.json.js",
       "require": "./locale/es-419.json"
     },
     "./locale/es-AR": {
-      "import": "./locale/es-AR.json.js",
-      "require": "./locale/es-AR.json"
+      "types": "./locale/es-AR.json.d.ts",
+      "import": "./locale/es-AR/index.js",
+      "require": "./locale/es-AR/index.cjs"
     },
     "./locale/es-AR.json": {
+      "types": "./locale/es-AR.json.d.ts",
       "import": "./locale/es-AR.json.js",
       "require": "./locale/es-AR.json"
     },
     "./locale/es-BO": {
-      "import": "./locale/es-BO.json.js",
-      "require": "./locale/es-BO.json"
+      "types": "./locale/es-BO.json.d.ts",
+      "import": "./locale/es-BO/index.js",
+      "require": "./locale/es-BO/index.cjs"
     },
     "./locale/es-BO.json": {
+      "types": "./locale/es-BO.json.d.ts",
       "import": "./locale/es-BO.json.js",
       "require": "./locale/es-BO.json"
     },
     "./locale/es-BR": {
-      "import": "./locale/es-BR.json.js",
-      "require": "./locale/es-BR.json"
+      "types": "./locale/es-BR.json.d.ts",
+      "import": "./locale/es-BR/index.js",
+      "require": "./locale/es-BR/index.cjs"
     },
     "./locale/es-BR.json": {
+      "types": "./locale/es-BR.json.d.ts",
       "import": "./locale/es-BR.json.js",
       "require": "./locale/es-BR.json"
     },
     "./locale/es-BZ": {
-      "import": "./locale/es-BZ.json.js",
-      "require": "./locale/es-BZ.json"
+      "types": "./locale/es-BZ.json.d.ts",
+      "import": "./locale/es-BZ/index.js",
+      "require": "./locale/es-BZ/index.cjs"
     },
     "./locale/es-BZ.json": {
+      "types": "./locale/es-BZ.json.d.ts",
       "import": "./locale/es-BZ.json.js",
       "require": "./locale/es-BZ.json"
     },
     "./locale/es-CL": {
-      "import": "./locale/es-CL.json.js",
-      "require": "./locale/es-CL.json"
+      "types": "./locale/es-CL.json.d.ts",
+      "import": "./locale/es-CL/index.js",
+      "require": "./locale/es-CL/index.cjs"
     },
     "./locale/es-CL.json": {
+      "types": "./locale/es-CL.json.d.ts",
       "import": "./locale/es-CL.json.js",
       "require": "./locale/es-CL.json"
     },
     "./locale/es-CO": {
-      "import": "./locale/es-CO.json.js",
-      "require": "./locale/es-CO.json"
+      "types": "./locale/es-CO.json.d.ts",
+      "import": "./locale/es-CO/index.js",
+      "require": "./locale/es-CO/index.cjs"
     },
     "./locale/es-CO.json": {
+      "types": "./locale/es-CO.json.d.ts",
       "import": "./locale/es-CO.json.js",
       "require": "./locale/es-CO.json"
     },
     "./locale/es-CR": {
-      "import": "./locale/es-CR.json.js",
-      "require": "./locale/es-CR.json"
+      "types": "./locale/es-CR.json.d.ts",
+      "import": "./locale/es-CR/index.js",
+      "require": "./locale/es-CR/index.cjs"
     },
     "./locale/es-CR.json": {
+      "types": "./locale/es-CR.json.d.ts",
       "import": "./locale/es-CR.json.js",
       "require": "./locale/es-CR.json"
     },
     "./locale/es-CU": {
-      "import": "./locale/es-CU.json.js",
-      "require": "./locale/es-CU.json"
+      "types": "./locale/es-CU.json.d.ts",
+      "import": "./locale/es-CU/index.js",
+      "require": "./locale/es-CU/index.cjs"
     },
     "./locale/es-CU.json": {
+      "types": "./locale/es-CU.json.d.ts",
       "import": "./locale/es-CU.json.js",
       "require": "./locale/es-CU.json"
     },
     "./locale/es-DO": {
-      "import": "./locale/es-DO.json.js",
-      "require": "./locale/es-DO.json"
+      "types": "./locale/es-DO.json.d.ts",
+      "import": "./locale/es-DO/index.js",
+      "require": "./locale/es-DO/index.cjs"
     },
     "./locale/es-DO.json": {
+      "types": "./locale/es-DO.json.d.ts",
       "import": "./locale/es-DO.json.js",
       "require": "./locale/es-DO.json"
     },
     "./locale/es-EC": {
-      "import": "./locale/es-EC.json.js",
-      "require": "./locale/es-EC.json"
+      "types": "./locale/es-EC.json.d.ts",
+      "import": "./locale/es-EC/index.js",
+      "require": "./locale/es-EC/index.cjs"
     },
     "./locale/es-EC.json": {
+      "types": "./locale/es-EC.json.d.ts",
       "import": "./locale/es-EC.json.js",
       "require": "./locale/es-EC.json"
     },
     "./locale/es-GT": {
-      "import": "./locale/es-GT.json.js",
-      "require": "./locale/es-GT.json"
+      "types": "./locale/es-GT.json.d.ts",
+      "import": "./locale/es-GT/index.js",
+      "require": "./locale/es-GT/index.cjs"
     },
     "./locale/es-GT.json": {
+      "types": "./locale/es-GT.json.d.ts",
       "import": "./locale/es-GT.json.js",
       "require": "./locale/es-GT.json"
     },
     "./locale/es-HN": {
-      "import": "./locale/es-HN.json.js",
-      "require": "./locale/es-HN.json"
+      "types": "./locale/es-HN.json.d.ts",
+      "import": "./locale/es-HN/index.js",
+      "require": "./locale/es-HN/index.cjs"
     },
     "./locale/es-HN.json": {
+      "types": "./locale/es-HN.json.d.ts",
       "import": "./locale/es-HN.json.js",
       "require": "./locale/es-HN.json"
     },
     "./locale/es-MX": {
-      "import": "./locale/es-MX.json.js",
-      "require": "./locale/es-MX.json"
+      "types": "./locale/es-MX.json.d.ts",
+      "import": "./locale/es-MX/index.js",
+      "require": "./locale/es-MX/index.cjs"
     },
     "./locale/es-MX.json": {
+      "types": "./locale/es-MX.json.d.ts",
       "import": "./locale/es-MX.json.js",
       "require": "./locale/es-MX.json"
     },
     "./locale/es-NI": {
-      "import": "./locale/es-NI.json.js",
-      "require": "./locale/es-NI.json"
+      "types": "./locale/es-NI.json.d.ts",
+      "import": "./locale/es-NI/index.js",
+      "require": "./locale/es-NI/index.cjs"
     },
     "./locale/es-NI.json": {
+      "types": "./locale/es-NI.json.d.ts",
       "import": "./locale/es-NI.json.js",
       "require": "./locale/es-NI.json"
     },
     "./locale/es-PA": {
-      "import": "./locale/es-PA.json.js",
-      "require": "./locale/es-PA.json"
+      "types": "./locale/es-PA.json.d.ts",
+      "import": "./locale/es-PA/index.js",
+      "require": "./locale/es-PA/index.cjs"
     },
     "./locale/es-PA.json": {
+      "types": "./locale/es-PA.json.d.ts",
       "import": "./locale/es-PA.json.js",
       "require": "./locale/es-PA.json"
     },
     "./locale/es-PE": {
-      "import": "./locale/es-PE.json.js",
-      "require": "./locale/es-PE.json"
+      "types": "./locale/es-PE.json.d.ts",
+      "import": "./locale/es-PE/index.js",
+      "require": "./locale/es-PE/index.cjs"
     },
     "./locale/es-PE.json": {
+      "types": "./locale/es-PE.json.d.ts",
       "import": "./locale/es-PE.json.js",
       "require": "./locale/es-PE.json"
     },
     "./locale/es-PR": {
-      "import": "./locale/es-PR.json.js",
-      "require": "./locale/es-PR.json"
+      "types": "./locale/es-PR.json.d.ts",
+      "import": "./locale/es-PR/index.js",
+      "require": "./locale/es-PR/index.cjs"
     },
     "./locale/es-PR.json": {
+      "types": "./locale/es-PR.json.d.ts",
       "import": "./locale/es-PR.json.js",
       "require": "./locale/es-PR.json"
     },
     "./locale/es-PY": {
-      "import": "./locale/es-PY.json.js",
-      "require": "./locale/es-PY.json"
+      "types": "./locale/es-PY.json.d.ts",
+      "import": "./locale/es-PY/index.js",
+      "require": "./locale/es-PY/index.cjs"
     },
     "./locale/es-PY.json": {
+      "types": "./locale/es-PY.json.d.ts",
       "import": "./locale/es-PY.json.js",
       "require": "./locale/es-PY.json"
     },
     "./locale/es-SV": {
-      "import": "./locale/es-SV.json.js",
-      "require": "./locale/es-SV.json"
+      "types": "./locale/es-SV.json.d.ts",
+      "import": "./locale/es-SV/index.js",
+      "require": "./locale/es-SV/index.cjs"
     },
     "./locale/es-SV.json": {
+      "types": "./locale/es-SV.json.d.ts",
       "import": "./locale/es-SV.json.js",
       "require": "./locale/es-SV.json"
     },
     "./locale/es-US": {
-      "import": "./locale/es-US.json.js",
-      "require": "./locale/es-US.json"
+      "types": "./locale/es-US.json.d.ts",
+      "import": "./locale/es-US/index.js",
+      "require": "./locale/es-US/index.cjs"
     },
     "./locale/es-US.json": {
+      "types": "./locale/es-US.json.d.ts",
       "import": "./locale/es-US.json.js",
       "require": "./locale/es-US.json"
     },
     "./locale/es-UY": {
-      "import": "./locale/es-UY.json.js",
-      "require": "./locale/es-UY.json"
+      "types": "./locale/es-UY.json.d.ts",
+      "import": "./locale/es-UY/index.js",
+      "require": "./locale/es-UY/index.cjs"
     },
     "./locale/es-UY.json": {
+      "types": "./locale/es-UY.json.d.ts",
       "import": "./locale/es-UY.json.js",
       "require": "./locale/es-UY.json"
     },
     "./locale/es-VE": {
-      "import": "./locale/es-VE.json.js",
-      "require": "./locale/es-VE.json"
+      "types": "./locale/es-VE.json.d.ts",
+      "import": "./locale/es-VE/index.js",
+      "require": "./locale/es-VE/index.cjs"
     },
     "./locale/es-VE.json": {
+      "types": "./locale/es-VE.json.d.ts",
       "import": "./locale/es-VE.json.js",
       "require": "./locale/es-VE.json"
     },
     "./locale/es": {
-      "import": "./locale/es.json.js",
-      "require": "./locale/es.json"
+      "types": "./locale/es.json.d.ts",
+      "import": "./locale/es/index.js",
+      "require": "./locale/es/index.cjs"
     },
     "./locale/es.json": {
+      "types": "./locale/es.json.d.ts",
       "import": "./locale/es.json.js",
       "require": "./locale/es.json"
     },
     "./locale/et": {
-      "import": "./locale/et.json.js",
-      "require": "./locale/et.json"
+      "types": "./locale/et.json.d.ts",
+      "import": "./locale/et/index.js",
+      "require": "./locale/et/index.cjs"
     },
     "./locale/et.json": {
+      "types": "./locale/et.json.d.ts",
       "import": "./locale/et.json.js",
       "require": "./locale/et.json"
     },
     "./locale/eu": {
-      "import": "./locale/eu.json.js",
-      "require": "./locale/eu.json"
+      "types": "./locale/eu.json.d.ts",
+      "import": "./locale/eu/index.js",
+      "require": "./locale/eu/index.cjs"
     },
     "./locale/eu.json": {
+      "types": "./locale/eu.json.d.ts",
       "import": "./locale/eu.json.js",
       "require": "./locale/eu.json"
     },
     "./locale/fa": {
-      "import": "./locale/fa.json.js",
-      "require": "./locale/fa.json"
+      "types": "./locale/fa.json.d.ts",
+      "import": "./locale/fa/index.js",
+      "require": "./locale/fa/index.cjs"
     },
     "./locale/fa.json": {
+      "types": "./locale/fa.json.d.ts",
       "import": "./locale/fa.json.js",
       "require": "./locale/fa.json"
     },
     "./locale/ff-Adlm": {
-      "import": "./locale/ff-Adlm.json.js",
-      "require": "./locale/ff-Adlm.json"
+      "types": "./locale/ff-Adlm.json.d.ts",
+      "import": "./locale/ff-Adlm/index.js",
+      "require": "./locale/ff-Adlm/index.cjs"
     },
     "./locale/ff-Adlm.json": {
+      "types": "./locale/ff-Adlm.json.d.ts",
       "import": "./locale/ff-Adlm.json.js",
       "require": "./locale/ff-Adlm.json"
     },
     "./locale/fi": {
-      "import": "./locale/fi.json.js",
-      "require": "./locale/fi.json"
+      "types": "./locale/fi.json.d.ts",
+      "import": "./locale/fi/index.js",
+      "require": "./locale/fi/index.cjs"
     },
     "./locale/fi.json": {
+      "types": "./locale/fi.json.d.ts",
       "import": "./locale/fi.json.js",
       "require": "./locale/fi.json"
     },
     "./locale/fil": {
-      "import": "./locale/fil.json.js",
-      "require": "./locale/fil.json"
+      "types": "./locale/fil.json.d.ts",
+      "import": "./locale/fil/index.js",
+      "require": "./locale/fil/index.cjs"
     },
     "./locale/fil.json": {
+      "types": "./locale/fil.json.d.ts",
       "import": "./locale/fil.json.js",
       "require": "./locale/fil.json"
     },
     "./locale/fo": {
-      "import": "./locale/fo.json.js",
-      "require": "./locale/fo.json"
+      "types": "./locale/fo.json.d.ts",
+      "import": "./locale/fo/index.js",
+      "require": "./locale/fo/index.cjs"
     },
     "./locale/fo.json": {
+      "types": "./locale/fo.json.d.ts",
       "import": "./locale/fo.json.js",
       "require": "./locale/fo.json"
     },
     "./locale/fr-CA": {
-      "import": "./locale/fr-CA.json.js",
-      "require": "./locale/fr-CA.json"
+      "types": "./locale/fr-CA.json.d.ts",
+      "import": "./locale/fr-CA/index.js",
+      "require": "./locale/fr-CA/index.cjs"
     },
     "./locale/fr-CA.json": {
+      "types": "./locale/fr-CA.json.d.ts",
       "import": "./locale/fr-CA.json.js",
       "require": "./locale/fr-CA.json"
     },
     "./locale/fr": {
-      "import": "./locale/fr.json.js",
-      "require": "./locale/fr.json"
+      "types": "./locale/fr.json.d.ts",
+      "import": "./locale/fr/index.js",
+      "require": "./locale/fr/index.cjs"
     },
     "./locale/fr.json": {
+      "types": "./locale/fr.json.d.ts",
       "import": "./locale/fr.json.js",
       "require": "./locale/fr.json"
     },
     "./locale/fur": {
-      "import": "./locale/fur.json.js",
-      "require": "./locale/fur.json"
+      "types": "./locale/fur.json.d.ts",
+      "import": "./locale/fur/index.js",
+      "require": "./locale/fur/index.cjs"
     },
     "./locale/fur.json": {
+      "types": "./locale/fur.json.d.ts",
       "import": "./locale/fur.json.js",
       "require": "./locale/fur.json"
     },
     "./locale/fy": {
-      "import": "./locale/fy.json.js",
-      "require": "./locale/fy.json"
+      "types": "./locale/fy.json.d.ts",
+      "import": "./locale/fy/index.js",
+      "require": "./locale/fy/index.cjs"
     },
     "./locale/fy.json": {
+      "types": "./locale/fy.json.d.ts",
       "import": "./locale/fy.json.js",
       "require": "./locale/fy.json"
     },
     "./locale/ga": {
-      "import": "./locale/ga.json.js",
-      "require": "./locale/ga.json"
+      "types": "./locale/ga.json.d.ts",
+      "import": "./locale/ga/index.js",
+      "require": "./locale/ga/index.cjs"
     },
     "./locale/ga.json": {
+      "types": "./locale/ga.json.d.ts",
       "import": "./locale/ga.json.js",
       "require": "./locale/ga.json"
     },
     "./locale/gd": {
-      "import": "./locale/gd.json.js",
-      "require": "./locale/gd.json"
+      "types": "./locale/gd.json.d.ts",
+      "import": "./locale/gd/index.js",
+      "require": "./locale/gd/index.cjs"
     },
     "./locale/gd.json": {
+      "types": "./locale/gd.json.d.ts",
       "import": "./locale/gd.json.js",
       "require": "./locale/gd.json"
     },
     "./locale/gl": {
-      "import": "./locale/gl.json.js",
-      "require": "./locale/gl.json"
+      "types": "./locale/gl.json.d.ts",
+      "import": "./locale/gl/index.js",
+      "require": "./locale/gl/index.cjs"
     },
     "./locale/gl.json": {
+      "types": "./locale/gl.json.d.ts",
       "import": "./locale/gl.json.js",
       "require": "./locale/gl.json"
     },
     "./locale/gu": {
-      "import": "./locale/gu.json.js",
-      "require": "./locale/gu.json"
+      "types": "./locale/gu.json.d.ts",
+      "import": "./locale/gu/index.js",
+      "require": "./locale/gu/index.cjs"
     },
     "./locale/gu.json": {
+      "types": "./locale/gu.json.d.ts",
       "import": "./locale/gu.json.js",
       "require": "./locale/gu.json"
     },
     "./locale/ha": {
-      "import": "./locale/ha.json.js",
-      "require": "./locale/ha.json"
+      "types": "./locale/ha.json.d.ts",
+      "import": "./locale/ha/index.js",
+      "require": "./locale/ha/index.cjs"
     },
     "./locale/ha.json": {
+      "types": "./locale/ha.json.d.ts",
       "import": "./locale/ha.json.js",
       "require": "./locale/ha.json"
     },
     "./locale/he": {
-      "import": "./locale/he.json.js",
-      "require": "./locale/he.json"
+      "types": "./locale/he.json.d.ts",
+      "import": "./locale/he/index.js",
+      "require": "./locale/he/index.cjs"
     },
     "./locale/he.json": {
+      "types": "./locale/he.json.d.ts",
       "import": "./locale/he.json.js",
       "require": "./locale/he.json"
     },
     "./locale/hi-Latn": {
-      "import": "./locale/hi-Latn.json.js",
-      "require": "./locale/hi-Latn.json"
+      "types": "./locale/hi-Latn.json.d.ts",
+      "import": "./locale/hi-Latn/index.js",
+      "require": "./locale/hi-Latn/index.cjs"
     },
     "./locale/hi-Latn.json": {
+      "types": "./locale/hi-Latn.json.d.ts",
       "import": "./locale/hi-Latn.json.js",
       "require": "./locale/hi-Latn.json"
     },
     "./locale/hi": {
-      "import": "./locale/hi.json.js",
-      "require": "./locale/hi.json"
+      "types": "./locale/hi.json.d.ts",
+      "import": "./locale/hi/index.js",
+      "require": "./locale/hi/index.cjs"
     },
     "./locale/hi.json": {
+      "types": "./locale/hi.json.d.ts",
       "import": "./locale/hi.json.js",
       "require": "./locale/hi.json"
     },
     "./locale/hr": {
-      "import": "./locale/hr.json.js",
-      "require": "./locale/hr.json"
+      "types": "./locale/hr.json.d.ts",
+      "import": "./locale/hr/index.js",
+      "require": "./locale/hr/index.cjs"
     },
     "./locale/hr.json": {
+      "types": "./locale/hr.json.d.ts",
       "import": "./locale/hr.json.js",
       "require": "./locale/hr.json"
     },
     "./locale/hsb": {
-      "import": "./locale/hsb.json.js",
-      "require": "./locale/hsb.json"
+      "types": "./locale/hsb.json.d.ts",
+      "import": "./locale/hsb/index.js",
+      "require": "./locale/hsb/index.cjs"
     },
     "./locale/hsb.json": {
+      "types": "./locale/hsb.json.d.ts",
       "import": "./locale/hsb.json.js",
       "require": "./locale/hsb.json"
     },
     "./locale/ht": {
-      "import": "./locale/ht.json.js",
-      "require": "./locale/ht.json"
+      "types": "./locale/ht.json.d.ts",
+      "import": "./locale/ht/index.js",
+      "require": "./locale/ht/index.cjs"
     },
     "./locale/ht.json": {
+      "types": "./locale/ht.json.d.ts",
       "import": "./locale/ht.json.js",
       "require": "./locale/ht.json"
     },
     "./locale/hu": {
-      "import": "./locale/hu.json.js",
-      "require": "./locale/hu.json"
+      "types": "./locale/hu.json.d.ts",
+      "import": "./locale/hu/index.js",
+      "require": "./locale/hu/index.cjs"
     },
     "./locale/hu.json": {
+      "types": "./locale/hu.json.d.ts",
       "import": "./locale/hu.json.js",
       "require": "./locale/hu.json"
     },
     "./locale/hy": {
-      "import": "./locale/hy.json.js",
-      "require": "./locale/hy.json"
+      "types": "./locale/hy.json.d.ts",
+      "import": "./locale/hy/index.js",
+      "require": "./locale/hy/index.cjs"
     },
     "./locale/hy.json": {
+      "types": "./locale/hy.json.d.ts",
       "import": "./locale/hy.json.js",
       "require": "./locale/hy.json"
     },
     "./locale/ia": {
-      "import": "./locale/ia.json.js",
-      "require": "./locale/ia.json"
+      "types": "./locale/ia.json.d.ts",
+      "import": "./locale/ia/index.js",
+      "require": "./locale/ia/index.cjs"
     },
     "./locale/ia.json": {
+      "types": "./locale/ia.json.d.ts",
       "import": "./locale/ia.json.js",
       "require": "./locale/ia.json"
     },
     "./locale/id": {
-      "import": "./locale/id.json.js",
-      "require": "./locale/id.json"
+      "types": "./locale/id.json.d.ts",
+      "import": "./locale/id/index.js",
+      "require": "./locale/id/index.cjs"
     },
     "./locale/id.json": {
+      "types": "./locale/id.json.d.ts",
       "import": "./locale/id.json.js",
       "require": "./locale/id.json"
     },
     "./locale/ie": {
-      "import": "./locale/ie.json.js",
-      "require": "./locale/ie.json"
+      "types": "./locale/ie.json.d.ts",
+      "import": "./locale/ie/index.js",
+      "require": "./locale/ie/index.cjs"
     },
     "./locale/ie.json": {
+      "types": "./locale/ie.json.d.ts",
       "import": "./locale/ie.json.js",
       "require": "./locale/ie.json"
     },
     "./locale/ig": {
-      "import": "./locale/ig.json.js",
-      "require": "./locale/ig.json"
+      "types": "./locale/ig.json.d.ts",
+      "import": "./locale/ig/index.js",
+      "require": "./locale/ig/index.cjs"
     },
     "./locale/ig.json": {
+      "types": "./locale/ig.json.d.ts",
       "import": "./locale/ig.json.js",
       "require": "./locale/ig.json"
     },
     "./locale/ii": {
-      "import": "./locale/ii.json.js",
-      "require": "./locale/ii.json"
+      "types": "./locale/ii.json.d.ts",
+      "import": "./locale/ii/index.js",
+      "require": "./locale/ii/index.cjs"
     },
     "./locale/ii.json": {
+      "types": "./locale/ii.json.d.ts",
       "import": "./locale/ii.json.js",
       "require": "./locale/ii.json"
     },
     "./locale/is": {
-      "import": "./locale/is.json.js",
-      "require": "./locale/is.json"
+      "types": "./locale/is.json.d.ts",
+      "import": "./locale/is/index.js",
+      "require": "./locale/is/index.cjs"
     },
     "./locale/is.json": {
+      "types": "./locale/is.json.d.ts",
       "import": "./locale/is.json.js",
       "require": "./locale/is.json"
     },
     "./locale/it": {
-      "import": "./locale/it.json.js",
-      "require": "./locale/it.json"
+      "types": "./locale/it.json.d.ts",
+      "import": "./locale/it/index.js",
+      "require": "./locale/it/index.cjs"
     },
     "./locale/it.json": {
+      "types": "./locale/it.json.d.ts",
       "import": "./locale/it.json.js",
       "require": "./locale/it.json"
     },
     "./locale/ja": {
-      "import": "./locale/ja.json.js",
-      "require": "./locale/ja.json"
+      "types": "./locale/ja.json.d.ts",
+      "import": "./locale/ja/index.js",
+      "require": "./locale/ja/index.cjs"
     },
     "./locale/ja.json": {
+      "types": "./locale/ja.json.d.ts",
       "import": "./locale/ja.json.js",
       "require": "./locale/ja.json"
     },
     "./locale/jgo": {
-      "import": "./locale/jgo.json.js",
-      "require": "./locale/jgo.json"
+      "types": "./locale/jgo.json.d.ts",
+      "import": "./locale/jgo/index.js",
+      "require": "./locale/jgo/index.cjs"
     },
     "./locale/jgo.json": {
+      "types": "./locale/jgo.json.d.ts",
       "import": "./locale/jgo.json.js",
       "require": "./locale/jgo.json"
     },
     "./locale/jv": {
-      "import": "./locale/jv.json.js",
-      "require": "./locale/jv.json"
+      "types": "./locale/jv.json.d.ts",
+      "import": "./locale/jv/index.js",
+      "require": "./locale/jv/index.cjs"
     },
     "./locale/jv.json": {
+      "types": "./locale/jv.json.d.ts",
       "import": "./locale/jv.json.js",
       "require": "./locale/jv.json"
     },
     "./locale/ka": {
-      "import": "./locale/ka.json.js",
-      "require": "./locale/ka.json"
+      "types": "./locale/ka.json.d.ts",
+      "import": "./locale/ka/index.js",
+      "require": "./locale/ka/index.cjs"
     },
     "./locale/ka.json": {
+      "types": "./locale/ka.json.d.ts",
       "import": "./locale/ka.json.js",
       "require": "./locale/ka.json"
     },
     "./locale/kaa": {
-      "import": "./locale/kaa.json.js",
-      "require": "./locale/kaa.json"
+      "types": "./locale/kaa.json.d.ts",
+      "import": "./locale/kaa/index.js",
+      "require": "./locale/kaa/index.cjs"
     },
     "./locale/kaa.json": {
+      "types": "./locale/kaa.json.d.ts",
       "import": "./locale/kaa.json.js",
       "require": "./locale/kaa.json"
     },
     "./locale/kea": {
-      "import": "./locale/kea.json.js",
-      "require": "./locale/kea.json"
+      "types": "./locale/kea.json.d.ts",
+      "import": "./locale/kea/index.js",
+      "require": "./locale/kea/index.cjs"
     },
     "./locale/kea.json": {
+      "types": "./locale/kea.json.d.ts",
       "import": "./locale/kea.json.js",
       "require": "./locale/kea.json"
     },
     "./locale/kgp": {
-      "import": "./locale/kgp.json.js",
-      "require": "./locale/kgp.json"
+      "types": "./locale/kgp.json.d.ts",
+      "import": "./locale/kgp/index.js",
+      "require": "./locale/kgp/index.cjs"
     },
     "./locale/kgp.json": {
+      "types": "./locale/kgp.json.d.ts",
       "import": "./locale/kgp.json.js",
       "require": "./locale/kgp.json"
     },
     "./locale/kk-Arab": {
-      "import": "./locale/kk-Arab.json.js",
-      "require": "./locale/kk-Arab.json"
+      "types": "./locale/kk-Arab.json.d.ts",
+      "import": "./locale/kk-Arab/index.js",
+      "require": "./locale/kk-Arab/index.cjs"
     },
     "./locale/kk-Arab.json": {
+      "types": "./locale/kk-Arab.json.d.ts",
       "import": "./locale/kk-Arab.json.js",
       "require": "./locale/kk-Arab.json"
     },
     "./locale/kk": {
-      "import": "./locale/kk.json.js",
-      "require": "./locale/kk.json"
+      "types": "./locale/kk.json.d.ts",
+      "import": "./locale/kk/index.js",
+      "require": "./locale/kk/index.cjs"
     },
     "./locale/kk.json": {
+      "types": "./locale/kk.json.d.ts",
       "import": "./locale/kk.json.js",
       "require": "./locale/kk.json"
     },
     "./locale/kl": {
-      "import": "./locale/kl.json.js",
-      "require": "./locale/kl.json"
+      "types": "./locale/kl.json.d.ts",
+      "import": "./locale/kl/index.js",
+      "require": "./locale/kl/index.cjs"
     },
     "./locale/kl.json": {
+      "types": "./locale/kl.json.d.ts",
       "import": "./locale/kl.json.js",
       "require": "./locale/kl.json"
     },
     "./locale/km": {
-      "import": "./locale/km.json.js",
-      "require": "./locale/km.json"
+      "types": "./locale/km.json.d.ts",
+      "import": "./locale/km/index.js",
+      "require": "./locale/km/index.cjs"
     },
     "./locale/km.json": {
+      "types": "./locale/km.json.d.ts",
       "import": "./locale/km.json.js",
       "require": "./locale/km.json"
     },
     "./locale/kn": {
-      "import": "./locale/kn.json.js",
-      "require": "./locale/kn.json"
+      "types": "./locale/kn.json.d.ts",
+      "import": "./locale/kn/index.js",
+      "require": "./locale/kn/index.cjs"
     },
     "./locale/kn.json": {
+      "types": "./locale/kn.json.d.ts",
       "import": "./locale/kn.json.js",
       "require": "./locale/kn.json"
     },
     "./locale/ko": {
-      "import": "./locale/ko.json.js",
-      "require": "./locale/ko.json"
+      "types": "./locale/ko.json.d.ts",
+      "import": "./locale/ko/index.js",
+      "require": "./locale/ko/index.cjs"
     },
     "./locale/ko.json": {
+      "types": "./locale/ko.json.d.ts",
       "import": "./locale/ko.json.js",
       "require": "./locale/ko.json"
     },
     "./locale/kok-Latn": {
-      "import": "./locale/kok-Latn.json.js",
-      "require": "./locale/kok-Latn.json"
+      "types": "./locale/kok-Latn.json.d.ts",
+      "import": "./locale/kok-Latn/index.js",
+      "require": "./locale/kok-Latn/index.cjs"
     },
     "./locale/kok-Latn.json": {
+      "types": "./locale/kok-Latn.json.d.ts",
       "import": "./locale/kok-Latn.json.js",
       "require": "./locale/kok-Latn.json"
     },
     "./locale/kok": {
-      "import": "./locale/kok.json.js",
-      "require": "./locale/kok.json"
+      "types": "./locale/kok.json.d.ts",
+      "import": "./locale/kok/index.js",
+      "require": "./locale/kok/index.cjs"
     },
     "./locale/kok.json": {
+      "types": "./locale/kok.json.d.ts",
       "import": "./locale/kok.json.js",
       "require": "./locale/kok.json"
     },
     "./locale/ks": {
-      "import": "./locale/ks.json.js",
-      "require": "./locale/ks.json"
+      "types": "./locale/ks.json.d.ts",
+      "import": "./locale/ks/index.js",
+      "require": "./locale/ks/index.cjs"
     },
     "./locale/ks.json": {
+      "types": "./locale/ks.json.d.ts",
       "import": "./locale/ks.json.js",
       "require": "./locale/ks.json"
     },
     "./locale/ksh": {
-      "import": "./locale/ksh.json.js",
-      "require": "./locale/ksh.json"
+      "types": "./locale/ksh.json.d.ts",
+      "import": "./locale/ksh/index.js",
+      "require": "./locale/ksh/index.cjs"
     },
     "./locale/ksh.json": {
+      "types": "./locale/ksh.json.d.ts",
       "import": "./locale/ksh.json.js",
       "require": "./locale/ksh.json"
     },
     "./locale/ku": {
-      "import": "./locale/ku.json.js",
-      "require": "./locale/ku.json"
+      "types": "./locale/ku.json.d.ts",
+      "import": "./locale/ku/index.js",
+      "require": "./locale/ku/index.cjs"
     },
     "./locale/ku.json": {
+      "types": "./locale/ku.json.d.ts",
       "import": "./locale/ku.json.js",
       "require": "./locale/ku.json"
     },
     "./locale/ky": {
-      "import": "./locale/ky.json.js",
-      "require": "./locale/ky.json"
+      "types": "./locale/ky.json.d.ts",
+      "import": "./locale/ky/index.js",
+      "require": "./locale/ky/index.cjs"
     },
     "./locale/ky.json": {
+      "types": "./locale/ky.json.d.ts",
       "import": "./locale/ky.json.js",
       "require": "./locale/ky.json"
     },
     "./locale/lb": {
-      "import": "./locale/lb.json.js",
-      "require": "./locale/lb.json"
+      "types": "./locale/lb.json.d.ts",
+      "import": "./locale/lb/index.js",
+      "require": "./locale/lb/index.cjs"
     },
     "./locale/lb.json": {
+      "types": "./locale/lb.json.d.ts",
       "import": "./locale/lb.json.js",
       "require": "./locale/lb.json"
     },
     "./locale/lkt": {
-      "import": "./locale/lkt.json.js",
-      "require": "./locale/lkt.json"
+      "types": "./locale/lkt.json.d.ts",
+      "import": "./locale/lkt/index.js",
+      "require": "./locale/lkt/index.cjs"
     },
     "./locale/lkt.json": {
+      "types": "./locale/lkt.json.d.ts",
       "import": "./locale/lkt.json.js",
       "require": "./locale/lkt.json"
     },
     "./locale/lld": {
-      "import": "./locale/lld.json.js",
-      "require": "./locale/lld.json"
+      "types": "./locale/lld.json.d.ts",
+      "import": "./locale/lld/index.js",
+      "require": "./locale/lld/index.cjs"
     },
     "./locale/lld.json": {
+      "types": "./locale/lld.json.d.ts",
       "import": "./locale/lld.json.js",
       "require": "./locale/lld.json"
     },
     "./locale/lo": {
-      "import": "./locale/lo.json.js",
-      "require": "./locale/lo.json"
+      "types": "./locale/lo.json.d.ts",
+      "import": "./locale/lo/index.js",
+      "require": "./locale/lo/index.cjs"
     },
     "./locale/lo.json": {
+      "types": "./locale/lo.json.d.ts",
       "import": "./locale/lo.json.js",
       "require": "./locale/lo.json"
     },
     "./locale/lt": {
-      "import": "./locale/lt.json.js",
-      "require": "./locale/lt.json"
+      "types": "./locale/lt.json.d.ts",
+      "import": "./locale/lt/index.js",
+      "require": "./locale/lt/index.cjs"
     },
     "./locale/lt.json": {
+      "types": "./locale/lt.json.d.ts",
       "import": "./locale/lt.json.js",
       "require": "./locale/lt.json"
     },
     "./locale/lv": {
-      "import": "./locale/lv.json.js",
-      "require": "./locale/lv.json"
+      "types": "./locale/lv.json.d.ts",
+      "import": "./locale/lv/index.js",
+      "require": "./locale/lv/index.cjs"
     },
     "./locale/lv.json": {
+      "types": "./locale/lv.json.d.ts",
       "import": "./locale/lv.json.js",
       "require": "./locale/lv.json"
     },
     "./locale/mai": {
-      "import": "./locale/mai.json.js",
-      "require": "./locale/mai.json"
+      "types": "./locale/mai.json.d.ts",
+      "import": "./locale/mai/index.js",
+      "require": "./locale/mai/index.cjs"
     },
     "./locale/mai.json": {
+      "types": "./locale/mai.json.d.ts",
       "import": "./locale/mai.json.js",
       "require": "./locale/mai.json"
     },
     "./locale/mi": {
-      "import": "./locale/mi.json.js",
-      "require": "./locale/mi.json"
+      "types": "./locale/mi.json.d.ts",
+      "import": "./locale/mi/index.js",
+      "require": "./locale/mi/index.cjs"
     },
     "./locale/mi.json": {
+      "types": "./locale/mi.json.d.ts",
       "import": "./locale/mi.json.js",
       "require": "./locale/mi.json"
     },
     "./locale/mk": {
-      "import": "./locale/mk.json.js",
-      "require": "./locale/mk.json"
+      "types": "./locale/mk.json.d.ts",
+      "import": "./locale/mk/index.js",
+      "require": "./locale/mk/index.cjs"
     },
     "./locale/mk.json": {
+      "types": "./locale/mk.json.d.ts",
       "import": "./locale/mk.json.js",
       "require": "./locale/mk.json"
     },
     "./locale/ml": {
-      "import": "./locale/ml.json.js",
-      "require": "./locale/ml.json"
+      "types": "./locale/ml.json.d.ts",
+      "import": "./locale/ml/index.js",
+      "require": "./locale/ml/index.cjs"
     },
     "./locale/ml.json": {
+      "types": "./locale/ml.json.d.ts",
       "import": "./locale/ml.json.js",
       "require": "./locale/ml.json"
     },
     "./locale/mn": {
-      "import": "./locale/mn.json.js",
-      "require": "./locale/mn.json"
+      "types": "./locale/mn.json.d.ts",
+      "import": "./locale/mn/index.js",
+      "require": "./locale/mn/index.cjs"
     },
     "./locale/mn.json": {
+      "types": "./locale/mn.json.d.ts",
       "import": "./locale/mn.json.js",
       "require": "./locale/mn.json"
     },
     "./locale/mni": {
-      "import": "./locale/mni.json.js",
-      "require": "./locale/mni.json"
+      "types": "./locale/mni.json.d.ts",
+      "import": "./locale/mni/index.js",
+      "require": "./locale/mni/index.cjs"
     },
     "./locale/mni.json": {
+      "types": "./locale/mni.json.d.ts",
       "import": "./locale/mni.json.js",
       "require": "./locale/mni.json"
     },
     "./locale/mr": {
-      "import": "./locale/mr.json.js",
-      "require": "./locale/mr.json"
+      "types": "./locale/mr.json.d.ts",
+      "import": "./locale/mr/index.js",
+      "require": "./locale/mr/index.cjs"
     },
     "./locale/mr.json": {
+      "types": "./locale/mr.json.d.ts",
       "import": "./locale/mr.json.js",
       "require": "./locale/mr.json"
     },
     "./locale/ms-Arab": {
-      "import": "./locale/ms-Arab.json.js",
-      "require": "./locale/ms-Arab.json"
+      "types": "./locale/ms-Arab.json.d.ts",
+      "import": "./locale/ms-Arab/index.js",
+      "require": "./locale/ms-Arab/index.cjs"
     },
     "./locale/ms-Arab.json": {
+      "types": "./locale/ms-Arab.json.d.ts",
       "import": "./locale/ms-Arab.json.js",
       "require": "./locale/ms-Arab.json"
     },
     "./locale/ms": {
-      "import": "./locale/ms.json.js",
-      "require": "./locale/ms.json"
+      "types": "./locale/ms.json.d.ts",
+      "import": "./locale/ms/index.js",
+      "require": "./locale/ms/index.cjs"
     },
     "./locale/ms.json": {
+      "types": "./locale/ms.json.d.ts",
       "import": "./locale/ms.json.js",
       "require": "./locale/ms.json"
     },
     "./locale/mt": {
-      "import": "./locale/mt.json.js",
-      "require": "./locale/mt.json"
+      "types": "./locale/mt.json.d.ts",
+      "import": "./locale/mt/index.js",
+      "require": "./locale/mt/index.cjs"
     },
     "./locale/mt.json": {
+      "types": "./locale/mt.json.d.ts",
       "import": "./locale/mt.json.js",
       "require": "./locale/mt.json"
     },
     "./locale/my": {
-      "import": "./locale/my.json.js",
-      "require": "./locale/my.json"
+      "types": "./locale/my.json.d.ts",
+      "import": "./locale/my/index.js",
+      "require": "./locale/my/index.cjs"
     },
     "./locale/my.json": {
+      "types": "./locale/my.json.d.ts",
       "import": "./locale/my.json.js",
       "require": "./locale/my.json"
     },
     "./locale/mzn": {
-      "import": "./locale/mzn.json.js",
-      "require": "./locale/mzn.json"
+      "types": "./locale/mzn.json.d.ts",
+      "import": "./locale/mzn/index.js",
+      "require": "./locale/mzn/index.cjs"
     },
     "./locale/mzn.json": {
+      "types": "./locale/mzn.json.d.ts",
       "import": "./locale/mzn.json.js",
       "require": "./locale/mzn.json"
     },
     "./locale/nb": {
-      "import": "./locale/nb.json.js",
-      "require": "./locale/nb.json"
+      "types": "./locale/nb.json.d.ts",
+      "import": "./locale/nb/index.js",
+      "require": "./locale/nb/index.cjs"
     },
     "./locale/nb.json": {
+      "types": "./locale/nb.json.d.ts",
       "import": "./locale/nb.json.js",
       "require": "./locale/nb.json"
     },
     "./locale/ne": {
-      "import": "./locale/ne.json.js",
-      "require": "./locale/ne.json"
+      "types": "./locale/ne.json.d.ts",
+      "import": "./locale/ne/index.js",
+      "require": "./locale/ne/index.cjs"
     },
     "./locale/ne.json": {
+      "types": "./locale/ne.json.d.ts",
       "import": "./locale/ne.json.js",
       "require": "./locale/ne.json"
     },
     "./locale/nl": {
-      "import": "./locale/nl.json.js",
-      "require": "./locale/nl.json"
+      "types": "./locale/nl.json.d.ts",
+      "import": "./locale/nl/index.js",
+      "require": "./locale/nl/index.cjs"
     },
     "./locale/nl.json": {
+      "types": "./locale/nl.json.d.ts",
       "import": "./locale/nl.json.js",
       "require": "./locale/nl.json"
     },
     "./locale/nn": {
-      "import": "./locale/nn.json.js",
-      "require": "./locale/nn.json"
+      "types": "./locale/nn.json.d.ts",
+      "import": "./locale/nn/index.js",
+      "require": "./locale/nn/index.cjs"
     },
     "./locale/nn.json": {
+      "types": "./locale/nn.json.d.ts",
       "import": "./locale/nn.json.js",
       "require": "./locale/nn.json"
     },
     "./locale/no": {
-      "import": "./locale/no.json.js",
-      "require": "./locale/no.json"
+      "types": "./locale/no.json.d.ts",
+      "import": "./locale/no/index.js",
+      "require": "./locale/no/index.cjs"
     },
     "./locale/no.json": {
+      "types": "./locale/no.json.d.ts",
       "import": "./locale/no.json.js",
       "require": "./locale/no.json"
     },
     "./locale/nqo": {
-      "import": "./locale/nqo.json.js",
-      "require": "./locale/nqo.json"
+      "types": "./locale/nqo.json.d.ts",
+      "import": "./locale/nqo/index.js",
+      "require": "./locale/nqo/index.cjs"
     },
     "./locale/nqo.json": {
+      "types": "./locale/nqo.json.d.ts",
       "import": "./locale/nqo.json.js",
       "require": "./locale/nqo.json"
     },
     "./locale/nso": {
-      "import": "./locale/nso.json.js",
-      "require": "./locale/nso.json"
+      "types": "./locale/nso.json.d.ts",
+      "import": "./locale/nso/index.js",
+      "require": "./locale/nso/index.cjs"
     },
     "./locale/nso.json": {
+      "types": "./locale/nso.json.d.ts",
       "import": "./locale/nso.json.js",
       "require": "./locale/nso.json"
     },
     "./locale/om": {
-      "import": "./locale/om.json.js",
-      "require": "./locale/om.json"
+      "types": "./locale/om.json.d.ts",
+      "import": "./locale/om/index.js",
+      "require": "./locale/om/index.cjs"
     },
     "./locale/om.json": {
+      "types": "./locale/om.json.d.ts",
       "import": "./locale/om.json.js",
       "require": "./locale/om.json"
     },
     "./locale/or": {
-      "import": "./locale/or.json.js",
-      "require": "./locale/or.json"
+      "types": "./locale/or.json.d.ts",
+      "import": "./locale/or/index.js",
+      "require": "./locale/or/index.cjs"
     },
     "./locale/or.json": {
+      "types": "./locale/or.json.d.ts",
       "import": "./locale/or.json.js",
       "require": "./locale/or.json"
     },
     "./locale/pa": {
-      "import": "./locale/pa.json.js",
-      "require": "./locale/pa.json"
+      "types": "./locale/pa.json.d.ts",
+      "import": "./locale/pa/index.js",
+      "require": "./locale/pa/index.cjs"
     },
     "./locale/pa.json": {
+      "types": "./locale/pa.json.d.ts",
       "import": "./locale/pa.json.js",
       "require": "./locale/pa.json"
     },
     "./locale/pcm": {
-      "import": "./locale/pcm.json.js",
-      "require": "./locale/pcm.json"
+      "types": "./locale/pcm.json.d.ts",
+      "import": "./locale/pcm/index.js",
+      "require": "./locale/pcm/index.cjs"
     },
     "./locale/pcm.json": {
+      "types": "./locale/pcm.json.d.ts",
       "import": "./locale/pcm.json.js",
       "require": "./locale/pcm.json"
     },
     "./locale/pl": {
-      "import": "./locale/pl.json.js",
-      "require": "./locale/pl.json"
+      "types": "./locale/pl.json.d.ts",
+      "import": "./locale/pl/index.js",
+      "require": "./locale/pl/index.cjs"
     },
     "./locale/pl.json": {
+      "types": "./locale/pl.json.d.ts",
       "import": "./locale/pl.json.js",
       "require": "./locale/pl.json"
     },
     "./locale/ps-PK": {
-      "import": "./locale/ps-PK.json.js",
-      "require": "./locale/ps-PK.json"
+      "types": "./locale/ps-PK.json.d.ts",
+      "import": "./locale/ps-PK/index.js",
+      "require": "./locale/ps-PK/index.cjs"
     },
     "./locale/ps-PK.json": {
+      "types": "./locale/ps-PK.json.d.ts",
       "import": "./locale/ps-PK.json.js",
       "require": "./locale/ps-PK.json"
     },
     "./locale/ps": {
-      "import": "./locale/ps.json.js",
-      "require": "./locale/ps.json"
+      "types": "./locale/ps.json.d.ts",
+      "import": "./locale/ps/index.js",
+      "require": "./locale/ps/index.cjs"
     },
     "./locale/ps.json": {
+      "types": "./locale/ps.json.d.ts",
       "import": "./locale/ps.json.js",
       "require": "./locale/ps.json"
     },
     "./locale/pt-AO": {
-      "import": "./locale/pt-AO.json.js",
-      "require": "./locale/pt-AO.json"
+      "types": "./locale/pt-AO.json.d.ts",
+      "import": "./locale/pt-AO/index.js",
+      "require": "./locale/pt-AO/index.cjs"
     },
     "./locale/pt-AO.json": {
+      "types": "./locale/pt-AO.json.d.ts",
       "import": "./locale/pt-AO.json.js",
       "require": "./locale/pt-AO.json"
     },
     "./locale/pt-CH": {
-      "import": "./locale/pt-CH.json.js",
-      "require": "./locale/pt-CH.json"
+      "types": "./locale/pt-CH.json.d.ts",
+      "import": "./locale/pt-CH/index.js",
+      "require": "./locale/pt-CH/index.cjs"
     },
     "./locale/pt-CH.json": {
+      "types": "./locale/pt-CH.json.d.ts",
       "import": "./locale/pt-CH.json.js",
       "require": "./locale/pt-CH.json"
     },
     "./locale/pt-CV": {
-      "import": "./locale/pt-CV.json.js",
-      "require": "./locale/pt-CV.json"
+      "types": "./locale/pt-CV.json.d.ts",
+      "import": "./locale/pt-CV/index.js",
+      "require": "./locale/pt-CV/index.cjs"
     },
     "./locale/pt-CV.json": {
+      "types": "./locale/pt-CV.json.d.ts",
       "import": "./locale/pt-CV.json.js",
       "require": "./locale/pt-CV.json"
     },
     "./locale/pt-GQ": {
-      "import": "./locale/pt-GQ.json.js",
-      "require": "./locale/pt-GQ.json"
+      "types": "./locale/pt-GQ.json.d.ts",
+      "import": "./locale/pt-GQ/index.js",
+      "require": "./locale/pt-GQ/index.cjs"
     },
     "./locale/pt-GQ.json": {
+      "types": "./locale/pt-GQ.json.d.ts",
       "import": "./locale/pt-GQ.json.js",
       "require": "./locale/pt-GQ.json"
     },
     "./locale/pt-GW": {
-      "import": "./locale/pt-GW.json.js",
-      "require": "./locale/pt-GW.json"
+      "types": "./locale/pt-GW.json.d.ts",
+      "import": "./locale/pt-GW/index.js",
+      "require": "./locale/pt-GW/index.cjs"
     },
     "./locale/pt-GW.json": {
+      "types": "./locale/pt-GW.json.d.ts",
       "import": "./locale/pt-GW.json.js",
       "require": "./locale/pt-GW.json"
     },
     "./locale/pt-LU": {
-      "import": "./locale/pt-LU.json.js",
-      "require": "./locale/pt-LU.json"
+      "types": "./locale/pt-LU.json.d.ts",
+      "import": "./locale/pt-LU/index.js",
+      "require": "./locale/pt-LU/index.cjs"
     },
     "./locale/pt-LU.json": {
+      "types": "./locale/pt-LU.json.d.ts",
       "import": "./locale/pt-LU.json.js",
       "require": "./locale/pt-LU.json"
     },
     "./locale/pt-MO": {
-      "import": "./locale/pt-MO.json.js",
-      "require": "./locale/pt-MO.json"
+      "types": "./locale/pt-MO.json.d.ts",
+      "import": "./locale/pt-MO/index.js",
+      "require": "./locale/pt-MO/index.cjs"
     },
     "./locale/pt-MO.json": {
+      "types": "./locale/pt-MO.json.d.ts",
       "import": "./locale/pt-MO.json.js",
       "require": "./locale/pt-MO.json"
     },
     "./locale/pt-MZ": {
-      "import": "./locale/pt-MZ.json.js",
-      "require": "./locale/pt-MZ.json"
+      "types": "./locale/pt-MZ.json.d.ts",
+      "import": "./locale/pt-MZ/index.js",
+      "require": "./locale/pt-MZ/index.cjs"
     },
     "./locale/pt-MZ.json": {
+      "types": "./locale/pt-MZ.json.d.ts",
       "import": "./locale/pt-MZ.json.js",
       "require": "./locale/pt-MZ.json"
     },
     "./locale/pt-PT": {
-      "import": "./locale/pt-PT.json.js",
-      "require": "./locale/pt-PT.json"
+      "types": "./locale/pt-PT.json.d.ts",
+      "import": "./locale/pt-PT/index.js",
+      "require": "./locale/pt-PT/index.cjs"
     },
     "./locale/pt-PT.json": {
+      "types": "./locale/pt-PT.json.d.ts",
       "import": "./locale/pt-PT.json.js",
       "require": "./locale/pt-PT.json"
     },
     "./locale/pt-ST": {
-      "import": "./locale/pt-ST.json.js",
-      "require": "./locale/pt-ST.json"
+      "types": "./locale/pt-ST.json.d.ts",
+      "import": "./locale/pt-ST/index.js",
+      "require": "./locale/pt-ST/index.cjs"
     },
     "./locale/pt-ST.json": {
+      "types": "./locale/pt-ST.json.d.ts",
       "import": "./locale/pt-ST.json.js",
       "require": "./locale/pt-ST.json"
     },
     "./locale/pt-TL": {
-      "import": "./locale/pt-TL.json.js",
-      "require": "./locale/pt-TL.json"
+      "types": "./locale/pt-TL.json.d.ts",
+      "import": "./locale/pt-TL/index.js",
+      "require": "./locale/pt-TL/index.cjs"
     },
     "./locale/pt-TL.json": {
+      "types": "./locale/pt-TL.json.d.ts",
       "import": "./locale/pt-TL.json.js",
       "require": "./locale/pt-TL.json"
     },
     "./locale/pt": {
-      "import": "./locale/pt.json.js",
-      "require": "./locale/pt.json"
+      "types": "./locale/pt.json.d.ts",
+      "import": "./locale/pt/index.js",
+      "require": "./locale/pt/index.cjs"
     },
     "./locale/pt.json": {
+      "types": "./locale/pt.json.d.ts",
       "import": "./locale/pt.json.js",
       "require": "./locale/pt.json"
     },
     "./locale/qu": {
-      "import": "./locale/qu.json.js",
-      "require": "./locale/qu.json"
+      "types": "./locale/qu.json.d.ts",
+      "import": "./locale/qu/index.js",
+      "require": "./locale/qu/index.cjs"
     },
     "./locale/qu.json": {
+      "types": "./locale/qu.json.d.ts",
       "import": "./locale/qu.json.js",
       "require": "./locale/qu.json"
     },
     "./locale/raj": {
-      "import": "./locale/raj.json.js",
-      "require": "./locale/raj.json"
+      "types": "./locale/raj.json.d.ts",
+      "import": "./locale/raj/index.js",
+      "require": "./locale/raj/index.cjs"
     },
     "./locale/raj.json": {
+      "types": "./locale/raj.json.d.ts",
       "import": "./locale/raj.json.js",
       "require": "./locale/raj.json"
     },
     "./locale/rhg": {
-      "import": "./locale/rhg.json.js",
-      "require": "./locale/rhg.json"
+      "types": "./locale/rhg.json.d.ts",
+      "import": "./locale/rhg/index.js",
+      "require": "./locale/rhg/index.cjs"
     },
     "./locale/rhg.json": {
+      "types": "./locale/rhg.json.d.ts",
       "import": "./locale/rhg.json.js",
       "require": "./locale/rhg.json"
     },
     "./locale/rm": {
-      "import": "./locale/rm.json.js",
-      "require": "./locale/rm.json"
+      "types": "./locale/rm.json.d.ts",
+      "import": "./locale/rm/index.js",
+      "require": "./locale/rm/index.cjs"
     },
     "./locale/rm.json": {
+      "types": "./locale/rm.json.d.ts",
       "import": "./locale/rm.json.js",
       "require": "./locale/rm.json"
     },
     "./locale/ro": {
-      "import": "./locale/ro.json.js",
-      "require": "./locale/ro.json"
+      "types": "./locale/ro.json.d.ts",
+      "import": "./locale/ro/index.js",
+      "require": "./locale/ro/index.cjs"
     },
     "./locale/ro.json": {
+      "types": "./locale/ro.json.d.ts",
       "import": "./locale/ro.json.js",
       "require": "./locale/ro.json"
     },
     "./locale/ru": {
-      "import": "./locale/ru.json.js",
-      "require": "./locale/ru.json"
+      "types": "./locale/ru.json.d.ts",
+      "import": "./locale/ru/index.js",
+      "require": "./locale/ru/index.cjs"
     },
     "./locale/ru.json": {
+      "types": "./locale/ru.json.d.ts",
       "import": "./locale/ru.json.js",
       "require": "./locale/ru.json"
     },
     "./locale/rw": {
-      "import": "./locale/rw.json.js",
-      "require": "./locale/rw.json"
+      "types": "./locale/rw.json.d.ts",
+      "import": "./locale/rw/index.js",
+      "require": "./locale/rw/index.cjs"
     },
     "./locale/rw.json": {
+      "types": "./locale/rw.json.d.ts",
       "import": "./locale/rw.json.js",
       "require": "./locale/rw.json"
     },
     "./locale/sah": {
-      "import": "./locale/sah.json.js",
-      "require": "./locale/sah.json"
+      "types": "./locale/sah.json.d.ts",
+      "import": "./locale/sah/index.js",
+      "require": "./locale/sah/index.cjs"
     },
     "./locale/sah.json": {
+      "types": "./locale/sah.json.d.ts",
       "import": "./locale/sah.json.js",
       "require": "./locale/sah.json"
     },
     "./locale/sc": {
-      "import": "./locale/sc.json.js",
-      "require": "./locale/sc.json"
+      "types": "./locale/sc.json.d.ts",
+      "import": "./locale/sc/index.js",
+      "require": "./locale/sc/index.cjs"
     },
     "./locale/sc.json": {
+      "types": "./locale/sc.json.d.ts",
       "import": "./locale/sc.json.js",
       "require": "./locale/sc.json"
     },
     "./locale/scn": {
-      "import": "./locale/scn.json.js",
-      "require": "./locale/scn.json"
+      "types": "./locale/scn.json.d.ts",
+      "import": "./locale/scn/index.js",
+      "require": "./locale/scn/index.cjs"
     },
     "./locale/scn.json": {
+      "types": "./locale/scn.json.d.ts",
       "import": "./locale/scn.json.js",
       "require": "./locale/scn.json"
     },
     "./locale/sd-Deva": {
-      "import": "./locale/sd-Deva.json.js",
-      "require": "./locale/sd-Deva.json"
+      "types": "./locale/sd-Deva.json.d.ts",
+      "import": "./locale/sd-Deva/index.js",
+      "require": "./locale/sd-Deva/index.cjs"
     },
     "./locale/sd-Deva.json": {
+      "types": "./locale/sd-Deva.json.d.ts",
       "import": "./locale/sd-Deva.json.js",
       "require": "./locale/sd-Deva.json"
     },
     "./locale/sd": {
-      "import": "./locale/sd.json.js",
-      "require": "./locale/sd.json"
+      "types": "./locale/sd.json.d.ts",
+      "import": "./locale/sd/index.js",
+      "require": "./locale/sd/index.cjs"
     },
     "./locale/sd.json": {
+      "types": "./locale/sd.json.d.ts",
       "import": "./locale/sd.json.js",
       "require": "./locale/sd.json"
     },
     "./locale/se-FI": {
-      "import": "./locale/se-FI.json.js",
-      "require": "./locale/se-FI.json"
+      "types": "./locale/se-FI.json.d.ts",
+      "import": "./locale/se-FI/index.js",
+      "require": "./locale/se-FI/index.cjs"
     },
     "./locale/se-FI.json": {
+      "types": "./locale/se-FI.json.d.ts",
       "import": "./locale/se-FI.json.js",
       "require": "./locale/se-FI.json"
     },
     "./locale/se": {
-      "import": "./locale/se.json.js",
-      "require": "./locale/se.json"
+      "types": "./locale/se.json.d.ts",
+      "import": "./locale/se/index.js",
+      "require": "./locale/se/index.cjs"
     },
     "./locale/se.json": {
+      "types": "./locale/se.json.d.ts",
       "import": "./locale/se.json.js",
       "require": "./locale/se.json"
     },
     "./locale/shn": {
-      "import": "./locale/shn.json.js",
-      "require": "./locale/shn.json"
+      "types": "./locale/shn.json.d.ts",
+      "import": "./locale/shn/index.js",
+      "require": "./locale/shn/index.cjs"
     },
     "./locale/shn.json": {
+      "types": "./locale/shn.json.d.ts",
       "import": "./locale/shn.json.js",
       "require": "./locale/shn.json"
     },
     "./locale/si": {
-      "import": "./locale/si.json.js",
-      "require": "./locale/si.json"
+      "types": "./locale/si.json.d.ts",
+      "import": "./locale/si/index.js",
+      "require": "./locale/si/index.cjs"
     },
     "./locale/si.json": {
+      "types": "./locale/si.json.d.ts",
       "import": "./locale/si.json.js",
       "require": "./locale/si.json"
     },
     "./locale/sk": {
-      "import": "./locale/sk.json.js",
-      "require": "./locale/sk.json"
+      "types": "./locale/sk.json.d.ts",
+      "import": "./locale/sk/index.js",
+      "require": "./locale/sk/index.cjs"
     },
     "./locale/sk.json": {
+      "types": "./locale/sk.json.d.ts",
       "import": "./locale/sk.json.js",
       "require": "./locale/sk.json"
     },
     "./locale/sl": {
-      "import": "./locale/sl.json.js",
-      "require": "./locale/sl.json"
+      "types": "./locale/sl.json.d.ts",
+      "import": "./locale/sl/index.js",
+      "require": "./locale/sl/index.cjs"
     },
     "./locale/sl.json": {
+      "types": "./locale/sl.json.d.ts",
       "import": "./locale/sl.json.js",
       "require": "./locale/sl.json"
     },
     "./locale/so": {
-      "import": "./locale/so.json.js",
-      "require": "./locale/so.json"
+      "types": "./locale/so.json.d.ts",
+      "import": "./locale/so/index.js",
+      "require": "./locale/so/index.cjs"
     },
     "./locale/so.json": {
+      "types": "./locale/so.json.d.ts",
       "import": "./locale/so.json.js",
       "require": "./locale/so.json"
     },
     "./locale/sq": {
-      "import": "./locale/sq.json.js",
-      "require": "./locale/sq.json"
+      "types": "./locale/sq.json.d.ts",
+      "import": "./locale/sq/index.js",
+      "require": "./locale/sq/index.cjs"
     },
     "./locale/sq.json": {
+      "types": "./locale/sq.json.d.ts",
       "import": "./locale/sq.json.js",
       "require": "./locale/sq.json"
     },
     "./locale/sr-Cyrl-BA": {
-      "import": "./locale/sr-Cyrl-BA.json.js",
-      "require": "./locale/sr-Cyrl-BA.json"
+      "types": "./locale/sr-Cyrl-BA.json.d.ts",
+      "import": "./locale/sr-Cyrl-BA/index.js",
+      "require": "./locale/sr-Cyrl-BA/index.cjs"
     },
     "./locale/sr-Cyrl-BA.json": {
+      "types": "./locale/sr-Cyrl-BA.json.d.ts",
       "import": "./locale/sr-Cyrl-BA.json.js",
       "require": "./locale/sr-Cyrl-BA.json"
     },
     "./locale/sr-Latn-BA": {
-      "import": "./locale/sr-Latn-BA.json.js",
-      "require": "./locale/sr-Latn-BA.json"
+      "types": "./locale/sr-Latn-BA.json.d.ts",
+      "import": "./locale/sr-Latn-BA/index.js",
+      "require": "./locale/sr-Latn-BA/index.cjs"
     },
     "./locale/sr-Latn-BA.json": {
+      "types": "./locale/sr-Latn-BA.json.d.ts",
       "import": "./locale/sr-Latn-BA.json.js",
       "require": "./locale/sr-Latn-BA.json"
     },
     "./locale/sr-Latn": {
-      "import": "./locale/sr-Latn.json.js",
-      "require": "./locale/sr-Latn.json"
+      "types": "./locale/sr-Latn.json.d.ts",
+      "import": "./locale/sr-Latn/index.js",
+      "require": "./locale/sr-Latn/index.cjs"
     },
     "./locale/sr-Latn.json": {
+      "types": "./locale/sr-Latn.json.d.ts",
       "import": "./locale/sr-Latn.json.js",
       "require": "./locale/sr-Latn.json"
     },
     "./locale/sr": {
-      "import": "./locale/sr.json.js",
-      "require": "./locale/sr.json"
+      "types": "./locale/sr.json.d.ts",
+      "import": "./locale/sr/index.js",
+      "require": "./locale/sr/index.cjs"
     },
     "./locale/sr.json": {
+      "types": "./locale/sr.json.d.ts",
       "import": "./locale/sr.json.js",
       "require": "./locale/sr.json"
     },
     "./locale/su": {
-      "import": "./locale/su.json.js",
-      "require": "./locale/su.json"
+      "types": "./locale/su.json.d.ts",
+      "import": "./locale/su/index.js",
+      "require": "./locale/su/index.cjs"
     },
     "./locale/su.json": {
+      "types": "./locale/su.json.d.ts",
       "import": "./locale/su.json.js",
       "require": "./locale/su.json"
     },
     "./locale/sv": {
-      "import": "./locale/sv.json.js",
-      "require": "./locale/sv.json"
+      "types": "./locale/sv.json.d.ts",
+      "import": "./locale/sv/index.js",
+      "require": "./locale/sv/index.cjs"
     },
     "./locale/sv.json": {
+      "types": "./locale/sv.json.d.ts",
       "import": "./locale/sv.json.js",
       "require": "./locale/sv.json"
     },
     "./locale/sw": {
-      "import": "./locale/sw.json.js",
-      "require": "./locale/sw.json"
+      "types": "./locale/sw.json.d.ts",
+      "import": "./locale/sw/index.js",
+      "require": "./locale/sw/index.cjs"
     },
     "./locale/sw.json": {
+      "types": "./locale/sw.json.d.ts",
       "import": "./locale/sw.json.js",
       "require": "./locale/sw.json"
     },
     "./locale/syr": {
-      "import": "./locale/syr.json.js",
-      "require": "./locale/syr.json"
+      "types": "./locale/syr.json.d.ts",
+      "import": "./locale/syr/index.js",
+      "require": "./locale/syr/index.cjs"
     },
     "./locale/syr.json": {
+      "types": "./locale/syr.json.d.ts",
       "import": "./locale/syr.json.js",
       "require": "./locale/syr.json"
     },
     "./locale/ta": {
-      "import": "./locale/ta.json.js",
-      "require": "./locale/ta.json"
+      "types": "./locale/ta.json.d.ts",
+      "import": "./locale/ta/index.js",
+      "require": "./locale/ta/index.cjs"
     },
     "./locale/ta.json": {
+      "types": "./locale/ta.json.d.ts",
       "import": "./locale/ta.json.js",
       "require": "./locale/ta.json"
     },
     "./locale/te": {
-      "import": "./locale/te.json.js",
-      "require": "./locale/te.json"
+      "types": "./locale/te.json.d.ts",
+      "import": "./locale/te/index.js",
+      "require": "./locale/te/index.cjs"
     },
     "./locale/te.json": {
+      "types": "./locale/te.json.d.ts",
       "import": "./locale/te.json.js",
       "require": "./locale/te.json"
     },
     "./locale/tg": {
-      "import": "./locale/tg.json.js",
-      "require": "./locale/tg.json"
+      "types": "./locale/tg.json.d.ts",
+      "import": "./locale/tg/index.js",
+      "require": "./locale/tg/index.cjs"
     },
     "./locale/tg.json": {
+      "types": "./locale/tg.json.d.ts",
       "import": "./locale/tg.json.js",
       "require": "./locale/tg.json"
     },
     "./locale/th": {
-      "import": "./locale/th.json.js",
-      "require": "./locale/th.json"
+      "types": "./locale/th.json.d.ts",
+      "import": "./locale/th/index.js",
+      "require": "./locale/th/index.cjs"
     },
     "./locale/th.json": {
+      "types": "./locale/th.json.d.ts",
       "import": "./locale/th.json.js",
       "require": "./locale/th.json"
     },
     "./locale/ti": {
-      "import": "./locale/ti.json.js",
-      "require": "./locale/ti.json"
+      "types": "./locale/ti.json.d.ts",
+      "import": "./locale/ti/index.js",
+      "require": "./locale/ti/index.cjs"
     },
     "./locale/ti.json": {
+      "types": "./locale/ti.json.d.ts",
       "import": "./locale/ti.json.js",
       "require": "./locale/ti.json"
     },
     "./locale/tk": {
-      "import": "./locale/tk.json.js",
-      "require": "./locale/tk.json"
+      "types": "./locale/tk.json.d.ts",
+      "import": "./locale/tk/index.js",
+      "require": "./locale/tk/index.cjs"
     },
     "./locale/tk.json": {
+      "types": "./locale/tk.json.d.ts",
       "import": "./locale/tk.json.js",
       "require": "./locale/tk.json"
     },
     "./locale/tn": {
-      "import": "./locale/tn.json.js",
-      "require": "./locale/tn.json"
+      "types": "./locale/tn.json.d.ts",
+      "import": "./locale/tn/index.js",
+      "require": "./locale/tn/index.cjs"
     },
     "./locale/tn.json": {
+      "types": "./locale/tn.json.d.ts",
       "import": "./locale/tn.json.js",
       "require": "./locale/tn.json"
     },
     "./locale/to": {
-      "import": "./locale/to.json.js",
-      "require": "./locale/to.json"
+      "types": "./locale/to.json.d.ts",
+      "import": "./locale/to/index.js",
+      "require": "./locale/to/index.cjs"
     },
     "./locale/to.json": {
+      "types": "./locale/to.json.d.ts",
       "import": "./locale/to.json.js",
       "require": "./locale/to.json"
     },
     "./locale/tok": {
-      "import": "./locale/tok.json.js",
-      "require": "./locale/tok.json"
+      "types": "./locale/tok.json.d.ts",
+      "import": "./locale/tok/index.js",
+      "require": "./locale/tok/index.cjs"
     },
     "./locale/tok.json": {
+      "types": "./locale/tok.json.d.ts",
       "import": "./locale/tok.json.js",
       "require": "./locale/tok.json"
     },
     "./locale/tr": {
-      "import": "./locale/tr.json.js",
-      "require": "./locale/tr.json"
+      "types": "./locale/tr.json.d.ts",
+      "import": "./locale/tr/index.js",
+      "require": "./locale/tr/index.cjs"
     },
     "./locale/tr.json": {
+      "types": "./locale/tr.json.d.ts",
       "import": "./locale/tr.json.js",
       "require": "./locale/tr.json"
     },
     "./locale/tt": {
-      "import": "./locale/tt.json.js",
-      "require": "./locale/tt.json"
+      "types": "./locale/tt.json.d.ts",
+      "import": "./locale/tt/index.js",
+      "require": "./locale/tt/index.cjs"
     },
     "./locale/tt.json": {
+      "types": "./locale/tt.json.d.ts",
       "import": "./locale/tt.json.js",
       "require": "./locale/tt.json"
     },
     "./locale/tyv": {
-      "import": "./locale/tyv.json.js",
-      "require": "./locale/tyv.json"
+      "types": "./locale/tyv.json.d.ts",
+      "import": "./locale/tyv/index.js",
+      "require": "./locale/tyv/index.cjs"
     },
     "./locale/tyv.json": {
+      "types": "./locale/tyv.json.d.ts",
       "import": "./locale/tyv.json.js",
       "require": "./locale/tyv.json"
     },
     "./locale/ug": {
-      "import": "./locale/ug.json.js",
-      "require": "./locale/ug.json"
+      "types": "./locale/ug.json.d.ts",
+      "import": "./locale/ug/index.js",
+      "require": "./locale/ug/index.cjs"
     },
     "./locale/ug.json": {
+      "types": "./locale/ug.json.d.ts",
       "import": "./locale/ug.json.js",
       "require": "./locale/ug.json"
     },
     "./locale/uk": {
-      "import": "./locale/uk.json.js",
-      "require": "./locale/uk.json"
+      "types": "./locale/uk.json.d.ts",
+      "import": "./locale/uk/index.js",
+      "require": "./locale/uk/index.cjs"
     },
     "./locale/uk.json": {
+      "types": "./locale/uk.json.d.ts",
       "import": "./locale/uk.json.js",
       "require": "./locale/uk.json"
     },
     "./locale/ur-IN": {
-      "import": "./locale/ur-IN.json.js",
-      "require": "./locale/ur-IN.json"
+      "types": "./locale/ur-IN.json.d.ts",
+      "import": "./locale/ur-IN/index.js",
+      "require": "./locale/ur-IN/index.cjs"
     },
     "./locale/ur-IN.json": {
+      "types": "./locale/ur-IN.json.d.ts",
       "import": "./locale/ur-IN.json.js",
       "require": "./locale/ur-IN.json"
     },
     "./locale/ur": {
-      "import": "./locale/ur.json.js",
-      "require": "./locale/ur.json"
+      "types": "./locale/ur.json.d.ts",
+      "import": "./locale/ur/index.js",
+      "require": "./locale/ur/index.cjs"
     },
     "./locale/ur.json": {
+      "types": "./locale/ur.json.d.ts",
       "import": "./locale/ur.json.js",
       "require": "./locale/ur.json"
     },
     "./locale/uz-Cyrl": {
-      "import": "./locale/uz-Cyrl.json.js",
-      "require": "./locale/uz-Cyrl.json"
+      "types": "./locale/uz-Cyrl.json.d.ts",
+      "import": "./locale/uz-Cyrl/index.js",
+      "require": "./locale/uz-Cyrl/index.cjs"
     },
     "./locale/uz-Cyrl.json": {
+      "types": "./locale/uz-Cyrl.json.d.ts",
       "import": "./locale/uz-Cyrl.json.js",
       "require": "./locale/uz-Cyrl.json"
     },
     "./locale/uz": {
-      "import": "./locale/uz.json.js",
-      "require": "./locale/uz.json"
+      "types": "./locale/uz.json.d.ts",
+      "import": "./locale/uz/index.js",
+      "require": "./locale/uz/index.cjs"
     },
     "./locale/uz.json": {
+      "types": "./locale/uz.json.d.ts",
       "import": "./locale/uz.json.js",
       "require": "./locale/uz.json"
     },
     "./locale/vec": {
-      "import": "./locale/vec.json.js",
-      "require": "./locale/vec.json"
+      "types": "./locale/vec.json.d.ts",
+      "import": "./locale/vec/index.js",
+      "require": "./locale/vec/index.cjs"
     },
     "./locale/vec.json": {
+      "types": "./locale/vec.json.d.ts",
       "import": "./locale/vec.json.js",
       "require": "./locale/vec.json"
     },
     "./locale/vi": {
-      "import": "./locale/vi.json.js",
-      "require": "./locale/vi.json"
+      "types": "./locale/vi.json.d.ts",
+      "import": "./locale/vi/index.js",
+      "require": "./locale/vi/index.cjs"
     },
     "./locale/vi.json": {
+      "types": "./locale/vi.json.d.ts",
       "import": "./locale/vi.json.js",
       "require": "./locale/vi.json"
     },
     "./locale/wae": {
-      "import": "./locale/wae.json.js",
-      "require": "./locale/wae.json"
+      "types": "./locale/wae.json.d.ts",
+      "import": "./locale/wae/index.js",
+      "require": "./locale/wae/index.cjs"
     },
     "./locale/wae.json": {
+      "types": "./locale/wae.json.d.ts",
       "import": "./locale/wae.json.js",
       "require": "./locale/wae.json"
     },
     "./locale/wo": {
-      "import": "./locale/wo.json.js",
-      "require": "./locale/wo.json"
+      "types": "./locale/wo.json.d.ts",
+      "import": "./locale/wo/index.js",
+      "require": "./locale/wo/index.cjs"
     },
     "./locale/wo.json": {
+      "types": "./locale/wo.json.d.ts",
       "import": "./locale/wo.json.js",
       "require": "./locale/wo.json"
     },
     "./locale/xh": {
-      "import": "./locale/xh.json.js",
-      "require": "./locale/xh.json"
+      "types": "./locale/xh.json.d.ts",
+      "import": "./locale/xh/index.js",
+      "require": "./locale/xh/index.cjs"
     },
     "./locale/xh.json": {
+      "types": "./locale/xh.json.d.ts",
       "import": "./locale/xh.json.js",
       "require": "./locale/xh.json"
     },
     "./locale/xnr": {
-      "import": "./locale/xnr.json.js",
-      "require": "./locale/xnr.json"
+      "types": "./locale/xnr.json.d.ts",
+      "import": "./locale/xnr/index.js",
+      "require": "./locale/xnr/index.cjs"
     },
     "./locale/xnr.json": {
+      "types": "./locale/xnr.json.d.ts",
       "import": "./locale/xnr.json.js",
       "require": "./locale/xnr.json"
     },
     "./locale/yi": {
-      "import": "./locale/yi.json.js",
-      "require": "./locale/yi.json"
+      "types": "./locale/yi.json.d.ts",
+      "import": "./locale/yi/index.js",
+      "require": "./locale/yi/index.cjs"
     },
     "./locale/yi.json": {
+      "types": "./locale/yi.json.d.ts",
       "import": "./locale/yi.json.js",
       "require": "./locale/yi.json"
     },
     "./locale/yo-BJ": {
-      "import": "./locale/yo-BJ.json.js",
-      "require": "./locale/yo-BJ.json"
+      "types": "./locale/yo-BJ.json.d.ts",
+      "import": "./locale/yo-BJ/index.js",
+      "require": "./locale/yo-BJ/index.cjs"
     },
     "./locale/yo-BJ.json": {
+      "types": "./locale/yo-BJ.json.d.ts",
       "import": "./locale/yo-BJ.json.js",
       "require": "./locale/yo-BJ.json"
     },
     "./locale/yo": {
-      "import": "./locale/yo.json.js",
-      "require": "./locale/yo.json"
+      "types": "./locale/yo.json.d.ts",
+      "import": "./locale/yo/index.js",
+      "require": "./locale/yo/index.cjs"
     },
     "./locale/yo.json": {
+      "types": "./locale/yo.json.d.ts",
       "import": "./locale/yo.json.js",
       "require": "./locale/yo.json"
     },
     "./locale/yrl": {
-      "import": "./locale/yrl.json.js",
-      "require": "./locale/yrl.json"
+      "types": "./locale/yrl.json.d.ts",
+      "import": "./locale/yrl/index.js",
+      "require": "./locale/yrl/index.cjs"
     },
     "./locale/yrl.json": {
+      "types": "./locale/yrl.json.d.ts",
       "import": "./locale/yrl.json.js",
       "require": "./locale/yrl.json"
     },
     "./locale/yue-Hans": {
-      "import": "./locale/yue-Hans.json.js",
-      "require": "./locale/yue-Hans.json"
+      "types": "./locale/yue-Hans.json.d.ts",
+      "import": "./locale/yue-Hans/index.js",
+      "require": "./locale/yue-Hans/index.cjs"
     },
     "./locale/yue-Hans.json": {
+      "types": "./locale/yue-Hans.json.d.ts",
       "import": "./locale/yue-Hans.json.js",
       "require": "./locale/yue-Hans.json"
     },
     "./locale/yue": {
-      "import": "./locale/yue.json.js",
-      "require": "./locale/yue.json"
+      "types": "./locale/yue.json.d.ts",
+      "import": "./locale/yue/index.js",
+      "require": "./locale/yue/index.cjs"
     },
     "./locale/yue.json": {
+      "types": "./locale/yue.json.d.ts",
       "import": "./locale/yue.json.js",
       "require": "./locale/yue.json"
     },
     "./locale/zh-Hans-HK": {
-      "import": "./locale/zh-Hans-HK.json.js",
-      "require": "./locale/zh-Hans-HK.json"
+      "types": "./locale/zh-Hans-HK.json.d.ts",
+      "import": "./locale/zh-Hans-HK/index.js",
+      "require": "./locale/zh-Hans-HK/index.cjs"
     },
     "./locale/zh-Hans-HK.json": {
+      "types": "./locale/zh-Hans-HK.json.d.ts",
       "import": "./locale/zh-Hans-HK.json.js",
       "require": "./locale/zh-Hans-HK.json"
     },
     "./locale/zh-Hans-MO": {
-      "import": "./locale/zh-Hans-MO.json.js",
-      "require": "./locale/zh-Hans-MO.json"
+      "types": "./locale/zh-Hans-MO.json.d.ts",
+      "import": "./locale/zh-Hans-MO/index.js",
+      "require": "./locale/zh-Hans-MO/index.cjs"
     },
     "./locale/zh-Hans-MO.json": {
+      "types": "./locale/zh-Hans-MO.json.d.ts",
       "import": "./locale/zh-Hans-MO.json.js",
       "require": "./locale/zh-Hans-MO.json"
     },
     "./locale/zh-Hans-SG": {
-      "import": "./locale/zh-Hans-SG.json.js",
-      "require": "./locale/zh-Hans-SG.json"
+      "types": "./locale/zh-Hans-SG.json.d.ts",
+      "import": "./locale/zh-Hans-SG/index.js",
+      "require": "./locale/zh-Hans-SG/index.cjs"
     },
     "./locale/zh-Hans-SG.json": {
+      "types": "./locale/zh-Hans-SG.json.d.ts",
       "import": "./locale/zh-Hans-SG.json.js",
       "require": "./locale/zh-Hans-SG.json"
     },
     "./locale/zh-Hant-HK": {
-      "import": "./locale/zh-Hant-HK.json.js",
-      "require": "./locale/zh-Hant-HK.json"
+      "types": "./locale/zh-Hant-HK.json.d.ts",
+      "import": "./locale/zh-Hant-HK/index.js",
+      "require": "./locale/zh-Hant-HK/index.cjs"
     },
     "./locale/zh-Hant-HK.json": {
+      "types": "./locale/zh-Hant-HK.json.d.ts",
       "import": "./locale/zh-Hant-HK.json.js",
       "require": "./locale/zh-Hant-HK.json"
     },
     "./locale/zh-Hant-MO": {
-      "import": "./locale/zh-Hant-MO.json.js",
-      "require": "./locale/zh-Hant-MO.json"
+      "types": "./locale/zh-Hant-MO.json.d.ts",
+      "import": "./locale/zh-Hant-MO/index.js",
+      "require": "./locale/zh-Hant-MO/index.cjs"
     },
     "./locale/zh-Hant-MO.json": {
+      "types": "./locale/zh-Hant-MO.json.d.ts",
       "import": "./locale/zh-Hant-MO.json.js",
       "require": "./locale/zh-Hant-MO.json"
     },
     "./locale/zh-Hant": {
-      "import": "./locale/zh-Hant.json.js",
-      "require": "./locale/zh-Hant.json"
+      "types": "./locale/zh-Hant.json.d.ts",
+      "import": "./locale/zh-Hant/index.js",
+      "require": "./locale/zh-Hant/index.cjs"
     },
     "./locale/zh-Hant.json": {
+      "types": "./locale/zh-Hant.json.d.ts",
       "import": "./locale/zh-Hant.json.js",
       "require": "./locale/zh-Hant.json"
     },
     "./locale/zh": {
-      "import": "./locale/zh.json.js",
-      "require": "./locale/zh.json"
+      "types": "./locale/zh.json.d.ts",
+      "import": "./locale/zh/index.js",
+      "require": "./locale/zh/index.cjs"
     },
     "./locale/zh.json": {
+      "types": "./locale/zh.json.d.ts",
       "import": "./locale/zh.json.js",
       "require": "./locale/zh.json"
     },
     "./locale/zu": {
-      "import": "./locale/zu.json.js",
-      "require": "./locale/zu.json"
+      "types": "./locale/zu.json.d.ts",
+      "import": "./locale/zu/index.js",
+      "require": "./locale/zu/index.cjs"
     },
     "./locale/zu.json": {
+      "types": "./locale/zu.json.d.ts",
       "import": "./locale/zu.json.js",
       "require": "./locale/zu.json"
     }
   },
   "sideEffects": [
-    "./load-all-locales/index.js",
-    "./load-all-locales/index.cjs",
-    "./load-all-locales/index.cjs.js"
+    "./locale/*/index.js",
+    "./locale/*/index.cjs",
+    "./load-all-locales/*.js",
+    "./load-all-locales/*.cjs"
   ],
   "dependencies": {
     "relative-time-format": "^1.1.12"

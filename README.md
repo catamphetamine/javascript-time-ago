@@ -34,14 +34,11 @@ Alternatively, one could include it on a web page [directly](#cdn) via a `<scrip
 
 To begin, decide on the set of languages that your application will be translated into. For now, let's assume that it's gonna be just English.
 
-Then, for each of those languages, `import` the language data from `javascript-time-ago/locale/..`, and pass it to `TimeAgo.addLocale()` function.
+Then, for each of those languages, `import` the language data:
 
 ```js
-import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en'
-
-// Add English language
-TimeAgo.addLocale(en)
+// Adds support for English language
+import 'javascript-time-ago/locale/en'
 ```
 
 Now you're ready to create a `new TimeAgo()` formatter for any of those languages, and use it to convert dates into strings.
@@ -82,36 +79,35 @@ So how is "default" locale useful? It frees a developer from worrying about whet
 In the following example, the application supports three languages — English, German and French — and English is set to be the "default" one that will be used for any other language like Spanish.
 
 ```js
-import en from 'javascript-time-ago/locale/en'
-import de from 'javascript-time-ago/locale/de'
-import fr from 'javascript-time-ago/locale/fr'
+import 'javascript-time-ago/locale/en'
+import 'javascript-time-ago/locale/de'
+import 'javascript-time-ago/locale/fr'
 
-TimeAgo.addDefaultLocale(en)
-TimeAgo.addLocale(de)
-TimeAgo.addLocale(fr)
+import TimeAgo from 'javascript-time-ago'
+
+// Sets English language as the default one
+TimeAgo.setDefaultLocale('en')
 ```
 
 ```js
-// "es" locale hasn't been added, so it falls back to "en".
+// Because "es" locale hasn't been added, it falls back to "en" locale
 const timeAgo = new TimeAgo('es')
 
 timeAgo.format(new Date())
 // "just now"
 ```
 
+<!--
 `TimeAgo.addDefaultLocale()` is just a shortcut for `TimeAgo.addLocale()` + `TimeAgo.setDefaultLocale()`, so the code above is the same as the code below.
 
 ```js
-import en from 'javascript-time-ago/locale/en'
-import de from 'javascript-time-ago/locale/de'
-import fr from 'javascript-time-ago/locale/fr'
-
-TimeAgo.addLocale(en)
-TimeAgo.addLocale(de)
-TimeAgo.addLocale(fr)
+import 'javascript-time-ago/locale/en'
+import 'javascript-time-ago/locale/de'
+import 'javascript-time-ago/locale/fr'
 
 TimeAgo.setDefaultLocale('en')
 ```
+-->
 
 `new TimeAgo()` constructor also supports passing a list of `locales` to choose from. In that case, it will choose the first one that works.
 
@@ -140,10 +136,9 @@ An example of formatting dates in Russian:
 
 ```js
 import TimeAgo from 'javascript-time-ago'
-import ru from 'javascript-time-ago/locale/ru'
 
-// Add Russian language.
-TimeAgo.addLocale(ru)
+// Adds support for Russian language
+import 'javascript-time-ago/locale/ru'
 
 const timeAgo = new TimeAgo('ru-RU')
 
@@ -486,8 +481,8 @@ The default value for the `labels` property is `"long"`.
 One could also supply custom labels. To do that, define `past` and `future` labels for each unit of time — `second`, `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` — and then pass the object to `TimeAgo.addLabels()` function.
 
 ```js
+import 'javascript-time-ago/locale/en'
 import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en'
 
 // Steps from the built-in "round" style can be reused in custom styles.
 import { round } from 'javascript-time-ago/steps'
