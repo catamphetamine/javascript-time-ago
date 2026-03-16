@@ -1,0 +1,177 @@
+	
+locale	"oc"
+long	
+year	
+previous	"l’an passat"
+current	"ongan"
+next	"l’an que ven"
+past	
+one	"fa {0} an"
+other	"fa {0} ans"
+future	
+one	"d’aquí {0} an"
+other	"d’aquí {0} ans"
+quarter	
+previous	"lo trimèstre passat"
+current	"aqueste trimèstre"
+next	"lo trimèstre que ven"
+past	
+one	"fa {0} trimèstre"
+other	"fa {0} trimèstres"
+future	
+one	"d’aquí {0} trimèstre"
+other	"d’aquí {0} trimèstres"
+month	
+previous	"lo mes passat"
+current	"aqueste mes"
+next	"lo mes que ven"
+past
+one	"fa {0} mes"
+other "fa {0} meses"
+future
+one	"d’aquí {0} mes"
+other "d’aquí {0} meses"
+week	
+previous	"la setmana passada"
+current	"aquesta setmana"
+next	"la setmana que ven"
+past	
+one	"fa {0} setmana"
+other	"fa {0} setmanas"
+future	
+one	"d’aquí {0} setmana"
+other	"d’aquí {0} setmanas"
+day	
+previous	"ièr"
+previous-2	"ièr delà"
+current	"uèi"
+next	"deman"
+next-2	"demain passat"
+past	
+one	"fa {0} jorn"
+other	"fa {0} jorns"
+future	
+one	"d’aquí {0} jor"
+other	"d’aquí {0} jorns"
+hour	
+current	"aquesta orada"
+past	
+one	"fa {0} ora"
+other	"fa {0} oras"
+future	
+one	"d’aquí {0} ora"
+other	"d’aquí {0} oras"
+minute	
+current	"aquesta minuta"
+past	
+one	"fa {0} minuta"
+other	"fa {0} minutas"
+future	
+one	"d’aquí {0} minuta"
+other	"d’aquí {0} minutas"
+second	
+current	"ara"
+past	
+one	"fa {0} segonda"
+other	"fa {0} segondas"
+future	
+one	"d’aquí {0} segonda"
+other	"d’aquí {0} segondas"
+short	
+year	
+previous	"l’an passat"
+current	"onga"
+next	"l’an que ven"
+past
+one "fa {0} an"
+other "fa {0} ans"
+future
+one "d’aquí {0} an"
+other "d’aquí {0} ans"
+quarter	
+previous	"lo trimèstre passat"
+current	"aqueste trimèstre"
+next	"lo trimèstreque ven"
+past	"fa {0} trim."
+future	"d’aquí {0} trim."
+month	
+previous	"lo mes passat"
+current	"aqueste mes"
+next	"lo mes que ven"
+past	"fa {0} m."
+future	"d’aquí {0} m."
+week	
+previous	"la setmana passada"
+current	"aquesta setmana"
+next	"la setmana que ven"
+past	"fa {0} setm."
+future	"d’aquí {0} setm."
+day	
+previous	"ièr"
+previous-2	"ièr delà"
+current	"uèi"
+next	"deman"
+next-2	"deman passat"
+past	"fa {0} d"
+future	"d’aquí {0} d"
+hour	
+current	"aquesta orada"
+past	"fa {0} h"
+future	"d’aquí {0} h"
+minute	
+current	"aquesta minuta"
+past	"fa {0} min"
+future	"d’aquí {0} min"
+second	
+current	"ara"
+past	"fa {0} s"
+future	"d’aquí {0} s"
+narrow	
+year	
+previous	"l’an passat"
+current	"ongan"
+next	"l’an que ven"
+past
+one "-{0} an"
+other "-{0} ans"
+future
+one "+{0} an"
+other "+{0} an"
+quarter	
+previous	"lo trimèstre passat"
+current	"aqueste trimèstre"
+next	"lo trimèstre que ven"
+past	"-{0} trim."
+future	"+{0} trim."
+month	
+previous	"lo mes passat"
+current	"queste mes"
+next	"lo mes que ven"
+past	"-{0} m."
+future	"+{0} m."
+week	
+previous	"la setmana passada"
+current	"aquesta setmana"
+next	"la setmana que ven"
+past	"-{0} setm."
+future	"+{0} setm."
+day	
+previous	"ièr"
+previous-2	"ièr delà"
+current	"uèi"
+next	"deman"
+next-2	"deman passat"
+past	"-{0} d"
+future	"+{0} d"
+hour	
+current	"aquesta orada"
+past	"-{0} h"
+future	"+{0} h"
+minute	
+current	"aquesta minuta"
+past	"-{0} min"
+future	"+{0} min"
+second	
+current	"ara"
+past	"-{0} s"
+future	"+{0} s"
